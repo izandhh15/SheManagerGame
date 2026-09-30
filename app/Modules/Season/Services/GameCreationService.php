@@ -90,7 +90,7 @@ class GameCreationService
             competitionId: $competitionId,
             season: $season,
             gameMode: $gameMode,
-        );
+        )->afterResponse();
 
         return $game;
     }
