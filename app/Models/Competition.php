@@ -82,6 +82,12 @@ class Competition extends Model
         'UCL'     => 'UWCL',
         'UEL'     => 'Europa Cup Fem.',
         'WC2026'  => 'Mundial',
+        'WQUEFA'  => 'Clasificación · UEFA',
+        'WQAFC'   => 'Clasificación · AFC',
+        'WQCAF'   => 'Clasificación · CAF',
+        'WQCONC'  => 'Clasificación · CONCACAF',
+        'WQCONM'  => 'Clasificación · CONMEBOL',
+        'WQOFC'   => 'Clasificación · OFC',
         'PRESEASON' => 'Amistoso',
     ];
 

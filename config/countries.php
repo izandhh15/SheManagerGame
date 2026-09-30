@@ -990,4 +990,32 @@ return [
         ],
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Women's World Cup qualifying (beta)
+    |--------------------------------------------------------------------------
+    |
+    | One qualifier competition per FIFA confederation, plus WWCQ as the
+    | legacy alias (a single global competition in beta saves). The
+    | 'tournament' flag keeps this block out of career mode
+    | (playableCountryCodes requires tiers). These entries only exist so
+    | CountryConfig::configClassForCompetition() resolves the qualifier ids
+    | to WorldCupQualifyingConfig; all participants/teams come from the
+    | database seeds, not from this file.
+    */
+    'WQC' => [
+        'name' => 'Clasificación Mundial',
+        'tournament' => true,
+        'continental_competitions' => [
+            'WQUEFA' => ['config_class' => \App\Modules\Competition\Configs\WorldCupQualifyingConfig::class],
+            'WQAFC'  => ['config_class' => \App\Modules\Competition\Configs\WorldCupQualifyingConfig::class],
+            'WQCAF'  => ['config_class' => \App\Modules\Competition\Configs\WorldCupQualifyingConfig::class],
+            'WQCONC' => ['config_class' => \App\Modules\Competition\Configs\WorldCupQualifyingConfig::class],
+            'WQCONM' => ['config_class' => \App\Modules\Competition\Configs\WorldCupQualifyingConfig::class],
+            'WQOFC'  => ['config_class' => \App\Modules\Competition\Configs\WorldCupQualifyingConfig::class],
+            // Legacy beta id: the original single global qualifier.
+            'WWCQ'   => ['config_class' => \App\Modules\Competition\Configs\WorldCupQualifyingConfig::class],
+        ],
+    ],
+
 ];

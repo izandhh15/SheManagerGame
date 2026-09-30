@@ -66,6 +66,7 @@ return [
     'champions_league' => 'UWCL',
     'europa_league' => 'UEFA Women\'s Europa Cup',
     'relegation' => 'Relegation',
+    'world_cup_qualified' => 'Qualified for World Cup 2027',
     'direct_promotion' => 'Direct Promotion',
     'promotion_playoff' => 'Promotion Playoff',
     'primera_rfef' => 'Primera RFEF',
