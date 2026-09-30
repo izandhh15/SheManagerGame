@@ -63,8 +63,8 @@ class InitDualGame
         $request->validate([
             'club_id' => ['required', 'uuid'],
             'national_team_id' => ['required', 'uuid'],
-            'player_ids' => ['required', 'array', 'size:23'],
-            'player_ids.*' => ['required', 'uuid'],
+            'player_ids' => ['nullable', 'array', 'size:23'],
+            'player_ids.*' => ['nullable', 'uuid'],
         ]);
 
         // Club half: a real, playable club — never a national side, a
@@ -81,7 +81,19 @@ class InitDualGame
             ->where('is_placeholder', false)
             ->findOrFail($request->get('national_team_id'));
 
-        $playerIds = array_values(array_unique($request->get('player_ids')));
+        $playerIds = array_values(array_unique(array_map('strval', $request->get('player_ids', []))));
+        // Squad is picked a few days before each FIFA window, not at game
+        // creation. Auto-pick the 23 highest-rated as provisional.
+        if (count($playerIds) !== 23) {
+            $playerIds = DB::table('game_player_templates')
+                ->where('season', '2026')
+                ->where('team_id', $nationalTeam->id)
+                ->orderByDesc('overall_rating')
+                ->limit(23)
+                ->pluck('player_id')
+                ->map(fn ($id) => (string) $id)
+                ->all();
+        }
         if (count($playerIds) !== 23) {
             return back()->withErrors(['player_ids' => __('game.squad_picker_need_23')]);
         }
