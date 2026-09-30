@@ -33,7 +33,7 @@ class DefaultLeagueConfig implements CompetitionConfig, HasSeasonGoals
         $this->baseTvRevenue = $baseTvRevenue; // €50M default base
     }
 
-    public function getTvRevenue(int $position): int
+    public function getTvRevenue(int $position): int|float
     {
         // Linear scale: 1st place gets 2x base, last place gets 0.8x base
         $positionRatio = 1 - (($position - 1) / max(1, $this->numTeams - 1));

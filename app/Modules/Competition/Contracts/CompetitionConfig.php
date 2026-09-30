@@ -12,7 +12,7 @@ interface CompetitionConfig
      * Get TV revenue for a given league position (in cents).
      * Returns 0 for cups or competitions without TV revenue.
      */
-    public function getTvRevenue(int $position): int;
+    public function getTvRevenue(int $position): int|float;
 
     /**
      * Get the matchday revenue position factor for a given position.

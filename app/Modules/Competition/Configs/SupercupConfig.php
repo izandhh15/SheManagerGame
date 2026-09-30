@@ -25,7 +25,7 @@ class SupercupConfig implements CompetitionConfig
         1 => 1_000_000, // €10K — semi-final
     ];
 
-    public function getTvRevenue(int $position): int
+    public function getTvRevenue(int $position): int|float
     {
         return 0;
     }

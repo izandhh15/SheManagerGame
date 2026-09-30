@@ -191,7 +191,7 @@ class BudgetProjectionService
     /**
      * Calculate TV revenue based on position and league.
      */
-    public function calculateTvRevenue(int $position, Competition $league): int
+    public function calculateTvRevenue(int $position, Competition $league): int|float
     {
         $config = $league->getConfig();
 
@@ -211,7 +211,7 @@ class BudgetProjectionService
      * (season-ticket) line on top; callers wanting a club's wage-target revenue
      * use that gate-inclusive method, not this base.
      */
-    private function wageBaseRevenueForTeam(Game $game, Team $team, Competition $league, ?int $projectedPosition = null): int
+    private function wageBaseRevenueForTeam(Game $game, Team $team, Competition $league, ?int $projectedPosition = null): int|float
     {
         if ($projectedPosition === null) {
             $strengths = $this->squadService->calculateLeagueStrengths($game, $league);
@@ -243,7 +243,7 @@ class BudgetProjectionService
      * fixture-coupled (zero before fixtures exist at setup) and tiny next to
      * season tickets.
      */
-    public function wageBudgetRevenueForTeam(Game $game, Team $team, Competition $league, ?int $projectedPosition = null): int
+    public function wageBudgetRevenueForTeam(Game $game, Team $team, Competition $league, ?int $projectedPosition = null): int|float
     {
         $base = $this->wageBaseRevenueForTeam($game, $team, $league, $projectedPosition);
         $seasonTickets = (int) ($this->seasonTicketPricingService

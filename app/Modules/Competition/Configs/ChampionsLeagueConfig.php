@@ -66,7 +66,7 @@ class ChampionsLeagueConfig implements CompetitionConfig
         36 => 51_500_000,    // €515K
     ];
 
-    public function getTvRevenue(int $position): int
+    public function getTvRevenue(int $position): int|float
     {
         return self::TV_REVENUE[$position] ?? self::TV_REVENUE[36];
     }

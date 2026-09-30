@@ -24,7 +24,7 @@ class KnockoutCupConfig implements CompetitionConfig
         5 => 100_000,        // €1K   - earlier rounds
     ];
 
-    public function getTvRevenue(int $position): int
+    public function getTvRevenue(int $position): int|float
     {
         return 0;
     }

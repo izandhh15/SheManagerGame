@@ -23,7 +23,7 @@ class EuropaLeagueConfig implements CompetitionConfig
         4 => 7_000_000,    // €70K — win Knockout Playoff = reach R16
     ];
 
-    public function getTvRevenue(int $position): int
+    public function getTvRevenue(int $position): int|float
     {
         // UEFA Women's Europa Cup: €65K base per club + €1K/position ranking
         // (circular 50/2026), extended across the 36 in-game league-phase slots.

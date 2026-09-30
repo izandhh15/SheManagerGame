@@ -24,7 +24,7 @@ class PrimeraRFEFPlayoffConfig implements CompetitionConfig
         1 => 20_000_000,   // €200K — reaching the bracket final
     ];
 
-    public function getTvRevenue(int $position): int
+    public function getTvRevenue(int $position): int|float
     {
         return 0;
     }

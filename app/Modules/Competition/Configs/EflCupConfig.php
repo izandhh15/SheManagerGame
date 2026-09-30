@@ -28,7 +28,7 @@ class EflCupConfig implements CompetitionConfig
         4 => 100_000,    // €1K   - Third round
     ];
 
-    public function getTvRevenue(int $position): int
+    public function getTvRevenue(int $position): int|float
     {
         return 0;
     }

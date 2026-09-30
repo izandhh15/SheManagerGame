@@ -51,7 +51,7 @@ class PrimeraRFEFConfig implements CompetitionConfig, HasSeasonGoals
         ClubProfile::REPUTATION_LOCAL => Game::GOAL_TOP_HALF,
     ];
 
-    public function getTvRevenue(int $position): int
+    public function getTvRevenue(int $position): int|float
     {
         return self::TV_REVENUE_FLAT;
     }

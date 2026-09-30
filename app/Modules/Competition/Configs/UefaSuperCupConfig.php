@@ -15,7 +15,7 @@ class UefaSuperCupConfig implements CompetitionConfig
         0 => 500_000_000, // €5M — Winner
     ];
 
-    public function getTvRevenue(int $position): int
+    public function getTvRevenue(int $position): int|float
     {
         return 0;
     }

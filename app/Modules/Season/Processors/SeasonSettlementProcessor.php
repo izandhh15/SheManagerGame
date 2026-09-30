@@ -141,7 +141,7 @@ class SeasonSettlementProcessor implements SeasonProcessor
         return $data;
     }
 
-    private function calculateTvRevenue(int $position, Game $game): int
+    private function calculateTvRevenue(int $position, Game $game): int|float
     {
         $league = $game->competition;
         $config = $league->getConfig();

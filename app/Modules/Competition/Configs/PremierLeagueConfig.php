@@ -70,7 +70,7 @@ class PremierLeagueConfig implements CompetitionConfig, HasSeasonGoals
         ClubProfile::REPUTATION_LOCAL => Game::GOAL_SURVIVAL,
     ];
 
-    public function getTvRevenue(int $position): int
+    public function getTvRevenue(int $position): int|float
     {
         return self::TV_REVENUE[$position] ?? self::TV_REVENUE[20];
     }
