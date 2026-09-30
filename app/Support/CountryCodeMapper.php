@@ -363,6 +363,10 @@ class CountryCodeMapper
         'Zambia' => 'zm',
         'Zimbabwe' => 'zw',
 
+        // FIFA-recognized teams without own ISO 3166-1 code
+        'Tahiti' => 'pf', // French Polynesia
+        'US Virgin Islands' => 'vi',
+
         // Football-specific: UK constituent countries (have separate football teams)
         'England' => 'gb-eng',
         'Scotland' => 'gb-sct',
