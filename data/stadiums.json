@@ -1,1 +1,4771 @@
-[{"capacity":70000,"city":"Sevilla","code":"ES","country":"Spain","stadium":"Estadio La Cartuja"},{"capacity":7500,"city":"Algeciras","code":"ES","country":"Spain","stadium":"Estadio Nuevo Mirador"},{"capacity":81000,"city":"Saint-Denis","code":"FR","country":"France","stadium":"Stade de France"},{"capacity":48000,"city":"París","code":"FR","country":"France","stadium":"Parc des Princes"},{"capacity":74600,"city":"Berlín","code":"DE","country":"Germany","stadium":"Olympiastadion"},{"capacity":75000,"city":"Múnich","code":"DE","country":"Germany","stadium":"Allianz Arena"},{"capacity":90000,"city":"Londres","code":"EN","country":"England","stadium":"Wembley Stadium"},{"capacity":70600,"city":"Roma","code":"IT","country":"Italy","stadium":"Stadio Olimpico"},{"capacity":80000,"city":"Milán","code":"IT","country":"Italy","stadium":"San Siro"},{"capacity":65000,"city":"Lisboa","code":"PT","country":"Portugal","stadium":"Estádio da Luz"},{"capacity":50000,"city":"Lisboa","code":"PT","country":"Portugal","stadium":"Estádio José Alvalade"},{"capacity":55800,"city":"Ámsterdam","code":"NL","country":"Netherlands","stadium":"Johan Cruijff ArenA"},{"capacity":47000,"city":"Róterdam","code":"NL","country":"Netherlands","stadium":"De Kuip"},{"capacity":50000,"city":"Bruselas","code":"BE","country":"Belgium","stadium":"Estadio Rey Balduino"},{"capacity":50000,"city":"Solna","code":"SE","country":"Sweden","stadium":"Friends Arena"},{"capacity":28000,"city":"Oslo","code":"NO","country":"Norway","stadium":"Ullevaal Stadion"},{"capacity":38000,"city":"Copenhague","code":"DK","country":"Denmark","stadium":"Parken"},{"capacity":50000,"city":"Viena","code":"AT","country":"Austria","stadium":"Ernst-Happel-Stadion"},{"capacity":38500,"city":"Basilea","code":"CH","country":"Switzerland","stadium":"St. Jakob-Park"},{"capacity":58000,"city":"Varsovia","code":"PL","country":"Poland","stadium":"Estadio Nacional"},{"capacity":52000,"city":"Glasgow","code":"SC","country":"Scotland","stadium":"Hampden Park"},{"capacity":51700,"city":"Dublín","code":"IE","country":"Ireland","stadium":"Aviva Stadium"},{"capacity":74000,"city":"Cardiff","code":"WA","country":"Wales","stadium":"Millennium Stadium"},{"capacity":9800,"city":"Reikiavik","code":"IS","country":"Iceland","stadium":"Laugardalsvöllur"},{"capacity":36700,"city":"Helsinki","code":"FI","country":"Finland","stadium":"Estadio Olímpico"},{"capacity":21000,"city":"Praga","code":"CZ","country":"Czechia","stadium":"Eden Arena"},{"capacity":70000,"city":"Kiev","code":"UA","country":"Ukraine","stadium":"Estadio Olímpico"},{"capacity":75000,"city":"Atenas","code":"GR","country":"Greece","stadium":"Estadio Olímpico"},{"capacity":77000,"city":"Estambul","code":"TR","country":"Turkey","stadium":"Atatürk Olympic Stadium"},{"capacity":35000,"city":"Zagreb","code":"HR","country":"Croatia","stadium":"Stadion Maksimir"},{"capacity":53000,"city":"Belgrado","code":"RS","country":"Serbia","stadium":"Estadio Rajko Mitić"},{"capacity":55600,"city":"Bucarest","code":"RO","country":"Romania","stadium":"Arena Națională"},{"capacity":67800,"city":"Budapest","code":"HU","country":"Hungary","stadium":"Puskás Aréna"},{"capacity":22500,"city":"Bratislava","code":"SK","country":"Slovakia","stadium":"Tehelné pole"},{"capacity":16100,"city":"Liubliana","code":"SI","country":"Slovenia","stadium":"Stadion Stožice"},{"capacity":15200,"city":"Zenica","code":"BA","country":"Bosnia and Herzegovina","stadium":"Bilino Polje"},{"capacity":22500,"city":"Tirana","code":"AL","country":"Albania","stadium":"Arena Kombëtare"},{"capacity":33500,"city":"Skopie","code":"MK","country":"North Macedonia","stadium":"Toše Proeski Arena"},{"capacity":34000,"city":"Jerusalén","code":"IL","country":"Israel","stadium":"Teddy Stadium"},{"capacity":79000,"city":"Río de Janeiro","code":"BR","country":"Brazil","stadium":"Estadio Maracaná"},{"capacity":49000,"city":"São Paulo","code":"BR","country":"Brazil","stadium":"Arena Corinthians"},{"capacity":83000,"city":"Buenos Aires","code":"AR","country":"Argentina","stadium":"Estadio Monumental"},{"capacity":57000,"city":"Buenos Aires","code":"AR","country":"Argentina","stadium":"La Bombonera"},{"capacity":47000,"city":"Barranquilla","code":"CO","country":"Colombia","stadium":"Estadio Metropolitano"},{"capacity":49000,"city":"Santiago","code":"CL","country":"Chile","stadium":"Estadio Nacional"},{"capacity":42000,"city":"Asunción","code":"PY","country":"Paraguay","stadium":"Estadio Defensores del Chaco"},{"capacity":60000,"city":"Montevideo","code":"UY","country":"Uruguay","stadium":"Estadio Centenario"},{"capacity":50000,"city":"Lima","code":"PE","country":"Peru","stadium":"Estadio Nacional"},{"capacity":42000,"city":"Quito","code":"EC","country":"Ecuador","stadium":"Estadio Rodrigo Paz Delgado"},{"capacity":52000,"city":"Maturín","code":"VE","country":"Venezuela","stadium":"Estadio Monumental de Maturín"},{"capacity":42000,"city":"La Paz","code":"BO","country":"Bolivia","stadium":"Estadio Hernando Siles"},{"capacity":70200,"city":"Los Ángeles","code":"US","country":"United States","stadium":"SoFi Stadium"},{"capacity":82500,"city":"Nueva York","code":"US","country":"United States","stadium":"MetLife Stadium"},{"capacity":80000,"city":"Dallas","code":"US","country":"United States","stadium":"AT&T Stadium"},{"capacity":87000,"city":"Ciudad de México","code":"MX","country":"Mexico","stadium":"Estadio Azteca"},{"capacity":48000,"city":"Guadalajara","code":"MX","country":"Mexico","stadium":"Estadio Akron"},{"capacity":30000,"city":"Toronto","code":"CA","country":"Canada","stadium":"BMO Field"},{"capacity":35000,"city":"San José","code":"CR","country":"Costa Rica","stadium":"Estadio Nacional"},{"capacity":35000,"city":"Kingston","code":"JM","country":"Jamaica","stadium":"Independence Park"},{"capacity":32000,"city":"Ciudad de Panamá","code":"PA","country":"Panama","stadium":"Estadio Rommel Fernández"},{"capacity":37000,"city":"San Pedro Sula","code":"HN","country":"Honduras","stadium":"Estadio Olímpico Metropolitano"},{"capacity":44000,"city":"San Salvador","code":"SV","country":"El Salvador","stadium":"Estadio Cuscatlán"},{"capacity":68000,"city":"Tokio","code":"JP","country":"Japan","stadium":"Estadio Nacional"},{"capacity":72000,"city":"Yokohama","code":"JP","country":"Japan","stadium":"Nissan Stadium"},{"capacity":83500,"city":"Sídney","code":"AU","country":"Australia","stadium":"Stadium Australia"},{"capacity":80000,"city":"Pekín","code":"CN","country":"China","stadium":"Estadio Nacional"},{"capacity":66700,"city":"Seúl","code":"KR","country":"South Korea","stadium":"Seoul World Cup Stadium"},{"capacity":68000,"city":"Riad","code":"SA","country":"Saudi Arabia","stadium":"King Fahd International Stadium"},{"capacity":25000,"city":"Riad","code":"SA","country":"Saudi Arabia","stadium":"Al-Awwal Park"},{"capacity":88900,"city":"Lusail","code":"QA","country":"Qatar","stadium":"Lusail Stadium"},{"capacity":68800,"city":"Jor","code":"QA","country":"Qatar","stadium":"Al Bayt Stadium"},{"capacity":60400,"city":"Abuya","code":"NG","country":"Nigeria","stadium":"Moshood Abiola National Stadium"},{"capacity":94800,"city":"Johannesburgo","code":"ZA","country":"South Africa","stadium":"Soccer City"},{"capacity":68000,"city":"Tánger","code":"MA","country":"Morocco","stadium":"Stade Ibn Batouta"},{"capacity":75000,"city":"El Cairo","code":"EG","country":"Egypt","stadium":"Cairo International Stadium"},{"capacity":60000,"city":"Yaundé","code":"CM","country":"Cameroon","stadium":"Olembe Stadium"},{"capacity":40000,"city":"Acra","code":"GH","country":"Ghana","stadium":"Accra Sports Stadium"},{"capacity":60000,"city":"Lusaka","code":"ZM","country":"Zambia","stadium":"National Heroes Stadium"}]
+{
+  "stadiums": [
+    {
+      "country": "Albania",
+      "stadium": "Arena Kombëtare",
+      "city": "Tirana",
+      "capacity": 22500,
+      "national_team": true
+    },
+    {
+      "capacity": 17500,
+      "city": "Shkodër",
+      "country": "Albania",
+      "national_team": false,
+      "stadium": "Loro Boriçi Stadium"
+    },
+    {
+      "capacity": 15000,
+      "city": "Elbasan",
+      "country": "Albania",
+      "national_team": false,
+      "stadium": "Elbasan Arena"
+    },
+    {
+      "capacity": 14500,
+      "city": "Berat",
+      "country": "Albania",
+      "national_team": false,
+      "stadium": "Tomori Stadium"
+    },
+    {
+      "capacity": 13000,
+      "city": "Vlorë",
+      "country": "Albania",
+      "national_team": false,
+      "stadium": "Flamurtari Stadium"
+    },
+    {
+      "capacity": 64200,
+      "city": "Algiers",
+      "country": "Algeria",
+      "stadium": "Stade 5 Juillet 1962",
+      "national_team": true
+    },
+    {
+      "capacity": 56000,
+      "city": "Annaba",
+      "country": "Algeria",
+      "national_team": false,
+      "stadium": "19 May 1956 Stadium"
+    },
+    {
+      "capacity": 45000,
+      "city": "Sidi Bel Abbes",
+      "country": "Algeria",
+      "national_team": false,
+      "stadium": "24 February 1956 Stadium"
+    },
+    {
+      "capacity": 35000,
+      "city": "Jijel",
+      "country": "Algeria",
+      "national_team": false,
+      "stadium": "Hocine Rouibah Stadium"
+    },
+    {
+      "country": "Andorra",
+      "stadium": "Estadi de la FAF",
+      "city": "Encamp",
+      "capacity": 5108,
+      "national_team": true
+    },
+    {
+      "capacity": 3306,
+      "city": "Andorra la Vella",
+      "country": "Andorra",
+      "national_team": false,
+      "stadium": "Estadi Nacional"
+    },
+    {
+      "capacity": 1249,
+      "city": "Andorra la Vella",
+      "country": "Andorra",
+      "national_team": false,
+      "stadium": "Estadi Comunal d'Andorra la Vella"
+    },
+    {
+      "capacity": 48500,
+      "city": "Luanda",
+      "country": "Angola",
+      "stadium": "Estádio 11 de Novembro",
+      "national_team": true
+    },
+    {
+      "capacity": 40000,
+      "city": "Luanda",
+      "country": "Angola",
+      "national_team": false,
+      "stadium": "Estádio da Cidadela"
+    },
+    {
+      "capacity": 35000,
+      "city": "Benguela",
+      "country": "Angola",
+      "national_team": false,
+      "stadium": "Estádio Nacional de Ombaka"
+    },
+    {
+      "capacity": 4000,
+      "city": "The Valley",
+      "country": "Anguilla",
+      "stadium": "Ronald Webster Park",
+      "national_team": true
+    },
+    {
+      "capacity": 9000,
+      "city": "St. John's",
+      "country": "Antigua and Barbuda",
+      "stadium": "Antigua Recreation Ground",
+      "national_team": true
+    },
+    {
+      "capacity": 84567,
+      "city": "Buenos Aires",
+      "country": "Argentina",
+      "national_team": false,
+      "stadium": "Más Monumental"
+    },
+    {
+      "capacity": 57200,
+      "city": "Buenos Aires",
+      "country": "Argentina",
+      "national_team": false,
+      "stadium": "La Bombonera"
+    },
+    {
+      "capacity": 57000,
+      "city": "Córdoba",
+      "country": "Argentina",
+      "national_team": false,
+      "stadium": "Estadio Mario Alberto Kempes"
+    },
+    {
+      "capacity": 55880,
+      "city": "Avellaneda",
+      "country": "Argentina",
+      "national_team": false,
+      "stadium": "El Cilindro"
+    },
+    {
+      "country": "Argentina",
+      "stadium": "Estadio Único Diego Armando Maradona",
+      "city": "La Plata",
+      "capacity": 53000,
+      "national_team": true
+    },
+    {
+      "capacity": 54208,
+      "city": "Yerevan",
+      "country": "Armenia",
+      "national_team": false,
+      "stadium": "Hrazdan Stadium"
+    },
+    {
+      "country": "Armenia",
+      "stadium": "Vazgen Sargsyan Republican Stadium",
+      "city": "Yerevan",
+      "capacity": 14403,
+      "national_team": true
+    },
+    {
+      "capacity": 2500,
+      "city": "Oranjestad",
+      "country": "Aruba",
+      "stadium": "Trinidad Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 100024,
+      "city": "Melbourne",
+      "country": "Australia",
+      "national_team": false,
+      "stadium": "Melbourne Cricket Ground"
+    },
+    {
+      "country": "Australia",
+      "stadium": "Stadium Australia",
+      "city": "Sydney",
+      "capacity": 83500,
+      "national_team": true
+    },
+    {
+      "capacity": 56347,
+      "city": "Melbourne",
+      "country": "Australia",
+      "national_team": false,
+      "stadium": "Docklands Stadium"
+    },
+    {
+      "country": "Austria",
+      "stadium": "Ernst Happel Stadion",
+      "city": "Vienna",
+      "capacity": 50865,
+      "national_team": true
+    },
+    {
+      "capacity": 32000,
+      "city": "Klagenfurt",
+      "country": "Austria",
+      "national_team": false,
+      "stadium": "Hypo-Arena"
+    },
+    {
+      "capacity": 30188,
+      "city": "Salzburg",
+      "country": "Austria",
+      "national_team": false,
+      "stadium": "Red Bull Arena"
+    },
+    {
+      "capacity": 30000,
+      "city": "Vienna",
+      "country": "Austria",
+      "national_team": false,
+      "stadium": "Allianz Stadion"
+    },
+    {
+      "capacity": 19080,
+      "city": "Linz",
+      "country": "Austria",
+      "national_team": false,
+      "stadium": "Raiffeisen Arena"
+    },
+    {
+      "capacity": 69870,
+      "city": "Baku",
+      "country": "Azerbaijan",
+      "stadium": "Baku Olympic Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 69870,
+      "city": "Baku",
+      "country": "Azerbaijan",
+      "national_team": false,
+      "stadium": "Baku National Stadium"
+    },
+    {
+      "capacity": 31200,
+      "city": "Baku",
+      "country": "Azerbaijan",
+      "national_team": false,
+      "stadium": "Tofiq Bahramov Stadium"
+    },
+    {
+      "capacity": 27000,
+      "city": "Ganja",
+      "country": "Azerbaijan",
+      "national_team": false,
+      "stadium": "Ganja City Stadium"
+    },
+    {
+      "capacity": 16000,
+      "city": "Sumqayit",
+      "country": "Azerbaijan",
+      "national_team": false,
+      "stadium": "M. Huseynzade Stadium"
+    },
+    {
+      "capacity": 15000,
+      "city": "Lankaran",
+      "country": "Azerbaijan",
+      "national_team": false,
+      "stadium": "Lankaran City Stadium"
+    },
+    {
+      "country": "Bahamas",
+      "stadium": "Thomas Robinson Stadium",
+      "city": "Nassau",
+      "capacity": 15023,
+      "national_team": true
+    },
+    {
+      "capacity": 24000,
+      "city": "Riffa",
+      "country": "Bahrain",
+      "stadium": "Bahrain National Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 5000,
+      "city": "Bridgetown",
+      "country": "Barbados",
+      "stadium": "Barbados National Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 33000,
+      "city": "Minsk",
+      "country": "Belarus",
+      "stadium": "National Football Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 33000,
+      "city": "Minsk",
+      "country": "Belarus",
+      "national_team": false,
+      "stadium": "New National Stadium"
+    },
+    {
+      "capacity": 22246,
+      "city": "Minsk",
+      "country": "Belarus",
+      "national_team": false,
+      "stadium": "Dinamo Stadium"
+    },
+    {
+      "capacity": 17600,
+      "city": "Minsk",
+      "country": "Belarus",
+      "national_team": false,
+      "stadium": "Traktor Stadium"
+    },
+    {
+      "capacity": 14307,
+      "city": "Homieĺ",
+      "country": "Belarus",
+      "national_team": false,
+      "stadium": "Central Stadium"
+    },
+    {
+      "capacity": 13121,
+      "city": "Barysaŭ",
+      "country": "Belarus",
+      "national_team": false,
+      "stadium": "Borisov Arena"
+    },
+    {
+      "country": "Belgium",
+      "stadium": "King Baudouin Stadium",
+      "city": "Brussels",
+      "capacity": 50093,
+      "national_team": true
+    },
+    {
+      "capacity": 29062,
+      "city": "Bruges",
+      "country": "Belgium",
+      "national_team": false,
+      "stadium": "Jan Breydel Stadium"
+    },
+    {
+      "capacity": 27670,
+      "city": "Liège",
+      "country": "Belgium",
+      "national_team": false,
+      "stadium": "Stade Maurice Dufrasne"
+    },
+    {
+      "capacity": 23718,
+      "city": "Genk",
+      "country": "Belgium",
+      "national_team": false,
+      "stadium": "Cegeka Arena"
+    },
+    {
+      "capacity": 22500,
+      "city": "Anderlecht",
+      "country": "Belgium",
+      "national_team": false,
+      "stadium": "Lotto Park"
+    },
+    {
+      "capacity": 5000,
+      "city": "Belmopan",
+      "country": "Belize",
+      "stadium": "FFB Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 35000,
+      "city": "Cotonou",
+      "country": "Benin",
+      "stadium": "Stade de l'Amitié",
+      "national_team": true
+    },
+    {
+      "capacity": 15000,
+      "city": "Porto-Novo",
+      "country": "Benin",
+      "national_team": false,
+      "stadium": "Stade Charles de Gaulle"
+    },
+    {
+      "capacity": 15000,
+      "city": "Cotonou",
+      "country": "Benin",
+      "national_team": false,
+      "stadium": "Stade René Pleven d'Akpakpa"
+    },
+    {
+      "capacity": 8500,
+      "city": "Hamilton",
+      "country": "Bermuda",
+      "stadium": "Bermuda National Stadium",
+      "national_team": true
+    },
+    {
+      "country": "Bolivia",
+      "stadium": "Estadio Hernando Siles",
+      "city": "La Paz",
+      "capacity": 41143,
+      "national_team": true
+    },
+    {
+      "capacity": 38000,
+      "city": "Santa Cruz de la Sierra",
+      "country": "Bolivia",
+      "national_team": false,
+      "stadium": "Estadio Ramón Tahuichi Aguilera"
+    },
+    {
+      "capacity": 33795,
+      "city": "Oruro",
+      "country": "Bolivia",
+      "national_team": false,
+      "stadium": "Estadio Jesús Bermúdez"
+    },
+    {
+      "capacity": 32105,
+      "city": "Potosí",
+      "country": "Bolivia",
+      "national_team": false,
+      "stadium": "Estadio Víctor Agustín Ugarte"
+    },
+    {
+      "capacity": 32000,
+      "city": "Cochabamba",
+      "country": "Bolivia",
+      "national_team": false,
+      "stadium": "Estadio Felix Capriles"
+    },
+    {
+      "capacity": 1500,
+      "city": "Rincon",
+      "country": "Bonaire",
+      "stadium": "Stadion Antonio Trenidat",
+      "national_team": true
+    },
+    {
+      "capacity": 30121,
+      "city": "Sarajevo",
+      "country": "Bosnia and Herzegovina",
+      "national_team": false,
+      "stadium": "Stadion Asim Ferhatović-Hase"
+    },
+    {
+      "capacity": 18057,
+      "city": "Sarajevo",
+      "country": "Bosnia and Herzegovina",
+      "national_team": false,
+      "stadium": "Stadion Grbavica"
+    },
+    {
+      "capacity": 15292,
+      "city": "Zenica",
+      "country": "Bosnia and Herzegovina",
+      "stadium": "Bilino Polje Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 15292,
+      "city": "Zenica",
+      "country": "Bosnia and Herzegovina",
+      "national_team": false,
+      "stadium": "Stadion Bilino Polje"
+    },
+    {
+      "capacity": 10030,
+      "city": "Banja Luka",
+      "country": "Bosnia and Herzegovina",
+      "national_team": false,
+      "stadium": "Banja Luka City Stadium"
+    },
+    {
+      "country": "Brazil",
+      "stadium": "Maracanã",
+      "city": "Rio de Janeiro",
+      "capacity": 73193,
+      "national_team": true
+    },
+    {
+      "capacity": 69910,
+      "city": "Brasília",
+      "country": "Brazil",
+      "national_team": false,
+      "stadium": "Mané Garrincha"
+    },
+    {
+      "capacity": 66658,
+      "city": "Belo Horizonte",
+      "country": "Brazil",
+      "national_team": false,
+      "stadium": "Mineirão"
+    },
+    {
+      "capacity": 66435,
+      "city": "São Paulo",
+      "country": "Brazil",
+      "national_team": false,
+      "stadium": "Morumbi"
+    },
+    {
+      "capacity": 60044,
+      "city": "Recife",
+      "country": "Brazil",
+      "national_team": false,
+      "stadium": "Arruda"
+    },
+    {
+      "capacity": 1500,
+      "city": "Road Town",
+      "country": "British Virgin Islands",
+      "stadium": "A. O. Shirley Recreation Ground",
+      "national_team": true
+    },
+    {
+      "capacity": 55000,
+      "city": "Plovdiv",
+      "country": "Bulgaria",
+      "national_team": false,
+      "stadium": "Plovdiv Stadium"
+    },
+    {
+      "country": "Bulgaria",
+      "stadium": "Vasil Levski National Stadium",
+      "city": "Sofia",
+      "capacity": 43500,
+      "national_team": true
+    },
+    {
+      "capacity": 29500,
+      "city": "Sofia",
+      "country": "Bulgaria",
+      "national_team": false,
+      "stadium": "Georgi Asparuhov Stadium"
+    },
+    {
+      "capacity": 25556,
+      "city": "Sofia",
+      "country": "Bulgaria",
+      "national_team": false,
+      "stadium": "Ovcha Kupel Stadium"
+    },
+    {
+      "capacity": 25000,
+      "city": "Vratsa",
+      "country": "Bulgaria",
+      "national_team": false,
+      "stadium": "Hristo Botev Stadium"
+    },
+    {
+      "capacity": 35000,
+      "city": "Bobo-Dioulasso",
+      "country": "Burkina Faso",
+      "national_team": false,
+      "stadium": "Stade Général Aboubacar Sangoulé Lamizana"
+    },
+    {
+      "capacity": 30000,
+      "city": "Ouagadougou",
+      "country": "Burkina Faso",
+      "national_team": false,
+      "stadium": "Stade Municipal"
+    },
+    {
+      "capacity": 29800,
+      "city": "Ouagadougou",
+      "country": "Burkina Faso",
+      "stadium": "Stade du 4-Août",
+      "national_team": true
+    },
+    {
+      "capacity": 50000,
+      "city": "Douala",
+      "country": "Cameroon",
+      "national_team": false,
+      "stadium": "Japoma Stadium"
+    },
+    {
+      "capacity": 42500,
+      "city": "Yaoundé",
+      "country": "Cameroon",
+      "stadium": "Ahmadou Ahidjo Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 42500,
+      "city": "Yaoundé",
+      "country": "Cameroon",
+      "national_team": false,
+      "stadium": "Stade Omnisports Ahmadou Ahidjo"
+    },
+    {
+      "capacity": 39000,
+      "city": "Douala",
+      "country": "Cameroon",
+      "national_team": false,
+      "stadium": "Stade de la Réunification"
+    },
+    {
+      "capacity": 61004,
+      "city": "Montreal",
+      "country": "Canada",
+      "national_team": false,
+      "stadium": "Olympic Stadium"
+    },
+    {
+      "capacity": 56302,
+      "city": "Edmonton",
+      "country": "Canada",
+      "national_team": false,
+      "stadium": "Commonwealth Stadium"
+    },
+    {
+      "country": "Canada",
+      "stadium": "BC Place",
+      "city": "Vancouver",
+      "capacity": 54320,
+      "national_team": true
+    },
+    {
+      "capacity": 47568,
+      "city": "Toronto",
+      "country": "Canada",
+      "national_team": false,
+      "stadium": "Rogers Centre"
+    },
+    {
+      "capacity": 37317,
+      "city": "Calgary",
+      "country": "Canada",
+      "national_team": false,
+      "stadium": "McMahon Stadium"
+    },
+    {
+      "capacity": 15000,
+      "city": "Praia",
+      "country": "Cape Verde",
+      "stadium": "Estádio Nacional de Cabo Verde",
+      "national_team": true
+    },
+    {
+      "capacity": 3000,
+      "city": "George Town",
+      "country": "Cayman Islands",
+      "stadium": "Truman Bodden Sports Complex",
+      "national_team": true
+    },
+    {
+      "country": "Chile",
+      "stadium": "Estadio Nacional Julio Martínez Prádanos",
+      "city": "Santiago",
+      "capacity": 52665,
+      "national_team": true
+    },
+    {
+      "capacity": 49347,
+      "city": "Santiago",
+      "country": "Chile",
+      "national_team": false,
+      "stadium": "Monumental David Arellano"
+    },
+    {
+      "capacity": 30448,
+      "city": "Concepción",
+      "country": "Chile",
+      "national_team": false,
+      "stadium": "Ester Roa"
+    },
+    {
+      "capacity": 30360,
+      "city": "Viña del Mar",
+      "country": "Chile",
+      "national_team": false,
+      "stadium": "Sausalito"
+    },
+    {
+      "capacity": 28178,
+      "city": "Antofagasta",
+      "country": "Chile",
+      "national_team": false,
+      "stadium": "Regional de Antofagasta"
+    },
+    {
+      "capacity": 80012,
+      "city": "Guangzhou",
+      "country": "China",
+      "national_team": false,
+      "stadium": "Guangdong Olympic Stadium"
+    },
+    {
+      "capacity": 80000,
+      "city": "Beijing",
+      "country": "China",
+      "national_team": false,
+      "stadium": "Beijing National Stadium"
+    },
+    {
+      "capacity": 80000,
+      "city": "Hangzhou",
+      "country": "China",
+      "national_team": false,
+      "stadium": "Hangzhou Sports Park"
+    },
+    {
+      "capacity": 72000,
+      "city": "Shanghai",
+      "country": "China",
+      "stadium": "Shanghai Stadium",
+      "national_team": true
+    },
+    {
+      "country": "Colombia",
+      "stadium": "Estadio Metropolitano Roberto Meléndez",
+      "city": "Barranquilla",
+      "capacity": 60000,
+      "national_team": true
+    },
+    {
+      "capacity": 46000,
+      "city": "Medellín",
+      "country": "Colombia",
+      "national_team": false,
+      "stadium": "Estadio Atanasio Girardot"
+    },
+    {
+      "capacity": 44000,
+      "city": "Palmira",
+      "country": "Colombia",
+      "national_team": false,
+      "stadium": "Estadio Deportivo Cali"
+    },
+    {
+      "capacity": 42901,
+      "city": "Cúcuta",
+      "country": "Colombia",
+      "national_team": false,
+      "stadium": "Estadio General Santander"
+    },
+    {
+      "capacity": 37899,
+      "city": "Cali",
+      "country": "Colombia",
+      "national_team": false,
+      "stadium": "Estadio Olímpico Pascual Guerrero"
+    },
+    {
+      "country": "Costa Rica",
+      "stadium": "Estadio Nacional de Costa Rica",
+      "city": "San José",
+      "capacity": 35062,
+      "national_team": true
+    },
+    {
+      "capacity": 23112,
+      "city": "San Juan de Tibás",
+      "country": "Costa Rica",
+      "national_team": false,
+      "stadium": "Estadio Ricardo Saprissa Aymá"
+    },
+    {
+      "capacity": 17895,
+      "city": "Alajuela",
+      "country": "Costa Rica",
+      "national_team": false,
+      "stadium": "Estadio Alejandro Morera Soto"
+    },
+    {
+      "capacity": 13500,
+      "city": "Cartago",
+      "country": "Costa Rica",
+      "national_team": false,
+      "stadium": "Estadio José Rafael Fello Meza Ivankovich"
+    },
+    {
+      "country": "Croatia",
+      "stadium": "Stadion Maksimir",
+      "city": "Zagreb",
+      "capacity": 38079,
+      "national_team": true
+    },
+    {
+      "capacity": 35000,
+      "city": "Split",
+      "country": "Croatia",
+      "national_team": false,
+      "stadium": "Stadion Poljud"
+    },
+    {
+      "capacity": 22050,
+      "city": "Osijek",
+      "country": "Croatia",
+      "national_team": false,
+      "stadium": "Stadion Gradski vrt"
+    },
+    {
+      "capacity": 13005,
+      "city": "Osijek",
+      "country": "Croatia",
+      "national_team": false,
+      "stadium": "Opus Arena"
+    },
+    {
+      "capacity": 12100,
+      "city": "Vinkovci",
+      "country": "Croatia",
+      "national_team": false,
+      "stadium": "Stadion HNK Cibalia"
+    },
+    {
+      "country": "Cuba",
+      "stadium": "Estadio Pedro Marrero",
+      "city": "Havana",
+      "capacity": 30000,
+      "national_team": true
+    },
+    {
+      "country": "Curaçao",
+      "stadium": "Ergilio Hato Stadium",
+      "city": "Willemstad",
+      "capacity": 10000,
+      "national_team": true
+    },
+    {
+      "country": "Cyprus",
+      "stadium": "GSP Stadium",
+      "city": "Nicosia",
+      "capacity": 22859,
+      "national_team": true
+    },
+    {
+      "capacity": 16000,
+      "city": "Nicosia",
+      "country": "Cyprus",
+      "national_team": false,
+      "stadium": "Makario Stadium"
+    },
+    {
+      "capacity": 13331,
+      "city": "Limassol",
+      "country": "Cyprus",
+      "national_team": false,
+      "stadium": "Tsirion Stadium"
+    },
+    {
+      "capacity": 13032,
+      "city": "Larnaca",
+      "country": "Cyprus",
+      "national_team": false,
+      "stadium": "GCZ Stadium"
+    },
+    {
+      "capacity": 10000,
+      "city": "Larnaca",
+      "country": "Cyprus",
+      "national_team": false,
+      "stadium": "Antonis Papadopoulos Stadium"
+    },
+    {
+      "country": "Czechia",
+      "stadium": "Eden Arena",
+      "city": "Prague",
+      "capacity": 21000,
+      "national_team": true
+    },
+    {
+      "capacity": 20854,
+      "city": "Prague",
+      "country": "Czechia",
+      "national_team": false,
+      "stadium": "Generali Arena"
+    },
+    {
+      "capacity": 19032,
+      "city": "Prague",
+      "country": "Czechia",
+      "national_team": false,
+      "stadium": "Stadion Evžena Rosického"
+    },
+    {
+      "capacity": 18221,
+      "city": "Teplice",
+      "country": "Czechia",
+      "national_team": false,
+      "stadium": "Na Stínadlech"
+    },
+    {
+      "capacity": 17372,
+      "city": "Ostrava",
+      "country": "Czechia",
+      "national_team": false,
+      "stadium": "Bazaly"
+    },
+    {
+      "capacity": 80000,
+      "city": "Kinshasa",
+      "country": "DR Congo",
+      "stadium": "Stade des Martyrs",
+      "national_team": true
+    },
+    {
+      "capacity": 60000,
+      "city": "Kinshasa",
+      "country": "DR Congo",
+      "national_team": false,
+      "stadium": "Stade Tata Raphaël"
+    },
+    {
+      "capacity": 30000,
+      "city": "Kisangani",
+      "country": "DR Congo",
+      "national_team": false,
+      "stadium": "Stade Lumumba"
+    },
+    {
+      "capacity": 25000,
+      "city": "Mbuji-Mayi",
+      "country": "DR Congo",
+      "national_team": false,
+      "stadium": "Stade Kashala Bonzola"
+    },
+    {
+      "country": "Denmark",
+      "stadium": "Parken Stadium",
+      "city": "Copenhagen",
+      "capacity": 38065,
+      "national_team": true
+    },
+    {
+      "capacity": 29000,
+      "city": "Brøndby",
+      "country": "Denmark",
+      "national_team": false,
+      "stadium": "Brøndby Stadium"
+    },
+    {
+      "capacity": 20200,
+      "city": "Aarhus",
+      "country": "Denmark",
+      "national_team": false,
+      "stadium": "Aarhus Stadium"
+    },
+    {
+      "capacity": 17442,
+      "city": "Esbjerg",
+      "country": "Denmark",
+      "national_team": false,
+      "stadium": "Blue Water Arena"
+    },
+    {
+      "capacity": 15790,
+      "city": "Odense",
+      "country": "Denmark",
+      "national_team": false,
+      "stadium": "Fionia Park"
+    },
+    {
+      "capacity": 12000,
+      "city": "Roseau",
+      "country": "Dominica",
+      "stadium": "Windsor Park",
+      "national_team": true
+    },
+    {
+      "country": "Dominican Republic",
+      "stadium": "Estadio Olímpico Félix Sánchez",
+      "city": "Santo Domingo",
+      "capacity": 27000,
+      "national_team": true
+    },
+    {
+      "capacity": 59283,
+      "city": "Guayaquil",
+      "country": "Ecuador",
+      "national_team": false,
+      "stadium": "Estadio Monumental Isidro Romero Carbo"
+    },
+    {
+      "capacity": 42000,
+      "city": "Guayaquil",
+      "country": "Ecuador",
+      "national_team": false,
+      "stadium": "Estadio Modelo Alberto Spencer Herrera"
+    },
+    {
+      "capacity": 41575,
+      "city": "Quito",
+      "country": "Ecuador",
+      "national_team": false,
+      "stadium": "Estadio Rodrigo Paz Delgado"
+    },
+    {
+      "capacity": 40020,
+      "city": "Guayaquil",
+      "country": "Ecuador",
+      "national_team": false,
+      "stadium": "Estadio George Capwell"
+    },
+    {
+      "country": "Ecuador",
+      "stadium": "Estadio Olímpico Atahualpa",
+      "city": "Quito",
+      "capacity": 35742,
+      "national_team": true
+    },
+    {
+      "capacity": 75000,
+      "city": "Cairo",
+      "country": "Egypt",
+      "stadium": "Cairo International Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 45000,
+      "city": "Suez",
+      "country": "Egypt",
+      "national_team": false,
+      "stadium": "Egyptian Army Stadium"
+    },
+    {
+      "capacity": 35000,
+      "city": "Cairo",
+      "country": "Egypt",
+      "national_team": false,
+      "stadium": "Osman Ahmed Osman Stadium"
+    },
+    {
+      "capacity": 30000,
+      "city": "Cairo",
+      "country": "Egypt",
+      "national_team": false,
+      "stadium": "30 June Stadium"
+    },
+    {
+      "country": "El Salvador",
+      "stadium": "Estadio Cuscatlán",
+      "city": "San Salvador",
+      "capacity": 44836,
+      "national_team": true
+    },
+    {
+      "capacity": 17500,
+      "city": "Santa Ana",
+      "country": "El Salvador",
+      "national_team": false,
+      "stadium": "Estadio Óscar Quiteño"
+    },
+    {
+      "capacity": 12000,
+      "city": "San Francisco Gotera",
+      "country": "El Salvador",
+      "national_team": false,
+      "stadium": "Estadio Correcaminos"
+    },
+    {
+      "capacity": 10000,
+      "city": "San Miguel",
+      "country": "El Salvador",
+      "national_team": false,
+      "stadium": "Estadio Juan Francisco Barraza"
+    },
+    {
+      "capacity": 10000,
+      "city": "Santa Tecla",
+      "country": "El Salvador",
+      "national_team": false,
+      "stadium": "Estadio Las Delicias"
+    },
+    {
+      "country": "England",
+      "stadium": "Wembley Stadium",
+      "city": "London",
+      "capacity": 90000,
+      "national_team": true
+    },
+    {
+      "capacity": 74244,
+      "city": "Manchester",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Old Trafford"
+    },
+    {
+      "capacity": 62850,
+      "city": "London",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Tottenham Hotspur Stadium"
+    },
+    {
+      "capacity": 62500,
+      "city": "London",
+      "country": "England",
+      "national_team": false,
+      "stadium": "London Stadium"
+    },
+    {
+      "capacity": 61276,
+      "city": "Liverpool",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Anfield"
+    },
+    {
+      "capacity": 61038,
+      "city": "Manchester",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Etihad Stadium"
+    },
+    {
+      "capacity": 60704,
+      "city": "London",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Emirates Stadium"
+    },
+    {
+      "capacity": 52769,
+      "city": "Liverpool",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Hill Dickinson Stadium"
+    },
+    {
+      "capacity": 52719,
+      "city": "Newcastle upon Tyne",
+      "country": "England",
+      "national_team": false,
+      "stadium": "St James' Park"
+    },
+    {
+      "capacity": 48095,
+      "city": "Sunderland",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Stadium of Light"
+    },
+    {
+      "capacity": 43205,
+      "city": "Birmingham",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Villa Park"
+    },
+    {
+      "capacity": 40044,
+      "city": "London",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Stamford Bridge"
+    },
+    {
+      "capacity": 39414,
+      "city": "Liverpool",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Goodison Park"
+    },
+    {
+      "capacity": 37645,
+      "city": "Leeds",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Elland Road"
+    },
+    {
+      "capacity": 34835,
+      "city": "Sheffield",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Hillsborough"
+    },
+    {
+      "capacity": 33931,
+      "city": "Middlesbrough",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Riverside Stadium"
+    },
+    {
+      "capacity": 32956,
+      "city": "Derby",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Pride Park"
+    },
+    {
+      "capacity": 32609,
+      "city": "Coventry",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Coventry Building Society Arena"
+    },
+    {
+      "capacity": 32384,
+      "city": "Southampton",
+      "country": "England",
+      "national_team": false,
+      "stadium": "St Mary's Stadium"
+    },
+    {
+      "capacity": 32259,
+      "city": "Leicester",
+      "country": "England",
+      "national_team": false,
+      "stadium": "King Power Stadium"
+    },
+    {
+      "capacity": 32050,
+      "city": "Sheffield",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Bramall Lane"
+    },
+    {
+      "capacity": 31876,
+      "city": "Brighton and Hove",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Falmer Stadium"
+    },
+    {
+      "capacity": 31750,
+      "city": "Wolverhampton",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Molineux"
+    },
+    {
+      "capacity": 31363,
+      "city": "Blackburn",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Ewood Park"
+    },
+    {
+      "capacity": 30404,
+      "city": "Nottingham",
+      "country": "England",
+      "national_team": false,
+      "stadium": "City Ground"
+    },
+    {
+      "capacity": 30303,
+      "city": "Milton Keynes",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Stadium MK"
+    },
+    {
+      "capacity": 30089,
+      "city": "Stoke-on-Trent",
+      "country": "England",
+      "national_team": false,
+      "stadium": "bet365 Stadium"
+    },
+    {
+      "capacity": 29813,
+      "city": "Ipswich",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Portman Road"
+    },
+    {
+      "capacity": 29409,
+      "city": "Birmingham",
+      "country": "England",
+      "national_team": false,
+      "stadium": "St Andrew's"
+    },
+    {
+      "capacity": 28018,
+      "city": "Bolton",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Toughsheet Community Stadium"
+    },
+    {
+      "capacity": 27782,
+      "city": "London",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Craven Cottage"
+    },
+    {
+      "capacity": 27359,
+      "city": "Norwich",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Carrow Road"
+    },
+    {
+      "capacity": 27111,
+      "city": "London",
+      "country": "England",
+      "national_team": false,
+      "stadium": "The Valley"
+    },
+    {
+      "capacity": 27000,
+      "city": "Bristol",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Ashton Gate Stadium"
+    },
+    {
+      "capacity": 26688,
+      "city": "West Bromwich",
+      "country": "England",
+      "national_team": false,
+      "stadium": "The Hawthorns"
+    },
+    {
+      "capacity": 25586,
+      "city": "Hull",
+      "country": "England",
+      "national_team": false,
+      "stadium": "MKM Stadium"
+    },
+    {
+      "capacity": 25194,
+      "city": "London",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Selhurst Park"
+    },
+    {
+      "capacity": 25133,
+      "city": "Wigan",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Brick Community Stadium"
+    },
+    {
+      "capacity": 24433,
+      "city": "Bradford",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Valley Parade"
+    },
+    {
+      "capacity": 24376,
+      "city": "Reading",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Madejski Stadium"
+    },
+    {
+      "capacity": 24329,
+      "city": "Huddersfield",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Kirklees Stadium"
+    },
+    {
+      "capacity": 23404,
+      "city": "Preston",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Deepdale"
+    },
+    {
+      "capacity": 23287,
+      "city": "Barnsley",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Oakwell"
+    },
+    {
+      "capacity": 22200,
+      "city": "Watford",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Vicarage Road"
+    },
+    {
+      "capacity": 21990,
+      "city": "Burnley",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Turf Moor"
+    },
+    {
+      "capacity": 20899,
+      "city": "Portsmouth",
+      "country": "England",
+      "national_team": false,
+      "stadium": "Fratton Park"
+    },
+    {
+      "capacity": 14336,
+      "city": "Tallinn",
+      "country": "Estonia",
+      "stadium": "Lilleküla Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 14336,
+      "city": "Tallinn",
+      "country": "Estonia",
+      "national_team": false,
+      "stadium": "A. Le Coq Arena"
+    },
+    {
+      "capacity": 12000,
+      "city": "Tallinn",
+      "country": "Estonia",
+      "national_team": false,
+      "stadium": "Kalevi Keskstaadion"
+    },
+    {
+      "country": "Faroe Islands",
+      "stadium": "Tórsvøllur",
+      "city": "Tórshavn",
+      "capacity": 6040,
+      "national_team": true
+    },
+    {
+      "capacity": 6000,
+      "city": "Toftir",
+      "country": "Faroe Islands",
+      "national_team": false,
+      "stadium": "Svangaskarð"
+    },
+    {
+      "capacity": 5000,
+      "city": "Tórshavn",
+      "country": "Faroe Islands",
+      "national_team": false,
+      "stadium": "Gundadalur"
+    },
+    {
+      "capacity": 3000,
+      "city": "Vágur",
+      "country": "Faroe Islands",
+      "national_team": false,
+      "stadium": "á Eiðinum"
+    },
+    {
+      "capacity": 3000,
+      "city": "Fuglafjørður",
+      "country": "Faroe Islands",
+      "national_team": false,
+      "stadium": "Í Fløtugerði"
+    },
+    {
+      "country": "Finland",
+      "stadium": "Helsinki Olympic Stadium",
+      "city": "Helsinki",
+      "capacity": 40000,
+      "national_team": true
+    },
+    {
+      "capacity": 17000,
+      "city": "Tampere",
+      "country": "Finland",
+      "national_team": false,
+      "stadium": "Ratina Stadion"
+    },
+    {
+      "capacity": 14500,
+      "city": "Lahti",
+      "country": "Finland",
+      "national_team": false,
+      "stadium": "Lahden Stadion"
+    },
+    {
+      "capacity": 14500,
+      "city": "Kouvola",
+      "country": "Finland",
+      "national_team": false,
+      "stadium": "Keskusurheilukenttä Stadion"
+    },
+    {
+      "capacity": 12300,
+      "city": "Pori",
+      "country": "Finland",
+      "national_team": false,
+      "stadium": "Pori Stadium"
+    },
+    {
+      "country": "France",
+      "stadium": "Stade de France",
+      "city": "Saint-Denis",
+      "capacity": 81338,
+      "national_team": true
+    },
+    {
+      "capacity": 67394,
+      "city": "Marseille",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Stade Vélodrome"
+    },
+    {
+      "capacity": 59186,
+      "city": "Décines-Charpieu",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Parc Olympique Lyonnais"
+    },
+    {
+      "capacity": 50157,
+      "city": "Villeneuve-d'Ascq",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Stade Pierre-Mauroy"
+    },
+    {
+      "capacity": 47929,
+      "city": "Paris",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Parc des Princes"
+    },
+    {
+      "capacity": 42115,
+      "city": "Bordeaux",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Stade Atlantique"
+    },
+    {
+      "capacity": 41965,
+      "city": "Saint-Étienne",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Stade Geoffroy-Guichard"
+    },
+    {
+      "capacity": 38223,
+      "city": "Lens",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Stade Bollaert-Delelis"
+    },
+    {
+      "capacity": 37473,
+      "city": "Nantes",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Stade de la Beaujoire"
+    },
+    {
+      "capacity": 35624,
+      "city": "Nice",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Allianz Riviera"
+    },
+    {
+      "capacity": 35029,
+      "city": "Lyon",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Stade de Gerland"
+    },
+    {
+      "capacity": 34462,
+      "city": "Bordeaux",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Stade Chaban-Delmas"
+    },
+    {
+      "capacity": 33150,
+      "city": "Toulouse",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Stadium Municipal"
+    },
+    {
+      "capacity": 32939,
+      "city": "Montpellier",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Stade de la Mosson"
+    },
+    {
+      "capacity": 32300,
+      "city": "Strasbourg",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Stade de la Meinau"
+    },
+    {
+      "capacity": 30000,
+      "city": "Metz",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Stade Saint-Symphorien"
+    },
+    {
+      "capacity": 29778,
+      "city": "Rennes",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Roazhon Park"
+    },
+    {
+      "capacity": 25178,
+      "city": "Le Havre",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Stade Océane"
+    },
+    {
+      "capacity": 25064,
+      "city": "Le Mans",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Stade Marie-Marvingt"
+    },
+    {
+      "capacity": 24926,
+      "city": "Valenciennes",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Stade du Hainaut"
+    },
+    {
+      "capacity": 23189,
+      "city": "Sedan",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Stade Louis Dugauguez"
+    },
+    {
+      "capacity": 21684,
+      "city": "Reims",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Stade Auguste-Delaune"
+    },
+    {
+      "capacity": 21500,
+      "city": "Caen",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Stade Michel d'Ornano"
+    },
+    {
+      "capacity": 20400,
+      "city": "Troyes",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Stade de l'Aube"
+    },
+    {
+      "capacity": 20087,
+      "city": "Tomblaine",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Stade Marcel Picot"
+    },
+    {
+      "capacity": 20068,
+      "city": "Grenoble",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Stade des Alpes"
+    },
+    {
+      "capacity": 20025,
+      "city": "Montbéliard",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Stade Auguste Bonal"
+    },
+    {
+      "capacity": 20000,
+      "city": "Paris",
+      "country": "France",
+      "national_team": false,
+      "stadium": "Stade Sébastien Charléty"
+    },
+    {
+      "capacity": 40000,
+      "city": "Libreville",
+      "country": "Gabon",
+      "stadium": "Stade d'Angondjé",
+      "national_team": true
+    },
+    {
+      "capacity": 22000,
+      "city": "Franceville",
+      "country": "Gabon",
+      "national_team": false,
+      "stadium": "Stade de Franceville"
+    },
+    {
+      "capacity": 20500,
+      "city": "Oyem",
+      "country": "Gabon",
+      "national_team": false,
+      "stadium": "Stade d'Oyem"
+    },
+    {
+      "capacity": 20000,
+      "city": "Port-Gentil",
+      "country": "Gabon",
+      "national_team": false,
+      "stadium": "Stade de Port-Gentil"
+    },
+    {
+      "capacity": 54549,
+      "city": "Tbilisi",
+      "country": "Georgia",
+      "stadium": "Boris Paichadze Dinamo Arena",
+      "national_team": true
+    },
+    {
+      "capacity": 54549,
+      "city": "Tbilisi",
+      "country": "Georgia",
+      "national_team": false,
+      "stadium": "Boris Paitchadze Dinamo Arena"
+    },
+    {
+      "capacity": 27670,
+      "city": "Tbilisi",
+      "country": "Georgia",
+      "national_team": false,
+      "stadium": "Mikheil Meskhi Stadium"
+    },
+    {
+      "capacity": 20000,
+      "city": "Batumi",
+      "country": "Georgia",
+      "national_team": false,
+      "stadium": "Adjarabet Arena"
+    },
+    {
+      "capacity": 15000,
+      "city": "Kutaisi",
+      "country": "Georgia",
+      "national_team": false,
+      "stadium": "Ramaz Shengelia Stadium"
+    },
+    {
+      "country": "Germany",
+      "stadium": "Westfalenstadion",
+      "city": "Dortmund",
+      "capacity": 81365,
+      "national_team": true
+    },
+    {
+      "capacity": 75024,
+      "city": "Munich",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Allianz Arena"
+    },
+    {
+      "capacity": 74475,
+      "city": "Berlin",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Olympiastadion Berlin"
+    },
+    {
+      "capacity": 63118,
+      "city": "Munich",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Olympiastadion Munich"
+    },
+    {
+      "capacity": 62271,
+      "city": "Gelsenkirchen",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Veltins-Arena"
+    },
+    {
+      "capacity": 60058,
+      "city": "Stuttgart",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "MHPArena"
+    },
+    {
+      "capacity": 59500,
+      "city": "Frankfurt",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Deutsche Bank Park"
+    },
+    {
+      "capacity": 57000,
+      "city": "Hamburg",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Volksparkstadion"
+    },
+    {
+      "capacity": 54600,
+      "city": "Düsseldorf",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Merkur Spiel-Arena"
+    },
+    {
+      "capacity": 54022,
+      "city": "Mönchengladbach",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Borussia-Park"
+    },
+    {
+      "capacity": 50000,
+      "city": "Nuremberg",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Max-Morlock-Stadion"
+    },
+    {
+      "capacity": 49698,
+      "city": "Cologne",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "RheinEnergieStadion"
+    },
+    {
+      "capacity": 49327,
+      "city": "Kaiserslautern",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Fritz-Walter-Stadion"
+    },
+    {
+      "capacity": 49000,
+      "city": "Hannover",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Heinz-von-Heiden-Arena"
+    },
+    {
+      "capacity": 47800,
+      "city": "Leipzig",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Red Bull Arena"
+    },
+    {
+      "capacity": 42100,
+      "city": "Bremen",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Weserstadion"
+    },
+    {
+      "capacity": 34700,
+      "city": "Freiburg im Breisgau",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Europa-Park Stadion"
+    },
+    {
+      "capacity": 34500,
+      "city": "Krefeld",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Grotenburg-Stadion"
+    },
+    {
+      "capacity": 34140,
+      "city": "Karlsruhe",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "BBBank Wildpark"
+    },
+    {
+      "capacity": 34034,
+      "city": "Mainz",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Mewa Arena"
+    },
+    {
+      "capacity": 32960,
+      "city": "Aachen",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Tivoli"
+    },
+    {
+      "capacity": 32354,
+      "city": "Augsburg",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Rosenaustadion"
+    },
+    {
+      "capacity": 32066,
+      "city": "Dresden",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Rudolf-Harbig-Stadion"
+    },
+    {
+      "capacity": 31514,
+      "city": "Duisburg",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Schauinsland-Reisen-Arena"
+    },
+    {
+      "capacity": 30660,
+      "city": "Augsburg",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "WWK Arena"
+    },
+    {
+      "capacity": 30210,
+      "city": "Leverkusen",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "BayArena"
+    },
+    {
+      "capacity": 30150,
+      "city": "Sinsheim",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "PreZero Arena"
+    },
+    {
+      "capacity": 30098,
+      "city": "Magdeburg",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Avnet Arena"
+    },
+    {
+      "capacity": 30000,
+      "city": "Wolfsburg",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Volkswagen Arena"
+    },
+    {
+      "capacity": 29546,
+      "city": "Hamburg",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Millerntor-Stadion"
+    },
+    {
+      "capacity": 29000,
+      "city": "Rostock",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Ostseestadion"
+    },
+    {
+      "capacity": 27599,
+      "city": "Bochum",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Vonovia Ruhrstadion"
+    },
+    {
+      "capacity": 27300,
+      "city": "Bielefeld",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "SchücoArena"
+    },
+    {
+      "capacity": 25667,
+      "city": "Mannheim",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Carl-Benz-Stadion"
+    },
+    {
+      "capacity": 24000,
+      "city": "Freiburg im Breisgau",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Dreisamstadion"
+    },
+    {
+      "capacity": 23400,
+      "city": "Neunkirchen",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Ellenfeldstadion"
+    },
+    {
+      "capacity": 23325,
+      "city": "Braunschweig",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Eintracht-Stadion"
+    },
+    {
+      "capacity": 23067,
+      "city": "Wuppertal",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Stadion am Zoo"
+    },
+    {
+      "capacity": 22528,
+      "city": "Cottbus",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Stadion der Freundschaft"
+    },
+    {
+      "capacity": 22012,
+      "city": "Berlin",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Stadion An der Alten Försterei"
+    },
+    {
+      "capacity": 21500,
+      "city": "Bayreuth",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Hans-Walter-Wild-Stadion"
+    },
+    {
+      "capacity": 20650,
+      "city": "Essen",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Stadion an der Hafenstraße"
+    },
+    {
+      "capacity": 20500,
+      "city": "Offenbach am Main",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Stadion am Bieberer Berg"
+    },
+    {
+      "capacity": 20000,
+      "city": "Dessau-Roßlau",
+      "country": "Germany",
+      "national_team": false,
+      "stadium": "Paul-Greifzu-Stadion"
+    },
+    {
+      "capacity": 40528,
+      "city": "Kumasi",
+      "country": "Ghana",
+      "national_team": false,
+      "stadium": "Baba Yara Stadium"
+    },
+    {
+      "capacity": 40000,
+      "city": "Accra",
+      "country": "Ghana",
+      "stadium": "Ohene Djan Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 21000,
+      "city": "Tamale",
+      "country": "Ghana",
+      "national_team": false,
+      "stadium": "Tamale Stadium"
+    },
+    {
+      "capacity": 20000,
+      "city": "Obuasi",
+      "country": "Ghana",
+      "national_team": false,
+      "stadium": "Len Clay Stadium"
+    },
+    {
+      "country": "Gibraltar",
+      "stadium": "Victoria Stadium",
+      "city": "Gibraltar",
+      "capacity": 5000,
+      "national_team": true
+    },
+    {
+      "country": "Greece",
+      "stadium": "Olympic Stadium of Athens",
+      "city": "Athens",
+      "capacity": 74767,
+      "national_team": true
+    },
+    {
+      "capacity": 33334,
+      "city": "Piraeus",
+      "country": "Greece",
+      "national_team": false,
+      "stadium": "Karaiskakis Stadium"
+    },
+    {
+      "capacity": 32500,
+      "city": "Athens",
+      "country": "Greece",
+      "national_team": false,
+      "stadium": "Agia Sophia Stadium"
+    },
+    {
+      "capacity": 28701,
+      "city": "Thessaloniki",
+      "country": "Greece",
+      "national_team": false,
+      "stadium": "Toumba Stadium"
+    },
+    {
+      "capacity": 28028,
+      "city": "Thessaloniki",
+      "country": "Greece",
+      "national_team": false,
+      "stadium": "Kaftanzoglio Stadium"
+    },
+    {
+      "capacity": 8000,
+      "city": "St. George's",
+      "country": "Grenada",
+      "stadium": "Kirani James Athletic Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 7500,
+      "city": "Les Abymes",
+      "country": "Guadeloupe",
+      "stadium": "Stade René Serge Nabajoth",
+      "national_team": true
+    },
+    {
+      "country": "Guatemala",
+      "stadium": "Estadio Doroteo Guamuch Flores",
+      "city": "Guatemala City",
+      "capacity": 26000,
+      "national_team": true
+    },
+    {
+      "capacity": 20000,
+      "city": "Coatepeque",
+      "country": "Guatemala",
+      "national_team": false,
+      "stadium": "Estadio Israel Barrios"
+    },
+    {
+      "capacity": 15000,
+      "city": "Cobán",
+      "country": "Guatemala",
+      "national_team": false,
+      "stadium": "Estadio Verapaz"
+    },
+    {
+      "capacity": 14022,
+      "city": "Guatemala City",
+      "country": "Guatemala",
+      "national_team": false,
+      "stadium": "Estadio Cementos Progreso"
+    },
+    {
+      "capacity": 11220,
+      "city": "Quetzaltenango",
+      "country": "Guatemala",
+      "national_team": false,
+      "stadium": "Estadio Mario Camposeco"
+    },
+    {
+      "capacity": 25000,
+      "city": "Conakry",
+      "country": "Guinea",
+      "stadium": "Stade 28 Septembre",
+      "national_team": true
+    },
+    {
+      "capacity": 25000,
+      "city": "Conakry",
+      "country": "Guinea",
+      "national_team": false,
+      "stadium": "Stade du 28 Septembre"
+    },
+    {
+      "capacity": 20000,
+      "city": "Providence",
+      "country": "Guyana",
+      "national_team": false,
+      "stadium": "Providence Stadium"
+    },
+    {
+      "capacity": 10000,
+      "city": "Georgetown",
+      "country": "Guyana",
+      "national_team": false,
+      "stadium": "Georgetown Cricket Club Ground"
+    },
+    {
+      "capacity": 3000,
+      "city": "Leonora",
+      "country": "Guyana",
+      "stadium": "National Track and Field Centre",
+      "national_team": true
+    },
+    {
+      "country": "Haiti",
+      "stadium": "Stade Sylvio Cator",
+      "city": "Port-au-Prince",
+      "capacity": 20000,
+      "national_team": true
+    },
+    {
+      "country": "Honduras",
+      "stadium": "Estadio Olímpico Metropolitano",
+      "city": "San Pedro Sula",
+      "capacity": 45000,
+      "national_team": true
+    },
+    {
+      "capacity": 36000,
+      "city": "Tegucigalpa",
+      "country": "Honduras",
+      "national_team": false,
+      "stadium": "Estadio Nacional Chelato Uclés"
+    },
+    {
+      "capacity": 25000,
+      "city": "La Ceiba",
+      "country": "Honduras",
+      "national_team": false,
+      "stadium": "Estadio Nilmo Edwards"
+    },
+    {
+      "capacity": 21000,
+      "city": "San Pedro Sula",
+      "country": "Honduras",
+      "national_team": false,
+      "stadium": "Estadio Francisco Morazán"
+    },
+    {
+      "capacity": 20000,
+      "city": "Juticalpa",
+      "country": "Honduras",
+      "national_team": false,
+      "stadium": "Estadio Juan Ramón Brevé Vargas"
+    },
+    {
+      "country": "Hungary",
+      "stadium": "Puskás Aréna",
+      "city": "Budapest",
+      "capacity": 67215,
+      "national_team": true
+    },
+    {
+      "capacity": 20340,
+      "city": "Debrecen",
+      "country": "Hungary",
+      "national_team": false,
+      "stadium": "Debrecen Stadion"
+    },
+    {
+      "capacity": 20000,
+      "city": "Győr",
+      "country": "Hungary",
+      "national_team": false,
+      "stadium": "Stadion ETO"
+    },
+    {
+      "capacity": 20000,
+      "city": "Székesfehérvár",
+      "country": "Hungary",
+      "national_team": false,
+      "stadium": "Stadion Sóstói"
+    },
+    {
+      "capacity": 18100,
+      "city": "Budapest",
+      "country": "Hungary",
+      "national_team": false,
+      "stadium": "Stadion Albert Flórián"
+    },
+    {
+      "country": "Iceland",
+      "stadium": "Laugardalsvöllur",
+      "city": "Reykjavík",
+      "capacity": 9800,
+      "national_team": true
+    },
+    {
+      "capacity": 3050,
+      "city": "Hafnarfjörður",
+      "country": "Iceland",
+      "national_team": false,
+      "stadium": "Kaplakriki"
+    },
+    {
+      "capacity": 1854,
+      "city": "Reykjavík",
+      "country": "Iceland",
+      "national_team": false,
+      "stadium": "Fylkisvöllur"
+    },
+    {
+      "capacity": 1709,
+      "city": "Kópavogur",
+      "country": "Iceland",
+      "national_team": false,
+      "stadium": "Kópavogsvöllur"
+    },
+    {
+      "capacity": 1645,
+      "city": "Akureyri",
+      "country": "Iceland",
+      "national_team": false,
+      "stadium": "Akureyrarvöllur"
+    },
+    {
+      "capacity": 78116,
+      "city": "Tehran",
+      "country": "Iran",
+      "stadium": "Azadi Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 75000,
+      "city": "Isfahan",
+      "country": "Iran",
+      "national_team": false,
+      "stadium": "Naghsh-e Jahan Stadium"
+    },
+    {
+      "capacity": 66833,
+      "city": "Tabriz",
+      "country": "Iran",
+      "national_team": false,
+      "stadium": "Sahand Stadium"
+    },
+    {
+      "capacity": 50000,
+      "city": "Shiraz",
+      "country": "Iran",
+      "national_team": false,
+      "stadium": "Pars Shiraz Stadium"
+    },
+    {
+      "country": "Iraq",
+      "stadium": "Basra International Stadium",
+      "city": "Basra",
+      "capacity": 65000,
+      "national_team": true
+    },
+    {
+      "capacity": 35700,
+      "city": "Baghdad",
+      "country": "Iraq",
+      "national_team": false,
+      "stadium": "Al-Shaab Stadium"
+    },
+    {
+      "capacity": 32000,
+      "city": "Baghdad",
+      "country": "Iraq",
+      "national_team": false,
+      "stadium": "Al-Madina Stadium"
+    },
+    {
+      "country": "Israel",
+      "stadium": "Teddy Stadium",
+      "city": "Jerusalem",
+      "capacity": 31733,
+      "national_team": true
+    },
+    {
+      "capacity": 30950,
+      "city": "Haifa",
+      "country": "Israel",
+      "national_team": false,
+      "stadium": "Sammy Ofer Stadium"
+    },
+    {
+      "capacity": 29400,
+      "city": "Tel Aviv",
+      "country": "Israel",
+      "national_team": false,
+      "stadium": "Bloomfield Stadium"
+    },
+    {
+      "capacity": 16126,
+      "city": "Beersheba",
+      "country": "Israel",
+      "national_team": false,
+      "stadium": "Turner Stadium"
+    },
+    {
+      "capacity": 13610,
+      "city": "Netanya",
+      "country": "Israel",
+      "national_team": false,
+      "stadium": "Netanya Stadium"
+    },
+    {
+      "country": "Italy",
+      "stadium": "San Siro",
+      "city": "Milan",
+      "capacity": 75817,
+      "national_team": true
+    },
+    {
+      "capacity": 70634,
+      "city": "Rome",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Olimpico"
+    },
+    {
+      "capacity": 58270,
+      "city": "Bari",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio San Nicola"
+    },
+    {
+      "capacity": 54732,
+      "city": "Naples",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Diego Armando Maradona"
+    },
+    {
+      "capacity": 43147,
+      "city": "Florence",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Artemio Franchi"
+    },
+    {
+      "capacity": 41507,
+      "city": "Turin",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Juventus Stadium"
+    },
+    {
+      "capacity": 39371,
+      "city": "Verona",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Marc'Antonio Bentegodi"
+    },
+    {
+      "capacity": 38722,
+      "city": "Messina",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio San Filippo - Franco Scoglio"
+    },
+    {
+      "capacity": 38279,
+      "city": "Bologna",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Renato Dall'Ara"
+    },
+    {
+      "capacity": 36349,
+      "city": "Palermo",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Renzo Barbera"
+    },
+    {
+      "capacity": 33205,
+      "city": "Genoa",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Luigi Ferraris"
+    },
+    {
+      "capacity": 32336,
+      "city": "Padua",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Euganeo"
+    },
+    {
+      "capacity": 31533,
+      "city": "Lecce",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Via del Mare"
+    },
+    {
+      "capacity": 31300,
+      "city": "Salerno",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Arechi"
+    },
+    {
+      "capacity": 30000,
+      "city": "Rome",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Flaminio"
+    },
+    {
+      "capacity": 28000,
+      "city": "Perugia",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Renato Curi"
+    },
+    {
+      "capacity": 27958,
+      "city": "Turin",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Olimpico Grande Torino"
+    },
+    {
+      "capacity": 27584,
+      "city": "Taranto",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Erasmo Iacovone"
+    },
+    {
+      "capacity": 27543,
+      "city": "Reggio Calabria",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Oreste Granillo"
+    },
+    {
+      "capacity": 26566,
+      "city": "Trieste",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Nereo Rocco"
+    },
+    {
+      "capacity": 26000,
+      "city": "Avellino",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Partenio-Adriano Lombardi"
+    },
+    {
+      "capacity": 25554,
+      "city": "Benevento",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Ciro Vigorito"
+    },
+    {
+      "capacity": 25144,
+      "city": "Udine",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Friuli"
+    },
+    {
+      "capacity": 25085,
+      "city": "Foggia",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Pino Zaccheria"
+    },
+    {
+      "capacity": 25000,
+      "city": "Pisa",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Arena Garibaldi"
+    },
+    {
+      "capacity": 24950,
+      "city": "Bergamo",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Gewiss Stadium"
+    },
+    {
+      "capacity": 24479,
+      "city": "Cosenza",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio San Vito"
+    },
+    {
+      "capacity": 23976,
+      "city": "Ancona",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio del Conero"
+    },
+    {
+      "capacity": 23717,
+      "city": "Reggio Emilia",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Mapei Stadium – Città del Tricolore"
+    },
+    {
+      "capacity": 23266,
+      "city": "Catania",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Angelo Massimino"
+    },
+    {
+      "capacity": 22352,
+      "city": "Parma",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Ennio Tardini"
+    },
+    {
+      "capacity": 22000,
+      "city": "San Benedetto del Tronto",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Riviera delle Palme"
+    },
+    {
+      "capacity": 21668,
+      "city": "Piacenza",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Leonardo Garilli"
+    },
+    {
+      "capacity": 21092,
+      "city": "Modena",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Alberto Braglia"
+    },
+    {
+      "capacity": 20641,
+      "city": "Cremona",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Giovanni Zini"
+    },
+    {
+      "capacity": 20550,
+      "city": "Ascoli Piceno",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Cino e Lillo Del Duca"
+    },
+    {
+      "capacity": 20515,
+      "city": "Pescara",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Adriatico"
+    },
+    {
+      "capacity": 20194,
+      "city": "Cesena",
+      "country": "Italy",
+      "national_team": false,
+      "stadium": "Stadio Dino Manuzzi"
+    },
+    {
+      "capacity": 60000,
+      "city": "Abidjan",
+      "country": "Ivory Coast",
+      "stadium": "Alassane Ouattara Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 40000,
+      "city": "Bouaké",
+      "country": "Ivory Coast",
+      "national_team": false,
+      "stadium": "Stade de la Paix"
+    },
+    {
+      "capacity": 33000,
+      "city": "Abidjan",
+      "country": "Ivory Coast",
+      "national_team": false,
+      "stadium": "Stade Félix Houphouët-Boigny"
+    },
+    {
+      "capacity": 20000,
+      "city": "Yamoussoukro",
+      "country": "Ivory Coast",
+      "national_team": false,
+      "stadium": "Charles Konan Banny Stadium"
+    },
+    {
+      "country": "Jamaica",
+      "stadium": "Independence Park",
+      "city": "Kingston",
+      "capacity": 35000,
+      "national_team": true
+    },
+    {
+      "capacity": 25000,
+      "city": "Trelawny",
+      "country": "Jamaica",
+      "national_team": false,
+      "stadium": "Trelawny Stadium"
+    },
+    {
+      "capacity": 15600,
+      "city": "Kingston",
+      "country": "Jamaica",
+      "national_team": false,
+      "stadium": "Sabina Park"
+    },
+    {
+      "capacity": 72327,
+      "city": "Yokohama",
+      "country": "Japan",
+      "national_team": false,
+      "stadium": "Nissan Stadium"
+    },
+    {
+      "capacity": 67750,
+      "city": "Tokyo",
+      "country": "Japan",
+      "stadium": "Japan National Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 63700,
+      "city": "Saitama",
+      "country": "Japan",
+      "national_team": false,
+      "stadium": "Saitama Stadium 2002"
+    },
+    {
+      "capacity": 50889,
+      "city": "Shizuoka",
+      "country": "Japan",
+      "national_team": false,
+      "stadium": "Shizuoka Stadium"
+    },
+    {
+      "capacity": 17619,
+      "city": "Amman",
+      "country": "Jordan",
+      "stadium": "Amman International Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 13265,
+      "city": "Amman",
+      "country": "Jordan",
+      "national_team": false,
+      "stadium": "King Abdullah II Stadium"
+    },
+    {
+      "capacity": 12301,
+      "city": "Irbid",
+      "country": "Jordan",
+      "national_team": false,
+      "stadium": "Al-Hassan Stadium"
+    },
+    {
+      "capacity": 11402,
+      "city": "Zarqa",
+      "country": "Jordan",
+      "national_team": false,
+      "stadium": "Prince Mohammed Stadium"
+    },
+    {
+      "country": "Kazakhstan",
+      "stadium": "Astana Arena",
+      "city": "Astana",
+      "capacity": 30244,
+      "national_team": true
+    },
+    {
+      "capacity": 23804,
+      "city": "Almaty",
+      "country": "Kazakhstan",
+      "national_team": false,
+      "stadium": "Almaty Central Stadium"
+    },
+    {
+      "capacity": 20000,
+      "city": "Shymkent",
+      "country": "Kazakhstan",
+      "national_team": false,
+      "stadium": "Kazhymukan Munaitpasov Stadium"
+    },
+    {
+      "capacity": 19500,
+      "city": "Karagandy",
+      "country": "Kazakhstan",
+      "national_team": false,
+      "stadium": "Shakhtyor Stadium"
+    },
+    {
+      "capacity": 13500,
+      "city": "Aktobe",
+      "country": "Kazakhstan",
+      "national_team": false,
+      "stadium": "Aktobe Central Stadium"
+    },
+    {
+      "capacity": 18500,
+      "city": "Mitrovica",
+      "country": "Kosovo",
+      "national_team": false,
+      "stadium": "Adem Jashari Olympic Stadium"
+    },
+    {
+      "country": "Kosovo",
+      "stadium": "Fadil Vokrri Stadium",
+      "city": "Pristina",
+      "capacity": 15500,
+      "national_team": true
+    },
+    {
+      "capacity": 15000,
+      "city": "Gjilan",
+      "country": "Kosovo",
+      "national_team": false,
+      "stadium": "Gjilan City Stadium"
+    },
+    {
+      "capacity": 10000,
+      "city": "Drenas",
+      "country": "Kosovo",
+      "national_team": false,
+      "stadium": "Rexhep Rexhepi Stadium"
+    },
+    {
+      "capacity": 23000,
+      "city": "Bishkek",
+      "country": "Kyrgyzstan",
+      "stadium": "Dolen Omurzakov Stadium",
+      "national_team": true
+    },
+    {
+      "country": "Latvia",
+      "stadium": "Daugava National Stadium",
+      "city": "Riga",
+      "capacity": 10461,
+      "national_team": true
+    },
+    {
+      "capacity": 49500,
+      "city": "Beirut",
+      "country": "Lebanon",
+      "stadium": "Camille Chamoun Sports City Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 22600,
+      "city": "Sidon",
+      "country": "Lebanon",
+      "national_team": false,
+      "stadium": "Saida Municipal Stadium"
+    },
+    {
+      "capacity": 22400,
+      "city": "Tripoli",
+      "country": "Lebanon",
+      "national_team": false,
+      "stadium": "Tripoli International Olympic Stadium"
+    },
+    {
+      "capacity": 18000,
+      "city": "Beirut",
+      "country": "Lebanon",
+      "national_team": false,
+      "stadium": "Beirut Municipal Stadium"
+    },
+    {
+      "country": "Liechtenstein",
+      "stadium": "Rheinpark Stadion",
+      "city": "Vaduz",
+      "capacity": 7584,
+      "national_team": true
+    },
+    {
+      "capacity": 2100,
+      "city": "Triesen",
+      "country": "Liechtenstein",
+      "national_team": false,
+      "stadium": "Sportanlage Blumenau"
+    },
+    {
+      "capacity": 2000,
+      "city": "Balzers",
+      "country": "Liechtenstein",
+      "national_team": false,
+      "stadium": "Sportplatz Rheinau"
+    },
+    {
+      "capacity": 2000,
+      "city": "Eschen",
+      "country": "Liechtenstein",
+      "national_team": false,
+      "stadium": "Sportpark Eschen-Mauren"
+    },
+    {
+      "capacity": 1500,
+      "city": "Schaan",
+      "country": "Liechtenstein",
+      "national_team": false,
+      "stadium": "Sportanlage Rheinwiese"
+    },
+    {
+      "capacity": 15026,
+      "city": "Kaunas",
+      "country": "Lithuania",
+      "stadium": "Darius and Girėnas Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 15026,
+      "city": "Kaunas",
+      "country": "Lithuania",
+      "national_team": false,
+      "stadium": "S.Dariaus ir S.Girėno Stadium"
+    },
+    {
+      "country": "Luxembourg",
+      "stadium": "Stade de Luxembourg",
+      "city": "Luxembourg City",
+      "capacity": 9386,
+      "national_team": true
+    },
+    {
+      "capacity": 8054,
+      "city": "Luxembourg City",
+      "country": "Luxembourg",
+      "national_team": false,
+      "stadium": "Stade Josy Barthel"
+    },
+    {
+      "capacity": 6300,
+      "city": "Differdange",
+      "country": "Luxembourg",
+      "national_team": false,
+      "stadium": "Stade du Thillenberg"
+    },
+    {
+      "capacity": 5814,
+      "city": "Luxembourg City",
+      "country": "Luxembourg",
+      "national_team": false,
+      "stadium": "Stade Achille Hammerel"
+    },
+    {
+      "capacity": 4900,
+      "city": "Beggen",
+      "country": "Luxembourg",
+      "national_team": false,
+      "stadium": "Stade rue Henri Dunant"
+    },
+    {
+      "capacity": 50000,
+      "city": "Bamako",
+      "country": "Mali",
+      "stadium": "Stade du 26 Mars",
+      "national_team": true
+    },
+    {
+      "capacity": 35000,
+      "city": "Bamako",
+      "country": "Mali",
+      "national_team": false,
+      "stadium": "Stade Modibo Kéïta"
+    },
+    {
+      "capacity": 30000,
+      "city": "Sikasso",
+      "country": "Mali",
+      "national_team": false,
+      "stadium": "Stade Babemba Traoré"
+    },
+    {
+      "capacity": 30000,
+      "city": "Kayes",
+      "country": "Mali",
+      "national_team": false,
+      "stadium": "Stade Abdoulaye Nakoro Cissoko"
+    },
+    {
+      "country": "Malta",
+      "stadium": "Grawnd Nazzjonali",
+      "city": "Ta' Qali",
+      "capacity": 16997,
+      "national_team": false
+    },
+    {
+      "capacity": 16907,
+      "city": "Ta' Qali",
+      "country": "Malta",
+      "stadium": "National Stadium, Ta' Qali",
+      "national_team": true
+    },
+    {
+      "country": "Martinique",
+      "stadium": "Stade Pierre-Aliker",
+      "city": "Fort-de-France",
+      "capacity": 16300,
+      "national_team": true
+    },
+    {
+      "country": "Mexico",
+      "stadium": "Estadio Azteca",
+      "city": "Mexico City",
+      "capacity": 87523,
+      "national_team": true
+    },
+    {
+      "capacity": 55110,
+      "city": "Guadalajara",
+      "country": "Mexico",
+      "national_team": false,
+      "stadium": "Estadio Jalisco"
+    },
+    {
+      "capacity": 51348,
+      "city": "Guadalupe",
+      "country": "Mexico",
+      "national_team": false,
+      "stadium": "Estadio BBVA"
+    },
+    {
+      "capacity": 48297,
+      "city": "Mexico City",
+      "country": "Mexico",
+      "national_team": false,
+      "stadium": "Estadio Olímpico Universitario"
+    },
+    {
+      "capacity": 46928,
+      "city": "Puebla City",
+      "country": "Mexico",
+      "national_team": false,
+      "stadium": "Estadio Cuauhtémoc"
+    },
+    {
+      "country": "Moldova",
+      "stadium": "Sheriff Stadium",
+      "city": "Tiraspol",
+      "capacity": 14300,
+      "national_team": false
+    },
+    {
+      "country": "Moldova",
+      "stadium": "Zimbru Stadium",
+      "city": "Chișinău",
+      "capacity": 10500,
+      "national_team": true
+    },
+    {
+      "country": "Montenegro",
+      "stadium": "Pod Gorica Stadium",
+      "city": "Podgorica",
+      "capacity": 17000,
+      "national_team": false
+    },
+    {
+      "capacity": 11080,
+      "city": "Podgorica",
+      "country": "Montenegro",
+      "stadium": "Podgorica City Stadium",
+      "national_team": true
+    },
+    {
+      "country": "Montenegro",
+      "stadium": "Gradski Stadion Berane",
+      "city": "Berane",
+      "capacity": 11000,
+      "national_team": false
+    },
+    {
+      "country": "Montenegro",
+      "stadium": "Stadion Gradski",
+      "city": "Nikšić",
+      "capacity": 10800,
+      "national_team": false
+    },
+    {
+      "capacity": 1000,
+      "city": "Lookout",
+      "country": "Montserrat",
+      "stadium": "Blakes Estate Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 75600,
+      "city": "Tangier",
+      "country": "Morocco",
+      "stadium": "Ibn Batouta Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 45480,
+      "city": "Agadir",
+      "country": "Morocco",
+      "national_team": false,
+      "stadium": "Stade Adrar"
+    },
+    {
+      "capacity": 45240,
+      "city": "Marrakesh",
+      "country": "Morocco",
+      "national_team": false,
+      "stadium": "Stade de Marrakech"
+    },
+    {
+      "capacity": 45000,
+      "city": "Fez",
+      "country": "Morocco",
+      "national_team": false,
+      "stadium": "Stade de Fès"
+    },
+    {
+      "country": "Netherlands",
+      "stadium": "Johan Cruyff Arena",
+      "city": "Amsterdam",
+      "capacity": 55865,
+      "national_team": true
+    },
+    {
+      "country": "Netherlands",
+      "stadium": "De Kuip",
+      "city": "Rotterdam",
+      "capacity": 51177,
+      "national_team": false
+    },
+    {
+      "country": "Netherlands",
+      "stadium": "Philips Stadion",
+      "city": "Eindhoven",
+      "capacity": 35000,
+      "national_team": false
+    },
+    {
+      "country": "Netherlands",
+      "stadium": "Grolsch Veste",
+      "city": "Enschede",
+      "capacity": 30206,
+      "national_team": false
+    },
+    {
+      "country": "Netherlands",
+      "stadium": "Abe Lenstra Stadion",
+      "city": "Heerenveen",
+      "capacity": 26800,
+      "national_team": false
+    },
+    {
+      "country": "Nicaragua",
+      "stadium": "Estadio Nacional de Fútbol",
+      "city": "Managua",
+      "capacity": 20000,
+      "national_team": true
+    },
+    {
+      "capacity": 60000,
+      "city": "Jos",
+      "country": "Nigeria",
+      "national_team": false,
+      "stadium": "Jos International Stadium"
+    },
+    {
+      "capacity": 45000,
+      "city": "Lagos",
+      "country": "Nigeria",
+      "national_team": false,
+      "stadium": "Lagos National Stadium"
+    },
+    {
+      "capacity": 38000,
+      "city": "Port Harcourt",
+      "country": "Nigeria",
+      "national_team": false,
+      "stadium": "Adokiye Amiesimaka Stadium"
+    },
+    {
+      "capacity": 30000,
+      "city": "Uyo",
+      "country": "Nigeria",
+      "stadium": "Godswill Akpabio International Stadium",
+      "national_team": true
+    },
+    {
+      "country": "North Macedonia",
+      "stadium": "Toše Proeski Arena",
+      "city": "Skopje",
+      "capacity": 36460,
+      "national_team": true
+    },
+    {
+      "country": "North Macedonia",
+      "stadium": "Stadion Goce Delčev",
+      "city": "Prilep",
+      "capacity": 15000,
+      "national_team": false
+    },
+    {
+      "country": "North Macedonia",
+      "stadium": "Ecolog Arena",
+      "city": "Tetovo",
+      "capacity": 15000,
+      "national_team": false
+    },
+    {
+      "country": "North Macedonia",
+      "stadium": "Petar Miloševski Football Stadium",
+      "city": "Bitola",
+      "capacity": 10000,
+      "national_team": false
+    },
+    {
+      "country": "Northern Ireland",
+      "stadium": "The Oval",
+      "city": "Belfast",
+      "capacity": 26556,
+      "national_team": false
+    },
+    {
+      "country": "Northern Ireland",
+      "stadium": "Windsor Park",
+      "city": "Belfast",
+      "capacity": 12950,
+      "national_team": true
+    },
+    {
+      "country": "Norway",
+      "stadium": "Ullevaal Stadion",
+      "city": "Oslo",
+      "capacity": 28000,
+      "national_team": true
+    },
+    {
+      "country": "Norway",
+      "stadium": "Lerkendal Stadion",
+      "city": "Trondheim",
+      "capacity": 21166,
+      "national_team": false
+    },
+    {
+      "country": "Norway",
+      "stadium": "Brann Stadion",
+      "city": "Bergen",
+      "capacity": 18500,
+      "national_team": false
+    },
+    {
+      "country": "Norway",
+      "stadium": "Intility Arena",
+      "city": "Oslo",
+      "capacity": 17333,
+      "national_team": false
+    },
+    {
+      "country": "Norway",
+      "stadium": "Viking Stadion",
+      "city": "Stavanger",
+      "capacity": 16500,
+      "national_team": false
+    },
+    {
+      "capacity": 34000,
+      "city": "Muscat",
+      "country": "Oman",
+      "stadium": "Sultan Qaboos Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 20000,
+      "city": "Salalah",
+      "country": "Oman",
+      "national_team": false,
+      "stadium": "Al-Saada Stadium"
+    },
+    {
+      "capacity": 19000,
+      "city": "Sohar",
+      "country": "Oman",
+      "national_team": false,
+      "stadium": "Sohar Regional Sports Complex Stadium"
+    },
+    {
+      "capacity": 17000,
+      "city": "Al-Buraimi",
+      "country": "Oman",
+      "national_team": false,
+      "stadium": "Al-Buraimi Sports Stadium"
+    },
+    {
+      "capacity": 18000,
+      "city": "Hebron",
+      "country": "Palestine",
+      "national_team": false,
+      "stadium": "Dura International Stadium"
+    },
+    {
+      "capacity": 15000,
+      "city": "Jericho",
+      "country": "Palestine",
+      "national_team": false,
+      "stadium": "Jericho International Stadium"
+    },
+    {
+      "capacity": 12500,
+      "city": "Al-Ram",
+      "country": "Palestine",
+      "stadium": "Faisal Al-Husseini International Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 10000,
+      "city": "Gaza City",
+      "country": "Palestine",
+      "national_team": false,
+      "stadium": "Palestine Stadium"
+    },
+    {
+      "country": "Panama",
+      "stadium": "Estadio Rommel Fernández",
+      "city": "Panama City",
+      "capacity": 23000,
+      "national_team": true
+    },
+    {
+      "capacity": 6000,
+      "city": "Panama City",
+      "country": "Panama",
+      "national_team": false,
+      "stadium": "Estadio Maracaná"
+    },
+    {
+      "capacity": 45000,
+      "city": "Asunción",
+      "country": "Paraguay",
+      "national_team": false,
+      "stadium": "Estadio General Pablo Rojas"
+    },
+    {
+      "country": "Paraguay",
+      "stadium": "Estadio Defensores del Chaco",
+      "city": "Asunción",
+      "capacity": 42354,
+      "national_team": true
+    },
+    {
+      "capacity": 32000,
+      "city": "Asunción",
+      "country": "Paraguay",
+      "national_team": false,
+      "stadium": "Estadio Osvaldo Domínguez Dibb"
+    },
+    {
+      "capacity": 28000,
+      "city": "Ciudad del Este",
+      "country": "Paraguay",
+      "national_team": false,
+      "stadium": "Estadio Antonio Aranda"
+    },
+    {
+      "capacity": 25000,
+      "city": "Pedro Juan Caballero",
+      "country": "Paraguay",
+      "national_team": false,
+      "stadium": "Monumental Río Parapití"
+    },
+    {
+      "capacity": 80093,
+      "city": "Lima",
+      "country": "Peru",
+      "national_team": false,
+      "stadium": "Estadio Monumental \"U\""
+    },
+    {
+      "capacity": 60370,
+      "city": "Arequipa",
+      "country": "Peru",
+      "national_team": false,
+      "stadium": "Estadio Monumental de la UNSA"
+    },
+    {
+      "country": "Peru",
+      "stadium": "Estadio Nacional del Peru",
+      "city": "Lima",
+      "capacity": 53086,
+      "national_team": true
+    },
+    {
+      "capacity": 45056,
+      "city": "Cusco",
+      "country": "Peru",
+      "national_team": false,
+      "stadium": "Estadio Garcilaso"
+    },
+    {
+      "capacity": 35938,
+      "city": "Lima",
+      "country": "Peru",
+      "national_team": false,
+      "stadium": "Estadio Alejandro Villanueva"
+    },
+    {
+      "capacity": 58580,
+      "city": "Warsaw",
+      "country": "Poland",
+      "stadium": "PGE Narodowy",
+      "national_team": true
+    },
+    {
+      "country": "Poland",
+      "stadium": "Stadion Narodowy",
+      "city": "Warsaw",
+      "capacity": 58580,
+      "national_team": false
+    },
+    {
+      "country": "Poland",
+      "stadium": "Silesian Stadium",
+      "city": "Chorzów",
+      "capacity": 55211,
+      "national_team": false
+    },
+    {
+      "country": "Poland",
+      "stadium": "Poznań Stadium",
+      "city": "Poznań",
+      "capacity": 42837,
+      "national_team": false
+    },
+    {
+      "country": "Poland",
+      "stadium": "Wrocław Stadium",
+      "city": "Wrocław",
+      "capacity": 42771,
+      "national_team": false
+    },
+    {
+      "country": "Poland",
+      "stadium": "Gdańsk Stadium",
+      "city": "Gdańsk",
+      "capacity": 41620,
+      "national_team": false
+    },
+    {
+      "country": "Portugal",
+      "stadium": "Estádio da Luz",
+      "city": "Lisbon",
+      "capacity": 68100,
+      "national_team": false
+    },
+    {
+      "country": "Portugal",
+      "stadium": "Estádio José Alvalade",
+      "city": "Lisbon",
+      "capacity": 52095,
+      "national_team": false
+    },
+    {
+      "country": "Portugal",
+      "stadium": "Estádio do Dragão",
+      "city": "Porto",
+      "capacity": 50033,
+      "national_team": false
+    },
+    {
+      "country": "Portugal",
+      "stadium": "Estádio Nacional",
+      "city": "Oeiras",
+      "capacity": 37593,
+      "national_team": true
+    },
+    {
+      "country": "Portugal",
+      "stadium": "Estádio Municipal de Aveiro",
+      "city": "Aveiro",
+      "capacity": 32830,
+      "national_team": false
+    },
+    {
+      "capacity": 24000,
+      "city": "Bayamón",
+      "country": "Puerto Rico",
+      "stadium": "Juan Ramón Loubriel Stadium",
+      "national_team": true
+    },
+    {
+      "country": "Qatar",
+      "stadium": "Lusail Stadium",
+      "city": "Lusail",
+      "capacity": 88966,
+      "national_team": false
+    },
+    {
+      "country": "Qatar",
+      "stadium": "Al Bayt Stadium",
+      "city": "Al Khor",
+      "capacity": 68895,
+      "national_team": false
+    },
+    {
+      "capacity": 45857,
+      "city": "Al Rayyan",
+      "country": "Qatar",
+      "stadium": "Khalifa International Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 45032,
+      "city": "Al Rayyan",
+      "country": "Qatar",
+      "national_team": false,
+      "stadium": "Ahmad bin Ali Stadium"
+    },
+    {
+      "country": "Republic of Ireland",
+      "stadium": "Aviva Stadium",
+      "city": "Dublin",
+      "capacity": 51700,
+      "national_team": true
+    },
+    {
+      "capacity": 10500,
+      "city": "Tallaght",
+      "country": "Republic of Ireland",
+      "national_team": false,
+      "stadium": "Tallaght Stadium"
+    },
+    {
+      "country": "Romania",
+      "stadium": "Arena Națională",
+      "city": "Bucharest",
+      "capacity": 55634,
+      "national_team": true
+    },
+    {
+      "country": "Romania",
+      "stadium": "Stadionul Dan Păltinișanu",
+      "city": "Timișoara",
+      "capacity": 33000,
+      "national_team": false
+    },
+    {
+      "country": "Romania",
+      "stadium": "Stadionul Municipal",
+      "city": "Medgidia",
+      "capacity": 32700,
+      "national_team": false
+    },
+    {
+      "country": "Romania",
+      "stadium": "Stadionul Steaua",
+      "city": "Bucharest",
+      "capacity": 31254,
+      "national_team": false
+    },
+    {
+      "country": "Romania",
+      "stadium": "Stadionul Ion Oblemenco",
+      "city": "Craiova",
+      "capacity": 30929,
+      "national_team": false
+    },
+    {
+      "country": "Russia",
+      "stadium": "Luzhniki Stadium",
+      "city": "Moscow",
+      "capacity": 81000,
+      "national_team": true
+    },
+    {
+      "country": "Russia",
+      "stadium": "Krestovsky Stadium",
+      "city": "Saint Petersburg",
+      "capacity": 67800,
+      "national_team": false
+    },
+    {
+      "country": "Russia",
+      "stadium": "Fisht Olympic Stadium",
+      "city": "Sochi",
+      "capacity": 45994,
+      "national_team": false
+    },
+    {
+      "country": "Russia",
+      "stadium": "Volgograd Arena",
+      "city": "Volgograd",
+      "capacity": 45568,
+      "national_team": false
+    },
+    {
+      "country": "Russia",
+      "stadium": "Ak Bars Arena",
+      "city": "Kazan",
+      "capacity": 45379,
+      "national_team": false
+    },
+    {
+      "capacity": 3500,
+      "city": "Basseterre",
+      "country": "Saint Kitts and Nevis",
+      "stadium": "Warner Park",
+      "national_team": true
+    },
+    {
+      "capacity": 9000,
+      "city": "Vieux Fort",
+      "country": "Saint Lucia",
+      "stadium": "George Odlum Stadium",
+      "national_team": true
+    },
+    {
+      "country": "Saint Vincent and the Grenadines",
+      "stadium": "Arnos Vale Stadium",
+      "city": "Kingstown",
+      "capacity": 18000,
+      "national_team": true
+    },
+    {
+      "country": "San Marino",
+      "stadium": "San Marino Stadium",
+      "city": "Serravalle",
+      "capacity": 4798,
+      "national_team": true
+    },
+    {
+      "country": "San Marino",
+      "stadium": "Stadio di Dogana Ezio Conti",
+      "city": "Dogana",
+      "capacity": 1200,
+      "national_team": false
+    },
+    {
+      "country": "San Marino",
+      "stadium": "Stadio di Acquaviva",
+      "city": "Acquaviva",
+      "capacity": 700,
+      "national_team": false
+    },
+    {
+      "capacity": 92000,
+      "city": "Riyadh",
+      "country": "Saudi Arabia",
+      "stadium": "King Fahd Sports City Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 65000,
+      "city": "Jeddah",
+      "country": "Saudi Arabia",
+      "national_team": false,
+      "stadium": "King Abdullah Sports City Stadium"
+    },
+    {
+      "capacity": 38000,
+      "city": "Mecca",
+      "country": "Saudi Arabia",
+      "national_team": false,
+      "stadium": "King Abdulaziz Sports City Stadium"
+    },
+    {
+      "capacity": 27000,
+      "city": "Jeddah",
+      "country": "Saudi Arabia",
+      "national_team": false,
+      "stadium": "Prince Abdullah Al-Faisal Sports City Stadium"
+    },
+    {
+      "capacity": 26004,
+      "city": "Riyadh",
+      "country": "Saudi Arabia",
+      "stadium": "Al-Awwal Park",
+      "national_team": true
+    },
+    {
+      "capacity": 26000,
+      "city": "Riyadh",
+      "country": "Saudi Arabia",
+      "stadium": "Kingdom Arena",
+      "national_team": false
+    },
+    {
+      "country": "Scotland",
+      "stadium": "Celtic Park",
+      "city": "Glasgow",
+      "capacity": 60411,
+      "national_team": false
+    },
+    {
+      "country": "Scotland",
+      "stadium": "Hampden Park",
+      "city": "Glasgow",
+      "capacity": 51866,
+      "national_team": true
+    },
+    {
+      "country": "Scotland",
+      "stadium": "Ibrox Stadium",
+      "city": "Glasgow",
+      "capacity": 51700,
+      "national_team": false
+    },
+    {
+      "country": "Scotland",
+      "stadium": "Pittodrie Stadium",
+      "city": "Aberdeen",
+      "capacity": 20866,
+      "national_team": false
+    },
+    {
+      "country": "Scotland",
+      "stadium": "Easter Road",
+      "city": "Edinburgh",
+      "capacity": 20421,
+      "national_team": false
+    },
+    {
+      "capacity": 50000,
+      "city": "Dakar",
+      "country": "Senegal",
+      "stadium": "Stade Abdoulaye Wade",
+      "national_team": true
+    },
+    {
+      "capacity": 40000,
+      "city": "Dakar",
+      "country": "Senegal",
+      "national_team": false,
+      "stadium": "Stade Léopold Sédar Senghor"
+    },
+    {
+      "capacity": 15000,
+      "city": "Dakar",
+      "country": "Senegal",
+      "national_team": false,
+      "stadium": "Stade de Diaraf"
+    },
+    {
+      "capacity": 15000,
+      "city": "Dakar",
+      "country": "Senegal",
+      "national_team": false,
+      "stadium": "Stade Demba Diop"
+    },
+    {
+      "country": "Serbia",
+      "stadium": "Red Star Stadium",
+      "city": "Belgrade",
+      "capacity": 55000,
+      "national_team": true
+    },
+    {
+      "country": "Serbia",
+      "stadium": "Partizan Stadium",
+      "city": "Belgrade",
+      "capacity": 32710,
+      "national_team": false
+    },
+    {
+      "country": "Serbia",
+      "stadium": "Subotica City Stadium",
+      "city": "Subotica",
+      "capacity": 28000,
+      "national_team": false
+    },
+    {
+      "country": "Serbia",
+      "stadium": "Omladinski Stadium",
+      "city": "Belgrade",
+      "capacity": 25000,
+      "national_team": false
+    },
+    {
+      "country": "Serbia",
+      "stadium": "Čika Dača Stadium",
+      "city": "Kragujevac",
+      "capacity": 22058,
+      "national_team": false
+    },
+    {
+      "capacity": 3000,
+      "city": "Philipsburg",
+      "country": "Sint Maarten",
+      "stadium": "Raoul Illidge Sports Complex",
+      "national_team": true
+    },
+    {
+      "country": "Slovakia",
+      "stadium": "Tehelné pole",
+      "city": "Bratislava",
+      "capacity": 22500,
+      "national_team": true
+    },
+    {
+      "country": "Slovakia",
+      "stadium": "Štadión Antona Malatinského",
+      "city": "Trnava",
+      "capacity": 19200,
+      "national_team": false
+    },
+    {
+      "country": "Slovakia",
+      "stadium": "DAC Stadion",
+      "city": "Dunajská Streda",
+      "capacity": 16410,
+      "national_team": false
+    },
+    {
+      "country": "Slovakia",
+      "stadium": "Štadión Pasienky",
+      "city": "Bratislava",
+      "capacity": 11591,
+      "national_team": false
+    },
+    {
+      "country": "Slovakia",
+      "stadium": "Štadión pod Zoborom",
+      "city": "Nitra",
+      "capacity": 11384,
+      "national_team": false
+    },
+    {
+      "capacity": 16038,
+      "city": "Ljubljana",
+      "country": "Slovenia",
+      "stadium": "Stadion Stožice",
+      "national_team": true
+    },
+    {
+      "country": "Slovenia",
+      "stadium": "Stožice Stadium",
+      "city": "Ljubljana",
+      "capacity": 16038,
+      "national_team": false
+    },
+    {
+      "country": "Slovenia",
+      "stadium": "Stadion Z'dežele",
+      "city": "Celje",
+      "capacity": 13059,
+      "national_team": false
+    },
+    {
+      "country": "Slovenia",
+      "stadium": "Ljudski vrt",
+      "city": "Maribor",
+      "capacity": 11709,
+      "national_team": false
+    },
+    {
+      "capacity": 94736,
+      "city": "Johannesburg",
+      "country": "South Africa",
+      "stadium": "FNB Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 55500,
+      "city": "Durban",
+      "country": "South Africa",
+      "national_team": false,
+      "stadium": "Moses Mabhida Stadium"
+    },
+    {
+      "capacity": 55000,
+      "city": "Cape Town",
+      "country": "South Africa",
+      "national_team": false,
+      "stadium": "Cape Town Stadium"
+    },
+    {
+      "capacity": 51762,
+      "city": "Pretoria",
+      "country": "South Africa",
+      "national_team": false,
+      "stadium": "Loftus Versfeld Stadium"
+    },
+    {
+      "capacity": 69950,
+      "city": "Seoul",
+      "country": "South Korea",
+      "national_team": false,
+      "stadium": "Seoul Olympic Stadium"
+    },
+    {
+      "country": "South Korea",
+      "stadium": "Seoul World Cup Stadium",
+      "city": "Seoul",
+      "capacity": 66806,
+      "national_team": true
+    },
+    {
+      "capacity": 66422,
+      "city": "Daegu",
+      "country": "South Korea",
+      "national_team": false,
+      "stadium": "Daegu Stadium"
+    },
+    {
+      "capacity": 83186,
+      "city": "Madrid",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "Santiago Bernabéu"
+    },
+    {
+      "country": "Spain",
+      "stadium": "Estadio La Cartuja",
+      "city": "Seville",
+      "capacity": 71374,
+      "national_team": true
+    },
+    {
+      "capacity": 70813,
+      "city": "Madrid",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "Metropolitano"
+    },
+    {
+      "capacity": 70044,
+      "city": "Valencia",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "Nou Mestalla"
+    },
+    {
+      "capacity": 62652,
+      "city": "Barcelona",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "Camp Nou"
+    },
+    {
+      "capacity": 60270,
+      "city": "Sevilla",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "Benito Villamarín"
+    },
+    {
+      "capacity": 55926,
+      "city": "Barcelona",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "Estadi Olímpic Lluís Companys"
+    },
+    {
+      "capacity": 53331,
+      "city": "Bilbao",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "San Mamés"
+    },
+    {
+      "capacity": 49430,
+      "city": "Valencia",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "Mestalla"
+    },
+    {
+      "capacity": 43864,
+      "city": "Sevilla",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "Ramón Sánchez Pizjuán"
+    },
+    {
+      "capacity": 40000,
+      "city": "Donostia-San Sebastián",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "Reale Arena"
+    },
+    {
+      "capacity": 38529,
+      "city": "Cornellà de Llobregat",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "RCDE Stadium"
+    },
+    {
+      "capacity": 33608,
+      "city": "Zaragoza",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "La Romareda"
+    },
+    {
+      "capacity": 32490,
+      "city": "A Coruña",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "Riazor"
+    },
+    {
+      "capacity": 32400,
+      "city": "Las Palmas",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "Estadio Gran Canaria"
+    },
+    {
+      "capacity": 31388,
+      "city": "Elche",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "Martínez Valero"
+    },
+    {
+      "capacity": 31179,
+      "city": "Murcia",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "Nueva Condomina"
+    },
+    {
+      "capacity": 30500,
+      "city": "Oviedo",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "Carlos Tartiere"
+    },
+    {
+      "capacity": 30044,
+      "city": "Málaga",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "La Rosaleda"
+    },
+    {
+      "capacity": 29371,
+      "city": "Gijón",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "El Molinón"
+    },
+    {
+      "capacity": 27618,
+      "city": "Valladolid",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "José Zorrilla"
+    },
+    {
+      "capacity": 27618,
+      "city": "Alicante",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "José Rico Pérez"
+    },
+    {
+      "capacity": 26354,
+      "city": "Valencia",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "Ciutat de València"
+    },
+    {
+      "capacity": 25736,
+      "city": "Palma",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "Son Moix"
+    },
+    {
+      "capacity": 25033,
+      "city": "Cádiz",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "Nuevo Mirandilla"
+    },
+    {
+      "capacity": 24870,
+      "city": "Vigo",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "Balaídos"
+    },
+    {
+      "capacity": 23576,
+      "city": "Pamplona",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "El Sadar"
+    },
+    {
+      "capacity": 23500,
+      "city": "Villarreal",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "La Cerámica"
+    },
+    {
+      "capacity": 22824,
+      "city": "Santa Cruz de Tenerife",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "Heliodoro Rodríguez López"
+    },
+    {
+      "capacity": 22514,
+      "city": "Santander",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "El Sardinero"
+    },
+    {
+      "capacity": 21670,
+      "city": "Huelva",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "Nuevo Colombino"
+    },
+    {
+      "capacity": 21600,
+      "city": "Granada",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "Los Cármenes"
+    },
+    {
+      "capacity": 21350,
+      "city": "Almería",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "UD Almería Stadium"
+    },
+    {
+      "capacity": 20989,
+      "city": "Córdoba",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "Nuevo Arcángel"
+    },
+    {
+      "capacity": 20523,
+      "city": "Jerez de la Frontera",
+      "country": "Spain",
+      "national_team": false,
+      "stadium": "Chapín"
+    },
+    {
+      "country": "Suriname",
+      "stadium": "André Kamperveen Stadion",
+      "city": "Paramaribo",
+      "capacity": 7100,
+      "national_team": true
+    },
+    {
+      "capacity": 3500,
+      "city": "Paramaribo",
+      "country": "Suriname",
+      "national_team": false,
+      "stadium": "Dr. Ir. Franklin Essed Stadion"
+    },
+    {
+      "capacity": 3500,
+      "city": "Oost",
+      "country": "Suriname",
+      "national_team": false,
+      "stadium": "Clarence Seedorf Stadion"
+    },
+    {
+      "capacity": 3400,
+      "city": "Nieuw Nickerie",
+      "country": "Suriname",
+      "national_team": false,
+      "stadium": "Asraf Peerkhan Stadion"
+    },
+    {
+      "capacity": 3100,
+      "city": "Paramaribo",
+      "country": "Suriname",
+      "national_team": false,
+      "stadium": "Mgr. Aloysius Zichem Sportcentrum"
+    },
+    {
+      "country": "Sweden",
+      "stadium": "Strawberry Arena",
+      "city": "Solna",
+      "capacity": 55000,
+      "national_team": true
+    },
+    {
+      "country": "Sweden",
+      "stadium": "Ullevi",
+      "city": "Gothenburg",
+      "capacity": 43200,
+      "national_team": false
+    },
+    {
+      "country": "Sweden",
+      "stadium": "3Arena",
+      "city": "Stockholm",
+      "capacity": 30000,
+      "national_team": false
+    },
+    {
+      "country": "Sweden",
+      "stadium": "Malmö Stadion",
+      "city": "Malmö",
+      "capacity": 27500,
+      "national_team": false
+    },
+    {
+      "country": "Sweden",
+      "stadium": "Stadion",
+      "city": "Malmö",
+      "capacity": 24000,
+      "national_team": false
+    },
+    {
+      "country": "Switzerland",
+      "stadium": "St. Jakob-Park",
+      "city": "Basel",
+      "capacity": 38512,
+      "national_team": true
+    },
+    {
+      "country": "Switzerland",
+      "stadium": "Stade de Suisse",
+      "city": "Bern",
+      "capacity": 31783,
+      "national_team": false
+    },
+    {
+      "country": "Switzerland",
+      "stadium": "Stade de Genève",
+      "city": "Lancy",
+      "capacity": 30084,
+      "national_team": false
+    },
+    {
+      "country": "Switzerland",
+      "stadium": "Letzigrund",
+      "city": "Zürich",
+      "capacity": 26104,
+      "national_team": false
+    },
+    {
+      "country": "Switzerland",
+      "stadium": "kybunpark",
+      "city": "St. Gallen",
+      "capacity": 19694,
+      "national_team": false
+    },
+    {
+      "country": "Syria",
+      "stadium": "Aleppo International Stadium",
+      "city": "Aleppo",
+      "capacity": 53200,
+      "national_team": true
+    },
+    {
+      "capacity": 45000,
+      "city": "Latakia",
+      "country": "Syria",
+      "national_team": false,
+      "stadium": "Latakia Sports City Stadium"
+    },
+    {
+      "capacity": 32000,
+      "city": "Homs",
+      "country": "Syria",
+      "national_team": false,
+      "stadium": "Khalid ibn al-Walid Stadium"
+    },
+    {
+      "capacity": 30000,
+      "city": "Dushanbe",
+      "country": "Tajikistan",
+      "stadium": "National Stadium of Tajikistan",
+      "national_team": true
+    },
+    {
+      "capacity": 25000,
+      "city": "Khujand",
+      "country": "Tajikistan",
+      "national_team": false,
+      "stadium": "20 Years of Independence Stadium"
+    },
+    {
+      "capacity": 20000,
+      "city": "Kulob",
+      "country": "Tajikistan",
+      "national_team": false,
+      "stadium": "Langari Langarieva Stadium"
+    },
+    {
+      "capacity": 18000,
+      "city": "Istaravshan",
+      "country": "Tajikistan",
+      "national_team": false,
+      "stadium": "Istaravshan Stadium"
+    },
+    {
+      "capacity": 48000,
+      "city": "Bangkok",
+      "country": "Thailand",
+      "stadium": "Rajamangala Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 32600,
+      "city": "Buriram",
+      "country": "Thailand",
+      "national_team": false,
+      "stadium": "Chang Arena"
+    },
+    {
+      "capacity": 25000,
+      "city": "Suphanburi",
+      "country": "Thailand",
+      "national_team": false,
+      "stadium": "Suphanburi Municipality Stadium"
+    },
+    {
+      "capacity": 25000,
+      "city": "Pathumthani",
+      "country": "Thailand",
+      "national_team": false,
+      "stadium": "Dhupatemiya Stadium"
+    },
+    {
+      "country": "Trinidad and Tobago",
+      "stadium": "Hasely Crawford Stadium",
+      "city": "Port of Spain",
+      "capacity": 22575,
+      "national_team": true
+    },
+    {
+      "capacity": 10000,
+      "city": "Couva",
+      "country": "Trinidad and Tobago",
+      "national_team": false,
+      "stadium": "Ato Boldon Stadium"
+    },
+    {
+      "capacity": 10000,
+      "city": "Malabar",
+      "country": "Trinidad and Tobago",
+      "national_team": false,
+      "stadium": "Larry Gomes Stadium"
+    },
+    {
+      "capacity": 10000,
+      "city": "Marabella",
+      "country": "Trinidad and Tobago",
+      "national_team": false,
+      "stadium": "Manny Ramjohn Stadium"
+    },
+    {
+      "capacity": 65000,
+      "city": "Radès",
+      "country": "Tunisia",
+      "stadium": "Stade Olympique Hammadi Agrebi",
+      "national_team": true
+    },
+    {
+      "capacity": 50000,
+      "city": "Sousse",
+      "country": "Tunisia",
+      "national_team": false,
+      "stadium": "Stade Olympique de Sousse"
+    },
+    {
+      "capacity": 45000,
+      "city": "Tunis",
+      "country": "Tunisia",
+      "national_team": false,
+      "stadium": "Stade El Menzah"
+    },
+    {
+      "capacity": 22000,
+      "city": "Monastir",
+      "country": "Tunisia",
+      "national_team": false,
+      "stadium": "Stade Mustapha Ben Jannet"
+    },
+    {
+      "country": "Turkey",
+      "stadium": "Atatürk Olympic Stadium",
+      "city": "Istanbul",
+      "capacity": 74753,
+      "national_team": true
+    },
+    {
+      "country": "Turkey",
+      "stadium": "Rams Park",
+      "city": "Istanbul",
+      "capacity": 52280,
+      "national_team": false
+    },
+    {
+      "country": "Turkey",
+      "stadium": "İzmir Atatürk Stadium",
+      "city": "İzmir",
+      "capacity": 51337,
+      "national_team": false
+    },
+    {
+      "country": "Turkey",
+      "stadium": "Şükrü Saracoğlu Stadium",
+      "city": "Istanbul",
+      "capacity": 50530,
+      "national_team": false
+    },
+    {
+      "country": "Turkey",
+      "stadium": "Centennial Atatürk Stadium",
+      "city": "Bursa",
+      "capacity": 43361,
+      "national_team": false
+    },
+    {
+      "capacity": 3000,
+      "city": "Providenciales",
+      "country": "Turks and Caicos Islands",
+      "stadium": "TCIFA National Academy",
+      "national_team": true
+    },
+    {
+      "capacity": 44250,
+      "city": "Abu Dhabi",
+      "country": "UAE",
+      "stadium": "Zayed Sports City Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 42056,
+      "city": "Abu Dhabi",
+      "country": "UAE",
+      "national_team": false,
+      "stadium": "Mohammed bin Zayed Stadium"
+    },
+    {
+      "capacity": 25965,
+      "city": "Al Ain",
+      "country": "UAE",
+      "national_team": false,
+      "stadium": "Hazza bin Zayed Stadium"
+    },
+    {
+      "capacity": 18578,
+      "city": "Sharjah",
+      "country": "UAE",
+      "national_team": false,
+      "stadium": "Sharjah Stadium"
+    },
+    {
+      "capacity": 1200,
+      "city": "St. Croix",
+      "country": "US Virgin Islands",
+      "stadium": "Bethlehem Soccer Stadium",
+      "national_team": true
+    },
+    {
+      "country": "USA",
+      "stadium": "Rose Bowl",
+      "city": "Pasadena",
+      "capacity": 94542,
+      "national_team": false
+    },
+    {
+      "capacity": 92200,
+      "city": "Dallas",
+      "country": "USA",
+      "national_team": false,
+      "stadium": "Cotton Bowl"
+    },
+    {
+      "country": "USA",
+      "stadium": "MetLife Stadium",
+      "city": "East Rutherford",
+      "capacity": 82566,
+      "national_team": false
+    },
+    {
+      "capacity": 80000,
+      "city": "Arlington",
+      "country": "USA",
+      "national_team": false,
+      "stadium": "AT&T Stadium"
+    },
+    {
+      "capacity": 79451,
+      "city": "Kansas City",
+      "country": "USA",
+      "national_team": false,
+      "stadium": "Arrowhead Stadium"
+    },
+    {
+      "capacity": 70240,
+      "city": "Inglewood",
+      "country": "USA",
+      "stadium": "SoFi Stadium",
+      "national_team": false
+    },
+    {
+      "capacity": 45202,
+      "city": "Kampala",
+      "country": "Uganda",
+      "stadium": "Mandela National Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 15000,
+      "city": "Kampala",
+      "country": "Uganda",
+      "national_team": false,
+      "stadium": "Nakivubo Stadium"
+    },
+    {
+      "capacity": 15000,
+      "city": "Kitende",
+      "country": "Uganda",
+      "national_team": false,
+      "stadium": "St. Mary's Stadium"
+    },
+    {
+      "capacity": 70050,
+      "city": "Kyiv",
+      "country": "Ukraine",
+      "stadium": "NSC Olimpiyskiy",
+      "national_team": true
+    },
+    {
+      "country": "Ukraine",
+      "stadium": "Olympic National Sports Complex Stadium",
+      "city": "Kyiv",
+      "capacity": 70050,
+      "national_team": false
+    },
+    {
+      "country": "Ukraine",
+      "stadium": "Donbas Arena",
+      "city": "Donetsk",
+      "capacity": 52518,
+      "national_team": false
+    },
+    {
+      "country": "Ukraine",
+      "stadium": "Metalist Stadium",
+      "city": "Kharkiv",
+      "capacity": 40003,
+      "national_team": false
+    },
+    {
+      "country": "Ukraine",
+      "stadium": "Arena Lviv",
+      "city": "Lviv",
+      "capacity": 34915,
+      "national_team": false
+    },
+    {
+      "country": "Ukraine",
+      "stadium": "Chornomorets Stadium",
+      "city": "Odesa",
+      "capacity": 34164,
+      "national_team": false
+    },
+    {
+      "country": "Uruguay",
+      "stadium": "Estadio Centenario",
+      "city": "Montevideo",
+      "capacity": 60235,
+      "national_team": true
+    },
+    {
+      "capacity": 40005,
+      "city": "Montevideo",
+      "country": "Uruguay",
+      "national_team": false,
+      "stadium": "Estadio Campeón del Siglo"
+    },
+    {
+      "capacity": 34446,
+      "city": "Montevideo",
+      "country": "Uruguay",
+      "national_team": false,
+      "stadium": "Estadio Gran Parque Central"
+    },
+    {
+      "capacity": 27135,
+      "city": "Rivera",
+      "country": "Uruguay",
+      "national_team": false,
+      "stadium": "Estadio Atilio Paiva Olivera"
+    },
+    {
+      "capacity": 25000,
+      "city": "Montevideo",
+      "country": "Uruguay",
+      "national_team": false,
+      "stadium": "Estadio Luis Tróccoli"
+    },
+    {
+      "capacity": 34000,
+      "city": "Tashkent",
+      "country": "Uzbekistan",
+      "stadium": "Milliy Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 25000,
+      "city": "Urgench",
+      "country": "Uzbekistan",
+      "national_team": false,
+      "stadium": "Xorazm Stadium"
+    },
+    {
+      "capacity": 22700,
+      "city": "Bukhara",
+      "country": "Uzbekistan",
+      "national_team": false,
+      "stadium": "Buxoro Arena"
+    },
+    {
+      "capacity": 22000,
+      "city": "Namangan",
+      "country": "Uzbekistan",
+      "national_team": false,
+      "stadium": "Markaziy Stadium"
+    },
+    {
+      "capacity": 52000,
+      "city": "Maturín",
+      "country": "Venezuela",
+      "national_team": false,
+      "stadium": "Estadio Monumental de Maturín"
+    },
+    {
+      "capacity": 47913,
+      "city": "Barquisimeto",
+      "country": "Venezuela",
+      "national_team": false,
+      "stadium": "Estadio Metropolitano de Fútbol de Lara"
+    },
+    {
+      "capacity": 42200,
+      "city": "Mérida",
+      "country": "Venezuela",
+      "national_team": false,
+      "stadium": "Estadio Metropolitano de Mérida"
+    },
+    {
+      "capacity": 41600,
+      "city": "Ciudad Guayana",
+      "country": "Venezuela",
+      "national_team": false,
+      "stadium": "Polideportivo Cachamay"
+    },
+    {
+      "capacity": 40800,
+      "city": "Maracaibo",
+      "country": "Venezuela",
+      "national_team": false,
+      "stadium": "Estadio José Pachencho Romero"
+    },
+    {
+      "capacity": 38755,
+      "city": "San Cristóbal",
+      "country": "Venezuela",
+      "stadium": "Estadio Polideportivo de Pueblo Nuevo",
+      "national_team": true
+    },
+    {
+      "capacity": 40192,
+      "city": "Hanoi",
+      "country": "Vietnam",
+      "stadium": "Mỹ Đình National Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 30000,
+      "city": "Cần Thơ",
+      "country": "Vietnam",
+      "national_team": false,
+      "stadium": "Cần Thơ Stadium"
+    },
+    {
+      "capacity": 30000,
+      "city": "Ha Tinh",
+      "country": "Vietnam",
+      "national_team": false,
+      "stadium": "Hà Tĩnh Stadium"
+    },
+    {
+      "capacity": 22500,
+      "city": "Hanoi",
+      "country": "Vietnam",
+      "national_team": false,
+      "stadium": "Hàng Đẫy Stadium"
+    },
+    {
+      "country": "Wales",
+      "stadium": "Millennium Stadium",
+      "city": "Cardiff",
+      "capacity": 74500,
+      "national_team": false
+    },
+    {
+      "country": "Wales",
+      "stadium": "Cardiff City Stadium",
+      "city": "Cardiff",
+      "capacity": 26828,
+      "national_team": true
+    },
+    {
+      "country": "Wales",
+      "stadium": "Swansea.com Stadium",
+      "city": "Swansea",
+      "capacity": 20520,
+      "national_team": false
+    },
+    {
+      "country": "Wales",
+      "stadium": "Racecourse Ground",
+      "city": "Wrexham",
+      "capacity": 15500,
+      "national_team": false
+    },
+    {
+      "capacity": 60000,
+      "city": "Lusaka",
+      "country": "Zambia",
+      "stadium": "National Heroes Stadium",
+      "national_team": true
+    },
+    {
+      "capacity": 49800,
+      "city": "Ndola",
+      "country": "Zambia",
+      "national_team": false,
+      "stadium": "Levy Mwanawasa Stadium"
+    },
+    {
+      "capacity": 30000,
+      "city": "Lusaka",
+      "country": "Zambia",
+      "national_team": false,
+      "stadium": "Independence Stadium"
+    },
+    {
+      "capacity": 20000,
+      "city": "Chingola",
+      "country": "Zambia",
+      "national_team": false,
+      "stadium": "Nchanga Stadium"
+    }
+  ]
+}
