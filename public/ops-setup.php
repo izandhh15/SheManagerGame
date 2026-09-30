@@ -28,6 +28,15 @@ try {
                 echo "$comp teams: $count\n";
             }
             break;
+        case 'seed-all':
+            // Seed all 5 new leagues
+            foreach (['AR', 'BR', 'MX', 'US', 'CH'] as $c) {
+                echo "Seeding $c...\n";
+                $exit = $kernel->call('app:seed-reference-data', ['--country' => $c]);
+                echo "$c exit: $exit\n";
+            }
+            echo "Done\n";
+            break;
         case 'seed-ar':
             // Only delete templates (teams have FK constraints from games)
             $teamIds = \DB::table('teams')
