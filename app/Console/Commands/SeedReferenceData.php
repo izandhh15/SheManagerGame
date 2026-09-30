@@ -726,6 +726,7 @@ class SeedReferenceData extends Command
 
                 $effectiveSeats = (int) ($stadiumSeats ?: $existingTeam->stadium_seats);
                 DB::table('teams')->where('id', $teamId)->update([
+                    'name' => $club['name'],
                     'image' => $club['image'] ?? $existingTeam->image,
                     'stadium_name' => $club['stadiumName'] ?? $existingTeam->stadium_name,
                     'stadium_seats' => $effectiveSeats,
