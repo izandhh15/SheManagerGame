@@ -112,6 +112,9 @@ class CupDrawService
                 'first_leg_match_id' => $firstLegId,
                 'second_leg_match_id' => $secondLegId,
                 'completed' => false,
+                // Must match the bye row shape: bulk insert requires
+                // identical keys in every row.
+                'winner_id' => null,
             ];
 
             $firstLegRows[] = [
