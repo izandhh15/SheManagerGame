@@ -252,9 +252,70 @@ class SeasonInitializationService
             }
 
             if ($this->cupDrawService->needsDrawForRound($gameId, $cupId, 1)) {
-                $this->cupDrawService->conductDraw($gameId, $cupId, 1);
+                $explicitPairings = $this->explicitCupDrawPairings($gameId, $cupId);
+                $this->cupDrawService->conductDraw($gameId, $cupId, 1, $explicitPairings);
             }
         }
+    }
+
+    /**
+     * Load explicit round-1 cup draw pairings from schedule.json (real 2026-27 draws).
+     * Only applies to the base season; returns null for random draw otherwise.
+     *
+     * @return array<array{string, string}>|null List of [home_team_id, away_team_id] UUID pairs.
+     */
+    private function explicitCupDrawPairings(string $gameId, string $competitionId): ?array
+    {
+        $game = Game::where('id', $gameId)->first();
+        if (!$game || (string) $game->season !== (string) $game->base_season) {
+            return null;
+        }
+
+        $baseSeason = $this->baseSeasonFor($gameId);
+        $schedulePath = base_path("data/{$baseSeason}/{$competitionId}/schedule.json");
+        if (!file_exists($schedulePath)) {
+            return null;
+        }
+
+        $schedule = json_decode(file_get_contents($schedulePath), true);
+        $round1 = null;
+        foreach ($schedule['knockout'] ?? [] as $round) {
+            if (($round['round'] ?? null) === 1) {
+                $round1 = $round;
+                break;
+            }
+        }
+
+        $draw = $round1['draw'] ?? null;
+        if (empty($draw) || !is_array($draw)) {
+            return null;
+        }
+
+        // Map transfermarktIds to team UUIDs
+        $teamIds = CompetitionEntry::where('game_id', $gameId)
+            ->where('competition_id', $competitionId)
+            ->where('entry_round', 1)
+            ->pluck('team_id')
+            ->all();
+
+        $tmIdToTeamId = Team::whereIn('id', $teamIds)
+            ->whereNotNull('transfermarkt_id')
+            ->pluck('id', 'transfermarkt_id')
+            ->all();
+
+        $pairings = [];
+        foreach ($draw as $pair) {
+            $homeTm = $pair[0] ?? null;
+            $awayTm = $pair[1] ?? null;
+            $homeId = $tmIdToTeamId[$homeTm] ?? null;
+            $awayId = $tmIdToTeamId[$awayTm] ?? null;
+            if ($homeId && $awayId) {
+                $pairings[] = [$homeId, $awayId];
+            }
+        }
+
+        // Only use explicit draw if all pairings resolved; otherwise fall back to random
+        return count($pairings) === count($draw) ? $pairings : null;
     }
 
     /**

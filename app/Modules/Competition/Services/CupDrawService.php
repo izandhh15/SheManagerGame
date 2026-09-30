@@ -29,7 +29,7 @@ class CupDrawService
      *
      * @return Collection<CupTie>
      */
-    public function conductDraw(string $gameId, string $competitionId, int $roundNumber): Collection
+    public function conductDraw(string $gameId, string $competitionId, int $roundNumber, ?array $explicitPairings = null): Collection
     {
         $roundConfig = $this->getRoundConfig($gameId, $competitionId, $roundNumber);
 
@@ -47,7 +47,7 @@ class CupDrawService
         $strategy = $this->resolvePairingStrategy($competitionId);
 
         // Get all teams eligible for this round, paired by bracket structure
-        $pairedTeams = $this->getPairedTeamsForRound($gameId, $competitionId, $roundNumber, $strategy, $applyHomeAdvantageRule);
+        $pairedTeams = $this->getPairedTeamsForRound($gameId, $competitionId, $roundNumber, $strategy, $applyHomeAdvantageRule, $explicitPairings);
 
         $pairCount = $pairedTeams->count();
 
@@ -198,7 +198,13 @@ class CupDrawService
         int $roundNumber,
         CupDrawPairingStrategy $strategy,
         bool $applyHomeAdvantageRule,
+        ?array $explicitPairings = null,
     ): Collection {
+        // Explicit pairings (real 2026-27 draw): use directly, skip the strategy.
+        if ($explicitPairings !== null) {
+            return collect($explicitPairings);
+        }
+
         // Teams entering at this specific round
         $enteringTeams = CompetitionEntry::where('game_id', $gameId)
             ->where('competition_id', $competitionId)
