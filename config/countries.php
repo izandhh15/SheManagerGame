@@ -1240,7 +1240,6 @@ return [
         'continental_competitions' => [
             'WNL'     => ['config_class' => \App\Modules\Competition\Configs\WomensNationsLeagueConfig::class],
             'WEURO'   => ['config_class' => \App\Modules\Competition\Configs\WomensEuroConfig::class],
-            'WGOLD'   => ['config_class' => \App\Modules\Competition\Configs\WGoldCupConfig::class],
             'WCOPAAM' => ['config_class' => \App\Modules\Competition\Configs\CopaAmericaFemeninaConfig::class],
         ],
     ],
