@@ -13,6 +13,7 @@ use App\Http\Actions\StartImpersonation;
 use App\Http\Actions\StopImpersonation;
 use App\Http\Actions\ToggleCareerAccess;
 use App\Http\Actions\ToggleDatabaseEditing;
+use App\Http\Actions\UpdateNationalSquad;
 use App\Http\Actions\ToggleTournamentAccess;
 use App\Http\Actions\ResendWaitlistInvite;
 use App\Http\Actions\SendBulkWaitlistInvites;
