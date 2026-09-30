@@ -10,7 +10,7 @@ class ShowTournamentSummary
     {
         $summary = TournamentSummary::with(['team', 'competition'])->findOrFail($summaryId);
 
-        abort_if($summary->user_id !== auth()->id(), 403);
+        abort_if((int) $summary->user_id !== (int) auth()->id(), 403);
 
         $data = $summary->summary_data;
 

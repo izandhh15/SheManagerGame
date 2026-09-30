@@ -12,7 +12,7 @@ class DeleteGame
     {
         $game = Game::findOrFail($gameId);
 
-        if ($game->user_id !== $request->user()->id) {
+        if ((int) $game->user_id !== (int) $request->user()->id) {
             abort(403);
         }
 
