@@ -18,16 +18,18 @@ header('Content-Type: text/plain');
 try {
     switch ($action) {
         case 'seed-ar':
-            // Clear old templates for ARG1 teams (by name match)
-            $arg1Names = ['Boca Juniors', 'River Plate', 'San Lorenzo', 'Racing Club', 'Belgrano', 'Gimnasia', 'Banfield', "Newell's", 'Huracán', 'Independiente', 'San Luis FC', 'Ferro', 'SAT', 'Unión', 'Lanús', 'Talleres'];
-            \DB::table('game_player_templates')
-                ->where('season', '2026')
-                ->whereIn('team_id', function($q) use ($arg1Names) {
-                    $q->select('id')->from('teams')->whereIn('name', $arg1Names);
-                })->delete();
+            // Clear ALL 2026 templates and regenerate (simplest reliable way)
+            \DB::table('game_player_templates')->where('season', '2026')->delete();
             $exit = $kernel->call('app:seed-reference-data', ['--country' => 'AR']);
             echo "AR seed exit: $exit\n";
             echo $kernel->output();
+            // Re-seed other countries to restore their templates
+            foreach (['BR', 'MX', 'US', 'CH'] as $c) {
+                $kernel->call('app:seed-reference-data', ['--country' => $c]);
+            }
+            // Re-seed national teams
+            $kernel->call('app:seed-national-teams');
+            echo "All re-seeded\n";
             break;
         case 'seed-br':
             $exit = $kernel->call('app:seed-reference-data', ['--country' => 'BR']);
