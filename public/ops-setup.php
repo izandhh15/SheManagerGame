@@ -18,18 +18,12 @@ header('Content-Type: text/plain');
 try {
     switch ($action) {
         case 'fix-dup':
-            // Fix duplicate shirt numbers directly in DB
-            $dups = \DB::select("
-                SELECT team_id, number, COUNT(*) as c 
-                FROM game_player_templates 
-                WHERE season='2026' 
-                GROUP BY team_id, number 
-                HAVING COUNT(*) > 1
-            ");
-            echo "Found " . count($dups) . " duplicates\n";
-            foreach ($dups as $d) {
-                echo "Team {$d->team_id}, number {$d->number}: {$d->c} players\n";
-            }
+            // Fix empty-string numbers (set to NULL so unique constraint allows them)
+            $fixed = \DB::table('game_player_templates')
+                ->where('season', '2026')
+                ->where('number', '')
+                ->update(['number' => null]);
+            echo "Fixed $fixed empty numbers to NULL\n";
             break;
         case 'seed-ar':
             // Clear ALL 2026 templates and regenerate (simplest reliable way)
