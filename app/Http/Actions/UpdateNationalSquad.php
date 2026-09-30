@@ -49,6 +49,15 @@ class UpdateNationalSquad
         }
 
         $game->national_squad_player_ids = $playerIds;
+        // Mark the upcoming window as confirmed so the picker isn't
+        // prompted again for it.
+        $season = $game->season ?? '2026';
+        $today = ($game->current_date ?? now())->format('Y-m-d');
+        $upcoming = \App\Modules\Competition\Configs\FifaInternationalBreaks::upcomingWithin($season, $today, 7)
+            ?? \App\Modules\Competition\Configs\FifaInternationalBreaks::upcomingWithin($season, $today, 60);
+        if ($upcoming) {
+            $game->national_squad_window = $upcoming['start'];
+        }
         $game->save();
 
         return redirect()->route('show-game', $game->id)

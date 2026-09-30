@@ -44,4 +44,22 @@ final class FifaInternationalBreaks
 
         return false;
     }
+
+    /**
+     * Next window starting within $daysBefore days from $date.
+     * Used to prompt the squad picker a few days before each window.
+     *
+     * @return array{start: string, end: string, label: string}|null
+     */
+    public static function upcomingWithin(string $season, string $date, int $daysBefore = 7): ?array
+    {
+        $cutoff = date('Y-m-d', strtotime($date . " +{$daysBefore} days"));
+        foreach (self::forSeason($season) as $window) {
+            if ($window['start'] > $date && $window['start'] <= $cutoff) {
+                return $window;
+            }
+        }
+
+        return null;
+    }
 }

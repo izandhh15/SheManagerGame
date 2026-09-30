@@ -48,15 +48,28 @@ class InitNationalGame
 
         $request->validate([
             'team_id' => ['required', 'uuid'],
-            'player_ids' => ['required', 'array', 'size:23'],
-            'player_ids.*' => ['required', 'uuid'],
+            'player_ids' => ['nullable', 'array', 'size:23'],
+            'player_ids.*' => ['nullable', 'uuid'],
         ]);
 
         $team = Team::where('type', 'national')
             ->where('is_placeholder', false)
             ->findOrFail($request->get('team_id'));
 
-        $playerIds = array_values(array_unique($request->get('player_ids')));
+        $playerIds = array_values(array_unique(array_map('strval', $request->get('player_ids', []))));
+        // Squad is picked a few days before each FIFA window, not at game
+        // creation. If none provided, auto-pick the 23 highest-rated eligible
+        // players as a provisional squad.
+        if (count($playerIds) !== 23) {
+            $playerIds = DB::table('game_player_templates')
+                ->where('season', '2026')
+                ->where('team_id', $team->id)
+                ->orderByDesc('overall_rating')
+                ->limit(23)
+                ->pluck('player_id')
+                ->map(fn ($id) => (string) $id)
+                ->all();
+        }
         if (count($playerIds) !== 23) {
             return back()->withErrors(['player_ids' => __('game.squad_picker_need_23')]);
         }

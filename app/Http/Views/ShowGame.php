@@ -40,6 +40,19 @@ class ShowGame
             return redirect()->route('game.new-season', $gameId);
         }
 
+        // National teams: prompt the squad picker a few days before each
+        // FIFA window so the convocatoria happens per window, not at game
+        // creation.
+        if ($game->team->type === 'national' && $game->current_date) {
+            $season = $game->season ?? '2026';
+            $today = $game->current_date->format('Y-m-d');
+            $upcoming = \App\Modules\Competition\Configs\FifaInternationalBreaks::upcomingWithin($season, $today, 7);
+            $confirmedWindow = $game->national_squad_window?->format('Y-m-d');
+            if ($upcoming && $confirmedWindow !== $upcoming['start']) {
+                return redirect()->route('game.national-squad-picker', $gameId);
+            }
+        }
+
         // Show loading screen while season transition runs in background
         if ($game->isTransitioningSeason()) {
             // Re-dispatch if stuck for > 2 minutes
