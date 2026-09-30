@@ -139,12 +139,23 @@ class ValidateSeason extends Command
 
         // The fixture generator requires exactly 2*(teams-1) league rounds
         // for even counts, 2*teams for odd counts (one bye per round).
+        // Skip this check if the schedule has explicit real-calendar matchups.
         $schedule = $this->loadSchedule($code, "{$dir}/schedule.json");
         if ($schedule !== null) {
-            $rounds = count($schedule['league'] ?? []);
-            $expected = $teamCount % 2 === 0 ? 2 * ($teamCount - 1) : 2 * $teamCount;
-            if ($rounds !== $expected) {
-                $this->errors[] = "{$code}: expected {$expected} league rounds for {$teamCount} teams, schedule has {$rounds}.";
+            $league = $schedule['league'] ?? [];
+            $rounds = count($league);
+            $hasExplicit = false;
+            foreach ($league as $rnd) {
+                if (!empty($rnd['matches'])) {
+                    $hasExplicit = true;
+                    break;
+                }
+            }
+            if (!$hasExplicit) {
+                $expected = $teamCount % 2 === 0 ? 2 * ($teamCount - 1) : 2 * $teamCount;
+                if ($rounds !== $expected) {
+                    $this->errors[] = "{$code}: expected {$expected} league rounds for {$teamCount} teams, schedule has {$rounds}.";
+                }
             }
         }
 
