@@ -4,7 +4,7 @@
   "seasonID": "2026",
   "clubs": [
     {
-      "image": "https://tmssl.akamaized.net/images/wappen/big/2222.png",
+      "image": "https://img.sofascore.com/api/v1/team/305811/image",
       "name": "Servette FC Chênois Féminin",
       "stadiumName": "Stade des Trois-Chênes",
       "stadiumSeats": 8000,
@@ -377,8 +377,8 @@
       ]
     },
     {
-      "image": "https://tmssl.akamaized.net/images/wappen/big/576.png",
-      "name": "FC Zürich Frauen",
+      "image": "https://img.sofascore.com/api/v1/team/37197/image",
+      "name": "FC Zürich",
       "stadiumName": "Sportanlage Heerenschürli",
       "stadiumSeats": 1120,
       "transfermarktId": 576,
@@ -722,8 +722,8 @@
       ]
     },
     {
-      "image": "https://tmssl.akamaized.net/images/wappen/big/157.png",
-      "name": "Grasshopper Club Zürich Frauen",
+      "image": "https://img.sofascore.com/api/v1/team/277220/image",
+      "name": "Grasshopper Club Zürich",
       "stadiumName": "GC-Campus Niederhasli",
       "stadiumSeats": 1300,
       "transfermarktId": 157,
@@ -1053,7 +1053,7 @@
       ]
     },
     {
-      "image": "https://tmssl.akamaized.net/images/wappen/big/77.png",
+      "image": "https://img.sofascore.com/api/v1/team/53371/image",
       "name": "BSC YB Frauen",
       "stadiumName": "Stadion Wankdorf",
       "stadiumSeats": 31120,
@@ -1461,8 +1461,8 @@
       ]
     },
     {
-      "image": "https://tmssl.akamaized.net/images/wappen/big/557.png",
-      "name": "FC Basel 1893 Frauen",
+      "image": "https://img.sofascore.com/api/v1/team/285332/image",
+      "name": "FC Basel 1893",
       "stadiumName": "LA-Stadion St. Jakob",
       "stadiumSeats": 6000,
       "transfermarktId": 557,
@@ -1854,11 +1854,11 @@
       ]
     },
     {
-      "image": "https://tmssl.akamaized.net/images/wappen/big/6381.png",
-      "name": "FC Luzern Frauen",
+      "image": "https://img.sofascore.com/api/v1/team/249208/image",
+      "name": "FC Luzern",
       "stadiumName": "Sportanlage Allmend",
       "stadiumSeats": 1000,
-      "transfermarktId": 6381,
+      "transfermarktId": 2224,
       "players": [
         {
           "contract": "",
@@ -2087,8 +2087,8 @@
       ]
     },
     {
-      "image": "https://tmssl.akamaized.net/images/wappen/big/434.png",
-      "name": "Yverdon Sport FC Féminin",
+      "image": "https://img.sofascore.com/api/v1/team/2460/image",
+      "name": "Yverdon Sport FC",
       "stadiumName": "Stade Municipal",
       "stadiumSeats": 5650,
       "transfermarktId": 434,
@@ -2521,8 +2521,8 @@
       ]
     },
     {
-      "image": "https://tmssl.akamaized.net/images/wappen/big/119.png",
-      "name": "FC Rapperswil-Jona Frauen",
+      "image": "https://img.sofascore.com/api/v1/team/37390/image",
+      "name": "FC Rapperswil-Jona",
       "stadiumName": "Grünfeld",
       "stadiumSeats": 2700,
       "transfermarktId": 119,
@@ -2886,8 +2886,8 @@
       ]
     },
     {
-      "image": "https://tmssl.akamaized.net/images/wappen/big/1759.png",
-      "name": "FC St. Gallen 1879 Frauen",
+      "image": "https://img.sofascore.com/api/v1/team/326525/image",
+      "name": "FC St. Gallen 1879",
       "stadiumName": "Espenmoos",
       "stadiumSeats": 5700,
       "transfermarktId": 1759,
@@ -3234,7 +3234,7 @@
       ]
     },
     {
-      "image": "https://tmssl.akamaized.net/images/wappen/big/2051.png",
+      "image": "https://img.sofascore.com/api/v1/team/387033/image",
       "name": "FC Aarau Frauen",
       "stadiumName": "Sportanlage Schachen",
       "stadiumSeats": 1000,
