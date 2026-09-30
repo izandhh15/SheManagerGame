@@ -4,6 +4,7 @@ namespace App\Http\Views;
 
 use App\Modules\Competition\Services\CountryConfig;
 use App\Modules\Manager\Services\JobOfferService;
+use App\Modules\Season\Services\TournamentCreationService;
 use App\Models\Competition;
 use App\Models\Game;
 use App\Models\Team;
@@ -98,11 +99,12 @@ final class SelectTeam
             ? $jobOfferService->sampleInitialProManagerTeams()
             : collect();
 
-        // National-team mode (beta, WWCQ qualifiers): all women's national
-        // teams with seeded templates. Shown when WWCQ is seeded.
+        // National-team mode (beta, World Cup qualifiers by confederation): all
+        // women's national teams with seeded templates. Shown when any
+        // qualifier competition is seeded (legacy WWCQ alias counts too).
         $ntTeams = collect();
         $ntFeaturedTeams = collect();
-        $hasNationalMode = Competition::where('id', 'WWCQ')->exists();
+        $hasNationalMode = Competition::whereIn('id', TournamentCreationService::WQC_IDS)->exists();
 
         if ($hasNationalMode) {
             $locale = app()->getLocale();

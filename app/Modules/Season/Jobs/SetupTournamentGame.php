@@ -7,6 +7,7 @@ use App\Modules\Lineup\Services\FormationBiasResolver;
 use App\Modules\Lineup\Services\FormationRecommender;
 use App\Modules\Notification\Services\NotificationService;
 use App\Modules\Season\Services\SeasonInitializationService;
+use App\Modules\Season\Services\TournamentCreationService;
 use App\Modules\Competition\Services\StandingsCalculator;
 use App\Models\CompetitionEntry;
 use App\Models\CompetitionTeam;
@@ -23,6 +24,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
 
 class SetupTournamentGame implements ShouldQueue
@@ -56,8 +58,10 @@ class SetupTournamentGame implements ShouldQueue
         }
 
         // Women's World Cup Qualifiers (beta): the user's group is drawn at
-        // setup time instead of coming from a fixed groups.json.
-        if ($game->competition_id === 'WWCQ') {
+        // setup time instead of coming from a fixed groups.json. Each FIFA
+        // confederation runs its own qualifier (WQUEFA, WQAFC, ...); WWCQ is
+        // the legacy alias for the original single global competition.
+        if (in_array($game->competition_id, TournamentCreationService::WQC_IDS, true)) {
             $this->handleNationalQualifiers($game, $notificationService, $formationRecommender, $formationBiasResolver);
             return;
         }
@@ -108,11 +112,12 @@ class SetupTournamentGame implements ShouldQueue
     }
 
     /**
-     * Setup for the Women's World Cup Qualifiers (beta, competition WWCQ).
+     * Setup for the Women's World Cup Qualifiers (beta).
      *
-     * Draws a group of 6 (user's national team + 5 random opponents), creates
-     * competition entries, materialises players (the user's called-up squad +
-     * full AI rosters from templates), generates a 10-matchday double
+     * Draws a group of 6 within the user's confederation (legacy: 5 random
+     * global opponents when the confederation pool can't fill the group),
+     * creates competition entries, materialises players (the user's called-up
+     * squad + full AI rosters from templates), generates a 10-matchday double
      * round-robin with the shared league fixture generator, and initialises
      * the standings.
      */
@@ -127,25 +132,25 @@ class SetupTournamentGame implements ShouldQueue
             $groupTeamIds = $this->drawQualifierGroup($game);
 
             // Step 2: competition entries for the 6 group teams
-            $this->createQualifierEntries($groupTeamIds);
+            $this->createQualifierEntries($game->competition_id, $groupTeamIds);
 
             // Step 3: game players (user's 23 + AI rosters)
             $this->createQualifierPlayers($game, $groupTeamIds);
 
             // Step 4: fixtures (10 matchdays, double round-robin)
             app(SeasonInitializationService::class)
-                ->generateLeagueFixtures($this->gameId, 'WWCQ', $game->season);
+                ->generateLeagueFixtures($this->gameId, $game->competition_id, $game->season);
 
             // Step 5: standings
             app(StandingsCalculator::class)
-                ->initializeStandings($this->gameId, 'WWCQ', $groupTeamIds);
+                ->initializeStandings($this->gameId, $game->competition_id, $groupTeamIds);
 
             // Step 6: default formation for the user's squad
             $this->setUserTeamDefaultFormation($formationRecommender, $formationBiasResolver);
 
             // Welcome notification
             $teamName = Team::find($this->teamId)?->getRawOriginal('name') ?? '';
-            $notificationService->notifyTournamentWelcome($game, 'WWCQ', $teamName);
+            $notificationService->notifyTournamentWelcome($game, $game->competition_id, $teamName);
 
             // Mark setup as complete
             Game::where('id', $this->gameId)->update(['setup_completed_at' => now()]);
@@ -157,17 +162,48 @@ class SetupTournamentGame implements ShouldQueue
     }
 
     /**
-     * Draw 5 random opponents with a playable roster (≥18 templated players).
+     * Draw the qualifier group: the user's national team + 5 rivals.
+     *
+     * v1 format — confederation groups: rivals are drawn from the user's own
+     * FIFA confederation (same 6-team group format as before), so a UEFA side
+     * faces UEFA sides. Falls back to the legacy global draw when the
+     * confederation pool can't fill a group (too few sides with ≥18 templated
+     * players, or the user's team has no confederation set).
      */
     private function drawQualifierGroup(Game $game): array
     {
-        $candidates = Team::where('type', 'national')
+        // Tolerant read: if teams.confederation doesn't exist yet (migration
+        // not applied in this environment), fall back to the global draw.
+        $confederation = Schema::hasColumn('teams', 'confederation')
+            ? Team::where('id', $this->teamId)->value('confederation')
+            : null;
+
+        if ($confederation !== null) {
+            $rivals = $this->drawRivals($game, $confederation);
+            if (count($rivals) === 5) {
+                return array_merge([$this->teamId], $rivals);
+            }
+        }
+
+        return array_merge([$this->teamId], $this->drawRivals($game, null));
+    }
+
+    /**
+     * Draw up to 5 random opponents, preferring sides with a playable roster
+     * (≥18 templated players for the game's season).
+     *
+     * @param string|null $confederation Restrict the draw to this FIFA
+     *        confederation, or null for the legacy global draw.
+     */
+    private function drawRivals(Game $game, ?string $confederation): array
+    {
+        $candidatesQuery = fn () => Team::where('type', 'national')
             ->where('is_placeholder', false)
             ->where('id', '!=', $this->teamId)
             ->whereNotNull('fifa_code')
-            ->inRandomOrder()
-            ->limit(30)
-            ->pluck('id');
+            ->when($confederation !== null, fn ($query) => $query->where('confederation', $confederation));
+
+        $candidates = $candidatesQuery()->inRandomOrder()->limit(30)->pluck('id');
 
         $withRosters = DB::table('game_player_templates')
             ->where('season', $game->season)
@@ -180,10 +216,7 @@ class SetupTournamentGame implements ShouldQueue
             ->all();
 
         if (count($withRosters) < 5) {
-            $extra = Team::where('type', 'national')
-                ->where('is_placeholder', false)
-                ->where('id', '!=', $this->teamId)
-                ->whereNotNull('fifa_code')
+            $extra = $candidatesQuery()
                 ->whereNotIn('id', $withRosters)
                 ->inRandomOrder()
                 ->limit(5 - count($withRosters))
@@ -192,10 +225,10 @@ class SetupTournamentGame implements ShouldQueue
             $withRosters = array_merge($withRosters, $extra);
         }
 
-        return array_merge([$this->teamId], $withRosters);
+        return $withRosters;
     }
 
-    private function createQualifierEntries(array $groupTeamIds): void
+    private function createQualifierEntries(string $competitionId, array $groupTeamIds): void
     {
         if (CompetitionEntry::where('game_id', $this->gameId)->exists()) {
             return;
@@ -203,7 +236,7 @@ class SetupTournamentGame implements ShouldQueue
 
         $rows = array_map(fn ($teamId) => [
             'game_id' => $this->gameId,
-            'competition_id' => 'WWCQ',
+            'competition_id' => $competitionId,
             'team_id' => $teamId,
             'entry_round' => 1,
         ], $groupTeamIds);

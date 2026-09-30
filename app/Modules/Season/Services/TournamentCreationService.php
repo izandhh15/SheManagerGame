@@ -12,6 +12,52 @@ use Ramsey\Uuid\Uuid;
 class TournamentCreationService
 {
     /**
+     * Women's World Cup qualifying competitions: one per FIFA confederation.
+     * v1 format — each confederation's qualifying runs as a drawn group of 6
+     * in its own competition row, and games store the confederation's id.
+     *
+     * 'WWCQ' is the legacy beta id (a single global competition). It stays in
+     * WQC_IDS so old saves keep working; new games always resolve through
+     * competitionIdForConfederation().
+     *
+     * competitionIdForConfederation() is the single mapping point for the
+     * confederation → competition resolution — the dual-mode worker builds
+     * on it (see InitNationalGame).
+     */
+    public const CONFEDERATION_COMPETITIONS = [
+        'UEFA'     => 'WQUEFA',
+        'AFC'      => 'WQAFC',
+        'CAF'      => 'WQCAF',
+        'CONCACAF' => 'WQCONC',
+        'CONMEBOL' => 'WQCONM',
+        'OFC'      => 'WQOFC',
+    ];
+
+    /** Legacy beta id: the original single global qualifier competition. */
+    public const LEGACY_QUALIFIER_ID = 'WWCQ';
+
+    /** Every competition id accepted as "national-team World Cup qualifying". */
+    public const WQC_IDS = [
+        'WQUEFA',
+        'WQAFC',
+        'WQCAF',
+        'WQCONC',
+        'WQCONM',
+        'WQOFC',
+        'WWCQ',
+    ];
+
+    /**
+     * Resolve the qualifying competition for a team's FIFA confederation.
+     * Unknown or missing confederations fall back to the legacy WWCQ id,
+     * whose setup job runs the legacy global draw.
+     */
+    public static function competitionIdForConfederation(?string $confederation): string
+    {
+        return self::CONFEDERATION_COMPETITIONS[$confederation] ?? self::LEGACY_QUALIFIER_ID;
+    }
+
+    /**
      * @param array<string>|null $squadPlayerIds Chosen player_ids (national-team games only)
      */
     public function create(string $userId, string $teamId, string $competitionId = 'WC2026', ?array $squadPlayerIds = null): Game
@@ -20,7 +66,7 @@ class TournamentCreationService
 
         $team = Team::findOrFail($teamId);
 
-        $isNational = $competitionId === 'WWCQ';
+        $isNational = in_array($competitionId, self::WQC_IDS, true);
 
         $game = Game::create([
             'id' => $gameId,

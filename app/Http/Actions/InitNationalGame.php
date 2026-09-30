@@ -10,12 +10,15 @@ use App\Models\Team;
 use App\Models\Competition;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 /**
- * Creates a national-team game (beta, WWCQ qualifiers) from the squad
- * picker: validates the team is a real national side and that the 23
- * player_ids are all eligible for it (2026 NT templates), then creates
- * the game with the call-up stored on it.
+ * Creates a national-team game (beta, World Cup qualifiers by confederation)
+ * from the squad picker: validates the team is a real national side and that
+ * the 23 player_ids are all eligible for it (2026 NT templates), then creates
+ * the game with the call-up stored on it. The qualifier competition is
+ * resolved from the team's FIFA confederation (WWCQ legacy alias for teams
+ * without one).
  */
 class InitNationalGame
 {
@@ -26,12 +29,20 @@ class InitNationalGame
 
     public function __invoke(Request $request)
     {
-        $gameCount = Game::where('user_id', $request->user()->id)->whereNull('deleting_at')->count();
+        $gameQuery = Game::where('user_id', $request->user()->id)->whereNull('deleting_at');
+        // The dual-mode worker adds games.linked_game_id with its own
+        // migration; when the column exists, linked (secondary) games don't
+        // count against the 3-game limit. The hasColumn guard keeps this
+        // working if this code runs before that migration.
+        if (Schema::hasColumn('games', 'linked_game_id')) {
+            $gameQuery->whereNull('linked_game_id');
+        }
+        $gameCount = $gameQuery->count();
         if ($gameCount >= 3) {
             return back()->withErrors(['limit' => __('messages.game_limit_reached')]);
         }
 
-        if (! Competition::where('id', 'WWCQ')->exists()) {
+        if (! Competition::whereIn('id', TournamentCreationService::WQC_IDS)->exists()) {
             return back()->withErrors(['game_mode' => __('messages.tournament_mode_requires_access')]);
         }
 
@@ -67,7 +78,7 @@ class InitNationalGame
         $game = $this->tournamentCreationService->create(
             userId: (string) $request->user()->id,
             teamId: $team->id,
-            competitionId: 'WWCQ',
+            competitionId: TournamentCreationService::competitionIdForConfederation($team->confederation),
             squadPlayerIds: $playerIds,
         );
 
