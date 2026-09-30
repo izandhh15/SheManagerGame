@@ -1,1 +1,334 @@
-{"stadiums":[{"capacity":105000,"club":"FC Barcelona","stadium":"Camp Nou","womens_team":"F.C. Barcelona"},{"capacity":81044,"club":"Real Madrid","stadium":"Santiago Bernabéu","womens_team":"Real Madrid"},{"capacity":70460,"club":"Atlético de Madrid","stadium":"Riyadh Air Metropolitano","womens_team":"Club Atlético de Madrid"},{"capacity":49440,"club":"Valencia CF","stadium":"Mestalla","womens_team":"Valencia Féminas Club de Fútbol"},{"capacity":53331,"club":"Athletic Club","stadium":"San Mamés","womens_team":"Athletic Bilbao"},{"capacity":40000,"club":"Real Sociedad","stadium":"Reale Arena","womens_team":"Real Socieadad"},{"capacity":43883,"club":"Sevilla FC","stadium":"Ramón Sánchez-Pizjuán","womens_team":"F.C. Sevilla"},{"capacity":60720,"club":"Real Betis","stadium":"Benito Villamarín","womens_team":"Real Betis Balompié"},{"capacity":23000,"club":"Villarreal CF","stadium":"Estadio de la Cerámica","womens_team":"Villarreal CF"},{"capacity":40500,"club":"RCD Espanyol","stadium":"RCDE Stadium","womens_team":"Espanyol Barcelona"},{"capacity":19336,"club":"Granada CF","stadium":"Nuevo Los Cármenes","womens_team":"Granada CF"},{"capacity":26354,"club":"Levante UD","stadium":"Ciutat de València","womens_team":"Levante UD"},{"capacity":31388,"club":"Elche CF","stadium":"Manuel Martínez Valero","womens_team":"Elche CF"},{"capacity":14708,"club":"Rayo Vallecano","stadium":"Vallecas","womens_team":"Rayo Vallecano"},{"capacity":23576,"club":"CA Osasuna","stadium":"El Sadar","womens_team":"CA Osasuna"},{"capacity":19840,"club":"Deportivo Alavés","stadium":"Mendizorrotza","womens_team":"Deportivo Alavés Gloriosas"},{"capacity":32660,"club":"RC Deportivo","stadium":"Riazor","womens_team":"RC Deportivo A Coruña"},{"capacity":29371,"club":"Sporting de Gijón","stadium":"El Molinón","womens_team":"Sporting de Gijón"},{"capacity":22222,"club":"Racing de Santander","stadium":"El Sardinero","womens_team":"Real Racing Club de Santander"},{"capacity":22824,"club":"CD Tenerife","stadium":"Heliodoro Rodríguez López","womens_team":"CD Tenerife Femenino"},{"capacity":60704,"club":"Arsenal","stadium":"Emirates Stadium","womens_team":"Arsenal FC"},{"capacity":40173,"club":"Chelsea","stadium":"Stamford Bridge","womens_team":"Chelsea LFC"},{"capacity":61276,"club":"Liverpool","stadium":"Anfield","womens_team":"Liverpool LFC"},{"capacity":53400,"club":"Manchester City","stadium":"Etihad Stadium","womens_team":"Manchester City LFC"},{"capacity":74310,"club":"Manchester United","stadium":"Old Trafford","womens_team":"Manchester United"},{"capacity":62850,"club":"Tottenham Hotspur","stadium":"Tottenham Hotspur Stadium","womens_team":"Tottenham Hotspur LFC"},{"capacity":52888,"club":"Everton","stadium":"Hill Dickinson Stadium","womens_team":"Everton LFC"},{"capacity":42657,"club":"Aston Villa","stadium":"Villa Park","womens_team":"Aston Villa LFC"},{"capacity":62500,"club":"West Ham United","stadium":"London Stadium","womens_team":"West Ham United LFC"},{"capacity":75000,"club":"Bayern München","stadium":"Allianz Arena","womens_team":"Bayern München"},{"capacity":30000,"club":"VfL Wolfsburg","stadium":"Volkswagen Arena","womens_team":"VfL Wolfsburg"},{"capacity":58000,"club":"Eintracht Frankfurt","stadium":"Deutsche Bank Park","womens_team":"Eintracht Frankfurt"},{"capacity":30210,"club":"Bayer Leverkusen","stadium":"BayArena","womens_team":"Bayer Leverkusen"},{"capacity":49698,"club":"1. FC Köln","stadium":"RheinEnergieStadion","womens_team":"1. FC Köln"},{"capacity":42100,"club":"Werder Bremen","stadium":"Weserstadion","womens_team":"Werder Bremen"},{"capacity":57000,"club":"Hamburger SV","stadium":"Volksparkstadion","womens_team":"Hamburger SV"},{"capacity":60058,"club":"VfB Stuttgart","stadium":"MHPArena","womens_team":"VfB Stuttgart 1893"},{"capacity":47069,"club":"RB Leipzig","stadium":"Red Bull Arena","womens_team":"Rasenballsport Leipzig"},{"capacity":34700,"club":"SC Freiburg","stadium":"Europa-Park Stadion","womens_team":"SC Freiburg"},{"capacity":59186,"club":"Olympique Lyonnais","stadium":"Groupama Stadium","womens_team":"OL Lyonnes"},{"capacity":47926,"club":"Paris Saint-Germain","stadium":"Parc des Princes","womens_team":"Paris Saint-Germain"},{"capacity":67394,"club":"Olympique de Marseille","stadium":"Orange Vélodrome","womens_team":"Olympique de Marseille"},{"capacity":38223,"club":"RC Lens","stadium":"Stade Bollaert-Delelis","womens_team":"RC Lens"},{"capacity":41507,"club":"Juventus","stadium":"Allianz Stadium","womens_team":"Juventus Football Club"},{"capacity":75923,"club":"Inter","stadium":"San Siro","womens_team":"Inter Mailand"},{"capacity":68530,"club":"AS Roma","stadium":"Stadio Olimpico","womens_team":"AS Rom"},{"capacity":75923,"club":"AC Milan","stadium":"San Siro","womens_team":"ACF Mailand"},{"capacity":68530,"club":"SS Lazio","stadium":"Stadio Olimpico","womens_team":"SS Lazio"},{"capacity":54726,"club":"SSC Napoli","stadium":"Diego Armando Maradona","womens_team":"ASD Napoli Femminile"},{"capacity":55865,"club":"Ajax","stadium":"Johan Cruijff Arena","womens_team":"Ajax Amsterdam"},{"capacity":51177,"club":"Feyenoord","stadium":"De Kuip","womens_team":"Feyenoord Rotterdam"},{"capacity":35000,"club":"PSV Eindhoven","stadium":"Philips Stadion","womens_team":"FCE/PSV"},{"capacity":64642,"club":"SL Benfica","stadium":"Estádio da Luz","womens_team":"SL Benfica"},{"capacity":50033,"club":"FC Porto","stadium":"Estádio do Dragão","womens_team":"FC Porto"},{"capacity":50095,"club":"Sporting CP","stadium":"José Alvalade","womens_team":"Sporting Clube de Portugal"}]}
+{
+  "stadiums": [
+    {
+      "capacity": 105000,
+      "club": "FC Barcelona",
+      "stadium": "Camp Nou",
+      "womens_team": "F.C. Barcelona"
+    },
+    {
+      "capacity": 81044,
+      "club": "Real Madrid",
+      "stadium": "Santiago Bernabéu",
+      "womens_team": "Real Madrid"
+    },
+    {
+      "capacity": 70460,
+      "club": "Atlético de Madrid",
+      "stadium": "Riyadh Air Metropolitano",
+      "womens_team": "Club Atlético de Madrid"
+    },
+    {
+      "capacity": 49440,
+      "club": "Valencia CF",
+      "stadium": "Mestalla",
+      "womens_team": "VCF Femenino"
+    },
+    {
+      "capacity": 53331,
+      "club": "Athletic Club",
+      "stadium": "San Mamés",
+      "womens_team": "Athletic Bilbao"
+    },
+    {
+      "capacity": 40000,
+      "club": "Real Sociedad",
+      "stadium": "Reale Arena",
+      "womens_team": "Real Socieadad"
+    },
+    {
+      "capacity": 43883,
+      "club": "Sevilla FC",
+      "stadium": "Ramón Sánchez-Pizjuán",
+      "womens_team": "F.C. Sevilla"
+    },
+    {
+      "capacity": 60720,
+      "club": "Real Betis",
+      "stadium": "Benito Villamarín",
+      "womens_team": "Real Betis Balompié"
+    },
+    {
+      "capacity": 23000,
+      "club": "Villarreal CF",
+      "stadium": "Estadio de la Cerámica",
+      "womens_team": "Villarreal CF"
+    },
+    {
+      "capacity": 40500,
+      "club": "RCD Espanyol",
+      "stadium": "RCDE Stadium",
+      "womens_team": "Espanyol Barcelona"
+    },
+    {
+      "capacity": 19336,
+      "club": "Granada CF",
+      "stadium": "Nuevo Los Cármenes",
+      "womens_team": "Granada CF"
+    },
+    {
+      "capacity": 26354,
+      "club": "Levante UD",
+      "stadium": "Ciutat de València",
+      "womens_team": "Levante UD"
+    },
+    {
+      "capacity": 31388,
+      "club": "Elche CF",
+      "stadium": "Manuel Martínez Valero",
+      "womens_team": "Elche CF"
+    },
+    {
+      "capacity": 14708,
+      "club": "Rayo Vallecano",
+      "stadium": "Vallecas",
+      "womens_team": "Rayo Vallecano"
+    },
+    {
+      "capacity": 23576,
+      "club": "CA Osasuna",
+      "stadium": "El Sadar",
+      "womens_team": "CA Osasuna"
+    },
+    {
+      "capacity": 19840,
+      "club": "Deportivo Alavés",
+      "stadium": "Mendizorrotza",
+      "womens_team": "Deportivo Alavés Gloriosas"
+    },
+    {
+      "capacity": 32660,
+      "club": "RC Deportivo",
+      "stadium": "Riazor",
+      "womens_team": "RC Deportivo A Coruña"
+    },
+    {
+      "capacity": 29371,
+      "club": "Sporting de Gijón",
+      "stadium": "El Molinón",
+      "womens_team": "Sporting de Gijón"
+    },
+    {
+      "capacity": 22222,
+      "club": "Racing de Santander",
+      "stadium": "El Sardinero",
+      "womens_team": "Real Racing Club de Santander"
+    },
+    {
+      "capacity": 22824,
+      "club": "CD Tenerife",
+      "stadium": "Heliodoro Rodríguez López",
+      "womens_team": "CD Tenerife Femenino"
+    },
+    {
+      "capacity": 60704,
+      "club": "Arsenal",
+      "stadium": "Emirates Stadium",
+      "womens_team": "Arsenal FC"
+    },
+    {
+      "capacity": 40173,
+      "club": "Chelsea",
+      "stadium": "Stamford Bridge",
+      "womens_team": "Chelsea LFC"
+    },
+    {
+      "capacity": 61276,
+      "club": "Liverpool",
+      "stadium": "Anfield",
+      "womens_team": "Liverpool LFC"
+    },
+    {
+      "capacity": 53400,
+      "club": "Manchester City",
+      "stadium": "Etihad Stadium",
+      "womens_team": "Manchester City LFC"
+    },
+    {
+      "capacity": 74310,
+      "club": "Manchester United",
+      "stadium": "Old Trafford",
+      "womens_team": "Manchester United"
+    },
+    {
+      "capacity": 62850,
+      "club": "Tottenham Hotspur",
+      "stadium": "Tottenham Hotspur Stadium",
+      "womens_team": "Tottenham Hotspur LFC"
+    },
+    {
+      "capacity": 52888,
+      "club": "Everton",
+      "stadium": "Hill Dickinson Stadium",
+      "womens_team": "Everton LFC"
+    },
+    {
+      "capacity": 42657,
+      "club": "Aston Villa",
+      "stadium": "Villa Park",
+      "womens_team": "Aston Villa LFC"
+    },
+    {
+      "capacity": 62500,
+      "club": "West Ham United",
+      "stadium": "London Stadium",
+      "womens_team": "West Ham United LFC"
+    },
+    {
+      "capacity": 75000,
+      "club": "Bayern München",
+      "stadium": "Allianz Arena",
+      "womens_team": "Bayern München"
+    },
+    {
+      "capacity": 30000,
+      "club": "VfL Wolfsburg",
+      "stadium": "Volkswagen Arena",
+      "womens_team": "VfL Wolfsburg"
+    },
+    {
+      "capacity": 58000,
+      "club": "Eintracht Frankfurt",
+      "stadium": "Deutsche Bank Park",
+      "womens_team": "Eintracht Frankfurt"
+    },
+    {
+      "capacity": 30210,
+      "club": "Bayer Leverkusen",
+      "stadium": "BayArena",
+      "womens_team": "Bayer Leverkusen"
+    },
+    {
+      "capacity": 49698,
+      "club": "1. FC Köln",
+      "stadium": "RheinEnergieStadion",
+      "womens_team": "1. FC Köln"
+    },
+    {
+      "capacity": 42100,
+      "club": "Werder Bremen",
+      "stadium": "Weserstadion",
+      "womens_team": "Werder Bremen"
+    },
+    {
+      "capacity": 57000,
+      "club": "Hamburger SV",
+      "stadium": "Volksparkstadion",
+      "womens_team": "Hamburger SV"
+    },
+    {
+      "capacity": 60058,
+      "club": "VfB Stuttgart",
+      "stadium": "MHPArena",
+      "womens_team": "VfB Stuttgart 1893"
+    },
+    {
+      "capacity": 47069,
+      "club": "RB Leipzig",
+      "stadium": "Red Bull Arena",
+      "womens_team": "Rasenballsport Leipzig"
+    },
+    {
+      "capacity": 34700,
+      "club": "SC Freiburg",
+      "stadium": "Europa-Park Stadion",
+      "womens_team": "SC Freiburg"
+    },
+    {
+      "capacity": 59186,
+      "club": "Olympique Lyonnais",
+      "stadium": "Groupama Stadium",
+      "womens_team": "OL Lyonnes"
+    },
+    {
+      "capacity": 47926,
+      "club": "Paris Saint-Germain",
+      "stadium": "Parc des Princes",
+      "womens_team": "Paris Saint-Germain"
+    },
+    {
+      "capacity": 67394,
+      "club": "Olympique de Marseille",
+      "stadium": "Orange Vélodrome",
+      "womens_team": "Olympique de Marseille"
+    },
+    {
+      "capacity": 38223,
+      "club": "RC Lens",
+      "stadium": "Stade Bollaert-Delelis",
+      "womens_team": "RC Lens"
+    },
+    {
+      "capacity": 41507,
+      "club": "Juventus",
+      "stadium": "Allianz Stadium",
+      "womens_team": "Juventus Football Club"
+    },
+    {
+      "capacity": 75923,
+      "club": "Inter",
+      "stadium": "San Siro",
+      "womens_team": "Inter Mailand"
+    },
+    {
+      "capacity": 68530,
+      "club": "AS Roma",
+      "stadium": "Stadio Olimpico",
+      "womens_team": "AS Rom"
+    },
+    {
+      "capacity": 75923,
+      "club": "AC Milan",
+      "stadium": "San Siro",
+      "womens_team": "ACF Mailand"
+    },
+    {
+      "capacity": 68530,
+      "club": "SS Lazio",
+      "stadium": "Stadio Olimpico",
+      "womens_team": "SS Lazio"
+    },
+    {
+      "capacity": 54726,
+      "club": "SSC Napoli",
+      "stadium": "Diego Armando Maradona",
+      "womens_team": "ASD Napoli Femminile"
+    },
+    {
+      "capacity": 55865,
+      "club": "Ajax",
+      "stadium": "Johan Cruijff Arena",
+      "womens_team": "Ajax Amsterdam"
+    },
+    {
+      "capacity": 51177,
+      "club": "Feyenoord",
+      "stadium": "De Kuip",
+      "womens_team": "Feyenoord Rotterdam"
+    },
+    {
+      "capacity": 35000,
+      "club": "PSV Eindhoven",
+      "stadium": "Philips Stadion",
+      "womens_team": "FCE/PSV"
+    },
+    {
+      "capacity": 64642,
+      "club": "SL Benfica",
+      "stadium": "Estádio da Luz",
+      "womens_team": "SL Benfica"
+    },
+    {
+      "capacity": 50033,
+      "club": "FC Porto",
+      "stadium": "Estádio do Dragão",
+      "womens_team": "FC Porto"
+    },
+    {
+      "capacity": 50095,
+      "club": "Sporting CP",
+      "stadium": "José Alvalade",
+      "womens_team": "Sporting Clube de Portugal"
+    }
+  ]
+}
