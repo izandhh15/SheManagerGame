@@ -13,7 +13,76 @@ $kernel->bootstrap();
 
 header('Content-Type: text/plain');
 
+$step = $_GET['step'] ?? 'find';
+
 try {
+    if ($step === 'create') {
+        // Create a test game for Valencia in ESP1
+        $user = \App\Models\User::where('email', 'test-visual-2957@example.com')->first();
+        if (!$user) {
+            echo "Test user not found.\n";
+            exit;
+        }
+        
+        $team = \App\Models\Team::where('competition_id', 'ESP1')
+            ->where('name', 'like', '%Valencia%')
+            ->first();
+        
+        if (!$team) {
+            echo "Valencia team not found.\n";
+            exit;
+        }
+        
+        echo "Creating game for team: {$team->name} ({$team->id})\n";
+        
+        $service = app(\App\Modules\Season\Services\GameCreationService::class);
+        $game = $service->createGame(
+            userId: $user->id,
+            teamId: $team->id,
+            competitionId: 'ESP1',
+            season: '2026',
+            gameMode: \App\Models\Game::MODE_CAREER,
+        );
+        
+        echo "Game created: {$game->id}\n";
+        echo "Now run step=test with game_id={$game->id}\n";
+        exit;
+    }
+    
+    if ($step === 'test') {
+        $gameId = $_GET['game_id'] ?? '';
+        $game = \App\Models\Game::find($gameId);
+        
+        if (!$game) {
+            echo "Game not found.\n";
+            exit;
+        }
+        
+        echo "Testing setup for game: {$game->id}\n";
+        echo "Current step: {$game->season_transition_step}\n\n";
+        
+        // Run the full SetupNewGame job synchronously
+        echo "Running SetupNewGame job...\n";
+        $job = new \App\Modules\Season\Jobs\SetupNewGame(
+            gameId: $game->id,
+            teamId: $game->team_id,
+            competitionId: $game->competition_id,
+            season: '2026',
+            gameMode: $game->game_mode,
+        );
+        
+        $job->handle(
+            app(\App\Modules\Season\Services\SeasonSetupPipeline::class),
+            app(\App\Modules\Season\Processors\LeagueFixtureProcessor::class),
+            app(\App\Modules\Season\Processors\StandingsResetProcessor::class),
+            app(\App\Services\FormationRecommender::class),
+            app(\App\Services\FormationBiasResolver::class),
+        );
+        
+        echo "SUCCESS: SetupNewGame completed!\n";
+        exit;
+    }
+    
     // Find the stuck game (most recent without setup_completed_at)
     $game = \App\Models\Game::whereNull('setup_completed_at')
         ->whereNull('deleting_at')
