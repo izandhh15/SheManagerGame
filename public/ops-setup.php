@@ -4,6 +4,10 @@
  * TEMPORAL — solo para el setup inicial de la beta en Wasmer.
  * BORRAR tras ejecutar. Se protege con el secreto OPS_TOKEN.
  *
+ * El shell está capado en el runtime PHP de Wasmer (passthru no devuelve
+ * nada), así que los comandos artisan se ejecutan en proceso con
+ * Artisan::call().
+ *
  * Uso: https://shemanager-beta.wasmer.app/ops-setup.php?token=SECRETO&step=migrate
  *      https://shemanager-beta.wasmer.app/ops-setup.php?token=SECRETO&step=seed
  *      https://shemanager-beta.wasmer.app/ops-setup.php?token=SECRETO&step=seed-nt
@@ -25,37 +29,40 @@ $step = $_GET['step'] ?? '';
 
 header('Content-Type: text/plain; charset=utf-8');
 
-function run(string $cmd): void
-{
-    echo "\$ $cmd\n";
-    $code = 0;
-    passthru("cd /app && php artisan $cmd 2>&1", $code);
-    echo "\n[exit code: $code]\n---\n";
-}
+require __DIR__.'/../vendor/autoload.php';
 
-if ($step === 'diag') {
-    echo 'cwd: ' . getcwd() . "\n";
-    echo 'php: ' . PHP_VERSION . "\n";
-    echo '--- ls ---' . "\n";
-    passthru('ls -la 2>&1 | head -20');
-    echo '--- /app ---' . "\n";
-    passthru('ls -la /app 2>&1 | head -20');
-    echo '--- which php ---' . "\n";
-    passthru('command -v php; which php 2>&1');
-    exit;
+$app = require __DIR__.'/../bootstrap/app.php';
+
+$kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
+$kernel->bootstrap();
+
+function run(string $command, array $args = []): void
+{
+    echo "\$ artisan $command\n";
+    flush();
+    try {
+        $code = Illuminate\Support\Facades\Artisan::call($command, $args);
+        echo Illuminate\Support\Facades\Artisan::output();
+        echo "[exit code: $code]\n";
+    } catch (Throwable $e) {
+        echo 'ERROR: '.get_class($e).': '.$e->getMessage()."\n";
+        echo $e->getTraceAsString()."\n";
+    }
+    echo "---\n";
+    flush();
 }
 
 switch ($step) {
     case 'migrate':
-        run('migrate --force');
+        run('migrate', ['--force' => true]);
         break;
     case 'seed':
         // Datos base: clubs, competiciones, plantillas (temporada 2026)
-        run('app:seed-reference-data --fresh');
+        run('app:seed-reference-data', ['--fresh' => true]);
         break;
     case 'seed-nt':
         // Selecciones nacionales + WWCQ (beta)
-        run('app:seed-national-teams --fresh');
+        run('app:seed-national-teams', ['--fresh' => true]);
         break;
     default:
         echo "steps: migrate, seed, seed-nt\n";
