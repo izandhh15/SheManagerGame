@@ -553,20 +553,6 @@
         },
         {
           "contract": "",
-          "dateOfBirth": "Jun 18, 2002",
-          "foot": "right",
-          "height": "1.72",
-          "id": "940039",
-          "marketValue": "",
-          "name": "Giuliana González",
-          "nationality": [
-            "Argentina"
-          ],
-          "number": "2",
-          "position": "Defender"
-        },
-        {
-          "contract": "",
           "dateOfBirth": "",
           "foot": "right",
           "height": "1.58",
@@ -591,20 +577,6 @@
             "Argentina"
           ],
           "number": "21",
-          "position": "Defender"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Jun 7, 2004",
-          "foot": "right",
-          "height": "1.55",
-          "id": "940042",
-          "marketValue": "",
-          "name": "Belén Ludueña",
-          "nationality": [
-            "Argentina"
-          ],
-          "number": "24",
           "position": "Defender"
         },
         {
@@ -773,20 +745,6 @@
             "Venezuela"
           ],
           "number": "7",
-          "position": "Forward"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Jun 29, 2002",
-          "foot": "right",
-          "height": "",
-          "id": "940055",
-          "marketValue": "",
-          "name": "Lara López",
-          "nationality": [
-            "Argentina"
-          ],
-          "number": "9",
           "position": "Forward"
         },
         {
@@ -1010,20 +968,6 @@
         },
         {
           "contract": "",
-          "dateOfBirth": "Oct 31, 2001",
-          "foot": "",
-          "height": "1.51",
-          "id": "940071",
-          "marketValue": "",
-          "name": "Rocío Vázquez",
-          "nationality": [
-            "Argentina"
-          ],
-          "number": "10",
-          "position": "Midfield"
-        },
-        {
-          "contract": "",
           "dateOfBirth": "",
           "foot": "",
           "height": "1.60",
@@ -1077,20 +1021,6 @@
           ],
           "number": "28",
           "position": "Midfield"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "May 16, 2004",
-          "foot": "",
-          "height": "1.64",
-          "id": "940076",
-          "marketValue": "",
-          "name": "Juana Fonseca",
-          "nationality": [
-            "Argentina"
-          ],
-          "number": "9",
-          "position": "Forward"
         },
         {
           "contract": "",
@@ -1380,6 +1310,90 @@
           ],
           "number": "25",
           "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941201",
+          "marketValue": "",
+          "name": "Valentina Nerea González",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "6",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 13, 1996",
+          "foot": "",
+          "height": "",
+          "id": "941202",
+          "marketValue": "",
+          "name": "Melina Moreno",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "2",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 31, 2001",
+          "foot": "",
+          "height": "",
+          "id": "941203",
+          "marketValue": "",
+          "name": "Rocío Vázquez",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "8",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941204",
+          "marketValue": "",
+          "name": "Agustina Pacheco Etchart",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "7",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941205",
+          "marketValue": "",
+          "name": "Thalía Araujo",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "11",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941342",
+          "marketValue": "",
+          "name": "Carolina Sailer",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "25",
+          "position": "Goalkeeper"
         }
       ]
     },
@@ -1546,16 +1560,142 @@
         },
         {
           "contract": "",
-          "dateOfBirth": "Jan 1, 1994",
-          "foot": "right",
-          "height": "1.58",
-          "id": "940107",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941206",
           "marketValue": "",
-          "name": "Romina Núñez",
+          "name": "Brisa Río",
           "nationality": [
             "Argentina"
           ],
-          "number": "10",
+          "number": "12",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 17, 2001",
+          "foot": "",
+          "height": "",
+          "id": "941207",
+          "marketValue": "",
+          "name": "Sofía Salas",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "21",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 4, 2003",
+          "foot": "",
+          "height": "",
+          "id": "941208",
+          "marketValue": "",
+          "name": "Sofía Sarubba",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "24",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 16, 2003",
+          "foot": "",
+          "height": "",
+          "id": "941209",
+          "marketValue": "",
+          "name": "Nicolle Amaya",
+          "nationality": [
+            "El Salvador"
+          ],
+          "number": "25",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 29, 2003",
+          "foot": "",
+          "height": "",
+          "id": "941210",
+          "marketValue": "",
+          "name": "Danna Pesántez",
+          "nationality": [
+            "Ecuador"
+          ],
+          "number": "17",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 26, 2000",
+          "foot": "",
+          "height": "",
+          "id": "941211",
+          "marketValue": "",
+          "name": "Victoria Arrieto",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "5",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 16, 1996",
+          "foot": "",
+          "height": "",
+          "id": "941212",
+          "marketValue": "",
+          "name": "Ariana Reche",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "11",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941213",
+          "marketValue": "",
+          "name": "Raquel Polich",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "8",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941214",
+          "marketValue": "",
+          "name": "Florencia Cordero",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "31",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 27, 1993",
+          "foot": "",
+          "height": "",
+          "id": "941215",
+          "marketValue": "",
+          "name": "Mayra Acevedo",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "9",
           "position": "Forward"
         }
       ]
@@ -1608,20 +1748,6 @@
           ],
           "number": "",
           "position": "Goalkeeper"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "",
-          "foot": "left",
-          "height": "1.56",
-          "id": "940111",
-          "marketValue": "",
-          "name": "Eliana Stábile",
-          "nationality": [
-            "Argentina"
-          ],
-          "number": "",
-          "position": "Defender"
         },
         {
           "contract": "",
@@ -1691,6 +1817,188 @@
             "Argentina"
           ],
           "number": "10",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 1, 2002",
+          "foot": "",
+          "height": "",
+          "id": "941216",
+          "marketValue": "",
+          "name": "Azul Oszczyk",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "29",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941217",
+          "marketValue": "",
+          "name": "Abril Coronel",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "36",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941218",
+          "marketValue": "",
+          "name": "Julia Bonomo",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "42",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941219",
+          "marketValue": "",
+          "name": "Anahí Arias",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "21",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941220",
+          "marketValue": "",
+          "name": "Marianela González Sanz",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "28",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941221",
+          "marketValue": "",
+          "name": "Milagros Oliver",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "5",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941222",
+          "marketValue": "",
+          "name": "Pilar Casas",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "7",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941223",
+          "marketValue": "",
+          "name": "Estefanía Gauto",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "15",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941224",
+          "marketValue": "",
+          "name": "Valentina Aguilar",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "25",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941225",
+          "marketValue": "",
+          "name": "Maia Farías",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "11",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941226",
+          "marketValue": "",
+          "name": "Florencia Gaetán",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "30",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941227",
+          "marketValue": "",
+          "name": "Dahiana Cantero",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "17",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 1, 2005",
+          "foot": "",
+          "height": "",
+          "id": "941228",
+          "marketValue": "",
+          "name": "Juana Souto",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "9",
           "position": "Forward"
         }
       ]
@@ -1827,6 +2135,188 @@
           ],
           "number": "",
           "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941229",
+          "marketValue": "",
+          "name": "Milagros Mina",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941230",
+          "marketValue": "",
+          "name": "Macarena Ávila",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "11",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941231",
+          "marketValue": "",
+          "name": "Melany López",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "27",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941232",
+          "marketValue": "",
+          "name": "Agustina Maturano",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "3",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941233",
+          "marketValue": "",
+          "name": "Luján Flores",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "2",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941234",
+          "marketValue": "",
+          "name": "Abigail Ponce",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941235",
+          "marketValue": "",
+          "name": "Eliana Rosa",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "33",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941236",
+          "marketValue": "",
+          "name": "Nazira González",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "13",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941237",
+          "marketValue": "",
+          "name": "Carolina Imbrogiano",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "24",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941238",
+          "marketValue": "",
+          "name": "Valentina Pérez",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "32",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941239",
+          "marketValue": "",
+          "name": "Valentina Barroso",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "9",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941240",
+          "marketValue": "",
+          "name": "Milagros Menéndez",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "22",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941241",
+          "marketValue": "",
+          "name": "Damaris Martínez",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "19",
+          "position": "Forward"
         }
       ]
     },
@@ -1837,20 +2327,6 @@
       "stadiumSeats": 1000,
       "transfermarktId": 10057,
       "players": [
-        {
-          "contract": "",
-          "dateOfBirth": "",
-          "foot": "",
-          "height": "1.75",
-          "id": "940126",
-          "marketValue": "",
-          "name": "Micheel Rengifo",
-          "nationality": [
-            "Venezuela"
-          ],
-          "number": "1",
-          "position": "Goalkeeper"
-        },
         {
           "contract": "",
           "dateOfBirth": "May 22, 2001",
@@ -1948,6 +2424,188 @@
           ],
           "number": "",
           "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941242",
+          "marketValue": "",
+          "name": "Dalmira Arévalo",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941243",
+          "marketValue": "",
+          "name": "María Victoria Vives",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "4",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941245",
+          "marketValue": "",
+          "name": "Juana Porta",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "22",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941246",
+          "marketValue": "",
+          "name": "Laura Felipe",
+          "nationality": [
+            "Uruguay"
+          ],
+          "number": "23",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941247",
+          "marketValue": "",
+          "name": "Romina Luna",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "5",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941250",
+          "marketValue": "",
+          "name": "María Belén Raffaelli",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "27",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941251",
+          "marketValue": "",
+          "name": "Antonella Chazarreta",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941252",
+          "marketValue": "",
+          "name": "Daniela Ramírez",
+          "nationality": [
+            "Mexico"
+          ],
+          "number": "",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941253",
+          "marketValue": "",
+          "name": "María Pagola",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "29",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941254",
+          "marketValue": "",
+          "name": "Julieta Bastus",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941255",
+          "marketValue": "",
+          "name": "Diana Maltaneri",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941381",
+          "marketValue": "",
+          "name": "Damaris Sequeira",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941382",
+          "marketValue": "",
+          "name": "Erica Correa",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
         }
       ]
     },
@@ -2069,6 +2727,202 @@
           ],
           "number": "",
           "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 9, 1998",
+          "foot": "",
+          "height": "",
+          "id": "941256",
+          "marketValue": "",
+          "name": "Daniela Pontel",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941257",
+          "marketValue": "",
+          "name": "Giuliana González",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "2",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 26, 1993",
+          "foot": "",
+          "height": "",
+          "id": "941258",
+          "marketValue": "",
+          "name": "Eliana Stabile",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "3",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941259",
+          "marketValue": "",
+          "name": "Belén Ludueña",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "4",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941260",
+          "marketValue": "",
+          "name": "Agustina Aguilera",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "6",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941261",
+          "marketValue": "",
+          "name": "Ahelín Piña",
+          "nationality": [
+            "Uruguay"
+          ],
+          "number": "5",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 1994",
+          "foot": "",
+          "height": "",
+          "id": "941262",
+          "marketValue": "",
+          "name": "Romina Núñez",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "7",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 19, 2000",
+          "foot": "",
+          "height": "",
+          "id": "941263",
+          "marketValue": "",
+          "name": "Catalina Primo",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "8",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941264",
+          "marketValue": "",
+          "name": "Juana Fonseca",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "9",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941265",
+          "marketValue": "",
+          "name": "Azul Ludueña",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "19",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941266",
+          "marketValue": "",
+          "name": "Ignacia Mestre",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "23",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 24, 1998",
+          "foot": "",
+          "height": "",
+          "id": "941267",
+          "marketValue": "",
+          "name": "Yamila Rodríguez",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "32",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941268",
+          "marketValue": "",
+          "name": "Pía Berti",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "34",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941269",
+          "marketValue": "",
+          "name": "Guadalupe Fenoglio",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Forward"
         }
       ]
     },
@@ -2089,20 +2943,6 @@
           "name": "Itzayana González",
           "nationality": [
             "Mexico"
-          ],
-          "number": "",
-          "position": "Goalkeeper"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Sep 25, 2002",
-          "foot": "",
-          "height": "",
-          "id": "940143",
-          "marketValue": "",
-          "name": "Brisa Rio",
-          "nationality": [
-            "Argentina"
           ],
           "number": "",
           "position": "Goalkeeper"
@@ -2161,6 +3001,202 @@
             "Venezuela"
           ],
           "number": "15",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941270",
+          "marketValue": "",
+          "name": "Macarena Sosa",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "3",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941271",
+          "marketValue": "",
+          "name": "Guadalupe López",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "2",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941273",
+          "marketValue": "",
+          "name": "Aldana Pérez",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "25",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941274",
+          "marketValue": "",
+          "name": "Macarena Latorre",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "13",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941276",
+          "marketValue": "",
+          "name": "Zoe Gómez",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "8",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941277",
+          "marketValue": "",
+          "name": "Sofía Ayala",
+          "nationality": [
+            "Peru"
+          ],
+          "number": "18",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941278",
+          "marketValue": "",
+          "name": "Agostina Gulino",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "22",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941279",
+          "marketValue": "",
+          "name": "Kurumi Hino",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941280",
+          "marketValue": "",
+          "name": "Zoe Martínez",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "24",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941281",
+          "marketValue": "",
+          "name": "Ludmila Díaz",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "7",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941282",
+          "marketValue": "",
+          "name": "Dahiana Rivas",
+          "nationality": [
+            "Paraguay"
+          ],
+          "number": "9",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941283",
+          "marketValue": "",
+          "name": "Tamara Villamayor",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "14",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941284",
+          "marketValue": "",
+          "name": "Candela Ramírez",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "16",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941285",
+          "marketValue": "",
+          "name": "Lara Luna",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "19",
           "position": "Forward"
         }
       ]
@@ -2222,6 +3258,258 @@
           "id": "940150",
           "marketValue": "",
           "name": "Pia Álvarez",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941286",
+          "marketValue": "",
+          "name": "Morena Ochonga",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941287",
+          "marketValue": "",
+          "name": "Andrea Utz",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941288",
+          "marketValue": "",
+          "name": "Morena Albornoz",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941289",
+          "marketValue": "",
+          "name": "Nuria Martínez",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941290",
+          "marketValue": "",
+          "name": "Rocío Arrieta",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 22, 2002",
+          "foot": "",
+          "height": "",
+          "id": "941291",
+          "marketValue": "",
+          "name": "Gisela Alves",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 23, 2000",
+          "foot": "",
+          "height": "",
+          "id": "941292",
+          "marketValue": "",
+          "name": "Martina Bornia",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941293",
+          "marketValue": "",
+          "name": "Selene Marzetti",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941294",
+          "marketValue": "",
+          "name": "Abigail Romero",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 19, 2006",
+          "foot": "",
+          "height": "",
+          "id": "941295",
+          "marketValue": "",
+          "name": "Oriana Buscalia",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941296",
+          "marketValue": "",
+          "name": "Ailén Sosa",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941297",
+          "marketValue": "",
+          "name": "Mía Gamarra",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 8, 2005",
+          "foot": "",
+          "height": "",
+          "id": "941298",
+          "marketValue": "",
+          "name": "Fermina Franco",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941299",
+          "marketValue": "",
+          "name": "Camila Scaramella",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941300",
+          "marketValue": "",
+          "name": "Analía Leguizamón",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941301",
+          "marketValue": "",
+          "name": "Oriana Villa",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 4, 2004",
+          "foot": "",
+          "height": "",
+          "id": "941302",
+          "marketValue": "",
+          "name": "Nayla Gallo",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941303",
+          "marketValue": "",
+          "name": "Taína Fernández",
           "nationality": [
             "Argentina"
           ],
@@ -2292,6 +3580,188 @@
           ],
           "number": "",
           "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 21, 1998",
+          "foot": "",
+          "height": "",
+          "id": "941304",
+          "marketValue": "",
+          "name": "Micheel Yolgrelis Rengifo Gutiérrez",
+          "nationality": [
+            "Venezuela"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941305",
+          "marketValue": "",
+          "name": "Alejandra Vaquero",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941306",
+          "marketValue": "",
+          "name": "Agustina Sosa",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941307",
+          "marketValue": "",
+          "name": "Guillermina Dubra",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941308",
+          "marketValue": "",
+          "name": "Milena Martínez",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941309",
+          "marketValue": "",
+          "name": "Juanita Díaz",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941310",
+          "marketValue": "",
+          "name": "Marianella Suárez",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941311",
+          "marketValue": "",
+          "name": "María Miranda",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941312",
+          "marketValue": "",
+          "name": "Victoria Rocha",
+          "nationality": [
+            "Uruguay"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941313",
+          "marketValue": "",
+          "name": "Melina Salinas",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941314",
+          "marketValue": "",
+          "name": "Victoria Vázquez",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941315",
+          "marketValue": "",
+          "name": "Tiziana Ortiz",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 17, 1998",
+          "foot": "",
+          "height": "",
+          "id": "941316",
+          "marketValue": "",
+          "name": "Milagros Rivas",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Forward"
         }
       ]
     },
@@ -2343,6 +3813,216 @@
           ],
           "number": "23",
           "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941322",
+          "marketValue": "",
+          "name": "Andrea Morán",
+          "nationality": [
+            "Ecuador"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941323",
+          "marketValue": "",
+          "name": "Dulce Tortolo",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 16, 1992",
+          "foot": "",
+          "height": "",
+          "id": "941324",
+          "marketValue": "",
+          "name": "Tiziana Lezcano",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 31, 2005",
+          "foot": "",
+          "height": "",
+          "id": "941325",
+          "marketValue": "",
+          "name": "Tiziana Gutiérrez",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 16, 1999",
+          "foot": "",
+          "height": "",
+          "id": "941326",
+          "marketValue": "",
+          "name": "Belén Pokoracki",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 24, 2000",
+          "foot": "",
+          "height": "",
+          "id": "941327",
+          "marketValue": "",
+          "name": "Agustina Schmidt",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 1, 2004",
+          "foot": "",
+          "height": "",
+          "id": "941330",
+          "marketValue": "",
+          "name": "Margarita Giménez",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941331",
+          "marketValue": "",
+          "name": "Milagros Caballero",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941333",
+          "marketValue": "",
+          "name": "Florencia Silva",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941334",
+          "marketValue": "",
+          "name": "Maricel González",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 26, 2004",
+          "foot": "",
+          "height": "",
+          "id": "941335",
+          "marketValue": "",
+          "name": "Alicia Zaracho",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941337",
+          "marketValue": "",
+          "name": "Johanna Galliotti",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 3, 2002",
+          "foot": "",
+          "height": "",
+          "id": "941338",
+          "marketValue": "",
+          "name": "Bárbara Calvo",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 22, 2000",
+          "foot": "",
+          "height": "",
+          "id": "941339",
+          "marketValue": "",
+          "name": "Rocío Correa",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941340",
+          "marketValue": "",
+          "name": "Melina Guerrero",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Forward"
         }
       ]
     },
@@ -2380,6 +4060,272 @@
           ],
           "number": "",
           "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941341",
+          "marketValue": "",
+          "name": "Micaela Britez",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941343",
+          "marketValue": "",
+          "name": "Sofia Soplan",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "2",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941344",
+          "marketValue": "",
+          "name": "Gisele García",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "3",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941345",
+          "marketValue": "",
+          "name": "Catalina Núñez",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "6",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941346",
+          "marketValue": "",
+          "name": "Morena Chachagua",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "13",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941347",
+          "marketValue": "",
+          "name": "Yamily Colman",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "17",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941348",
+          "marketValue": "",
+          "name": "Julieta Solis",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "18",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941349",
+          "marketValue": "",
+          "name": "Dolores Fernández",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "5",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941350",
+          "marketValue": "",
+          "name": "Elizabeth Martínez",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "7",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941351",
+          "marketValue": "",
+          "name": "Florencia Rivas Bolaños",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "8",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941352",
+          "marketValue": "",
+          "name": "Débora Escurra",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "14",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941353",
+          "marketValue": "",
+          "name": "Luna Romero",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "16",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941354",
+          "marketValue": "",
+          "name": "Mercedes Alvero",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "19",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941355",
+          "marketValue": "",
+          "name": "Lourdes Loza",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "9",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941356",
+          "marketValue": "",
+          "name": "Zoraida Leguizamón",
+          "nationality": [
+            "Paraguay"
+          ],
+          "number": "10",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941357",
+          "marketValue": "",
+          "name": "Sabrina Mazzucchelli",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "21",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941358",
+          "marketValue": "",
+          "name": "Analía Alarcón",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "33",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941359",
+          "marketValue": "",
+          "name": "Lara López",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941360",
+          "marketValue": "",
+          "name": "Agustina Núñez",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Forward"
         }
       ]
     },
@@ -2417,6 +4363,286 @@
           ],
           "number": "",
           "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941361",
+          "marketValue": "",
+          "name": "Giuliana Zárate",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "35",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941362",
+          "marketValue": "",
+          "name": "Caren López",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "2",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941363",
+          "marketValue": "",
+          "name": "Victoria Muñoz",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "4",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941364",
+          "marketValue": "",
+          "name": "Martina Pinto",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "15",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941365",
+          "marketValue": "",
+          "name": "Milagros Guardia",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "18",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941366",
+          "marketValue": "",
+          "name": "Marilín Coronel",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "28",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941367",
+          "marketValue": "",
+          "name": "Martina Soto",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941368",
+          "marketValue": "",
+          "name": "Agostina Retamal",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941369",
+          "marketValue": "",
+          "name": "Alegra Risso",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "5",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941370",
+          "marketValue": "",
+          "name": "Mailen Herman",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "6",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941371",
+          "marketValue": "",
+          "name": "Micaela López",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "14",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941372",
+          "marketValue": "",
+          "name": "Lucía Almada",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "30",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941373",
+          "marketValue": "",
+          "name": "Nayla Barrionuevo",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941374",
+          "marketValue": "",
+          "name": "Agostina Miguel",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941375",
+          "marketValue": "",
+          "name": "Emilse Albornos",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "7",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941376",
+          "marketValue": "",
+          "name": "Camila Acevedo",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "21",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941377",
+          "marketValue": "",
+          "name": "Aldana Villalba",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "33",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941378",
+          "marketValue": "",
+          "name": "Mara Domínguez",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "10",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941379",
+          "marketValue": "",
+          "name": "Daiana Sosa",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "941380",
+          "marketValue": "",
+          "name": "Milagros Arias",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Forward"
         }
       ]
     },
