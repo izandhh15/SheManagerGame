@@ -73,6 +73,21 @@ class TournamentCreationService
     }
 
     /**
+     * National team competition sequence for UEFA: Nations League →
+     * World Cup Qualifying → (World Cup) → Euro Qualifying → (Euros).
+     * Returns the next competition id after the given one, or null if
+     * the sequence ends (cycles back to Nations League).
+     */
+    public static function nextCompetitionInSequence(string $currentCompetitionId): ?string
+    {
+        return match ($currentCompetitionId) {
+            self::WNL_ID => 'WQUEFA',      // Nations League → World Cup Qualifying
+            'WQUEFA' => self::WNL_ID,      // World Cup Qualifying → Nations League (cycle)
+            default => null,
+        };
+    }
+
+    /**
      * @param array<string>|null $squadPlayerIds Chosen player_ids (national-team games only)
      */
     public function create(string $userId, string $teamId, string $competitionId = 'WC2026', ?array $squadPlayerIds = null): Game
