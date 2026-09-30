@@ -18,26 +18,35 @@ header('Content-Type: text/plain');
 try {
     switch ($action) {
         case 'fix-dup':
-            // Fix empty-string numbers (set to NULL so unique constraint allows them)
-            $fixed = \DB::table('game_player_templates')
+            // Check what the empty numbers actually are
+            $sample = \DB::table('game_player_templates')
                 ->where('season', '2026')
-                ->where('number', '')
-                ->update(['number' => null]);
-            echo "Fixed $fixed empty numbers to NULL\n";
+                ->whereNull('number')
+                ->count();
+            echo "NULL numbers: $sample\n";
+            $zero = \DB::table('game_player_templates')
+                ->where('season', '2026')
+                ->where('number', 0)
+                ->count();
+            echo "Zero numbers: $zero\n";
             break;
         case 'seed-ar':
-            // Clear ALL 2026 templates and regenerate (simplest reliable way)
-            \DB::table('game_player_templates')->where('season', '2026')->delete();
+            // Delete only AR/BR/MX/US/CH teams and their templates
+            $teamIds = \DB::table('teams')
+                ->whereIn('country', ['AR', 'BR', 'MX', 'US', 'CH'])
+                ->pluck('id');
+            \DB::table('game_player_templates')->whereIn('team_id', $teamIds)->delete();
+            \DB::table('competition_teams')->whereIn('team_id', $teamIds)->delete();
+            \DB::table('teams')->whereIn('id', $teamIds)->delete();
+            // Delete the competitions too
+            \DB::table('competitions')->whereIn('id', ['ARG1', 'BRA1', 'MEX1', 'USA1', 'SUI1'])->delete();
+            
             $exit = $kernel->call('app:seed-reference-data', ['--country' => 'AR']);
             echo "AR seed exit: $exit\n";
-            echo $kernel->output();
-            // Re-seed other countries to restore their templates
             foreach (['BR', 'MX', 'US', 'CH'] as $c) {
                 $kernel->call('app:seed-reference-data', ['--country' => $c]);
             }
-            // Re-seed national teams
-            $kernel->call('app:seed-national-teams');
-            echo "All re-seeded\n";
+            echo "Done\n";
             break;
         case 'seed-br':
             $exit = $kernel->call('app:seed-reference-data', ['--country' => 'BR']);
