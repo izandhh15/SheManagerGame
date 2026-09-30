@@ -8,6 +8,18 @@
             </div>
         </div>
 
+        {{-- Dual mode: remind that this call-up joins the already-picked club,
+             and that the two saves are separate simulations. --}}
+        @if($dualClub ?? null)
+        <div class="mb-6 rounded-lg border border-accent-green/30 bg-accent-green/5 px-4 py-2.5">
+            <p class="text-sm text-text-body">
+                <span class="font-semibold text-accent-green">{{ __('game.mode_dual') }}:</span>
+                {{ $dualClub->name }} + {{ $team->name }}
+            </p>
+            <p class="text-xs text-text-muted mt-1">{{ __('game.dual_picker_note') }}</p>
+        </div>
+        @endif
+
         <div x-data="{
                 q: '',
                 clubFilter: '',
@@ -47,9 +59,17 @@
                 $order = ['Goalkeeper', 'Defender', 'Midfielder', 'Forward'];
             @endphp
 
+            @if($dualClub ?? null)
+            {{-- Dual mode: club + nation + 23 in one POST to the dual endpoint. --}}
+            <form method="post" action="{{ route('init-dual-game') }}" @submit="if (selected.length !== 23) $event.preventDefault()">
+                @csrf
+                <input type="hidden" name="club_id" value="{{ $dualClub->id }}" />
+                <input type="hidden" name="national_team_id" value="{{ $team->id }}" />
+            @else
             <form method="post" action="{{ route('init-national-game') }}" @submit="if (selected.length !== 23) $event.preventDefault()">
                 @csrf
                 <input type="hidden" name="team_id" value="{{ $team->id }}" />
+            @endif
                 <template x-for="id in selected" :key="id">
                     <input type="hidden" name="player_ids[]" :value="id" />
                 </template>
@@ -86,6 +106,8 @@
                 @endforeach
 
                 <x-input-error :messages="$errors->get('player_ids')" class="mt-4" />
+                <x-input-error :messages="$errors->get('club_id')" class="mt-4" />
+                <x-input-error :messages="$errors->get('national_team_id')" class="mt-4" />
 
                 {{-- Sticky confirm bar --}}
                 <div class="fixed bottom-0 inset-x-0 z-20 bg-surface-900/95 backdrop-blur border-t border-border-strong">
@@ -97,7 +119,7 @@
                                 :disabled="selected.length !== 23"
                                 :class="selected.length === 23 ? 'bg-accent-blue hover:bg-accent-blue/90' : 'bg-surface-600 cursor-not-allowed opacity-60'"
                                 class="px-6 py-2.5 min-h-[44px] rounded-lg text-sm font-semibold text-white transition">
-                            {{ __('game.squad_picker_confirm') }}
+                            {{ ($dualClub ?? null) ? __('game.dual_confirm') : __('game.squad_picker_confirm') }}
                         </button>
                     </div>
                 </div>

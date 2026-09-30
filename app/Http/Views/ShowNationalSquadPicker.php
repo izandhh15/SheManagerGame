@@ -41,6 +41,16 @@ final class ShowNationalSquadPicker
             ->where('is_placeholder', false)
             ->findOrFail($teamId);
 
+        // Dual-mode step 2: when ?club_id= is present and valid, the picker
+        // posts to the dual endpoint (club_id + national_team_id + player_ids)
+        // instead of the standalone national one.
+        $dualClub = null;
+        if ($request->query('club_id')) {
+            $dualClub = Team::where('type', '!=', 'national')
+                ->where('is_placeholder', false)
+                ->find($request->query('club_id'));
+        }
+
         $players = DB::table('game_player_templates')
             ->where('season', '2026')
             ->where('team_id', $teamId)
@@ -85,6 +95,7 @@ final class ShowNationalSquadPicker
             'team' => $team,
             'players' => $players,
             'clubs' => $players->pluck('club')->filter()->unique()->sort()->values(),
+            'dualClub' => $dualClub,
         ]);
     }
 }

@@ -10,6 +10,7 @@
                 leagues: @js($leagues),
                 openTab: @js($leagues[0]['value'] ?? null),
                 loading: false,
+                clubId: '',
             }">
             <form method="post" action="{{ route('init-game') }}" @submit="loading = true" class="space-y-6">
                 @csrf
@@ -26,9 +27,11 @@
                     $modeCardCount = 1
                         + ($hasCareerAccess ? 1 : 0)
                         + ($hasTournamentMode ? 1 : 0)
-                        + ($hasNationalMode ? 1 : 0);
+                        + ($hasNationalMode ? 1 : 0)
+                        + (($hasCareerAccess && $hasNationalMode) ? 1 : 0);
                     // Literal class strings so Tailwind JIT keeps the variants.
                     $modeGridClass = match ($modeCardCount) {
+                        5 => 'md:grid-cols-3',
                         4 => 'md:grid-cols-4',
                         3 => 'md:grid-cols-3',
                         2 => 'md:grid-cols-2',
@@ -179,53 +182,43 @@
                             </div>
                         </button>
                         @endif
+
+                        {{-- Dual mode card (club + national team, linked saves) --}}
+                        @if($hasCareerAccess && $hasNationalMode)
+                        <button type="button"
+                                @click="mode = 'dual'"
+                                :class="mode === 'dual'
+                                    ? 'ring-2 ring-accent-green border-accent-green/30 bg-accent-green/5'
+                                    : 'border-border-strong hover:bg-surface-700/50'"
+                                class="relative flex items-center gap-4 p-4 md:p-5 rounded-xl border transition-all duration-200 text-left">
+                            <div class="shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center"
+                                 :class="mode === 'dual' ? 'bg-accent-green' : 'bg-surface-600'">
+                                <svg class="w-6 h-6 md:w-7 md:h-7" :class="mode === 'dual' ? 'text-white' : 'text-text-muted'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+                                </svg>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="font-heading font-bold text-base md:text-lg uppercase tracking-wide" :class="mode === 'dual' ? 'text-accent-green' : 'text-text-body'">
+                                    {{ __('game.mode_dual') }}
+                                    <span class="ml-1 align-middle text-[10px] font-sans font-semibold uppercase tracking-widest px-1.5 py-0.5 rounded bg-accent-green/15 text-accent-green">{{ __('game.mode_national_badge') }}</span>
+                                </h3>
+                                <p class="text-xs md:text-sm mt-0.5" :class="mode === 'dual' ? 'text-accent-green/80' : 'text-text-muted'">
+                                    {{ __('game.mode_dual_desc') }}
+                                </p>
+                            </div>
+                            <div x-show="mode === 'dual'" x-cloak class="shrink-0">
+                                <svg class="w-6 h-6 text-accent-green" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </button>
+                        @endif
                     </div>
                 @endif
 
                 {{-- ===================== CLUB MANAGER MODE: Club teams ===================== --}}
                 <div x-show="mode === 'career'" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
-                    {{-- League picker. ESP3A/ESP3B share one 'ESP3' entry, built in
-                         App\Http\Views\SelectTeam so its labels can be translated in PHP. --}}
-                    <x-league-select model="openTab" options="leagues" :label="__('game.league')" />
-
-                    {{-- Team grids per competition. ESP3A/ESP3B share the 'ESP3' tab and render as group sections. --}}
-                    @foreach($countries as $countryCode => $country)
-                        @foreach($country['tiers'] as $tier => $competition)
-                            @php
-                                $isPrimeraRfef = in_array($competition->id, ['ESP3A', 'ESP3B'], true);
-                                $activeTabId = $isPrimeraRfef ? 'ESP3' : $competition->id;
-                                $groupHeadingKey = match ($competition->id) {
-                                    'ESP3A' => 'game.group_1',
-                                    'ESP3B' => 'game.group_2',
-                                    default => null,
-                                };
-                            @endphp
-                            <div x-show="openTab === '{{ $activeTabId }}'" x-cloak @class(['mb-4' => $isPrimeraRfef])>
-                                @if($groupHeadingKey)
-                                    <h3 class="font-heading text-sm md:text-base font-semibold uppercase tracking-wide text-text-secondary mb-2">{{ __($groupHeadingKey) }}</h3>
-                                @endif
-                                <div class="grid grid-cols-2 lg:grid-cols-4 gap-2">
-                                    @foreach($competition->teams as $team)
-                                        @if($team->isReserveTeam())
-                                            <div x-data x-tooltip.raw="{{ __('game.b_team_not_playable') }}"
-                                                 class="flex items-center gap-2 md:gap-3 rounded-lg border border-border-default p-2 md:p-4 opacity-60 cursor-not-allowed">
-                                                <x-team-crest :team="$team" class="w-7 h-7 md:w-10 md:h-10 shrink-0" />
-                                                <span class="text-xs md:text-base font-medium text-text-muted truncate">{{ $team->name }}</span>
-                                            </div>
-                                        @else
-                                            <label class="flex items-center gap-2 md:gap-3 rounded-lg border border-border-default p-2 md:p-4 cursor-pointer transition-all
-                                                           hover:bg-accent-blue/5 hover:border-accent-blue/30
-                                                           has-checked:ring-2 has-checked:ring-accent-blue has-checked:border-accent-blue/30 has-checked:bg-accent-blue/5">
-                                                <x-team-crest :team="$team" class="w-7 h-7 md:w-10 md:h-10 shrink-0" />
-                                                <span class="text-xs md:text-base font-medium text-text-body truncate">{{ $team->name }}</span>
-                                                <input x-bind:required="mode === 'career'" x-bind:disabled="mode !== 'career'" type="radio" name="team_id" value="{{ $team->id }}" class="hidden">
-                                            </label>
-                                        @endif
-                                    @endforeach
-                                </div>
-                            </div>
-                        @endforeach
-                    @endforeach
+                    @include('partials.club-grid')
                 </div>
 
                 {{-- ===================== PRO MANAGER MODE: 3 random Primera RFEF clubs ===================== --}}
@@ -324,6 +317,43 @@
                                     <span class="text-sm font-medium text-text-body truncate">{{ $team->name }}</span>
                                 </a>
                             @endforeach
+                        </div>
+                    </div>
+                @endif
+
+                {{-- ===================== DUAL MODE: club first, then nation + 23 =====================
+                     Step 1 reuses the club grid (partials.club-grid); the picked club
+                     feeds clubId, which step 2 appends as ?club_id= to the squad
+                     picker URL so it posts to the dual endpoint with
+                     club_id + national_team_id + player_ids. --}}
+                @if($hasCareerAccess && $hasNationalMode)
+                    <div x-show="mode === 'dual'" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" class="space-y-6">
+                        <div>
+                            <p class="text-sm font-semibold text-text-body mb-3">{{ __('game.dual_step_1') }}</p>
+                            @include('partials.club-grid', ['radioName' => 'club_id', 'xModel' => 'clubId'])
+                        </div>
+
+                        <div x-data="{ q: '' }">
+                            <p class="text-sm font-semibold text-text-body mb-1">{{ __('game.dual_step_2') }}</p>
+                            <p class="text-xs mb-3" :class="clubId ? 'text-text-muted' : 'text-accent-orange'">{{ __('game.dual_pick_club_first') }}</p>
+
+                            <div class="max-w-md mb-4">
+                                <input type="text" x-model="q" @keydown.enter.prevent placeholder="{{ __('game.national_search_placeholder') }}"
+                                       class="w-full rounded-lg border border-border-default bg-surface-800 px-4 py-2.5 text-sm text-text-body placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-accent-blue/50" />
+                            </div>
+
+                            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
+                                @foreach($ntFeaturedTeams->concat($ntTeams) as $team)
+                                    <a :href="'{{ route('national-squad-picker', $team->id) }}' + (clubId ? '?club_id=' + clubId : '')"
+                                       @click="if (!clubId) $event.preventDefault()"
+                                       x-show="q === '' || '{{ addslashes($team->name) }}'.toLowerCase().includes(q.toLowerCase())"
+                                       :class="clubId ? 'hover:bg-accent-blue/5 hover:border-accent-blue/30' : 'opacity-60 cursor-not-allowed'"
+                                       class="flex items-center gap-2.5 rounded-lg border border-border-default p-3 transition-all">
+                                        <x-team-crest :team="$team" class="w-8 h-8 shrink-0" />
+                                        <span class="text-sm font-medium text-text-body truncate">{{ $team->name }}</span>
+                                    </a>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                 @endif
