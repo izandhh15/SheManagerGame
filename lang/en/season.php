@@ -62,6 +62,8 @@ return [
     'best_goalkeeper_primeira' => 'Liga Portugal Best Goalkeeper',
     'top_scorer_eredivisie' => 'Eredivisie Top Scorer',
     'best_goalkeeper_eredivisie' => 'Eredivisie Best Goalkeeper',
+    'top_scorer_swiss' => 'Super League Top Scorer',
+    'best_goalkeeper_swiss' => 'Super League Best Goalkeeper',
     'clean_sheets' => 'clean sheets',
     'goals_per_game' => 'goals/match',
     'no_goals_scored' => 'No goals scored',

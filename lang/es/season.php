@@ -62,6 +62,8 @@ return [
     'best_goalkeeper_primeira' => 'Mejor Portera de la Liga Portugal',
     'top_scorer_eredivisie' => 'Máxima Goleadora de la Eredivisie',
     'best_goalkeeper_eredivisie' => 'Mejor Portera de la Eredivisie',
+    'top_scorer_swiss' => 'Máxima Goleadora de la Super League',
+    'best_goalkeeper_swiss' => 'Mejor Portera de la Super League',
     'clean_sheets' => 'porterías a cero',
     'goals_per_game' => 'goles/partido',
     'no_goals_scored' => 'Sin goles marcados',

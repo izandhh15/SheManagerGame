@@ -1,0 +1,3589 @@
+{
+  "id": "SUI1",
+  "name": "AXA Women's Super League",
+  "seasonID": "2026",
+  "clubs": [
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/2222.png",
+      "name": "Servette FC Ch\u00eanois F\u00e9minin",
+      "stadiumName": "Stade des Trois-Ch\u00eanes",
+      "stadiumSeats": 8000,
+      "transfermarktId": 2222,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 24, 2001",
+          "foot": "",
+          "height": "",
+          "id": "41016",
+          "marketValue": "\u20ac30k",
+          "name": "Enith Sal\u00f3n",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Dec 24, 1999",
+          "foot": "",
+          "height": "",
+          "id": "35282",
+          "marketValue": "\u20ac35k",
+          "name": "Da\u00efna Bourma",
+          "nationality": [
+            "France"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 25, 2002",
+          "foot": "",
+          "height": "",
+          "id": "35182",
+          "marketValue": "\u20ac150k",
+          "name": "Paola Hern\u00e1ndez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 4, 1993",
+          "foot": "",
+          "height": "",
+          "id": "3899",
+          "marketValue": "\u20ac50k",
+          "name": "Nata\u0161a Andonova",
+          "nationality": [
+            "North Macedonia"
+          ],
+          "number": "",
+          "position": "Second Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 20, 2002",
+          "foot": "",
+          "height": "",
+          "id": "40414",
+          "marketValue": "\u20ac60k",
+          "name": "Asun Mart\u00ednez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 12, 1998",
+          "foot": "",
+          "height": "",
+          "id": "22197",
+          "marketValue": "\u20ac60k",
+          "name": "Gloria Marinelli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "May 29, 1995",
+          "foot": "",
+          "height": "",
+          "id": "6460",
+          "marketValue": "\u20ac30k",
+          "name": "Ghoutia Karchouni",
+          "nationality": [
+            "Algeria"
+          ],
+          "number": "",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 28, 2004",
+          "foot": "",
+          "height": "",
+          "id": "47383",
+          "marketValue": "\u20ac70k",
+          "name": "Magdalena Sobal",
+          "nationality": [
+            "Poland"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 16, 2000",
+          "foot": "",
+          "height": "",
+          "id": "33591",
+          "marketValue": "\u20ac40k",
+          "name": "Mick\u00e4ella Cardia",
+          "nationality": [
+            "France"
+          ],
+          "number": "",
+          "position": "Left Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 11, 1998",
+          "foot": "",
+          "height": "",
+          "id": "30596",
+          "marketValue": "\u20ac45k",
+          "name": "Jacintha Weimar",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 22, 1999",
+          "foot": "",
+          "height": "",
+          "id": "51378",
+          "marketValue": "\u20ac55k",
+          "name": "Laia Ballest\u00e9",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 22, 2007",
+          "foot": "",
+          "height": "",
+          "id": "105046",
+          "marketValue": "\u20ac30k",
+          "name": "L\u00e9a Magali Sergeant-Huet",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Nov 25, 2009",
+          "foot": "",
+          "height": "",
+          "id": "116874",
+          "marketValue": "\u20ac25k",
+          "name": "Garance Nein",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 27, 1991",
+          "foot": "",
+          "height": "",
+          "id": "3313",
+          "marketValue": "\u20ac20k",
+          "name": "Paula Serrano",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 18, 2007",
+          "foot": "",
+          "height": "",
+          "id": "72670",
+          "marketValue": "\u20ac40k",
+          "name": "Chiara Wallin",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 27, 1996",
+          "foot": "",
+          "height": "",
+          "id": "15185",
+          "marketValue": "\u20ac25k",
+          "name": "Laura Strik",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 17, 2000",
+          "foot": "",
+          "height": "",
+          "id": "42614",
+          "marketValue": "\u20ac45k",
+          "name": "Amanda Chaney",
+          "nationality": [
+            "France"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 4, 2006",
+          "foot": "",
+          "height": "",
+          "id": "85657",
+          "marketValue": "\u20ac60k",
+          "name": "Amina Muratovi\u0107",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 24, 1996",
+          "foot": "",
+          "height": "",
+          "id": "20187",
+          "marketValue": "\u20ac55k",
+          "name": "Joana March\u00e3o",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 27, 1995",
+          "foot": "",
+          "height": "",
+          "id": "10183",
+          "marketValue": "\u20ac95k",
+          "name": "Meriame Terchoun",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 9, 1996",
+          "foot": "",
+          "height": "",
+          "id": "17982",
+          "marketValue": "\u20ac50k",
+          "name": "No\u00e9mie Carage",
+          "nationality": [
+            "France"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 6, 2003",
+          "foot": "",
+          "height": "",
+          "id": "48598",
+          "marketValue": "\u20ac30k",
+          "name": "Manon Le Page",
+          "nationality": [
+            "France"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Dec 30, 2010",
+          "foot": "",
+          "height": "",
+          "id": "116862",
+          "marketValue": "\u20ac20k",
+          "name": "Abby Blanco Acevedo",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 25, 1992",
+          "foot": "",
+          "height": "",
+          "id": "7927",
+          "marketValue": "\u20ac25k",
+          "name": "Stefanie da Eira",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 20, 1995",
+          "foot": "",
+          "height": "",
+          "id": "12261",
+          "marketValue": "\u20ac50k",
+          "name": "\u00c9lodie Nakkach",
+          "nationality": [
+            "Morocco"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 2, 1997",
+          "foot": "",
+          "height": "",
+          "id": "41275",
+          "marketValue": "\u20ac50k",
+          "name": "B\u00e9n\u00e9dicte Simon",
+          "nationality": [
+            "Ghana"
+          ],
+          "number": "",
+          "position": "Right-Back"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/576.png",
+      "name": "FC Z\u00fcrich Frauen",
+      "stadiumName": "Sportanlage Heerensch\u00fcrli",
+      "stadiumSeats": 1120,
+      "transfermarktId": 576,
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 13, 2002",
+          "foot": "",
+          "height": "",
+          "id": "110002",
+          "marketValue": "\u20ac0",
+          "name": "Faith Hutchins",
+          "nationality": [
+            "United States"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 1, 2001",
+          "foot": "",
+          "height": "",
+          "id": "101184",
+          "marketValue": "\u20ac0",
+          "name": "Briana Eads",
+          "nationality": [
+            "United States"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 12, 1994",
+          "foot": "",
+          "height": "",
+          "id": "28527",
+          "marketValue": "\u20ac17.5k",
+          "name": "Claire O'Riordan",
+          "nationality": [
+            "Ireland"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 28, 1996",
+          "foot": "",
+          "height": "",
+          "id": "16456",
+          "marketValue": "\u20ac65k",
+          "name": "Luana B\u00fchler",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Aug 6, 1998",
+          "foot": "",
+          "height": "",
+          "id": "27488",
+          "marketValue": "\u20ac0",
+          "name": "Naomi M\u00e9groz",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 2, 2005",
+          "foot": "",
+          "height": "",
+          "id": "63739",
+          "marketValue": "\u20ac0",
+          "name": "Luana B\u00fcrge",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "May 15, 2006",
+          "foot": "",
+          "height": "",
+          "id": "72662",
+          "marketValue": "\u20ac0",
+          "name": "Janina Egli",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Second Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 18, 2004",
+          "foot": "",
+          "height": "",
+          "id": "50039",
+          "marketValue": "\u20ac0",
+          "name": "Amelie Schuster",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 10, 2003",
+          "foot": "",
+          "height": "",
+          "id": "41510",
+          "marketValue": "\u20ac0",
+          "name": "Chiara B\u00fccher",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 9, 2005",
+          "foot": "",
+          "height": "",
+          "id": "50791",
+          "marketValue": "\u20ac0",
+          "name": "Amelie Roduner",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 22, 2004",
+          "foot": "",
+          "height": "",
+          "id": "101862",
+          "marketValue": "\u20ac0",
+          "name": "Wasiima Mohammed",
+          "nationality": [
+            "Ghana"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Aug 10, 2006",
+          "foot": "",
+          "height": "",
+          "id": "71004",
+          "marketValue": "\u20ac0",
+          "name": "Yasmine Ammar",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 4, 2004",
+          "foot": "",
+          "height": "",
+          "id": "47325",
+          "marketValue": "\u20ac20k",
+          "name": "Nina Kajzba",
+          "nationality": [
+            "Slovenia"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 29, 2007",
+          "foot": "",
+          "height": "",
+          "id": "89615",
+          "marketValue": "\u20ac0",
+          "name": "Rahel Hinder",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 24, 2007",
+          "foot": "",
+          "height": "",
+          "id": "85367",
+          "marketValue": "\u20ac0",
+          "name": "Derin Degirmenler",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "May 19, 2007",
+          "foot": "",
+          "height": "",
+          "id": "86626",
+          "marketValue": "\u20ac0",
+          "name": "Zoe D\u00f6nni",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 11, 2003",
+          "foot": "",
+          "height": "",
+          "id": "47828",
+          "marketValue": "\u20ac0",
+          "name": "Martina \u0106avar",
+          "nationality": [
+            "Croatia"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Apr 25, 2006",
+          "foot": "",
+          "height": "",
+          "id": "65616",
+          "marketValue": "\u20ac0",
+          "name": "Riana Gm\u00fcr",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Feb 8, 2006",
+          "foot": "",
+          "height": "",
+          "id": "80512",
+          "marketValue": "\u20ac0",
+          "name": "Larissa Uetz",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 22, 1998",
+          "foot": "",
+          "height": "",
+          "id": "27223",
+          "marketValue": "\u20ac0",
+          "name": "Kim Dubs",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 4, 2003",
+          "foot": "",
+          "height": "",
+          "id": "47829",
+          "marketValue": "\u20ac0",
+          "name": "Sanja Kova\u010devi\u0107",
+          "nationality": [
+            "Serbia"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jul 3, 2006",
+          "foot": "",
+          "height": "",
+          "id": "62528",
+          "marketValue": "\u20ac0",
+          "name": "Nevia Stoob",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jul 21, 2000",
+          "foot": "",
+          "height": "",
+          "id": "36280",
+          "marketValue": "\u20ac0",
+          "name": "Luisa Blumenthal",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 26, 2004",
+          "foot": "",
+          "height": "",
+          "id": "50040",
+          "marketValue": "\u20ac0",
+          "name": "Marlene Wild",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/157.png",
+      "name": "Grasshopper Club Z\u00fcrich Frauen",
+      "stadiumName": "GC-Campus Niederhasli",
+      "stadiumSeats": 1300,
+      "transfermarktId": 157,
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 9, 2008",
+          "foot": "",
+          "height": "",
+          "id": "92253",
+          "marketValue": "\u20ac0",
+          "name": "Yara Zwyssig",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 7, 2005",
+          "foot": "",
+          "height": "",
+          "id": "60364",
+          "marketValue": "\u20ac0",
+          "name": "Jimena Vicario",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 12, 2000",
+          "foot": "",
+          "height": "",
+          "id": "13292",
+          "marketValue": "\u20ac0",
+          "name": "Kim Bollmann",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 31, 1996",
+          "foot": "",
+          "height": "",
+          "id": "13760",
+          "marketValue": "\u20ac0",
+          "name": "Melanie M\u00fcller",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 22, 1999",
+          "foot": "",
+          "height": "",
+          "id": "20864",
+          "marketValue": "\u20ac0",
+          "name": "Viola Avduli",
+          "nationality": [
+            "Kosovo"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 7, 1997",
+          "foot": "",
+          "height": "",
+          "id": "22114",
+          "marketValue": "\u20ac0",
+          "name": "Morgane Nicoli",
+          "nationality": [
+            "France"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 5, 1997",
+          "foot": "",
+          "height": "",
+          "id": "29806",
+          "marketValue": "\u20ac0",
+          "name": "Marta Cazalla",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Mar 29, 2004",
+          "foot": "",
+          "height": "",
+          "id": "47928",
+          "marketValue": "\u20ac0",
+          "name": "Luana Valsangiacomo",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 25, 2009",
+          "foot": "",
+          "height": "",
+          "id": "103395",
+          "marketValue": "\u20ac0",
+          "name": "Soraya Awa Bandia",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jul 21, 2007",
+          "foot": "",
+          "height": "",
+          "id": "72661",
+          "marketValue": "\u20ac0",
+          "name": "Emma Egli",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 26, 2008",
+          "foot": "",
+          "height": "",
+          "id": "99470",
+          "marketValue": "\u20ac0",
+          "name": "Emilia Brunner",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Feb 18, 2008",
+          "foot": "",
+          "height": "",
+          "id": "92682",
+          "marketValue": "\u20ac0",
+          "name": "Giulia Looser",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 10, 2002",
+          "foot": "",
+          "height": "",
+          "id": "39482",
+          "marketValue": "\u20ac0",
+          "name": "Ella Lju\u0161tina",
+          "nationality": [
+            "Croatia"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 24, 2002",
+          "foot": "",
+          "height": "",
+          "id": "40513",
+          "marketValue": "\u20ac0",
+          "name": "Dalila Ipp\u00f3lito",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 28, 1994",
+          "foot": "",
+          "height": "",
+          "id": "30551",
+          "marketValue": "\u20ac0",
+          "name": "Q\u00ebndresa Krasniqi",
+          "nationality": [
+            "Albania"
+          ],
+          "number": "",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 17, 2000",
+          "foot": "",
+          "height": "",
+          "id": "33737",
+          "marketValue": "\u20ac0",
+          "name": "Luna Lemp\u00e9ri\u00e8re",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "May 8, 2002",
+          "foot": "",
+          "height": "",
+          "id": "37277",
+          "marketValue": "\u20ac0",
+          "name": "Yllka Kadriu",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 3, 1996",
+          "foot": "",
+          "height": "",
+          "id": "38803",
+          "marketValue": "\u20ac0",
+          "name": "Kayla McKenna",
+          "nationality": [
+            "Jamaica"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 12, 2001",
+          "foot": "",
+          "height": "",
+          "id": "33808",
+          "marketValue": "\u20ac0",
+          "name": "Paige Bailey-Gayle",
+          "nationality": [
+            "Jamaica"
+          ],
+          "number": "",
+          "position": "Left Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 20, 2004",
+          "foot": "",
+          "height": "",
+          "id": "59857",
+          "marketValue": "\u20ac0",
+          "name": "Sury Lamontana Charon",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 4, 2005",
+          "foot": "",
+          "height": "",
+          "id": "63751",
+          "marketValue": "\u20ac0",
+          "name": "Yade Bayrakdar",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 11, 2005",
+          "foot": "",
+          "height": "",
+          "id": "71119",
+          "marketValue": "\u20ac0",
+          "name": "Imane Touriss",
+          "nationality": [
+            "Morocco"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 25, 2006",
+          "foot": "",
+          "height": "",
+          "id": "103085",
+          "marketValue": "\u20ac0",
+          "name": "Michelle Storni",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/77.png",
+      "name": "BSC YB Frauen",
+      "stadiumName": "Stadion Wankdorf",
+      "stadiumSeats": 31120,
+      "transfermarktId": 77,
+      "players": [
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Nov 5, 2006",
+          "foot": "",
+          "height": "",
+          "id": "64420",
+          "marketValue": "",
+          "name": "Tamara Biedermann",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "27",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 30, 1995",
+          "foot": "",
+          "height": "",
+          "id": "29141",
+          "marketValue": "",
+          "name": "Amanda Brunholt",
+          "nationality": [
+            "Denmark"
+          ],
+          "number": "28",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 4, 1999",
+          "foot": "",
+          "height": "",
+          "id": "35033",
+          "marketValue": "",
+          "name": "Iina Rautiainen",
+          "nationality": [
+            "Finland"
+          ],
+          "number": "39",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 17, 2000",
+          "foot": "",
+          "height": "",
+          "id": "35565",
+          "marketValue": "",
+          "name": "Mar\u00eda Jim\u00e9nez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 16, 2005",
+          "foot": "",
+          "height": "",
+          "id": "63748",
+          "marketValue": "",
+          "name": "Caterina Tramezzani",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 12, 1995",
+          "foot": "",
+          "height": "",
+          "id": "7312",
+          "marketValue": "",
+          "name": "Wibke Meister",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "18",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Aug 15, 2004",
+          "foot": "",
+          "height": "",
+          "id": "56059",
+          "marketValue": "",
+          "name": "Giulia Schlup",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "19",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Dec 25, 1990",
+          "foot": "",
+          "height": "",
+          "id": "83",
+          "marketValue": "\u20ac60k",
+          "name": "Ramona Bachmann",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "17",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Aug 20, 1999",
+          "foot": "",
+          "height": "",
+          "id": "26473",
+          "marketValue": "",
+          "name": "Josephine Bonsu",
+          "nationality": [
+            "Ghana",
+            "Germany"
+          ],
+          "number": "47",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 15, 2006",
+          "foot": "",
+          "height": "",
+          "id": "74004",
+          "marketValue": "",
+          "name": "Smilla Reinauer",
+          "nationality": [
+            "Switzerland",
+            "Germany"
+          ],
+          "number": "21",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 14, 2006",
+          "foot": "",
+          "height": "",
+          "id": "72660",
+          "marketValue": "",
+          "name": "Bianca Dysli",
+          "nationality": [
+            "Switzerland",
+            "Netherlands"
+          ],
+          "number": "23",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 22, 2000",
+          "foot": "",
+          "height": "",
+          "id": "33584",
+          "marketValue": "",
+          "name": "Laura Frey",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "26",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 5, 2002",
+          "foot": "",
+          "height": "",
+          "id": "33457",
+          "marketValue": "",
+          "name": "Emilie Bernhardt",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "31",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Feb 8, 2007",
+          "foot": "",
+          "height": "",
+          "id": "92679",
+          "marketValue": "",
+          "name": "Andrea Schenk",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "6",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 5, 2005",
+          "foot": "",
+          "height": "",
+          "id": "63746",
+          "marketValue": "",
+          "name": "Noa Linn M\u00fcnger",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "8",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Dec 8, 2000",
+          "foot": "",
+          "height": "",
+          "id": "33587",
+          "marketValue": "",
+          "name": "Stephanie Waeber",
+          "nationality": [
+            "Switzerland",
+            "Peru"
+          ],
+          "number": "10",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Aug 12, 2003",
+          "foot": "",
+          "height": "",
+          "id": "44738",
+          "marketValue": "",
+          "name": "Caterina Regazzoni",
+          "nationality": [
+            "Switzerland",
+            "Hungary"
+          ],
+          "number": "12",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Dec 26, 2007",
+          "foot": "",
+          "height": "",
+          "id": "107250",
+          "marketValue": "",
+          "name": "Emilie De Maddalena",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "16",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 4, 2005",
+          "foot": "",
+          "height": "",
+          "id": "63757",
+          "marketValue": "",
+          "name": "Georgia Chalatsogianni",
+          "nationality": [
+            "Greece"
+          ],
+          "number": "22",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "May 23, 2004",
+          "foot": "",
+          "height": "",
+          "id": "43014",
+          "marketValue": "",
+          "name": "Jana Kohler",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "29",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 16, 2007",
+          "foot": "",
+          "height": "",
+          "id": "74806",
+          "marketValue": "",
+          "name": "Anida Mujela",
+          "nationality": [
+            "Switzerland",
+            "Bosnia and Herzegovina"
+          ],
+          "number": "30",
+          "position": "Left Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 6, 2001",
+          "foot": "",
+          "height": "",
+          "id": "31570",
+          "marketValue": "\u20ac35k",
+          "name": "Leonie K\u00f6ster",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "44",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 1, 2002",
+          "foot": "",
+          "height": "",
+          "id": "38098",
+          "marketValue": "",
+          "name": "G\u00e9raldine Ess",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "7",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jul 13, 2002",
+          "foot": "",
+          "height": "",
+          "id": "42666",
+          "marketValue": "",
+          "name": "Malaurie Granges",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "13",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 26, 2008",
+          "foot": "",
+          "height": "",
+          "id": "104577",
+          "marketValue": "",
+          "name": "Tiffany Vonnez",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "20",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 7, 1993",
+          "foot": "",
+          "height": "",
+          "id": "9550",
+          "marketValue": "",
+          "name": "Lisa Josten",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "24",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 28, 2006",
+          "foot": "",
+          "height": "",
+          "id": "72665",
+          "marketValue": "",
+          "name": "Anja Klingenstein",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "66",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jul 20, 2004",
+          "foot": "",
+          "height": "",
+          "id": "45484",
+          "marketValue": "",
+          "name": "Maja Jel\u010di\u0107",
+          "nationality": [
+            "Bosnia and Herzegovina",
+            "Croatia"
+          ],
+          "number": "99",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/557.png",
+      "name": "FC Basel 1893 Frauen",
+      "stadiumName": "LA-Stadion St. Jakob",
+      "stadiumSeats": 6000,
+      "transfermarktId": 557,
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 11, 2004",
+          "foot": "",
+          "height": "",
+          "id": "42588",
+          "marketValue": "",
+          "name": "Selina W\u00f6lfle",
+          "nationality": [
+            "Switzerland",
+            "Germany"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Dec 31, 2029",
+          "dateOfBirth": "Feb 28, 2004",
+          "foot": "",
+          "height": "",
+          "id": "38941",
+          "marketValue": "",
+          "name": "Nanna Leivonen",
+          "nationality": [
+            "Finland"
+          ],
+          "number": "25",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 20, 2004",
+          "foot": "",
+          "height": "",
+          "id": "51780",
+          "marketValue": "",
+          "name": "Lena Steiner",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "32",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 10, 2007",
+          "foot": "",
+          "height": "",
+          "id": "92671",
+          "marketValue": "",
+          "name": "Andrea J\u00e4ggi",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 11, 2001",
+          "foot": "",
+          "height": "",
+          "id": "33722",
+          "marketValue": "",
+          "name": "Lena G\u00f6ppel",
+          "nationality": [
+            "Liechtenstein",
+            "Switzerland"
+          ],
+          "number": "5",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Oct 1, 2006",
+          "foot": "",
+          "height": "",
+          "id": "98532",
+          "marketValue": "",
+          "name": "Lola Br\u00fcgger",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "24",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 16, 2006",
+          "foot": "",
+          "height": "",
+          "id": "84741",
+          "marketValue": "",
+          "name": "Mia Bennewitz",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "26",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Oct 14, 2004",
+          "foot": "",
+          "height": "",
+          "id": "47924",
+          "marketValue": "",
+          "name": "Elea Hagmann",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "28",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 4, 2007",
+          "foot": "",
+          "height": "",
+          "id": "73554",
+          "marketValue": "",
+          "name": "Krystyna Flis",
+          "nationality": [
+            "Poland"
+          ],
+          "number": "30",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 12, 2005",
+          "foot": "",
+          "height": "",
+          "id": "63740",
+          "marketValue": "",
+          "name": "Carla Christen",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "34",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Feb 13, 2003",
+          "foot": "",
+          "height": "",
+          "id": "38424",
+          "marketValue": "",
+          "name": "Fabia Reinschmidt",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "6",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 11, 2005",
+          "foot": "",
+          "height": "",
+          "id": "71005",
+          "marketValue": "",
+          "name": "Lena Bucher",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "13",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 6, 1998",
+          "foot": "",
+          "height": "",
+          "id": "32848",
+          "marketValue": "",
+          "name": "Mai Hirata",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "14",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Aug 24, 2009",
+          "foot": "",
+          "height": "",
+          "id": "111122",
+          "marketValue": "",
+          "name": "Romia Gagliano",
+          "nationality": [
+            "England",
+            "Switzerland"
+          ],
+          "number": "15",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Feb 23, 2003",
+          "foot": "",
+          "height": "",
+          "id": "107247",
+          "marketValue": "",
+          "name": "Alisa Arthur",
+          "nationality": [
+            "United States"
+          ],
+          "number": "21",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 4, 2007",
+          "foot": "",
+          "height": "",
+          "id": "72669",
+          "marketValue": "",
+          "name": "Emilia Soiron",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "27",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 27, 1994",
+          "foot": "",
+          "height": "",
+          "id": "10182",
+          "marketValue": "",
+          "name": "Coumba Sow",
+          "nationality": [
+            "Switzerland",
+            "Senegal"
+          ],
+          "number": "18",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Nov 26, 2007",
+          "foot": "",
+          "height": "",
+          "id": "73135",
+          "marketValue": "",
+          "name": "Una Ranki\u0107",
+          "nationality": [
+            "Bosnia and Herzegovina",
+            "Serbia"
+          ],
+          "number": "31",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Mar 4, 2000",
+          "foot": "",
+          "height": "",
+          "id": "30812",
+          "marketValue": "",
+          "name": "Tyara Buser",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "7",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Feb 19, 1999",
+          "foot": "",
+          "height": "",
+          "id": "35824",
+          "marketValue": "",
+          "name": "Jacqui Hand",
+          "nationality": [
+            "New Zealand"
+          ],
+          "number": "8",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 19, 2003",
+          "foot": "",
+          "height": "",
+          "id": "12577",
+          "marketValue": "",
+          "name": "Anna Krog",
+          "nationality": [
+            "Denmark"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 15, 1997",
+          "foot": "",
+          "height": "",
+          "id": "9110",
+          "marketValue": "",
+          "name": "Julia Matuschewski",
+          "nationality": [
+            "Poland",
+            "Germany"
+          ],
+          "number": "10",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 16, 2005",
+          "foot": "",
+          "height": "",
+          "id": "62512",
+          "marketValue": "",
+          "name": "Mara Tauriello",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "11",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Sep 10, 2007",
+          "foot": "",
+          "height": "",
+          "id": "83363",
+          "marketValue": "",
+          "name": "An\u017eelika Jotkina",
+          "nationality": [
+            "Estonia"
+          ],
+          "number": "17",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Aug 31, 2003",
+          "foot": "",
+          "height": "",
+          "id": "42620",
+          "marketValue": "",
+          "name": "Alice Berti",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "19",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 20, 2004",
+          "foot": "",
+          "height": "",
+          "id": "76063",
+          "marketValue": "",
+          "name": "Zita Rurack",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "22",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Nov 7, 2004",
+          "foot": "",
+          "height": "",
+          "id": "56060",
+          "marketValue": "",
+          "name": "Lea Eisenring",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "23",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/6381.png",
+      "name": "FC Luzern Frauen",
+      "stadiumName": "Sportanlage Allmend",
+      "stadiumSeats": 0,
+      "transfermarktId": 6381,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 18, 2005",
+          "foot": "",
+          "height": "",
+          "id": "112038",
+          "marketValue": "",
+          "name": "Corina Widmer",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 30, 2009",
+          "foot": "",
+          "height": "",
+          "id": "112021",
+          "marketValue": "",
+          "name": "Claire Alexander",
+          "nationality": [
+            "United States"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 9, 1999",
+          "foot": "",
+          "height": "",
+          "id": "112032",
+          "marketValue": "",
+          "name": "Filipa Rodrigues Da Silva",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 28, 2007",
+          "foot": "",
+          "height": "",
+          "id": "116370",
+          "marketValue": "",
+          "name": "Jainabou Issa Sowe",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 29, 1999",
+          "foot": "",
+          "height": "",
+          "id": "116361",
+          "marketValue": "",
+          "name": "Rahel Delacher",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 20, 2007",
+          "foot": "",
+          "height": "",
+          "id": "112033",
+          "marketValue": "",
+          "name": "Eliana Selmonaj",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 22, 2004",
+          "foot": "",
+          "height": "",
+          "id": "101770",
+          "marketValue": "",
+          "name": "Lea Andrist",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 22, 2005",
+          "foot": "",
+          "height": "",
+          "id": "112026",
+          "marketValue": "",
+          "name": "Elena L\u00f6tscher",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 18, 2007",
+          "foot": "",
+          "height": "",
+          "id": "112028",
+          "marketValue": "",
+          "name": "Melisa Nimanaj",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 15, 1994",
+          "foot": "",
+          "height": "",
+          "id": "16457",
+          "marketValue": "",
+          "name": "Michelle Fussen",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "10",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 20, 1997",
+          "foot": "",
+          "height": "",
+          "id": "27683",
+          "marketValue": "",
+          "name": "Denise Baumann",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "13",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 3, 2002",
+          "foot": "",
+          "height": "",
+          "id": "47914",
+          "marketValue": "",
+          "name": "Lea Bucher",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "21",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 6, 2000",
+          "foot": "",
+          "height": "",
+          "id": "33642",
+          "marketValue": "",
+          "name": "Genita Dervishaj",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "22",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 21, 2003",
+          "foot": "",
+          "height": "",
+          "id": "41453",
+          "marketValue": "",
+          "name": "Lara Peter",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "28",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 7, 2005",
+          "foot": "",
+          "height": "",
+          "id": "99785",
+          "marketValue": "",
+          "name": "Diana Delolli",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 11, 1997",
+          "foot": "",
+          "height": "",
+          "id": "73829",
+          "marketValue": "",
+          "name": "Romana H\u00e4fliger",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/434.png",
+      "name": "Yverdon Sport FC F\u00e9minin",
+      "stadiumName": "Stade Municipal",
+      "stadiumSeats": 5650,
+      "transfermarktId": 434,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 29, 1993",
+          "foot": "",
+          "height": "",
+          "id": "38496",
+          "marketValue": "",
+          "name": "Micka\u00ebla Bottega",
+          "nationality": [
+            "Senegal",
+            "France"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 28, 1999",
+          "foot": "",
+          "height": "",
+          "id": "110128",
+          "marketValue": "",
+          "name": "In\u00e8s Khiri",
+          "nationality": [
+            "Algeria",
+            "France"
+          ],
+          "number": "9",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 18, 2008",
+          "foot": "",
+          "height": "",
+          "id": "117369",
+          "marketValue": "",
+          "name": "Marine Houssin",
+          "nationality": [
+            "France"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 4, 2006",
+          "foot": "",
+          "height": "",
+          "id": "98764",
+          "marketValue": "",
+          "name": "Sarah Chatton",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "44",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 24, 2004",
+          "foot": "",
+          "height": "",
+          "id": "60134",
+          "marketValue": "",
+          "name": "Gilliane Roch",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "77",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 8, 2006",
+          "foot": "",
+          "height": "",
+          "id": "84739",
+          "marketValue": "",
+          "name": "L\u00e9ane Fontaine",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 15, 1998",
+          "foot": "",
+          "height": "",
+          "id": "30742",
+          "marketValue": "\u20ac30k",
+          "name": "Andrea Sierra",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 1, 2005",
+          "foot": "",
+          "height": "",
+          "id": "60132",
+          "marketValue": "",
+          "name": "Zia Girardin",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 26, 2001",
+          "foot": "",
+          "height": "",
+          "id": "41342",
+          "marketValue": "",
+          "name": "Chlo\u00e9 Warpelin",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "19",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 15, 1997",
+          "foot": "",
+          "height": "",
+          "id": "60372",
+          "marketValue": "",
+          "name": "Fr\u00e9d\u00e9rique Messomo",
+          "nationality": [
+            "Cameroon",
+            "France"
+          ],
+          "number": "23",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 16, 2005",
+          "foot": "",
+          "height": "",
+          "id": "98765",
+          "marketValue": "",
+          "name": "Lucia Tomas Da Silva",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "27",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 19, 1996",
+          "foot": "",
+          "height": "",
+          "id": "13758",
+          "marketValue": "\u20ac45k",
+          "name": "Sandrine Gaillard",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Right Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 30, 2001",
+          "foot": "",
+          "height": "",
+          "id": "33861",
+          "marketValue": "",
+          "name": "Laura Tufo",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 13, 2007",
+          "foot": "",
+          "height": "",
+          "id": "111999",
+          "marketValue": "",
+          "name": "Loelie Fior",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 22, 2003",
+          "foot": "",
+          "height": "",
+          "id": "36358",
+          "marketValue": "",
+          "name": "Emeline von Dach",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "5",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 10, 1999",
+          "foot": "",
+          "height": "",
+          "id": "36344",
+          "marketValue": "",
+          "name": "\u00c9lise Boccali",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "6",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 23, 1999",
+          "foot": "",
+          "height": "",
+          "id": "66860",
+          "marketValue": "",
+          "name": "Chlo\u00e9 Le Franc",
+          "nationality": [
+            "France"
+          ],
+          "number": "10",
+          "position": "Left Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 9, 2002",
+          "foot": "",
+          "height": "",
+          "id": "46664",
+          "marketValue": "",
+          "name": "Sara Velkova",
+          "nationality": [
+            "North Macedonia"
+          ],
+          "number": "12",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 3, 2006",
+          "foot": "",
+          "height": "",
+          "id": "96713",
+          "marketValue": "",
+          "name": "Margo Amblard",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "13",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 19, 2005",
+          "foot": "",
+          "height": "",
+          "id": "85656",
+          "marketValue": "",
+          "name": "Ma\u00eblle Savoie Poitras",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "14",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 22, 2000",
+          "foot": "",
+          "height": "",
+          "id": "35009",
+          "marketValue": "",
+          "name": "Ilona Guede",
+          "nationality": [
+            "Switzerland",
+            "Spain"
+          ],
+          "number": "17",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 5, 2005",
+          "foot": "",
+          "height": "",
+          "id": "88777",
+          "marketValue": "",
+          "name": "Angela Jorge Castellino",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "34",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 10, 1992",
+          "foot": "",
+          "height": "",
+          "id": "6033",
+          "marketValue": "",
+          "name": "Ma\u00e9va Cl\u00e9maron",
+          "nationality": [
+            "France"
+          ],
+          "number": "92",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 9, 2006",
+          "foot": "",
+          "height": "",
+          "id": "115578",
+          "marketValue": "",
+          "name": "Denisa Hasanaj",
+          "nationality": [
+            "Albania"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 28, 1998",
+          "foot": "",
+          "height": "",
+          "id": "31942",
+          "marketValue": "",
+          "name": "Mimoza Hamidi",
+          "nationality": [
+            "Albania",
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 10, 1992",
+          "foot": "",
+          "height": "",
+          "id": "30128",
+          "marketValue": "",
+          "name": "Tanja Bodenmann",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "8",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 4, 2006",
+          "foot": "",
+          "height": "",
+          "id": "79391",
+          "marketValue": "",
+          "name": "Kaia Grande",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 16, 2004",
+          "foot": "",
+          "height": "",
+          "id": "91716",
+          "marketValue": "",
+          "name": "Maeva Sogan",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "16",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 13, 1998",
+          "foot": "",
+          "height": "",
+          "id": "29121",
+          "marketValue": "",
+          "name": "Valentine Rahm",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "21",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 14, 2004",
+          "foot": "",
+          "height": "",
+          "id": "95496",
+          "marketValue": "",
+          "name": "Michelle Sager",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "31",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/119.png",
+      "name": "FC Rapperswil-Jona Frauen",
+      "stadiumName": "Gr\u00fcnfeld",
+      "stadiumSeats": 2700,
+      "transfermarktId": 119,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 8, 2005",
+          "foot": "",
+          "height": "",
+          "id": "98789",
+          "marketValue": "",
+          "name": "Enna Doulis",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 6, 2002",
+          "foot": "",
+          "height": "",
+          "id": "35040",
+          "marketValue": "",
+          "name": "Saskia B\u00fcrki",
+          "nationality": [
+            "Switzerland",
+            "Germany"
+          ],
+          "number": "28",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 30, 2007",
+          "foot": "",
+          "height": "",
+          "id": "90180",
+          "marketValue": "",
+          "name": "Olivia L\u00fc\u00f6nd",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 2, 2004",
+          "foot": "",
+          "height": "",
+          "id": "73116",
+          "marketValue": "",
+          "name": "Catarina Tomas Da Cruz",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 3, 1996",
+          "foot": "",
+          "height": "",
+          "id": "51752",
+          "marketValue": "",
+          "name": "N\u00faria Ferrer",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 12, 1998",
+          "foot": "",
+          "height": "",
+          "id": "27700",
+          "marketValue": "",
+          "name": "Aline Christen",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 14, 2006",
+          "foot": "",
+          "height": "",
+          "id": "101980",
+          "marketValue": "",
+          "name": "Naika Mayor",
+          "nationality": [
+            "England"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 1, 1999",
+          "foot": "",
+          "height": "",
+          "id": "27703",
+          "marketValue": "",
+          "name": "Leandra Flury",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "14",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 18, 2004",
+          "foot": "",
+          "height": "",
+          "id": "49703",
+          "marketValue": "",
+          "name": "Siv Schefer",
+          "nationality": [
+            "Switzerland",
+            "Sweden"
+          ],
+          "number": "16",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 2, 2002",
+          "foot": "",
+          "height": "",
+          "id": "41484",
+          "marketValue": "",
+          "name": "Jenny Steinmann",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "22",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 29, 2003",
+          "foot": "",
+          "height": "",
+          "id": "41282",
+          "marketValue": "\u20ac40k",
+          "name": "Sophie Prof\u00e9",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "29",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 21, 1997",
+          "foot": "",
+          "height": "",
+          "id": "34204",
+          "marketValue": "",
+          "name": "Bergr\u00f3s \u00c1sgeirsd\u00f3ttir",
+          "nationality": [
+            "Iceland"
+          ],
+          "number": "3",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 7, 1997",
+          "foot": "",
+          "height": "",
+          "id": "76358",
+          "marketValue": "",
+          "name": "Queralt Torradeflot",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "6",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 24, 2008",
+          "foot": "",
+          "height": "",
+          "id": "99474",
+          "marketValue": "",
+          "name": "Laura Kott Luzon",
+          "nationality": [
+            "Switzerland",
+            "Spain"
+          ],
+          "number": "8",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 7, 2005",
+          "foot": "",
+          "height": "",
+          "id": "86403",
+          "marketValue": "",
+          "name": "Donika Deda",
+          "nationality": [
+            "Albania",
+            "Switzerland"
+          ],
+          "number": "10",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 13, 2000",
+          "foot": "",
+          "height": "",
+          "id": "76337",
+          "marketValue": "",
+          "name": "Anna Bov\u00e9",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "13",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 23, 2004",
+          "foot": "",
+          "height": "",
+          "id": "96715",
+          "marketValue": "",
+          "name": "Valentina Dreussi",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "15",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 31, 2006",
+          "foot": "",
+          "height": "",
+          "id": "104551",
+          "marketValue": "",
+          "name": "Manon Kellenberger",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "20",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 6, 2003",
+          "foot": "",
+          "height": "",
+          "id": "40428",
+          "marketValue": "",
+          "name": "Zdravka Parapunova",
+          "nationality": [
+            "Bulgaria"
+          ],
+          "number": "23",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 28, 2007",
+          "foot": "",
+          "height": "",
+          "id": "92674",
+          "marketValue": "",
+          "name": "Mael Mettler",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "24",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 26, 1996",
+          "foot": "",
+          "height": "",
+          "id": "16630",
+          "marketValue": "\u20ac20k",
+          "name": "Evdokia Popadinova",
+          "nationality": [
+            "Bulgaria"
+          ],
+          "number": "7",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 20, 2001",
+          "foot": "",
+          "height": "",
+          "id": "87465",
+          "marketValue": "",
+          "name": "Cecilia Way",
+          "nationality": [
+            "Canada"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 5, 2002",
+          "foot": "",
+          "height": "",
+          "id": "41650",
+          "marketValue": "",
+          "name": "Ramona Kannady",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "11",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 20, 2000",
+          "foot": "",
+          "height": "",
+          "id": "40137",
+          "marketValue": "",
+          "name": "Leyla McFarland",
+          "nationality": [
+            "Northern Ireland",
+            "United States"
+          ],
+          "number": "17",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 12, 1998",
+          "foot": "",
+          "height": "",
+          "id": "15810",
+          "marketValue": "",
+          "name": "Tamara \u0160ari\u0107",
+          "nationality": [
+            "Croatia",
+            "Germany"
+          ],
+          "number": "19",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/1759.png",
+      "name": "FC St. Gallen 1879 Frauen",
+      "stadiumName": "Espenmoos",
+      "stadiumSeats": 5700,
+      "transfermarktId": 1759,
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 27, 2006",
+          "foot": "",
+          "height": "",
+          "id": "64881",
+          "marketValue": "",
+          "name": "Serena Proplesch",
+          "nationality": [
+            "Switzerland",
+            "Germany"
+          ],
+          "number": "36",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 13, 2007",
+          "foot": "",
+          "height": "",
+          "id": "87184",
+          "marketValue": "",
+          "name": "Aina Liebl",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "99",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 31, 1996",
+          "foot": "",
+          "height": "",
+          "id": "13757",
+          "marketValue": "",
+          "name": "Naja Glanzmann",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 20, 1997",
+          "foot": "",
+          "height": "",
+          "id": "16477",
+          "marketValue": "",
+          "name": "Jana Brunner",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "14",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 27, 1996",
+          "foot": "",
+          "height": "",
+          "id": "16916",
+          "marketValue": "",
+          "name": "Tabea Gri\u00df",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "20",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 16, 2008",
+          "foot": "",
+          "height": "",
+          "id": "111589",
+          "marketValue": "",
+          "name": "Johanna Th\u00fcer",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "34",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 20, 2003",
+          "foot": "",
+          "height": "",
+          "id": "35750",
+          "marketValue": "",
+          "name": "Franziska Gaus",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "11",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 30, 2005",
+          "foot": "",
+          "height": "",
+          "id": "50076",
+          "marketValue": "",
+          "name": "Monika Ibishaj",
+          "nationality": [
+            "Switzerland",
+            "Kosovo"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 14, 2006",
+          "foot": "",
+          "height": "",
+          "id": "83599",
+          "marketValue": "\u20ac25k",
+          "name": "Rucy Grunenberg",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 14, 2005",
+          "foot": "",
+          "height": "",
+          "id": "63434",
+          "marketValue": "\u20ac40k",
+          "name": "Al\u017eb\u011bta N\u011bmcov\u00e1",
+          "nationality": [
+            "Czech Republic"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 22, 1999",
+          "foot": "",
+          "height": "",
+          "id": "31989",
+          "marketValue": "",
+          "name": "Chantal Wyser",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "6",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 10, 2007",
+          "foot": "",
+          "height": "",
+          "id": "92675",
+          "marketValue": "",
+          "name": "Lia Ammann",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "8",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 15, 2002",
+          "foot": "",
+          "height": "",
+          "id": "38283",
+          "marketValue": "\u20ac25k",
+          "name": "Sanne Koopman",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "11",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 30, 2004",
+          "foot": "",
+          "height": "",
+          "id": "47904",
+          "marketValue": "",
+          "name": "Alessandra de Freitas",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "15",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 15, 2003",
+          "foot": "",
+          "height": "",
+          "id": "39772",
+          "marketValue": "",
+          "name": "Yael Aeberhard",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "17",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Dec 26, 2005",
+          "foot": "",
+          "height": "",
+          "id": "71009",
+          "marketValue": "",
+          "name": "Alina Friedli",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "18",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 14, 2004",
+          "foot": "",
+          "height": "",
+          "id": "63272",
+          "marketValue": "",
+          "name": "Sina Hauswirth",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "22",
+          "position": "Right Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 9, 2004",
+          "foot": "",
+          "height": "",
+          "id": "34769",
+          "marketValue": "",
+          "name": "Katharina Risch",
+          "nationality": [
+            "Liechtenstein"
+          ],
+          "number": "24",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 20, 2008",
+          "foot": "",
+          "height": "",
+          "id": "99472",
+          "marketValue": "",
+          "name": "Olivia Edelmann",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "26",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 12, 2007",
+          "foot": "",
+          "height": "",
+          "id": "97041",
+          "marketValue": "",
+          "name": "Anika Seliner",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "33",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 18, 2008",
+          "foot": "",
+          "height": "",
+          "id": "104550",
+          "marketValue": "",
+          "name": "Lena Frischknecht",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 5, 2005",
+          "foot": "",
+          "height": "",
+          "id": "86394",
+          "marketValue": "",
+          "name": "Julia Ruf",
+          "nationality": [
+            "Switzerland",
+            "Brazil"
+          ],
+          "number": "9",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 7, 1998",
+          "foot": "",
+          "height": "",
+          "id": "27748",
+          "marketValue": "",
+          "name": "Sina Cavelti",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "21",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 15, 1995",
+          "foot": "",
+          "height": "",
+          "id": "11240",
+          "marketValue": "",
+          "name": "Eva Bachmann",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "27",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/2051.png",
+      "name": "FC Aarau Frauen",
+      "stadiumName": "Sportanlage Schachen",
+      "stadiumSeats": 1000,
+      "transfermarktId": 2051,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "May 20, 2004",
+          "foot": "",
+          "height": "",
+          "id": "49029",
+          "marketValue": "",
+          "name": "Jara Ackermann",
+          "nationality": [
+            "Liechtenstein",
+            "Switzerland"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 5, 2007",
+          "foot": "",
+          "height": "",
+          "id": "115463",
+          "marketValue": "",
+          "name": "Sophie Janz",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "21",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 23, 1992",
+          "foot": "",
+          "height": "",
+          "id": "4296",
+          "marketValue": "",
+          "name": "Fabienne Kohler",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "26",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 27, 2004",
+          "foot": "",
+          "height": "",
+          "id": "47900",
+          "marketValue": "",
+          "name": "Michelle Bl\u00f6chlinger",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "3",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 27, 2006",
+          "foot": "",
+          "height": "",
+          "id": "77147",
+          "marketValue": "\u20ac10k",
+          "name": "Martina Cocino",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 19, 2005",
+          "foot": "",
+          "height": "",
+          "id": "86632",
+          "marketValue": "",
+          "name": "Rica Keilitz",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 16, 2007",
+          "foot": "",
+          "height": "",
+          "id": "72671",
+          "marketValue": "",
+          "name": "Nathalie Widmer",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "5",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 21, 1991",
+          "foot": "",
+          "height": "",
+          "id": "10268",
+          "marketValue": "",
+          "name": "Fabienne Bangerter",
+          "nationality": [
+            "Switzerland",
+            "Germany"
+          ],
+          "number": "7",
+          "position": "Right Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 4, 2005",
+          "foot": "",
+          "height": "",
+          "id": "71008",
+          "marketValue": "",
+          "name": "Eriona Elezi",
+          "nationality": [
+            "Kosovo",
+            "Switzerland"
+          ],
+          "number": "12",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 8, 2001",
+          "foot": "",
+          "height": "",
+          "id": "38353",
+          "marketValue": "",
+          "name": "Rebecca Storr",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "15",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 22, 2008",
+          "foot": "",
+          "height": "",
+          "id": "101976",
+          "marketValue": "",
+          "name": "Lina Bircher",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "20",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 8, 2004",
+          "foot": "",
+          "height": "",
+          "id": "85368",
+          "marketValue": "",
+          "name": "Yves Heim",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "25",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 16, 2005",
+          "foot": "",
+          "height": "",
+          "id": "63597",
+          "marketValue": "",
+          "name": "Eriola Delija",
+          "nationality": [
+            "Albania",
+            "Kosovo"
+          ],
+          "number": "6",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 3, 1998",
+          "foot": "",
+          "height": "",
+          "id": "27689",
+          "marketValue": "",
+          "name": "Vanesa Hoti",
+          "nationality": [
+            "Kosovo",
+            "Switzerland"
+          ],
+          "number": "8",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 8, 1990",
+          "foot": "",
+          "height": "",
+          "id": "1485",
+          "marketValue": "",
+          "name": "Julia Pfannschmidt",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "18",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 27, 2000",
+          "foot": "",
+          "height": "",
+          "id": "29754",
+          "marketValue": "",
+          "name": "Tabea Sch\u00fctt",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "19",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 30, 2006",
+          "foot": "",
+          "height": "",
+          "id": "72673",
+          "marketValue": "",
+          "name": "Julie Gartmann",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "19",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 17, 2002",
+          "foot": "",
+          "height": "",
+          "id": "39495",
+          "marketValue": "",
+          "name": "Celia Hofer",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "27",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 15, 2006",
+          "foot": "",
+          "height": "",
+          "id": "72667",
+          "marketValue": "",
+          "name": "Aida Ragusa",
+          "nationality": [
+            "Switzerland",
+            "Italy"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 3, 2005",
+          "foot": "",
+          "height": "",
+          "id": "68680",
+          "marketValue": "\u20ac15k",
+          "name": "Giulia Bison",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "7",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 10, 2005",
+          "foot": "",
+          "height": "",
+          "id": "73112",
+          "marketValue": "",
+          "name": "Eliza Kadriu",
+          "nationality": [
+            "Kosovo",
+            "Switzerland"
+          ],
+          "number": "10",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 10, 2004",
+          "foot": "",
+          "height": "",
+          "id": "80160",
+          "marketValue": "",
+          "name": "Xenia Truninger",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "11",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 18, 2003",
+          "foot": "",
+          "height": "",
+          "id": "43015",
+          "marketValue": "",
+          "name": "Joy Steck",
+          "nationality": [
+            "Liechtenstein"
+          ],
+          "number": "17",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 28, 2000",
+          "foot": "",
+          "height": "",
+          "id": "33592",
+          "marketValue": "",
+          "name": "Rita Do Sul Almeida",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "28",
+          "position": "Centre-Forward"
+        }
+      ]
+    }
+  ]
+}

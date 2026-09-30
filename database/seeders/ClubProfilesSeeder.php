@@ -355,6 +355,28 @@ class ClubProfilesSeeder extends Seeder
         'Almere City FC' => ClubProfile::REPUTATION_LOCAL,
 
         // =============================================
+        // Switzerland - AXA Women's Super League (SUI1)
+        // =============================================
+
+        // Continental (UWCL)
+        'Servette FC Chênois Féminin' => ClubProfile::REPUTATION_CONTINENTAL,
+        'FC Zürich Frauen' => ClubProfile::REPUTATION_CONTINENTAL,
+
+        // Established
+        'Grasshopper Club Zürich Frauen' => ClubProfile::REPUTATION_ESTABLISHED,
+        'BSC YB Frauen' => ClubProfile::REPUTATION_ESTABLISHED,
+        'FC Basel 1893 Frauen' => ClubProfile::REPUTATION_ESTABLISHED,
+
+        // Modest
+        'FC Luzern Frauen' => ClubProfile::REPUTATION_MODEST,
+        'FC St. Gallen 1879 Frauen' => ClubProfile::REPUTATION_MODEST,
+        'Yverdon Sport FC Féminin' => ClubProfile::REPUTATION_MODEST,
+
+        // Local
+        'FC Rapperswil-Jona Frauen' => ClubProfile::REPUTATION_LOCAL,
+        'FC Aarau Frauen' => ClubProfile::REPUTATION_LOCAL,
+
+        // =============================================
         // European transfer pool (EUR)
         // =============================================
 
@@ -811,6 +833,18 @@ class ClubProfilesSeeder extends Seeder
         'SC Telstar' => 5,
         'ADO Den Haag' => 8,            // fervent Haagse support
         'SC Cambuur Leeuwarden' => 9,   // routinely sells out the Kooi
+
+        // ── Switzerland ──────────────────────────────────────────────
+        'Servette FC Chênois Féminin' => 7,
+        'FC Zürich Frauen' => 7,
+        'Grasshopper Club Zürich Frauen' => 6,
+        'BSC YB Frauen' => 6,
+        'FC Basel 1893 Frauen' => 6,
+        'FC Luzern Frauen' => 5,
+        'FC St. Gallen 1879 Frauen' => 5,
+        'Yverdon Sport FC Féminin' => 5,
+        'FC Rapperswil-Jona Frauen' => 4,
+        'FC Aarau Frauen' => 4,
     ];
 
     /**

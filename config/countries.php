@@ -242,6 +242,7 @@ return [
                 'NED1' => ['role' => 'league', 'handler' => 'league', 'country' => 'NL', 'from_season' => '2026'],
                 // EUR club pool — individual team files, for European clubs
                 // outside the modelled leagues
+                'SUI1' => ['role' => 'league', 'handler' => 'league', 'country' => 'CH', 'from_season' => '2026'],
                 'EUR'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'EU'],
                 // INT club pool — non-European clubs (South America, MLS, etc.)
                 // for transfer market only; never participates in fixtures
@@ -368,6 +369,7 @@ return [
                 'ITA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'IT'],
                 'POR1' => ['role' => 'league', 'handler' => 'league', 'country' => 'PT', 'from_season' => '2026'],
                 'NED1' => ['role' => 'league', 'handler' => 'league', 'country' => 'NL', 'from_season' => '2026'],
+                'SUI1' => ['role' => 'league', 'handler' => 'league', 'country' => 'CH', 'from_season' => '2026'],
                 'EUR'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'EU'],
                 'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
             ],
@@ -474,6 +476,7 @@ return [
                 'ITA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'IT'],
                 'POR1' => ['role' => 'league', 'handler' => 'league', 'country' => 'PT', 'from_season' => '2026'],
                 'NED1' => ['role' => 'league', 'handler' => 'league', 'country' => 'NL', 'from_season' => '2026'],
+                'SUI1' => ['role' => 'league', 'handler' => 'league', 'country' => 'CH', 'from_season' => '2026'],
                 'EUR'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'EU'],
                 'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
             ],
@@ -591,6 +594,7 @@ return [
                 'FRA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'FR'],
                 'POR1' => ['role' => 'league', 'handler' => 'league', 'country' => 'PT', 'from_season' => '2026'],
                 'NED1' => ['role' => 'league', 'handler' => 'league', 'country' => 'NL', 'from_season' => '2026'],
+                'SUI1' => ['role' => 'league', 'handler' => 'league', 'country' => 'CH', 'from_season' => '2026'],
                 'EUR'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'EU'],
                 'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
             ],
@@ -693,6 +697,7 @@ return [
                 'ITA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'IT'],
                 'POR1' => ['role' => 'league', 'handler' => 'league', 'country' => 'PT', 'from_season' => '2026'],
                 'NED1' => ['role' => 'league', 'handler' => 'league', 'country' => 'NL', 'from_season' => '2026'],
+                'SUI1' => ['role' => 'league', 'handler' => 'league', 'country' => 'CH', 'from_season' => '2026'],
                 'EUR'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'EU'],
                 'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
             ],
@@ -800,6 +805,7 @@ return [
                 'FRA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'FR'],
                 'ITA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'IT'],
                 'NED1' => ['role' => 'league', 'handler' => 'league', 'country' => 'NL', 'from_season' => '2026'],
+                'SUI1' => ['role' => 'league', 'handler' => 'league', 'country' => 'CH', 'from_season' => '2026'],
                 'EUR'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'EU'],
                 'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
             ],
@@ -918,6 +924,62 @@ return [
                 'FRA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'FR'],
                 'ITA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'IT'],
                 'POR1' => ['role' => 'league', 'handler' => 'league', 'country' => 'PT', 'from_season' => '2026'],
+                'SUI1' => ['role' => 'league', 'handler' => 'league', 'country' => 'CH', 'from_season' => '2026'],
+                'EUR'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'EU'],
+                'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
+            ],
+            'continental' => [
+                'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+            ],
+        ],
+    ],
+
+    'CH' => [
+        'name' => 'Suiza',
+        // Playable from 2026 only: data/2025 has no folder for any of
+        // its competitions, and the seeder and validator demand one for
+        // every competition they find here.
+        'from_season' => '2026',
+
+        'tiers' => [
+            1 => [
+                'competition' => 'SUI1',
+                'teams' => 10,
+                'handler' => 'league',
+                'config_class' => \App\Modules\Competition\Configs\SwissSuperLeagueConfig::class,
+            ],
+        ],
+
+        'promotions' => [],
+
+        'continental_slots' => [
+            'SUI1' => [
+                'UCL' => [1],
+            ],
+        ],
+
+        // Women's cups grant no European place.
+        'cup_winner_slot' => [],
+
+        'continental_competitions' => [
+            'UCL' => [
+                'config_class' => \App\Modules\Competition\Configs\ChampionsLeagueConfig::class,
+            ],
+            'UEL' => [
+                'config_class' => \App\Modules\Competition\Configs\EuropaLeagueConfig::class,
+            ],
+        ],
+
+        'support' => [
+            'transfer_pool' => [
+                'ESP1' => ['role' => 'league', 'handler' => 'league', 'country' => 'ES'],
+                'ENG1' => ['role' => 'league', 'handler' => 'league', 'country' => 'EN'],
+                'DEU1' => ['role' => 'league', 'handler' => 'league', 'country' => 'DE'],
+                'FRA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'FR'],
+                'ITA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'IT'],
+                'POR1' => ['role' => 'league', 'handler' => 'league', 'country' => 'PT', 'from_season' => '2026'],
+                'NED1' => ['role' => 'league', 'handler' => 'league', 'country' => 'NL', 'from_season' => '2026'],
                 'EUR'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'EU'],
                 'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
             ],
