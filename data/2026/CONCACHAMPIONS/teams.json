@@ -1,8 +1,64 @@
 {
-  "id": "CCC",
+  "id": "CONCACHAMPIONS",
   "name": "CONCACAF W Champions Cup",
   "seasonID": "2026",
   "clubs": [
+    {
+      "name": "Tigres de la UANL",
+      "transfermarktId": 1512,
+      "stadiumName": "Estadio Universitario",
+      "stadiumSeats": 41886,
+      "entryRound": 2
+    },
+    {
+      "name": "Club América",
+      "transfermarktId": 7108,
+      "stadiumName": "Estadio Azteca",
+      "stadiumSeats": 87523,
+      "entryRound": 1
+    },
+    {
+      "name": "CF Pachuca",
+      "transfermarktId": 7167,
+      "stadiumName": "Estadio Hidalgo",
+      "stadiumSeats": 27512,
+      "entryRound": 1
+    },
+    {
+      "name": "Rayados de Monterrey",
+      "transfermarktId": 7434,
+      "stadiumName": "Estadio BBVA",
+      "stadiumSeats": 51348,
+      "entryRound": 1
+    },
+    {
+      "name": "Orlando Pride",
+      "transfermarktId": 6081,
+      "stadiumName": "Inter&Co Stadium",
+      "stadiumSeats": 25500,
+      "entryRound": 2
+    },
+    {
+      "name": "Washington Spirit",
+      "transfermarktId": 5028,
+      "stadiumName": "Audi Field",
+      "stadiumSeats": 20000,
+      "entryRound": 2
+    },
+    {
+      "name": "Portland Thorns FC",
+      "transfermarktId": 5027,
+      "stadiumName": "Providence Park",
+      "stadiumSeats": 25218,
+      "entryRound": 1
+    },
+    {
+      "name": "Kansas City Current",
+      "transfermarktId": 8586,
+      "stadiumName": "CPKC Stadium",
+      "stadiumSeats": 11500,
+      "entryRound": 1
+    },
     {
       "image": "",
       "name": "Alajuelense",
@@ -392,7 +448,8 @@
           "number": "27",
           "position": "Forward"
         }
-      ]
+      ],
+      "entryRound": 1
     },
     {
       "image": "",
@@ -695,7 +752,8 @@
           "number": "",
           "position": "Forward"
         }
-      ]
+      ],
+      "entryRound": 1
     },
     {
       "image": "",
@@ -1012,7 +1070,8 @@
           "number": "30",
           "position": "Forward"
         }
-      ]
+      ],
+      "entryRound": 1
     },
     {
       "image": "",
@@ -1371,7 +1430,8 @@
           "number": "22",
           "position": "Forward"
         }
-      ]
+      ],
+      "entryRound": 1
     },
     {
       "image": "",
@@ -1772,7 +1832,8 @@
           "number": "99",
           "position": "Forward"
         }
-      ]
+      ],
+      "entryRound": 1
     }
   ]
 }

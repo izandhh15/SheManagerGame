@@ -1059,7 +1059,7 @@ return [
                 'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
             ],
             'continental' => [
-                'LIBERTADORES' => ['handler' => 'knockout', 'country' => 'CS'],
+                'LIBERTADORES' => ['handler' => 'knockout_cup', 'country' => 'CS'],
             ],
         ],
     ],
@@ -1105,7 +1105,7 @@ return [
                 'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
             ],
             'continental' => [
-                'LIBERTADORES' => ['handler' => 'knockout', 'country' => 'CS'],
+                'LIBERTADORES' => ['handler' => 'knockout_cup', 'country' => 'CS'],
             ],
         ],
     ],
@@ -1148,7 +1148,7 @@ return [
                 'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
             ],
             'continental' => [
-                'CONCACHAMPIONS' => ['handler' => 'knockout', 'country' => 'CC'],
+                'CONCACHAMPIONS' => ['handler' => 'knockout_cup', 'country' => 'CC'],
             ],
         ],
     ],
@@ -1191,7 +1191,7 @@ return [
                 'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
             ],
             'continental' => [
-                'CONCACHAMPIONS' => ['handler' => 'knockout', 'country' => 'CC'],
+                'CONCACHAMPIONS' => ['handler' => 'knockout_cup', 'country' => 'CC'],
             ],
         ],
     ],

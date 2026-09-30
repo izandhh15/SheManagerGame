@@ -1,8 +1,64 @@
 {
   "id": "LIBERTADORES",
-  "name": "Copa Libertadores Femenina - Extras",
+  "name": "Copa Libertadores Femenina",
   "seasonID": "2026",
   "clubs": [
+    {
+      "name": "Corinthians",
+      "transfermarktId": 94001,
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "entryRound": 2
+    },
+    {
+      "name": "Flamengo",
+      "transfermarktId": 94005,
+      "stadiumName": null,
+      "stadiumSeats": null,
+      "entryRound": 2
+    },
+    {
+      "name": "Palmeiras",
+      "transfermarktId": 94002,
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "entryRound": 2
+    },
+    {
+      "name": "São Paulo",
+      "transfermarktId": 94003,
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "entryRound": 2
+    },
+    {
+      "name": "Boca Juniors",
+      "transfermarktId": 68,
+      "stadiumName": "Complejo Pedro Pompilio",
+      "stadiumSeats": 1000,
+      "entryRound": 2
+    },
+    {
+      "name": "River Plate",
+      "transfermarktId": 277,
+      "stadiumName": "River Camp",
+      "stadiumSeats": 2000,
+      "entryRound": 2
+    },
+    {
+      "name": "San Lorenzo",
+      "transfermarktId": 287,
+      "stadiumName": "Estadio Pedro Bidegain",
+      "stadiumSeats": 47964,
+      "entryRound": 2
+    },
+    {
+      "name": "Racing Club",
+      "transfermarktId": 8047,
+      "stadiumName": "Predio Tita Mattiussi",
+      "stadiumSeats": 1000,
+      "entryRound": 2
+    },
     {
       "image": null,
       "name": "Olimpia",
@@ -388,7 +444,8 @@
       ],
       "stadiumName": "Estadio Osvaldo Domínguez Dibb",
       "stadiumSeats": 25820,
-      "transfermarktId": 944001
+      "transfermarktId": 944001,
+      "entryRound": 1
     },
     {
       "image": null,
@@ -803,7 +860,8 @@
       ],
       "stadiumName": "Tigo La Huerta",
       "stadiumSeats": 10100,
-      "transfermarktId": 944051
+      "transfermarktId": 944051,
+      "entryRound": 1
     },
     {
       "image": null,
@@ -1148,7 +1206,8 @@
       ],
       "stadiumName": "Los Céspedes",
       "stadiumSeats": null,
-      "transfermarktId": 944101
+      "transfermarktId": 944101,
+      "entryRound": 1
     },
     {
       "name": "Colo-Colo",
@@ -1507,7 +1566,8 @@
           "shirtNumber": 22,
           "contractUntil": null
         }
-      ]
+      ],
+      "entryRound": 2
     },
     {
       "name": "Universidad de Chile",
@@ -1964,7 +2024,8 @@
           "shirtNumber": 29,
           "contractUntil": null
         }
-      ]
+      ],
+      "entryRound": 2
     },
     {
       "name": "Independiente Santa Fe",
@@ -2421,7 +2482,8 @@
           "marketValue": null,
           "contractUntil": null
         }
-      ]
+      ],
+      "entryRound": 2
     },
     {
       "name": "Deportivo Cali",
@@ -2864,7 +2926,8 @@
           "marketValue": null,
           "contractUntil": null
         }
-      ]
+      ],
+      "entryRound": 2
     },
     {
       "name": "Universitario de Deportes",
@@ -3551,7 +3614,8 @@
           "shirtNumber": null,
           "contractUntil": null
         }
-      ]
+      ],
+      "entryRound": 1
     },
     {
       "name": "Independiente del Valle",
@@ -3910,7 +3974,8 @@
           "shirtNumber": 30,
           "contractUntil": null
         }
-      ]
+      ],
+      "entryRound": 1
     },
     {
       "name": "LDU Quito",
@@ -4227,7 +4292,8 @@
           "shirtNumber": 55,
           "contractUntil": null
         }
-      ]
+      ],
+      "entryRound": 1
     },
     {
       "name": "Caracas FC",
@@ -4432,7 +4498,8 @@
           "shirtNumber": 11,
           "contractUntil": null
         }
-      ]
+      ],
+      "entryRound": 1
     },
     {
       "name": "Club Bolívar",
@@ -4749,7 +4816,8 @@
           "shirtNumber": null,
           "contractUntil": null
         }
-      ]
+      ],
+      "entryRound": 1
     }
   ]
 }
