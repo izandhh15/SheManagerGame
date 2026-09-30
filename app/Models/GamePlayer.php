@@ -148,6 +148,7 @@ class GamePlayer extends Model
         'potential_low',
         'potential_high',
         'retiring_at_season',
+        'is_stand_in',
     ];
 
     protected $casts = [
@@ -168,6 +169,7 @@ class GamePlayer extends Model
         'potential' => 'integer',
         'potential_low' => 'integer',
         'potential_high' => 'integer',
+        'is_stand_in' => 'boolean',
     ];
 
     /**
@@ -427,6 +429,17 @@ class GamePlayer extends Model
                     ->whereDoesntHave('activeLoan');
             })->orWhereHas('activeLoan', fn ($loanQuery) => $loanQuery->where('parent_team_id', $teamId));
         });
+    }
+
+    /**
+     * Exclude fictional stand-in filler players (see ReserveTeamService).
+     * Stand-ins exist only so the reserve team keeps enough bodies for the
+     * simulation engine after call-ups — the user must never see them,
+     * select them, or find them on the transfer market.
+     */
+    public function scopeNotStandIn($query)
+    {
+        return $query->where('is_stand_in', false);
     }
 
     /**

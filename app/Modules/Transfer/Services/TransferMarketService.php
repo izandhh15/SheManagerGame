@@ -393,6 +393,7 @@ class TransferMarketService
             ->where('game_players.game_id', $game->id)
             ->whereIn('game_players.team_id', $teamIds)
             ->whereNull('teams.parent_team_id')
+            ->where('game_players.is_stand_in', false)
             ->get([
                 'game_players.id',
                 'game_players.game_id',

@@ -109,6 +109,7 @@ return [
     'reserve_player_called_up' => ':player ha sido convocada al primer equipo.',
     'reserve_player_sent_back' => ':player ha vuelto al filial.',
     'reserve_player_call_up_blocked_full' => 'La plantilla del primer equipo está completa. Libera un dorsal antes de subir más jugadoras.',
+    'reserve_player_call_up_blocked' => 'Esta jugadora no puede ser convocada.',
     'player_sent_down_to_reserve' => ':player ha sido enviado al filial.',
     'send_down_not_allowed' => 'Esta jugadora no puede ser enviada al filial.',
     'reserve_move_blocked_by_deal' => ':player tiene un traspaso o precontrato acordado y no puede cambiar de equipo hasta que se complete.',

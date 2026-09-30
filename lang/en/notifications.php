@@ -118,6 +118,8 @@ return [
     'academy_gap_promoted_message' => ':count academy players have been promoted to fill squad gaps.',
     'reserve_overage_promoted_title' => 'Reserve graduate',
     'reserve_overage_promoted_message' => ':player has aged out of the reserve team and joined the first team permanently.',
+    'reserve_stand_in_added_title' => 'C-team reinforcement',
+    'reserve_stand_in_added_message' => 'The reserve team has brought in :count players from the C team to complete the squad.',
     // Loan request results
     'loan_accepted_title' => 'Loan request for :player accepted',
     'loan_accepted' => ':team have accepted your loan request for :player.',

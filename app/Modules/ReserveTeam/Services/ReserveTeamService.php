@@ -11,12 +11,13 @@ use App\Modules\Notification\Services\NotificationService;
 use App\Modules\ReserveTeam\Exceptions\FirstTeamSquadFullException;
 use App\Modules\ReserveTeam\Exceptions\FirstTeamSquadMinimumException;
 use App\Modules\ReserveTeam\Exceptions\PlayerHasCommittedDealException;
-use App\Modules\ReserveTeam\Exceptions\ReserveSquadMinimumException;
+use App\Modules\Squad\Services\PlayerNameGenerator;
 use App\Modules\Squad\Services\SquadMinimumService;
 use App\Modules\Squad\Services\SquadNumberService;
 use App\Modules\Transfer\Enums\TransferWindowType;
 use App\Modules\Transfer\Services\LoanService;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Str;
 
 /**
  * Filial-aware reserve squad operations: list the reserve squad, call players
@@ -35,12 +36,17 @@ class ReserveTeamService
         private readonly SquadNumberService $squadNumberService,
         private readonly NotificationService $notificationService,
         private readonly SquadMinimumService $squadMinimumService,
+        private readonly PlayerNameGenerator $playerNameGenerator,
     ) {}
 
     /**
-     * Return all GamePlayers who belong to the reserve team — players currently
-     * registered there plus those temporarily called up (active loan with
-     * parent_team_id == reserve_team_id). Empty collection for non-filial games.
+     * Return all REAL GamePlayers who belong to the reserve team — players
+     * currently registered there plus those temporarily called up (active
+     * loan with parent_team_id == reserve_team_id). Empty collection for
+     * non-filial games.
+     *
+     * Fictional stand-in filler players (is_stand_in) are EXCLUDED — the
+     * user must never see them.
      *
      * @return Collection<int, GamePlayer>
      */
@@ -52,6 +58,7 @@ class ReserveTeamService
 
         return GamePlayer::ownedByTeam($game->reserve_team_id)
             ->where('game_id', $game->id)
+            ->notStandIn()
             ->with(['activeLoan', 'careerRecord'])
             ->get();
     }
@@ -60,23 +67,27 @@ class ReserveTeamService
      * Call a reserve player up to the first team. Creates a Loan
      * (parent=reserve, loan=first), flips team_id, assigns squad number.
      *
+     * Stand-in players (is_stand_in) can NEVER be called up — they are
+     * fictional filler, invisible to the user.
+     *
+     * The reserve squad minimum is NO LONGER a blocker: after the call-up,
+     * any deficit below the minimum is automatically covered with fictional
+     * stand-in players (as if promoted from the C team).
+     *
      * @throws FirstTeamSquadFullException when no squad number is available
-     * @throws ReserveSquadMinimumException when the reserve would fall below
-     *         its squad-composition minimum after the call-up
+     * @throws \DomainException when trying to call up a stand-in player
      */
     public function callUpToFirstTeam(GamePlayer $player, Game $game): void
     {
         $this->assertFilial($game);
         $this->assertNoCommittedDeal($player);
 
-        if ($player->team_id !== $game->reserve_team_id) {
-            throw new \DomainException('Player is not currently registered to the reserve team.');
+        if ($player->is_stand_in) {
+            throw new \DomainException('Stand-in players cannot be called up.');
         }
 
-        // Reserve must keep enough players to field a squad after the call-up.
-        $breach = $this->squadMinimumService->validateRemoval($game, $player, $game->reserve_team_id);
-        if ($breach !== null) {
-            throw new ReserveSquadMinimumException($breach);
+        if ($player->team_id !== $game->reserve_team_id) {
+            throw new \DomainException('Player is not currently registered to the reserve team.');
         }
 
         $effectiveStart = $game->getLoanEffectiveStartDate();
@@ -124,6 +135,187 @@ class ReserveTeamService
             season: $game->season,
             window: TransferWindowType::currentValue($game->current_date),
         );
+
+        // The reserve may now be below its squad minimum — cover the deficit
+        // with fictional stand-in players (the "C team" steps in). This
+        // replaces the old ReserveSquadMinimumException block.
+        $added = $this->replenishReserveWithStandIns($game);
+
+        if ($added > 0) {
+            $this->notificationService->create(
+                game: $game,
+                type: \App\Models\GameNotification::TYPE_ACADEMY_PROSPECT,
+                title: __('notifications.reserve_stand_in_added_title'),
+                message: __('notifications.reserve_stand_in_added_message', ['count' => $added]),
+                priority: \App\Models\GameNotification::PRIORITY_INFO,
+            );
+        }
+    }
+
+    /**
+     * Representative on-pitch position per position group, used when
+     * generating fictional stand-in players.
+     */
+    private const STAND_IN_POSITIONS = [
+        'Goalkeeper' => 'Goalkeeper',
+        'Defender' => 'Centre-Back',
+        'Midfielder' => 'Central Midfield',
+        'Forward' => 'Centre-Forward',
+    ];
+
+    /**
+     * Cover any reserve-squad deficit below the composition minimum with
+     * fictional stand-in players (the "C team" stepping in).
+     *
+     * Stand-ins count toward the minimum for the simulation engine, but are
+     * invisible to the user: they never appear in the reserve squad view,
+     * can't be called up, and never hit the transfer market.
+     *
+     * @return int number of stand-in players created
+     */
+    public function replenishReserveWithStandIns(Game $game): int
+    {
+        $this->assertFilial($game);
+
+        $reserveTeamId = $game->reserve_team_id;
+
+        // Count ALL physical players (real + existing stand-ins) — stand-ins
+        // count for the engine's minimum.
+        $allPlayers = GamePlayer::where('game_id', $game->id)
+            ->where('team_id', $reserveTeamId)
+            ->get();
+
+        $needed = [];
+
+        // Total squad deficit.
+        $totalDeficit = SquadMinimumService::MIN_SQUAD_SIZE - $allPlayers->count();
+        if ($totalDeficit > 0) {
+            // Distribute the total deficit across groups proportionally to
+            // their minimums so the filler squad stays balanced.
+            $groupMinimums = SquadMinimumService::POSITION_GROUP_MINIMUMS;
+            $totalMin = array_sum($groupMinimums);
+            foreach ($groupMinimums as $group => $min) {
+                $needed[$group] = (int) round($totalDeficit * $min / $totalMin);
+            }
+            // Fix rounding drift.
+            $drift = $totalDeficit - array_sum($needed);
+            if ($drift !== 0) {
+                $needed['Midfielder'] = ($needed['Midfielder'] ?? 0) + $drift;
+            }
+        }
+
+        // Per-group deficits (after accounting for the total fill above).
+        foreach (SquadMinimumService::POSITION_GROUP_MINIMUMS as $group => $min) {
+            $groupCount = $allPlayers->filter(
+                fn (GamePlayer $p) => $p->position_group === $group
+            )->count() + ($needed[$group] ?? 0);
+
+            if ($groupCount < $min) {
+                $needed[$group] = ($needed[$group] ?? 0) + ($min - $groupCount);
+            }
+        }
+
+        $needed = array_filter($needed, fn ($n) => $n > 0);
+        if (empty($needed)) {
+            return 0;
+        }
+
+        $created = 0;
+        foreach ($needed as $group => $count) {
+            $position = self::STAND_IN_POSITIONS[$group] ?? 'Central Midfield';
+            for ($i = 0; $i < $count; $i++) {
+                $this->createStandInPlayer($game, $position);
+                $created++;
+            }
+        }
+
+        return $created;
+    }
+
+    /**
+     * Create a single fictional stand-in player on the reserve team.
+     * Low overall (45-55), aged 17-19, no market value — pure filler for
+     * the simulation engine.
+     */
+    private function createStandInPlayer(Game $game, string $position): GamePlayer
+    {
+        $overall = mt_rand(45, 55);
+        $age = mt_rand(17, 19);
+        $dob = \Carbon\Carbon::parse($game->current_date)->subYears($age)->subDays(mt_rand(0, 364));
+
+        // Prefer the reserve team's country for the name; fall back to Spain.
+        $nationality = $game->reserveTeam?->country ?? 'Spain';
+
+        return GamePlayer::create([
+            'id' => Str::uuid()->toString(),
+            'game_id' => $game->id,
+            'player_id' => Str::uuid()->toString(),
+            'name' => $this->playerNameGenerator->generate($nationality),
+            'date_of_birth' => $dob->format('Y-m-d'),
+            'nationality' => [$nationality],
+            'team_id' => $game->reserve_team_id,
+            'position' => $position,
+            'market_value_cents' => 0,
+            'annual_wage' => 0,
+            'contract_until' => \Carbon\Carbon::parse($game->current_date)->addYears(2)->format('Y-m-d'),
+            'durability' => mt_rand(60, 80),
+            'overall_score' => $overall,
+            'potential' => $overall + mt_rand(0, 8),
+            'potential_low' => $overall,
+            'potential_high' => $overall + mt_rand(5, 15),
+            'tier' => 1,
+            'is_stand_in' => true,
+        ]);
+    }
+
+    /**
+     * Remove excess stand-in players when the reserve no longer needs them.
+     * Keeps just enough stand-ins to hold the squad at the minimum (plus a
+     * small margin); the rest "return to the C team".
+     *
+     * Called after sendBackToReserve() — real players coming back may make
+     * filler unnecessary.
+     *
+     * @return int number of stand-in players removed
+     */
+    public function pruneExcessStandIns(Game $game): int
+    {
+        $this->assertFilial($game);
+
+        $reserveTeamId = $game->reserve_team_id;
+
+        $standIns = GamePlayer::where('game_id', $game->id)
+            ->where('team_id', $reserveTeamId)
+            ->where('is_stand_in', true)
+            ->get();
+
+        if ($standIns->isEmpty()) {
+            return 0;
+        }
+
+        $realCount = GamePlayer::where('game_id', $game->id)
+            ->where('team_id', $reserveTeamId)
+            ->where('is_stand_in', false)
+            ->count();
+
+        // Keep stand-ins only while real players alone are below the minimum.
+        // Small margin of 2 so a single send-back doesn't thrash create/delete.
+        $margin = 2;
+        $keep = max(0, SquadMinimumService::MIN_SQUAD_SIZE + $margin - $realCount);
+        $remove = $standIns->count() - $keep;
+
+        if ($remove <= 0) {
+            return 0;
+        }
+
+        $toRemove = $standIns->take($remove);
+        $removed = 0;
+        foreach ($toRemove as $standIn) {
+            $standIn->delete();
+            $removed++;
+        }
+
+        return $removed;
     }
 
     /**
@@ -158,6 +350,10 @@ class ReserveTeamService
         // returning to the reserve team (not the user's team), it sets number
         // to null automatically.
         $this->loanService->returnLoan($loan);
+
+        // Real players coming back may make filler unnecessary — the excess
+        // stand-ins "return to the C team".
+        $this->pruneExcessStandIns($game);
     }
 
     /**

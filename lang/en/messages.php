@@ -109,6 +109,7 @@ return [
     'reserve_player_called_up' => ':player has been called up to the first team.',
     'reserve_player_sent_back' => ':player has been sent back to the reserve team.',
     'reserve_player_call_up_blocked_full' => 'First-team squad is full. Release a player before calling up another.',
+    'reserve_player_call_up_blocked' => 'This player cannot be called up.',
     'reserve_player_promoted' => ':player has been promoted to the first team.',
     'player_sent_down_to_reserve' => ':player has been sent down to the reserve team.',
     'send_down_not_allowed' => 'This player cannot be sent down to the reserve team.',

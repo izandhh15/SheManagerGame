@@ -306,6 +306,7 @@ class ExploreService
     public function advancedSearch(Game $game, array $filters): array
     {
         $query = GamePlayer::where('game_id', $game->id)
+            ->notStandIn()
             ->with(['team', 'activeLoan.parentTeam']);
 
         if (!empty($filters['name']) && mb_strlen($filters['name']) >= 2) {

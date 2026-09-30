@@ -118,6 +118,8 @@ return [
     'academy_gap_promoted_message' => ':count canteranas han sido promocionadas para cubrir huecos en la plantilla.',
     'reserve_overage_promoted_title' => 'Graduada del filial',
     'reserve_overage_promoted_message' => ':player ha superado la edad del filial y se incorpora al primer equipo de forma permanente.',
+    'reserve_stand_in_added_title' => 'Refuerzo del C',
+    'reserve_stand_in_added_message' => 'El filial ha incorporado :count jugadoras del C para completar la plantilla.',
     // Loan request results
     'loan_accepted_title' => 'Cesión de :player aceptada',
     'loan_accepted' => ':team ha aceptado tu solicitud de cesión por :player.',
