@@ -73,6 +73,19 @@ switch ($step) {
         );
         echo "Invite code: $code\n---\n";
         break;
+    case 'debug500':
+        // Simula una petición HTTP a / y muestra la excepción real
+        try {
+            $request = Illuminate\Http\Request::create('/', 'GET');
+            $httpKernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
+            $response = $httpKernel->handle($request);
+            echo "Status: " . $response->getStatusCode() . "\n";
+            echo substr($response->getContent(), 0, 2000) . "\n---\n";
+        } catch (Throwable $e) {
+            echo 'ERROR: ' . get_class($e) . ': ' . $e->getMessage() . "\n";
+            echo $e->getTraceAsString() . "\n---\n";
+        }
+        break;
     default:
         echo "steps: migrate, seed, seed-nt\n";
 }
