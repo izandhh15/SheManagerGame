@@ -70,23 +70,30 @@ try {
         
         // Run the full SetupNewGame job synchronously
         echo "Running SetupNewGame job...\n";
-        $job = new \App\Modules\Season\Jobs\SetupNewGame(
-            gameId: $game->id,
-            teamId: $game->team_id,
-            competitionId: $game->competition_id,
-            season: '2026',
-            gameMode: $game->game_mode,
-        );
-        
-        $job->handle(
-            app(\App\Modules\Season\Services\SeasonSetupPipeline::class),
-            app(\App\Modules\Season\Processors\LeagueFixtureProcessor::class),
-            app(\App\Modules\Season\Processors\StandingsResetProcessor::class),
-            app(\App\Services\FormationRecommender::class),
-            app(\App\Services\FormationBiasResolver::class),
-        );
-        
-        echo "SUCCESS: SetupNewGame completed!\n";
+        try {
+            $job = new \App\Modules\Season\Jobs\SetupNewGame(
+                gameId: $game->id,
+                teamId: $game->team_id,
+                competitionId: $game->competition_id,
+                season: '2026',
+                gameMode: $game->game_mode,
+            );
+            
+            $job->handle(
+                app(\App\Modules\Season\Services\SeasonSetupPipeline::class),
+                app(\App\Modules\Season\Processors\LeagueFixtureProcessor::class),
+                app(\App\Modules\Season\Processors\StandingsResetProcessor::class),
+                app(\App\Services\FormationRecommender::class),
+                app(\App\Services\FormationBiasResolver::class),
+            );
+            
+            echo "SUCCESS: SetupNewGame completed!\n";
+        } catch (\Throwable $e) {
+            echo "ERROR: " . get_class($e) . "\n";
+            echo "Message: " . $e->getMessage() . "\n";
+            echo "File: " . $e->getFile() . ":" . $e->getLine() . "\n";
+            echo "Trace:\n" . $e->getTraceAsString() . "\n";
+        }
         exit;
     }
     
