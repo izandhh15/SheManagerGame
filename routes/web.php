@@ -36,6 +36,7 @@ use App\Http\Actions\DeclineRenewal;
 use App\Http\Actions\ReconsiderRenewal;
 use App\Http\Actions\AdvanceFastMatchday;
 use App\Http\Actions\AdvanceMatchday;
+use App\Http\Actions\AdvanceBothMatchdays;
 use App\Http\Actions\EnterFastMode;
 use App\Http\Actions\ExitFastMode;
 use App\Http\Actions\SimulateTournament;
@@ -53,6 +54,7 @@ use App\Http\Actions\ProcessExtraTime;
 use App\Http\Actions\ProcessPenalties;
 use App\Http\Actions\InitGame;
 use App\Http\Actions\InitNationalGame;
+use App\Http\Actions\InitDualGame;
 use App\Http\Actions\ListPlayerForTransfer;
 use App\Http\Actions\NegotiateCounterOffer;
 use App\Http\Actions\NegotiateFreeAgent;
@@ -175,6 +177,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/new-game/national/{teamId}', ShowNationalSquadPicker::class)->name('national-squad-picker');
     Route::post('/new-game/national', InitNationalGame::class)->middleware('throttle:game-creation')->name('init-national-game');
 
+    // Dual mode (club + national team): same throttle as the other creation endpoints
+    Route::post('/new-game/dual', InitDualGame::class)->middleware('throttle:game-creation')->name('init-dual-game');
+
     Route::get('/tournament-summary/{summaryId}', ShowTournamentSummary::class)->name('tournament-summary.show');
 
     // All game routes require ownership verification
@@ -230,6 +235,8 @@ Route::middleware('auth')->group(function () {
 
         // Game Actions
         Route::post('/game/{gameId}/advance', AdvanceMatchday::class)->name('game.advance');
+        // Dual mode: advance one matchday on the current game and its linked partner
+        Route::post('/game/{gameId}/advance-both', AdvanceBothMatchdays::class)->name('game.advance-both');
 
         // Fast mode (assistant coach)
         Route::get('/game/{gameId}/fast-mode', ShowFastMode::class)->name('game.fast-mode');
