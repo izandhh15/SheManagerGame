@@ -88,22 +88,10 @@ class InitNationalGame
             return back()->withErrors(['player_ids' => __('game.squad_picker_need_23')]);
         }
 
-        // Competition: allow WNL for UEFA teams, otherwise use the
-        // confederation's qualifier. Validate against the allowed list.
-        $requestedCompetition = $request->input('competition_id');
-        $defaultCompetition = TournamentCreationService::competitionIdForConfederation($team->confederation);
-        $allowedCompetitions = [$defaultCompetition];
-        if ($team->confederation === 'UEFA') {
-            $allowedCompetitions[] = TournamentCreationService::WNL_ID;
-        }
-        $competitionId = in_array($requestedCompetition, $allowedCompetitions, true)
-            ? $requestedCompetition
-            : $defaultCompetition;
-
         $game = $this->tournamentCreationService->create(
             userId: (string) $request->user()->id,
             teamId: $team->id,
-            competitionId: $competitionId,
+            competitionId: TournamentCreationService::competitionIdForConfederation($team->confederation),
             squadPlayerIds: $playerIds,
         );
 

@@ -25,7 +25,7 @@ class TournamentCreationService
      * on it (see InitNationalGame).
      */
     public const CONFEDERATION_COMPETITIONS = [
-        'UEFA'     => 'WQUEFA',
+        'UEFA'     => 'WNL',
         'AFC'      => 'WQAFC',
         'CAF'      => 'WQCAF',
         'CONCACAF' => 'WQCONC',
