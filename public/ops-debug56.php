@@ -83,8 +83,8 @@ try {
                 app(\App\Modules\Season\Services\SeasonSetupPipeline::class),
                 app(\App\Modules\Season\Processors\LeagueFixtureProcessor::class),
                 app(\App\Modules\Season\Processors\StandingsResetProcessor::class),
-                app(\App\Services\FormationRecommender::class),
-                app(\App\Services\FormationBiasResolver::class),
+                app(\App\Modules\Lineup\Services\FormationRecommender::class),
+                app(\App\Modules\Lineup\Services\FormationBiasResolver::class),
             );
             
             echo "SUCCESS: SetupNewGame completed!\n";
