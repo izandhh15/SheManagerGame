@@ -166,34 +166,6 @@
         },
         {
           "contract": "Jun 30, 2028",
-          "dateOfBirth": "Mar 12, 2009",
-          "foot": "left",
-          "height": "",
-          "id": "90305",
-          "marketValue": "",
-          "name": "Laura Dafinger",
-          "nationality": [
-            "Germany"
-          ],
-          "number": "36",
-          "position": "Centre-Back"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Oct 9, 1996",
-          "foot": "",
-          "height": "1,70m",
-          "id": "16400",
-          "marketValue": "",
-          "name": "Jana Kappes",
-          "nationality": [
-            "Germany"
-          ],
-          "number": "45",
-          "position": "Centre-Back"
-        },
-        {
-          "contract": "Jun 30, 2028",
           "dateOfBirth": "Dec 19, 2001",
           "foot": "both",
           "height": "1,74m",
@@ -373,20 +345,6 @@
           ],
           "number": "29",
           "position": "Centre-Forward"
-        },
-        {
-          "contract": "Jun 30, 2029",
-          "dateOfBirth": "Apr 6, 2010",
-          "foot": "",
-          "height": "",
-          "id": "107812",
-          "marketValue": "",
-          "name": "Ella Rauscha",
-          "nationality": [
-            "Austria"
-          ],
-          "number": "33",
-          "position": "Striker"
         }
       ]
     },
@@ -664,20 +622,6 @@
           "position": "Defensive Midfield"
         },
         {
-          "contract": "Jun 30, 2027",
-          "dateOfBirth": "Aug 30, 2008",
-          "foot": "both",
-          "height": "",
-          "id": "89350",
-          "marketValue": "",
-          "name": "Antonia Wagner",
-          "nationality": [
-            "Germany"
-          ],
-          "number": "32",
-          "position": "Midfielder"
-        },
-        {
           "contract": "Jun 30, 2029",
           "dateOfBirth": "Sep 20, 1998",
           "foot": "right",
@@ -939,20 +883,6 @@
           "position": "Centre-Back"
         },
         {
-          "contract": "Jun 30, 2027",
-          "dateOfBirth": "Mar 24, 2006",
-          "foot": "right",
-          "height": "1,76m",
-          "id": "61399",
-          "marketValue": "",
-          "name": "Mina Matijević",
-          "nationality": [
-            "Serbia"
-          ],
-          "number": "19",
-          "position": "Centre-Back"
-        },
-        {
           "contract": "Jun 30, 2028",
           "dateOfBirth": "Nov 17, 1991",
           "foot": "right",
@@ -1118,20 +1048,6 @@
             "Germany"
           ],
           "number": "31",
-          "position": "Midfielder"
-        },
-        {
-          "contract": "Jun 30, 2027",
-          "dateOfBirth": "Mar 24, 2005",
-          "foot": "left",
-          "height": "1,67m",
-          "id": "58474",
-          "marketValue": "",
-          "name": "Carlotta Schwoerer",
-          "nationality": [
-            "Germany"
-          ],
-          "number": "32",
           "position": "Midfielder"
         },
         {
@@ -1979,20 +1895,6 @@
           "position": "Striker"
         },
         {
-          "contract": "",
-          "dateOfBirth": "May 22, 2009",
-          "foot": "",
-          "height": "",
-          "id": "90620",
-          "marketValue": "€30k",
-          "name": "Lea Aseko",
-          "nationality": [
-            "Germany"
-          ],
-          "number": "35",
-          "position": "Striker"
-        },
-        {
           "contract": "Jun 30, 2028",
           "dateOfBirth": "Nov 3, 2004",
           "foot": "left",
@@ -2005,6 +1907,34 @@
           ],
           "number": "42",
           "position": "Left Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": 900503,
+          "marketValue": "",
+          "name": "Carla Okoro",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "3",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": 900504,
+          "marketValue": "",
+          "name": "Sherly Schulz",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "13",
+          "position": "Goalkeeper"
         }
       ]
     },
@@ -2296,20 +2226,6 @@
           "position": "Defensive Midfield"
         },
         {
-          "contract": "",
-          "dateOfBirth": "Aug 28, 2008",
-          "foot": "",
-          "height": "",
-          "id": "87879",
-          "marketValue": "",
-          "name": "Vivien Thomann",
-          "nationality": [
-            "Germany"
-          ],
-          "number": "36",
-          "position": "Midfielder"
-        },
-        {
           "contract": "Jun 30, 2028",
           "dateOfBirth": "Dec 19, 2005",
           "foot": "",
@@ -2377,20 +2293,6 @@
             "Switzerland"
           ],
           "number": "19",
-          "position": "Centre-Forward"
-        },
-        {
-          "contract": "Jun 30, 2029",
-          "dateOfBirth": "Jul 31, 2008",
-          "foot": "right",
-          "height": "1,70m",
-          "id": "97078",
-          "marketValue": "€20k",
-          "name": "Denise Lueger",
-          "nationality": [
-            "Austria"
-          ],
-          "number": "29",
           "position": "Centre-Forward"
         }
       ]
@@ -2779,6 +2681,48 @@
           ],
           "number": "99",
           "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": 900505,
+          "marketValue": "",
+          "name": "Bori Turi",
+          "nationality": [
+            "Hungary"
+          ],
+          "number": "8",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": 900506,
+          "marketValue": "",
+          "name": "Emma Paschedag",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "13",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": 900507,
+          "marketValue": "",
+          "name": "Mia Richter",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "23",
+          "position": "Goalkeeper"
         }
       ]
     },
@@ -3126,20 +3070,6 @@
           "position": "Striker"
         },
         {
-          "contract": "",
-          "dateOfBirth": "Jul 9, 2008",
-          "foot": "",
-          "height": "",
-          "id": "90574",
-          "marketValue": "",
-          "name": "Janita Kramer",
-          "nationality": [
-            "Germany"
-          ],
-          "number": "38",
-          "position": "Striker"
-        },
-        {
           "contract": "Jun 30, 2028",
           "dateOfBirth": "Apr 22, 2003",
           "foot": "right",
@@ -3384,20 +3314,6 @@
             "Germany"
           ],
           "number": "33",
-          "position": "Centre-Back"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Jun 29, 2005",
-          "foot": "",
-          "height": "1,80m",
-          "id": "42951",
-          "marketValue": "",
-          "name": "Maja Weber",
-          "nationality": [
-            "Germany"
-          ],
-          "number": "36",
           "position": "Centre-Back"
         },
         {
@@ -5417,20 +5333,6 @@
             "Switzerland"
           ],
           "number": "20",
-          "position": "Centre-Back"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Feb 22, 2004",
-          "foot": "",
-          "height": "",
-          "id": "72070",
-          "marketValue": "",
-          "name": "Mara Bukowski",
-          "nationality": [
-            "Germany"
-          ],
-          "number": "24",
           "position": "Centre-Back"
         },
         {

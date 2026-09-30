@@ -317,6 +317,147 @@
           ],
           "number": "21",
           "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": "905001",
+          "marketValue": "",
+          "name": "Lara Pestana",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "9",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": "905002",
+          "marketValue": "",
+          "name": "Lara Costa",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "16",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": "905003",
+          "marketValue": "",
+          "name": "Catarina Silva",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "18",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": "905004",
+          "marketValue": "",
+          "name": "Jana Radosavljević",
+          "nationality": [
+            "New Zealand",
+            "Serbia"
+          ],
+          "number": "19",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": "905005",
+          "marketValue": "",
+          "name": "Inês Freitas",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "26",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": "905006",
+          "marketValue": "",
+          "name": "Sara Nóbrega",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "27",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": "905007",
+          "marketValue": "",
+          "name": "Carlota Jardim",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "29",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": "905008",
+          "marketValue": "",
+          "name": "Elis Nemtsov Blokhin",
+          "nationality": [
+            "Israel"
+          ],
+          "number": "30",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": "905009",
+          "marketValue": "",
+          "name": "Daniella Serrão",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "31",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": "905010",
+          "marketValue": "",
+          "name": "Carolina Ferreira",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "32",
+          "position": "Striker"
         }
       ]
     },
@@ -690,6 +831,20 @@
           ],
           "number": "13",
           "position": "Right Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": "905011",
+          "marketValue": "",
+          "name": "Kelly Bullock",
+          "nationality": [
+            "United States"
+          ],
+          "number": "18",
+          "position": "Striker"
         }
       ]
     },
@@ -1506,20 +1661,6 @@
           ],
           "number": "52",
           "position": "Centre-Forward"
-        },
-        {
-          "contract": "Jun 30, 2027",
-          "dateOfBirth": "Aug 1, 2006",
-          "foot": "right",
-          "height": "1,66m",
-          "id": "85019",
-          "marketValue": "",
-          "name": "Miri O’Donnell",
-          "nationality": [
-            "United States"
-          ],
-          "number": "78",
-          "position": "Striker"
         }
       ]
     },
@@ -2779,6 +2920,20 @@
           ],
           "number": "28",
           "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": "905012",
+          "marketValue": "",
+          "name": "Jessie Halladay",
+          "nationality": [
+            "United States"
+          ],
+          "number": "18",
+          "position": "Striker"
         }
       ]
     },
@@ -3110,6 +3265,20 @@
           ],
           "number": "24",
           "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": "905013",
+          "marketValue": "",
+          "name": "Lauren Smith",
+          "nationality": [
+            "England"
+          ],
+          "number": "3",
+          "position": "Striker"
         }
       ]
     },

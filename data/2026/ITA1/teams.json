@@ -2835,6 +2835,34 @@
           ],
           "number": "23",
           "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": 901135,
+          "marketValue": "",
+          "name": "Ilaria Zilioli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "73",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": 901136,
+          "marketValue": "",
+          "name": "Arianna Dell'Orto",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "76",
+          "position": "Midfielder"
         }
       ]
     },
@@ -4024,6 +4052,20 @@
           ],
           "number": "99",
           "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": 901137,
+          "marketValue": "",
+          "name": "Chiara Di Vaio",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "44",
+          "position": "Defender"
         }
       ]
     },

@@ -25,32 +25,18 @@
           "position": "Goalkeeper"
         },
         {
-          "contract": "",
-          "dateOfBirth": "May 13, 2007",
-          "foot": "",
-          "height": "",
-          "id": "107959",
-          "marketValue": "",
-          "name": "Cristina Águeda",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "30",
-          "position": "Goalkeeper"
-        },
-        {
           "contract": "Jun 30, 2030",
           "dateOfBirth": "Jun 27, 2006",
           "foot": "right",
           "height": "1,59m",
           "id": "73280",
           "marketValue": "€40k",
-          "name": "Noe Bejarano",
+          "name": "Noemí Llamas",
           "nationality": [
             "Spain"
           ],
           "number": "2",
-          "position": "Right-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2030",
@@ -64,7 +50,7 @@
             "Netherlands"
           ],
           "number": "3",
-          "position": "Left-Back"
+          "position": "Defender"
         },
         {
           "contract": "",
@@ -78,7 +64,7 @@
             "Spain"
           ],
           "number": "14",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2028",
@@ -92,35 +78,7 @@
             "France"
           ],
           "number": "23",
-          "position": "Centre-Back"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Jun 5, 2007",
-          "foot": "",
-          "height": "1,56m",
-          "id": "73247",
-          "marketValue": "",
-          "name": "Claudia de la Cuerda",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "26",
-          "position": "Centre-Back"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Jan 23, 2005",
-          "foot": "left",
-          "height": "",
-          "id": "84818",
-          "marketValue": "",
-          "name": "Noelia Llamas",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "29",
-          "position": "Left-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -134,7 +92,7 @@
             "France"
           ],
           "number": "6",
-          "position": "Central Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2027",
@@ -148,7 +106,7 @@
             "Sweden"
           ],
           "number": "16",
-          "position": "Defensive Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2030",
@@ -162,35 +120,7 @@
             "Germany"
           ],
           "number": "20",
-          "position": "Defensive Midfield"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Jun 15, 2005",
-          "foot": "",
-          "height": "",
-          "id": "63270",
-          "marketValue": "€10k",
-          "name": "Oihane San Martín",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "31",
-          "position": "Attacking Midfield"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Aug 28, 2005",
-          "foot": "right",
-          "height": "1,68m",
-          "id": "77746",
-          "marketValue": "€26k",
-          "name": "Paula Rubio",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "35",
-          "position": "Central Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2030",
@@ -204,7 +134,7 @@
             "Netherlands"
           ],
           "number": "7",
-          "position": "Right Winger"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2027",
@@ -218,7 +148,7 @@
             "Denmark"
           ],
           "number": "9",
-          "position": "Centre-Forward"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2028",
@@ -232,7 +162,7 @@
             "Spain"
           ],
           "number": "10",
-          "position": "Right Winger"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2029",
@@ -246,49 +176,7 @@
             "Netherlands"
           ],
           "number": "11",
-          "position": "Right Winger"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Jul 16, 2005",
-          "foot": "right",
-          "height": "1,68m",
-          "id": "79047",
-          "marketValue": "€35k",
-          "name": "Yasmine Zouhir",
-          "nationality": [
-            "Morocco"
-          ],
-          "number": "27",
-          "position": "Centre-Forward"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Mar 28, 2006",
-          "foot": "",
-          "height": "",
-          "id": "73258",
-          "marketValue": "",
-          "name": "Bibiana Casquero",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "37",
           "position": "Striker"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Apr 19, 2009",
-          "foot": "",
-          "height": "",
-          "id": "93191",
-          "marketValue": "",
-          "name": "Candela Rodríguez",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "47",
-          "position": "Left Winger"
         },
         {
           "contract": "Jun 30, 2030",
@@ -316,7 +204,7 @@
             "Spain"
           ],
           "number": "4",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2028",
@@ -330,7 +218,7 @@
             "Spain"
           ],
           "number": "19",
-          "position": "Right-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -344,7 +232,7 @@
             "Denmark"
           ],
           "number": "21",
-          "position": "Left-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2029",
@@ -358,7 +246,7 @@
             "Sweden"
           ],
           "number": "22",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -372,7 +260,7 @@
             "Germany"
           ],
           "number": "8",
-          "position": "Central Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2029",
@@ -386,7 +274,7 @@
             "Spain"
           ],
           "number": "15",
-          "position": "Central Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2030",
@@ -400,7 +288,7 @@
             "Portugal"
           ],
           "number": "17",
-          "position": "Central Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2030",
@@ -414,7 +302,7 @@
             "Italy"
           ],
           "number": "24",
-          "position": "Central Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2027",
@@ -428,7 +316,7 @@
             "Spain"
           ],
           "number": "5",
-          "position": "Left Winger"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2030",
@@ -442,7 +330,7 @@
             "Sweden"
           ],
           "number": "12",
-          "position": "Centre-Forward"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2031",
@@ -456,7 +344,7 @@
             "Colombia"
           ],
           "number": "18",
-          "position": "Left Winger"
+          "position": "Striker"
         }
       ]
     },
@@ -496,20 +384,6 @@
           "position": "Goalkeeper"
         },
         {
-          "contract": "",
-          "dateOfBirth": "Nov 10, 2006",
-          "foot": "",
-          "height": "",
-          "id": "111445",
-          "marketValue": "",
-          "name": "Mercedes Pérez",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "31",
-          "position": "Goalkeeper"
-        },
-        {
           "contract": "Jun 30, 2027",
           "dateOfBirth": "Oct 8, 1998",
           "foot": "left",
@@ -521,7 +395,7 @@
             "Spain"
           ],
           "number": "15",
-          "position": "Left-Back"
+          "position": "Defender"
         },
         {
           "contract": "",
@@ -535,7 +409,7 @@
             "Spain"
           ],
           "number": "22",
-          "position": "Right-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -549,49 +423,7 @@
             "Portugal"
           ],
           "number": "24",
-          "position": "Centre-Back"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Sep 2, 2008",
-          "foot": "",
-          "height": "",
-          "id": "102581",
-          "marketValue": "€35k",
-          "name": "Andrea Gálvez",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "28",
-          "position": "Left-Back"
-        },
-        {
-          "contract": "Jun 30, 2027",
-          "dateOfBirth": "Mar 8, 2005",
-          "foot": "right",
-          "height": "1,65m",
-          "id": "92311",
-          "marketValue": "€40k",
-          "name": "Alba López",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "30",
-          "position": "Right-Back"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Mar 24, 2009",
-          "foot": "",
-          "height": "",
-          "id": "84968",
-          "marketValue": "",
-          "name": "Mabel Sierra",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "33",
-          "position": "Right-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -600,7 +432,7 @@
           "height": "1,68m",
           "id": "21834",
           "marketValue": "€45k",
-          "name": "Iris Arnáiz",
+          "name": "Iris Arnaiz",
           "nationality": [
             "Spain"
           ],
@@ -619,7 +451,7 @@
             "Spain"
           ],
           "number": "21",
-          "position": "Central Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "",
@@ -633,20 +465,6 @@
             "Spain"
           ],
           "number": "23",
-          "position": "Defensive Midfield"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Apr 3, 2007",
-          "foot": "right",
-          "height": "1,60m",
-          "id": "79226",
-          "marketValue": "",
-          "name": "Carla Aguilar",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "27",
           "position": "Midfielder"
         },
         {
@@ -661,7 +479,7 @@
             "Guatemala"
           ],
           "number": "8",
-          "position": "Centre-Forward"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2028",
@@ -675,20 +493,6 @@
             "The Gambia"
           ],
           "number": "9",
-          "position": "Right Winger"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "May 31, 2004",
-          "foot": "right",
-          "height": "1,65m",
-          "id": "51858",
-          "marketValue": "",
-          "name": "Clara Ferrer",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "34",
           "position": "Striker"
         },
         {
@@ -703,7 +507,7 @@
             "Spain"
           ],
           "number": "4",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -717,7 +521,7 @@
             "Spain"
           ],
           "number": "5",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2028",
@@ -731,7 +535,7 @@
             "Spain"
           ],
           "number": "7",
-          "position": "Left-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2028",
@@ -745,7 +549,7 @@
             "Spain"
           ],
           "number": "6",
-          "position": "Defensive Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2028",
@@ -759,7 +563,7 @@
             "Spain"
           ],
           "number": "20",
-          "position": "Central Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2027",
@@ -772,8 +576,8 @@
           "nationality": [
             "Belgium"
           ],
-          "number": "10",
-          "position": "Centre-Forward"
+          "number": "11",
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2027",
@@ -787,21 +591,21 @@
             "Spain"
           ],
           "number": "17",
-          "position": "Right Winger"
+          "position": "Striker"
         },
         {
-          "contract": "Jun 30, 2028",
-          "dateOfBirth": "Oct 6, 2008",
-          "foot": "right",
-          "height": "1,57m",
-          "id": "103156",
-          "marketValue": "€30k",
-          "name": "Xenia Barrios",
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": 930001,
+          "marketValue": "",
+          "name": "Millaray Cortés",
           "nationality": [
-            "Spain"
+            "Chile"
           ],
-          "number": "35",
-          "position": "Right Winger"
+          "number": "10",
+          "position": "Midfielder"
         }
       ]
     },
@@ -812,20 +616,6 @@
       "stadiumSeats": 3724,
       "transfermarktId": "17008",
       "players": [
-        {
-          "contract": "",
-          "dateOfBirth": "Feb 22, 2007",
-          "foot": "",
-          "height": "",
-          "id": "78464",
-          "marketValue": "",
-          "name": "Carla Abdón",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "35",
-          "position": "Goalkeeper"
-        },
         {
           "contract": "Jun 30, 2027",
           "dateOfBirth": "Oct 21, 1999",
@@ -842,26 +632,12 @@
         },
         {
           "contract": "",
-          "dateOfBirth": "Feb 22, 2007",
-          "foot": "",
-          "height": "",
-          "id": "73254",
-          "marketValue": "€10k",
-          "name": "Laia Abdón",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "32",
-          "position": "Centre-Back"
-        },
-        {
-          "contract": "",
           "dateOfBirth": "Oct 23, 2005",
           "foot": "right",
           "height": "1,67m",
           "id": "75552",
           "marketValue": "€25k",
-          "name": "Chinyere Kalu",
+          "name": "Kalu Chianyere",
           "nationality": [
             "Nigeria"
           ],
@@ -894,7 +670,7 @@
             "Spain"
           ],
           "number": "19",
-          "position": "Attacking Midfield"
+          "position": "Striker"
         },
         {
           "contract": "",
@@ -909,20 +685,6 @@
           ],
           "number": "22",
           "position": "Central Midfield"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Aug 18, 2006",
-          "foot": "right",
-          "height": "1,65m",
-          "id": "80269",
-          "marketValue": "€10k",
-          "name": "Aitana Fernández",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "33",
-          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2027",
@@ -993,34 +755,6 @@
           ],
           "number": "20",
           "position": "Right Winger"
-        },
-        {
-          "contract": "Jun 30, 2027",
-          "dateOfBirth": "Mar 24, 2003",
-          "foot": "right",
-          "height": "1,74m",
-          "id": "47243",
-          "marketValue": "€55k",
-          "name": "Katelyn Hendriks",
-          "nationality": [
-            "Netherlands"
-          ],
-          "number": "21",
-          "position": "Midfielder"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Jun 17, 2006",
-          "foot": "both",
-          "height": "",
-          "id": "85560",
-          "marketValue": "",
-          "name": "Andrea Cano",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "31",
-          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2027",
@@ -1196,7 +930,7 @@
           "nationality": [
             "Argentina"
           ],
-          "number": "3",
+          "number": "2",
           "position": "Left-Back"
         },
         {
@@ -1252,7 +986,7 @@
           "nationality": [
             "Argentina"
           ],
-          "number": "2",
+          "number": "3",
           "position": "Attacking Midfield"
         },
         {
@@ -1304,7 +1038,7 @@
           "height": "1,73m",
           "id": "33966",
           "marketValue": "€35k",
-          "name": "Sade Adamolekun",
+          "name": "Olufolasade Adamolekun",
           "nationality": [
             "Jamaica"
           ],
@@ -1332,7 +1066,7 @@
           "height": "1,62m",
           "id": "21837",
           "marketValue": "€50k",
-          "name": "Isina Corte",
+          "name": "Isina Cortés",
           "nationality": [
             "Spain"
           ],
@@ -1444,7 +1178,7 @@
           "height": "1,68m",
           "id": "70416",
           "marketValue": "€45k",
-          "name": "Rebeca",
+          "name": "Rebeca Costa",
           "nationality": [
             "Brazil"
           ],
@@ -1458,7 +1192,7 @@
           "height": "1,72m",
           "id": "54323",
           "marketValue": "€35k",
-          "name": "Cata Ongaro",
+          "name": "Catalina Ongaro",
           "nationality": [
             "Argentina"
           ],
@@ -1500,7 +1234,7 @@
           "height": "1,68m",
           "id": "44964",
           "marketValue": "€35k",
-          "name": "Mía Asenjo",
+          "name": "Mia Asenjo",
           "nationality": [
             "Dominican Republic"
           ],
@@ -1640,7 +1374,7 @@
             "Tanzania"
           ],
           "number": "24",
-          "position": "Striker"
+          "position": "Midfielder"
         },
         {
           "contract": "",
@@ -1710,7 +1444,7 @@
             "Spain"
           ],
           "number": "11",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "",
@@ -1761,7 +1495,7 @@
           "height": "1,66m",
           "id": "99272",
           "marketValue": "€30k",
-          "name": "Bebê",
+          "name": "Débora Bebê",
           "nationality": [
             "Brazil"
           ],
@@ -1779,8 +1513,8 @@
           "nationality": [
             "Spain"
           ],
-          "number": "20",
-          "position": "Attacking Midfield"
+          "number": "15",
+          "position": "Midfielder"
         },
         {
           "contract": "",
@@ -1817,11 +1551,11 @@
           "height": "1,61m",
           "id": "101657",
           "marketValue": "€25k",
-          "name": "Hye-young Cho",
+          "name": "Hye-Young Jo",
           "nationality": [
             "Korea, South"
           ],
-          "number": "15",
+          "number": "16",
           "position": "Striker"
         },
         {
@@ -1837,6 +1571,20 @@
           ],
           "number": "23",
           "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": 930002,
+          "marketValue": "",
+          "name": "Nuria Troncoso",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "31",
+          "position": "Goalkeeper"
         }
       ]
     },
@@ -1957,7 +1705,7 @@
             "Spain"
           ],
           "number": "11",
-          "position": "Left-Back"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2028",
@@ -1985,21 +1733,7 @@
             "Spain"
           ],
           "number": "23",
-          "position": "Left-Back"
-        },
-        {
-          "contract": "Jun 30, 2027",
-          "dateOfBirth": "Dec 2, 2004",
-          "foot": "",
-          "height": "",
-          "id": "100414",
-          "marketValue": "",
-          "name": "Gabi de la Villa",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "37",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2028",
@@ -2069,7 +1803,7 @@
             "Serbia"
           ],
           "number": "17",
-          "position": "Left Midfield"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2028",
@@ -2084,34 +1818,6 @@
           ],
           "number": "21",
           "position": "Central Midfield"
-        },
-        {
-          "contract": "Jun 30, 2029",
-          "dateOfBirth": "Dec 3, 2008",
-          "foot": "right",
-          "height": "1,56m",
-          "id": "96728",
-          "marketValue": "",
-          "name": "Claudia Barrios",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "34",
-          "position": "Attacking Midfield"
-        },
-        {
-          "contract": "Jun 30, 2027",
-          "dateOfBirth": "Sep 6, 2005",
-          "foot": "",
-          "height": "",
-          "id": "78124",
-          "marketValue": "",
-          "name": "Raquel Gómez",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "36",
-          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2028",
@@ -2162,7 +1868,7 @@
           "height": "1,67m",
           "id": "42960",
           "marketValue": "€300k",
-          "name": "Gio Garbelini",
+          "name": "Gio Queiroz",
           "nationality": [
             "Brazil"
           ],
@@ -2180,8 +1886,8 @@
           "nationality": [
             "Brazil"
           ],
-          "number": "20",
-          "position": "Centre-Forward"
+          "number": "15",
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2027",
@@ -2199,17 +1905,17 @@
         },
         {
           "contract": "",
-          "dateOfBirth": "Sep 29, 2008",
-          "foot": "right",
-          "height": "1,57m",
-          "id": "84858",
-          "marketValue": "€40k",
-          "name": "Celia Gómez",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": 930003,
+          "marketValue": "",
+          "name": "Amaiur Sarriegi",
           "nationality": [
             "Spain"
           ],
-          "number": "28",
-          "position": "Second Striker"
+          "number": "20",
+          "position": "Striker"
         }
       ]
     },
@@ -2274,7 +1980,7 @@
             "Spain"
           ],
           "number": "2",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2030",
@@ -2288,7 +1994,7 @@
             "Netherlands"
           ],
           "number": "3",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2029",
@@ -2302,7 +2008,7 @@
             "Spain"
           ],
           "number": "5",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -2316,7 +2022,7 @@
             "Spain"
           ],
           "number": "8",
-          "position": "Right-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2030",
@@ -2325,12 +2031,12 @@
           "height": "1,62m",
           "id": "85559",
           "marketValue": "€150k",
-          "name": "Carla Juliá",
+          "name": "Carla Julià",
           "nationality": [
             "Spain"
           ],
           "number": "21",
-          "position": "Left-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -2344,7 +2050,7 @@
             "Netherlands"
           ],
           "number": "22",
-          "position": "Left-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2028",
@@ -2358,7 +2064,7 @@
             "Spain"
           ],
           "number": "23",
-          "position": "Right-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2029",
@@ -2372,21 +2078,7 @@
             "Spain"
           ],
           "number": "24",
-          "position": "Centre-Back"
-        },
-        {
-          "contract": "Jun 30, 2028",
-          "dateOfBirth": "Feb 27, 2007",
-          "foot": "left",
-          "height": "1,62m",
-          "id": "73255",
-          "marketValue": "",
-          "name": "Daniela Martínez",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "33",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "",
@@ -2400,21 +2092,7 @@
             "Spain"
           ],
           "number": "41",
-          "position": "Right-Back"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Oct 26, 2009",
-          "foot": "left",
-          "height": "",
-          "id": "84859",
-          "marketValue": "€30k",
-          "name": "Júlia Pastor",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "43",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -2428,7 +2106,7 @@
             "Switzerland"
           ],
           "number": "6",
-          "position": "Attacking Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2027",
@@ -2437,12 +2115,12 @@
           "height": "1,70m",
           "id": "21948",
           "marketValue": "€1.25m",
-          "name": "Patri Guijarro",
+          "name": "Patricia Guijarro",
           "nationality": [
             "Spain"
           ],
           "number": "12",
-          "position": "Defensive Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2028",
@@ -2456,7 +2134,7 @@
             "Spain"
           ],
           "number": "14",
-          "position": "Attacking Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2028",
@@ -2470,7 +2148,7 @@
             "Spain"
           ],
           "number": "16",
-          "position": "Central Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2028",
@@ -2484,7 +2162,7 @@
             "Portugal"
           ],
           "number": "18",
-          "position": "Attacking Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2028",
@@ -2498,7 +2176,7 @@
             "Spain"
           ],
           "number": "19",
-          "position": "Central Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "",
@@ -2512,7 +2190,7 @@
             "Spain"
           ],
           "number": "29",
-          "position": "Central Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "",
@@ -2526,7 +2204,7 @@
             "Spain"
           ],
           "number": "35",
-          "position": "Central Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "",
@@ -2540,7 +2218,7 @@
             "Spain"
           ],
           "number": "38",
-          "position": "Central Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2030",
@@ -2554,7 +2232,7 @@
             "Brazil"
           ],
           "number": "7",
-          "position": "Centre-Forward"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2029",
@@ -2568,7 +2246,7 @@
             "Spain"
           ],
           "number": "9",
-          "position": "Left Winger"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2028",
@@ -2577,12 +2255,12 @@
           "height": "1,75m",
           "id": "6143",
           "marketValue": "€1.00m",
-          "name": "Caroline Graham",
+          "name": "Caroline Graham Hansen",
           "nationality": [
             "Norway"
           ],
           "number": "10",
-          "position": "Right Winger"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2027",
@@ -2596,7 +2274,7 @@
             "Poland"
           ],
           "number": "17",
-          "position": "Centre-Forward"
+          "position": "Striker"
         },
         {
           "contract": "",
@@ -2610,7 +2288,7 @@
             "Spain"
           ],
           "number": "28",
-          "position": "Centre-Forward"
+          "position": "Striker"
         },
         {
           "contract": "",
@@ -2625,62 +2303,6 @@
           ],
           "number": "31",
           "position": "Striker"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Aug 12, 2009",
-          "foot": "",
-          "height": "",
-          "id": "109320",
-          "marketValue": "",
-          "name": "Nikoline Nielsen",
-          "nationality": [
-            "Denmark"
-          ],
-          "number": "36",
-          "position": "Striker"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Mar 19, 2010",
-          "foot": "",
-          "height": "1,58m",
-          "id": "105105",
-          "marketValue": "",
-          "name": "Lídia Gibert",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "40",
-          "position": "Right Winger"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "May 30, 2008",
-          "foot": "left",
-          "height": "1,67m",
-          "id": "84974",
-          "marketValue": "€30k",
-          "name": "Anna Quer",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "42",
-          "position": "Left Winger"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Jan 3, 2008",
-          "foot": "right",
-          "height": "1,74m",
-          "id": "86133",
-          "marketValue": "",
-          "name": "Kautar Azraf",
-          "nationality": [
-            "Morocco"
-          ],
-          "number": "46",
-          "position": "Centre-Forward"
         }
       ]
     },
@@ -2824,7 +2446,7 @@
           "height": "1,59m",
           "id": "41599",
           "marketValue": "€40k",
-          "name": "Samara Ortíz",
+          "name": "Samara Ortiz",
           "nationality": [
             "Azerbaijan"
           ],
@@ -2880,7 +2502,7 @@
           "height": "1,59m",
           "id": "51314",
           "marketValue": "€30k",
-          "name": "Noe Fernández",
+          "name": "Noelia Fernández",
           "nationality": [
             "Spain"
           ],
@@ -2941,7 +2563,7 @@
             "Spain"
           ],
           "number": "17",
-          "position": "Midfielder"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2027",
@@ -2995,20 +2617,6 @@
           "position": "Goalkeeper"
         },
         {
-          "contract": "",
-          "dateOfBirth": "Dec 23, 2007",
-          "foot": "",
-          "height": "",
-          "id": "90752",
-          "marketValue": "€25k",
-          "name": "Maïté Mendiburu",
-          "nationality": [
-            "France"
-          ],
-          "number": "30",
-          "position": "Goalkeeper"
-        },
-        {
           "contract": "Jun 30, 2027",
           "dateOfBirth": "Mar 10, 1998",
           "foot": "right",
@@ -3020,7 +2628,7 @@
             "Spain"
           ],
           "number": "2",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2029",
@@ -3034,7 +2642,7 @@
             "Spain"
           ],
           "number": "3",
-          "position": "Right-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -3048,7 +2656,7 @@
             "Spain"
           ],
           "number": "4",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2028",
@@ -3062,7 +2670,7 @@
             "Spain"
           ],
           "number": "6",
-          "position": "Right-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -3076,7 +2684,7 @@
             "Spain"
           ],
           "number": "21",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2029",
@@ -3090,21 +2698,7 @@
             "Spain"
           ],
           "number": "24",
-          "position": "Left-Back"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Sep 22, 2008",
-          "foot": "",
-          "height": "",
-          "id": "107442",
-          "marketValue": "",
-          "name": "Iraia Soroa",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "28",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -3118,7 +2712,7 @@
             "Spain"
           ],
           "number": "5",
-          "position": "Central Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2028",
@@ -3132,7 +2726,7 @@
             "Spain"
           ],
           "number": "10",
-          "position": "Attacking Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "",
@@ -3141,7 +2735,7 @@
           "height": "",
           "id": "88508",
           "marketValue": "€90k",
-          "name": "Intza Egiguren",
+          "name": "Intza Eguiguren",
           "nationality": [
             "Spain"
           ],
@@ -3174,7 +2768,7 @@
             "Spain"
           ],
           "number": "20",
-          "position": "Central Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2027",
@@ -3188,7 +2782,7 @@
             "Czech Republic"
           ],
           "number": "22",
-          "position": "Central Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2029",
@@ -3202,7 +2796,7 @@
             "Spain"
           ],
           "number": "7",
-          "position": "Left Winger"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2028",
@@ -3216,7 +2810,7 @@
             "Spain"
           ],
           "number": "8",
-          "position": "Right Winger"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2028",
@@ -3230,7 +2824,7 @@
             "Chile"
           ],
           "number": "9",
-          "position": "Centre-Forward"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2027",
@@ -3244,7 +2838,7 @@
             "Spain"
           ],
           "number": "11",
-          "position": "Left Winger"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2029",
@@ -3272,34 +2866,6 @@
             "Spain"
           ],
           "number": "19",
-          "position": "Right Winger"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Apr 4, 2009",
-          "foot": "right",
-          "height": "1,65m",
-          "id": "93194",
-          "marketValue": "",
-          "name": "Carlota Chacón",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "26",
-          "position": "Right Winger"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Apr 22, 2007",
-          "foot": "",
-          "height": "",
-          "id": "88513",
-          "marketValue": "",
-          "name": "Ane Isasisasmendi",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "27",
           "position": "Striker"
         }
       ]
@@ -3332,7 +2898,7 @@
           "height": "",
           "id": "68267",
           "marketValue": "€25k",
-          "name": "Marina Llàcer",
+          "name": "Marina Llácer",
           "nationality": [
             "Spain"
           ],
@@ -3416,7 +2982,7 @@
           "height": "1,61m",
           "id": "35757",
           "marketValue": "€33k",
-          "name": "Pauleta Sancho",
+          "name": "Pauleta",
           "nationality": [
             "Spain"
           ],
@@ -3486,7 +3052,7 @@
           "height": "1,56m",
           "id": "38466",
           "marketValue": "€40k",
-          "name": "Carol Marín",
+          "name": "Carolina Marín",
           "nationality": [
             "Spain"
           ],
@@ -3618,20 +3184,6 @@
           ],
           "number": "19",
           "position": "Centre-Forward"
-        },
-        {
-          "contract": "Jun 30, 2027",
-          "dateOfBirth": "Oct 10, 2005",
-          "foot": "",
-          "height": "",
-          "id": "78601",
-          "marketValue": "",
-          "name": "Noa Marchena",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "32",
-          "position": "Striker"
         }
       ]
     },
@@ -3677,7 +3229,7 @@
           "height": "1,79m",
           "id": "46173",
           "marketValue": "",
-          "name": "Ari Álvarez",
+          "name": "Ariana Álvarez",
           "nationality": [
             "Argentina"
           ],
@@ -3724,7 +3276,7 @@
             "Poland"
           ],
           "number": "11",
-          "position": "Right-Back"
+          "position": "Defender"
         },
         {
           "contract": "",
@@ -3752,7 +3304,7 @@
             "Spain"
           ],
           "number": "16",
-          "position": "Left-Back"
+          "position": "Defender"
         },
         {
           "contract": "",
@@ -3775,12 +3327,12 @@
           "height": "1,53m",
           "id": "42397",
           "marketValue": "€50k",
-          "name": "Aithiara Carballo",
+          "name": "Aitiara Carballo",
           "nationality": [
             "Spain"
           ],
           "number": "21",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -3811,34 +3363,6 @@
           "position": "Left-Back"
         },
         {
-          "contract": "Jun 30, 2027",
-          "dateOfBirth": "Jan 23, 2005",
-          "foot": "",
-          "height": "",
-          "id": "48812",
-          "marketValue": "€10k",
-          "name": "Lidia Sánchez",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "28",
-          "position": "Centre-Back"
-        },
-        {
-          "contract": "Jun 30, 2027",
-          "dateOfBirth": "Mar 28, 2005",
-          "foot": "",
-          "height": "1,57m",
-          "id": "54208",
-          "marketValue": "",
-          "name": "Naara Miranda",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "29",
-          "position": "Right-Back"
-        },
-        {
           "contract": "",
           "dateOfBirth": "Feb 19, 1998",
           "foot": "",
@@ -3850,7 +3374,7 @@
             "France"
           ],
           "number": "26",
-          "position": "Attacking Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2028",
@@ -3864,7 +3388,7 @@
             "Venezuela"
           ],
           "number": "5",
-          "position": "Central Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "",
@@ -3878,7 +3402,7 @@
             "Spain"
           ],
           "number": "6",
-          "position": "Defensive Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "",
@@ -3892,7 +3416,7 @@
             "Spain"
           ],
           "number": "14",
-          "position": "Defensive Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "",
@@ -3906,7 +3430,7 @@
             "Spain"
           ],
           "number": "15",
-          "position": "Defensive Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2028",
@@ -3948,7 +3472,7 @@
             "Spain"
           ],
           "number": "7",
-          "position": "Second Striker"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2027",
@@ -3957,7 +3481,7 @@
           "height": "1,53m",
           "id": "28070",
           "marketValue": "€40k",
-          "name": "Koko Ange N’Guessan",
+          "name": "Ange N'Guessan",
           "nationality": [
             "Cote d'Ivoire"
           ],
@@ -4018,7 +3542,7 @@
             "Spain"
           ],
           "number": "19",
-          "position": "Right Winger"
+          "position": "Striker"
         },
         {
           "contract": "",
@@ -4083,7 +3607,7 @@
             "Spain"
           ],
           "number": "2",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2028",
@@ -4097,7 +3621,7 @@
             "Spain"
           ],
           "number": "3",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4106,12 +3630,12 @@
           "height": "1,74m",
           "id": "21194",
           "marketValue": "€270k",
-          "name": "Bibiane Schulze Solano",
+          "name": "Bibiane Schulze",
           "nationality": [
             "Germany"
           ],
           "number": "4",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4125,7 +3649,7 @@
             "Spain"
           ],
           "number": "12",
-          "position": "Left-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4139,7 +3663,7 @@
             "Spain"
           ],
           "number": "20",
-          "position": "Right-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2028",
@@ -4153,7 +3677,7 @@
             "Spain"
           ],
           "number": "22",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2028",
@@ -4167,7 +3691,7 @@
             "Spain"
           ],
           "number": "23",
-          "position": "Left-Back"
+          "position": "Defender"
         },
         {
           "contract": "",
@@ -4181,7 +3705,7 @@
             "Spain"
           ],
           "number": "27",
-          "position": "Right-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2029",
@@ -4195,7 +3719,7 @@
             "Spain"
           ],
           "number": "5",
-          "position": "Central Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2029",
@@ -4209,7 +3733,7 @@
             "Spain"
           ],
           "number": "6",
-          "position": "Defensive Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4223,7 +3747,7 @@
             "Spain"
           ],
           "number": "14",
-          "position": "Defensive Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2030",
@@ -4237,7 +3761,7 @@
             "Spain"
           ],
           "number": "15",
-          "position": "Attacking Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4251,7 +3775,7 @@
             "Spain"
           ],
           "number": "16",
-          "position": "Central Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4265,7 +3789,7 @@
             "Spain"
           ],
           "number": "21",
-          "position": "Defensive Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2029",
@@ -4279,7 +3803,7 @@
             "Spain"
           ],
           "number": "33",
-          "position": "Attacking Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4293,7 +3817,7 @@
             "Spain"
           ],
           "number": "7",
-          "position": "Left Winger"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2029",
@@ -4307,7 +3831,7 @@
             "Spain"
           ],
           "number": "8",
-          "position": "Centre-Forward"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4316,12 +3840,12 @@
           "height": "1,64m",
           "id": "49225",
           "marketValue": "€30k",
-          "name": "Patri Zugasti",
+          "name": "Patricia Zugasti",
           "nationality": [
             "Spain"
           ],
           "number": "10",
-          "position": "Centre-Forward"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2028",
@@ -4335,7 +3859,7 @@
             "Spain"
           ],
           "number": "11",
-          "position": "Right Winger"
+          "position": "Striker"
         },
         {
           "contract": "",
@@ -4349,7 +3873,7 @@
             "Spain"
           ],
           "number": "17",
-          "position": "Right Winger"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2026",
@@ -4363,7 +3887,7 @@
             "Spain"
           ],
           "number": "18",
-          "position": "Right Winger"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4377,21 +3901,7 @@
             "Spain"
           ],
           "number": "19",
-          "position": "Right Winger"
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Jul 26, 2009",
-          "foot": "left",
-          "height": "1,60m",
-          "id": "93180",
-          "marketValue": "",
-          "name": "Iraia Fernández",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "34",
-          "position": "Left Winger"
+          "position": "Striker"
         }
       ]
     },
@@ -4768,7 +4278,7 @@
           "height": "1,69m",
           "id": "48746",
           "marketValue": "€25k",
-          "name": "Meri Muñoz",
+          "name": "Meritxell Muñoz",
           "nationality": [
             "Spain"
           ],
@@ -4782,7 +4292,7 @@
           "height": "1,70m",
           "id": "60029",
           "marketValue": "€25k",
-          "name": "Paula Coba",
+          "name": "Paula Coba Gonzalez",
           "nationality": [
             "Spain"
           ],
@@ -4824,7 +4334,7 @@
           "height": "1,66m",
           "id": "4913",
           "marketValue": "€25k",
-          "name": "Patri Ojeda",
+          "name": "Patricia Ojeda",
           "nationality": [
             "Spain"
           ],
@@ -4908,7 +4418,7 @@
           "height": "1,70m",
           "id": "48045",
           "marketValue": "€35k",
-          "name": "Mar Torrás",
+          "name": "Mar Torras",
           "nationality": [
             "Spain"
           ],
@@ -4950,7 +4460,7 @@
           "height": "1,64m",
           "id": "51950",
           "marketValue": "€40k",
-          "name": "Bicho",
+          "name": "Claudia Iglesias",
           "nationality": [
             "Spain"
           ],
@@ -4964,7 +4474,7 @@
           "height": "1,68m",
           "id": "40234",
           "marketValue": "€30k",
-          "name": "Anita Velázquez",
+          "name": "Ana Velázquez",
           "nationality": [
             "Spain"
           ],
@@ -5090,7 +4600,7 @@
           "height": "1,66m",
           "id": "81088",
           "marketValue": "€35k",
-          "name": "Natalia Escot",
+          "name": "Natàlia Escot",
           "nationality": [
             "Spain"
           ],
@@ -5104,7 +4614,7 @@
           "height": "",
           "id": "83348",
           "marketValue": "€20k",
-          "name": "Lucía Loras",
+          "name": "Lucía Loras Sola",
           "nationality": [
             "Spain"
           ],
@@ -5141,7 +4651,7 @@
           "height": "1,81m",
           "id": "56203",
           "marketValue": "€30k",
-          "name": "Somea Položen",
+          "name": "Somea Polozen",
           "nationality": [
             "Bosnia-Herzegovina"
           ],
@@ -5160,7 +4670,7 @@
             "Spain"
           ],
           "number": "2",
-          "position": "Right-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5174,7 +4684,7 @@
             "Spain"
           ],
           "number": "4",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5188,7 +4698,7 @@
             "Spain"
           ],
           "number": "5",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5202,7 +4712,7 @@
             "Morocco"
           ],
           "number": "17",
-          "position": "Right-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5216,7 +4726,7 @@
             "Spain"
           ],
           "number": "21",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5225,12 +4735,12 @@
           "height": "1,77m",
           "id": "68511",
           "marketValue": "€60k",
-          "name": "Juliette Vidal",
+          "name": "Juliette Angéle Vidal",
           "nationality": [
             "France"
           ],
           "number": "23",
-          "position": "Left-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5244,7 +4754,7 @@
             "Spain"
           ],
           "number": "24",
-          "position": "Left-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5258,7 +4768,7 @@
             "Chile"
           ],
           "number": "6",
-          "position": "Central Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5272,21 +4782,21 @@
             "Spain"
           ],
           "number": "7",
-          "position": "Midfielder"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2027",
           "dateOfBirth": "Feb 21, 2000",
           "foot": "",
           "height": "1,55m",
-          "id": "91286",
+          "id": 930055,
           "marketValue": "€30k",
           "name": "Laura Navajas",
           "nationality": [
             "Spain"
           ],
           "number": "10",
-          "position": "Defensive Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5295,7 +4805,7 @@
           "height": "1,71m",
           "id": "101663",
           "marketValue": "€75k",
-          "name": "Shin-ji Kim",
+          "name": "Kim Shinji",
           "nationality": [
             "Korea, South"
           ],
@@ -5323,7 +4833,7 @@
           "height": "1,63m",
           "id": "40261",
           "marketValue": "€40k",
-          "name": "Almudena Rivero",
+          "name": "Almudena Ribero",
           "nationality": [
             "Spain"
           ],
@@ -5342,7 +4852,7 @@
             "Spain"
           ],
           "number": "18",
-          "position": "Right Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5356,7 +4866,7 @@
             "Spain"
           ],
           "number": "20",
-          "position": "Midfielder"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5365,7 +4875,7 @@
           "height": "1,64m",
           "id": "65273",
           "marketValue": "€35k",
-          "name": "Sarah Brasero",
+          "name": "Sarah Brasero-Carreira",
           "nationality": [
             "England"
           ],
@@ -5398,7 +4908,7 @@
             "Spain"
           ],
           "number": "11",
-          "position": "Midfielder"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5412,7 +4922,7 @@
             "Sierra Leone"
           ],
           "number": "15",
-          "position": "Centre-Forward"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5426,7 +4936,7 @@
             "Colombia"
           ],
           "number": "19",
-          "position": "Right Winger"
+          "position": "Striker"
         }
       ]
     },
@@ -5491,7 +5001,7 @@
             "Colombia"
           ],
           "number": "2",
-          "position": "Right-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2028",
@@ -5505,7 +5015,7 @@
             "Spain"
           ],
           "number": "3",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5519,7 +5029,7 @@
             "Spain"
           ],
           "number": "4",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2028",
@@ -5533,7 +5043,7 @@
             "Spain"
           ],
           "number": "5",
-          "position": "Right-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2028",
@@ -5547,7 +5057,7 @@
             "Spain"
           ],
           "number": "6",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5561,7 +5071,7 @@
             "Argentina"
           ],
           "number": "15",
-          "position": "Right-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5575,7 +5085,7 @@
             "Germany"
           ],
           "number": "23",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5589,7 +5099,7 @@
             "Spain"
           ],
           "number": "28",
-          "position": "Centre-Back"
+          "position": "Defender"
         },
         {
           "contract": "Jun 30, 2029",
@@ -5603,7 +5113,7 @@
             "Spain"
           ],
           "number": "7",
-          "position": "Central Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2028",
@@ -5617,7 +5127,7 @@
             "Spain"
           ],
           "number": "8",
-          "position": "Attacking Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2028",
@@ -5631,7 +5141,7 @@
             "Spain"
           ],
           "number": "14",
-          "position": "Central Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2028",
@@ -5645,7 +5155,7 @@
             "Spain"
           ],
           "number": "16",
-          "position": "Central Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5673,7 +5183,7 @@
             "Spain"
           ],
           "number": "21",
-          "position": "Attacking Midfield"
+          "position": "Midfielder"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5705,20 +5215,6 @@
         },
         {
           "contract": "Jun 30, 2028",
-          "dateOfBirth": "Mar 18, 2007",
-          "foot": "",
-          "height": "",
-          "id": "103572",
-          "marketValue": "€25k",
-          "name": "Laura Ruiz",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "29",
-          "position": "Midfielder"
-        },
-        {
-          "contract": "Jun 30, 2028",
           "dateOfBirth": "Apr 15, 2001",
           "foot": "right",
           "height": "1,62m",
@@ -5729,7 +5225,7 @@
             "Uruguay"
           ],
           "number": "9",
-          "position": "Left Winger"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5743,7 +5239,7 @@
             "Brazil"
           ],
           "number": "10",
-          "position": "Centre-Forward"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5771,7 +5267,7 @@
             "Spain"
           ],
           "number": "17",
-          "position": "Left Winger"
+          "position": "Striker"
         },
         {
           "contract": "Jun 30, 2028",
@@ -5785,7 +5281,7 @@
             "Spain"
           ],
           "number": "19",
-          "position": "Centre-Forward"
+          "position": "Striker"
         },
         {
           "contract": "",
@@ -5799,20 +5295,6 @@
             "Spain"
           ],
           "number": "20",
-          "position": "Centre-Forward"
-        },
-        {
-          "contract": "Jun 30, 2028",
-          "dateOfBirth": "Aug 7, 2005",
-          "foot": "",
-          "height": "",
-          "id": "67456",
-          "marketValue": "",
-          "name": "Karla Bermejo",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "32",
           "position": "Striker"
         }
       ]

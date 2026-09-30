@@ -443,6 +443,20 @@
           ],
           "number": "77",
           "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": 901132,
+          "marketValue": "",
+          "name": "Elida Kolbjørnsen",
+          "nationality": [
+            "Norway"
+          ],
+          "number": "18",
+          "position": "Midfielder"
         }
       ]
     },
@@ -1009,20 +1023,6 @@
           "position": "Centre-Back"
         },
         {
-          "contract": "Jun 30, 2029",
-          "dateOfBirth": "Sep 6, 2004",
-          "foot": "right",
-          "height": "1,66m",
-          "id": "55360",
-          "marketValue": "€420k",
-          "name": "Melween N’Dongala",
-          "nationality": [
-            "France"
-          ],
-          "number": "18",
-          "position": "Right-Back"
-        },
-        {
           "contract": "Jun 30, 2027",
           "dateOfBirth": "Apr 5, 1997",
           "foot": "left",
@@ -1315,6 +1315,20 @@
           ],
           "number": "25",
           "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": 901133,
+          "marketValue": "",
+          "name": "Melween N'Dongala",
+          "nationality": [
+            "France"
+          ],
+          "number": "6",
+          "position": "Defender"
         }
       ]
     },
@@ -1727,20 +1741,6 @@
           "position": "Goalkeeper"
         },
         {
-          "contract": "Jun 30, 2028",
-          "dateOfBirth": "Jun 6, 1996",
-          "foot": "right",
-          "height": "1,80m",
-          "id": "19079",
-          "marketValue": "€45k",
-          "name": "Chloé N’Gazi",
-          "nationality": [
-            "Algeria"
-          ],
-          "number": "96",
-          "position": "Goalkeeper"
-        },
-        {
           "contract": "Jun 30, 2026",
           "dateOfBirth": "Mar 14, 2006",
           "foot": "right",
@@ -2061,6 +2061,20 @@
           ],
           "number": "99",
           "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": 901134,
+          "marketValue": "",
+          "name": "Chloé N'Gazi",
+          "nationality": [
+            "Algeria"
+          ],
+          "number": "13",
+          "position": "Goalkeeper"
         }
       ]
     },
