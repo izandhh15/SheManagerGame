@@ -583,6 +583,28 @@ return [
     'preseason_setup_no_results' => 'No teams found.',
     'preseason_setup_clear' => 'Clear',
 
+    // Schedulable friendlies (national-team mode)
+    'schedule_friendly_title' => 'Schedule friendlies',
+    'schedule_friendly_subtitle' => 'Plan international friendlies for :team during the FIFA windows.',
+    'friendly_scheduled_title' => 'Scheduled friendlies',
+    'friendly_badge' => 'Friendly',
+    'friendly_round_name' => 'International friendly',
+    'friendly_competition_name' => 'International friendly',
+    'friendly_opponent' => 'Opponent',
+    'friendly_choose_opponent' => 'Choose a national team…',
+    'friendly_date' => 'Date',
+    'friendly_date_hint' => 'The date must fall inside a FIFA window (max 2 friendlies per window).',
+    'friendly_stadium' => 'Stadium',
+    'friendly_stadium_hint' => 'Defaults to your national stadium. You may pick any venue, even a neutral one.',
+    'friendly_submit' => 'Schedule friendly',
+    'friendly_window_slots' => ':used/:max friendlies scheduled',
+    'friendly_scheduled' => 'Friendly scheduled: :team on :date at :stadium.',
+    'friendly_invalid_opponent' => 'Invalid opponent.',
+    'friendly_outside_window' => 'The date must fall inside a FIFA window.',
+    'friendly_window_full' => 'You already have 2 friendlies scheduled in that window.',
+    'friendly_invalid_stadium' => 'Invalid stadium.',
+    'back_to_dashboard' => 'Back to dashboard',
+
     // MVP
     'mvp' => 'MVP',
     'mvp_of_the_match' => 'MVP of the Match',

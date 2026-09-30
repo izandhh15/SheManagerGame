@@ -40,6 +40,7 @@ use App\Http\Actions\AdvanceBothMatchdays;
 use App\Http\Actions\EnterFastMode;
 use App\Http\Actions\ExitFastMode;
 use App\Http\Actions\SimulateTournament;
+use App\Http\Actions\ScheduleFriendly;
 use App\Http\Actions\CancelLoanSearch;
 use App\Http\Actions\CancelScoutSearch;
 use App\Http\Actions\AcknowledgeCriticalAlerts;
@@ -97,6 +98,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Views\Dashboard;
 use App\Http\Views\SelectTeam;
 use App\Http\Views\ShowNationalSquadPicker;
+use App\Http\Views\ShowScheduleFriendly;
 use App\Http\Views\ShowCalendar;
 use App\Http\Views\ShowClubCommercial;
 use App\Http\Views\ShowClubReputation;
@@ -322,6 +324,11 @@ Route::middleware('auth')->group(function () {
         // Tournament End
         Route::get('/game/{gameId}/tournament-end', ShowTournamentEnd::class)->name('game.tournament-end');
         Route::get('/game/{gameId}/simulate-tournament', SimulateTournament::class)->middleware('throttle:tournament-simulation')->name('game.simulate-tournament');
+
+        // Schedulable friendlies (tournament/national-team mode only — the
+        // view + action abort 404 for other modes).
+        Route::get('/game/{gameId}/schedule-friendly', ShowScheduleFriendly::class)->name('game.schedule-friendly');
+        Route::post('/game/{gameId}/schedule-friendly', ScheduleFriendly::class)->name('game.schedule-friendly.store');
 
         // Budget Allocation
         // Legacy budget route — investment now lives on the Club investment page.

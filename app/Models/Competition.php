@@ -89,6 +89,7 @@ class Competition extends Model
         'WQCONM'  => 'Clasificación · CONMEBOL',
         'WQOFC'   => 'Clasificación · OFC',
         'PRESEASON' => 'Amistoso',
+        'FRIENDLY' => 'Amistoso',
     ];
 
     // Ultra-compact tags for tight layouts (narrow dashboard column). Domestic

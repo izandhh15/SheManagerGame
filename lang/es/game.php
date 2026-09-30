@@ -583,6 +583,28 @@ return [
     'preseason_setup_no_results' => 'No se encontraron equipos.',
     'preseason_setup_clear' => 'Quitar',
 
+    // Amistosos programables (modo selección)
+    'schedule_friendly_title' => 'Programar amistosos',
+    'schedule_friendly_subtitle' => 'Planifica amistosos internacionales para :team durante las ventanas FIFA.',
+    'friendly_scheduled_title' => 'Amistosos programados',
+    'friendly_badge' => 'Amistoso',
+    'friendly_round_name' => 'Amistoso internacional',
+    'friendly_competition_name' => 'Amistoso internacional',
+    'friendly_opponent' => 'Rival',
+    'friendly_choose_opponent' => 'Elige una selección…',
+    'friendly_date' => 'Fecha',
+    'friendly_date_hint' => 'La fecha debe estar dentro de una ventana FIFA (máx. 2 amistosos por ventana).',
+    'friendly_stadium' => 'Estadio',
+    'friendly_stadium_hint' => 'Por defecto, tu estadio nacional. Puedes elegir cualquier sede, incluso neutral.',
+    'friendly_submit' => 'Programar amistoso',
+    'friendly_window_slots' => ':used/:max amistosos programados',
+    'friendly_scheduled' => 'Amistoso programado: :team el :date en :stadium.',
+    'friendly_invalid_opponent' => 'Rival no válido.',
+    'friendly_outside_window' => 'La fecha debe estar dentro de una ventana FIFA.',
+    'friendly_window_full' => 'Ya tienes 2 amistosos programados en esa ventana.',
+    'friendly_invalid_stadium' => 'Estadio no válido.',
+    'back_to_dashboard' => 'Volver al panel',
+
     // MVP
     'mvp' => 'MVP',
     'mvp_of_the_match' => 'MVP del partido',
