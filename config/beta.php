@@ -25,7 +25,7 @@ return [
     |
     */
 
-    'feedback_url' => env('BETA_FEEDBACK_URL', 'https://github.com/pabloroman/virtua-fc/issues'),
+    'feedback_url' => env('BETA_FEEDBACK_URL', 'https://github.com/izandhh15/SheManagerGame/issues'),
 
     /*
     |--------------------------------------------------------------------------

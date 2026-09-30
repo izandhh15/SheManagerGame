@@ -68,4 +68,8 @@ return [
     'load_failed' => 'Could not load this content. Please try again.',
     'retry' => 'Retry',
 
+    // Footer credits
+    'data_attribution_prefix' => 'Data: ',
+    'data_attribution_suffix' => ' and clubs',
+
 ];
