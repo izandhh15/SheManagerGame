@@ -108,8 +108,12 @@ switch ($step) {
             echo "  $id teams: $n\n";
         }
         echo 'national teams with confederation: '.$db::table('teams')->where('type', 'national')->whereNotNull('confederation')->count()."\n";
-        $suiCount = $db::table('competition_teams')->where('competition_id', 'SUI1')->count();
-        echo "SUI1 linked teams: $suiCount\n";
+        try {
+            $suiCount = $db::table('competition_teams')->where('competition_id', 'SUI1')->count();
+            echo "SUI1 linked teams: $suiCount\n";
+        } catch (Throwable $e) {
+            echo 'SUI1 count ERROR: '.get_class($e).': '.$e->getMessage()."\n";
+        }
         $names = $db::table('teams')->join('competition_teams', 'teams.id', '=', 'competition_teams.team_id')->where('competition_teams.competition_id', 'SUI1')->orderBy('teams.name')->pluck('teams.name');
         foreach ($names as $nm) { echo "  - $nm\n"; }
         echo 'users with career access: '.$db::table('users')->where('has_career_access', true)->count()."\n";
