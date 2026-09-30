@@ -24,7 +24,9 @@ try {
             exit;
         }
         
-        $team = \App\Models\Team::where('competition_id', 'ESP1')
+        $team = \App\Models\Team::whereHas('competitions', function($q) {
+                $q->where('competitions.id', 'ESP1');
+            })
             ->where('name', 'like', '%Valencia%')
             ->first();
         
