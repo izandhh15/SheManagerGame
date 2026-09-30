@@ -23,8 +23,7 @@ env:
   # pero no el nombre: sin esto Laravel usa "laravel" y falla)
   DB_DATABASE: "db_167628a0"
   # En Edge el sistema de ficheros del paquete es de solo lectura:
-  # sesiones van a la BD, caché a ficheros (la BD gestionada cuelga con TOAST grandes),
-  # logs a stderr, colas en sync (sin worker en Edge)
+  # sesiones, caché y logs van a la BD / stderr, no a ficheros
   SESSION_DRIVER: "database"
   CACHE_STORE: "file"
   QUEUE_CONNECTION: "sync"
@@ -32,6 +31,7 @@ env:
   VIEW_COMPILED_PATH: "/data/views"
   # Usado por el parche de bootstrap/app.php (ver bootstrap-wasmer.patch)
   WASMER_STORAGE_PATH: "/data/storage"
+  OPS_TOKEN: "01b230e202f2c058b363363cb3ef1756"
 
 locality:
   # fr-roub1 soporta bases de datos gestionadas (cerca de España)

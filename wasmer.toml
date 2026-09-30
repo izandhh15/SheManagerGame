@@ -21,4 +21,4 @@ runner = "wasi"
 # Equivale a: php -t /app/public -S localhost:8080 (guía oficial de Wasmer)
 main-args = ["-t", "/app/public", "-S", "localhost:8080"]
 # PHPRC apunta al php.ini empaquetado en /config
-env = ["PHPRC=/config/", "DB_DATABASE=db_167628a0", "CACHE_STORE=file", "QUEUE_CONNECTION=sync", "SESSION_DRIVER=database", "LOG_CHANNEL=stderr"]
+env = ["PHPRC=/config/"]
