@@ -6,197 +6,194 @@
     {
       "id": "1135",
       "name": "Real Sociedad",
-      "entryRound": 4
+      "entryRound": 4,
+      "entry_round": 1
     },
     {
       "id": "16818",
       "name": "Costa Adeje Tenerife",
-      "entryRound": 4
+      "entryRound": 4,
+      "entry_round": 1
     },
     {
       "id": "1140",
       "name": "Sevilla FC",
-      "entryRound": 4
+      "entryRound": 4,
+      "entry_round": 1
     },
     {
       "id": "7278",
       "name": "Deportivo Abanca",
-      "entryRound": 4
+      "entryRound": 4,
+      "entry_round": 1
     },
     {
       "id": "17008",
       "name": "FC Badalona Women",
-      "entryRound": 3
+      "entryRound": 3,
+      "entry_round": 1
     },
     {
       "id": "552",
       "name": "RCD Espanyol",
-      "entryRound": 3
+      "entryRound": 3,
+      "entry_round": 1
     },
     {
       "id": "18067",
       "name": "Logroño United",
-      "entryRound": 3
+      "entryRound": 3,
+      "entry_round": 1
     },
     {
       "id": "7089",
       "name": "Deportivo Alavés",
-      "entryRound": 3
+      "entryRound": 3,
+      "entry_round": 1
     },
     {
       "id": "5649",
       "name": "Madrid CFF",
-      "entryRound": 3
+      "entryRound": 3,
+      "entry_round": 1
     },
     {
       "id": "1143",
       "name": "VCF Femenino",
-      "entryRound": 3
+      "entryRound": 3,
+      "entry_round": 1
     },
     {
       "id": "4897",
       "name": "Granada CF",
-      "entryRound": 3
+      "entryRound": 3,
+      "entry_round": 1
     },
     {
       "id": "1133",
       "name": "SD Eibar",
-      "entryRound": 3
+      "entryRound": 3,
+      "entry_round": 1
     },
     {
       "id": "1132",
       "name": "FC Barcelona",
-      "entryRound": 1
+      "entryRound": 1,
+      "entry_round": 1
     },
     {
       "id": "6551",
       "name": "Real Madrid CF",
-      "entryRound": 1
+      "entryRound": 1,
+      "entry_round": 1
     },
     {
       "id": "1129",
       "name": "Atlético de Madrid",
-      "entryRound": 1
+      "entryRound": 1,
+      "entry_round": 1
     },
     {
       "id": "44",
       "name": "Athletic Club",
-      "entryRound": 1
+      "entryRound": 1,
+      "entry_round": 1
     },
     {
       "id": "210",
       "name": "Levante UD",
-      "entryRound": 1
+      "entryRound": 1,
+      "entry_round": 1
     },
     {
       "id": "5734",
       "name": "Fundación Albacete",
-      "entryRound": 1
+      "entryRound": 1,
+      "entry_round": 1
     },
     {
       "id": "7039",
       "name": "Villarreal CF",
-      "entryRound": 1
+      "entryRound": 1,
+      "entry_round": 1
     },
     {
       "id": "7499",
       "name": "CA Osasuna",
-      "entryRound": 1
+      "entryRound": 1,
+      "entry_round": 1
     },
     {
       "id": "7543",
       "name": "Alhama CF",
-      "entryRound": 1
+      "entryRound": 1,
+      "entry_round": 1
     },
     {
       "id": "271",
       "name": "Rayo Vallecano",
-      "entryRound": 1
+      "entryRound": 1,
+      "entry_round": 1
     },
     {
       "id": "7124",
       "name": "Sporting de Gijón",
-      "entryRound": 1
+      "entryRound": 1,
+      "entry_round": 1
     },
     {
       "id": "8368",
       "name": "Bizkerre FT",
-      "entryRound": 1
-    },
-    {
-      "id": "11985",
-      "name": "Real Avilés",
-      "entryRound": 1
-    },
-    {
-      "id": "15528",
-      "name": "As Celtas",
-      "entryRound": 1
-    },
-    {
-      "id": "14406",
-      "name": "AD Villaviciosa de Odón",
-      "entryRound": 1
+      "entryRound": 1,
+      "entry_round": 1
     },
     {
       "id": "7956",
       "name": "Atlético Baleares",
-      "entryRound": 1
+      "entryRound": 1,
+      "entry_round": 1
     },
     {
       "id": "8293",
       "name": "CD Samper",
-      "entryRound": 1
+      "entryRound": 1,
+      "entry_round": 1
     },
     {
       "id": "8150",
       "name": "CE Europa",
-      "entryRound": 1
+      "entryRound": 1,
+      "entry_round": 1
     },
     {
       "id": "7916",
       "name": "Elche CF",
-      "entryRound": 1
+      "entryRound": 1,
+      "entry_round": 1
     },
     {
       "id": "1130",
       "name": "Club Atlético Málaga",
-      "entryRound": 1
+      "entryRound": 1,
+      "entry_round": 1
     },
     {
       "id": "1142",
       "name": "Sporting de Huelva",
-      "entryRound": 1
+      "entryRound": 1,
+      "entry_round": 1
     },
     {
       "id": "5648",
       "name": "Real Betis Balompié",
-      "entryRound": 1
-    },
-    {
-      "id": "7793",
-      "name": "CD Femarguín",
-      "entryRound": 1
-    },
-    {
-      "id": "7795",
-      "name": "CF Pozuelo",
-      "entryRound": 1
+      "entryRound": 1,
+      "entry_round": 1
     },
     {
       "id": "7799",
       "name": "Córdoba CF",
-      "entryRound": 1
-    },
-    {
-      "id": "8403",
-      "name": "CD Getafe Femenino",
-      "entryRound": 1
-    },
-    {
-      "id": "8413",
-      "name": "EMF Fuensalida",
-      "entryRound": 1
+      "entryRound": 1,
+      "entry_round": 1
     }
   ]
 }
