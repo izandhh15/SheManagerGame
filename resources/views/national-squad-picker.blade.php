@@ -59,7 +59,11 @@
                 $order = ['Goalkeeper', 'Defender', 'Midfielder', 'Forward'];
             @endphp
 
-            @if($dualClub ?? null)
+            @if($updateGame ?? null)
+            {{-- Update mode: re-pick the 23 for an existing game (per-break convocatoria). --}}
+            <form method="post" action="{{ route('game.national-squad.update', $updateGame->id) }}" @submit="if (selected.length !== 23) $event.preventDefault()">
+                @csrf
+            @elseif($dualClub ?? null)
             {{-- Dual mode: club + nation + 23 in one POST to the dual endpoint. --}}
             <form method="post" action="{{ route('init-dual-game') }}" @submit="if (selected.length !== 23) $event.preventDefault()">
                 @csrf

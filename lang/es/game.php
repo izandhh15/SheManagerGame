@@ -435,6 +435,8 @@ return [
     'squad_picker_subtitle' => 'Elige 23 jugadoras para la fase de clasificación.',
     'squad_picker_confirm' => 'Confirmar convocatoria',
     'squad_picker_need_23' => 'Tienes que convocar exactamente 23 jugadoras.',
+    'squad_picker_invalid' => 'Alguna jugadora no es elegible para esta selección.',
+    'squad_updated' => 'Convocatoria actualizada.',
     'squad_picker_search' => 'Buscar jugadora…',
     'squad_picker_all_clubs' => 'Todos los clubes',
     'mode_dual' => 'Carrera dual',

@@ -37,9 +37,31 @@ final class ShowNationalSquadPicker
 
     public function __invoke(Request $request, string $teamId)
     {
+        // Update mode: /game/{gameId}/national-squad — teamId is actually the gameId.
+        // The team is resolved from the game.
+        $updateGame = null;
         $team = Team::where('type', 'national')
             ->where('is_placeholder', false)
-            ->findOrFail($teamId);
+            ->find($teamId);
+
+        if (!$team) {
+            // Try as gameId for update mode.
+            $updateGame = \App\Models\Game::where('id', $teamId)
+                ->where('user_id', $request->user()->id)
+                ->first();
+            if ($updateGame) {
+                $team = $updateGame->team;
+                $teamId = $team->id;
+            }
+        }
+
+        if (!$team || $team->type === 'national' && $team->is_placeholder) {
+            abort(404);
+        }
+        // Ensure it's a national team.
+        if ($team->type !== 'national') {
+            abort(404);
+        }
 
         // Dual-mode step 2: when ?club_id= is present and valid, the picker
         // posts to the dual endpoint (club_id + national_team_id + player_ids)
@@ -103,6 +125,7 @@ final class ShowNationalSquadPicker
             'players' => $players,
             'clubs' => $players->pluck('club')->filter()->unique()->sort()->values(),
             'dualClub' => $dualClub,
+            'updateGame' => $updateGame,
         ]);
     }
 }

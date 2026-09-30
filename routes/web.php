@@ -191,6 +191,8 @@ Route::middleware('auth')->group(function () {
 
         // Game Views
         Route::get('/game/{gameId}', ShowGame::class)->name('show-game');
+        Route::get('/game/{gameId}/national-squad', ShowNationalSquadPicker::class)->name('game.national-squad-picker');
+        Route::post('/game/{gameId}/national-squad', UpdateNationalSquad::class)->name('game.national-squad.update');
         Route::get('/game/{gameId}/squad', ShowSquad::class)->name('game.squad');
         Route::get('/game/{gameId}/squad/planner', ShowSquadPlanner::class)->name('game.squad.planner');
         Route::get('/game/{gameId}/squad/academy', ShowAcademy::class)->name('game.squad.academy');

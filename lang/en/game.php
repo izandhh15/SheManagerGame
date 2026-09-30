@@ -435,6 +435,8 @@ return [
     'squad_picker_subtitle' => 'Pick 23 players for the qualifying campaign.',
     'squad_picker_confirm' => 'Confirm squad',
     'squad_picker_need_23' => 'You must call up exactly 23 players.',
+    'squad_picker_invalid' => 'Some player is not eligible for this national team.',
+    'squad_updated' => 'Squad updated.',
     'squad_picker_search' => 'Search player…',
     'squad_picker_all_clubs' => 'All clubs',
     'mode_dual' => 'Dual career',
