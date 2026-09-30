@@ -1,0 +1,4803 @@
+{
+  "id": "LIB",
+  "name": "Copa Libertadores Femenina",
+  "seasonID": "2026",
+  "clubs": [
+    {
+      "name": "Corinthians",
+      "transfermarktId": 94001,
+      "stadiumName": "",
+      "stadiumSeats": 0
+    },
+    {
+      "name": "Flamengo",
+      "transfermarktId": 94005,
+      "stadiumName": null,
+      "stadiumSeats": null
+    },
+    {
+      "name": "Palmeiras",
+      "transfermarktId": 94002,
+      "stadiumName": "",
+      "stadiumSeats": 0
+    },
+    {
+      "name": "São Paulo",
+      "transfermarktId": 94003,
+      "stadiumName": "",
+      "stadiumSeats": 0
+    },
+    {
+      "name": "Boca Juniors",
+      "transfermarktId": 68,
+      "stadiumName": "Complejo Pedro Pompilio",
+      "stadiumSeats": 1000
+    },
+    {
+      "name": "River Plate",
+      "transfermarktId": 277,
+      "stadiumName": "River Camp",
+      "stadiumSeats": 2000
+    },
+    {
+      "name": "San Lorenzo",
+      "transfermarktId": 287,
+      "stadiumName": "Estadio Pedro Bidegain",
+      "stadiumSeats": 47964
+    },
+    {
+      "name": "Racing Club",
+      "transfermarktId": 8047,
+      "stadiumName": "Predio Tita Mattiussi",
+      "stadiumSeats": 1000
+    },
+    {
+      "image": null,
+      "name": "Olimpia",
+      "players": [
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Jun 12, 1991",
+          "foot": null,
+          "height": "1,64m",
+          "id": 944001,
+          "marketValue": null,
+          "name": "Gloria Saleb",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Goalkeeper",
+          "shirtNumber": 1
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Dec 28, 2001",
+          "foot": "right",
+          "height": "1,74m",
+          "id": 944002,
+          "marketValue": null,
+          "name": "Isabel Ortiz",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Goalkeeper",
+          "shirtNumber": 12
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Jul 2, 1995",
+          "foot": "right",
+          "height": "1,66m",
+          "id": 944003,
+          "marketValue": null,
+          "name": "Nairelis Gutiérrez",
+          "nationality": [
+            "Venezuela"
+          ],
+          "position": "Right-Back",
+          "shirtNumber": null
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "May 27, 2000",
+          "foot": null,
+          "height": "1,55m",
+          "id": 944004,
+          "marketValue": null,
+          "name": "Vanessa Arce",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Centre-Back",
+          "shirtNumber": null
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Apr 1, 1998",
+          "foot": null,
+          "height": "1,68m",
+          "id": 944005,
+          "marketValue": null,
+          "name": "Lorena Alonso",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Centre-Back",
+          "shirtNumber": 3
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Jan 26, 1994",
+          "foot": "right",
+          "height": "1,78m",
+          "id": 944006,
+          "marketValue": null,
+          "name": "Tania Riso",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Centre-Back",
+          "shirtNumber": 5
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Dec 8, 1998",
+          "foot": "right",
+          "height": null,
+          "id": 944007,
+          "marketValue": null,
+          "name": "Estefany Vizcuña",
+          "nationality": [
+            "Venezuela"
+          ],
+          "position": "Centre-Back",
+          "shirtNumber": 13
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "May 18, 2007",
+          "foot": null,
+          "height": "1,56m",
+          "id": 944008,
+          "marketValue": null,
+          "name": "Brisa Sofia Acosta",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Centre-Back",
+          "shirtNumber": 17
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Nov 4, 2000",
+          "foot": null,
+          "height": "1,60m",
+          "id": 944009,
+          "marketValue": null,
+          "name": "Liz Barreto",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Centre-Back",
+          "shirtNumber": 24
+        },
+        {
+          "contractUntil": "2027",
+          "dateOfBirth": null,
+          "foot": null,
+          "height": "1,62m",
+          "id": 944010,
+          "marketValue": null,
+          "name": "Maite Mussi",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Central Midfield",
+          "shirtNumber": null
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Aug 19, 2004",
+          "foot": null,
+          "height": "1,62m",
+          "id": 944011,
+          "marketValue": null,
+          "name": "Milagros Rolón",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Central Midfield",
+          "shirtNumber": 2
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Jul 7, 2000",
+          "foot": "right",
+          "height": null,
+          "id": 944012,
+          "marketValue": null,
+          "name": "María Segovia",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Central Midfield",
+          "shirtNumber": 4
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "May 21, 2005",
+          "foot": null,
+          "height": "1,60m",
+          "id": 944013,
+          "marketValue": null,
+          "name": "Danna Garcete",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Central Midfield",
+          "shirtNumber": 6
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Dec 11, 1997",
+          "foot": null,
+          "height": "1,57m",
+          "id": 944014,
+          "marketValue": null,
+          "name": "Griselda Garay",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Central Midfield",
+          "shirtNumber": 10
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Mar 17, 2003",
+          "foot": null,
+          "height": "1,54m",
+          "id": 944015,
+          "marketValue": null,
+          "name": "Nabila Perruchino",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Central Midfield",
+          "shirtNumber": 11
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Dec 19, 1992",
+          "foot": null,
+          "height": "1,52m",
+          "id": 944016,
+          "marketValue": null,
+          "name": "Mariana Pión",
+          "nationality": [
+            "Uruguay"
+          ],
+          "position": "Central Midfield",
+          "shirtNumber": 14
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Jul 27, 2002",
+          "foot": null,
+          "height": "1,61m",
+          "id": 944017,
+          "marketValue": null,
+          "name": "Erika Cartamán",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Central Midfield",
+          "shirtNumber": 18
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Jan 3, 2008",
+          "foot": null,
+          "height": "1,70m",
+          "id": 944018,
+          "marketValue": null,
+          "name": "Alison Bareiro",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Striker",
+          "shirtNumber": null
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Jun 14, 1994",
+          "foot": null,
+          "height": "1,60m",
+          "id": 944019,
+          "marketValue": null,
+          "name": "Amada Peralta",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Striker",
+          "shirtNumber": 7
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Jun 16, 1999",
+          "foot": null,
+          "height": "1,62m",
+          "id": 944020,
+          "marketValue": null,
+          "name": "Celeste Aguilera",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Striker",
+          "shirtNumber": 8
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "May 21, 2005",
+          "foot": null,
+          "height": "1,62m",
+          "id": 944021,
+          "marketValue": null,
+          "name": "Agustina Varela",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Striker",
+          "shirtNumber": 15
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Dec 23, 2007",
+          "foot": null,
+          "height": "1,64m",
+          "id": 944022,
+          "marketValue": null,
+          "name": "Luz Chamorro",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Striker",
+          "shirtNumber": 16
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "May 2, 2005",
+          "foot": null,
+          "height": "1,59m",
+          "id": 944023,
+          "marketValue": null,
+          "name": "Yanina González",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Striker",
+          "shirtNumber": 19
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Feb 2, 2006",
+          "foot": null,
+          "height": "1,57m",
+          "id": 944024,
+          "marketValue": null,
+          "name": "Pamela Villalba",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Striker",
+          "shirtNumber": 20
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Jun 25, 2005",
+          "foot": null,
+          "height": "1,69m",
+          "id": 944025,
+          "marketValue": null,
+          "name": "Dahiana Rivas",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Striker",
+          "shirtNumber": 21
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "May 8, 2009",
+          "foot": null,
+          "height": null,
+          "id": 944026,
+          "marketValue": null,
+          "name": "Adalina Flecha",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Striker",
+          "shirtNumber": 23
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Apr 23, 2004",
+          "foot": "right",
+          "height": "1,62m",
+          "id": 944027,
+          "marketValue": null,
+          "name": "Jorgelina González",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Left Winger",
+          "shirtNumber": 25
+        }
+      ],
+      "stadiumName": "Estadio Osvaldo Domínguez Dibb",
+      "stadiumSeats": 25820,
+      "transfermarktId": 944001
+    },
+    {
+      "image": null,
+      "name": "Libertad",
+      "players": [
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Jun 15, 2000",
+          "foot": null,
+          "height": "1,63m",
+          "id": 944051,
+          "marketValue": null,
+          "name": "Jessica Franco",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Goalkeeper",
+          "shirtNumber": null
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Mar 16, 2007",
+          "foot": null,
+          "height": null,
+          "id": 944052,
+          "marketValue": null,
+          "name": "Giovanna Mechetti",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Goalkeeper",
+          "shirtNumber": null
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Jun 1, 2000",
+          "foot": null,
+          "height": "1,70m",
+          "id": 944053,
+          "marketValue": null,
+          "name": "Patricia López",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Goalkeeper",
+          "shirtNumber": 1
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Feb 9, 1997",
+          "foot": null,
+          "height": "1,69m",
+          "id": 944054,
+          "marketValue": null,
+          "name": "Vanessa da Veiga",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Goalkeeper",
+          "shirtNumber": 12
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Oct 27, 1994",
+          "foot": null,
+          "height": "1,62m",
+          "id": 944055,
+          "marketValue": null,
+          "name": "Sady Salinas",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Centre-Back",
+          "shirtNumber": 2
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "May 6, 2005",
+          "foot": null,
+          "height": "1,72m",
+          "id": 944056,
+          "marketValue": null,
+          "name": "Naomi de León",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Centre-Back",
+          "shirtNumber": 3
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Mar 10, 1997",
+          "foot": null,
+          "height": "1,61m",
+          "id": 944057,
+          "marketValue": null,
+          "name": "Natalia Genes",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Centre-Back",
+          "shirtNumber": 4
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Jun 14, 1991",
+          "foot": null,
+          "height": "1,72m",
+          "id": 944058,
+          "marketValue": null,
+          "name": "Paola Genes",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Centre-Back",
+          "shirtNumber": 5
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Mar 26, 2007",
+          "foot": null,
+          "height": "1,61m",
+          "id": 944059,
+          "marketValue": null,
+          "name": "Nataly Lezcano",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Centre-Back",
+          "shirtNumber": 20
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Nov 9, 1992",
+          "foot": null,
+          "height": "1,69m",
+          "id": 944060,
+          "marketValue": null,
+          "name": "Marta Aguero",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Centre-Back",
+          "shirtNumber": 23
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Jul 19, 2006",
+          "foot": null,
+          "height": "1,60m",
+          "id": 944061,
+          "marketValue": null,
+          "name": "Luz María Cardozo",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Centre-Back",
+          "shirtNumber": 26
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Mar 31, 2008",
+          "foot": null,
+          "height": "1,64m",
+          "id": 944062,
+          "marketValue": null,
+          "name": "Fiorella Aquino",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Central Midfield",
+          "shirtNumber": null
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Jul 27, 2004",
+          "foot": null,
+          "height": null,
+          "id": 944063,
+          "marketValue": null,
+          "name": "María Gómez",
+          "nationality": [
+            "Colombia"
+          ],
+          "position": "Central Midfield",
+          "shirtNumber": null
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Jun 17, 1995",
+          "foot": "right",
+          "height": "1,55m",
+          "id": 944064,
+          "marketValue": null,
+          "name": "Marialba Zambrano",
+          "nationality": [
+            "Venezuela"
+          ],
+          "position": "Central Midfield",
+          "shirtNumber": null
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Sep 29, 1993",
+          "foot": null,
+          "height": "1,56m",
+          "id": 944065,
+          "marketValue": null,
+          "name": "Damia Cortaza",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Central Midfield",
+          "shirtNumber": 6
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "May 22, 2005",
+          "foot": null,
+          "height": "1,55m",
+          "id": 944066,
+          "marketValue": null,
+          "name": "Belén Talavera",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Central Midfield",
+          "shirtNumber": 7
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Nov 27, 1996",
+          "foot": null,
+          "height": "1,63m",
+          "id": 944067,
+          "marketValue": null,
+          "name": "Soledad Garay",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Central Midfield",
+          "shirtNumber": 8
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Apr 9, 1999",
+          "foot": null,
+          "height": "1,64m",
+          "id": 944068,
+          "marketValue": null,
+          "name": "Camila González",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Central Midfield",
+          "shirtNumber": 13
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Dec 14, 1990",
+          "foot": null,
+          "height": "1,67m",
+          "id": 944069,
+          "marketValue": null,
+          "name": "Angélica Vázquez",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Central Midfield",
+          "shirtNumber": 14
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": null,
+          "foot": null,
+          "height": "1,69m",
+          "id": 944070,
+          "marketValue": null,
+          "name": "Lineya Vanegas",
+          "nationality": [
+            "Colombia"
+          ],
+          "position": "Central Midfield",
+          "shirtNumber": 15
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Mar 30, 2007",
+          "foot": null,
+          "height": "1,58m",
+          "id": 944071,
+          "marketValue": null,
+          "name": "Diana Benítez",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Central Midfield",
+          "shirtNumber": 17
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Nov 5, 1991",
+          "foot": null,
+          "height": null,
+          "id": 944072,
+          "marketValue": null,
+          "name": "Wilma Espinoza",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Central Midfield",
+          "shirtNumber": 22
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Mar 10, 2000",
+          "foot": "right",
+          "height": "1,63m",
+          "id": 944073,
+          "marketValue": null,
+          "name": "Natalia Villasanti",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Striker",
+          "shirtNumber": null
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Nov 7, 1992",
+          "foot": null,
+          "height": "1,67m",
+          "id": 944074,
+          "marketValue": null,
+          "name": "Liza Larrea",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Striker",
+          "shirtNumber": 9
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Jul 21, 1996",
+          "foot": null,
+          "height": "1,49m",
+          "id": 944075,
+          "marketValue": null,
+          "name": "Ramona Martínez",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Striker",
+          "shirtNumber": 10
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Jun 15, 1995",
+          "foot": "left",
+          "height": "1,60m",
+          "id": 944076,
+          "marketValue": null,
+          "name": "Liz Peña",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Striker",
+          "shirtNumber": 11
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Aug 2, 2004",
+          "foot": null,
+          "height": "1,61m",
+          "id": 944077,
+          "marketValue": null,
+          "name": "Zunilda Coronel",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Second Striker",
+          "shirtNumber": 16
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Apr 23, 2004",
+          "foot": null,
+          "height": "1,54m",
+          "id": 944078,
+          "marketValue": null,
+          "name": "María Tamay",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Striker",
+          "shirtNumber": 18
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Feb 25, 2009",
+          "foot": null,
+          "height": "1,68m",
+          "id": 944079,
+          "marketValue": null,
+          "name": "Dahiana Osorio",
+          "nationality": [
+            "Paraguay"
+          ],
+          "position": "Striker",
+          "shirtNumber": 25
+        }
+      ],
+      "stadiumName": "Tigo La Huerta",
+      "stadiumSeats": 10100,
+      "transfermarktId": 944051
+    },
+    {
+      "image": null,
+      "name": "Nacional",
+      "players": [
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Feb 3, 2000",
+          "foot": null,
+          "height": "1,60m",
+          "id": 944101,
+          "marketValue": null,
+          "name": "Josefina Villanueva",
+          "nationality": [
+            "Uruguay"
+          ],
+          "position": "Goalkeeper",
+          "shirtNumber": 1
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Jan 31, 2004",
+          "foot": null,
+          "height": "1,65m",
+          "id": 944102,
+          "marketValue": null,
+          "name": "Helena Reja",
+          "nationality": [
+            "Uruguay"
+          ],
+          "position": "Goalkeeper",
+          "shirtNumber": 12
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Mar 18, 2008",
+          "foot": null,
+          "height": null,
+          "id": 944103,
+          "marketValue": null,
+          "name": "Manuela Techera",
+          "nationality": [
+            "Uruguay"
+          ],
+          "position": "Goalkeeper",
+          "shirtNumber": 25
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Jan 6, 2006",
+          "foot": null,
+          "height": null,
+          "id": 944104,
+          "marketValue": null,
+          "name": "Faustina Del Sur",
+          "nationality": [
+            "Uruguay"
+          ],
+          "position": "Centre-Back",
+          "shirtNumber": null
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Jan 5, 2006",
+          "foot": null,
+          "height": null,
+          "id": 944105,
+          "marketValue": null,
+          "name": "Valentina Cousillas",
+          "nationality": [
+            "Uruguay"
+          ],
+          "position": "Centre-Back",
+          "shirtNumber": 3
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Jun 7, 1999",
+          "foot": null,
+          "height": null,
+          "id": 944106,
+          "marketValue": null,
+          "name": "Yaqueline Apraez",
+          "nationality": [
+            "Colombia"
+          ],
+          "position": "Centre-Back",
+          "shirtNumber": 4
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Dec 11, 1997",
+          "foot": null,
+          "height": null,
+          "id": 944107,
+          "marketValue": null,
+          "name": "Isabela Cardoso",
+          "nationality": [
+            "Brazil"
+          ],
+          "position": "Centre-Back",
+          "shirtNumber": 6
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "May 23, 2003",
+          "foot": null,
+          "height": null,
+          "id": 944108,
+          "marketValue": null,
+          "name": "Alison Latúa",
+          "nationality": [
+            "Uruguay"
+          ],
+          "position": "Centre-Back",
+          "shirtNumber": 7
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Jun 18, 2006",
+          "foot": null,
+          "height": "1,66m",
+          "id": 944109,
+          "marketValue": null,
+          "name": "Melisa Alfonso",
+          "nationality": [
+            "Uruguay"
+          ],
+          "position": "Centre-Back",
+          "shirtNumber": 13
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Feb 11, 2001",
+          "foot": "right",
+          "height": "1,63m",
+          "id": 944110,
+          "marketValue": null,
+          "name": "Maytel Costa",
+          "nationality": [
+            "Uruguay"
+          ],
+          "position": "Centre-Back",
+          "shirtNumber": 20
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Nov 28, 1996",
+          "foot": null,
+          "height": null,
+          "id": 944111,
+          "marketValue": null,
+          "name": "Hadri",
+          "nationality": [
+            "Brazil"
+          ],
+          "position": "Centre-Back",
+          "shirtNumber": 55
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Mar 1, 2000",
+          "foot": "right",
+          "height": "1,74m",
+          "id": 944112,
+          "marketValue": null,
+          "name": "Joiceane Scatola",
+          "nationality": [
+            "Brazil"
+          ],
+          "position": "Centre-Back",
+          "shirtNumber": 96
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": null,
+          "foot": null,
+          "height": null,
+          "id": 944113,
+          "marketValue": null,
+          "name": "Tatiana Lima",
+          "nationality": [
+            "Uruguay"
+          ],
+          "position": "Central Midfield",
+          "shirtNumber": null
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Sep 7, 2001",
+          "foot": null,
+          "height": "1,67m",
+          "id": 944114,
+          "marketValue": null,
+          "name": "Cecilia Gómez",
+          "nationality": [
+            "Uruguay"
+          ],
+          "position": "Central Midfield",
+          "shirtNumber": null
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Sep 22, 1999",
+          "foot": null,
+          "height": "1,63m",
+          "id": 944115,
+          "marketValue": null,
+          "name": "Micaela Fitipaldi",
+          "nationality": [
+            "Uruguay"
+          ],
+          "position": "Central Midfield",
+          "shirtNumber": 2
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Apr 14, 2005",
+          "foot": null,
+          "height": null,
+          "id": 944116,
+          "marketValue": null,
+          "name": "Cecilia Jourdan",
+          "nationality": [
+            "Uruguay"
+          ],
+          "position": "Central Midfield",
+          "shirtNumber": 11
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Jul 13, 2008",
+          "foot": null,
+          "height": null,
+          "id": 944117,
+          "marketValue": null,
+          "name": "María Figueroa",
+          "nationality": [
+            "Uruguay"
+          ],
+          "position": "Central Midfield",
+          "shirtNumber": 21
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Jun 15, 1994",
+          "foot": null,
+          "height": "1,71m",
+          "id": 944118,
+          "marketValue": null,
+          "name": "Sofía Oxandabarat",
+          "nationality": [
+            "Uruguay"
+          ],
+          "position": "Striker",
+          "shirtNumber": 8
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Feb 28, 2006",
+          "foot": null,
+          "height": "1,56m",
+          "id": 944119,
+          "marketValue": null,
+          "name": "Isabela Pérez",
+          "nationality": [
+            "Uruguay"
+          ],
+          "position": "Striker",
+          "shirtNumber": 9
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Jul 9, 2006",
+          "foot": null,
+          "height": "1,63m",
+          "id": 944120,
+          "marketValue": null,
+          "name": "Yamila Dornelles",
+          "nationality": [
+            "Uruguay"
+          ],
+          "position": "Striker",
+          "shirtNumber": 10
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "May 6, 2006",
+          "foot": null,
+          "height": "1,60m",
+          "id": 944121,
+          "marketValue": null,
+          "name": "Valentina Márquez",
+          "nationality": [
+            "Uruguay"
+          ],
+          "position": "Striker",
+          "shirtNumber": 15
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Sep 25, 2007",
+          "foot": null,
+          "height": null,
+          "id": 944122,
+          "marketValue": null,
+          "name": "Martina Segovia",
+          "nationality": [
+            "Uruguay"
+          ],
+          "position": "Striker",
+          "shirtNumber": 16
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": null,
+          "foot": null,
+          "height": null,
+          "id": 944123,
+          "marketValue": null,
+          "name": "Julieta Melogño",
+          "nationality": [
+            "Uruguay"
+          ],
+          "position": "Striker",
+          "shirtNumber": 18
+        },
+        {
+          "contractUntil": null,
+          "dateOfBirth": "Apr 12, 2000",
+          "foot": null,
+          "height": "1,66m",
+          "id": 944124,
+          "marketValue": null,
+          "name": "Martha Figueredo",
+          "nationality": [
+            "Uruguay"
+          ],
+          "position": "Striker",
+          "shirtNumber": 22
+        }
+      ],
+      "stadiumName": "Los Céspedes",
+      "stadiumSeats": null,
+      "transfermarktId": 944101
+    },
+    {
+      "name": "Colo-Colo",
+      "stadiumName": "Estadio Monumental",
+      "stadiumSeats": 43667,
+      "transfermarktId": 944151,
+      "image": null,
+      "players": [
+        {
+          "id": "944151",
+          "name": "Ryann Torrero",
+          "position": "Goalkeeper",
+          "dateOfBirth": "Sep 1, 1990",
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,75m",
+          "shirtNumber": 1,
+          "contractUntil": null
+        },
+        {
+          "id": "944152",
+          "name": "Amara Sánchez",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 12,
+          "contractUntil": null
+        },
+        {
+          "id": "944153",
+          "name": "Bernardita Hernández",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": "left",
+          "height": "1,68m",
+          "shirtNumber": 24,
+          "contractUntil": null
+        },
+        {
+          "id": "944154",
+          "name": "Catalina Arias",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 2,
+          "contractUntil": null
+        },
+        {
+          "id": "944155",
+          "name": "Camila Martins",
+          "position": "Centre-Back",
+          "dateOfBirth": "Sep 26, 1990",
+          "nationality": [
+            "Brazil"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,79m",
+          "shirtNumber": 3,
+          "contractUntil": null
+        },
+        {
+          "id": "944156",
+          "name": "Dahiana Bogarín",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Paraguay"
+          ],
+          "marketValue": null,
+          "foot": "right",
+          "height": "1,64m",
+          "shirtNumber": 5,
+          "contractUntil": null
+        },
+        {
+          "id": "944157",
+          "name": "Michelle Acevedo",
+          "position": "Centre-Back",
+          "dateOfBirth": "Apr 4, 2002",
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": "right",
+          "height": "1,57m",
+          "shirtNumber": 11,
+          "contractUntil": null
+        },
+        {
+          "id": "944158",
+          "name": "Ángela Clavijo",
+          "position": "Left-Back",
+          "dateOfBirth": "Sep 1, 1993",
+          "nationality": [
+            "Colombia"
+          ],
+          "marketValue": null,
+          "foot": "right",
+          "height": "1,64m",
+          "shirtNumber": 13,
+          "contractUntil": null
+        },
+        {
+          "id": "944159",
+          "name": "Anaís Cifuentes",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,66m",
+          "shirtNumber": 15,
+          "contractUntil": null
+        },
+        {
+          "id": "944160",
+          "name": "Rosario Balmaceda",
+          "position": "Left-Back",
+          "dateOfBirth": "Mar 26, 1999",
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": "right",
+          "height": "1,64m",
+          "shirtNumber": 17,
+          "contractUntil": null
+        },
+        {
+          "id": "944161",
+          "name": "Claudia Salfate",
+          "position": "Centre-Back",
+          "dateOfBirth": "Aug 6, 2003",
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 23,
+          "contractUntil": null
+        },
+        {
+          "id": "944162",
+          "name": "Yastin Jiménez",
+          "position": "Central Midfield",
+          "dateOfBirth": "Oct 17, 2000",
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,64m",
+          "shirtNumber": 6,
+          "contractUntil": null
+        },
+        {
+          "id": "944163",
+          "name": "Yessenia López",
+          "position": "Central Midfield",
+          "dateOfBirth": "Oct 20, 1990",
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": "right",
+          "height": "1,61m",
+          "shirtNumber": 8,
+          "contractUntil": null
+        },
+        {
+          "id": "944164",
+          "name": "Yanara Aedo",
+          "position": "Attacking Midfield",
+          "dateOfBirth": "Aug 5, 1993",
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,55m",
+          "shirtNumber": 10,
+          "contractUntil": null
+        },
+        {
+          "id": "944165",
+          "name": "Geraldine Mardones",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 19,
+          "contractUntil": null
+        },
+        {
+          "id": "944166",
+          "name": "Estefanía Banini",
+          "position": "Attacking Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Argentina"
+          ],
+          "marketValue": null,
+          "foot": "right",
+          "height": "1,63m",
+          "shirtNumber": 21,
+          "contractUntil": null
+        },
+        {
+          "id": "944167",
+          "name": "Anaís Álvarez",
+          "position": "Central Midfield",
+          "dateOfBirth": "Jul 4, 2007",
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,55m",
+          "shirtNumber": 25,
+          "contractUntil": null
+        },
+        {
+          "id": "944168",
+          "name": "Javiera Coronado",
+          "position": "Centre-Forward",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 4,
+          "contractUntil": null
+        },
+        {
+          "id": "944169",
+          "name": "Yenny Acuña",
+          "position": "Centre-Forward",
+          "dateOfBirth": "May 18, 1997",
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,61m",
+          "shirtNumber": 7,
+          "contractUntil": null
+        },
+        {
+          "id": "944170",
+          "name": "María José Urrutia",
+          "position": "Centre-Forward",
+          "dateOfBirth": "Dec 17, 1993",
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": "right",
+          "height": "1,69m",
+          "shirtNumber": 9,
+          "contractUntil": null
+        },
+        {
+          "id": "944171",
+          "name": "Javiera Grez",
+          "position": "Centre-Forward",
+          "dateOfBirth": "Jul 11, 2000",
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,50m",
+          "shirtNumber": 14,
+          "contractUntil": null
+        },
+        {
+          "id": "944172",
+          "name": "Dioneide Neném",
+          "position": "Second Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Brazil"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 16,
+          "contractUntil": null
+        },
+        {
+          "id": "944173",
+          "name": "Mary Valencia",
+          "position": "Centre-Forward",
+          "dateOfBirth": "Feb 8, 2003",
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,62m",
+          "shirtNumber": 18,
+          "contractUntil": null
+        },
+        {
+          "id": "944174",
+          "name": "Isidora Olave",
+          "position": "Right Winger",
+          "dateOfBirth": "Apr 23, 2002",
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,62m",
+          "shirtNumber": 20,
+          "contractUntil": null
+        },
+        {
+          "id": "944175",
+          "name": "Nicole Carter",
+          "position": "Centre-Forward",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 22,
+          "contractUntil": null
+        }
+      ]
+    },
+    {
+      "name": "Universidad de Chile",
+      "stadiumName": "Estadio Santiago Bueras",
+      "stadiumSeats": 3400,
+      "transfermarktId": 944201,
+      "image": null,
+      "players": [
+        {
+          "id": "944201",
+          "name": "Oriana Cristancho",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,77m",
+          "shirtNumber": 1,
+          "contractUntil": null
+        },
+        {
+          "id": "944202",
+          "name": "Martina Funck",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 12,
+          "contractUntil": null
+        },
+        {
+          "id": "944203",
+          "name": "Isidora Cornejo",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 30,
+          "contractUntil": null
+        },
+        {
+          "id": "944204",
+          "name": "Catalina Epuyao",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 31,
+          "contractUntil": null
+        },
+        {
+          "id": "944205",
+          "name": "Silvana Alfaro",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 34,
+          "contractUntil": null
+        },
+        {
+          "id": "944206",
+          "name": "Gabriela García",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,59m",
+          "shirtNumber": 2,
+          "contractUntil": null
+        },
+        {
+          "id": "944207",
+          "name": "Constanza Santander",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 3,
+          "contractUntil": null
+        },
+        {
+          "id": "944208",
+          "name": "Ignacia Durán",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,56m",
+          "shirtNumber": 4,
+          "contractUntil": null
+        },
+        {
+          "id": "944209",
+          "name": "Mariana Morales",
+          "position": "Centre-Back",
+          "dateOfBirth": "Jul 14, 2003",
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,62m",
+          "shirtNumber": 5,
+          "contractUntil": null
+        },
+        {
+          "id": "944210",
+          "name": "Monserratt González",
+          "position": "Centre-Back",
+          "dateOfBirth": "Oct 30, 2004",
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,54m",
+          "shirtNumber": 16,
+          "contractUntil": null
+        },
+        {
+          "id": "944211",
+          "name": "Su Helen Galaz",
+          "position": "Centre-Back",
+          "dateOfBirth": "May 27, 1991",
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": "right",
+          "height": "1,60m",
+          "shirtNumber": 17,
+          "contractUntil": null
+        },
+        {
+          "id": "944212",
+          "name": "María Silva",
+          "position": "Right-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 19,
+          "contractUntil": null
+        },
+        {
+          "id": "944213",
+          "name": "Catalina Figueroa",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 20,
+          "contractUntil": null
+        },
+        {
+          "id": "944214",
+          "name": "Valentina Díaz",
+          "position": "Centre-Back",
+          "dateOfBirth": "Mar 30, 2001",
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,58m",
+          "shirtNumber": 22,
+          "contractUntil": null
+        },
+        {
+          "id": "944215",
+          "name": "Lauryn Morales",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 24,
+          "contractUntil": null
+        },
+        {
+          "id": "944216",
+          "name": "Constanza Sánchez",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 28,
+          "contractUntil": null
+        },
+        {
+          "id": "944217",
+          "name": "Gisela Pino",
+          "position": "Defensive Midfield",
+          "dateOfBirth": "Sep 1, 1992",
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": "right",
+          "height": "1,65m",
+          "shirtNumber": 6,
+          "contractUntil": null
+        },
+        {
+          "id": "944218",
+          "name": "Llanka Groff",
+          "position": "Central Midfield",
+          "dateOfBirth": "May 11, 2002",
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,63m",
+          "shirtNumber": 10,
+          "contractUntil": null
+        },
+        {
+          "id": "944219",
+          "name": "Karen Fuentes",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": "right",
+          "height": "1,59m",
+          "shirtNumber": 13,
+          "contractUntil": null
+        },
+        {
+          "id": "944220",
+          "name": "Bárbara Sánchez",
+          "position": "Central Midfield",
+          "dateOfBirth": "Oct 3, 1990",
+          "nationality": [
+            "Venezuela"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,65m",
+          "shirtNumber": 18,
+          "contractUntil": null
+        },
+        {
+          "id": "944221",
+          "name": "Claudia Herrera",
+          "position": "Central Midfield",
+          "dateOfBirth": "Jun 24, 1997",
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,59m",
+          "shirtNumber": 23,
+          "contractUntil": null
+        },
+        {
+          "id": "944222",
+          "name": "Catalina Flores",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 25,
+          "contractUntil": null
+        },
+        {
+          "id": "944223",
+          "name": "Antonella Casas-Cordero",
+          "position": "Defensive Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,58m",
+          "shirtNumber": 32,
+          "contractUntil": null
+        },
+        {
+          "id": "944224",
+          "name": "Rebeca Fernández",
+          "position": "Centre-Forward",
+          "dateOfBirth": "Dec 1, 1991",
+          "nationality": [
+            "Paraguay"
+          ],
+          "marketValue": null,
+          "foot": "right",
+          "height": "1,55m",
+          "shirtNumber": 7,
+          "contractUntil": null
+        },
+        {
+          "id": "944225",
+          "name": "Karla Riley",
+          "position": "Centre-Forward",
+          "dateOfBirth": "Sep 18, 1997",
+          "nationality": [
+            "Panama"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 8,
+          "contractUntil": null
+        },
+        {
+          "id": "944226",
+          "name": "Franchesca Caniguán",
+          "position": "Left Winger",
+          "dateOfBirth": "Nov 15, 1999",
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": "right",
+          "height": "1,60m",
+          "shirtNumber": 9,
+          "contractUntil": null
+        },
+        {
+          "id": "944227",
+          "name": "Fátima Acosta",
+          "position": "Centre-Forward",
+          "dateOfBirth": "Jan 7, 2005",
+          "nationality": [
+            "Paraguay"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,54m",
+          "shirtNumber": 11,
+          "contractUntil": null
+        },
+        {
+          "id": "944228",
+          "name": "Daniela Zamora",
+          "position": "Centre-Forward",
+          "dateOfBirth": "Nov 13, 1990",
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": "right",
+          "height": "1,67m",
+          "shirtNumber": 15,
+          "contractUntil": null
+        },
+        {
+          "id": "944229",
+          "name": "Maya Reyes",
+          "position": "Centre-Forward",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 21,
+          "contractUntil": null
+        },
+        {
+          "id": "944230",
+          "name": "Maite Avello",
+          "position": "Centre-Forward",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 26,
+          "contractUntil": null
+        },
+        {
+          "id": "944231",
+          "name": "Francisca Vargas",
+          "position": "Centre-Forward",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 27,
+          "contractUntil": null
+        },
+        {
+          "id": "944232",
+          "name": "Katary Cádiz",
+          "position": "Centre-Forward",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 29,
+          "contractUntil": null
+        }
+      ]
+    },
+    {
+      "name": "Independiente Santa Fe",
+      "stadiumName": "Nemesio Camacho El Campín",
+      "stadiumSeats": 40000,
+      "transfermarktId": 944251,
+      "image": null,
+      "players": [
+        {
+          "id": 944251,
+          "name": "Wendy Martínez",
+          "position": "Goalkeeper",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Aug 8, 1999",
+          "height": "1,60m",
+          "foot": null,
+          "shirtNumber": 1,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944252,
+          "name": "Melany Díaz",
+          "position": "Goalkeeper",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Mar 17, 2008",
+          "height": "1,61m",
+          "foot": null,
+          "shirtNumber": 22,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944253,
+          "name": "Arianne González",
+          "position": "Goalkeeper",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": null,
+          "height": null,
+          "foot": null,
+          "shirtNumber": null,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944254,
+          "name": "Sophia Posada",
+          "position": "Centre-Back",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Jan 23, 2007",
+          "height": "1,63m",
+          "foot": null,
+          "shirtNumber": 25,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944255,
+          "name": "Viviana Acosta",
+          "position": "Left-Back",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Dec 11, 1998",
+          "height": "1,60m",
+          "foot": "left",
+          "shirtNumber": 6,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944256,
+          "name": "María Nela Carvajal",
+          "position": "Centre-Back",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Aug 19, 2001",
+          "height": "1,74m",
+          "foot": null,
+          "shirtNumber": 2,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944257,
+          "name": "Cristina Motta",
+          "position": "Right-Back",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Sep 15, 2005",
+          "height": "1,64m",
+          "foot": null,
+          "shirtNumber": 3,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944258,
+          "name": "Andrea Pérez",
+          "position": "Centre-Back",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Oct 20, 2001",
+          "height": "1,76m",
+          "foot": null,
+          "shirtNumber": 4,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944259,
+          "name": "Laura Tovar",
+          "position": "Centre-Back",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Dec 23, 2006",
+          "height": "1,62m",
+          "foot": null,
+          "shirtNumber": 33,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944260,
+          "name": "Brenda Cardona",
+          "position": "Centre-Back",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Oct 26, 2008",
+          "height": "1,66m",
+          "foot": null,
+          "shirtNumber": null,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944261,
+          "name": "Izabella Cortés",
+          "position": "Centre-Back",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Jan 27, 2009",
+          "height": null,
+          "foot": null,
+          "shirtNumber": null,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944262,
+          "name": "Sofía Valencia",
+          "position": "Centre-Back",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": null,
+          "height": null,
+          "foot": null,
+          "shirtNumber": null,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944263,
+          "name": "Katherine Valbuena",
+          "position": "Central Midfield",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Jul 6, 2003",
+          "height": "1,64m",
+          "foot": null,
+          "shirtNumber": 21,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944264,
+          "name": "Isabella Díaz",
+          "position": "Central Midfield",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Nov 17, 2007",
+          "height": "1,62m",
+          "foot": null,
+          "shirtNumber": 23,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944265,
+          "name": "Karen Hernández",
+          "position": "Right Midfield",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Sep 18, 2004",
+          "height": "1,58m",
+          "foot": "right",
+          "shirtNumber": 16,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944266,
+          "name": "Tahicelis Marcano",
+          "position": "Central Midfield",
+          "nationality": [
+            "Venezuela"
+          ],
+          "dateOfBirth": "Apr 12, 1997",
+          "height": "1,72m",
+          "foot": null,
+          "shirtNumber": 24,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944267,
+          "name": "Juana Ortegón",
+          "position": "Central Midfield",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Aug 6, 2006",
+          "height": "1,64m",
+          "foot": null,
+          "shirtNumber": 27,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944268,
+          "name": "Isis De La Cruz",
+          "position": "Left Midfield",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": null,
+          "height": null,
+          "foot": null,
+          "shirtNumber": null,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944269,
+          "name": "Mariana Zamorano",
+          "position": "Second Striker",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Oct 10, 2002",
+          "height": "1,65m",
+          "foot": null,
+          "shirtNumber": 7,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944270,
+          "name": "Mariana Silva",
+          "position": "Centre-Forward",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": null,
+          "height": null,
+          "foot": null,
+          "shirtNumber": null,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944271,
+          "name": "Daniela Garavito",
+          "position": "Second Striker",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Apr 5, 2005",
+          "height": "1,61m",
+          "foot": "right",
+          "shirtNumber": 17,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944272,
+          "name": "Alejandra Díaz",
+          "position": "Central Midfield",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": null,
+          "height": null,
+          "foot": null,
+          "shirtNumber": null,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944273,
+          "name": "Helen Cárdenas",
+          "position": "Central Midfield",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": null,
+          "height": null,
+          "foot": null,
+          "shirtNumber": null,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944274,
+          "name": "Micheel Baldallo",
+          "position": "Defensive Midfield",
+          "nationality": [
+            "Venezuela"
+          ],
+          "dateOfBirth": "Jan 18, 2000",
+          "height": "1,68m",
+          "foot": null,
+          "shirtNumber": 5,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944275,
+          "name": "Sofía Castañeda",
+          "position": "Central Midfield",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": null,
+          "height": null,
+          "foot": null,
+          "shirtNumber": null,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944276,
+          "name": "Gabriela Huertas",
+          "position": "Central Midfield",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Jun 17, 1991",
+          "height": "1,61m",
+          "foot": null,
+          "shirtNumber": 19,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944277,
+          "name": "Camila Cortés",
+          "position": "Striker",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Jun 17, 2008",
+          "height": "1,62m",
+          "foot": null,
+          "shirtNumber": 29,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944278,
+          "name": "Ysaura Viso",
+          "position": "Striker",
+          "nationality": [
+            "Venezuela"
+          ],
+          "dateOfBirth": "Jun 17, 1993",
+          "height": "1,57m",
+          "foot": "right",
+          "shirtNumber": 18,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944279,
+          "name": "Nikol Rojas",
+          "position": "Striker",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Mar 21, 2007",
+          "height": "1,62m",
+          "foot": null,
+          "shirtNumber": 30,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944280,
+          "name": "Francelis Graterol",
+          "position": "Striker",
+          "nationality": [
+            "Venezuela"
+          ],
+          "dateOfBirth": "Mar 29, 2006",
+          "height": "1,64m",
+          "foot": null,
+          "shirtNumber": null,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944281,
+          "name": "Mariana Cabrera",
+          "position": "Centre-Forward",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": null,
+          "height": null,
+          "foot": null,
+          "shirtNumber": null,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944282,
+          "name": "Natalia Orozco",
+          "position": "Second Striker",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": null,
+          "height": null,
+          "foot": null,
+          "shirtNumber": null,
+          "marketValue": null,
+          "contractUntil": null
+        }
+      ]
+    },
+    {
+      "name": "Deportivo Cali",
+      "stadiumName": "Estadio Deportivo Cali",
+      "stadiumSeats": 42000,
+      "transfermarktId": 944301,
+      "image": null,
+      "players": [
+        {
+          "id": 944301,
+          "name": "Andrea Vera",
+          "position": "Goalkeeper",
+          "nationality": [
+            "Ecuador"
+          ],
+          "dateOfBirth": "Apr 10, 1993",
+          "height": "1,71m",
+          "foot": "right",
+          "shirtNumber": 12,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944302,
+          "name": "Maryory Sánchez",
+          "position": "Goalkeeper",
+          "nationality": [
+            "Peru"
+          ],
+          "dateOfBirth": null,
+          "height": null,
+          "foot": null,
+          "shirtNumber": null,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944303,
+          "name": "Valentina González",
+          "position": "Goalkeeper",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": null,
+          "height": null,
+          "foot": null,
+          "shirtNumber": null,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944304,
+          "name": "Liz Katerine Osorio",
+          "position": "Right-Back",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": null,
+          "height": null,
+          "foot": null,
+          "shirtNumber": null,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944305,
+          "name": "Ana Fisgativa",
+          "position": "Right-Back",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "May 1, 1998",
+          "height": "1,63m",
+          "foot": null,
+          "shirtNumber": 4,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944306,
+          "name": "Stefanía Perlaza",
+          "position": "Centre-Back",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Sep 25, 2005",
+          "height": "1,71m",
+          "foot": null,
+          "shirtNumber": null,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944307,
+          "name": "Angie Salazar",
+          "position": "Left-Back",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Oct 13, 1999",
+          "height": "1,59m",
+          "foot": null,
+          "shirtNumber": 2,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944308,
+          "name": "Lisseth Moreno",
+          "position": "Centre-Back",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": null,
+          "height": null,
+          "foot": null,
+          "shirtNumber": null,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944309,
+          "name": "Yessica Bermeo",
+          "position": "Centre-Back",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Aug 24, 2001",
+          "height": "1,68m",
+          "foot": "right",
+          "shirtNumber": 6,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944310,
+          "name": "Andrea Gómez",
+          "position": "Centre-Back",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": null,
+          "height": null,
+          "foot": null,
+          "shirtNumber": null,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944311,
+          "name": "Natalia Ruiz",
+          "position": "Centre-Back",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": null,
+          "height": null,
+          "foot": null,
+          "shirtNumber": null,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944312,
+          "name": "Manuela Roa",
+          "position": "Centre-Back",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": null,
+          "height": null,
+          "foot": null,
+          "shirtNumber": 7,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944313,
+          "name": "Alejandra Jurado",
+          "position": "Left-Back",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": null,
+          "height": null,
+          "foot": null,
+          "shirtNumber": 16,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944314,
+          "name": "Paula Medina",
+          "position": "Central Midfield",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Feb 12, 2000",
+          "height": "1,68m",
+          "foot": null,
+          "shirtNumber": 6,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944315,
+          "name": "Natalia Hernández",
+          "position": "Central Midfield",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Jan 19, 2005",
+          "height": "1,56m",
+          "foot": null,
+          "shirtNumber": 8,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944316,
+          "name": "Daniela Castellanos",
+          "position": "Attacking Midfield",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Mar 3, 2003",
+          "height": "1,63m",
+          "foot": "right",
+          "shirtNumber": 10,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944317,
+          "name": "Valeria Cárdenas",
+          "position": "Central Midfield",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Jul 19, 2004",
+          "height": "1,67m",
+          "foot": null,
+          "shirtNumber": 13,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944318,
+          "name": "Zharick Montoya",
+          "position": "Defensive Midfield",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Sep 13, 2002",
+          "height": "1,65m",
+          "foot": null,
+          "shirtNumber": 5,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944319,
+          "name": "María Morales",
+          "position": "Central Midfield",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": null,
+          "height": null,
+          "foot": null,
+          "shirtNumber": 29,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944320,
+          "name": "Isabella Santa",
+          "position": "Central Midfield",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": null,
+          "height": null,
+          "foot": null,
+          "shirtNumber": 21,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944321,
+          "name": "Loren Sánchez",
+          "position": "Central Midfield",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Oct 14, 1997",
+          "height": "1,62m",
+          "foot": null,
+          "shirtNumber": 26,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944322,
+          "name": "Jessica Peña",
+          "position": "Central Midfield",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": null,
+          "height": null,
+          "foot": null,
+          "shirtNumber": 28,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944323,
+          "name": "Eidy Ruiz",
+          "position": "Central Midfield",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Apr 1, 2009",
+          "height": "1,63m",
+          "foot": null,
+          "shirtNumber": null,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944324,
+          "name": "Laura Orozco",
+          "position": "Centre-Forward",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": null,
+          "height": null,
+          "foot": null,
+          "shirtNumber": 9,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944325,
+          "name": "Karla Viancha",
+          "position": "Right Winger",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Nov 8, 2005",
+          "height": "1,64m",
+          "foot": null,
+          "shirtNumber": null,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944326,
+          "name": "Michelle Vásquez",
+          "position": "Striker",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Dec 16, 2004",
+          "height": "1,53m",
+          "foot": null,
+          "shirtNumber": 14,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944327,
+          "name": "Ingrid Guerra",
+          "position": "Centre-Forward",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Apr 2, 2003",
+          "height": "1,72m",
+          "foot": null,
+          "shirtNumber": 18,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944328,
+          "name": "Melanin Aponzá",
+          "position": "Left Winger",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Aug 11, 2001",
+          "height": "1,76m",
+          "foot": null,
+          "shirtNumber": 19,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944329,
+          "name": "Lorena Cobos",
+          "position": "Striker",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Dec 10, 2001",
+          "height": "1,65m",
+          "foot": null,
+          "shirtNumber": 30,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944330,
+          "name": "María Marquínez",
+          "position": "Striker",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Jan 14, 1999",
+          "height": "1,63m",
+          "foot": null,
+          "shirtNumber": null,
+          "marketValue": null,
+          "contractUntil": null
+        },
+        {
+          "id": 944331,
+          "name": "Yessica Muñoz",
+          "position": "Striker",
+          "nationality": [
+            "Colombia"
+          ],
+          "dateOfBirth": "Apr 27, 2005",
+          "height": "1,62m",
+          "foot": null,
+          "shirtNumber": null,
+          "marketValue": null,
+          "contractUntil": null
+        }
+      ]
+    },
+    {
+      "name": "Universitario de Deportes",
+      "stadiumName": "Estadio Monumental",
+      "stadiumSeats": 80093,
+      "transfermarktId": 944351,
+      "image": null,
+      "players": [
+        {
+          "id": "944351",
+          "name": "Gabriela Bórquez",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,70m",
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944352",
+          "name": "Annie Del Carpio",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 1,
+          "contractUntil": null
+        },
+        {
+          "id": "944353",
+          "name": "Silvana Alfaro",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": "right",
+          "height": "1,73m",
+          "shirtNumber": 30,
+          "contractUntil": null
+        },
+        {
+          "id": "944354",
+          "name": "Tatiana Castañeda",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Colombia"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,68m",
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944355",
+          "name": "Adriana Muñoz",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944356",
+          "name": "Wendy Rivera",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944357",
+          "name": "Stephannie Vásquez",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": "right",
+          "height": "1,60m",
+          "shirtNumber": 2,
+          "contractUntil": null
+        },
+        {
+          "id": "944358",
+          "name": "Kimbherly Flores",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": "left",
+          "height": null,
+          "shirtNumber": 3,
+          "contractUntil": null
+        },
+        {
+          "id": "944359",
+          "name": "Karent Balcázar",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Colombia"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,59m",
+          "shirtNumber": 4,
+          "contractUntil": null
+        },
+        {
+          "id": "944360",
+          "name": "Esthefany Espino",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 6,
+          "contractUntil": null
+        },
+        {
+          "id": "944361",
+          "name": "Fabiola Herrera",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": "right",
+          "height": "1,66m",
+          "shirtNumber": 17,
+          "contractUntil": null
+        },
+        {
+          "id": "944362",
+          "name": "Gabriela Cavero",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 23,
+          "contractUntil": null
+        },
+        {
+          "id": "944363",
+          "name": "Rosa Cavero",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 23,
+          "contractUntil": null
+        },
+        {
+          "id": "944364",
+          "name": "Gisela Pino",
+          "position": "Defensive Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,66m",
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944365",
+          "name": "Karen Araya",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": "€30k",
+          "foot": "right",
+          "height": "1,64m",
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944366",
+          "name": "Jhosely Gamarra",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,58m",
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944367",
+          "name": "Alondra Vilchez",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,56m",
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944368",
+          "name": "Luana Chamochumbi",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944369",
+          "name": "Scarleth Flores",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": "left",
+          "height": "1,58m",
+          "shirtNumber": 8,
+          "contractUntil": null
+        },
+        {
+          "id": "944370",
+          "name": "Geraldine Cisneros",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,56m",
+          "shirtNumber": 10,
+          "contractUntil": null
+        },
+        {
+          "id": "944371",
+          "name": "Milena Tomayconsa",
+          "position": "Attacking Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,62m",
+          "shirtNumber": 13,
+          "contractUntil": null
+        },
+        {
+          "id": "944372",
+          "name": "Cindy Novoa",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,66m",
+          "shirtNumber": 22,
+          "contractUntil": null
+        },
+        {
+          "id": "944373",
+          "name": "Alessia Sanllehi",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944374",
+          "name": "Valerie Gherson",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,65m",
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944375",
+          "name": "Marie Anne Briceño",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944376",
+          "name": "Pierina Núñez",
+          "position": "Centre-Forward",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": "€30k",
+          "foot": "right",
+          "height": "1,69m",
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944377",
+          "name": "Sabrina Ramirez",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 7,
+          "contractUntil": null
+        },
+        {
+          "id": "944378",
+          "name": "Xioczana Canales",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,62m",
+          "shirtNumber": 9,
+          "contractUntil": null
+        },
+        {
+          "id": "944379",
+          "name": "Nahomi Martínez",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,58m",
+          "shirtNumber": 11,
+          "contractUntil": null
+        },
+        {
+          "id": "944380",
+          "name": "Karen Páez",
+          "position": "Centre-Forward",
+          "dateOfBirth": null,
+          "nationality": [
+            "Colombia"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,65m",
+          "shirtNumber": 13,
+          "contractUntil": null
+        },
+        {
+          "id": "944381",
+          "name": "Luz Campoverde",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": "right",
+          "height": "1,60m",
+          "shirtNumber": 21,
+          "contractUntil": null
+        },
+        {
+          "id": "944382",
+          "name": "Gabriela Urueña",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Colombia"
+          ],
+          "marketValue": null,
+          "foot": "left",
+          "height": null,
+          "shirtNumber": 29,
+          "contractUntil": null
+        },
+        {
+          "id": "944383",
+          "name": "María Fernanda Dávila",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": null,
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944384",
+          "name": "Daiana Farías",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": null,
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944385",
+          "name": "Stephanie Lacoste",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": null,
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944386",
+          "name": "Victoria Ochoa",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": null,
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944387",
+          "name": "María Espejo",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": null,
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944388",
+          "name": "Micaela Maldonado",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": null,
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944389",
+          "name": "Carmen Campos",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": null,
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944390",
+          "name": "Allison Catalán",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": null,
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944391",
+          "name": "Sofía Oxandabarat",
+          "position": "Attacking Midfield",
+          "dateOfBirth": null,
+          "nationality": null,
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944392",
+          "name": "Merli Sánchez",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": null,
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944393",
+          "name": "Claudia Domínguez",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": null,
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944394",
+          "name": "Mía Shalit",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944395",
+          "name": "Valeria Itzel",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944396",
+          "name": "Grace Cagnina",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944397",
+          "name": "Milagros Rolón",
+          "position": "Right-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Paraguay"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944398",
+          "name": "Ana Gutiérrez",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944399",
+          "name": "Lesly Olivares",
+          "position": "Left Winger",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944400",
+          "name": "Alesia García",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        }
+      ]
+    },
+    {
+      "name": "Independiente del Valle",
+      "stadiumName": "Estadio Banco Guayaquil",
+      "stadiumSeats": 12000,
+      "transfermarktId": 944401,
+      "image": null,
+      "players": [
+        {
+          "id": "944401",
+          "name": "Maritza Aroca",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944402",
+          "name": "Mary Camilo",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Brazil"
+          ],
+          "marketValue": null,
+          "foot": "right",
+          "height": "1,91m",
+          "shirtNumber": 12,
+          "contractUntil": null
+        },
+        {
+          "id": "944403",
+          "name": "Fabiana Yantén",
+          "position": "Left-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Colombia"
+          ],
+          "marketValue": null,
+          "foot": "left",
+          "height": "1,67m",
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944404",
+          "name": "Mayerli Rodríguez",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,70m",
+          "shirtNumber": 3,
+          "contractUntil": null
+        },
+        {
+          "id": "944405",
+          "name": "Verónica Riveros",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Paraguay"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,72m",
+          "shirtNumber": 15,
+          "contractUntil": null
+        },
+        {
+          "id": "944406",
+          "name": "María Bravo",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": "left",
+          "height": "1,60m",
+          "shirtNumber": 19,
+          "contractUntil": null
+        },
+        {
+          "id": "944407",
+          "name": "Jessy Caicedo",
+          "position": "Left-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": "left",
+          "height": "1,79m",
+          "shirtNumber": 23,
+          "contractUntil": null
+        },
+        {
+          "id": "944408",
+          "name": "Lía Rodríguez",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944409",
+          "name": "Mary Guerra",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,49m",
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944410",
+          "name": "Evelyn Burgos",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,57m",
+          "shirtNumber": 5,
+          "contractUntil": null
+        },
+        {
+          "id": "944411",
+          "name": "Fiorella Pico",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,70m",
+          "shirtNumber": 8,
+          "contractUntil": null
+        },
+        {
+          "id": "944412",
+          "name": "Ámbar Torres",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,61m",
+          "shirtNumber": 10,
+          "contractUntil": null
+        },
+        {
+          "id": "944413",
+          "name": "Karen Litardo",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,50m",
+          "shirtNumber": 20,
+          "contractUntil": null
+        },
+        {
+          "id": "944414",
+          "name": "Sol Torres",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,52m",
+          "shirtNumber": 21,
+          "contractUntil": null
+        },
+        {
+          "id": "944415",
+          "name": "Claudia Roldán",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Argentina"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,57m",
+          "shirtNumber": 31,
+          "contractUntil": null
+        },
+        {
+          "id": "944416",
+          "name": "Larissa Nunes",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Brazil"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,69m",
+          "shirtNumber": 99,
+          "contractUntil": null
+        },
+        {
+          "id": "944417",
+          "name": "Dariana Morán",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,64m",
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944418",
+          "name": "Fernanda Araya",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 11,
+          "contractUntil": null
+        },
+        {
+          "id": "944419",
+          "name": "Nicole Charcopa",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,65m",
+          "shirtNumber": 13,
+          "contractUntil": null
+        },
+        {
+          "id": "944420",
+          "name": "Ashley Rosero",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,55m",
+          "shirtNumber": 14,
+          "contractUntil": null
+        },
+        {
+          "id": "944421",
+          "name": "Nicole Valencia",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,57m",
+          "shirtNumber": 25,
+          "contractUntil": null
+        },
+        {
+          "id": "944422",
+          "name": "Ingrid Vidal",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Colombia"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,58m",
+          "shirtNumber": 28,
+          "contractUntil": null
+        },
+        {
+          "id": "944423",
+          "name": "Kerlly Corozo",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,78m",
+          "shirtNumber": 28,
+          "contractUntil": null
+        },
+        {
+          "id": "944424",
+          "name": "Cecil Aldana",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Cuba"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,70m",
+          "shirtNumber": 29,
+          "contractUntil": null
+        },
+        {
+          "id": "944425",
+          "name": "Adriana Valenzuela",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,60m",
+          "shirtNumber": 30,
+          "contractUntil": null
+        }
+      ]
+    },
+    {
+      "name": "LDU Quito",
+      "stadiumName": "Estadio Rodrigo Paz Delgado",
+      "stadiumSeats": 41575,
+      "transfermarktId": 944451,
+      "image": null,
+      "players": [
+        {
+          "id": "944451",
+          "name": "Melanie Gutiérrez",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 1,
+          "contractUntil": null
+        },
+        {
+          "id": "944452",
+          "name": "Liceth Suárez",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,66m",
+          "shirtNumber": 12,
+          "contractUntil": null
+        },
+        {
+          "id": "944453",
+          "name": "Dayarlin Alcívar",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,61m",
+          "shirtNumber": 23,
+          "contractUntil": null
+        },
+        {
+          "id": "944454",
+          "name": "Ariana Lomas",
+          "position": "Left-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,59m",
+          "shirtNumber": 2,
+          "contractUntil": null
+        },
+        {
+          "id": "944455",
+          "name": "Nazly Sánchez",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Venezuela"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,73m",
+          "shirtNumber": 3,
+          "contractUntil": null
+        },
+        {
+          "id": "944456",
+          "name": "Carolina Reyes",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 4,
+          "contractUntil": null
+        },
+        {
+          "id": "944457",
+          "name": "Jenifer Zambrano",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 17,
+          "contractUntil": null
+        },
+        {
+          "id": "944458",
+          "name": "Tamara Angulo",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": "right",
+          "height": "1,68m",
+          "shirtNumber": 22,
+          "contractUntil": null
+        },
+        {
+          "id": "944459",
+          "name": "Marcela Quiñonez",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,56m",
+          "shirtNumber": 5,
+          "contractUntil": null
+        },
+        {
+          "id": "944460",
+          "name": "Rosa Miño",
+          "position": "Attacking Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Paraguay"
+          ],
+          "marketValue": null,
+          "foot": "right",
+          "height": "1,69m",
+          "shirtNumber": 6,
+          "contractUntil": null
+        },
+        {
+          "id": "944461",
+          "name": "Maritxell Cazares",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,55m",
+          "shirtNumber": 8,
+          "contractUntil": null
+        },
+        {
+          "id": "944462",
+          "name": "Nikole Riquero",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 13,
+          "contractUntil": null
+        },
+        {
+          "id": "944463",
+          "name": "Justine Cuadra",
+          "position": "Defensive Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,73m",
+          "shirtNumber": 44,
+          "contractUntil": null
+        },
+        {
+          "id": "944464",
+          "name": "Naomy Briones",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,60m",
+          "shirtNumber": 7,
+          "contractUntil": null
+        },
+        {
+          "id": "944465",
+          "name": "Belén Spenig",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Argentina"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 9,
+          "contractUntil": null
+        },
+        {
+          "id": "944466",
+          "name": "Isabel Trujillo",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": "left",
+          "height": "1,50m",
+          "shirtNumber": 11,
+          "contractUntil": null
+        },
+        {
+          "id": "944467",
+          "name": "María Agudelo",
+          "position": "Right Winger",
+          "dateOfBirth": null,
+          "nationality": [
+            "Colombia"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,68m",
+          "shirtNumber": 14,
+          "contractUntil": null
+        },
+        {
+          "id": "944468",
+          "name": "Josenka Vélez",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,55m",
+          "shirtNumber": 15,
+          "contractUntil": null
+        },
+        {
+          "id": "944469",
+          "name": "Carina Caicedo",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,72m",
+          "shirtNumber": 16,
+          "contractUntil": null
+        },
+        {
+          "id": "944470",
+          "name": "Rosa Flores",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,66m",
+          "shirtNumber": 18,
+          "contractUntil": null
+        },
+        {
+          "id": "944471",
+          "name": "Melany Tapuy",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 20,
+          "contractUntil": null
+        },
+        {
+          "id": "944472",
+          "name": "Xiomara Alcívar",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,66m",
+          "shirtNumber": 55,
+          "contractUntil": null
+        }
+      ]
+    },
+    {
+      "name": "Caracas FC",
+      "stadiumName": "Estadio Olímpico de la UCV",
+      "stadiumSeats": 24264,
+      "transfermarktId": 944501,
+      "image": null,
+      "players": [
+        {
+          "id": "944501",
+          "name": "Aranzha Aguiar",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Venezuela"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,71m",
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944502",
+          "name": "Valeria Rebanales",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Venezuela"
+          ],
+          "marketValue": null,
+          "foot": "right",
+          "height": "1,60m",
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944503",
+          "name": "Fabiola Solórzano",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Venezuela"
+          ],
+          "marketValue": null,
+          "foot": "right",
+          "height": "1,55m",
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944504",
+          "name": "Gilary Díaz",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Venezuela"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 4,
+          "contractUntil": null
+        },
+        {
+          "id": "944505",
+          "name": "Adrianny Luna Gamez",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Venezuela"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,60m",
+          "shirtNumber": 9,
+          "contractUntil": null
+        },
+        {
+          "id": "944506",
+          "name": "Emaiver Mota",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Venezuela"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 17,
+          "contractUntil": null
+        },
+        {
+          "id": "944507",
+          "name": "Zoraida Blanco",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Venezuela"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 19,
+          "contractUntil": null
+        },
+        {
+          "id": "944508",
+          "name": "Bárbara Sandoval",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Venezuela"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,64m",
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944509",
+          "name": "Orlanny Palacios",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Venezuela"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944510",
+          "name": "Mariannys Rodríguez",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Venezuela"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": "1,57m",
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944511",
+          "name": "Lisbeth Bandres",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Venezuela"
+          ],
+          "marketValue": null,
+          "foot": "right",
+          "height": "1,58m",
+          "shirtNumber": 15,
+          "contractUntil": null
+        },
+        {
+          "id": "944512",
+          "name": "Alexa Majano",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Venezuela"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 20,
+          "contractUntil": null
+        },
+        {
+          "id": "944513",
+          "name": "Karlis Durán",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Venezuela"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 23,
+          "contractUntil": null
+        },
+        {
+          "id": "944514",
+          "name": "María Maza",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Venezuela"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": 11,
+          "contractUntil": null
+        }
+      ]
+    },
+    {
+      "name": "Club Bolívar",
+      "stadiumName": "Estadio Hernando Siles",
+      "stadiumSeats": 41143,
+      "transfermarktId": 944551,
+      "image": null,
+      "players": [
+        {
+          "id": "944551",
+          "name": "Gilda Sanga",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Bolivia"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944552",
+          "name": "Enyuli López",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Bolivia"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944553",
+          "name": "Karla Ramos",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Bolivia"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944554",
+          "name": "José Jhael Mercado",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Bolivia"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944555",
+          "name": "Nashmi Segovia",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Bolivia"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944556",
+          "name": "Cielo Veizaga",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Bolivia"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944557",
+          "name": "Selin Zurita",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Bolivia"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944558",
+          "name": "Jimena Cabrera",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Bolivia"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944559",
+          "name": "Luz Valencia",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Bolivia"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944560",
+          "name": "Itziar Camacho",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Bolivia"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944561",
+          "name": "Sarah Cruz",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Bolivia"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944562",
+          "name": "Ana Paula Rojas",
+          "position": "Striker",
+          "dateOfBirth": "Jul 17, 1997",
+          "nationality": [
+            "Bolivia"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944563",
+          "name": "Alejandra Vargas",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Bolivia"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944564",
+          "name": "Maya Siles",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Bolivia"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944565",
+          "name": "Danelly Angulo",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Colombia"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944566",
+          "name": "Liliana Condorí",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Bolivia"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944567",
+          "name": "Clenilda Da Silva",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Brazil"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944568",
+          "name": "Laura Chávez",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Bolivia"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944569",
+          "name": "Carla Méndez",
+          "position": "Striker",
+          "dateOfBirth": "Jan 30, 1997",
+          "nationality": [
+            "Bolivia"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944570",
+          "name": "Maria Cristina Gálvez",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Bolivia"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944571",
+          "name": "Ivana Siles",
+          "position": "Striker",
+          "dateOfBirth": "Oct 4, 2001",
+          "nationality": [
+            "Bolivia"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        },
+        {
+          "id": "944572",
+          "name": "Nicol Cruz",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Bolivia"
+          ],
+          "marketValue": null,
+          "foot": null,
+          "height": null,
+          "shirtNumber": null,
+          "contractUntil": null
+        }
+      ]
+    }
+  ]
+}

@@ -1033,11 +1033,19 @@ return [
 
         'promotions' => [],
 
-        'continental_slots' => [],
+        'continental_slots' => [
+            'ARG1' => [
+                'LIBERTADORES' => [1, 2],
+            ],
+        ],
 
         'cup_winner_slot' => [],
 
-        'continental_competitions' => [],
+        'continental_competitions' => [
+            'LIBERTADORES' => [
+                'config_class' => \App\Modules\Competition\Configs\LibertadoresConfig::class,
+            ],
+        ],
 
         'support' => [
             'transfer_pool' => [
@@ -1047,9 +1055,12 @@ return [
                 'FRA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'FR'],
                 'ITA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'IT'],
                 'BRA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'BR', 'from_season' => '2026'],
+                'LIBERTADORES' => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'CS'],
                 'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
             ],
-            'continental' => [],
+            'continental' => [
+                'LIBERTADORES' => ['handler' => 'knockout', 'country' => 'CS'],
+            ],
         ],
     ],
 
@@ -1068,11 +1079,19 @@ return [
 
         'promotions' => [],
 
-        'continental_slots' => [],
+        'continental_slots' => [
+            'BRA1' => [
+                'LIBERTADORES' => [1, 2, 3, 4],
+            ],
+        ],
 
         'cup_winner_slot' => [],
 
-        'continental_competitions' => [],
+        'continental_competitions' => [
+            'LIBERTADORES' => [
+                'config_class' => \App\Modules\Competition\Configs\LibertadoresConfig::class,
+            ],
+        ],
 
         'support' => [
             'transfer_pool' => [
@@ -1082,9 +1101,12 @@ return [
                 'FRA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'FR'],
                 'ITA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'IT'],
                 'ARG1' => ['role' => 'league', 'handler' => 'league', 'country' => 'AR', 'from_season' => '2026'],
+                'LIBERTADORES' => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'CS'],
                 'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
             ],
-            'continental' => [],
+            'continental' => [
+                'LIBERTADORES' => ['handler' => 'knockout', 'country' => 'CS'],
+            ],
         ],
     ],
 
@@ -1103,20 +1125,31 @@ return [
 
         'promotions' => [],
 
-        'continental_slots' => [],
+        'continental_slots' => [
+            'MEX1' => [
+                'CONCACHAMPIONS' => [1, 2, 3],
+            ],
+        ],
 
         'cup_winner_slot' => [],
 
-        'continental_competitions' => [],
+        'continental_competitions' => [
+            'CONCACHAMPIONS' => [
+                'config_class' => \App\Modules\Competition\Configs\ConcachampionsConfig::class,
+            ],
+        ],
 
         'support' => [
             'transfer_pool' => [
                 'ESP1' => ['role' => 'league', 'handler' => 'league', 'country' => 'ES'],
                 'ENG1' => ['role' => 'league', 'handler' => 'league', 'country' => 'EN'],
                 'USA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'US', 'from_season' => '2026'],
+                'CONCACHAMPIONS' => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'CC'],
                 'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
             ],
-            'continental' => [],
+            'continental' => [
+                'CONCACHAMPIONS' => ['handler' => 'knockout', 'country' => 'CC'],
+            ],
         ],
     ],
 
@@ -1135,20 +1168,31 @@ return [
 
         'promotions' => [],
 
-        'continental_slots' => [],
+        'continental_slots' => [
+            'USA1' => [
+                'CONCACHAMPIONS' => [1, 2, 3],
+            ],
+        ],
 
         'cup_winner_slot' => [],
 
-        'continental_competitions' => [],
+        'continental_competitions' => [
+            'CONCACHAMPIONS' => [
+                'config_class' => \App\Modules\Competition\Configs\ConcachampionsConfig::class,
+            ],
+        ],
 
         'support' => [
             'transfer_pool' => [
                 'ESP1' => ['role' => 'league', 'handler' => 'league', 'country' => 'ES'],
                 'ENG1' => ['role' => 'league', 'handler' => 'league', 'country' => 'EN'],
                 'MEX1' => ['role' => 'league', 'handler' => 'league', 'country' => 'MX', 'from_season' => '2026'],
+                'CONCACHAMPIONS' => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'CC'],
                 'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
             ],
-            'continental' => [],
+            'continental' => [
+                'CONCACHAMPIONS' => ['handler' => 'knockout', 'country' => 'CC'],
+            ],
         ],
     ],
 

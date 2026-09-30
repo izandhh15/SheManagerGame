@@ -461,6 +461,45 @@ private const CLUB_DATA = [
         'Gallos Blancos de Querétaro' => ClubProfile::REPUTATION_LOCAL,
         'Atlante FC' => ClubProfile::REPUTATION_LOCAL,
 
+        // =============================================
+        // CONCACAF W Champions Cup extras (CONCACHAMPIONS)
+        // =============================================
+
+        // Established
+        'Alajuelense' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Saprissa' => ClubProfile::REPUTATION_ESTABLISHED,
+
+        // Modest
+        'Vancouver Rise' => ClubProfile::REPUTATION_MODEST,
+
+        // Local
+        'Alianza' => ClubProfile::REPUTATION_LOCAL,
+        'Chorrillo' => ClubProfile::REPUTATION_LOCAL,
+
+        // =============================================
+        // Copa Libertadores Femenina extras (LIBERTADORES)
+        // =============================================
+
+        // Continental
+        'Colo-Colo' => ClubProfile::REPUTATION_CONTINENTAL,
+        'Universidad de Chile' => ClubProfile::REPUTATION_CONTINENTAL,
+
+        // Established
+        'Olimpia' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Libertad' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Independiente Santa Fe' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Deportivo Cali' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Independiente del Valle' => ClubProfile::REPUTATION_ESTABLISHED,
+
+        // Modest
+        'Nacional' => ClubProfile::REPUTATION_MODEST,
+        'LDU Quito' => ClubProfile::REPUTATION_MODEST,
+        'Universitario de Deportes' => ClubProfile::REPUTATION_MODEST,
+
+        // Local
+        'Caracas FC' => ClubProfile::REPUTATION_LOCAL,
+        'Club Bolívar' => ClubProfile::REPUTATION_LOCAL,
+
     ];
 
     /**
