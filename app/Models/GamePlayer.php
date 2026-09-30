@@ -987,10 +987,11 @@ class GamePlayer extends Model
     {
         return match ($this->position) {
             'Goalkeeper' => 'Goalkeeper',
-            'Centre-Back', 'Left-Back', 'Right-Back' => 'Defender',
+            'Centre-Back', 'Left-Back', 'Right-Back', 'Defender' => 'Defender',
             'Defensive Midfield', 'Central Midfield', 'Attacking Midfield',
-            'Left Midfield', 'Right Midfield' => 'Midfielder',
-            'Left Winger', 'Right Winger', 'Centre-Forward', 'Second Striker' => 'Forward',
+            'Left Midfield', 'Right Midfield', 'Midfielder' => 'Midfielder',
+            'Left Winger', 'Right Winger', 'Centre-Forward', 'Second Striker',
+            'Striker', 'Forward' => 'Forward',
             default => 'Midfielder',
         };
     }

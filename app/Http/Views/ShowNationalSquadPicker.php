@@ -26,10 +26,11 @@ final class ShowNationalSquadPicker
     {
         return match ($position) {
             'Goalkeeper' => 'Goalkeeper',
-            'Centre-Back', 'Left-Back', 'Right-Back' => 'Defender',
+            'Centre-Back', 'Left-Back', 'Right-Back', 'Defender' => 'Defender',
             'Defensive Midfield', 'Central Midfield', 'Attacking Midfield',
             'Left Midfield', 'Right Midfield', 'Midfielder' => 'Midfielder',
-            'Left Winger', 'Right Winger', 'Centre-Forward', 'Second Striker' => 'Forward',
+            'Left Winger', 'Right Winger', 'Centre-Forward', 'Second Striker',
+            'Striker', 'Forward' => 'Forward',
             default => 'Midfielder',
         };
     }
@@ -59,17 +60,22 @@ final class ShowNationalSquadPicker
 
         $groupOrder = array_flip(self::POSITION_GROUPS);
 
-        $players = $players->map(fn ($row) => [
-            'player_id' => $row->player_id,
-            'name' => $row->name,
-            'position' => $row->position,
-            'group' => self::positionGroup($row->position ?? ''),
-            'overall' => (int) $row->overall_score,
-            'age' => $row->date_of_birth
-                ? now()->diffInYears(\Carbon\Carbon::parse($row->date_of_birth))
-                : null,
-            'club' => $clubByPlayerId[$row->player_id] ?? null,
-        ])->sortBy([
+        $players = $players->map(function ($row) use ($clubByPlayerId) {
+            // Las plantillas de selecciones traen "2000-01-01" como fecha
+            // comodín (sin fecha real): en ese caso no mostramos edad.
+            $dob = $row->date_of_birth ? \Carbon\Carbon::parse($row->date_of_birth) : null;
+            $isPlaceholderDob = $dob && $dob->format('Y-m-d') === '2000-01-01';
+
+            return [
+                'player_id' => $row->player_id,
+                'name' => $row->name,
+                'position' => $row->position,
+                'group' => self::positionGroup($row->position ?? ''),
+                'overall' => (int) $row->overall_score,
+                'age' => ($dob && ! $isPlaceholderDob) ? now()->diffInYears($dob) : null,
+                'club' => $clubByPlayerId[$row->player_id] ?? null,
+            ];
+        })->sortBy([
             fn ($p) => $groupOrder[$p['group']] ?? 99,
             fn ($p) => -$p['overall'],
             fn ($p) => $p['name'],
