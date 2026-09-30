@@ -101,7 +101,19 @@ class SeasonInitializationService
         // Odd team counts are supported: LeagueFixtureGenerator inserts an
         // internal bye week (e.g. Seconde Ligue's 11 teams).
 
-        $fixtures = $this->leagueFixtureGenerator->generate($teamIds, $matchdays);
+        // Real calendars: when schedule.json defines explicit matchups and
+        // this is the base season (the teams the calendar was written for),
+        // resolve transfermarktIds to team UUIDs so the generator uses them.
+        // Later seasons fall back to the circle method.
+        $tmIdToTeamId = null;
+        if ($yearDiff === 0 && collect($matchdays)->contains(fn ($md) => !empty($md['matches']))) {
+            $tmIdToTeamId = Team::whereIn('id', $teamIds)
+                ->whereNotNull('transfermarkt_id')
+                ->pluck('id', 'transfermarkt_id')
+                ->all();
+        }
+
+        $fixtures = $this->leagueFixtureGenerator->generate($teamIds, $matchdays, $tmIdToTeamId);
 
         $this->insertFixtures($gameId, $competitionId, $fixtures);
     }

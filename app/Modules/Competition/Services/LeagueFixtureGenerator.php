@@ -49,10 +49,18 @@ class LeagueFixtureGenerator
         return array_map(function ($md) use ($yearOffset) {
             $date = Carbon::parse($md['date'])->addYears($yearOffset);
 
-            return [
+            $adjusted = [
                 'round' => $md['round'],
                 'date' => $date->format('Y-m-d'),
             ];
+
+            // Preserve explicit matchups (real calendars); the caller
+            // decides whether they apply (base season only).
+            if (isset($md['matches'])) {
+                $adjusted['matches'] = $md['matches'];
+            }
+
+            return $adjusted;
         }, $matchdays);
     }
     /**
@@ -152,10 +160,91 @@ class LeagueFixtureGenerator
      * (each round one team rests).
      *
      * @param  array<string>  $teamIds  Team IDs (even count ≥ 4, or odd count ≥ 5)
+     * Generates round-robin league fixtures using the circle method.
+     *
+     * For N teams (must be even), generates N-1 rounds for the first half of the season,
+     * then mirrors them (swapping home/away) for the second half.
+     *
+     * When a matchday defines explicit 'matches' (pairs of transfermarktIds)
+     * and $tmIdToTeamId is provided, those real-calendar pairings are used
+     * instead of the circle method. This is intended for the base season
+     * only — later seasons (different teams via promotion/relegation) fall
+     * back to the circle method.
+     *
+     * Input: team IDs + matchday schedule (dates per round).
+     * Output: flat array of fixtures matching SwissDrawService format.
+     */
+    public function generate(array $teamIds, array $matchdays, ?array $tmIdToTeamId = null): array
+    {
+        $hasExplicit = $tmIdToTeamId !== null
+            && collect($matchdays)->contains(fn ($md) => !empty($md['matches']));
+
+        if ($hasExplicit) {
+            return $this->generateExplicit($teamIds, $matchdays, $tmIdToTeamId);
+        }
+
+        return $this->generateCircle($teamIds, $matchdays);
+    }
+
+    /**
+     * Build fixtures from explicit real-calendar matchups.
+     *
+     * Each matchday's 'matches' is a list of [homeTmId, awayTmId] pairs
+     * using transfermarktIds. Pairs referencing teams not in this game
+     * (e.g. stale data) are skipped. Every round must define matches —
+     * a partial real calendar is a data error.
+     *
+     * @param  array<string>  $teamIds  Team UUIDs in this game/league
+     * @param  array<array{round: int, date: string, matches?: array<array{int, int}>}>  $matchdays
+     * @param  array<int, string>  $tmIdToTeamId  transfermarktId => team UUID
+     * @return array<array{matchday: int, date: string, homeTeamId: string, awayTeamId: string}>
+     */
+    private function generateExplicit(array $teamIds, array $matchdays, array $tmIdToTeamId): array
+    {
+        $teamSet = array_flip($teamIds);
+        $fixtures = [];
+
+        foreach ($matchdays as $md) {
+            $matches = $md['matches'] ?? null;
+
+            if (empty($matches)) {
+                throw new \InvalidArgumentException(
+                    "Round {$md['round']} has no explicit matches but other rounds do — " .
+                    "real calendars must define matchups for every round or none."
+                );
+            }
+
+            foreach ($matches as $pair) {
+                [$homeTm, $awayTm] = $pair;
+                $homeId = $tmIdToTeamId[$homeTm] ?? null;
+                $awayId = $tmIdToTeamId[$awayTm] ?? null;
+
+                if ($homeId === null || $awayId === null) {
+                    continue;
+                }
+
+                if (!isset($teamSet[$homeId]) || !isset($teamSet[$awayId])) {
+                    continue;
+                }
+
+                $fixtures[] = [
+                    'matchday' => $md['round'],
+                    'date' => $md['date'],
+                    'homeTeamId' => $homeId,
+                    'awayTeamId' => $awayId,
+                ];
+            }
+        }
+
+        return $fixtures;
+    }
+
+    /**
+     * @param  array<string>  $teamIds
      * @param  array<array{round: int, date: string}>  $matchdays  Schedule with round numbers and dates (YYYY-MM-DD)
      * @return array<array{matchday: int, date: string, homeTeamId: string, awayTeamId: string}>
      */
-    public function generate(array $teamIds, array $matchdays): array
+    private function generateCircle(array $teamIds, array $matchdays): array
     {
         $teamCount = count($teamIds);
         $isOdd = $teamCount % 2 !== 0;
