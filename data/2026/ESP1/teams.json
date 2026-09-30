@@ -5,7 +5,7 @@
   "clubs": [
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/6551.png",
-      "name": "Real Madrid",
+      "name": "Real Madrid CF",
       "stadiumName": "Estadio Alfredo Di Stéfano",
       "stadiumSeats": 6000,
       "transfermarktId": "6551",
@@ -350,7 +350,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/1140.png",
-      "name": "F.C. Sevilla",
+      "name": "Sevilla FC",
       "stadiumName": "Ciudad Deportiva - Estadio Jesús Navas",
       "stadiumSeats": 7000,
       "transfermarktId": "1140",
@@ -1590,7 +1590,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/1129.png",
-      "name": "Club Atlético de Madrid",
+      "name": "Atlético de Madrid",
       "stadiumName": "Estadio Atlético de Madrid CD Alcalá de Henares",
       "stadiumSeats": 2700,
       "transfermarktId": "1129",
@@ -1921,7 +1921,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/1132.png",
-      "name": "F.C. Barcelona",
+      "name": "FC Barcelona",
       "stadiumName": "Estadi Johan Cruyff",
       "stadiumSeats": 6000,
       "transfermarktId": "1132",
@@ -2308,7 +2308,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/1133.png",
-      "name": "SD Éibar",
+      "name": "SD Eibar",
       "stadiumName": "Estadio Municipal de Ipurúa",
       "stadiumSeats": 8154,
       "transfermarktId": "1133",
@@ -2583,7 +2583,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/1135.png",
-      "name": "Real Socieadad",
+      "name": "Real Sociedad",
       "stadiumName": "Instalaciones de Zubieta Z7 H.N.",
       "stadiumSeats": 4000,
       "transfermarktId": "1135",
@@ -2872,7 +2872,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/1143.png",
-      "name": "Valencia Féminas Club de Fútbol",
+      "name": "VCF Femenino",
       "stadiumName": "Ciudad Dptva. Valencia CF Antonio Puchades",
       "stadiumSeats": 3000,
       "transfermarktId": "1143",
@@ -3189,7 +3189,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/16818.png",
-      "name": "CD Tenerife Femenino",
+      "name": "Costa Adeje Tenerife",
       "stadiumName": "Estadio Heliodoro Rodríguez López",
       "stadiumSeats": 22948,
       "transfermarktId": "16818",
@@ -3562,7 +3562,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/44.png",
-      "name": "Athletic Bilbao",
+      "name": "Athletic Club",
       "stadiumName": "Instalaciones de Lezama - Campo 2",
       "stadiumSeats": 2800,
       "transfermarktId": "44",
@@ -4252,7 +4252,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/552.png",
-      "name": "Espanyol Barcelona",
+      "name": "RCD Espanyol",
       "stadiumName": "Ciudad Deportiva Dani Jarque",
       "stadiumSeats": 6000,
       "transfermarktId": "552",
@@ -4625,7 +4625,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7089.png",
-      "name": "Deportivo Alavés Gloriosas",
+      "name": "Deportivo Alavés",
       "stadiumName": "Ciudad Deportiva José Luis Compañón",
       "stadiumSeats": 0,
       "transfermarktId": "7089",
@@ -4942,7 +4942,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7278.png",
-      "name": "RC Deportivo A Coruña",
+      "name": "Deportivo Abanca",
       "stadiumName": "Estadio Abanca-Riazor",
       "stadiumSeats": 34611,
       "transfermarktId": "7278",

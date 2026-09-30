@@ -5,19 +5,19 @@
   "clubs": [
     {
       "id": "1132",
-      "name": "F.C. Barcelona"
+      "name": "FC Barcelona"
     },
     {
       "id": "6551",
-      "name": "Real Madrid"
+      "name": "Real Madrid CF"
     },
     {
       "id": "1129",
-      "name": "Club Atlético de Madrid"
+      "name": "Atlético de Madrid"
     },
     {
       "id": "44",
-      "name": "Athletic Bilbao"
+      "name": "Athletic Club"
     }
   ]
 }

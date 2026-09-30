@@ -5,22 +5,22 @@
   "clubs": [
     {
       "id": "1135",
-      "name": "Real Socieadad",
+      "name": "Real Sociedad",
       "entryRound": 4
     },
     {
       "id": "16818",
-      "name": "CD Tenerife Femenino",
+      "name": "Costa Adeje Tenerife",
       "entryRound": 4
     },
     {
       "id": "1140",
-      "name": "F.C. Sevilla",
+      "name": "Sevilla FC",
       "entryRound": 4
     },
     {
       "id": "7278",
-      "name": "RC Deportivo A Coruña",
+      "name": "Deportivo Abanca",
       "entryRound": 4
     },
     {
@@ -30,7 +30,7 @@
     },
     {
       "id": "552",
-      "name": "Espanyol Barcelona",
+      "name": "RCD Espanyol",
       "entryRound": 3
     },
     {
@@ -40,7 +40,7 @@
     },
     {
       "id": "7089",
-      "name": "Deportivo Alavés Gloriosas",
+      "name": "Deportivo Alavés",
       "entryRound": 3
     },
     {
@@ -50,7 +50,7 @@
     },
     {
       "id": "1143",
-      "name": "Valencia Féminas Club de Fútbol",
+      "name": "VCF Femenino",
       "entryRound": 3
     },
     {
@@ -60,27 +60,27 @@
     },
     {
       "id": "1133",
-      "name": "SD Éibar",
+      "name": "SD Eibar",
       "entryRound": 3
     },
     {
       "id": "1132",
-      "name": "F.C. Barcelona",
+      "name": "FC Barcelona",
       "entryRound": 1
     },
     {
       "id": "6551",
-      "name": "Real Madrid",
+      "name": "Real Madrid CF",
       "entryRound": 1
     },
     {
       "id": "1129",
-      "name": "Club Atlético de Madrid",
+      "name": "Atlético de Madrid",
       "entryRound": 1
     },
     {
       "id": "44",
-      "name": "Athletic Bilbao",
+      "name": "Athletic Club",
       "entryRound": 1
     },
     {
