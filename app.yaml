@@ -31,7 +31,6 @@ env:
   VIEW_COMPILED_PATH: "/data/views"
   # Usado por el parche de bootstrap/app.php (ver bootstrap-wasmer.patch)
   WASMER_STORAGE_PATH: "/data/storage"
-  OPS_TOKEN: "01b230e202f2c058b363363cb3ef1756"
 
 locality:
   # fr-roub1 soporta bases de datos gestionadas (cerca de España)
