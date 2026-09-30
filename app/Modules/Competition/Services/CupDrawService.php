@@ -68,6 +68,25 @@ class CupDrawService
         for ($i = 0; $i < $pairCount; $i++) {
             [$homeTeamId, $awayTeamId] = $pairedTeams[$i];
 
+            // Bye: [teamId, null] - team automatically advances to next round
+            if ($awayTeamId === null) {
+                $tieId = Str::uuid()->toString();
+                $tieRows[] = [
+                    'id' => $tieId,
+                    'game_id' => $gameId,
+                    'competition_id' => $competitionId,
+                    'round_number' => $roundNumber,
+                    'bracket_position' => $i,
+                    'home_team_id' => $homeTeamId,
+                    'away_team_id' => $homeTeamId, // Bye: same team (no opponent)
+                    'first_leg_match_id' => null,
+                    'second_leg_match_id' => null,
+                    'completed' => true,
+                    'winner_id' => $homeTeamId,
+                ];
+                continue;
+            }
+
             // Lower-category team (higher tier number) gets home advantage
             if ($applyHomeAdvantageRule) {
                 $homeTier = $teamTierMap[$homeTeamId] ?? 99;
@@ -265,8 +284,22 @@ class CupDrawService
     {
         $count = $orderedTeams->count();
 
+        // Odd pool: the last team gets a bye (automatically advances).
+        // This happens when reserve teams are filtered from domestic cups,
+        // leaving an odd number. The bye team is returned as a single-element
+        // pair [teamId, null] which conductDraw handles as an automatic advance.
         if ($count % 2 !== 0) {
-            throw OddCupDrawPoolException::forRound($competitionId, $roundNumber, $count);
+            $byeTeam = $orderedTeams->pop();
+            $count--;
+            
+            $pairs = collect();
+            for ($i = 0; $i < $count; $i += 2) {
+                $pairs->push([$orderedTeams[$i], $orderedTeams[$i + 1]]);
+            }
+            // Add bye as [teamId, null] - conductDraw will mark it as completed
+            $pairs->push([$byeTeam, null]);
+            
+            return $pairs;
         }
 
         $pairs = collect();
