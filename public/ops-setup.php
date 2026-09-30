@@ -110,6 +110,62 @@ switch ($step) {
             echo $e->getTraceAsString() . "\n---\n";
         }
         break;
+    case 'debug-wwcq':
+        // Reproduce la ruta exacta de ShowCompetition@showLeague para la partida
+        // E2E (gameId 8567e47a-9001-4d92-857c-21ca45866112, competición WWCQ)
+        try {
+            $game = App\Models\Game::find('8567e47a-9001-4d92-857c-21ca45866112');
+            if (!$game) { echo "game not found\n---\n"; break; }
+            $competition = App\Models\Competition::find('WWCQ');
+            if (!$competition) { echo "competition WWCQ not found\n---\n"; break; }
+            $view = app(App\Modules\Competition\Services\CompetitionViewService::class);
+
+            echo "step 1: getStandings...\n";
+            $standings = $view->getStandings($game, $competition);
+            echo "  OK: " . $standings->count() . " rows\n";
+            $hasGroups = $standings->whereNotNull('group_label')->isNotEmpty();
+            echo "  hasGroups: " . ($hasGroups ? 'yes' : 'no') . "\n";
+
+            echo "step 2: getTopScorers...\n";
+            $topScorers = $view->getTopScorers($game->id, $competition->id);
+            echo "  OK: " . $topScorers->count() . " rows\n";
+
+            echo "step 3: getBestGoalkeepers...\n";
+            $bestGoalkeepers = $view->getBestGoalkeepers($game->id, $competition->id);
+            echo "  OK: " . $bestGoalkeepers->count() . " rows\n";
+
+            echo "step 4: getTeamForms...\n";
+            $teamForms = $view->getTeamForms($standings);
+            echo "  OK\n";
+
+            echo "step 5: getConfig()->getStandingsZones()...\n";
+            $zones = $competition->getConfig()->getStandingsZones();
+            echo "  OK: " . count($zones) . " zones\n";
+
+            echo "step 6: render standings blade...\n";
+            $html = view('standings', [
+                'game' => $game,
+                'competition' => $competition,
+                'standings' => $standings,
+                'groupedStandings' => $hasGroups ? $standings->groupBy('group_label') : null,
+                'topScorers' => $topScorers,
+                'bestGoalkeepers' => $bestGoalkeepers,
+                'teamForms' => $teamForms,
+                'standingsZones' => $zones,
+                'knockoutRounds' => collect(),
+                'knockoutTies' => collect(),
+                'leaguePhaseComplete' => false,
+                'userLeagues' => collect(),
+                'otherLeagues' => collect(),
+            ])->render();
+            echo "  OK: rendered " . strlen($html) . " bytes\n";
+            echo "ALL OK\n---\n";
+        } catch (Throwable $e) {
+            echo 'ERROR: ' . get_class($e) . ': ' . $e->getMessage() . "\n";
+            echo $e->getFile() . ':' . $e->getLine() . "\n";
+            echo substr($e->getTraceAsString(), 0, 4000) . "\n---\n";
+        }
+        break;
     default:
-        echo "steps: migrate, seed, seed-nt\n";
+        echo "steps: migrate, seed, seed-nt, invite, logs, check-nt, debug500, debug-wwcq\n";
 }
