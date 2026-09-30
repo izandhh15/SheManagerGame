@@ -4,19 +4,19 @@
       "capacity": 105000,
       "club": "FC Barcelona",
       "stadium": "Camp Nou",
-      "womens_team": "F.C. Barcelona"
+      "womens_team": "FC Barcelona"
     },
     {
       "capacity": 81044,
       "club": "Real Madrid",
       "stadium": "Santiago Bernabéu",
-      "womens_team": "Real Madrid"
+      "womens_team": "Real Madrid CF"
     },
     {
       "capacity": 70460,
       "club": "Atlético de Madrid",
       "stadium": "Riyadh Air Metropolitano",
-      "womens_team": "Club Atlético de Madrid"
+      "womens_team": "Atlético de Madrid"
     },
     {
       "capacity": 49440,
@@ -28,19 +28,19 @@
       "capacity": 53331,
       "club": "Athletic Club",
       "stadium": "San Mamés",
-      "womens_team": "Athletic Bilbao"
+      "womens_team": "Athletic Club"
     },
     {
       "capacity": 40000,
       "club": "Real Sociedad",
       "stadium": "Reale Arena",
-      "womens_team": "Real Socieadad"
+      "womens_team": "Real Sociedad"
     },
     {
       "capacity": 43883,
       "club": "Sevilla FC",
       "stadium": "Ramón Sánchez-Pizjuán",
-      "womens_team": "F.C. Sevilla"
+      "womens_team": "Sevilla FC"
     },
     {
       "capacity": 60720,
@@ -58,7 +58,7 @@
       "capacity": 40500,
       "club": "RCD Espanyol",
       "stadium": "RCDE Stadium",
-      "womens_team": "Espanyol Barcelona"
+      "womens_team": "RCD Espanyol"
     },
     {
       "capacity": 19336,
@@ -70,7 +70,7 @@
       "capacity": 26354,
       "club": "Levante UD",
       "stadium": "Ciutat de València",
-      "womens_team": "Levante UD"
+      "womens_team": "UD Levante B"
     },
     {
       "capacity": 31388,
@@ -88,19 +88,19 @@
       "capacity": 23576,
       "club": "CA Osasuna",
       "stadium": "El Sadar",
-      "womens_team": "CA Osasuna"
+      "womens_team": "CA Osasuna B"
     },
     {
       "capacity": 19840,
       "club": "Deportivo Alavés",
       "stadium": "Mendizorrotza",
-      "womens_team": "Deportivo Alavés Gloriosas"
+      "womens_team": "Deportivo Alavés"
     },
     {
       "capacity": 32660,
       "club": "RC Deportivo",
       "stadium": "Riazor",
-      "womens_team": "RC Deportivo A Coruña"
+      "womens_team": "Deportivo Abanca"
     },
     {
       "capacity": 29371,
@@ -118,7 +118,7 @@
       "capacity": 22824,
       "club": "CD Tenerife",
       "stadium": "Heliodoro Rodríguez López",
-      "womens_team": "CD Tenerife Femenino"
+      "womens_team": "Costa Adeje Tenerife"
     },
     {
       "capacity": 60704,
