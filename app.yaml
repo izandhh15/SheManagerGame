@@ -21,7 +21,7 @@ env:
   DB_SSLMODE: "prefer"
   # Nombre de la BD gestionada (Wasmer inyecta host/puerto/usuario/clave,
   # pero no el nombre: sin esto Laravel usa "laravel" y falla)
-  DB_DATABASE: "db_167628a0"
+  DB_DATABASE: "db_fbe6ddfe"
   # En Edge el sistema de ficheros del paquete es de solo lectura:
   # sesiones van a la BD, caché a ficheros (la BD gestionada cuelga con TOAST grandes),
   # logs a stderr, colas en sync (sin worker en Edge)
@@ -60,3 +60,4 @@ scaling:
 #       execute:
 #         command: php
 #         cli_args: ["artisan", "schedule:run"]
+app_id: da_K0DIkt5U7DDe
