@@ -18,17 +18,17 @@ header('Content-Type: text/plain');
 try {
     switch ($action) {
         case 'fix-dup':
-            // Check what the empty numbers actually are
-            $sample = \DB::table('game_player_templates')
+            // Find which team has the duplicate
+            $teamId = '769f0bda-2e7a-4398-bb25-8eb7037b86db';
+            $team = \DB::table('teams')->where('id', $teamId)->first();
+            echo "Team: " . ($team ? $team->name : 'not found') . "\n";
+            // Check templates for this team with number 25
+            $count = \DB::table('game_player_templates')
                 ->where('season', '2026')
-                ->whereNull('number')
+                ->where('team_id', $teamId)
+                ->where('number', 25)
                 ->count();
-            echo "NULL numbers: $sample\n";
-            $zero = \DB::table('game_player_templates')
-                ->where('season', '2026')
-                ->where('number', 0)
-                ->count();
-            echo "Zero numbers: $zero\n";
+            echo "Templates with number 25: $count\n";
             break;
         case 'seed-ar':
             // Delete only AR/BR/MX/US/CH teams and their templates
