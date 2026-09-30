@@ -73,6 +73,13 @@ switch ($step) {
         );
         echo "Invite code: $code\n---\n";
         break;
+    case 'logs':
+        $files = glob(storage_path('logs/laravel-*.log')) ?: [];
+        if (!$files) { echo "no log files\n---\n"; break; }
+        rsort($files);
+        echo "FILE: " . basename($files[0]) . "\n";
+        echo substr(file_get_contents($files[0]), -6000) . "\n---\n";
+        break;
     case 'debug500':
         // Simula una petición HTTP a / y muestra la excepción real
         try {
