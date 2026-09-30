@@ -72,6 +72,7 @@ use App\Http\Actions\CommitStadiumRebuild;
 use App\Http\Actions\CommitStadiumUefaUpgrade;
 use App\Http\Actions\AcceptNamingRightsDeal;
 use App\Http\Actions\RenameStadium;
+use App\Http\Actions\RequestMensStadium;
 use App\Http\Actions\SeekSponsors;
 use App\Http\Actions\RequestLoan;
 use App\Http\Actions\WithdrawTransferOffer;
@@ -215,6 +216,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/game/{gameId}/club/stadium/rebuild', CommitStadiumRebuild::class)->name('game.club.stadium.rebuild');
         Route::post('/game/{gameId}/club/stadium/uefa-upgrade', CommitStadiumUefaUpgrade::class)->name('game.club.stadium.uefa-upgrade');
         Route::post('/game/{gameId}/club/stadium/rename', RenameStadium::class)->name('game.club.stadium.rename');
+        Route::post('/game/{gameId}/club/stadium/mens-stadium', RequestMensStadium::class)->name('game.club.stadium.mens-stadium.request');
         Route::get('/game/{gameId}/club/commercial', ShowClubCommercial::class)->name('game.club.commercial');
         Route::post('/game/{gameId}/club/commercial/seek', SeekSponsors::class)->name('game.club.commercial.seek');
         Route::post('/game/{gameId}/club/commercial/naming-rights/accept', AcceptNamingRightsDeal::class)->name('game.club.commercial.naming-rights.accept');

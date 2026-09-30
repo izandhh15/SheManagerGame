@@ -603,6 +603,19 @@ return [
     'friendly_outside_window' => 'The date must fall inside a FIFA window.',
     'friendly_window_full' => 'You already have 2 friendlies scheduled in that window.',
     'friendly_invalid_stadium' => 'Invalid stadium.',
+    // Men's stadium
+    'mens_stadium_not_available' => 'Your club has no men\'s stadium available.',
+    'mens_stadium_limit_reached' => 'You have already used the men\'s stadium :max times this season.',
+    'mens_stadium_already_set' => 'This match already has a venue assigned.',
+    'mens_stadium_accepted' => 'Accepted! You will play :opponent at :stadium. Gate revenue will be higher.',
+    'mens_stadium_rejected_generic' => 'The men\'s club has rejected playing at :stadium: the match is not important enough.',
+    'mens_stadium_rejected_rival_elite' => 'The men\'s club has rejected playing at :stadium.',
+    'mens_stadium_rejected_rival_continental' => 'The men\'s club has rejected playing at :stadium.',
+    'mens_stadium_rejected_cup_match' => 'The men\'s club has rejected playing at :stadium.',
+    'mens_stadium_rejected_title_decider' => 'The men\'s club has rejected playing at :stadium.',
+    'mens_stadium_rejected_derby' => 'The men\'s club has rejected playing at :stadium.',
+    'mens_stadium_rejected_no_mens_stadium' => 'Your club has no men\'s stadium available.',
+    'mens_stadium_rejected_limit_reached' => 'You have already used the men\'s stadium :max times this season.',
     'back_to_dashboard' => 'Back to dashboard',
 
     // MVP

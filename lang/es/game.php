@@ -603,6 +603,19 @@ return [
     'friendly_outside_window' => 'La fecha debe estar dentro de una ventana FIFA.',
     'friendly_window_full' => 'Ya tienes 2 amistosos programados en esa ventana.',
     'friendly_invalid_stadium' => 'Estadio no válido.',
+    // Estadio masculino
+    'mens_stadium_not_available' => 'Tu club no tiene estadio masculino disponible.',
+    'mens_stadium_limit_reached' => 'Ya has usado el estadio masculino :max veces esta temporada.',
+    'mens_stadium_already_set' => 'Este partido ya tiene sede asignada.',
+    'mens_stadium_accepted' => '¡Aceptado! Jugarás contra :opponent en :stadium. La taquilla será mayor.',
+    'mens_stadium_rejected_generic' => 'El club masculino ha rechazado jugar en :stadium: el partido no es lo bastante importante.',
+    'mens_stadium_rejected_rival_elite' => 'El club masculino ha rechazado jugar en :stadium.',
+    'mens_stadium_rejected_rival_continental' => 'El club masculino ha rechazado jugar en :stadium.',
+    'mens_stadium_rejected_cup_match' => 'El club masculino ha rechazado jugar en :stadium.',
+    'mens_stadium_rejected_title_decider' => 'El club masculino ha rechazado jugar en :stadium.',
+    'mens_stadium_rejected_derby' => 'El club masculino ha rechazado jugar en :stadium.',
+    'mens_stadium_rejected_no_mens_stadium' => 'Tu club no tiene estadio masculino disponible.',
+    'mens_stadium_rejected_limit_reached' => 'Ya has usado el estadio masculino :max veces esta temporada.',
     'back_to_dashboard' => 'Volver al panel',
 
     // MVP
