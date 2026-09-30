@@ -285,7 +285,7 @@ return [
             1 => [
                 'competition' => 'ENG1',
                 'teams' => 14,
-                'handler' => 'league',
+                'handler' => 'league_with_playoff',
                 'config_class' => \App\Modules\Competition\Configs\PremierLeagueConfig::class,
             ],
             2 => [
@@ -367,7 +367,25 @@ return [
             ],
         ],
 
-        'promotions' => [],
+        'promotions' => [
+            [
+                // WSL ↔ WSL2. The 14th goes down directly and the champion
+                // comes up directly; the 13th faces the WSL2 runners-up in
+                // the ENGPO single-match playoff (hosted by the WSL2 team).
+                // If the WSL2 team wins, they go up and the 13th goes down;
+                // if the WSL team wins, the status quo holds.
+                'top_division' => 'ENG1',
+                'bottom_division' => 'ENG2',
+                'relegated_positions' => [14],
+                'relegation_playoff_position' => 13,
+                'direct_count' => 1,
+                'playoff_count' => 0,
+                'relegation_playoff' => true,
+                'playoff_competition' => 'ENGPO',
+                'playoff_generator' => \App\Modules\Competition\Playoffs\WSLRelegationPlayoffGenerator::class,
+                'playoff_trigger_divisions' => ['ENG1', 'ENG2'],
+            ],
+        ],
 
         // WSL relegation playoff: ENG2 runners-up vs ENG1 13th place.
         // Bare knockout competition seeded by SeedReferenceData; the
@@ -496,7 +514,28 @@ return [
             ],
         ],
 
-        'promotions' => [],
+        'promotions' => [
+            [
+                // Frauen-Bundesliga ↔ 2. Frauen-Bundesliga. 13th and 14th go
+                // down; the top two of the 2. Bundesliga come up, skipping
+                // reserve teams (Frankfurt II, Köln II, Hoffenheim II)
+                // whose parent is in the top flight.
+                'top_division' => 'DEU1',
+                'bottom_division' => 'DEU2',
+                'relegated_positions' => [13, 14],
+                'direct_count' => 2,
+                'playoff_count' => 0,
+            ],
+        ],
+
+        // Reserve teams that cannot be promoted to the same division as
+        // their parent. Maps child transfermarkt_id => parent
+        // transfermarkt_id.
+        'reserve_teams' => [
+            950026 => 104, // Eintracht Frankfurt II → Eintracht Frankfurt
+            950036 => 5,   // 1. FC Köln II → 1. FC Köln
+            950037 => 18,  // TSG 1899 Hoffenheim II → 1899 Hoffenheim
+        ],
 
         'continental_slots' => [
             'DEU1' => [
@@ -628,7 +667,17 @@ return [
             ],
         ],
 
-        'promotions' => [],
+        'promotions' => [
+            [
+                // Serie A ↔ Serie B. The 12th goes down; the Serie B
+                // champions come up.
+                'top_division' => 'ITA1',
+                'bottom_division' => 'ITA2',
+                'relegated_positions' => [12],
+                'direct_count' => 1,
+                'playoff_count' => 0,
+            ],
+        ],
 
         'continental_slots' => [
             'ITA1' => [
@@ -745,7 +794,17 @@ return [
             ],
         ],
 
-        'promotions' => [],
+        'promotions' => [
+            [
+                // Première Ligue ↔ Seconde Ligue. 11th and 12th go down;
+                // the top two of the Seconde Ligue come up.
+                'top_division' => 'FRA1',
+                'bottom_division' => 'FRA2',
+                'relegated_positions' => [11, 12],
+                'direct_count' => 2,
+                'playoff_count' => 0,
+            ],
+        ],
 
         'continental_slots' => [
             'FRA1' => [

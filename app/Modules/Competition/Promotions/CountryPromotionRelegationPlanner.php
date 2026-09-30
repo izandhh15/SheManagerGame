@@ -253,6 +253,29 @@ class CountryPromotionRelegationPlanner
                 $out[] = $standings[$idx];
             }
         }
+
+        // Relegation-playoff rule (WSL): the team at
+        // 'relegation_playoff_position' (e.g. ENG1 13th) only goes down if
+        // the playoff was played AND they lost it to the bottom-division
+        // team. NotStarted → they stay; InProgress is rejected earlier by
+        // assertNoPlayoffInProgress.
+        $playoffPosition = $rule['relegation_playoff_position'] ?? null;
+        if ($playoffPosition !== null) {
+            $playoffComp = $rule['playoff_competition'] ?? $rule['bottom_division'];
+            if ($snapshot->playoffState($playoffComp) === PlayoffState::Completed) {
+                $winners = $snapshot->playoffWinners($playoffComp);
+                $winner = $winners[0] ?? null;
+                $idx = ((int) $playoffPosition) - 1;
+                if (
+                    $winner !== null
+                    && isset($standings[$idx])
+                    && ($snapshot->competitionOf($winner) ?? '') === $rule['bottom_division']
+                ) {
+                    $out[] = $standings[$idx];
+                }
+            }
+        }
+
         return $out;
     }
 
@@ -304,6 +327,13 @@ class CountryPromotionRelegationPlanner
      */
     private function computePromoters(CountrySeasonSnapshot $snapshot, array $rule, array $incomingByDestination): array
     {
+        // Cross-division relegation playoff (e.g. WSL: ENG1 13th vs ENG2
+        // 2nd, single match). The direct slots follow the standard path;
+        // the playoff itself only moves teams when actually played.
+        if (!empty($rule['relegation_playoff'])) {
+            return $this->computeRelegationPlayoffPromoters($snapshot, $rule, $incomingByDestination);
+        }
+
         $isSplit = !empty($rule['playoff_source_divisions']);
 
         if ($isSplit) {
@@ -311,6 +341,61 @@ class CountryPromotionRelegationPlanner
         }
 
         return $this->computeSimplePromoters($snapshot, $rule, $incomingByDestination);
+    }
+
+    /**
+     * Promoters for a relegation-playoff rule (WSL format).
+     *
+     * Direct slots come from the bottom division's standings as usual.
+     * The playoff (ENGPO) contributes a promoter only when Completed AND
+     * the bottom-division team won it. NotStarted → no playoff movements
+     * (status quo); InProgress → the season cannot close yet.
+     *
+     * @return list<array{teamId: string, kind: string, source: string}>
+     */
+    private function computeRelegationPlayoffPromoters(CountrySeasonSnapshot $snapshot, array $rule, array $incomingByDestination): array
+    {
+        $topDiv = $rule['top_division'];
+        $bottomDiv = $rule['bottom_division'];
+        $playoffComp = $rule['playoff_competition'] ?? $bottomDiv;
+        $directCount = (int) ($rule['direct_count'] ?? 0);
+
+        $topRoster = $snapshot->standings($topDiv);
+        $incoming = $incomingByDestination[$topDiv] ?? [];
+        $effectiveTopRoster = $this->effectiveTopRoster($snapshot, $rule, $topRoster, $incoming);
+
+        $out = [];
+        $eligible = $this->eligibleInOrder($snapshot, $snapshot->standings($bottomDiv), $effectiveTopRoster);
+        foreach (array_slice($eligible, 0, $directCount) as $teamId) {
+            $out[] = ['teamId' => $teamId, 'kind' => PromotionMove::REASON_PROMOTION, 'source' => $bottomDiv];
+        }
+
+        $state = $snapshot->playoffState($playoffComp);
+
+        if ($state === PlayoffState::NotStarted) {
+            return $out;
+        }
+
+        if ($state === PlayoffState::InProgress) {
+            throw PlayoffInProgressException::forCompetition($playoffComp);
+        }
+
+        // Completed: the winner takes the top-division spot. The generator
+        // pairs the bottom division's playoff qualifier (e.g. ENG2 2nd)
+        // against the top division's relegation-playoff team (ENG1 13th);
+        // only a bottom-division winner produces a promotion here (a
+        // top-division winner means the status quo holds).
+        $winners = $snapshot->playoffWinners($playoffComp);
+        $winner = $winners[0] ?? null;
+
+        if ($winner !== null && ($snapshot->competitionOf($winner) ?? '') === $bottomDiv) {
+            $taken = array_flip(array_column($out, 'teamId'));
+            if (!isset($taken[$winner])) {
+                $out[] = ['teamId' => $winner, 'kind' => PromotionMove::REASON_PROMOTION_PLAYOFF, 'source' => $bottomDiv];
+            }
+        }
+
+        return $out;
     }
 
     /**

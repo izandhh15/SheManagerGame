@@ -25,13 +25,21 @@ class PlayoffGeneratorFactory
                 // formats (e.g. Primera RFEF, which pulls from both ESP3A and
                 // ESP3B) can declare a list of source divisions via the
                 // optional 'playoff_source_divisions' key so a single
-                // generator instance fires from any of them.
-                $sourceDivisions = $rule['playoff_source_divisions'] ?? [$rule['bottom_division']];
+                // generator instance fires from any of them. Cross-division
+                // playoffs (e.g. the WSL relegation playoff, ENG1 13th vs
+                // ENG2 2nd) use 'playoff_trigger_divisions' instead: the
+                // generator fires when any of those leagues ends, and
+                // determines the other league's participant by simulation.
+                // 'playoff_trigger_divisions' does NOT affect the planner,
+                // which only reads 'playoff_source_divisions'.
+                $triggerDivisions = $rule['playoff_trigger_divisions']
+                    ?? $rule['playoff_source_divisions']
+                    ?? [$rule['bottom_division']];
                 $targetCompetitionId = $rule['playoff_competition'] ?? $rule['bottom_division'];
 
                 // Derive the trigger matchday from the feeder league's team
                 // count. For Primera RFEF's two groups of 20 this is 38.
-                $firstSource = $sourceDivisions[0];
+                $firstSource = $triggerDivisions[0];
                 $tierConfig = collect($flattenedTiers)->first(fn ($t) => $t['competition'] === $firstSource);
                 $teamCount = $tierConfig['teams'] ?? 22;
                 $triggerMatchday = ($teamCount - 1) * 2;
@@ -43,8 +51,8 @@ class PlayoffGeneratorFactory
                     triggerMatchday: $triggerMatchday,
                 );
 
-                foreach ($sourceDivisions as $sourceDivision) {
-                    $this->generators[$sourceDivision] = $generator;
+                foreach ($triggerDivisions as $triggerDivision) {
+                    $this->generators[$triggerDivision] = $generator;
                 }
                 // Also register under the target competition ID so callers
                 // that look up by playoff_competition — notably
@@ -63,10 +71,21 @@ class PlayoffGeneratorFactory
 
     /**
      * Get the playoff generator for a competition.
+     *
+     * Perspective-aware generators (e.g. WSLRelegationPlayoffGenerator,
+     * which answers differently for ENG1 vs ENG2) are returned as a clone
+     * bound to the requested division, so UI code highlighting standings
+     * positions sees the right qualifying slots.
      */
     public function forCompetition(string $competitionId): ?PlayoffGenerator
     {
-        return $this->generators[$competitionId] ?? null;
+        $generator = $this->generators[$competitionId] ?? null;
+
+        if ($generator !== null && method_exists($generator, 'withPerspective')) {
+            return $generator->withPerspective($competitionId);
+        }
+
+        return $generator;
     }
 
     /**
