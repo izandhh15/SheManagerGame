@@ -899,7 +899,7 @@
             "France"
           ],
           "number": "47",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -913,7 +913,7 @@
             "France"
           ],
           "number": "57",
-          "position": "Striker"
+          "position": "Centre-Forward"
         }
       ]
     },
@@ -1244,7 +1244,7 @@
             "France"
           ],
           "number": "9",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2029",
@@ -1314,7 +1314,7 @@
             "Colombia"
           ],
           "number": "25",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -1328,7 +1328,7 @@
             "France"
           ],
           "number": "6",
-          "position": "Defender"
+          "position": "Centre-Back"
         }
       ]
     },
@@ -1976,7 +1976,7 @@
             "France"
           ],
           "number": "7",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -2004,7 +2004,7 @@
             "France"
           ],
           "number": "11",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -2032,7 +2032,7 @@
             "Haiti"
           ],
           "number": "22",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -2433,7 +2433,7 @@
             "France"
           ],
           "number": "34",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -2736,7 +2736,7 @@
             "Switzerland"
           ],
           "number": "11",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -2764,7 +2764,7 @@
             "Congo DR"
           ],
           "number": "42",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -2778,7 +2778,7 @@
             "France"
           ],
           "number": "44",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -2792,7 +2792,7 @@
             "France"
           ],
           "number": "81",
-          "position": "Striker"
+          "position": "Centre-Forward"
         }
       ]
     },
@@ -3123,7 +3123,7 @@
             "France"
           ],
           "number": "9",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -3137,7 +3137,7 @@
             "France"
           ],
           "number": "11",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -3179,7 +3179,7 @@
             "France"
           ],
           "number": "31",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -3193,7 +3193,7 @@
             "France"
           ],
           "number": "33",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -3207,7 +3207,7 @@
             "France"
           ],
           "number": "47",
-          "position": "Striker"
+          "position": "Centre-Forward"
         }
       ]
     },
@@ -3510,7 +3510,7 @@
             "France"
           ],
           "number": "6",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -3524,7 +3524,7 @@
             "France"
           ],
           "number": "7",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -3538,7 +3538,7 @@
             "France"
           ],
           "number": "8",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -3566,7 +3566,7 @@
             "France"
           ],
           "number": "11",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -3594,7 +3594,7 @@
             "France"
           ],
           "number": "34",
-          "position": "Striker"
+          "position": "Centre-Forward"
         }
       ]
     },
@@ -3883,7 +3883,7 @@
             "France"
           ],
           "number": "18",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -3911,7 +3911,7 @@
             "France"
           ],
           "number": "20",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2029",
@@ -4214,7 +4214,7 @@
             "France"
           ],
           "number": "7",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4242,7 +4242,7 @@
             "France"
           ],
           "number": "18",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -4284,7 +4284,7 @@
             "France"
           ],
           "number": "47",
-          "position": "Striker"
+          "position": "Centre-Forward"
         }
       ]
     },
@@ -4601,7 +4601,7 @@
             "France"
           ],
           "number": "9",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -4615,7 +4615,7 @@
             "France"
           ],
           "number": "10",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
