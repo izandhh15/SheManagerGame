@@ -101,16 +101,43 @@ class SeasonInitializationService
         // Odd team counts are supported: LeagueFixtureGenerator inserts an
         // internal bye week (e.g. Seconde Ligue's 11 teams).
 
-        // Real calendars: when schedule.json defines explicit matchups and
-        // this is the base season (the teams the calendar was written for),
+        // Real calendars: when schedule.json defines explicit matchups,
         // resolve transfermarktIds to team UUIDs so the generator uses them.
-        // Later seasons fall back to the circle method.
+        // In later seasons, reuse the explicit calendar too if all its teams
+        // are still in the league (e.g. leagues without pro/rel like MEX1);
+        // otherwise fall back to the circle method.
         $tmIdToTeamId = null;
-        if ($yearDiff === 0 && collect($matchdays)->contains(fn ($md) => !empty($md['matches']))) {
+        $hasExplicitMatches = collect($matchdays)->contains(fn ($md) => !empty($md['matches']));
+        if ($hasExplicitMatches) {
             $tmIdToTeamId = Team::whereIn('id', $teamIds)
                 ->whereNotNull('transfermarkt_id')
                 ->pluck('id', 'transfermarkt_id')
                 ->all();
+
+            // In later seasons, verify the explicit calendar still covers
+            // all teams; if not (pro/rel changed the lineup), fall back to
+            // circle by clearing the mapping.
+            if ($yearDiff !== 0) {
+                $calendarTmIds = [];
+                foreach ($matchdays as $md) {
+                    foreach ($md['matches'] ?? [] as $pair) {
+                        $calendarTmIds[$pair[0]] = true;
+                        $calendarTmIds[$pair[1]] = true;
+                    }
+                }
+                $mappedCount = count(array_intersect_key($calendarTmIds, $tmIdToTeamId));
+                // All game teams must be mappable from the calendar.
+                $allMapped = true;
+                foreach ($teamIds as $tid) {
+                    if (!in_array($tid, $tmIdToTeamId, true)) {
+                        $allMapped = false;
+                        break;
+                    }
+                }
+                if (!$allMapped || $mappedCount < count($teamIds)) {
+                    $tmIdToTeamId = null;
+                }
+            }
         }
 
         $fixtures = $this->leagueFixtureGenerator->generate($teamIds, $matchdays, $tmIdToTeamId);
