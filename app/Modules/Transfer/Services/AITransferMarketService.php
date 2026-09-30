@@ -1028,6 +1028,13 @@ class AITransferMarketService
                 continue;
             }
 
+            // Realism cap: a club never signs from 3+ reputation levels below.
+            // (e.g. an elite 1st-division club doesn't shop in the 4th tier —
+            // no 2ª RFEF player goes straight to Liga F.)
+            if ($sellerRepIndex - $buyerRepIndex > 2) {
+                continue;
+            }
+
             // Squad size check using delta tracking
             $effectiveSize = $players->count() + ($teamSizeDeltas->get($teamId, 0));
             if ($effectiveSize >= self::MAX_SQUAD_SIZE) {
