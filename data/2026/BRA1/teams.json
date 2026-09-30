@@ -1,0 +1,7504 @@
+{
+  "id": "BRA1",
+  "name": "Campeonato Brasileiro de Futebol Feminino Série A1",
+  "seasonID": "2026",
+  "clubs": [
+    {
+      "image": "",
+      "name": "América Mineiro",
+      "stadiumName": "Arena Gregorão",
+      "stadiumSeats": 4000,
+      "transfermarktId": 94014,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 1, 1998",
+          "foot": "",
+          "height": "1,81 m",
+          "id": "941635",
+          "marketValue": null,
+          "name": "Taluane",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "22",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "left",
+          "height": "1,58 m",
+          "id": "941636",
+          "marketValue": null,
+          "name": "Vitória Kaíssa",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941637",
+          "marketValue": null,
+          "name": "Daise",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "1,70 m",
+          "id": "941638",
+          "marketValue": null,
+          "name": "Mimi",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941639",
+          "marketValue": null,
+          "name": "Taina Ingrid",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 8, 2001",
+          "foot": "",
+          "height": "1,67 m",
+          "id": "941640",
+          "marketValue": null,
+          "name": "Maiara",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 9, 1994",
+          "foot": "both",
+          "height": "1,68 m",
+          "id": "941641",
+          "marketValue": null,
+          "name": "Ilana",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "6",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941642",
+          "marketValue": null,
+          "name": "Radija",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "11",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "both",
+          "height": "1,70 m",
+          "id": "941643",
+          "marketValue": null,
+          "name": "Hingredy",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "13",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "right",
+          "height": "",
+          "id": "941644",
+          "marketValue": null,
+          "name": "Laís Giacomel",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "16",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 6, 2003",
+          "foot": "right",
+          "height": "1,54 m",
+          "id": "941645",
+          "marketValue": null,
+          "name": "Alice",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "21",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "1,73 m",
+          "id": "941646",
+          "marketValue": null,
+          "name": "Priscila",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "25",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "right",
+          "height": "1,65 m",
+          "id": "941647",
+          "marketValue": null,
+          "name": "Rafa Levis",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 2, 1996",
+          "foot": "right",
+          "height": "1,58 m",
+          "id": "941648",
+          "marketValue": null,
+          "name": "Karol Dias",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "2",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "right",
+          "height": "1,66 m",
+          "id": "941649",
+          "marketValue": null,
+          "name": "Ana Clara",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "3",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 25, 2003",
+          "foot": "",
+          "height": "",
+          "id": "941650",
+          "marketValue": null,
+          "name": "Ana Flavia",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "5",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 11, 2003",
+          "foot": "right",
+          "height": "1,68 m",
+          "id": "941652",
+          "marketValue": null,
+          "name": "Thayná",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "30",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "1,50 m",
+          "id": "941653",
+          "marketValue": null,
+          "name": "Emily Arias",
+          "nationality": [
+            "Ecuador"
+          ],
+          "number": "",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 7, 1996",
+          "foot": "right",
+          "height": "1,60 m",
+          "id": "941654",
+          "marketValue": null,
+          "name": "Lilian",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "7",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": "941655",
+          "marketValue": null,
+          "name": "Iara",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "14",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 18, 1997",
+          "foot": "",
+          "height": "",
+          "id": "941656",
+          "marketValue": null,
+          "name": "Mariana Andrade",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "15",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 4, 2003",
+          "foot": "",
+          "height": "1,67 m",
+          "id": "941657",
+          "marketValue": null,
+          "name": "Taysa Silva",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "19",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "",
+      "name": "Atlético Mineiro",
+      "stadiumName": "Cidade do Galo",
+      "stadiumSeats": 1000,
+      "transfermarktId": 94013,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 27, 2002",
+          "foot": "",
+          "height": "1,63 m",
+          "id": "941601",
+          "marketValue": null,
+          "name": "Marcelle",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941602",
+          "marketValue": null,
+          "name": "Iasmin Paixão",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "12",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 6, 2003",
+          "foot": "right",
+          "height": "1,69 m",
+          "id": "941603",
+          "marketValue": null,
+          "name": "Awanny",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "30",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 30, 2003",
+          "foot": "both",
+          "height": "",
+          "id": "941604",
+          "marketValue": null,
+          "name": "Ingrid Buzzini",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "2",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 3, 2003",
+          "foot": "",
+          "height": "",
+          "id": "941605",
+          "marketValue": null,
+          "name": "Raiara",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 12, 2002",
+          "foot": "",
+          "height": "",
+          "id": "941606",
+          "marketValue": null,
+          "name": "Isa Matos",
+          "nationality": [
+            "Brazil",
+            "Nigeria"
+          ],
+          "number": "14",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "left",
+          "height": "",
+          "id": "941607",
+          "marketValue": null,
+          "name": "Jaqueline Canário",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "23",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "left",
+          "height": "",
+          "id": "941608",
+          "marketValue": null,
+          "name": "Ana Clara Santos",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "26",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "1,68 m",
+          "id": "941609",
+          "marketValue": null,
+          "name": "Fernanda Guedes",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "26",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941610",
+          "marketValue": null,
+          "name": "Lorena",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "28",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "right",
+          "height": "1,81 m",
+          "id": "941611",
+          "marketValue": null,
+          "name": "Thamirys",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "29",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "right",
+          "height": "1,60 m",
+          "id": "941612",
+          "marketValue": null,
+          "name": "Rafa Travalão",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "right",
+          "height": "",
+          "id": "941613",
+          "marketValue": null,
+          "name": "Taba",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "5",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941614",
+          "marketValue": null,
+          "name": "Magna",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "7",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "left",
+          "height": "",
+          "id": "941615",
+          "marketValue": null,
+          "name": "Tuca",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "10",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 20, 2006",
+          "foot": "",
+          "height": "",
+          "id": "941616",
+          "marketValue": null,
+          "name": "Maria Coutinho",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "13",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 20, 1999",
+          "foot": "",
+          "height": "",
+          "id": "941617",
+          "marketValue": null,
+          "name": "Juliana Pacheco",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "15",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 28, 2002",
+          "foot": "",
+          "height": "1,58 m",
+          "id": "941618",
+          "marketValue": null,
+          "name": "Duda Batista",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "18",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 4, 1998",
+          "foot": "",
+          "height": "",
+          "id": "941619",
+          "marketValue": null,
+          "name": "Luana Rodrigues",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "23",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 28, 1999",
+          "foot": "left",
+          "height": "",
+          "id": "941620",
+          "marketValue": null,
+          "name": "Karol Alves",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "24",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 9, 2002",
+          "foot": "right",
+          "height": "1,48 m",
+          "id": "941621",
+          "marketValue": null,
+          "name": "Nayra Pimentinha",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "25",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941622",
+          "marketValue": null,
+          "name": "Ana Rodrigues",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "31",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "left",
+          "height": "1,72 m",
+          "id": "941623",
+          "marketValue": null,
+          "name": "Tay",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "32",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 28, 1994",
+          "foot": "right",
+          "height": "1,66 m",
+          "id": "941624",
+          "marketValue": null,
+          "name": "Kika Brandino",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "33",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 21, 1989",
+          "foot": "",
+          "height": "",
+          "id": "941625",
+          "marketValue": null,
+          "name": "Aninha",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "70",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "right",
+          "height": "1,70 m",
+          "id": "941626",
+          "marketValue": null,
+          "name": "Jayanne",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "77",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "1,65 m",
+          "id": "941627",
+          "marketValue": null,
+          "name": "Cindy Ramos",
+          "nationality": [
+            "Paraguay"
+          ],
+          "number": "",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941628",
+          "marketValue": null,
+          "name": "Cynthia",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 22, 1999",
+          "foot": "",
+          "height": "",
+          "id": "941629",
+          "marketValue": null,
+          "name": "Laura Maria",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "8",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "right",
+          "height": "",
+          "id": "941630",
+          "marketValue": null,
+          "name": "Gabizinha",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "11",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941631",
+          "marketValue": null,
+          "name": "Amalia",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "17",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941632",
+          "marketValue": null,
+          "name": "Sheila",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "21",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 7, 1998",
+          "foot": "right",
+          "height": "1,73 m",
+          "id": "941633",
+          "marketValue": null,
+          "name": "Milena",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "27",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Bahia",
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 7, 2003",
+          "foot": "",
+          "height": "1,71",
+          "id": "941207",
+          "marketValue": null,
+          "name": "Yanne",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 22, 1991",
+          "foot": "right",
+          "height": "1,76",
+          "id": "941208",
+          "marketValue": null,
+          "name": "Dida",
+          "nationality": [
+            "Brazil",
+            "Equatorial Guinea"
+          ],
+          "number": null,
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 19, 1996",
+          "foot": "",
+          "height": "1,73",
+          "id": "941210",
+          "marketValue": null,
+          "name": "Camila",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 1,
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 28, 2003",
+          "foot": "",
+          "height": "",
+          "id": "941211",
+          "marketValue": null,
+          "name": "Monique",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 31,
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941212",
+          "marketValue": null,
+          "name": "Sabrina Camatta",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 21, 2003",
+          "foot": "left",
+          "height": "",
+          "id": "941213",
+          "marketValue": null,
+          "name": "Jamille Oliveira",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 21, 2002",
+          "foot": "right",
+          "height": "1,70",
+          "id": "941214",
+          "marketValue": null,
+          "name": "Ariely",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 2,
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 14, 1996",
+          "foot": "",
+          "height": "",
+          "id": "941215",
+          "marketValue": null,
+          "name": "Thayná",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 3,
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 19, 1999",
+          "foot": "",
+          "height": "1,72",
+          "id": "941216",
+          "marketValue": null,
+          "name": "Aila",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 3,
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 31, 1990",
+          "foot": "right",
+          "height": "1,80",
+          "id": "941217",
+          "marketValue": null,
+          "name": "Letícia Fagundes",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 14,
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 29, 1990",
+          "foot": "",
+          "height": "1,52",
+          "id": "941218",
+          "marketValue": null,
+          "name": "Di Menor",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 16,
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 27, 1993",
+          "foot": "",
+          "height": "",
+          "id": "941219",
+          "marketValue": null,
+          "name": "Kaylane",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 18, 2002",
+          "foot": "",
+          "height": "",
+          "id": "941220",
+          "marketValue": null,
+          "name": "Cynthia",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "1,56",
+          "id": "941221",
+          "marketValue": null,
+          "name": "Ángela Gómez",
+          "nationality": [
+            "Uruguay"
+          ],
+          "number": null,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 9, 2001",
+          "foot": "",
+          "height": "",
+          "id": "941222",
+          "marketValue": null,
+          "name": "Mila Santos",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 2,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 7, 1997",
+          "foot": "",
+          "height": "",
+          "id": "941223",
+          "marketValue": null,
+          "name": "Tchula",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 4,
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 23, 1985",
+          "foot": "left",
+          "height": "1,64",
+          "id": "941224",
+          "marketValue": null,
+          "name": "Faby",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 8,
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 19, 2002",
+          "foot": "",
+          "height": "1,60",
+          "id": "941225",
+          "marketValue": null,
+          "name": "Flávia Pissaia",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 10,
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 24, 1996",
+          "foot": "right",
+          "height": "1,66",
+          "id": "941226",
+          "marketValue": null,
+          "name": "Aryane",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 11,
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 21, 2001",
+          "foot": "",
+          "height": "1,70",
+          "id": "941227",
+          "marketValue": null,
+          "name": "Lany",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 15,
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 23, 2003",
+          "foot": "",
+          "height": "",
+          "id": "941228",
+          "marketValue": null,
+          "name": "Lais",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 19,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 26, 1988",
+          "foot": "",
+          "height": "",
+          "id": "941229",
+          "marketValue": null,
+          "name": "Vilma",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 20,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 9, 2001",
+          "foot": "",
+          "height": "",
+          "id": "941230",
+          "marketValue": null,
+          "name": "Suelen",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 21,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 14, 2003",
+          "foot": "",
+          "height": "",
+          "id": "941231",
+          "marketValue": null,
+          "name": "Kaiuska",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 24,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 11, 2006",
+          "foot": "",
+          "height": "1,70",
+          "id": "941232",
+          "marketValue": "€10k",
+          "name": "Maia Kamper Rodrigues",
+          "nationality": [
+            "Brazil",
+            "Germany"
+          ],
+          "number": null,
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Aug 8, 2003",
+          "foot": "right",
+          "height": "1,65",
+          "id": "941233",
+          "marketValue": null,
+          "name": "Raissa Silva",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 28, 2002",
+          "foot": "right",
+          "height": "1,57",
+          "id": "941234",
+          "marketValue": null,
+          "name": "Wendy Carballo",
+          "nationality": [
+            "Uruguay"
+          ],
+          "number": null,
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 16, 1994",
+          "foot": "right",
+          "height": "1,66",
+          "id": "941235",
+          "marketValue": null,
+          "name": "Dan Nunes",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 2,
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 30, 1998",
+          "foot": "right",
+          "height": "1,69",
+          "id": "941236",
+          "marketValue": null,
+          "name": "Juliana Silva",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 7,
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 28, 1998",
+          "foot": "",
+          "height": "1,62",
+          "id": "941237",
+          "marketValue": null,
+          "name": "Ellen Santana",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 10,
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 4, 1995",
+          "foot": "",
+          "height": "1,73",
+          "id": "941238",
+          "marketValue": null,
+          "name": "Zai Miúda",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 19,
+          "position": "Centre-Forward"
+        }
+      ],
+      "stadiumName": null,
+      "stadiumSeats": null,
+      "transfermarktId": 94006
+    },
+    {
+      "image": "",
+      "name": "Botafogo",
+      "stadiumName": "Estádio Olímpico Nilton Santos",
+      "stadiumSeats": 60000,
+      "transfermarktId": 94015,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "1,77 m",
+          "id": "941658",
+          "marketValue": null,
+          "name": "Yasmim",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "1,74 m",
+          "id": "941659",
+          "marketValue": null,
+          "name": "Michelle",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "12",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 2, 2003",
+          "foot": "",
+          "height": "",
+          "id": "941660",
+          "marketValue": null,
+          "name": "Maria Alyce",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "19",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 11, 2003",
+          "foot": "",
+          "height": "1,66 m",
+          "id": "941661",
+          "marketValue": null,
+          "name": "Sassá",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "1,70 m",
+          "id": "941662",
+          "marketValue": null,
+          "name": "Thaynara Cristina",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "right",
+          "height": "1,67 m",
+          "id": "941663",
+          "marketValue": null,
+          "name": "Fran Bonfanti",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 20, 1995",
+          "foot": "left",
+          "height": "1,61 m",
+          "id": "941664",
+          "marketValue": null,
+          "name": "Natane Locatelli",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 22, 1997",
+          "foot": "right",
+          "height": "1,67 m",
+          "id": "941665",
+          "marketValue": null,
+          "name": "Sinara",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 14, 2000",
+          "foot": "",
+          "height": "",
+          "id": "941666",
+          "marketValue": null,
+          "name": "Bruh",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "2",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 1, 2002",
+          "foot": "",
+          "height": "",
+          "id": "941667",
+          "marketValue": null,
+          "name": "Natalie Nalon",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "right",
+          "height": "1,74 m",
+          "id": "941668",
+          "marketValue": null,
+          "name": "Káren Bender",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 23, 1999",
+          "foot": "both",
+          "height": "1,58 m",
+          "id": "941669",
+          "marketValue": null,
+          "name": "Bárbara Santos",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "14",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "right",
+          "height": "1,62 m",
+          "id": "941670",
+          "marketValue": null,
+          "name": "Sabrina Kathleen",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "17",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "right",
+          "height": "",
+          "id": "941671",
+          "marketValue": null,
+          "name": "Jéssica Baiana",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "21",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 13, 2003",
+          "foot": "right",
+          "height": "1,75 m",
+          "id": "941672",
+          "marketValue": null,
+          "name": "Kewllen",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "25",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 3, 1993",
+          "foot": "right",
+          "height": "1,65 m",
+          "id": "941673",
+          "marketValue": null,
+          "name": "Florencia Salazar",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "28",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "right",
+          "height": "1,72 m",
+          "id": "941674",
+          "marketValue": null,
+          "name": "Thamires",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "29",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 13, 2003",
+          "foot": "",
+          "height": "",
+          "id": "941675",
+          "marketValue": null,
+          "name": "Raiani",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "44",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "right",
+          "height": "1,62 m",
+          "id": "941676",
+          "marketValue": null,
+          "name": "Rita Bove",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "1,66 m",
+          "id": "941678",
+          "marketValue": null,
+          "name": "Driely",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "5",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 14, 1999",
+          "foot": "",
+          "height": "1,59 m",
+          "id": "941679",
+          "marketValue": null,
+          "name": "Vitorinha",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941680",
+          "marketValue": null,
+          "name": "Japa",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "10",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 22, 1995",
+          "foot": "right",
+          "height": "1,56 m",
+          "id": "941681",
+          "marketValue": null,
+          "name": "Mayara Vaz",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "30",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941682",
+          "marketValue": null,
+          "name": "Amanda",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "31",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941683",
+          "marketValue": null,
+          "name": "Carol",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 28, 1994",
+          "foot": "right",
+          "height": "1,76 m",
+          "id": "941684",
+          "marketValue": null,
+          "name": "Fernanda Tipa",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "right",
+          "height": "1,75 m",
+          "id": "941685",
+          "marketValue": null,
+          "name": "Kélen Bender",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "11",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 27, 2002",
+          "foot": "",
+          "height": "",
+          "id": "941686",
+          "marketValue": null,
+          "name": "Vânia",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "22",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "1,60 m",
+          "id": "941688",
+          "marketValue": null,
+          "name": "Pâmela",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "48",
+          "position": "Right Winger"
+        }
+      ]
+    },
+    {
+      "image": "",
+      "name": "Corinthians",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 94001,
+      "players": [
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Nov 30, 2008",
+          "foot": "right",
+          "height": "1,71 m",
+          "id": "941001",
+          "marketValue": null,
+          "name": "Ana Morganti",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Dec 31, 2028",
+          "dateOfBirth": "Apr 13, 2000",
+          "foot": "right",
+          "height": "1,70 m",
+          "id": "941002",
+          "marketValue": null,
+          "name": "Nicole",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Aug 13, 1994",
+          "foot": "right",
+          "height": "1,75 m",
+          "id": "941003",
+          "marketValue": null,
+          "name": "Lelê",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "12",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Jul 10, 2005",
+          "foot": "right",
+          "height": "1,70 m",
+          "id": "941004",
+          "marketValue": null,
+          "name": "Rillary",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "32",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "May 20, 1993",
+          "foot": "right",
+          "height": "1,65 m",
+          "id": "941005",
+          "marketValue": "€45k",
+          "name": "Agustina Barroso",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "May 9, 2000",
+          "foot": "left",
+          "height": "1,77 m",
+          "id": "941006",
+          "marketValue": null,
+          "name": "Letícia Teles",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Mar 27, 1999",
+          "foot": "right",
+          "height": "1,65 m",
+          "id": "941007",
+          "marketValue": null,
+          "name": "Thaís Regina",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Dec 31, 2028",
+          "dateOfBirth": "May 1, 1996",
+          "foot": "right",
+          "height": "1,65 m",
+          "id": "941008",
+          "marketValue": null,
+          "name": "Thaís Ferreira",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "5",
+          "position": "Defender"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Feb 26, 1989",
+          "foot": "left",
+          "height": "1,60 m",
+          "id": "941009",
+          "marketValue": null,
+          "name": "Juliete",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "22",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Dec 4, 2004",
+          "foot": "left",
+          "height": "1,67 m",
+          "id": "941010",
+          "marketValue": null,
+          "name": "Duda Mineira",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "33",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Oct 10, 1987",
+          "foot": "left",
+          "height": "1,60 m",
+          "id": "941011",
+          "marketValue": null,
+          "name": "Tamires",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "37",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Feb 4, 1988",
+          "foot": "right",
+          "height": "1,72 m",
+          "id": "941012",
+          "marketValue": null,
+          "name": "Érika",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "99",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Feb 28, 1985",
+          "foot": "right",
+          "height": "1,70 m",
+          "id": "941014",
+          "marketValue": null,
+          "name": "Gabi Zanotti",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "10",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Mar 23, 2000",
+          "foot": "left",
+          "height": "1,60 m",
+          "id": "941015",
+          "marketValue": null,
+          "name": "Juliana Passari",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "15",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Mar 14, 1998",
+          "foot": "right",
+          "height": "1,65 m",
+          "id": "941016",
+          "marketValue": null,
+          "name": "Vic Albuquerque",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "17",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Jul 13, 2002",
+          "foot": "",
+          "height": "1,60 m",
+          "id": "941017",
+          "marketValue": null,
+          "name": "Letícia Monteiro",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "19",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Dec 31, 2028",
+          "dateOfBirth": "Jul 24, 1993",
+          "foot": "",
+          "height": "1,66 m",
+          "id": "941018",
+          "marketValue": null,
+          "name": "Paola García",
+          "nationality": [
+            "Colombia"
+          ],
+          "number": "20",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Dec 31, 2028",
+          "dateOfBirth": "Dec 23, 2004",
+          "foot": "",
+          "height": "1,72 m",
+          "id": "941019",
+          "marketValue": null,
+          "name": "Gi Fernandes",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "23",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Dec 31, 2028",
+          "dateOfBirth": "May 18, 2001",
+          "foot": "right",
+          "height": "1,69 m",
+          "id": "941020",
+          "marketValue": null,
+          "name": "Duda Sampaio",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "27",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Dec 31, 2028",
+          "dateOfBirth": "Oct 20, 2001",
+          "foot": "left",
+          "height": "1,56 m",
+          "id": "941021",
+          "marketValue": null,
+          "name": "Dayana Rodríguez",
+          "nationality": [
+            "Venezuela"
+          ],
+          "number": "31",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Dec 31, 2028",
+          "dateOfBirth": "Mar 6, 2000",
+          "foot": "right",
+          "height": "1,73 m",
+          "id": "941022",
+          "marketValue": "€70k",
+          "name": "Ana Vitória",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "88",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "May 13, 2003",
+          "foot": "right",
+          "height": "1,58 m",
+          "id": "941023",
+          "marketValue": null,
+          "name": "Gisela Robledo",
+          "nationality": [
+            "Colombia"
+          ],
+          "number": "7",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Nov 10, 1992",
+          "foot": "left",
+          "height": "1,70 m",
+          "id": "941024",
+          "marketValue": null,
+          "name": "Andressa Alves",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "9",
+          "position": "Second Striker"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Mar 12, 2001",
+          "foot": "right",
+          "height": "1,64 m",
+          "id": "941025",
+          "marketValue": null,
+          "name": "Ivana Fuso",
+          "nationality": [
+            "Brazil",
+            "Germany"
+          ],
+          "number": "13",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Mar 13, 2006",
+          "foot": "",
+          "height": "1,67 m",
+          "id": "941026",
+          "marketValue": null,
+          "name": "Manu Olivan",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "18",
+          "position": "Striker"
+        },
+        {
+          "contract": "Dec 31, 2028",
+          "dateOfBirth": "Feb 1, 2002",
+          "foot": "right",
+          "height": "1,60 m",
+          "id": "941027",
+          "marketValue": null,
+          "name": "Belén Aquino",
+          "nationality": [
+            "Uruguay"
+          ],
+          "number": "25",
+          "position": "Striker"
+        },
+        {
+          "contract": "Dec 31, 2028",
+          "dateOfBirth": "Nov 29, 1998",
+          "foot": "right",
+          "height": "1,62 m",
+          "id": "941028",
+          "marketValue": null,
+          "name": "Rhaizza",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "29",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Mar 31, 2000",
+          "foot": "right",
+          "height": "1,72 m",
+          "id": "941029",
+          "marketValue": null,
+          "name": "Jaqueline",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "30",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Dec 31, 2028",
+          "dateOfBirth": "Oct 13, 2005",
+          "foot": "right",
+          "height": "1,74 m",
+          "id": "941030",
+          "marketValue": null,
+          "name": "Jhonson",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "40",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "May 5, 2003",
+          "foot": "right",
+          "height": "1,73 m",
+          "id": "941031",
+          "marketValue": null,
+          "name": "Ellen",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "47",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Nov 3, 1992",
+          "foot": "right",
+          "height": "1,65 m",
+          "id": "941032",
+          "marketValue": null,
+          "name": "Carol Noguiera",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "77",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Sep 12, 1994",
+          "foot": "right",
+          "height": "1,74 m",
+          "id": "941033",
+          "marketValue": null,
+          "name": "Ariel Godoi",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "94",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Cruzeiro",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "players": [
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Jul 22, 2002",
+          "foot": "right",
+          "height": "1,90",
+          "id": "941301",
+          "marketValue": null,
+          "name": "Cláudia",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Jun 29, 2005",
+          "foot": "right",
+          "height": "1,73",
+          "id": "941302",
+          "marketValue": null,
+          "name": "Leilane",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Jan 2, 2001",
+          "foot": "right",
+          "height": "1,70",
+          "id": "941303",
+          "marketValue": null,
+          "name": "Camila Rodrigues",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 10, 1995",
+          "foot": "right",
+          "height": "1,77",
+          "id": "941304",
+          "marketValue": null,
+          "name": "Taty Amaro",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 31,
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 12, 2002",
+          "foot": "",
+          "height": "",
+          "id": "941305",
+          "marketValue": null,
+          "name": "Layza",
+          "nationality": [
+            "Brazil",
+            "Portugal"
+          ],
+          "number": null,
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 3, 1998",
+          "foot": "right",
+          "height": "1,60",
+          "id": "941306",
+          "marketValue": null,
+          "name": "Laura Felipe",
+          "nationality": [
+            "Uruguay"
+          ],
+          "number": null,
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "May 3, 1996",
+          "foot": "right",
+          "height": "1,70",
+          "id": "941307",
+          "marketValue": null,
+          "name": "Yeni Giménez",
+          "nationality": [
+            "Venezuela"
+          ],
+          "number": null,
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Apr 21, 1999",
+          "foot": "right",
+          "height": "1,74",
+          "id": "941308",
+          "marketValue": "€20k",
+          "name": "Tainara",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Jul 27, 2001",
+          "foot": "left",
+          "height": "1,52",
+          "id": "941309",
+          "marketValue": null,
+          "name": "Gisseli",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Jun 12, 1997",
+          "foot": "right",
+          "height": "1,63",
+          "id": "941310",
+          "marketValue": "€12.5k",
+          "name": "Michelle Romero",
+          "nationality": [
+            "Venezuela"
+          ],
+          "number": null,
+          "position": "Defender"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Sep 21, 2003",
+          "foot": "",
+          "height": "",
+          "id": "941311",
+          "marketValue": null,
+          "name": "Letícia Alves",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Dec 31, 2028",
+          "dateOfBirth": "Jun 5, 2000",
+          "foot": "left",
+          "height": "1,70",
+          "id": "941313",
+          "marketValue": null,
+          "name": "Vitória Calhau",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 33,
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Aug 23, 1999",
+          "foot": "",
+          "height": "",
+          "id": "941314",
+          "marketValue": null,
+          "name": "Paloma Maciel",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 99,
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 22, 1998",
+          "foot": "right",
+          "height": "1,62",
+          "id": "941315",
+          "marketValue": null,
+          "name": "Zóio",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "May 10, 2005",
+          "foot": "",
+          "height": "1,57",
+          "id": "941316",
+          "marketValue": null,
+          "name": "Gabriela Rodríguez",
+          "nationality": [
+            "Colombia"
+          ],
+          "number": null,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 10, 1991",
+          "foot": "",
+          "height": "1,67",
+          "id": "941317",
+          "marketValue": null,
+          "name": "Pri Back",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 6, 1997",
+          "foot": "both",
+          "height": "1,70",
+          "id": "941318",
+          "marketValue": null,
+          "name": "Lorena Bedoya",
+          "nationality": [
+            "Colombia"
+          ],
+          "number": null,
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 22, 1996",
+          "foot": "right",
+          "height": "1,72",
+          "id": "941319",
+          "marketValue": null,
+          "name": "Camila Ambrózio",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 14,
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 24, 1995",
+          "foot": "",
+          "height": "1,63",
+          "id": "941320",
+          "marketValue": null,
+          "name": "Gaby Soares",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 95,
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 29, 1994",
+          "foot": "right",
+          "height": "1,70",
+          "id": "941321",
+          "marketValue": null,
+          "name": "Patrícia Sochor",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Striker"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Nov 8, 2000",
+          "foot": "right",
+          "height": "1,68",
+          "id": "941322",
+          "marketValue": null,
+          "name": "Letícia Ferreira",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 28, 1992",
+          "foot": "both",
+          "height": "1,73",
+          "id": "941323",
+          "marketValue": null,
+          "name": "Gio Oliveira",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Striker"
+        },
+        {
+          "contract": "Dec 31, 2028",
+          "dateOfBirth": "Jul 25, 2008",
+          "foot": "right",
+          "height": "1,69",
+          "id": "941324",
+          "marketValue": null,
+          "name": "Ravenna",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Jan 18, 1997",
+          "foot": "",
+          "height": "",
+          "id": "941325",
+          "marketValue": null,
+          "name": "Vanessinha",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 7,
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Dec 31, 2028",
+          "dateOfBirth": "Nov 23, 1995",
+          "foot": "right",
+          "height": "1,70",
+          "id": "941326",
+          "marketValue": null,
+          "name": "Byanca Brasil",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 10,
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 31, 1998",
+          "foot": "right",
+          "height": "1,59",
+          "id": "941327",
+          "marketValue": null,
+          "name": "Miriã",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 11,
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 27, 1999",
+          "foot": "right",
+          "height": "1,68",
+          "id": "941328",
+          "marketValue": null,
+          "name": "Fabíola Sandoval",
+          "nationality": [
+            "Paraguay"
+          ],
+          "number": 17,
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 28, 1992",
+          "foot": "right",
+          "height": "1,69",
+          "id": "941329",
+          "marketValue": null,
+          "name": "Maiara Lisboa",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 18,
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 27, 2003",
+          "foot": "",
+          "height": "",
+          "id": "941330",
+          "marketValue": null,
+          "name": "Marília",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 20,
+          "position": "Striker"
+        }
+      ],
+      "transfermarktId": 94007
+    },
+    {
+      "image": null,
+      "name": "Ferroviária",
+      "players": [
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Jul 24, 1987",
+          "foot": "",
+          "height": "1,72",
+          "id": "941151",
+          "marketValue": null,
+          "name": "Luciana",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 1,
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 15, 2002",
+          "foot": "",
+          "height": "1,76",
+          "id": "941152",
+          "marketValue": null,
+          "name": "Amanda Coimbra",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 12,
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 7, 2007",
+          "foot": "right",
+          "height": "1,80",
+          "id": "941153",
+          "marketValue": null,
+          "name": "Isa Faichel",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 23,
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 8, 1994",
+          "foot": "right",
+          "height": "1,60",
+          "id": "941155",
+          "marketValue": null,
+          "name": "Kati",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 2,
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 3, 2005",
+          "foot": "",
+          "height": "1,80",
+          "id": "941156",
+          "marketValue": null,
+          "name": "Monique",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 3,
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 8, 1998",
+          "foot": "right",
+          "height": "1,66",
+          "id": "941157",
+          "marketValue": null,
+          "name": "Luana",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 4,
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 23, 1987",
+          "foot": "left",
+          "height": "1,58",
+          "id": "941158",
+          "marketValue": null,
+          "name": "Barrinha",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 6,
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Aug 18, 2005",
+          "foot": "right",
+          "height": "1,76",
+          "id": "941159",
+          "marketValue": null,
+          "name": "Grazy",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 13,
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Dec 5, 2000",
+          "foot": "left",
+          "height": "1,70",
+          "id": "941160",
+          "marketValue": null,
+          "name": "Camila",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 20,
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Dec 8, 1999",
+          "foot": "left",
+          "height": "1,64",
+          "id": "941161",
+          "marketValue": null,
+          "name": "Fátima Dutra",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 25,
+          "position": "Defender"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 6, 1998",
+          "foot": "right",
+          "height": "1,66",
+          "id": "941162",
+          "marketValue": null,
+          "name": "Sissi",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 30,
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 12, 1999",
+          "foot": "right",
+          "height": "1,77",
+          "id": "941163",
+          "marketValue": null,
+          "name": "Andressa",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 74,
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 14, 1997",
+          "foot": "",
+          "height": "1,58",
+          "id": "941164",
+          "marketValue": null,
+          "name": "Nicoly",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 5,
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Sep 26, 2000",
+          "foot": "right",
+          "height": "1,59",
+          "id": "941165",
+          "marketValue": null,
+          "name": "Micaelly",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 10,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 20, 2000",
+          "foot": "right",
+          "height": "1,64",
+          "id": "941166",
+          "marketValue": null,
+          "name": "Raquel",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 22,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 11, 2004",
+          "foot": "",
+          "height": "1,62",
+          "id": "941167",
+          "marketValue": null,
+          "name": "Kaylaine",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 35,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 23, 2004",
+          "foot": "",
+          "height": "",
+          "id": "941168",
+          "marketValue": null,
+          "name": "Dos Santos",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Sep 26, 1992",
+          "foot": "right",
+          "height": "1,86",
+          "id": "941169",
+          "marketValue": null,
+          "name": "Patrícia Seteco",
+          "nationality": [
+            "Angola"
+          ],
+          "number": null,
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 25, 2005",
+          "foot": "",
+          "height": "1,64",
+          "id": "941170",
+          "marketValue": null,
+          "name": "Vendito",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 9,
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Feb 24, 1998",
+          "foot": "right",
+          "height": "1,66",
+          "id": "941171",
+          "marketValue": null,
+          "name": "Mariana Santos",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 11,
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Feb 7, 2001",
+          "foot": "right",
+          "height": "1,62",
+          "id": "941172",
+          "marketValue": null,
+          "name": "Júlia Beatriz",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 17,
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 27, 2006",
+          "foot": "right",
+          "height": "1,63",
+          "id": "941173",
+          "marketValue": null,
+          "name": "Dudinha",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 21,
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Aug 31, 1996",
+          "foot": "left",
+          "height": "1,63",
+          "id": "941174",
+          "marketValue": null,
+          "name": "Catyellen",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 24,
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Aug 5, 1996",
+          "foot": "right",
+          "height": "1,67",
+          "id": "941175",
+          "marketValue": null,
+          "name": "Naná",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 88,
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 30, 1994",
+          "foot": "right",
+          "height": "1,64",
+          "id": "941176",
+          "marketValue": null,
+          "name": "Neném",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 99,
+          "position": "Striker"
+        }
+      ],
+      "stadiumName": null,
+      "stadiumSeats": null,
+      "transfermarktId": 94004
+    },
+    {
+      "image": null,
+      "name": "Flamengo",
+      "players": [
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Oct 19, 2007",
+          "foot": "",
+          "height": "1,71",
+          "id": "941177",
+          "marketValue": null,
+          "name": "Doménica Palacios",
+          "nationality": [
+            "Ecuador"
+          ],
+          "number": null,
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Sep 15, 1989",
+          "foot": "",
+          "height": "1,66",
+          "id": "941178",
+          "marketValue": null,
+          "name": "Vivi Holzel",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 7, 2003",
+          "foot": "",
+          "height": "1,70",
+          "id": "941179",
+          "marketValue": null,
+          "name": "Gabi Barbieri",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 1,
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 30, 1997",
+          "foot": "right",
+          "height": "1,70",
+          "id": "941180",
+          "marketValue": null,
+          "name": "Karol Alves",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 23,
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 28, 2004",
+          "foot": "",
+          "height": "",
+          "id": "941181",
+          "marketValue": null,
+          "name": "Bibi",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 25,
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 29, 2004",
+          "foot": "",
+          "height": "1,65",
+          "id": "941182",
+          "marketValue": null,
+          "name": "Isa Cruz",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 37,
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Feb 20, 1995",
+          "foot": "left",
+          "height": "1,63",
+          "id": "941183",
+          "marketValue": null,
+          "name": "Chai",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941184",
+          "marketValue": null,
+          "name": "Giovanna Barraca",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 7, 1998",
+          "foot": "right",
+          "height": "1,67",
+          "id": "941185",
+          "marketValue": null,
+          "name": "Monalisa Belém",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 2,
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 6, 2003",
+          "foot": "right",
+          "height": "1,79",
+          "id": "941186",
+          "marketValue": null,
+          "name": "Núbia",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 14,
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 15, 2003",
+          "foot": "",
+          "height": "",
+          "id": "941187",
+          "marketValue": null,
+          "name": "Diovanna",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 16,
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 4, 1989",
+          "foot": "right",
+          "height": "1,63",
+          "id": "941188",
+          "marketValue": null,
+          "name": "Fabi Simões",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 20,
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941189",
+          "marketValue": null,
+          "name": "Lorena",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 29,
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 2, 2004",
+          "foot": "",
+          "height": "1,75",
+          "id": "941190",
+          "marketValue": null,
+          "name": "Mariana Barbieri",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 36,
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 3, 1993",
+          "foot": "",
+          "height": "1,73",
+          "id": "941191",
+          "marketValue": null,
+          "name": "Jucinara Paz",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 81,
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Dec 22, 1991",
+          "foot": "right",
+          "height": "1,58",
+          "id": "941192",
+          "marketValue": null,
+          "name": "Ju Ferreira",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Jun 23, 2002",
+          "foot": "left",
+          "height": "1,60",
+          "id": "941193",
+          "marketValue": null,
+          "name": "Maísa Caverzan",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Left Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 10, 2008",
+          "foot": "",
+          "height": "1,58",
+          "id": "941194",
+          "marketValue": null,
+          "name": "Yasmim Cardozo",
+          "nationality": [
+            "Portugal",
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 21, 2003",
+          "foot": "",
+          "height": "",
+          "id": "941195",
+          "marketValue": null,
+          "name": "Kaylane Melo",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 5,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 25, 1995",
+          "foot": "right",
+          "height": "1,59",
+          "id": "941196",
+          "marketValue": null,
+          "name": "Djeni",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 8,
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 22, 1987",
+          "foot": "right",
+          "height": "",
+          "id": "941197",
+          "marketValue": null,
+          "name": "Carlinha",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 15,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 17, 1988",
+          "foot": "right",
+          "height": "1,66",
+          "id": "941198",
+          "marketValue": null,
+          "name": "Thaisa Moreno",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 17,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 6, 2003",
+          "foot": "right",
+          "height": "",
+          "id": "941199",
+          "marketValue": null,
+          "name": "Gaby Louvain",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 18,
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 25, 2003",
+          "foot": "",
+          "height": "",
+          "id": "941200",
+          "marketValue": null,
+          "name": "Laysa",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 31,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Nov 2, 1993",
+          "foot": "right",
+          "height": "1,65",
+          "id": "941201",
+          "marketValue": null,
+          "name": "Fernanda",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 15, 1985",
+          "foot": "left",
+          "height": "1,70",
+          "id": "941202",
+          "marketValue": null,
+          "name": "Cristiane",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 11,
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 22, 1993",
+          "foot": "left",
+          "height": "1,60",
+          "id": "941203",
+          "marketValue": null,
+          "name": "Carol Ladaga",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 15,
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 17, 2003",
+          "foot": "",
+          "height": "",
+          "id": "941204",
+          "marketValue": null,
+          "name": "Gica",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 21,
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 14, 2003",
+          "foot": "",
+          "height": "",
+          "id": "941205",
+          "marketValue": null,
+          "name": "Pimenta",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 26,
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 17, 2004",
+          "foot": "",
+          "height": "",
+          "id": "941206",
+          "marketValue": null,
+          "name": "Maria Peck",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 31,
+          "position": "Striker"
+        }
+      ],
+      "stadiumName": null,
+      "stadiumSeats": null,
+      "transfermarktId": 94005
+    },
+    {
+      "image": "",
+      "name": "Fluminense",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 94011,
+      "players": [
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Mar 13, 1999",
+          "foot": "right",
+          "height": "1,75 m",
+          "id": "941473",
+          "marketValue": null,
+          "name": "Kemelli",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 4, 1994",
+          "foot": "",
+          "height": "1,77 m",
+          "id": "941474",
+          "marketValue": null,
+          "name": "Letícia Bussatto",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 9, 1994",
+          "foot": "left",
+          "height": "1,82 m",
+          "id": "941475",
+          "marketValue": null,
+          "name": "Dani Soares",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "23",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941476",
+          "marketValue": null,
+          "name": "Thaina",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "32",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 22, 1988",
+          "foot": "",
+          "height": "1,72 m",
+          "id": "941477",
+          "marketValue": null,
+          "name": "Gislaine",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 27, 1996",
+          "foot": "right",
+          "height": "1,70 m",
+          "id": "941478",
+          "marketValue": null,
+          "name": "Nath Rodrigues",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "6",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 31, 1987",
+          "foot": "",
+          "height": "1,71 m",
+          "id": "941479",
+          "marketValue": null,
+          "name": "Flávia Gil",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "13",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 20, 1994",
+          "foot": "left",
+          "height": "1,61 m",
+          "id": "941480",
+          "marketValue": null,
+          "name": "Débora Sorriso",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "15",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 8, 1996",
+          "foot": "",
+          "height": "1,66 m",
+          "id": "941481",
+          "marketValue": null,
+          "name": "Bruna Cotrim",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "33",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 13, 1998",
+          "foot": "",
+          "height": "",
+          "id": "941482",
+          "marketValue": null,
+          "name": "Bia Cardoso",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "35",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "left",
+          "height": "1,63 m",
+          "id": "941483",
+          "marketValue": null,
+          "name": "Nathalia Branco",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "36",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 14, 1988",
+          "foot": "",
+          "height": "",
+          "id": "941484",
+          "marketValue": null,
+          "name": "Lelê",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 29, 2000",
+          "foot": "",
+          "height": "",
+          "id": "941485",
+          "marketValue": null,
+          "name": "Claudinha",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "5",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 24, 1993",
+          "foot": "",
+          "height": "1,64 m",
+          "id": "941486",
+          "marketValue": null,
+          "name": "Geovana Alves",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "7",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 20, 1997",
+          "foot": "left",
+          "height": "",
+          "id": "941487",
+          "marketValue": null,
+          "name": "Karina",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "8",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 1, 2005",
+          "foot": "",
+          "height": "1,71 m",
+          "id": "941488",
+          "marketValue": null,
+          "name": "Carol",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "10",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 21, 1990",
+          "foot": "",
+          "height": "1,57 m",
+          "id": "941489",
+          "marketValue": null,
+          "name": "Camila Oliveira",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "18",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 4, 1994",
+          "foot": "right",
+          "height": "1,67 m",
+          "id": "941490",
+          "marketValue": null,
+          "name": "Patrícia Derrico",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "19",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 15, 2004",
+          "foot": "left",
+          "height": "",
+          "id": "941491",
+          "marketValue": null,
+          "name": "Lamis",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "24",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 21, 2004",
+          "foot": "",
+          "height": "",
+          "id": "941492",
+          "marketValue": null,
+          "name": "Julia Ferreira",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "25",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 9, 1998",
+          "foot": "",
+          "height": "",
+          "id": "941493",
+          "marketValue": null,
+          "name": "Leidiane",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "27",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 6, 1996",
+          "foot": "right",
+          "height": "1,57 m",
+          "id": "941494",
+          "marketValue": null,
+          "name": "Veronica Marques",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "30",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 5, 1995",
+          "foot": "",
+          "height": "1,65 m",
+          "id": "941495",
+          "marketValue": null,
+          "name": "Bruna Pelé",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 8, 1991",
+          "foot": "right",
+          "height": "1,57 m",
+          "id": "941496",
+          "marketValue": null,
+          "name": "Carla Nunes",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "9",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 25, 1994",
+          "foot": "",
+          "height": "1,64 m",
+          "id": "941497",
+          "marketValue": null,
+          "name": "Kamilla Sotero",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "20",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 9, 2001",
+          "foot": "",
+          "height": "",
+          "id": "941498",
+          "marketValue": null,
+          "name": "Lurdinha",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "21",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 28, 2006",
+          "foot": "",
+          "height": "",
+          "id": "941499",
+          "marketValue": null,
+          "name": "Milena Martins",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "22",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 25, 1995",
+          "foot": "",
+          "height": "",
+          "id": "941500",
+          "marketValue": null,
+          "name": "Naiane",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "28",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 23, 1986",
+          "foot": "right",
+          "height": "1,56 m",
+          "id": "941501",
+          "marketValue": null,
+          "name": "Cacau",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "31",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Grêmio",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 2, 1991",
+          "foot": "",
+          "height": "",
+          "id": "941331",
+          "marketValue": null,
+          "name": "Raíssa Tayná",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 8, 1997",
+          "foot": "right",
+          "height": "1,80",
+          "id": "941332",
+          "marketValue": null,
+          "name": "Letícia Rodrigues",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 17, 1998",
+          "foot": "",
+          "height": "",
+          "id": "941333",
+          "marketValue": null,
+          "name": "Sol",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 12,
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 23, 1997",
+          "foot": "left",
+          "height": "1,57",
+          "id": "941334",
+          "marketValue": null,
+          "name": "Katielle",
+          "nationality": [
+            "Brazil",
+            "Paraguay"
+          ],
+          "number": null,
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 28, 1995",
+          "foot": "",
+          "height": "1,64",
+          "id": "941335",
+          "marketValue": null,
+          "name": "Natalia Barros",
+          "nationality": [
+            "Paraguay"
+          ],
+          "number": null,
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 14, 1998",
+          "foot": "",
+          "height": "1,68",
+          "id": "941336",
+          "marketValue": null,
+          "name": "Mónica Ramos",
+          "nationality": [
+            "Colombia"
+          ],
+          "number": 20,
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Oct 21, 2003",
+          "foot": "right",
+          "height": "1,73",
+          "id": "941337",
+          "marketValue": null,
+          "name": "Brito",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 21,
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 13, 2007",
+          "foot": "",
+          "height": "",
+          "id": "941338",
+          "marketValue": null,
+          "name": "Vidal",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 25,
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 23, 1993",
+          "foot": "",
+          "height": "1,71",
+          "id": "941339",
+          "marketValue": null,
+          "name": "Amanda Brunner",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 10, 1998",
+          "foot": "right",
+          "height": "1,60",
+          "id": "941340",
+          "marketValue": null,
+          "name": "Brenda Woch",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 12, 1998",
+          "foot": "",
+          "height": "",
+          "id": "941341",
+          "marketValue": null,
+          "name": "Drika",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 10, 1990",
+          "foot": "",
+          "height": "",
+          "id": "941342",
+          "marketValue": null,
+          "name": "Camila Pini",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 22, 2003",
+          "foot": "",
+          "height": "1,64",
+          "id": "941343",
+          "marketValue": null,
+          "name": "Joice",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 5,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 24, 1994",
+          "foot": "",
+          "height": "1,60",
+          "id": "941344",
+          "marketValue": null,
+          "name": "Jessica Peña",
+          "nationality": [
+            "Colombia"
+          ],
+          "number": 14,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 27, 1998",
+          "foot": "",
+          "height": "",
+          "id": "941345",
+          "marketValue": null,
+          "name": "Dani Barão",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 27,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 21, 1991",
+          "foot": "",
+          "height": "1,60",
+          "id": "941346",
+          "marketValue": null,
+          "name": "Raquel Fernándes",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 30,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 25, 1997",
+          "foot": "both",
+          "height": "1,54",
+          "id": "941347",
+          "marketValue": null,
+          "name": "Lourdes Moreno",
+          "nationality": [
+            "Venezuela"
+          ],
+          "number": 30,
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 9, 2003",
+          "foot": "",
+          "height": "",
+          "id": "941348",
+          "marketValue": null,
+          "name": "Dudinha",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 40,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 8, 1993",
+          "foot": "",
+          "height": "1,70",
+          "id": "941349",
+          "marketValue": null,
+          "name": "Valéria Paula",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 24, 1998",
+          "foot": "right",
+          "height": "1,60",
+          "id": "941350",
+          "marketValue": null,
+          "name": "Yamila Rodríguez",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": null,
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 26, 1998",
+          "foot": "right",
+          "height": "1,68",
+          "id": "941351",
+          "marketValue": null,
+          "name": "Dani Ortolan",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 9,
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 12, 2005",
+          "foot": "",
+          "height": "1,65",
+          "id": "941352",
+          "marketValue": null,
+          "name": "Carol Quaresma",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 13,
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 15, 1991",
+          "foot": "right",
+          "height": "1,72",
+          "id": "941353",
+          "marketValue": null,
+          "name": "Luana Spindler",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 17,
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 31, 1994",
+          "foot": "",
+          "height": "1,65",
+          "id": "941354",
+          "marketValue": null,
+          "name": "Cássia",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 28,
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 25, 2005",
+          "foot": "",
+          "height": "",
+          "id": "941355",
+          "marketValue": null,
+          "name": "Pyetra",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 32,
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 14, 1994",
+          "foot": "right",
+          "height": "1,61",
+          "id": "941356",
+          "marketValue": null,
+          "name": "Shashá",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 64,
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 20, 2007",
+          "foot": "",
+          "height": "1,71",
+          "id": "941357",
+          "marketValue": null,
+          "name": "Gisele",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 77,
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 16, 2000",
+          "foot": "left",
+          "height": "1,76",
+          "id": "941358",
+          "marketValue": null,
+          "name": "Kelly Restrepo",
+          "nationality": [
+            "Colombia"
+          ],
+          "number": 79,
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 9, 1990",
+          "foot": "right",
+          "height": "1,64",
+          "id": "941359",
+          "marketValue": null,
+          "name": "Ludmila Barbosa",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 90,
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 2, 1997",
+          "foot": "right",
+          "height": "1,55",
+          "id": "941360",
+          "marketValue": null,
+          "name": "Bia Santos",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 97,
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 25, 2002",
+          "foot": "right",
+          "height": "1,62",
+          "id": "941361",
+          "marketValue": null,
+          "name": "Giovaninha",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 99,
+          "position": "Left Winger"
+        }
+      ],
+      "transfermarktId": 94008
+    },
+    {
+      "image": null,
+      "name": "Internacional",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 3, 1996",
+          "foot": "right",
+          "height": "1,74",
+          "id": "941362",
+          "marketValue": null,
+          "name": "Kelly Chiavaro",
+          "nationality": [
+            "Italy",
+            "Canada"
+          ],
+          "number": null,
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 7, 2005",
+          "foot": "",
+          "height": "1,70",
+          "id": "941363",
+          "marketValue": null,
+          "name": "Mari",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 1,
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Jan 20, 2003",
+          "foot": "left",
+          "height": "1,79",
+          "id": "941364",
+          "marketValue": null,
+          "name": "Tainá",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 21,
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 22, 2005",
+          "foot": "",
+          "height": "",
+          "id": "941365",
+          "marketValue": null,
+          "name": "Bianca Bik",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 42,
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 4, 1988",
+          "foot": "right",
+          "height": "1,73",
+          "id": "941366",
+          "marketValue": null,
+          "name": "Bárbara",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 88,
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 22, 1997",
+          "foot": "",
+          "height": "",
+          "id": "941367",
+          "marketValue": null,
+          "name": "Giovanna Santos",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 9, 1996",
+          "foot": "",
+          "height": "1,62",
+          "id": "941368",
+          "marketValue": null,
+          "name": "Stephanie Lacoste",
+          "nationality": [
+            "Uruguay"
+          ],
+          "number": null,
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Sep 17, 2003",
+          "foot": "",
+          "height": "",
+          "id": "941369",
+          "marketValue": null,
+          "name": "Letícia Debiasi",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 15, 1993",
+          "foot": "both",
+          "height": "",
+          "id": "941370",
+          "marketValue": null,
+          "name": "Roberta Schroeder",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 2,
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 16, 1985",
+          "foot": "left",
+          "height": "1,78",
+          "id": "941371",
+          "marketValue": null,
+          "name": "Bruna Benites",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 3,
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 22, 2004",
+          "foot": "",
+          "height": "1,73",
+          "id": "941372",
+          "marketValue": null,
+          "name": "Duda Flores",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 4,
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Jan 5, 1998",
+          "foot": "right",
+          "height": "1,78",
+          "id": "941373",
+          "marketValue": null,
+          "name": "Débora",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 15,
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 10, 2003",
+          "foot": "right",
+          "height": "",
+          "id": "941374",
+          "marketValue": null,
+          "name": "Lorranny",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 15,
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 21, 2003",
+          "foot": "both",
+          "height": "1,70",
+          "id": "941375",
+          "marketValue": null,
+          "name": "Jamille Agapito",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 28,
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 7, 1997",
+          "foot": "right",
+          "height": "1,67",
+          "id": "941376",
+          "marketValue": "€40k",
+          "name": "Júlia Bianchi",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 23, 1995",
+          "foot": "right",
+          "height": "1,60",
+          "id": "941377",
+          "marketValue": null,
+          "name": "Rafa Mineira",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Apr 13, 2000",
+          "foot": "",
+          "height": "1,63",
+          "id": "941378",
+          "marketValue": null,
+          "name": "Jordana Soares",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 17, 1996",
+          "foot": "left",
+          "height": "1,63",
+          "id": "941379",
+          "marketValue": null,
+          "name": "Thaíni",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 6,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 5, 1994",
+          "foot": "right",
+          "height": "1,57",
+          "id": "941380",
+          "marketValue": null,
+          "name": "Gabi Morais",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 8,
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Jun 7, 2004",
+          "foot": "",
+          "height": "1,59",
+          "id": "941381",
+          "marketValue": null,
+          "name": "Marzia",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 14,
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 6, 1999",
+          "foot": "",
+          "height": "1,68",
+          "id": "941382",
+          "marketValue": null,
+          "name": "Isabela Capelinha",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 17,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 13, 1990",
+          "foot": "right",
+          "height": "1,58",
+          "id": "941383",
+          "marketValue": null,
+          "name": "Paty Llanos",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 20,
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 21, 2003",
+          "foot": "",
+          "height": "1,69",
+          "id": "941384",
+          "marketValue": null,
+          "name": "Ketlin",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 25,
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Oct 7, 2004",
+          "foot": "",
+          "height": "1,71",
+          "id": "941385",
+          "marketValue": null,
+          "name": "Danny Teixeira",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 27,
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 26, 2001",
+          "foot": "left",
+          "height": "",
+          "id": "941386",
+          "marketValue": null,
+          "name": "Bia",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 31,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 27, 2004",
+          "foot": "",
+          "height": "",
+          "id": "941387",
+          "marketValue": null,
+          "name": "Giulia Giovanna",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 32,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Jun 24, 2005",
+          "foot": "",
+          "height": "",
+          "id": "941388",
+          "marketValue": null,
+          "name": "Joana Mylena",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 33,
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 1, 2006",
+          "foot": "right",
+          "height": "1,65",
+          "id": "941389",
+          "marketValue": null,
+          "name": "Clara Güell",
+          "nationality": [
+            "Uruguay"
+          ],
+          "number": null,
+          "position": "Striker"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "May 23, 2003",
+          "foot": "right",
+          "height": "1,67",
+          "id": "941390",
+          "marketValue": null,
+          "name": "Paola Pereira",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "May 8, 2002",
+          "foot": "right",
+          "height": "1,79",
+          "id": "941391",
+          "marketValue": null,
+          "name": "Anny Marabá",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": null,
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Jun 8, 2005",
+          "foot": "right",
+          "height": "",
+          "id": "941392",
+          "marketValue": null,
+          "name": "Julieta Morales",
+          "nationality": [
+            "Uruguay"
+          ],
+          "number": 19,
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 7, 2004",
+          "foot": "",
+          "height": "",
+          "id": "941393",
+          "marketValue": null,
+          "name": "Iasmin Jesus",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 22,
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 21, 2006",
+          "foot": "",
+          "height": "",
+          "id": "941394",
+          "marketValue": null,
+          "name": "Gabriella",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 26,
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "right",
+          "height": "1,76",
+          "id": "941395",
+          "marketValue": null,
+          "name": "Alice Goedert",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": 29,
+          "position": "Centre-Forward"
+        }
+      ],
+      "transfermarktId": 94009
+    },
+    {
+      "image": "",
+      "name": "Juventude",
+      "stadiumName": "Estádio do SESI",
+      "stadiumSeats": 2000,
+      "transfermarktId": 94016,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941751",
+          "marketValue": null,
+          "name": "Renata May",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941752",
+          "marketValue": null,
+          "name": "Grazi",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "2",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941753",
+          "marketValue": null,
+          "name": "Joice Scatola",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "3",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941754",
+          "marketValue": null,
+          "name": "Tefinha",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "5",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941755",
+          "marketValue": null,
+          "name": "Maiza",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "6",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 26, 2004",
+          "foot": "right",
+          "height": "1,60 m",
+          "id": "941756",
+          "marketValue": null,
+          "name": "Nicole Marussi",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "7",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941757",
+          "marketValue": null,
+          "name": "Luciene Baião",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 8, 2004",
+          "foot": "",
+          "height": "1,63 m",
+          "id": "941758",
+          "marketValue": null,
+          "name": "Teté",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "11",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941759",
+          "marketValue": null,
+          "name": "Thaís Amorim",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "12",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941760",
+          "marketValue": null,
+          "name": "Andressa Kreski",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "13",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941761",
+          "marketValue": null,
+          "name": "Carla Beatriz",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "14",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941762",
+          "marketValue": null,
+          "name": "Laura Pigatin",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "15",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 24, 2000",
+          "foot": "",
+          "height": "",
+          "id": "941763",
+          "marketValue": null,
+          "name": "Limpia Fretes",
+          "nationality": [
+            "Paraguay"
+          ],
+          "number": "16",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941764",
+          "marketValue": null,
+          "name": "Leka",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "18",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941765",
+          "marketValue": null,
+          "name": "Taysa Félix",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "19",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941766",
+          "marketValue": null,
+          "name": "Aninha Bigeschi",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "20",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941767",
+          "marketValue": null,
+          "name": "Duda Calazans",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "21",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941768",
+          "marketValue": null,
+          "name": "Bruna Emília",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "22",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941769",
+          "marketValue": null,
+          "name": "Kailane de Andrade",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "23",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941771",
+          "marketValue": null,
+          "name": "Núbia",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "26",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941772",
+          "marketValue": null,
+          "name": "Bell Silva",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "28",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941773",
+          "marketValue": null,
+          "name": "Apoliana",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "29",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941774",
+          "marketValue": null,
+          "name": "Joyce Manfio",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "39",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941775",
+          "marketValue": null,
+          "name": "Flávia Giovana",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "49",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941776",
+          "marketValue": null,
+          "name": "Martha Figueiredo",
+          "nationality": [
+            "Uruguay"
+          ],
+          "number": "99",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941777",
+          "marketValue": null,
+          "name": "Ana Luiza",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941779",
+          "marketValue": null,
+          "name": "Laurinha",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941780",
+          "marketValue": null,
+          "name": "Paloma Nair",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941781",
+          "marketValue": null,
+          "name": "Kamile Loirão",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "",
+      "name": "Mixto",
+      "stadiumName": "Arena Pantanal",
+      "stadiumSeats": 44000,
+      "transfermarktId": 94017,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941782",
+          "marketValue": null,
+          "name": "Nágila Frutuoso",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941783",
+          "marketValue": null,
+          "name": "Jersia",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "1,70 m",
+          "id": "941784",
+          "marketValue": null,
+          "name": "Thaís Helena",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941785",
+          "marketValue": null,
+          "name": "Isabela Mello",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941786",
+          "marketValue": null,
+          "name": "Silvana Bispo",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941787",
+          "marketValue": null,
+          "name": "Lorena Castro",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 26, 2001",
+          "foot": "",
+          "height": "",
+          "id": "941788",
+          "marketValue": null,
+          "name": "Taiane Flores",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "30",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941789",
+          "marketValue": null,
+          "name": "Nayara Rodrigues",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941790",
+          "marketValue": null,
+          "name": "Lívia Claro Mathias",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941791",
+          "marketValue": null,
+          "name": "Natália Lopes",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941792",
+          "marketValue": null,
+          "name": "Thaís Prado",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941793",
+          "marketValue": null,
+          "name": "Suyane",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "right",
+          "height": "1,63 m",
+          "id": "941794",
+          "marketValue": null,
+          "name": "Sara Piveta",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "21",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941795",
+          "marketValue": null,
+          "name": "Karolina Alves",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941796",
+          "marketValue": null,
+          "name": "Scarlett Bernal",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941797",
+          "marketValue": null,
+          "name": "Sabrina Sassá",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941798",
+          "marketValue": null,
+          "name": "Andressa Anjos",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941799",
+          "marketValue": null,
+          "name": "Priscila Andrade",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941800",
+          "marketValue": null,
+          "name": "Debinha",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 19, 1992",
+          "foot": "right",
+          "height": "1,64 m",
+          "id": "941801",
+          "marketValue": null,
+          "name": "Fany Gauto",
+          "nationality": [
+            "Paraguay"
+          ],
+          "number": "10",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941802",
+          "marketValue": null,
+          "name": "Géssica Barbosa da Silva",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 7, 2002",
+          "foot": "",
+          "height": "",
+          "id": "941803",
+          "marketValue": null,
+          "name": "Isabella Rangel",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "9",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941804",
+          "marketValue": null,
+          "name": "Joycinha",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941805",
+          "marketValue": null,
+          "name": "Luana Índia",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941806",
+          "marketValue": null,
+          "name": "Thayná",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941807",
+          "marketValue": null,
+          "name": "Débora Vieira",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "",
+      "name": "Palmeiras",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 94002,
+      "players": [
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Sep 20, 2004",
+          "foot": "",
+          "height": "",
+          "id": "941034",
+          "marketValue": null,
+          "name": "Ravena",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "May 1, 1995",
+          "foot": "right",
+          "height": "1,85 m",
+          "id": "941035",
+          "marketValue": null,
+          "name": "Tainá Borges",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 1996",
+          "foot": "right",
+          "height": "1,70 m",
+          "id": "941036",
+          "marketValue": null,
+          "name": "Amanda",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 19, 2005",
+          "foot": "right",
+          "height": "",
+          "id": "941037",
+          "marketValue": null,
+          "name": "Bruna Hirata",
+          "nationality": [
+            "Brazil",
+            "Japan"
+          ],
+          "number": "14",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 27, 1997",
+          "foot": "right",
+          "height": "1,81 m",
+          "id": "941038",
+          "marketValue": null,
+          "name": "Natascha",
+          "nationality": [
+            "Brazil",
+            "Switzerland"
+          ],
+          "number": "22",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 7, 1992",
+          "foot": "right",
+          "height": "1,78 m",
+          "id": "941039",
+          "marketValue": null,
+          "name": "Kate Tapia",
+          "nationality": [
+            "Colombia"
+          ],
+          "number": "25",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 12, 2004",
+          "foot": "",
+          "height": "1,76 m",
+          "id": "941040",
+          "marketValue": null,
+          "name": "Carla Tays",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "Dec 31, 2028",
+          "dateOfBirth": "Jun 11, 2005",
+          "foot": "right",
+          "height": "1,62 m",
+          "id": "941041",
+          "marketValue": "€40k",
+          "name": "Ana Guzmán",
+          "nationality": [
+            "Colombia"
+          ],
+          "number": "",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Dec 31, 2028",
+          "dateOfBirth": "Apr 26, 1994",
+          "foot": "right",
+          "height": "1,70 m",
+          "id": "941042",
+          "marketValue": "€190k",
+          "name": "Antônia Silva",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 22, 2002",
+          "foot": "right",
+          "height": "1,66 m",
+          "id": "941043",
+          "marketValue": "€35k",
+          "name": "Emily Assis",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 27, 2003",
+          "foot": "left",
+          "height": "",
+          "id": "941044",
+          "marketValue": null,
+          "name": "Raíssa Bahia",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 11, 2004",
+          "foot": "left",
+          "height": "1,63 m",
+          "id": "941045",
+          "marketValue": null,
+          "name": "Ana Guimarães",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 6, 1991",
+          "foot": "right",
+          "height": "1,72 m",
+          "id": "941046",
+          "marketValue": null,
+          "name": "Poliana",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "3",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 14, 1996",
+          "foot": "right",
+          "height": "1,68 m",
+          "id": "941047",
+          "marketValue": null,
+          "name": "Giovanna Campiolo",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Aug 18, 1996",
+          "foot": "left",
+          "height": "1,68 m",
+          "id": "941048",
+          "marketValue": null,
+          "name": "Fê Palermo",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "6",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Feb 8, 2003",
+          "foot": "",
+          "height": "1,75 m",
+          "id": "941049",
+          "marketValue": null,
+          "name": "Pati Maldaner",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "13",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 30, 2005",
+          "foot": "both",
+          "height": "1,61 m",
+          "id": "941050",
+          "marketValue": null,
+          "name": "Ana Júlia",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Aug 1, 2004",
+          "foot": "right",
+          "height": "1,60 m",
+          "id": "941051",
+          "marketValue": null,
+          "name": "Greicy Landázury",
+          "nationality": [
+            "Colombia"
+          ],
+          "number": "",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 13, 1999",
+          "foot": "",
+          "height": "",
+          "id": "941052",
+          "marketValue": null,
+          "name": "Laís Melo",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 8, 1994",
+          "foot": "",
+          "height": "",
+          "id": "941053",
+          "marketValue": null,
+          "name": "Rhay Coutinho",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 12, 2005",
+          "foot": "right",
+          "height": "",
+          "id": "941054",
+          "marketValue": null,
+          "name": "Clarinha",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Sep 15, 2003",
+          "foot": "right",
+          "height": "1,56 m",
+          "id": "941055",
+          "marketValue": null,
+          "name": "Duda Basílio",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 24, 1996",
+          "foot": "right",
+          "height": "1,71 m",
+          "id": "941056",
+          "marketValue": null,
+          "name": "Duda Santos",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Nov 24, 1997",
+          "foot": "right",
+          "height": "1,59 m",
+          "id": "941057",
+          "marketValue": null,
+          "name": "Ingryd Lima",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "5",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Oct 28, 1996",
+          "foot": "right",
+          "height": "1,70 m",
+          "id": "941058",
+          "marketValue": null,
+          "name": "Brena Carolina",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "7",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 22, 1989",
+          "foot": "right",
+          "height": "1,63 m",
+          "id": "941059",
+          "marketValue": null,
+          "name": "Diany Martins",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "8",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 25, 1999",
+          "foot": "right",
+          "height": "1,73 m",
+          "id": "941060",
+          "marketValue": null,
+          "name": "Isadora Amaral",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "17",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "May 1, 1995",
+          "foot": "right",
+          "height": "1,60 m",
+          "id": "941061",
+          "marketValue": null,
+          "name": "Andressinha",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "20",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 6, 2005",
+          "foot": "right",
+          "height": "1,70 m",
+          "id": "941062",
+          "marketValue": null,
+          "name": "Dudinha",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "21",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 1, 1999",
+          "foot": "",
+          "height": "1,60 m",
+          "id": "941063",
+          "marketValue": null,
+          "name": "Joselyn Espinales",
+          "nationality": [
+            "Ecuador"
+          ],
+          "number": "99",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Aug 31, 2005",
+          "foot": "",
+          "height": "1,66 m",
+          "id": "941064",
+          "marketValue": null,
+          "name": "Ana Flávia",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Striker"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "May 23, 2002",
+          "foot": "both",
+          "height": "1,65 m",
+          "id": "941065",
+          "marketValue": null,
+          "name": "Layssa Santos",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Second Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 4, 1998",
+          "foot": "",
+          "height": "1,64 m",
+          "id": "941066",
+          "marketValue": null,
+          "name": "Soll",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Striker"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Jan 30, 1993",
+          "foot": "",
+          "height": "1,65 m",
+          "id": "941067",
+          "marketValue": null,
+          "name": "Gláucia",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 17, 1993",
+          "foot": "left",
+          "height": "1,76 m",
+          "id": "941068",
+          "marketValue": "€225k",
+          "name": "Bia Zaneratto",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "10",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 10, 1990",
+          "foot": "left",
+          "height": "1,72 m",
+          "id": "941069",
+          "marketValue": null,
+          "name": "Bianca Gomes",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "15",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 14, 2004",
+          "foot": "",
+          "height": "",
+          "id": "941070",
+          "marketValue": null,
+          "name": "Gaby Santos",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "16",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 8, 2005",
+          "foot": "",
+          "height": "",
+          "id": "941071",
+          "marketValue": null,
+          "name": "Stefanie",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "18",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 26, 2000",
+          "foot": "right",
+          "height": "",
+          "id": "941072",
+          "marketValue": null,
+          "name": "Laís Estevam",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "26",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 22, 2000",
+          "foot": "right",
+          "height": "1,59 m",
+          "id": "941073",
+          "marketValue": null,
+          "name": "Victória Liss",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "28",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Aug 18, 2004",
+          "foot": "right",
+          "height": "1,60 m",
+          "id": "941074",
+          "marketValue": null,
+          "name": "Tainá Maranhão",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "29",
+          "position": "Right Winger"
+        }
+      ]
+    },
+    {
+      "image": "",
+      "name": "Red Bull Bragantino",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 94010,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "May 14, 2001",
+          "foot": "",
+          "height": "1,79 m",
+          "id": "941451",
+          "marketValue": null,
+          "name": "Alice Tosta",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Jan 23, 1998",
+          "foot": "",
+          "height": "1,73 m",
+          "id": "941452",
+          "marketValue": null,
+          "name": "Thalya",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "12",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 27, 2004",
+          "foot": "",
+          "height": "",
+          "id": "941453",
+          "marketValue": null,
+          "name": "Lara Silva",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "22",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Sep 25, 1995",
+          "foot": "right",
+          "height": "1,65 m",
+          "id": "941454",
+          "marketValue": null,
+          "name": "Carol Tavares",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 21, 2003",
+          "foot": "right",
+          "height": "",
+          "id": "941455",
+          "marketValue": null,
+          "name": "Tamires",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "2",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Mar 19, 1991",
+          "foot": "right",
+          "height": "1,66 m",
+          "id": "941457",
+          "marketValue": null,
+          "name": "Géssica Nascimento",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "19",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Feb 28, 2004",
+          "foot": "right",
+          "height": "1,71 m",
+          "id": "941458",
+          "marketValue": null,
+          "name": "Catarina",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "26",
+          "position": "Defender"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Jan 16, 1987",
+          "foot": "right",
+          "height": "",
+          "id": "941459",
+          "marketValue": null,
+          "name": "Stella",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "27",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Jun 25, 1994",
+          "foot": "",
+          "height": "",
+          "id": "941460",
+          "marketValue": null,
+          "name": "Ana Carla",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Jun 2, 2003",
+          "foot": "",
+          "height": "1,68 m",
+          "id": "941461",
+          "marketValue": null,
+          "name": "Laura Valverde",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Nov 17, 1992",
+          "foot": "",
+          "height": "",
+          "id": "941462",
+          "marketValue": null,
+          "name": "Jane Tavares",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "8",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 18, 2001",
+          "foot": "",
+          "height": "1,66 m",
+          "id": "941463",
+          "marketValue": null,
+          "name": "Karol Bermúdez",
+          "nationality": [
+            "Uruguay"
+          ],
+          "number": "11",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 15, 1993",
+          "foot": "left",
+          "height": "1,56 m",
+          "id": "941464",
+          "marketValue": null,
+          "name": "Lelê",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "25",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 4, 2000",
+          "foot": "right",
+          "height": "1,63 m",
+          "id": "941465",
+          "marketValue": null,
+          "name": "Brenda Pinheiro",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "30",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Jul 27, 2004",
+          "foot": "",
+          "height": "",
+          "id": "941466",
+          "marketValue": null,
+          "name": "Janyele",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 28, 2001",
+          "foot": "right",
+          "height": "1,65 m",
+          "id": "941467",
+          "marketValue": null,
+          "name": "Martina Del Trecco",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 2, 1999",
+          "foot": "",
+          "height": "",
+          "id": "941468",
+          "marketValue": null,
+          "name": "Mylena",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "13",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 12, 1998",
+          "foot": "",
+          "height": "1,70 m",
+          "id": "941470",
+          "marketValue": null,
+          "name": "Thayslane",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "23",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 23, 2003",
+          "foot": "",
+          "height": "",
+          "id": "941471",
+          "marketValue": null,
+          "name": "Emelli",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "29",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 3, 1997",
+          "foot": "both",
+          "height": "1,72 m",
+          "id": "941472",
+          "marketValue": null,
+          "name": "Ottilia",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "29",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": "",
+      "name": "Santos",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 94012,
+      "players": [
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Aug 3, 2001",
+          "foot": "right",
+          "height": "1,78 m",
+          "id": "941503",
+          "marketValue": null,
+          "name": "Mayara",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 25, 1993",
+          "foot": "",
+          "height": "",
+          "id": "941504",
+          "marketValue": null,
+          "name": "Karen Hipólito",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "12",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Oct 8, 1993",
+          "foot": "right",
+          "height": "1,73 m",
+          "id": "941505",
+          "marketValue": null,
+          "name": "Pardal",
+          "nationality": [
+            "Brazil",
+            "Italy"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 14, 1989",
+          "foot": "right",
+          "height": "1,75 m",
+          "id": "941506",
+          "marketValue": null,
+          "name": "Ana Alice",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Dec 2, 1994",
+          "foot": "right",
+          "height": "1,58 m",
+          "id": "941507",
+          "marketValue": null,
+          "name": "Letícia Santos",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Jul 17, 1999",
+          "foot": "right",
+          "height": "1,69 m",
+          "id": "941508",
+          "marketValue": null,
+          "name": "Rafa Martins",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "3",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 30, 1993",
+          "foot": "right",
+          "height": "1,67 m",
+          "id": "941509",
+          "marketValue": null,
+          "name": "Leidi",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "15",
+          "position": "Defender"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Jul 27, 1993",
+          "foot": "",
+          "height": "1,68 m",
+          "id": "941510",
+          "marketValue": "€40k",
+          "name": "Yoreli Rincón",
+          "nationality": [
+            "Colombia"
+          ],
+          "number": "",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Apr 19, 1998",
+          "foot": "left",
+          "height": "1,58 m",
+          "id": "941511",
+          "marketValue": null,
+          "name": "Katrine",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 2, 2001",
+          "foot": "",
+          "height": "1,70 m",
+          "id": "941512",
+          "marketValue": null,
+          "name": "Larissa Vasconcelos",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "2",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 7, 1992",
+          "foot": "right",
+          "height": "1,70 m",
+          "id": "941513",
+          "marketValue": null,
+          "name": "Ketlen",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "7",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 17, 1992",
+          "foot": "",
+          "height": "1,68 m",
+          "id": "941514",
+          "marketValue": null,
+          "name": "Suzane Pires",
+          "nationality": [
+            "Portugal",
+            "Brazil"
+          ],
+          "number": "8",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 24, 2001",
+          "foot": "both",
+          "height": "1,72 m",
+          "id": "941515",
+          "marketValue": null,
+          "name": "Júlia Daltoé",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "18",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Jan 25, 2007",
+          "foot": "",
+          "height": "",
+          "id": "941516",
+          "marketValue": null,
+          "name": "Mary Venâncio",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "25",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Jun 4, 1995",
+          "foot": "right",
+          "height": "1,68 m",
+          "id": "941517",
+          "marketValue": null,
+          "name": "Nath Pitbull",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "32",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 1, 1987",
+          "foot": "right",
+          "height": "1,68 m",
+          "id": "941518",
+          "marketValue": null,
+          "name": "Laryh",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Striker"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Oct 24, 1992",
+          "foot": "right",
+          "height": "1,66 m",
+          "id": "941519",
+          "marketValue": "€15k",
+          "name": "Mariana Larroquette",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Jan 20, 1993",
+          "foot": "right",
+          "height": "1,64 m",
+          "id": "941520",
+          "marketValue": null,
+          "name": "Thaisinha",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "10",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 28, 1994",
+          "foot": "right",
+          "height": "1,72 m",
+          "id": "941521",
+          "marketValue": null,
+          "name": "Carol Baiana",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "19",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 20, 2005",
+          "foot": "right",
+          "height": "1,70 m",
+          "id": "941522",
+          "marketValue": null,
+          "name": "Isa Viana",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "19",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 13, 2003",
+          "foot": "left",
+          "height": "1,67 m",
+          "id": "941523",
+          "marketValue": null,
+          "name": "Carol Lara",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "27",
+          "position": "Right Winger"
+        }
+      ]
+    },
+    {
+      "image": "",
+      "name": "São Paulo",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 94003,
+      "players": [
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Dec 18, 2005",
+          "foot": "",
+          "height": "1,84 m",
+          "id": "941075",
+          "marketValue": null,
+          "name": "Yasmin",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 4, 2000",
+          "foot": "",
+          "height": "1,75 m",
+          "id": "941076",
+          "marketValue": null,
+          "name": "Anna Bia",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 4, 1997",
+          "foot": "right",
+          "height": "1,71 m",
+          "id": "941077",
+          "marketValue": null,
+          "name": "Carlinha",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "12",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "May 9, 1992",
+          "foot": "right",
+          "height": "1,74 m",
+          "id": "941078",
+          "marketValue": null,
+          "name": "Tayla",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Feb 18, 2002",
+          "foot": "",
+          "height": "1,74 m",
+          "id": "941079",
+          "marketValue": null,
+          "name": "Camila Barbosa",
+          "nationality": [
+            "Paraguay",
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Jul 31, 2003",
+          "foot": "left",
+          "height": "1,58 m",
+          "id": "941080",
+          "marketValue": null,
+          "name": "Clara",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Feb 4, 2000",
+          "foot": "",
+          "height": "1,76 m",
+          "id": "941081",
+          "marketValue": null,
+          "name": "Rafa Soares",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Sep 12, 1996",
+          "foot": "both",
+          "height": "1,67 m",
+          "id": "941082",
+          "marketValue": null,
+          "name": "Bruna Calderan",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "2",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Jul 24, 2001",
+          "foot": "left",
+          "height": "1,70 m",
+          "id": "941083",
+          "marketValue": null,
+          "name": "Yasmin Cosmann",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Dec 30, 2003",
+          "foot": "left",
+          "height": "1,70 m",
+          "id": "941084",
+          "marketValue": null,
+          "name": "Carol Gil",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "16",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 30, 2004",
+          "foot": "right",
+          "height": "1,61 m",
+          "id": "941085",
+          "marketValue": null,
+          "name": "Ravena",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "22",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 25, 1997",
+          "foot": "left",
+          "height": "1,65 m",
+          "id": "941086",
+          "marketValue": null,
+          "name": "Bia Menezes",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "23",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 21, 1997",
+          "foot": "",
+          "height": "",
+          "id": "941087",
+          "marketValue": null,
+          "name": "Vivian",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941088",
+          "marketValue": null,
+          "name": "Maria Luiza Calazans",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "May 11, 2002",
+          "foot": "right",
+          "height": "1,60 m",
+          "id": "941089",
+          "marketValue": null,
+          "name": "Maricel Pereyra",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Sep 26, 1996",
+          "foot": "right",
+          "height": "1,65 m",
+          "id": "941090",
+          "marketValue": null,
+          "name": "Vanina Preininger",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Jan 14, 2002",
+          "foot": "right",
+          "height": "1,55 m",
+          "id": "941091",
+          "marketValue": null,
+          "name": "Cris",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 23, 1999",
+          "foot": "right",
+          "height": "1,64 m",
+          "id": "941092",
+          "marketValue": null,
+          "name": "Karla Alves",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "5",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 8, 1994",
+          "foot": "right",
+          "height": "1,64 m",
+          "id": "941093",
+          "marketValue": null,
+          "name": "Aline",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "7",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 10, 1994",
+          "foot": "left",
+          "height": "1,61 m",
+          "id": "941094",
+          "marketValue": null,
+          "name": "Camilinha",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "10",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 30, 2006",
+          "foot": "",
+          "height": "1,70 m",
+          "id": "941095",
+          "marketValue": null,
+          "name": "Ana Beatriz",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "14",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Dec 12, 2001",
+          "foot": "",
+          "height": "1,73 m",
+          "id": "941096",
+          "marketValue": null,
+          "name": "Serrana",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "88",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Jan 21, 1995",
+          "foot": "right",
+          "height": "1,61 m",
+          "id": "941097",
+          "marketValue": null,
+          "name": "Robinha",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "95",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 11, 2004",
+          "foot": "left",
+          "height": "1,73 m",
+          "id": "941098",
+          "marketValue": null,
+          "name": "Vi Amaral",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "99",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Jun 16, 1997",
+          "foot": "right",
+          "height": "1,79 m",
+          "id": "941099",
+          "marketValue": null,
+          "name": "Gadu",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "May 23, 1999",
+          "foot": "",
+          "height": "1,61 m",
+          "id": "941100",
+          "marketValue": null,
+          "name": "Mylena Carioca",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Striker"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "1,65 m",
+          "id": "941101",
+          "marketValue": null,
+          "name": "Késia Senna",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "18",
+          "position": "Striker"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Feb 23, 1993",
+          "foot": "right",
+          "height": "1,69 m",
+          "id": "941102",
+          "marketValue": null,
+          "name": "Crivelari",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "19",
+          "position": "Second Striker"
+        },
+        {
+          "contract": "Dec 31, 2027",
+          "dateOfBirth": "Nov 20, 2006",
+          "foot": "right",
+          "height": "1,65 m",
+          "id": "941103",
+          "marketValue": null,
+          "name": "Vitorinha",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "27",
+          "position": "Striker"
+        },
+        {
+          "contract": "Dec 31, 2026",
+          "dateOfBirth": "Oct 19, 2003",
+          "foot": "",
+          "height": "1,60 m",
+          "id": "941104",
+          "marketValue": null,
+          "name": "Isa",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "77",
+          "position": "Right Winger"
+        }
+      ]
+    },
+    {
+      "image": "",
+      "name": "Vitória",
+      "stadiumName": "Estádio Manoel Barradas",
+      "stadiumSeats": 30793,
+      "transfermarktId": 94018,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941808",
+          "marketValue": null,
+          "name": "Ingrid Sabino",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941809",
+          "marketValue": null,
+          "name": "Laís Quésia",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 20, 2000",
+          "foot": "",
+          "height": "",
+          "id": "941810",
+          "marketValue": null,
+          "name": "Lorrana",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941811",
+          "marketValue": null,
+          "name": "Vitória Ferreira",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941812",
+          "marketValue": null,
+          "name": "Thamires Buga",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941813",
+          "marketValue": null,
+          "name": "Dymenor",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941815",
+          "marketValue": null,
+          "name": "Maria Larisse",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 26, 1995",
+          "foot": "right",
+          "height": "1,58",
+          "id": "941816",
+          "marketValue": null,
+          "name": "Mônica Bitencourt",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941817",
+          "marketValue": null,
+          "name": "Monik Hevillin",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941818",
+          "marketValue": null,
+          "name": "Vanessa Pipoca",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941819",
+          "marketValue": null,
+          "name": "Raiani da Cruz Caetano Gomes",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941820",
+          "marketValue": null,
+          "name": "Yasmin Cristini da Conceição Pereira",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941821",
+          "marketValue": null,
+          "name": "Iana Verônica",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941822",
+          "marketValue": null,
+          "name": "Kamila Santos de Lima",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941823",
+          "marketValue": null,
+          "name": "Lane",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941824",
+          "marketValue": null,
+          "name": "Maria Bárbara",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941825",
+          "marketValue": null,
+          "name": "Milena Bispo",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941826",
+          "marketValue": null,
+          "name": "Vick Moura",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941827",
+          "marketValue": null,
+          "name": "Sheila Pinheiro dos Santos",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941828",
+          "marketValue": null,
+          "name": "Mariana Neiva Pires",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941829",
+          "marketValue": null,
+          "name": "Adyla Keylla",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941830",
+          "marketValue": null,
+          "name": "Ane Karoline",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941831",
+          "marketValue": null,
+          "name": "Geicy Kelly",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941832",
+          "marketValue": null,
+          "name": "Jucinarya Conceição",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941833",
+          "marketValue": null,
+          "name": "Joyce Garcez",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941834",
+          "marketValue": null,
+          "name": "Katyelle Alves Pinto Costa",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941835",
+          "marketValue": null,
+          "name": "Kim",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941836",
+          "marketValue": null,
+          "name": "Milena Monteiro",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941837",
+          "marketValue": null,
+          "name": "Talita Castro",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941838",
+          "marketValue": null,
+          "name": "Kembelly Felicio Campos",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": null,
+          "foot": "",
+          "height": "",
+          "id": "941839",
+          "marketValue": null,
+          "name": "Maria Eduarda Rodrigues Silva",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "",
+          "position": "Striker"
+        }
+      ]
+    }
+  ]
+}

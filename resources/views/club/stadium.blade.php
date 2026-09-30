@@ -81,6 +81,25 @@
                 {{-- Capacity upgrades (gradas supletorias + rebuild) --}}
                 @include('club.partials.stadium-upgrades')
 
+                {{-- Men's stadium request — play a big home match at the men's ground --}}
+                @if($mensStadium && $nextHomeMatch)
+                <div class="bg-surface-800 border border-border-default rounded-xl p-5">
+                    <h4 class="font-heading text-lg font-bold uppercase text-text-primary mb-2">
+                        {{ __('game.mens_stadium_title') }}
+                    </h4>
+                    <p class="text-sm text-text-muted mb-4">
+                        {{ __('game.mens_stadium_desc', ['stadium' => $mensStadium['stadium'], 'capacity' => number_format($mensStadium['capacity'])]) }}
+                    </p>
+                    <form method="POST" action="{{ route('game.club.stadium.mens-stadium.request', ['gameId' => $game->id]) }}">
+                        @csrf
+                        <input type="hidden" name="match_id" value="{{ $nextHomeMatch->id }}">
+                        <button type="submit" class="px-4 py-2 bg-accent-600 hover:bg-accent-500 text-white font-semibold rounded-lg text-sm">
+                            {{ __('game.mens_stadium_request', ['stadium' => $mensStadium['stadium']]) }}
+                        </button>
+                    </form>
+                </div>
+                @endif
+
                 {{-- Renovation history — single source of truth for past
                      and in-flight projects. --}}
                 @include('club.partials.stadium-history')

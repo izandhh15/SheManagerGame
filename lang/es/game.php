@@ -604,6 +604,9 @@ return [
     'friendly_window_full' => 'Ya tienes 2 amistosos programados en esa ventana.',
     'friendly_invalid_stadium' => 'Estadio no válido.',
     // Estadio masculino
+    'mens_stadium_title' => 'Jugar en el estadio masculino',
+    'mens_stadium_desc' => 'Pide al club masculino jugar tu próximo partido en casa en :stadium (:capacity espectadores). El club decidirá según la importancia del partido.',
+    'mens_stadium_request' => 'Pedir jugar en :stadium',
     'mens_stadium_not_available' => 'Tu club no tiene estadio masculino disponible.',
     'mens_stadium_limit_reached' => 'Ya has usado el estadio masculino :max veces esta temporada.',
     'mens_stadium_already_set' => 'Este partido ya tiene sede asignada.',

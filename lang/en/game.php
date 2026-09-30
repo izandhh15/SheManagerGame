@@ -604,6 +604,9 @@ return [
     'friendly_window_full' => 'You already have 2 friendlies scheduled in that window.',
     'friendly_invalid_stadium' => 'Invalid stadium.',
     // Men's stadium
+    'mens_stadium_title' => "Play at the men's stadium",
+    'mens_stadium_desc' => "Ask the men's club to play your next home match at :stadium (:capacity seats). The club will decide based on the match's importance.",
+    'mens_stadium_request' => 'Request to play at :stadium',
     'mens_stadium_not_available' => 'Your club has no men\'s stadium available.',
     'mens_stadium_limit_reached' => 'You have already used the men\'s stadium :max times this season.',
     'mens_stadium_already_set' => 'This match already has a venue assigned.',

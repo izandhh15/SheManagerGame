@@ -311,12 +311,38 @@ class ShowClubStadium
         // so the user can see how full the ground actually gets per preset.
         $seasonTicketNoShowRate = (float) config('stadium.season_ticket_noshow_rate', 0.05);
 
+        // Men's stadium request: load the men's stadium for this team (if any)
+        // and the next unplayed home match, so the blade can offer the
+        // "request men's stadium" button.
+        $mensStadium = null;
+        $nextHomeMatch = null;
+        $mensStadiumPath = base_path('data/mens_stadiums.json');
+        if (file_exists($mensStadiumPath)) {
+            $mensData = json_decode(file_get_contents($mensStadiumPath), true);
+            foreach ($mensData['stadiums'] ?? [] as $entry) {
+                if (($entry['womens_team'] ?? '') === $game->team->name) {
+                    $mensStadium = $entry;
+                    break;
+                }
+            }
+        }
+        if ($mensStadium) {
+            $nextHomeMatch = GameMatch::where('game_id', $game->id)
+                ->where('home_team_id', $game->team_id)
+                ->where('played', false)
+                ->whereNull('neutral_venue_name')
+                ->orderBy('scheduled_date')
+                ->first();
+        }
+
         return view('club.stadium', [
             'game' => $game,
             'upgrade' => $upgrade,
             'historyRows' => $historyRows,
             'matchdayFactors' => $matchdayFactors,
             'seasonTicketNoShowRate' => $seasonTicketNoShowRate,
+            'mensStadium' => $mensStadium,
+            'nextHomeMatch' => $nextHomeMatch,
             ...$this->stadiumSummaryService->build($game),
             ...$this->namingRightsReadService->buildIdentityPanel($game),
         ]);

@@ -1,0 +1,7061 @@
+{
+  "id": "MEX1",
+  "name": "Liga MX Femenil",
+  "seasonID": "2026",
+  "clubs": [
+    {
+      "image": "",
+      "name": "Club Santos Laguna",
+      "stadiumName": "Estadio Corona",
+      "stadiumSeats": 29237,
+      "transfermarktId": 1454,
+      "players": [
+        {
+          "id": "942001",
+          "name": "Kathya Mendoza",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "number": 1,
+          "contract": null,
+          "foot": null,
+          "height": "1,72m"
+        },
+        {
+          "id": "942002",
+          "name": "Maried Rodriguez",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 12,
+          "contract": null,
+          "foot": null,
+          "height": "1,66m"
+        },
+        {
+          "id": "942003",
+          "name": "Tabatha Rivas",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 23,
+          "contract": null,
+          "foot": null,
+          "height": "1,61m"
+        },
+        {
+          "id": "942004",
+          "name": "Aida Cantú",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 33,
+          "contract": null,
+          "foot": null,
+          "height": "1,72m"
+        },
+        {
+          "id": "942005",
+          "name": "Sarina Villa",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 2,
+          "contract": null,
+          "foot": null,
+          "height": "1,71m"
+        },
+        {
+          "id": "942006",
+          "name": "Sasha Pickard",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 3,
+          "contract": null,
+          "foot": null,
+          "height": null
+        },
+        {
+          "id": "942007",
+          "name": "Laveni Vaka",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Tonga",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 4,
+          "contract": null,
+          "foot": null,
+          "height": "1,70m"
+        },
+        {
+          "id": "942008",
+          "name": "Havi Ibarra",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 6,
+          "contract": null,
+          "foot": null,
+          "height": "1,59m"
+        },
+        {
+          "id": "942009",
+          "name": "Karla Rodríguez",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 10,
+          "contract": null,
+          "foot": null,
+          "height": "1,67m"
+        },
+        {
+          "id": "942010",
+          "name": "Anahí Gómez",
+          "position": "Attacking Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 13,
+          "contract": null,
+          "foot": null,
+          "height": "1,56m"
+        },
+        {
+          "id": "942011",
+          "name": "Fernanda Soto",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 21,
+          "contract": null,
+          "foot": null,
+          "height": "1,55m"
+        },
+        {
+          "id": "942012",
+          "name": "Gineva Lopez",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 29,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942013",
+          "name": "Frida Cussin",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 31,
+          "contract": null,
+          "foot": null,
+          "height": "1,70m"
+        },
+        {
+          "id": "942014",
+          "name": "Yessenia Novella",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 5,
+          "contract": null,
+          "foot": null,
+          "height": "1,70m"
+        },
+        {
+          "id": "942015",
+          "name": "Doménica Rodríguez",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "number": 7,
+          "contract": null,
+          "foot": null,
+          "height": "1,59m"
+        },
+        {
+          "id": "942016",
+          "name": "Samantha Calvillo",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 9,
+          "contract": null,
+          "foot": null,
+          "height": "1,65m"
+        },
+        {
+          "id": "942017",
+          "name": "Karen De León",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 11,
+          "contract": null,
+          "foot": null,
+          "height": "1,66m"
+        },
+        {
+          "id": "942018",
+          "name": "Celeste Guevera",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 16,
+          "contract": null,
+          "foot": null,
+          "height": "1,61m"
+        },
+        {
+          "id": "942019",
+          "name": "Marianne Martínez",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 17,
+          "contract": null,
+          "foot": null,
+          "height": "1,53m"
+        },
+        {
+          "id": "942020",
+          "name": "Nayeli Díaz",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 25,
+          "contract": null,
+          "foot": null,
+          "height": "1,67m"
+        },
+        {
+          "id": "942021",
+          "name": "Amaya Arias",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 26,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942022",
+          "name": "Sandra Nabweteme",
+          "position": "Left Winger",
+          "dateOfBirth": null,
+          "nationality": [
+            "Uganda"
+          ],
+          "marketValue": null,
+          "number": 8,
+          "contract": null,
+          "foot": "right",
+          "height": "1,63m"
+        },
+        {
+          "id": "942023",
+          "name": "Ariatna Dorantes",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 14,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942024",
+          "name": "Ahtziri Mendez",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 19,
+          "contract": null,
+          "foot": null,
+          "height": "1,67m"
+        },
+        {
+          "id": "942025",
+          "name": "Lia Romero",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 20,
+          "contract": null,
+          "foot": null,
+          "height": "1,66m"
+        },
+        {
+          "id": "942026",
+          "name": "Vivian Ikechukwu",
+          "position": "Left Winger",
+          "dateOfBirth": null,
+          "nationality": [
+            "Nigeria"
+          ],
+          "marketValue": null,
+          "number": 22,
+          "contract": null,
+          "foot": "right",
+          "height": "1,68m"
+        },
+        {
+          "id": "942027",
+          "name": "Ivonne González",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 24,
+          "contract": null,
+          "foot": null,
+          "height": "1,57m"
+        }
+      ]
+    },
+    {
+      "image": "",
+      "name": "Tigres de la UANL",
+      "stadiumName": "Estadio Universitario",
+      "stadiumSeats": 41886,
+      "transfermarktId": 1512,
+      "players": [
+        {
+          "id": "942028",
+          "name": "Cecilia Santiago",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 1,
+          "contract": null,
+          "foot": null,
+          "height": "1,75m"
+        },
+        {
+          "id": "942029",
+          "name": "Itzel González",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 23,
+          "contract": null,
+          "foot": null,
+          "height": "1,65m"
+        },
+        {
+          "id": "942030",
+          "name": "Hannia de Ávila",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 33,
+          "contract": null,
+          "foot": null,
+          "height": "1,66m"
+        },
+        {
+          "id": "942031",
+          "name": "María González",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 2,
+          "contract": null,
+          "foot": null,
+          "height": "1,55m"
+        },
+        {
+          "id": "942032",
+          "name": "Mia Villalpando",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 3,
+          "contract": null,
+          "foot": "left",
+          "height": "1,65m"
+        },
+        {
+          "id": "942033",
+          "name": "Greta Espinoza",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 4,
+          "contract": null,
+          "foot": "left",
+          "height": "1,71m"
+        },
+        {
+          "id": "942034",
+          "name": "Jimena López",
+          "position": "Left-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 6,
+          "contract": null,
+          "foot": "left",
+          "height": "1,71m"
+        },
+        {
+          "id": "942035",
+          "name": "Talia Coury",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 13,
+          "contract": null,
+          "foot": null,
+          "height": null
+        },
+        {
+          "id": "942036",
+          "name": "Sabrina Enciso",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 17,
+          "contract": null,
+          "foot": null,
+          "height": "1,69m"
+        },
+        {
+          "id": "942037",
+          "name": "Susan Duah",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ghana"
+          ],
+          "marketValue": null,
+          "number": 18,
+          "contract": null,
+          "foot": "both",
+          "height": "1,68m"
+        },
+        {
+          "id": "942038",
+          "name": "Mariza",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Brazil"
+          ],
+          "marketValue": null,
+          "number": 20,
+          "contract": null,
+          "foot": "right",
+          "height": "1,64m"
+        },
+        {
+          "id": "942039",
+          "name": "Anika Rodríguez",
+          "position": "Right-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 22,
+          "contract": null,
+          "foot": null,
+          "height": "1,57m"
+        },
+        {
+          "id": "942040",
+          "name": "Natalia Muñoz",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 32,
+          "contract": null,
+          "foot": null,
+          "height": "1,67m"
+        },
+        {
+          "id": "942041",
+          "name": "Grace Asantewaa",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ghana"
+          ],
+          "marketValue": null,
+          "number": 5,
+          "contract": null,
+          "foot": "right",
+          "height": "1,70m"
+        },
+        {
+          "id": "942042",
+          "name": "María Sánchez",
+          "position": "Left Winger",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 7,
+          "contract": null,
+          "foot": "left",
+          "height": "1,70m"
+        },
+        {
+          "id": "942043",
+          "name": "Alexia Delgado",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 8,
+          "contract": null,
+          "foot": null,
+          "height": "1,63m"
+        },
+        {
+          "id": "942044",
+          "name": "Thembi Kgatlana",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "South Africa"
+          ],
+          "marketValue": null,
+          "number": 16,
+          "contract": null,
+          "foot": "right",
+          "height": "1,57m"
+        },
+        {
+          "id": "942045",
+          "name": "Ilana Izquierdo",
+          "position": "Defensive Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Colombia"
+          ],
+          "marketValue": null,
+          "number": 21,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942046",
+          "name": "Maricarmen Reyes",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 24,
+          "contract": null,
+          "foot": null,
+          "height": "1,70m"
+        },
+        {
+          "id": "942047",
+          "name": "Angelica Antonio",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 35,
+          "contract": null,
+          "foot": null,
+          "height": "1,73m"
+        },
+        {
+          "id": "942048",
+          "name": "Ana Salas",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 63,
+          "contract": null,
+          "foot": null,
+          "height": "1,65m"
+        },
+        {
+          "id": "942049",
+          "name": "Stephany Mayor",
+          "position": "Left Winger",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 9,
+          "contract": null,
+          "foot": null,
+          "height": "1,63m"
+        },
+        {
+          "id": "942050",
+          "name": "Deyna Castellanos",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Venezuela"
+          ],
+          "marketValue": "€100k",
+          "number": 10,
+          "contract": null,
+          "foot": "right",
+          "height": "1,65m"
+        },
+        {
+          "id": "942051",
+          "name": "Jheniffer",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Brazil"
+          ],
+          "marketValue": null,
+          "number": 11,
+          "contract": null,
+          "foot": "right",
+          "height": "1,70m"
+        },
+        {
+          "id": "942052",
+          "name": "Diana Ordóñez",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 12,
+          "contract": null,
+          "foot": "right",
+          "height": "1,80m"
+        },
+        {
+          "id": "942053",
+          "name": "Myra Delgadillo",
+          "position": "Left Winger",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 14,
+          "contract": null,
+          "foot": "right",
+          "height": "1,75m"
+        },
+        {
+          "id": "942054",
+          "name": "Tatiana Flores",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "England"
+          ],
+          "marketValue": null,
+          "number": 19,
+          "contract": null,
+          "foot": null,
+          "height": "1,76m"
+        },
+        {
+          "id": "942055",
+          "name": "Álison González",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 30,
+          "contract": null,
+          "foot": "right",
+          "height": "1,69m"
+        },
+        {
+          "id": "942056",
+          "name": "Deiry Ramírez",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 34,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        }
+      ]
+    },
+    {
+      "image": "",
+      "name": "Cruz Azul",
+      "stadiumName": "Estadio Centenario",
+      "stadiumSeats": 9670,
+      "transfermarktId": 1516,
+      "players": [
+        {
+          "id": "942057",
+          "name": "Ofelia Solís",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 12,
+          "contract": null,
+          "foot": null,
+          "height": "1,69m"
+        },
+        {
+          "id": "942058",
+          "name": "Melany Villeda",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 1,
+          "contract": null,
+          "foot": null,
+          "height": "1,70m"
+        },
+        {
+          "id": "942059",
+          "name": "Heidi Ruth",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 3,
+          "contract": null,
+          "foot": "both",
+          "height": "1,70m"
+        },
+        {
+          "id": "942060",
+          "name": "Tanna Sánchez",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 4,
+          "contract": null,
+          "foot": null,
+          "height": "1,68m"
+        },
+        {
+          "id": "942061",
+          "name": "Valeria Miranda",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 2,
+          "contract": null,
+          "foot": null,
+          "height": "1,65m"
+        },
+        {
+          "id": "942062",
+          "name": "Desiree Mendoza",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 11,
+          "contract": null,
+          "foot": null,
+          "height": "1,55m"
+        },
+        {
+          "id": "942063",
+          "name": "Ivonne Gutiérrez",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 23,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942064",
+          "name": "Alexa Michel",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 24,
+          "contract": null,
+          "foot": null,
+          "height": "1,66m"
+        },
+        {
+          "id": "942065",
+          "name": "Araceli Torres",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 26,
+          "contract": null,
+          "foot": null,
+          "height": "1,54m"
+        },
+        {
+          "id": "942066",
+          "name": "Akemí Yokoyama",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "Japan"
+          ],
+          "marketValue": null,
+          "number": 99,
+          "contract": null,
+          "foot": null,
+          "height": "1,68m"
+        },
+        {
+          "id": "942067",
+          "name": "Joselyn Solís",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 30,
+          "contract": null,
+          "foot": null,
+          "height": "1,51m"
+        },
+        {
+          "id": "942068",
+          "name": "Belén Cruz",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 18,
+          "contract": null,
+          "foot": null,
+          "height": "1,65m"
+        },
+        {
+          "id": "942069",
+          "name": "América Frias",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 5,
+          "contract": null,
+          "foot": null,
+          "height": "1,67m"
+        },
+        {
+          "id": "942070",
+          "name": "Liliana Rodríguez",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 6,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942071",
+          "name": "Lizbeth Ángeles",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 7,
+          "contract": null,
+          "foot": null,
+          "height": "1,59m"
+        },
+        {
+          "id": "942072",
+          "name": "Alejandra Lomelí",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 8,
+          "contract": null,
+          "foot": null,
+          "height": "1,52m"
+        },
+        {
+          "id": "942073",
+          "name": "Daniela Calderón",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 13,
+          "contract": null,
+          "foot": null,
+          "height": "1,73m"
+        },
+        {
+          "id": "942074",
+          "name": "Mía León",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 14,
+          "contract": null,
+          "foot": "right",
+          "height": "1,61m"
+        },
+        {
+          "id": "942075",
+          "name": "Cristina Montaño",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 17,
+          "contract": null,
+          "foot": null,
+          "height": "1,59m"
+        },
+        {
+          "id": "942076",
+          "name": "Valeria Valdez",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 19,
+          "contract": null,
+          "foot": null,
+          "height": "1,62m"
+        },
+        {
+          "id": "942077",
+          "name": "María Esquivel",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 27,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942078",
+          "name": "Ana García",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 28,
+          "contract": null,
+          "foot": null,
+          "height": "1,55m"
+        },
+        {
+          "id": "942079",
+          "name": "Uchenna Kanu",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Nigeria"
+          ],
+          "marketValue": null,
+          "number": 29,
+          "contract": null,
+          "foot": "right",
+          "height": "1,76m"
+        },
+        {
+          "id": "942080",
+          "name": "Brenda Cerén",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "El Salvador"
+          ],
+          "marketValue": null,
+          "number": 20,
+          "contract": null,
+          "foot": null,
+          "height": "1,55m"
+        },
+        {
+          "id": "942081",
+          "name": "Ana Lucía Martínez",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Guatemala"
+          ],
+          "marketValue": null,
+          "number": 9,
+          "contract": null,
+          "foot": null,
+          "height": "1,55m"
+        },
+        {
+          "id": "942082",
+          "name": "Alicia de la Cuerda",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Spain"
+          ],
+          "marketValue": null,
+          "number": null,
+          "contract": null,
+          "foot": null,
+          "height": null
+        },
+        {
+          "id": "942083",
+          "name": "Ty Burks",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 44,
+          "contract": null,
+          "foot": null,
+          "height": null
+        }
+      ]
+    },
+    {
+      "image": "",
+      "name": "Pumas UNAM",
+      "stadiumName": "Estadio Olímpico Universitario",
+      "stadiumSeats": 48297,
+      "transfermarktId": 4947,
+      "players": [
+        {
+          "id": "942151",
+          "name": "Wendy Toledo",
+          "position": "Goalkeeper",
+          "dateOfBirth": "Sep 13, 2000",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 1,
+          "contract": null,
+          "foot": null,
+          "height": "1,77m"
+        },
+        {
+          "id": "942152",
+          "name": "Jashia López",
+          "position": "Goalkeeper",
+          "dateOfBirth": "Nov 21, 2004",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 20,
+          "contract": null,
+          "foot": null,
+          "height": "1,71m"
+        },
+        {
+          "id": "942153",
+          "name": "Mar Moya",
+          "position": "Goalkeeper",
+          "dateOfBirth": "Apr 4, 2005",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 25,
+          "contract": null,
+          "foot": null,
+          "height": "1,70m"
+        },
+        {
+          "id": "942154",
+          "name": "Karen Ramírez",
+          "position": "Centre-Back",
+          "dateOfBirth": "Sep 14, 2005",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 2,
+          "contract": null,
+          "foot": null,
+          "height": "1,66m"
+        },
+        {
+          "id": "942155",
+          "name": "Ana Mendoza",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 3,
+          "contract": null,
+          "foot": null,
+          "height": "1,67m"
+        },
+        {
+          "id": "942156",
+          "name": "Elena Sainz",
+          "position": "Defender",
+          "dateOfBirth": "May 4, 2001",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 4,
+          "contract": null,
+          "foot": null,
+          "height": "1,61m"
+        },
+        {
+          "id": "942157",
+          "name": "Ximena Ríos",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 5,
+          "contract": null,
+          "foot": null,
+          "height": "1,59m"
+        },
+        {
+          "id": "942158",
+          "name": "Andrea Pereira",
+          "position": "Centre-Back",
+          "dateOfBirth": "Sep 19, 1993",
+          "nationality": [
+            "Spain"
+          ],
+          "marketValue": null,
+          "number": 8,
+          "contract": null,
+          "foot": "right",
+          "height": "1,65m"
+        },
+        {
+          "id": "942159",
+          "name": "Cristina Torres",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Puerto Rico"
+          ],
+          "marketValue": null,
+          "number": 10,
+          "contract": null,
+          "foot": null,
+          "height": "1,69m"
+        },
+        {
+          "id": "942160",
+          "name": "Paola Chavero",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 13,
+          "contract": null,
+          "foot": null,
+          "height": "1,59m"
+        },
+        {
+          "id": "942161",
+          "name": "Julissa Dávila",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 14,
+          "contract": null,
+          "foot": null,
+          "height": "1,62m"
+        },
+        {
+          "id": "942162",
+          "name": "Portia Boakye",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ghana"
+          ],
+          "marketValue": "€20k",
+          "number": 17,
+          "contract": null,
+          "foot": "left",
+          "height": "1,68m"
+        },
+        {
+          "id": "942163",
+          "name": "Casandra Montero",
+          "position": "Defender",
+          "dateOfBirth": "May 31, 1994",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 31,
+          "contract": null,
+          "foot": null,
+          "height": "1,71m"
+        },
+        {
+          "id": "942164",
+          "name": "Priscila Chinchilla",
+          "position": "Striker",
+          "dateOfBirth": "Jul 11, 2001",
+          "nationality": [
+            "Costa Rica"
+          ],
+          "marketValue": null,
+          "number": 9,
+          "contract": null,
+          "foot": "right",
+          "height": "1,54m"
+        },
+        {
+          "id": "942165",
+          "name": "Montserrat Hernández",
+          "position": "Midfielder",
+          "dateOfBirth": "Jun 26, 1999",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 11,
+          "contract": null,
+          "foot": null,
+          "height": "1,66m"
+        },
+        {
+          "id": "942166",
+          "name": "Alejandra Guerrero",
+          "position": "Attacking Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 16,
+          "contract": null,
+          "foot": null,
+          "height": "1,57m"
+        },
+        {
+          "id": "942167",
+          "name": "Alexa Huerta",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 26,
+          "contract": null,
+          "foot": null,
+          "height": null
+        },
+        {
+          "id": "942168",
+          "name": "Valentina Hernández",
+          "position": "Attacking Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 66,
+          "contract": null,
+          "foot": null,
+          "height": "1,59m"
+        },
+        {
+          "id": "942169",
+          "name": "Karime Ortíz",
+          "position": "Attacking Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 71,
+          "contract": null,
+          "foot": null,
+          "height": "1,66m"
+        },
+        {
+          "id": "942170",
+          "name": "Stephanie Ribeiro",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Portugal",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 7,
+          "contract": null,
+          "foot": null,
+          "height": "1,70m"
+        },
+        {
+          "id": "942171",
+          "name": "Angelina Hix",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 12,
+          "contract": null,
+          "foot": "right",
+          "height": "1,78m"
+        },
+        {
+          "id": "942172",
+          "name": "Emily Gielnik",
+          "position": "Striker",
+          "dateOfBirth": "May 13, 1992",
+          "nationality": [
+            "Australia",
+            "Croatia"
+          ],
+          "marketValue": null,
+          "number": 15,
+          "contract": null,
+          "foot": "both",
+          "height": "1,78m"
+        }
+      ]
+    },
+    {
+      "image": "",
+      "name": "Club Deportivo Guadalajara",
+      "stadiumName": "Estadio Akron",
+      "stadiumSeats": 46232,
+      "transfermarktId": 6441,
+      "players": [
+        {
+          "id": "942173",
+          "name": "Heidi González",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 1,
+          "contract": null,
+          "foot": null,
+          "height": "1,68m"
+        },
+        {
+          "id": "942174",
+          "name": "Blanca Félix",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 12,
+          "contract": "2026",
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942175",
+          "name": "Zoé Aguirre",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 34,
+          "contract": null,
+          "foot": null,
+          "height": "1,74m"
+        },
+        {
+          "id": "942176",
+          "name": "Jaqueline Rodríguez",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 2,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942177",
+          "name": "Damaris Godínez",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 3,
+          "contract": null,
+          "foot": null,
+          "height": "1,59m"
+        },
+        {
+          "id": "942178",
+          "name": "Natalia Colín",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 4,
+          "contract": null,
+          "foot": null,
+          "height": "1,72m"
+        },
+        {
+          "id": "942179",
+          "name": "Cristina Ferral",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 5,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942180",
+          "name": "Anacamila Hernández",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 6,
+          "contract": null,
+          "foot": null,
+          "height": "1,72m"
+        },
+        {
+          "id": "942181",
+          "name": "Samantha López",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Guatemala",
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 21,
+          "contract": null,
+          "foot": "left",
+          "height": "1,75m"
+        },
+        {
+          "id": "942182",
+          "name": "Carolina Jaramillo",
+          "position": "Attacking Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 8,
+          "contract": "2026",
+          "foot": null,
+          "height": "1,53m"
+        },
+        {
+          "id": "942183",
+          "name": "Mayra Pelayo",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 13,
+          "contract": null,
+          "foot": null,
+          "height": "1,65m"
+        },
+        {
+          "id": "942184",
+          "name": "Natalia Mauleón",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 14,
+          "contract": null,
+          "foot": "right",
+          "height": "1,52m"
+        },
+        {
+          "id": "942185",
+          "name": "Eva González",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 16,
+          "contract": null,
+          "foot": null,
+          "height": "1,54m"
+        },
+        {
+          "id": "942186",
+          "name": "Natalia Villarreal",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 17,
+          "contract": null,
+          "foot": null,
+          "height": "1,57m"
+        },
+        {
+          "id": "942187",
+          "name": "Valeria Alvarado",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 19,
+          "contract": null,
+          "foot": "right",
+          "height": "1,62m"
+        },
+        {
+          "id": "942188",
+          "name": "Joseline Montoya",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 25,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942189",
+          "name": "Gabriela Valenzuela",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 9,
+          "contract": null,
+          "foot": null,
+          "height": "1,59m"
+        },
+        {
+          "id": "942190",
+          "name": "Adriana Iturbide",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 10,
+          "contract": null,
+          "foot": null,
+          "height": "1,63m"
+        },
+        {
+          "id": "942191",
+          "name": "Denise Castro",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 22,
+          "contract": null,
+          "foot": null,
+          "height": "1,69m"
+        },
+        {
+          "id": "942192",
+          "name": "Jasmine Casárez",
+          "position": "Attacking Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 23,
+          "contract": null,
+          "foot": null,
+          "height": "1,73m"
+        },
+        {
+          "id": "942193",
+          "name": "Alicia Cervantes",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 24,
+          "contract": "2028",
+          "foot": null,
+          "height": "1,54m"
+        },
+        {
+          "id": "942194",
+          "name": "Viridiana Salazar",
+          "position": "Attacking Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 30,
+          "contract": null,
+          "foot": null,
+          "height": "1,57m"
+        }
+      ]
+    },
+    {
+      "image": "",
+      "name": "Atlas Guadalajara",
+      "stadiumName": "Estadio Jalisco",
+      "stadiumSeats": 55020,
+      "transfermarktId": 6471,
+      "players": [
+        {
+          "id": "942195",
+          "name": "Karol Contreras",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 1,
+          "contract": null,
+          "foot": null,
+          "height": "1,74m"
+        },
+        {
+          "id": "942196",
+          "name": "Camila Vázquez",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 12,
+          "contract": null,
+          "foot": "right",
+          "height": "1,73m"
+        },
+        {
+          "id": "942197",
+          "name": "Dayana Covarrubias",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 27,
+          "contract": null,
+          "foot": null,
+          "height": "1,65m"
+        },
+        {
+          "id": "942198",
+          "name": "Iliana Jasso",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 4,
+          "contract": null,
+          "foot": null,
+          "height": "1,62m"
+        },
+        {
+          "id": "942199",
+          "name": "Vasthy Delgado",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "El Salvador",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 5,
+          "contract": null,
+          "foot": null,
+          "height": "1,73m"
+        },
+        {
+          "id": "942200",
+          "name": "Miranda Palacios",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 15,
+          "contract": null,
+          "foot": null,
+          "height": "1,67m"
+        },
+        {
+          "id": "942201",
+          "name": "Akane Lara",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 18,
+          "contract": null,
+          "foot": "right",
+          "height": "1,72m"
+        },
+        {
+          "id": "942202",
+          "name": "Fátima Delgado",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 22,
+          "contract": null,
+          "foot": null,
+          "height": "1,58m"
+        },
+        {
+          "id": "942203",
+          "name": "Vanessa Penuna",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 23,
+          "contract": null,
+          "foot": "right",
+          "height": "1,60m"
+        },
+        {
+          "id": "942204",
+          "name": "Daniela Meza",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 25,
+          "contract": null,
+          "foot": null,
+          "height": "1,67m"
+        },
+        {
+          "id": "942205",
+          "name": "Mayela Peregrina",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 26,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942206",
+          "name": "Bibiana Quintos",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 28,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942207",
+          "name": "Nithzaye Aguilar",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 33,
+          "contract": null,
+          "foot": null,
+          "height": "1,54m"
+        },
+        {
+          "id": "942208",
+          "name": "Laila Saravia",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 3,
+          "contract": null,
+          "foot": null,
+          "height": "1,66m"
+        },
+        {
+          "id": "942209",
+          "name": "Victoria Acevedo",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 6,
+          "contract": null,
+          "foot": null,
+          "height": "1,59m"
+        },
+        {
+          "id": "942210",
+          "name": "Renata Huerta",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 8,
+          "contract": null,
+          "foot": null,
+          "height": "1,57m"
+        },
+        {
+          "id": "942211",
+          "name": "Maritza Maldonado",
+          "position": "Attacking Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 13,
+          "contract": null,
+          "foot": null,
+          "height": "1,71m"
+        },
+        {
+          "id": "942212",
+          "name": "Cynthia Ramirez",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 14,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942213",
+          "name": "Andrea Hernández",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 16,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942214",
+          "name": "Ashley López",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 17,
+          "contract": null,
+          "foot": null,
+          "height": "1,65m"
+        },
+        {
+          "id": "942215",
+          "name": "Eva Vlassopoulos",
+          "position": "Right Winger",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States",
+            "Greece"
+          ],
+          "marketValue": null,
+          "number": 20,
+          "contract": null,
+          "foot": "left",
+          "height": "1,72m"
+        },
+        {
+          "id": "942216",
+          "name": "Marine Galaviz",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 21,
+          "contract": null,
+          "foot": null,
+          "height": "1,63m"
+        },
+        {
+          "id": "942217",
+          "name": "Alondra Cardona",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 24,
+          "contract": null,
+          "foot": null,
+          "height": "1,50m"
+        },
+        {
+          "id": "942218",
+          "name": "Sydney Stephens",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States"
+          ],
+          "marketValue": null,
+          "number": null,
+          "contract": null,
+          "foot": null,
+          "height": "1,65m"
+        },
+        {
+          "id": "942219",
+          "name": "Karen Flores",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "number": 7,
+          "contract": null,
+          "foot": null,
+          "height": "1,68m"
+        },
+        {
+          "id": "942220",
+          "name": "Noemí Villalobos",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 9,
+          "contract": null,
+          "foot": null,
+          "height": "1,61m"
+        },
+        {
+          "id": "942221",
+          "name": "Sanjuana Muñoz",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 11,
+          "contract": null,
+          "foot": null,
+          "height": "1,70m"
+        },
+        {
+          "id": "942222",
+          "name": "Karla López",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 19,
+          "contract": null,
+          "foot": null,
+          "height": "1,54m"
+        },
+        {
+          "id": "942223",
+          "name": "Aitana Martínez",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Spain"
+          ],
+          "marketValue": null,
+          "number": 29,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942224",
+          "name": "Catalina Gutierrez",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 70,
+          "contract": null,
+          "foot": null,
+          "height": "1,57m"
+        }
+      ]
+    },
+    {
+      "image": "",
+      "name": "Club América",
+      "stadiumName": "Estadio Azteca",
+      "stadiumSeats": 87523,
+      "transfermarktId": 7108,
+      "players": [
+        {
+          "id": "942301",
+          "name": "Celeste Espino",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 1,
+          "contract": null,
+          "foot": null,
+          "height": "1,76m"
+        },
+        {
+          "id": "942302",
+          "name": "Itzel Velasco",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 12,
+          "contract": null,
+          "foot": null,
+          "height": "1,72m"
+        },
+        {
+          "id": "942303",
+          "name": "Valentina Murrieta",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 20,
+          "contract": null,
+          "foot": null,
+          "height": "1,70m"
+        },
+        {
+          "id": "942304",
+          "name": "Jaidy Gutiérrez",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 23,
+          "contract": null,
+          "foot": "right",
+          "height": "1,69m"
+        },
+        {
+          "id": "942305",
+          "name": "Isa Haas",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Brazil"
+          ],
+          "marketValue": null,
+          "number": 2,
+          "contract": 2029,
+          "foot": "right",
+          "height": "1,77m"
+        },
+        {
+          "id": "942306",
+          "name": "Karina Rodríguez",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 3,
+          "contract": null,
+          "foot": null,
+          "height": "1,72m"
+        },
+        {
+          "id": "942307",
+          "name": "Karol Bernal",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 4,
+          "contract": null,
+          "foot": null,
+          "height": "1,67m"
+        },
+        {
+          "id": "942308",
+          "name": "Kimberly Rodríguez",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 15,
+          "contract": null,
+          "foot": "left",
+          "height": "1,69m"
+        },
+        {
+          "id": "942309",
+          "name": "Karen Luna",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 26,
+          "contract": null,
+          "foot": "right",
+          "height": "1,69m"
+        },
+        {
+          "id": "942310",
+          "name": "Mariela Ramos",
+          "position": "Defender",
+          "dateOfBirth": "Jul 20, 2005",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 28,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942311",
+          "name": "Nicol de Léon",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 72,
+          "contract": null,
+          "foot": null,
+          "height": "1,67m"
+        },
+        {
+          "id": "942312",
+          "name": "Gaby García",
+          "position": "Central Midfield",
+          "dateOfBirth": "Apr 2, 1997",
+          "nationality": [
+            "Venezuela"
+          ],
+          "marketValue": null,
+          "number": 5,
+          "contract": 2027,
+          "foot": "right",
+          "height": "1,85m"
+        },
+        {
+          "id": "942313",
+          "name": "Irene Guerrero",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Spain"
+          ],
+          "marketValue": null,
+          "number": 8,
+          "contract": 2026,
+          "foot": null,
+          "height": "1,68m"
+        },
+        {
+          "id": "942314",
+          "name": "Xcaret Pineda",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 13,
+          "contract": null,
+          "foot": null,
+          "height": "1,75m"
+        },
+        {
+          "id": "942315",
+          "name": "Alexa Soto",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 14,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942316",
+          "name": "Julie Lopez",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 16,
+          "contract": null,
+          "foot": "right",
+          "height": "1,67m"
+        },
+        {
+          "id": "942317",
+          "name": "Nancy Antonio",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 18,
+          "contract": null,
+          "foot": null,
+          "height": "1,71m"
+        },
+        {
+          "id": "942318",
+          "name": "Montserrat Saldívar",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 19,
+          "contract": null,
+          "foot": "left",
+          "height": "1,78m"
+        },
+        {
+          "id": "942319",
+          "name": "Sarah Luebbert",
+          "position": "Right Winger",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 22,
+          "contract": 2029,
+          "foot": "both",
+          "height": "1,72m"
+        },
+        {
+          "id": "942320",
+          "name": "Jana Gutiérrez",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 25,
+          "contract": null,
+          "foot": "right",
+          "height": "1,72m"
+        },
+        {
+          "id": "942321",
+          "name": "Ana Pedrero",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 66,
+          "contract": null,
+          "foot": null,
+          "height": "1,67m"
+        },
+        {
+          "id": "942322",
+          "name": "Bruna Vilamala",
+          "position": "Right Winger",
+          "dateOfBirth": null,
+          "nationality": [
+            "Spain"
+          ],
+          "marketValue": null,
+          "number": 6,
+          "contract": 2027,
+          "foot": "left",
+          "height": "1,63m"
+        },
+        {
+          "id": "942323",
+          "name": "Priscila",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Brazil"
+          ],
+          "marketValue": null,
+          "number": 9,
+          "contract": 2027,
+          "foot": "right",
+          "height": "1,69m"
+        },
+        {
+          "id": "942324",
+          "name": "Scarlett Camberos",
+          "position": "Left Winger",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 10,
+          "contract": null,
+          "foot": "right",
+          "height": "1,70m"
+        },
+        {
+          "id": "942325",
+          "name": "Aylin Aviléz",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 11,
+          "contract": null,
+          "foot": null,
+          "height": "1,54m"
+        },
+        {
+          "id": "942326",
+          "name": "Geyse",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Brazil"
+          ],
+          "marketValue": null,
+          "number": 17,
+          "contract": null,
+          "foot": "right",
+          "height": "1,69m"
+        },
+        {
+          "id": "942327",
+          "name": "Alondra Cabanillas",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 24,
+          "contract": null,
+          "foot": "right",
+          "height": "1,56m"
+        },
+        {
+          "id": "942328",
+          "name": "Giana Riley",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 30,
+          "contract": null,
+          "foot": "right",
+          "height": "1,72m"
+        }
+      ]
+    },
+    {
+      "image": "",
+      "name": "CF Pachuca",
+      "stadiumName": "Estadio Hidalgo",
+      "stadiumSeats": 27512,
+      "transfermarktId": 7167,
+      "players": [
+        {
+          "id": "942329",
+          "name": "Esthefanny Barreras",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 1,
+          "contract": null,
+          "foot": null,
+          "height": "1,74m"
+        },
+        {
+          "id": "942330",
+          "name": "Carmen López",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 22,
+          "contract": null,
+          "foot": null,
+          "height": "1,73m"
+        },
+        {
+          "id": "942331",
+          "name": "Kenti Robles",
+          "position": "Right-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "Spain"
+          ],
+          "marketValue": null,
+          "number": 2,
+          "contract": null,
+          "foot": "right",
+          "height": "1,63m"
+        },
+        {
+          "id": "942332",
+          "name": "Osinachi Ohale",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Nigeria"
+          ],
+          "marketValue": null,
+          "number": 3,
+          "contract": null,
+          "foot": "left",
+          "height": "1,74m"
+        },
+        {
+          "id": "942333",
+          "name": "Berenice Ibarra",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 5,
+          "contract": 2029,
+          "foot": "left",
+          "height": "1,66m"
+        },
+        {
+          "id": "942334",
+          "name": "Jocelyn Orejel",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 7,
+          "contract": null,
+          "foot": null,
+          "height": "1,83m"
+        },
+        {
+          "id": "942335",
+          "name": "Yirleidys Minota",
+          "position": "Left-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Colombia"
+          ],
+          "marketValue": null,
+          "number": 8,
+          "contract": null,
+          "foot": "right",
+          "height": "1,70m"
+        },
+        {
+          "id": "942336",
+          "name": "Kelly Caicedo",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Colombia"
+          ],
+          "marketValue": null,
+          "number": 17,
+          "contract": null,
+          "foot": "right",
+          "height": "1,72m"
+        },
+        {
+          "id": "942337",
+          "name": "Daniela Flores",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 23,
+          "contract": null,
+          "foot": null,
+          "height": "1,66m"
+        },
+        {
+          "id": "942338",
+          "name": "Alexa Martínez",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 32,
+          "contract": null,
+          "foot": null,
+          "height": "1,66m"
+        },
+        {
+          "id": "942339",
+          "name": "Fernanda Canseco",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 34,
+          "contract": null,
+          "foot": null,
+          "height": "1,68m"
+        },
+        {
+          "id": "942340",
+          "name": "Vanessa Millsaps",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": null,
+          "contract": null,
+          "foot": null,
+          "height": "1,57m"
+        },
+        {
+          "id": "942341",
+          "name": "Karla Nieto",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 6,
+          "contract": null,
+          "foot": null,
+          "height": "1,54m"
+        },
+        {
+          "id": "942342",
+          "name": "Sydney Becerra",
+          "position": "Attacking Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 12,
+          "contract": null,
+          "foot": null,
+          "height": "1,70m"
+        },
+        {
+          "id": "942343",
+          "name": "Ella Sánchez",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 16,
+          "contract": null,
+          "foot": null,
+          "height": "1,65m"
+        },
+        {
+          "id": "942344",
+          "name": "Michelle González",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 18,
+          "contract": null,
+          "foot": null,
+          "height": "1,61m"
+        },
+        {
+          "id": "942345",
+          "name": "Abril Fragoso",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 19,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942346",
+          "name": "Yareli Valadez",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 28,
+          "contract": null,
+          "foot": null,
+          "height": "1,57m"
+        },
+        {
+          "id": "942347",
+          "name": "Janeth Valdez",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 35,
+          "contract": null,
+          "foot": null,
+          "height": "1,54m"
+        },
+        {
+          "id": "942348",
+          "name": "Charlyn Corral",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 9,
+          "contract": null,
+          "foot": "right",
+          "height": "1,52m"
+        },
+        {
+          "id": "942349",
+          "name": "Nina Nicosia",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "Argentina"
+          ],
+          "marketValue": null,
+          "number": 10,
+          "contract": null,
+          "foot": null,
+          "height": "1,72m"
+        },
+        {
+          "id": "942350",
+          "name": "Allison Veloz",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States",
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 11,
+          "contract": null,
+          "foot": null,
+          "height": "1,65m"
+        },
+        {
+          "id": "942351",
+          "name": "Eudimilla",
+          "position": "Right Winger",
+          "dateOfBirth": null,
+          "nationality": [
+            "Brazil"
+          ],
+          "marketValue": null,
+          "number": 13,
+          "contract": null,
+          "foot": "right",
+          "height": "1,68m"
+        },
+        {
+          "id": "942352",
+          "name": "Mackenzee Vance",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 21,
+          "contract": null,
+          "foot": null,
+          "height": "1,70m"
+        },
+        {
+          "id": "942353",
+          "name": "Aline Gomes",
+          "position": "Right Winger",
+          "dateOfBirth": null,
+          "nationality": [
+            "Brazil"
+          ],
+          "marketValue": null,
+          "number": 25,
+          "contract": null,
+          "foot": "right",
+          "height": "1,67m"
+        },
+        {
+          "id": "942354",
+          "name": "Paola García",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 26,
+          "contract": null,
+          "foot": null,
+          "height": "1,65m"
+        },
+        {
+          "id": "942355",
+          "name": "Chinwendu Ihezuo",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Nigeria"
+          ],
+          "marketValue": null,
+          "number": 30,
+          "contract": 2027,
+          "foot": "right",
+          "height": "1,72m"
+        },
+        {
+          "id": "942356",
+          "name": "Andrea Flores",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 33,
+          "contract": null,
+          "foot": null,
+          "height": "1,65m"
+        }
+      ]
+    },
+    {
+      "image": "",
+      "name": "Xolos Tijuana",
+      "stadiumName": "Estadio Caliente",
+      "stadiumSeats": 27333,
+      "transfermarktId": 7259,
+      "players": [
+        {
+          "id": "942357",
+          "name": "Ana Gaby Paz",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 1,
+          "contract": null,
+          "foot": "right",
+          "height": "1,69m"
+        },
+        {
+          "id": "942358",
+          "name": "Marcela Molina",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 35,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942359",
+          "name": "Bárbara del Real",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 78,
+          "contract": null,
+          "foot": null,
+          "height": "1,72m"
+        },
+        {
+          "id": "942360",
+          "name": "Karen Díaz",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 2,
+          "contract": null,
+          "foot": null,
+          "height": "1,66m"
+        },
+        {
+          "id": "942361",
+          "name": "Jazmín Enrigue",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 3,
+          "contract": null,
+          "foot": null,
+          "height": "1,58m"
+        },
+        {
+          "id": "942362",
+          "name": "Deisy Ojeda",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Paraguay"
+          ],
+          "marketValue": null,
+          "number": 4,
+          "contract": null,
+          "foot": "left",
+          "height": "1,64m"
+        },
+        {
+          "id": "942363",
+          "name": "Fabiola Ibarra",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 6,
+          "contract": null,
+          "foot": null,
+          "height": "1,66m"
+        },
+        {
+          "id": "942364",
+          "name": "Vanessa González",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 14,
+          "contract": null,
+          "foot": null,
+          "height": "1,58m"
+        },
+        {
+          "id": "942365",
+          "name": "Lesly González",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 15,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942366",
+          "name": "Lía Morán",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 21,
+          "contract": null,
+          "foot": null,
+          "height": "1,57m"
+        },
+        {
+          "id": "942367",
+          "name": "Emili Bautista",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 22,
+          "contract": null,
+          "foot": null,
+          "height": "1,63m"
+        },
+        {
+          "id": "942368",
+          "name": "Michel Fong",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 24,
+          "contract": null,
+          "foot": null,
+          "height": "1,55m"
+        },
+        {
+          "id": "942369",
+          "name": "María Fernanda López",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": null,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942370",
+          "name": "Jaquelín García",
+          "position": "Attacking Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 7,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942371",
+          "name": "Ammanda Marroquin",
+          "position": "Attacking Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 8,
+          "contract": null,
+          "foot": "both",
+          "height": "1,67m"
+        },
+        {
+          "id": "942372",
+          "name": "Danielle Fuentes",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "El Salvador",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 11,
+          "contract": null,
+          "foot": null,
+          "height": "1,65m"
+        },
+        {
+          "id": "942373",
+          "name": "Dana Sandoval",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 13,
+          "contract": null,
+          "foot": null,
+          "height": "1,65m"
+        },
+        {
+          "id": "942374",
+          "name": "Alexa Curiel",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 16,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942375",
+          "name": "Amogelang Motau",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "South Africa"
+          ],
+          "marketValue": null,
+          "number": 17,
+          "contract": null,
+          "foot": "both",
+          "height": null
+        },
+        {
+          "id": "942376",
+          "name": "Laura Parra",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 27,
+          "contract": null,
+          "foot": null,
+          "height": "1,58m"
+        },
+        {
+          "id": "942377",
+          "name": "Naomi Rojo",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 32,
+          "contract": null,
+          "foot": null,
+          "height": "1,56m"
+        },
+        {
+          "id": "942378",
+          "name": "Briana Itzel",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 34,
+          "contract": null,
+          "foot": null,
+          "height": "1,68m"
+        },
+        {
+          "id": "942379",
+          "name": "Melana Surovtseva",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Belarus"
+          ],
+          "marketValue": null,
+          "number": 9,
+          "contract": null,
+          "foot": "right",
+          "height": "1,64m"
+        },
+        {
+          "id": "942380",
+          "name": "Kader Hançar",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Turkey"
+          ],
+          "marketValue": null,
+          "number": 10,
+          "contract": null,
+          "foot": "right",
+          "height": "1,76m"
+        },
+        {
+          "id": "942381",
+          "name": "Trudi Carter",
+          "position": "Right Winger",
+          "dateOfBirth": null,
+          "nationality": [
+            "Jamaica"
+          ],
+          "marketValue": null,
+          "number": 18,
+          "contract": null,
+          "foot": "right",
+          "height": "1,57m"
+        },
+        {
+          "id": "942382",
+          "name": "Mariana Munguía",
+          "position": "Defensive Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 19,
+          "contract": null,
+          "foot": "right",
+          "height": "1,75m"
+        },
+        {
+          "id": "942383",
+          "name": "Daniela Carrandi",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 20,
+          "contract": null,
+          "foot": null,
+          "height": "1,63m"
+        },
+        {
+          "id": "942384",
+          "name": "Mariana Andonaegui",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 30,
+          "contract": null,
+          "foot": null,
+          "height": "1,58m"
+        }
+      ]
+    },
+    {
+      "image": "",
+      "name": "Club Necaxa",
+      "stadiumName": "Estadio Victoria",
+      "stadiumSeats": 23851,
+      "transfermarktId": 7267,
+      "players": [
+        {
+          "id": "942451",
+          "name": "Adriana Meza",
+          "position": "Goalkeeper",
+          "dateOfBirth": "Apr 11, 2007",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 1,
+          "contract": null,
+          "foot": null,
+          "height": "1,69m"
+        },
+        {
+          "id": "942452",
+          "name": "Daniela Sánchez",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 31,
+          "contract": null,
+          "foot": null,
+          "height": "1,63m"
+        },
+        {
+          "id": "942453",
+          "name": "Danae Gutiérrez",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 2,
+          "contract": null,
+          "foot": null,
+          "height": "1,69m"
+        },
+        {
+          "id": "942454",
+          "name": "Briana Johnson",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Guatemala",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 3,
+          "contract": null,
+          "foot": null,
+          "height": "1,65m"
+        },
+        {
+          "id": "942455",
+          "name": "Lourdes De Leon",
+          "position": "Centre-Back",
+          "dateOfBirth": "Mar 4, 2002",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 5,
+          "contract": null,
+          "foot": null,
+          "height": "1,66m"
+        },
+        {
+          "id": "942456",
+          "name": "Jada Barnett",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 13,
+          "contract": null,
+          "foot": null,
+          "height": "1,55m"
+        },
+        {
+          "id": "942457",
+          "name": "Fatima Bracamonte",
+          "position": "Defender",
+          "dateOfBirth": "May 13, 2002",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 15,
+          "contract": null,
+          "foot": null,
+          "height": "1,71m"
+        },
+        {
+          "id": "942458",
+          "name": "Zayra Cervantes",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 18,
+          "contract": null,
+          "foot": null,
+          "height": "1,68m"
+        },
+        {
+          "id": "942459",
+          "name": "Avril Navarro",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 23,
+          "contract": null,
+          "foot": null,
+          "height": "1,49m"
+        },
+        {
+          "id": "942460",
+          "name": "Laisha Avalos",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 24,
+          "contract": null,
+          "foot": null,
+          "height": "1,58m"
+        },
+        {
+          "id": "942461",
+          "name": "Samantha Plascencia",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 33,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942462",
+          "name": "Meghan Cavanaugh",
+          "position": "Attacking Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 4,
+          "contract": null,
+          "foot": null,
+          "height": "1,63m"
+        },
+        {
+          "id": "942463",
+          "name": "Acacia Edwards",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Guatemala",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 7,
+          "contract": null,
+          "foot": null,
+          "height": "1,67m"
+        },
+        {
+          "id": "942464",
+          "name": "Mariana de la Torre",
+          "position": "Defensive Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 8,
+          "contract": null,
+          "foot": null,
+          "height": "1,55m"
+        },
+        {
+          "id": "942465",
+          "name": "Ana Paula Fraiz",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Venezuela"
+          ],
+          "marketValue": null,
+          "number": 10,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942466",
+          "name": "Alejandra Melendez",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 12,
+          "contract": null,
+          "foot": null,
+          "height": "1,52m"
+        },
+        {
+          "id": "942467",
+          "name": "Julieta Pérez",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 16,
+          "contract": null,
+          "foot": null,
+          "height": "1,62m"
+        },
+        {
+          "id": "942468",
+          "name": "Keirah Hope",
+          "position": "Midfielder",
+          "dateOfBirth": "Dec 18, 2006",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 19,
+          "contract": null,
+          "foot": null,
+          "height": null
+        },
+        {
+          "id": "942469",
+          "name": "Ani Jensen",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 22,
+          "contract": null,
+          "foot": null,
+          "height": "1,63m"
+        },
+        {
+          "id": "942470",
+          "name": "Zoé Medellin",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 52,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942471",
+          "name": "Diana Ponce",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 67,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942472",
+          "name": "Danna Cortez",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 76,
+          "contract": null,
+          "foot": null,
+          "height": "1,47m"
+        },
+        {
+          "id": "942473",
+          "name": "Winibian Peralta",
+          "position": "Left Winger",
+          "dateOfBirth": null,
+          "nationality": [
+            "Dominican Republic"
+          ],
+          "marketValue": null,
+          "number": 9,
+          "contract": null,
+          "foot": "right",
+          "height": "1,68m"
+        },
+        {
+          "id": "942474",
+          "name": "Trinidad Quiroz",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States",
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 14,
+          "contract": null,
+          "foot": null,
+          "height": "1,70m"
+        },
+        {
+          "id": "942475",
+          "name": "Ariana Navarro",
+          "position": "Left Winger",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 21,
+          "contract": null,
+          "foot": "right",
+          "height": "1,69m"
+        },
+        {
+          "id": "942476",
+          "name": "Sashenka Porras",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "number": 27,
+          "contract": null,
+          "foot": null,
+          "height": "1,72m"
+        }
+      ]
+    },
+    {
+      "image": "",
+      "name": "Club León",
+      "stadiumName": "Estadio León",
+      "stadiumSeats": 31297,
+      "transfermarktId": 7268,
+      "players": [
+        {
+          "id": "942477",
+          "name": "Nicole Buenfil",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 1,
+          "contract": null,
+          "foot": null,
+          "height": "1,72m"
+        },
+        {
+          "id": "942478",
+          "name": "Natalia Acuña",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 23,
+          "contract": null,
+          "foot": null,
+          "height": "1,70m"
+        },
+        {
+          "id": "942479",
+          "name": "Alexandra Mendoza",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 35,
+          "contract": null,
+          "foot": null,
+          "height": "1,68m"
+        },
+        {
+          "id": "942480",
+          "name": "Daniela Árias",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Colombia"
+          ],
+          "marketValue": null,
+          "number": 3,
+          "contract": null,
+          "foot": "right",
+          "height": "1,74m"
+        },
+        {
+          "id": "942481",
+          "name": "Ana Gaby Lozada",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 4,
+          "contract": null,
+          "foot": null,
+          "height": "1,67m"
+        },
+        {
+          "id": "942482",
+          "name": "Valeria Razo",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 6,
+          "contract": null,
+          "foot": null,
+          "height": "1,71m"
+        },
+        {
+          "id": "942483",
+          "name": "Alondra Camargo",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 14,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942484",
+          "name": "Fernanda Pinilla",
+          "position": "Left-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Chile"
+          ],
+          "marketValue": null,
+          "number": 17,
+          "contract": null,
+          "foot": "left",
+          "height": "1,69m"
+        },
+        {
+          "id": "942485",
+          "name": "Alexa Hernández",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 21,
+          "contract": null,
+          "foot": null,
+          "height": "1,66m"
+        },
+        {
+          "id": "942486",
+          "name": "Selene Cortés",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 22,
+          "contract": null,
+          "foot": null,
+          "height": "1,57m"
+        },
+        {
+          "id": "942487",
+          "name": "Kinberly Guzmán",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 24,
+          "contract": null,
+          "foot": null,
+          "height": "1,70m"
+        },
+        {
+          "id": "942488",
+          "name": "Isabela Esquivias",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 30,
+          "contract": null,
+          "foot": null,
+          "height": "1,70m"
+        },
+        {
+          "id": "942489",
+          "name": "Marissa García",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 2,
+          "contract": null,
+          "foot": null,
+          "height": null
+        },
+        {
+          "id": "942490",
+          "name": "Danya Gutiérrez",
+          "position": "Right Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "El Salvador"
+          ],
+          "marketValue": null,
+          "number": 5,
+          "contract": null,
+          "foot": null,
+          "height": null
+        },
+        {
+          "id": "942491",
+          "name": "Joselyn De La Rosa",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 7,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942492",
+          "name": "Ruth Bravo",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Argentina"
+          ],
+          "marketValue": null,
+          "number": 8,
+          "contract": null,
+          "foot": null,
+          "height": "1,63m"
+        },
+        {
+          "id": "942493",
+          "name": "Solange Lemos",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Uruguay"
+          ],
+          "marketValue": null,
+          "number": 10,
+          "contract": null,
+          "foot": null,
+          "height": "1,51m"
+        },
+        {
+          "id": "942494",
+          "name": "Sindia Arteaga",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States",
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 11,
+          "contract": null,
+          "foot": null,
+          "height": "1,55m"
+        },
+        {
+          "id": "942495",
+          "name": "Chelsea Le",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States",
+            "Vietnam"
+          ],
+          "marketValue": null,
+          "number": 12,
+          "contract": null,
+          "foot": null,
+          "height": "1,68m"
+        },
+        {
+          "id": "942496",
+          "name": "Karen Jasso",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 29,
+          "contract": null,
+          "foot": null,
+          "height": "1,58m"
+        },
+        {
+          "id": "942497",
+          "name": "Vianney Alemán",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 34,
+          "contract": null,
+          "foot": null,
+          "height": "1,62m"
+        },
+        {
+          "id": "942498",
+          "name": "Nayely Bolaños",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Ecuador"
+          ],
+          "marketValue": null,
+          "number": 9,
+          "contract": null,
+          "foot": null,
+          "height": "1,67m"
+        },
+        {
+          "id": "942499",
+          "name": "Rubí Soto",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 15,
+          "contract": null,
+          "foot": null,
+          "height": "1,63m"
+        },
+        {
+          "id": "942500",
+          "name": "Mayalu Ann Rausch",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "Germany"
+          ],
+          "marketValue": null,
+          "number": 16,
+          "contract": null,
+          "foot": null,
+          "height": "1,67m"
+        },
+        {
+          "id": "942501",
+          "name": "Luciana Riefkohl",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 20,
+          "contract": null,
+          "foot": null,
+          "height": "1,65m"
+        },
+        {
+          "id": "942502",
+          "name": "Mariel Román",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 26,
+          "contract": null,
+          "foot": null,
+          "height": "1,59m"
+        },
+        {
+          "id": "942503",
+          "name": "Itzell Alemán",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 27,
+          "contract": null,
+          "foot": null,
+          "height": "1,61m"
+        },
+        {
+          "id": "942504",
+          "name": "Elliana Ramírez",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 31,
+          "contract": null,
+          "foot": null,
+          "height": "1,76m"
+        },
+        {
+          "id": "942505",
+          "name": "Yashira Barrientos",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 33,
+          "contract": null,
+          "foot": null,
+          "height": "1,68m"
+        }
+      ]
+    },
+    {
+      "image": "",
+      "name": "Club Atlético de San Luis",
+      "stadiumName": "Estadio Libertad Financiera",
+      "stadiumSeats": 25709,
+      "transfermarktId": 7428,
+      "players": [
+        {
+          "id": "942506",
+          "name": "Ana Zárate",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 1,
+          "contract": null,
+          "foot": null,
+          "height": "1,68m"
+        },
+        {
+          "id": "942507",
+          "name": "Dayra Bustos",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 23,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942508",
+          "name": "Karla García",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 2,
+          "contract": null,
+          "foot": null,
+          "height": "1,61m"
+        },
+        {
+          "id": "942509",
+          "name": "Erin Houston",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 3,
+          "contract": null,
+          "foot": null,
+          "height": null
+        },
+        {
+          "id": "942510",
+          "name": "Karen Cano",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 4,
+          "contract": null,
+          "foot": null,
+          "height": "1,66m"
+        },
+        {
+          "id": "942511",
+          "name": "Aurora Suárez",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 13,
+          "contract": null,
+          "foot": null,
+          "height": "1,61m"
+        },
+        {
+          "id": "942512",
+          "name": "Izabelle Hernandez",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 15,
+          "contract": null,
+          "foot": null,
+          "height": "1,65m"
+        },
+        {
+          "id": "942513",
+          "name": "Regina Aquirre",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 24,
+          "contract": null,
+          "foot": null,
+          "height": "1,68m"
+        },
+        {
+          "id": "942514",
+          "name": "Frida Vargas",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States",
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 25,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942515",
+          "name": "Elaily Hernández",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "El Salvador",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 27,
+          "contract": null,
+          "foot": null,
+          "height": "1,66m"
+        },
+        {
+          "id": "942516",
+          "name": "Ximena Ramírez Servín",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 35,
+          "contract": null,
+          "foot": null,
+          "height": null
+        },
+        {
+          "id": "942517",
+          "name": "Citlali Hernández",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 5,
+          "contract": null,
+          "foot": null,
+          "height": "1,61m"
+        },
+        {
+          "id": "942518",
+          "name": "Viridiana López",
+          "position": "Defensive Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 7,
+          "contract": null,
+          "foot": null,
+          "height": "1,62m"
+        },
+        {
+          "id": "942519",
+          "name": "María Sánchez",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 8,
+          "contract": null,
+          "foot": null,
+          "height": "1,53m"
+        },
+        {
+          "id": "942520",
+          "name": "Alexa Herrera",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Costa Rica"
+          ],
+          "marketValue": null,
+          "number": 12,
+          "contract": null,
+          "foot": null,
+          "height": "1,61m"
+        },
+        {
+          "id": "942521",
+          "name": "Rebeca Contreras",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 17,
+          "contract": null,
+          "foot": null,
+          "height": "1,73m"
+        },
+        {
+          "id": "942522",
+          "name": "Natalia Macías",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 19,
+          "contract": null,
+          "foot": null,
+          "height": "1,53m"
+        },
+        {
+          "id": "942523",
+          "name": "Michelle Gutiérrez",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 22,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942524",
+          "name": "Aidinn López",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 26,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942525",
+          "name": "Sandra Arévalo",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Peru"
+          ],
+          "marketValue": null,
+          "number": 28,
+          "contract": null,
+          "foot": null,
+          "height": "1,53m"
+        },
+        {
+          "id": "942526",
+          "name": "Chiara Singarella",
+          "position": "Second Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Argentina"
+          ],
+          "marketValue": null,
+          "number": 30,
+          "contract": null,
+          "foot": "left",
+          "height": "1,65m"
+        },
+        {
+          "id": "942527",
+          "name": "Alejandra Caldera",
+          "position": "Defensive Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 31,
+          "contract": null,
+          "foot": null,
+          "height": "1,66m"
+        },
+        {
+          "id": "942528",
+          "name": "Daniela Delgado",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 33,
+          "contract": null,
+          "foot": null,
+          "height": "1,63m"
+        },
+        {
+          "id": "942529",
+          "name": "Enyer Higuera",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Venezuela"
+          ],
+          "marketValue": null,
+          "number": 9,
+          "contract": null,
+          "foot": "right",
+          "height": "1,71m"
+        },
+        {
+          "id": "942530",
+          "name": "Amina Bello",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Nigeria"
+          ],
+          "marketValue": null,
+          "number": 21,
+          "contract": null,
+          "foot": null,
+          "height": "1,65m"
+        }
+      ]
+    },
+    {
+      "image": "",
+      "name": "Club Deportivo Toluca",
+      "stadiumName": "Estadio Nemesio Díez",
+      "stadiumSeats": 31000,
+      "transfermarktId": 7429,
+      "players": [
+        {
+          "id": "942601",
+          "name": "Claudia Lozoya",
+          "position": "Goalkeeper",
+          "dateOfBirth": "Jun 7, 1995",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 1,
+          "contract": null,
+          "foot": null,
+          "height": "1,70m"
+        },
+        {
+          "id": "942602",
+          "name": "Valeria Martínez",
+          "position": "Goalkeeper",
+          "dateOfBirth": "Sep 23, 2005",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 12,
+          "contract": null,
+          "foot": null,
+          "height": "1,66m"
+        },
+        {
+          "id": "942603",
+          "name": "Stefani Jiménez",
+          "position": "Goalkeeper",
+          "dateOfBirth": "Jun 20, 1994",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 31,
+          "contract": null,
+          "foot": null,
+          "height": "1,70m"
+        },
+        {
+          "id": "942604",
+          "name": "Karla Martínez",
+          "position": "Centre-Back",
+          "dateOfBirth": "Oct 14, 1998",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 2,
+          "contract": null,
+          "foot": null,
+          "height": "1,73m"
+        },
+        {
+          "id": "942605",
+          "name": "Jazmín López",
+          "position": "Defender",
+          "dateOfBirth": "Aug 6, 2001",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 3,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942606",
+          "name": "Yaneisy Rodríguez",
+          "position": "Defensive Midfield",
+          "dateOfBirth": "Mar 8, 2002",
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 4,
+          "contract": null,
+          "foot": null,
+          "height": "1,66m"
+        },
+        {
+          "id": "942607",
+          "name": "Diana Guatemala",
+          "position": "Defender",
+          "dateOfBirth": "Mar 14, 2002",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 11,
+          "contract": null,
+          "foot": null,
+          "height": "1,57m"
+        },
+        {
+          "id": "942608",
+          "name": "Victoria López",
+          "position": "Defender",
+          "dateOfBirth": "Apr 12, 2001",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 13,
+          "contract": null,
+          "foot": null,
+          "height": "1,55m"
+        },
+        {
+          "id": "942609",
+          "name": "Liliana Fernández",
+          "position": "Defender",
+          "dateOfBirth": "Apr 10, 2001",
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 16,
+          "contract": null,
+          "foot": null,
+          "height": "1,67m"
+        },
+        {
+          "id": "942610",
+          "name": "Sumiko Gutiérrez",
+          "position": "Defender",
+          "dateOfBirth": "Jun 15, 1988",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 20,
+          "contract": null,
+          "foot": null,
+          "height": "1,58m"
+        },
+        {
+          "id": "942611",
+          "name": "Katrine Veje",
+          "position": "Left-Back",
+          "dateOfBirth": "Jun 19, 1991",
+          "nationality": [
+            "Denmark"
+          ],
+          "marketValue": null,
+          "number": 24,
+          "contract": null,
+          "foot": null,
+          "height": "1,72m"
+        },
+        {
+          "id": "942612",
+          "name": "Blanca Muñóz",
+          "position": "Centre-Back",
+          "dateOfBirth": "Jul 9, 2005",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 27,
+          "contract": null,
+          "foot": null,
+          "height": "1,75m"
+        },
+        {
+          "id": "942613",
+          "name": "Briseida Velasquez",
+          "position": "Left-Back",
+          "dateOfBirth": "Jan 2, 2004",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 34,
+          "contract": null,
+          "foot": null,
+          "height": "1,51m"
+        },
+        {
+          "id": "942614",
+          "name": "Yamilé Franco",
+          "position": "Midfielder",
+          "dateOfBirth": "Jul 7, 1992",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 5,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942615",
+          "name": "Amandine Henry",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "France"
+          ],
+          "marketValue": null,
+          "number": 6,
+          "contract": null,
+          "foot": null,
+          "height": "1,71m"
+        },
+        {
+          "id": "942616",
+          "name": "Kayla Fernández",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 8,
+          "contract": null,
+          "foot": null,
+          "height": "1,58m"
+        },
+        {
+          "id": "942617",
+          "name": "Cassandra Cuevas",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 10,
+          "contract": null,
+          "foot": null,
+          "height": "1,59m"
+        },
+        {
+          "id": "942618",
+          "name": "Deneisha Blackwood",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Jamaica"
+          ],
+          "marketValue": null,
+          "number": 14,
+          "contract": null,
+          "foot": null,
+          "height": "1,63m"
+        },
+        {
+          "id": "942619",
+          "name": "Mitsy Ramírez",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 15,
+          "contract": null,
+          "foot": null,
+          "height": "1,73m"
+        },
+        {
+          "id": "942620",
+          "name": "Elizabeth Garcia",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 18,
+          "contract": null,
+          "foot": null,
+          "height": "1,63m"
+        },
+        {
+          "id": "942621",
+          "name": "Ellieana Vazquez Zimerman",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 19,
+          "contract": null,
+          "foot": null,
+          "height": "1,67m"
+        },
+        {
+          "id": "942622",
+          "name": "Sonia Vázquez",
+          "position": "Defensive Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 22,
+          "contract": null,
+          "foot": null,
+          "height": "1,72m"
+        },
+        {
+          "id": "942623",
+          "name": "Brenda Díaz",
+          "position": "Midfielder",
+          "dateOfBirth": "May 22, 2001",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 23,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942624",
+          "name": "Faustine Robert",
+          "position": "Right Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "France"
+          ],
+          "marketValue": null,
+          "number": 25,
+          "contract": null,
+          "foot": null,
+          "height": "1,66m"
+        },
+        {
+          "id": "942625",
+          "name": "Silvana González",
+          "position": "Attacking Midfield",
+          "dateOfBirth": "Oct 24, 2006",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 28,
+          "contract": null,
+          "foot": null,
+          "height": "1,68m"
+        },
+        {
+          "id": "942626",
+          "name": "Daniela Espinosa",
+          "position": "Striker",
+          "dateOfBirth": "Jul 13, 1999",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 7,
+          "contract": null,
+          "foot": null,
+          "height": "1,74m"
+        },
+        {
+          "id": "942627",
+          "name": "Valerie Cortez",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": null,
+          "contract": null,
+          "foot": null,
+          "height": "1,70m"
+        },
+        {
+          "id": "942628",
+          "name": "Eugénie Le Sommer",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "France"
+          ],
+          "marketValue": null,
+          "number": 9,
+          "contract": null,
+          "foot": null,
+          "height": "1,61m"
+        },
+        {
+          "id": "942629",
+          "name": "Sofia Jakobsson",
+          "position": "Right Winger",
+          "dateOfBirth": null,
+          "nationality": [
+            "Sweden"
+          ],
+          "marketValue": null,
+          "number": 17,
+          "contract": "2027",
+          "foot": null,
+          "height": "1,74m"
+        },
+        {
+          "id": "942630",
+          "name": "Itzel Muñoz",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 26,
+          "contract": null,
+          "foot": null,
+          "height": "1,59m"
+        },
+        {
+          "id": "942631",
+          "name": "Manuela Paví",
+          "position": "Striker",
+          "dateOfBirth": "Dec 23, 2000",
+          "nationality": [
+            "Colombia"
+          ],
+          "marketValue": null,
+          "number": 29,
+          "contract": null,
+          "foot": null,
+          "height": "1,51m"
+        }
+      ]
+    },
+    {
+      "image": "",
+      "name": "Club Puebla",
+      "stadiumName": "Estadio Cuauhtémoc",
+      "stadiumSeats": 47417,
+      "transfermarktId": 7430,
+      "players": [
+        {
+          "id": "942632",
+          "name": "Renata Masciarelli",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Argentina",
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 1,
+          "contract": null,
+          "foot": null,
+          "height": "1,70m"
+        },
+        {
+          "id": "942633",
+          "name": "Ximena Pérez",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 19,
+          "contract": null,
+          "foot": null,
+          "height": "1,67m"
+        },
+        {
+          "id": "942634",
+          "name": "María Peraza",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Venezuela"
+          ],
+          "marketValue": null,
+          "number": 2,
+          "contract": null,
+          "foot": null,
+          "height": "1,71m"
+        },
+        {
+          "id": "942635",
+          "name": "Lía Martínez",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 3,
+          "contract": null,
+          "foot": null,
+          "height": "1,72m"
+        },
+        {
+          "id": "942636",
+          "name": "Yulexi Diaz",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 4,
+          "contract": null,
+          "foot": null,
+          "height": "1,62m"
+        },
+        {
+          "id": "942637",
+          "name": "Karyme Martinez",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 5,
+          "contract": null,
+          "foot": null,
+          "height": "1,61m"
+        },
+        {
+          "id": "942638",
+          "name": "Alika Sánchez",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 8,
+          "contract": null,
+          "foot": null,
+          "height": "1,63m"
+        },
+        {
+          "id": "942639",
+          "name": "Dulce Martínez",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 16,
+          "contract": null,
+          "foot": null,
+          "height": "1,62m"
+        },
+        {
+          "id": "942640",
+          "name": "Yanin Madrid",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 17,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942641",
+          "name": "Eleisa Santos",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 32,
+          "contract": null,
+          "foot": null,
+          "height": "1,59m"
+        },
+        {
+          "id": "942642",
+          "name": "Abígail López",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "El Salvador"
+          ],
+          "marketValue": null,
+          "number": 6,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942643",
+          "name": "Adaira Nakano",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Canada"
+          ],
+          "marketValue": null,
+          "number": 7,
+          "contract": null,
+          "foot": null,
+          "height": "1,57m"
+        },
+        {
+          "id": "942644",
+          "name": "Laura Herrera",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 10,
+          "contract": null,
+          "foot": null,
+          "height": "1,56m"
+        },
+        {
+          "id": "942645",
+          "name": "Zara Dominguez",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 11,
+          "contract": null,
+          "foot": null,
+          "height": null
+        },
+        {
+          "id": "942646",
+          "name": "Hanna Osorio",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 13,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942647",
+          "name": "Abigail Lopez",
+          "position": "Attacking Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 14,
+          "contract": null,
+          "foot": null,
+          "height": "1,54m"
+        },
+        {
+          "id": "942648",
+          "name": "Jaqueline González",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 15,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942649",
+          "name": "Diana Salmoran",
+          "position": "Defensive Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 20,
+          "contract": null,
+          "foot": null,
+          "height": "1,59m"
+        },
+        {
+          "id": "942650",
+          "name": "Brina Micheels",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 22,
+          "contract": null,
+          "foot": null,
+          "height": "1,68m"
+        },
+        {
+          "id": "942651",
+          "name": "Juliet Nalukenge",
+          "position": "Right Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Uganda"
+          ],
+          "marketValue": null,
+          "number": 23,
+          "contract": null,
+          "foot": null,
+          "height": "1,66m"
+        },
+        {
+          "id": "942652",
+          "name": "Natalia Collado",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 24,
+          "contract": null,
+          "foot": null,
+          "height": "1,59m"
+        },
+        {
+          "id": "942653",
+          "name": "Vania Moron",
+          "position": "Attacking Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 27,
+          "contract": null,
+          "foot": null,
+          "height": "1,52m"
+        },
+        {
+          "id": "942654",
+          "name": "Marlyn Campa",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 31,
+          "contract": null,
+          "foot": null,
+          "height": "1,59m"
+        },
+        {
+          "id": "942655",
+          "name": "Kendyl Terrell",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 9,
+          "contract": null,
+          "foot": null,
+          "height": "1,81m"
+        },
+        {
+          "id": "942656",
+          "name": "Paulina Suárez",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 25,
+          "contract": null,
+          "foot": null,
+          "height": "1,68m"
+        }
+      ]
+    },
+    {
+      "image": "",
+      "name": "FC Juárez",
+      "stadiumName": "Estadio Olímpico Benito Juárez",
+      "stadiumSeats": 19703,
+      "transfermarktId": 7431,
+      "players": [
+        {
+          "id": "942657",
+          "name": "Christina Holguín",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 12,
+          "contract": "2028",
+          "foot": null,
+          "height": "1,74m"
+        },
+        {
+          "id": "942658",
+          "name": "Emily Alvarado",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 28,
+          "contract": "2030",
+          "foot": null,
+          "height": "1,79m"
+        },
+        {
+          "id": "942659",
+          "name": "Alexa Gurrola",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 35,
+          "contract": null,
+          "foot": null,
+          "height": "1,76m"
+        },
+        {
+          "id": "942660",
+          "name": "Noemí Granados",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 3,
+          "contract": null,
+          "foot": null,
+          "height": "1,69m"
+        },
+        {
+          "id": "942661",
+          "name": "Yunaira López",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Colombia"
+          ],
+          "marketValue": null,
+          "number": 5,
+          "contract": null,
+          "foot": null,
+          "height": "1,69m"
+        },
+        {
+          "id": "942662",
+          "name": "Mónica Rodríguez",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 14,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942663",
+          "name": "Giselle Espinoza",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 16,
+          "contract": "2029",
+          "foot": null,
+          "height": "1,68m"
+        },
+        {
+          "id": "942664",
+          "name": "Karime Abud",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 20,
+          "contract": "2028",
+          "foot": null,
+          "height": "1,68m"
+        },
+        {
+          "id": "942665",
+          "name": "Mariana Cadena",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 21,
+          "contract": null,
+          "foot": null,
+          "height": "1,67m"
+        },
+        {
+          "id": "942666",
+          "name": "Bianca Mora",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States",
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 22,
+          "contract": "2028",
+          "foot": null,
+          "height": "1,77m"
+        },
+        {
+          "id": "942667",
+          "name": "Rocío Gálvez",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Spain"
+          ],
+          "marketValue": null,
+          "number": 24,
+          "contract": null,
+          "foot": null,
+          "height": "1,73m"
+        },
+        {
+          "id": "942668",
+          "name": "Alejandra Anchondo",
+          "position": "Centre-Back",
+          "dateOfBirth": "Mar 16, 2005",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 25,
+          "contract": null,
+          "foot": null,
+          "height": "1,69m"
+        },
+        {
+          "id": "942669",
+          "name": "Johana García",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 26,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942670",
+          "name": "Miriam Castillo",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 4,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942671",
+          "name": "Amanda Murillo",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 6,
+          "contract": null,
+          "foot": null,
+          "height": "1,67m"
+        },
+        {
+          "id": "942672",
+          "name": "Liliana Mercado",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 8,
+          "contract": "2028",
+          "foot": null,
+          "height": "1,71m"
+        },
+        {
+          "id": "942673",
+          "name": "Chloe Del Real",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 15,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942674",
+          "name": "Cinthya Peraza",
+          "position": "Attacking Midfield",
+          "dateOfBirth": "Jun 5, 1993",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 17,
+          "contract": null,
+          "foot": null,
+          "height": "1,52m"
+        },
+        {
+          "id": "942675",
+          "name": "Aurélie Kaci",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "France"
+          ],
+          "marketValue": null,
+          "number": 18,
+          "contract": "2027",
+          "foot": null,
+          "height": "1,67m"
+        },
+        {
+          "id": "942676",
+          "name": "Farlyn Caicedo",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Colombia"
+          ],
+          "marketValue": null,
+          "number": 19,
+          "contract": null,
+          "foot": null,
+          "height": "1,74m"
+        },
+        {
+          "id": "942677",
+          "name": "Dayán Fuentes",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 30,
+          "contract": null,
+          "foot": null,
+          "height": "1,71m"
+        },
+        {
+          "id": "942678",
+          "name": "Norma Palafox",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 7,
+          "contract": null,
+          "foot": null,
+          "height": "1,66m"
+        },
+        {
+          "id": "942679",
+          "name": "Melissa Herrera",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Costa Rica"
+          ],
+          "marketValue": null,
+          "number": 9,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942680",
+          "name": "Miah Zuazua",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 10,
+          "contract": null,
+          "foot": null,
+          "height": "1,72m"
+        },
+        {
+          "id": "942681",
+          "name": "Dayana Martin",
+          "position": "Right Winger",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 11,
+          "contract": "2027",
+          "foot": null,
+          "height": "1,71m"
+        },
+        {
+          "id": "942682",
+          "name": "Aisha Solórzano",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Guatemala"
+          ],
+          "marketValue": null,
+          "number": 13,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942683",
+          "name": "Blanca Solís",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 23,
+          "contract": "2027",
+          "foot": null,
+          "height": "1,71m"
+        },
+        {
+          "id": "942684",
+          "name": "Alondra Blanco",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 29,
+          "contract": null,
+          "foot": null,
+          "height": "1,75m"
+        }
+      ]
+    },
+    {
+      "image": "",
+      "name": "Gallos Blancos de Querétaro",
+      "stadiumName": "Estadio Corregidora",
+      "stadiumSeats": 34130,
+      "transfermarktId": 7432,
+      "players": [
+        {
+          "id": "942751",
+          "name": "Karla Morales",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 12,
+          "contract": null,
+          "foot": null,
+          "height": "1,61m"
+        },
+        {
+          "id": "942752",
+          "name": "Ximena Díaz",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 20,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942753",
+          "name": "Evelyn Torres",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 28,
+          "contract": null,
+          "foot": null,
+          "height": "1,67m"
+        },
+        {
+          "id": "942754",
+          "name": "Sofía Martínez",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 2,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942755",
+          "name": "Fernanda Limón",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 3,
+          "contract": null,
+          "foot": null,
+          "height": "1,72m"
+        },
+        {
+          "id": "942756",
+          "name": "Fátima Rosales",
+          "position": "Defensive Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 4,
+          "contract": null,
+          "foot": null,
+          "height": "1,70m"
+        },
+        {
+          "id": "942757",
+          "name": "Fátima Barone",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Uruguay"
+          ],
+          "marketValue": null,
+          "number": 6,
+          "contract": null,
+          "foot": "right",
+          "height": "1,66m"
+        },
+        {
+          "id": "942758",
+          "name": "Allie George",
+          "position": "Right-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 16,
+          "contract": null,
+          "foot": "right",
+          "height": "1,80m"
+        },
+        {
+          "id": "942759",
+          "name": "Juana Plata",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "El Salvador",
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 21,
+          "contract": null,
+          "foot": null,
+          "height": "1,65m"
+        },
+        {
+          "id": "942760",
+          "name": "Edith Carmona",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 22,
+          "contract": null,
+          "foot": null,
+          "height": "1,56m"
+        },
+        {
+          "id": "942761",
+          "name": "Ambar González",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 23,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942762",
+          "name": "Maria Perez",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 48,
+          "contract": null,
+          "foot": null,
+          "height": "1,63m"
+        },
+        {
+          "id": "942763",
+          "name": "Amalia López",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 5,
+          "contract": null,
+          "foot": null,
+          "height": null
+        },
+        {
+          "id": "942764",
+          "name": "Dilary Heredia",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States",
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 7,
+          "contract": null,
+          "foot": null,
+          "height": "1,63m"
+        },
+        {
+          "id": "942765",
+          "name": "Marianyela Jiménez",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Venezuela"
+          ],
+          "marketValue": null,
+          "number": 8,
+          "contract": null,
+          "foot": null,
+          "height": "1,65m"
+        },
+        {
+          "id": "942766",
+          "name": "Niomi Grimaldo",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 11,
+          "contract": null,
+          "foot": null,
+          "height": "1,52m"
+        },
+        {
+          "id": "942767",
+          "name": "Camila Vite",
+          "position": "Midfielder",
+          "dateOfBirth": "Nov 3, 2003",
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 13,
+          "contract": null,
+          "foot": null,
+          "height": "1,57m"
+        },
+        {
+          "id": "942768",
+          "name": "Leidy Ramos",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": null,
+          "contract": null,
+          "foot": null,
+          "height": "1,48m"
+        },
+        {
+          "id": "942769",
+          "name": "Jade Bailey",
+          "position": "Defensive Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Jamaica",
+            "England"
+          ],
+          "marketValue": null,
+          "number": 25,
+          "contract": null,
+          "foot": null,
+          "height": "1,70m"
+        },
+        {
+          "id": "942770",
+          "name": "Laisha Espinoza",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 30,
+          "contract": null,
+          "foot": null,
+          "height": "1,47m"
+        },
+        {
+          "id": "942771",
+          "name": "Sarahí Ceceña",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 9,
+          "contract": null,
+          "foot": null,
+          "height": "1,59m"
+        },
+        {
+          "id": "942772",
+          "name": "Grace Chanda",
+          "position": "Attacking Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Zambia"
+          ],
+          "marketValue": null,
+          "number": 10,
+          "contract": null,
+          "foot": "right",
+          "height": "1,60m"
+        },
+        {
+          "id": "942773",
+          "name": "Enekia Lunyamila",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Tanzania"
+          ],
+          "marketValue": null,
+          "number": 17,
+          "contract": null,
+          "foot": "right",
+          "height": "1,70m"
+        },
+        {
+          "id": "942774",
+          "name": "Guillermina Grant",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Uruguay"
+          ],
+          "marketValue": null,
+          "number": 18,
+          "contract": null,
+          "foot": null,
+          "height": "1,61m"
+        }
+      ]
+    },
+    {
+      "image": "",
+      "name": "Rayados de Monterrey",
+      "stadiumName": "Estadio BBVA",
+      "stadiumSeats": 51348,
+      "transfermarktId": 7434,
+      "players": [
+        {
+          "id": "942775",
+          "name": "Alejandría Godínez",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 13,
+          "contract": null,
+          "foot": null,
+          "height": "1,69m"
+        },
+        {
+          "id": "942776",
+          "name": "Paola Manrique",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 28,
+          "contract": null,
+          "foot": null,
+          "height": "1,74m"
+        },
+        {
+          "id": "942777",
+          "name": "Daniela Monroy",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 2,
+          "contract": null,
+          "foot": null,
+          "height": "1,63m"
+        },
+        {
+          "id": "942778",
+          "name": "Daiane",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Brazil"
+          ],
+          "marketValue": null,
+          "number": 3,
+          "contract": null,
+          "foot": "left",
+          "height": "1,80m"
+        },
+        {
+          "id": "942779",
+          "name": "Alexandra Godínez",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 5,
+          "contract": null,
+          "foot": null,
+          "height": "1,70m"
+        },
+        {
+          "id": "942780",
+          "name": "Alejandra Lua",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 14,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942781",
+          "name": "Samantha Simental",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 15,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942782",
+          "name": "Ashlyn Fernández",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 21,
+          "contract": null,
+          "foot": null,
+          "height": null
+        },
+        {
+          "id": "942783",
+          "name": "Valeria del Campo",
+          "position": "Centre-Back",
+          "dateOfBirth": null,
+          "nationality": [
+            "Costa Rica"
+          ],
+          "marketValue": null,
+          "number": 23,
+          "contract": null,
+          "foot": null,
+          "height": "1,63m"
+        },
+        {
+          "id": "942784",
+          "name": "Carol Cázares",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 33,
+          "contract": null,
+          "foot": null,
+          "height": "1,77m"
+        },
+        {
+          "id": "942785",
+          "name": "Sofía Martínez",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 6,
+          "contract": null,
+          "foot": null,
+          "height": "1,67m"
+        },
+        {
+          "id": "942786",
+          "name": "Lourdes Bosch",
+          "position": "Attacking Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 9,
+          "contract": null,
+          "foot": null,
+          "height": null
+        },
+        {
+          "id": "942787",
+          "name": "Nicole Pérez",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 10,
+          "contract": null,
+          "foot": null,
+          "height": "1,60m"
+        },
+        {
+          "id": "942788",
+          "name": "Diana García",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 22,
+          "contract": null,
+          "foot": null,
+          "height": "1,68m"
+        },
+        {
+          "id": "942789",
+          "name": "Marcela Restrepo",
+          "position": "Attacking Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Colombia"
+          ],
+          "marketValue": null,
+          "number": 24,
+          "contract": null,
+          "foot": null,
+          "height": "1,68m"
+        },
+        {
+          "id": "942790",
+          "name": "Fátima Servín",
+          "position": "Central Midfield",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 27,
+          "contract": null,
+          "foot": "right",
+          "height": "1,69m"
+        },
+        {
+          "id": "942791",
+          "name": "Valerie Vargas",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 11,
+          "contract": null,
+          "foot": null,
+          "height": "1,67m"
+        },
+        {
+          "id": "942792",
+          "name": "Jermaine Seoposenwe",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "South Africa"
+          ],
+          "marketValue": null,
+          "number": 12,
+          "contract": null,
+          "foot": "right",
+          "height": "1,67m"
+        },
+        {
+          "id": "942793",
+          "name": "Lucía García",
+          "position": "Right Winger",
+          "dateOfBirth": null,
+          "nationality": [
+            "Spain"
+          ],
+          "marketValue": null,
+          "number": 17,
+          "contract": null,
+          "foot": "right",
+          "height": "1,65m"
+        },
+        {
+          "id": "942794",
+          "name": "Lindsey Thomas",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "France"
+          ],
+          "marketValue": null,
+          "number": 19,
+          "contract": null,
+          "foot": "right",
+          "height": "1,71m"
+        },
+        {
+          "id": "942795",
+          "name": "Aerial Chavarin",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 25,
+          "contract": null,
+          "foot": null,
+          "height": "1,76m"
+        },
+        {
+          "id": "942796",
+          "name": "Katty Martínez",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 26,
+          "contract": null,
+          "foot": "right",
+          "height": "1,60m"
+        },
+        {
+          "id": "942797",
+          "name": "Alice Soto",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 30,
+          "contract": null,
+          "foot": null,
+          "height": "1,56m"
+        },
+        {
+          "id": "942798",
+          "name": "Sara Ortíz",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 31,
+          "contract": null,
+          "foot": null,
+          "height": "1,65m"
+        }
+      ]
+    },
+    {
+      "image": "",
+      "name": "Atlante FC",
+      "stadiumName": "CAR Atlante",
+      "stadiumSeats": 0,
+      "transfermarktId": 17878,
+      "players": [
+        {
+          "id": "942799",
+          "name": "Riley Meléndez",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "El Salvador"
+          ],
+          "marketValue": null,
+          "number": 1,
+          "contract": null,
+          "foot": null,
+          "height": null
+        },
+        {
+          "id": "942800",
+          "name": "Jennifer Amaro",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 25,
+          "contract": null,
+          "foot": null,
+          "height": "1,62m"
+        },
+        {
+          "id": "942801",
+          "name": "Enya Hernández",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 27,
+          "contract": null,
+          "foot": null,
+          "height": "1,76m"
+        },
+        {
+          "id": "942802",
+          "name": "Fatima De Miguel",
+          "position": "Goalkeeper",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 34,
+          "contract": null,
+          "foot": null,
+          "height": "1,66m"
+        },
+        {
+          "id": "942803",
+          "name": "Ana Torres",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 2,
+          "contract": null,
+          "foot": null,
+          "height": "1,69m"
+        },
+        {
+          "id": "942804",
+          "name": "Elizabeth Estrada",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 3,
+          "contract": null,
+          "foot": null,
+          "height": null
+        },
+        {
+          "id": "942805",
+          "name": "Vanessa Sánchez",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 4,
+          "contract": null,
+          "foot": null,
+          "height": "1,66m"
+        },
+        {
+          "id": "942806",
+          "name": "Selene Valera",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 5,
+          "contract": null,
+          "foot": null,
+          "height": "1,66m"
+        },
+        {
+          "id": "942807",
+          "name": "Sofia Macotela",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 18,
+          "contract": null,
+          "foot": null,
+          "height": "1,55m"
+        },
+        {
+          "id": "942808",
+          "name": "Jessica Pérez",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 20,
+          "contract": null,
+          "foot": null,
+          "height": null
+        },
+        {
+          "id": "942809",
+          "name": "Judith Félix",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 21,
+          "contract": null,
+          "foot": null,
+          "height": "1,54m"
+        },
+        {
+          "id": "942810",
+          "name": "Ofelia Chávez",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 23,
+          "contract": null,
+          "foot": null,
+          "height": null
+        },
+        {
+          "id": "942811",
+          "name": "Andrea Hernández",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 24,
+          "contract": null,
+          "foot": null,
+          "height": null
+        },
+        {
+          "id": "942812",
+          "name": "Nataly Cárdenas",
+          "position": "Defender",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 33,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942813",
+          "name": "Vanessa González",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": null,
+          "contract": null,
+          "foot": null,
+          "height": "1,63m"
+        },
+        {
+          "id": "942814",
+          "name": "Dalia Vidrio",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 6,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942815",
+          "name": "Aleida Cruz",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 7,
+          "contract": null,
+          "foot": null,
+          "height": "1,58m"
+        },
+        {
+          "id": "942816",
+          "name": "Karen Becerril",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 8,
+          "contract": null,
+          "foot": null,
+          "height": "1,54m"
+        },
+        {
+          "id": "942817",
+          "name": "Andrea Salinas",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 10,
+          "contract": null,
+          "foot": null,
+          "height": "1,62m"
+        },
+        {
+          "id": "942818",
+          "name": "Cynthia González",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 11,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942819",
+          "name": "Alex Kirnos",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "United States",
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 13,
+          "contract": null,
+          "foot": "right",
+          "height": "1,72m"
+        },
+        {
+          "id": "942820",
+          "name": "Sheila Vivanco",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 14,
+          "contract": null,
+          "foot": null,
+          "height": "1,57m"
+        },
+        {
+          "id": "942821",
+          "name": "Conni Herrera",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 15,
+          "contract": null,
+          "foot": null,
+          "height": "1,64m"
+        },
+        {
+          "id": "942822",
+          "name": "Karoll López",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 17,
+          "contract": null,
+          "foot": null,
+          "height": "1,69m"
+        },
+        {
+          "id": "942823",
+          "name": "Citlalli Conchas",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 19,
+          "contract": null,
+          "foot": null,
+          "height": "1,51m"
+        },
+        {
+          "id": "942824",
+          "name": "Adriana Cruz",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 30,
+          "contract": null,
+          "foot": null,
+          "height": "1,61m"
+        },
+        {
+          "id": "942825",
+          "name": "Paulina Cortes",
+          "position": "Midfielder",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 32,
+          "contract": null,
+          "foot": null,
+          "height": "1,58m"
+        },
+        {
+          "id": "942826",
+          "name": "Chandler McDaniel",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Philippines",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 9,
+          "contract": null,
+          "foot": null,
+          "height": "1,70m"
+        },
+        {
+          "id": "942827",
+          "name": "Samaria Gómez",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "El Salvador"
+          ],
+          "marketValue": null,
+          "number": 16,
+          "contract": null,
+          "foot": "both",
+          "height": "1,58m"
+        },
+        {
+          "id": "942828",
+          "name": "Alexia Villanueva",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 22,
+          "contract": null,
+          "foot": null,
+          "height": "1,63m"
+        },
+        {
+          "id": "942829",
+          "name": "Ricshya Walker",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Jamaica",
+            "United States"
+          ],
+          "marketValue": null,
+          "number": 26,
+          "contract": null,
+          "foot": null,
+          "height": null
+        },
+        {
+          "id": "942830",
+          "name": "Rebeca Mercado",
+          "position": "Striker",
+          "dateOfBirth": null,
+          "nationality": [
+            "Mexico"
+          ],
+          "marketValue": null,
+          "number": 35,
+          "contract": null,
+          "foot": null,
+          "height": null
+        }
+      ]
+    }
+  ]
+}
