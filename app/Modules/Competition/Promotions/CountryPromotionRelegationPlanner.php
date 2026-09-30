@@ -438,19 +438,20 @@ class CountryPromotionRelegationPlanner
             return $out;
         }
 
-        // Playoff slots: 2 winners from ESP3PO. The bracket spans both
-        // groups, so winners may come from either source. The playoff
-        // count here is per-group (4 per group, so the bracket has 8 entrants
-        // total) but only 2 winners (the two bracket finals). For now we
-        // expose the snapshot's ESP3PO winners list, which the test fixtures
-        // populate with the expected (teamId, sourceGroup) entries.
+        // Playoff slots: winners from the bracket competition (e.g. 2 from
+        // ESP2PO's two finals, 1 from ESP3PO's single final). The bracket
+        // spans all source groups, so winners may come from any of them.
+        // The playoff count here is per-group but only $playoffPickCount
+        // winners (the bracket finals) take promotion spots. For now we
+        // expose the snapshot's playoff winners list, which the test
+        // fixtures populate with the expected (teamId, sourceGroup) entries.
         //
         // The extended top roster (including the directs we just emitted)
         // also guards real playoff winners and stand-ins: a bracket winner
         // that's a reserve of one of the directs gets skipped in favour of
         // the next non-conflicting winner / stand-in.
         $state = $snapshot->playoffState($playoffComp);
-        $playoffPickCount = 2; // Two bracket finals → two promotion spots.
+        $playoffPickCount = (int) ($rule['playoff_winners_count'] ?? 2);
 
         $playoffPicks = match ($state) {
             PlayoffState::Completed => $this->primeraRfefCompletedWinners(
