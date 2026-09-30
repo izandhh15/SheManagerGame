@@ -91,6 +91,13 @@ final class ShowNationalSquadPicker
             fn ($p) => $p['name'],
         ])->values();
 
+        // Limit to top 150 per position group to avoid rendering thousands of
+        // players (e.g. Spain has 1,644). The user picks 23; the top 150 per
+        // group is more than enough and keeps the page under ~1MB.
+        $players = $players->groupBy('group')->flatMap(
+            fn ($group) => $group->take(150)
+        )->values();
+
         return view('national-squad-picker', [
             'team' => $team,
             'players' => $players,

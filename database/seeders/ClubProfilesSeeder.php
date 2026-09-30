@@ -17,474 +17,362 @@ class ClubProfilesSeeder extends Seeder
      * data). When a club is re-spelled upstream, keep the canonical name here
      * and register the variant in App\Support\ClubNames.
      */
-    private const CLUB_DATA = [
+private const CLUB_DATA = [
         // =============================================
-        // Spain - La Liga (ESP1)
-        // =============================================
-
-        // Elite - Objetivo: Liga
-        'Real Madrid' => ClubProfile::REPUTATION_ELITE,
-        'FC Barcelona' => ClubProfile::REPUTATION_ELITE,
-        'Atlético de Madrid' => ClubProfile::REPUTATION_ELITE,
-
-        // Continental - Objetivo: Europa League
-        'Athletic Club' => ClubProfile::REPUTATION_CONTINENTAL,
-        'Villarreal CF' => ClubProfile::REPUTATION_CONTINENTAL,
-        'Real Betis Balompié' => ClubProfile::REPUTATION_CONTINENTAL,
-        'Sevilla FC' => ClubProfile::REPUTATION_CONTINENTAL,
-        'Real Sociedad' => ClubProfile::REPUTATION_CONTINENTAL,
-
-        // Established - Objetivo: Top 10
-        'Valencia CF' => ClubProfile::REPUTATION_ESTABLISHED,
-        'RCD Espanyol Barcelona' => ClubProfile::REPUTATION_ESTABLISHED,
-        'RC Celta' => ClubProfile::REPUTATION_ESTABLISHED,
-        'RCD Mallorca' => ClubProfile::REPUTATION_ESTABLISHED,
-        'CA Osasuna' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Getafe CF' => ClubProfile::REPUTATION_ESTABLISHED,
-
-        // Modest - Objetivo: No descender
-        'Rayo Vallecano' => ClubProfile::REPUTATION_MODEST,
-        'Girona FC' => ClubProfile::REPUTATION_MODEST,
-        'Deportivo Alavés' => ClubProfile::REPUTATION_MODEST,
-        'Elche CF' => ClubProfile::REPUTATION_MODEST,
-        'Levante UD' => ClubProfile::REPUTATION_MODEST,
-        'Real Oviedo' => ClubProfile::REPUTATION_MODEST,
-
-        // =============================================
-        // Spain - La Liga 2 (ESP2)
+        // Argentina - Primera División A (ARG1)
         // =============================================
 
-        // Established (historic clubs) - Objetivo: Playoff ascenso
-        'Deportivo A Coruña' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Málaga CF' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Sporting Gijón' => ClubProfile::REPUTATION_ESTABLISHED,
-        'UD Las Palmas' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Real Valladolid CF' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Granada CF' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Cádiz CF' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Racing Santander' => ClubProfile::REPUTATION_ESTABLISHED,
-        'UD Almería' => ClubProfile::REPUTATION_ESTABLISHED,
+        // Continental
+        'Boca Juniors' => ClubProfile::REPUTATION_CONTINENTAL,
+        'CA River Plate' => ClubProfile::REPUTATION_CONTINENTAL,
 
-        // Modest - Objetivo: Top 10
-        'Real Zaragoza' => ClubProfile::REPUTATION_MODEST,
-        'Córdoba CF' => ClubProfile::REPUTATION_MODEST,
-        'CD Castellón' => ClubProfile::REPUTATION_MODEST,
-        'Albacete Balompié' => ClubProfile::REPUTATION_MODEST,
-        'SD Huesca' => ClubProfile::REPUTATION_MODEST,
-        'SD Eibar' => ClubProfile::REPUTATION_MODEST,
-        'CD Leganés' => ClubProfile::REPUTATION_MODEST,
+        // Modest
+        'Atlético Lanús' => ClubProfile::REPUTATION_MODEST,
+        'CA Huracán' => ClubProfile::REPUTATION_MODEST,
+        'CA Independiente' => ClubProfile::REPUTATION_MODEST,
+        'CA San Lorenzo de Almagro' => ClubProfile::REPUTATION_MODEST,
+        'Gimnasia y Esgrima La Plata' => ClubProfile::REPUTATION_MODEST,
+        'San Luis FC' => ClubProfile::REPUTATION_MODEST,
+        'Social Atlético Televisión (SAT)' => ClubProfile::REPUTATION_MODEST,
+        'Unión de Santa Fe' => ClubProfile::REPUTATION_MODEST,
 
-        // Local - Objetivo: No descender
+        // Local
+        'Belgrano de Córdoba' => ClubProfile::REPUTATION_LOCAL,
+        'CA Banfield' => ClubProfile::REPUTATION_LOCAL,
+        'CA Talleres de Córdoba' => ClubProfile::REPUTATION_LOCAL,
+        'Ferro Carril Oeste' => ClubProfile::REPUTATION_LOCAL,
+        'Newell\'s Old Boys' => ClubProfile::REPUTATION_LOCAL,
+        'Racing Club' => ClubProfile::REPUTATION_LOCAL,
+
+        // =============================================
+        // CONCACAF - W Champions Cup (extras) (CCC)
+        // =============================================
+
+        // Local
+        'Alajuelense' => ClubProfile::REPUTATION_LOCAL,
+        'Alianza' => ClubProfile::REPUTATION_LOCAL,
+        'Chorrillo' => ClubProfile::REPUTATION_LOCAL,
+        'Saprissa' => ClubProfile::REPUTATION_LOCAL,
+        'Vancouver Rise' => ClubProfile::REPUTATION_LOCAL,
+
+        // =============================================
+        // Spain - Segunda Federación I (E3G1)
+        // =============================================
+
+        // Local
+        'As Celtas' => ClubProfile::REPUTATION_LOCAL,
+        'Bizkerre FT' => ClubProfile::REPUTATION_LOCAL,
         'Burgos CF' => ClubProfile::REPUTATION_LOCAL,
-        'Cultural Leonesa' => ClubProfile::REPUTATION_LOCAL,
-        'CD Mirandés' => ClubProfile::REPUTATION_LOCAL,
-        'AD Ceuta FC' => ClubProfile::REPUTATION_LOCAL,
-        'FC Andorra' => ClubProfile::REPUTATION_LOCAL,
-        'Real Sociedad B' => ClubProfile::REPUTATION_LOCAL,
+        'CA Osasuna B' => ClubProfile::REPUTATION_LOCAL,
+        'CD Arratia' => ClubProfile::REPUTATION_LOCAL,
+        'Club de Fútbol Oviedo Moderno Universida' => ClubProfile::REPUTATION_LOCAL,
+        'Madrid CFF B' => ClubProfile::REPUTATION_LOCAL,
+        'RC Deportivo A Coruña B' => ClubProfile::REPUTATION_LOCAL,
+        'Rayo Vallecano' => ClubProfile::REPUTATION_LOCAL,
+        'Real Avilés' => ClubProfile::REPUTATION_LOCAL,
+        'Real Racing Club de Santander' => ClubProfile::REPUTATION_LOCAL,
+        'SD Eibar B' => ClubProfile::REPUTATION_LOCAL,
+        'Sporting de Gijón' => ClubProfile::REPUTATION_LOCAL,
+        'Victoria CF' => ClubProfile::REPUTATION_LOCAL,
 
         // =============================================
-        // Spain - Primera RFEF (ESP3A + ESP3B)
+        // Spain - Segunda Federación III (E3G3)
         // =============================================
 
-        // Modest (mid-profile, recently in La Liga 2 or solid tier-3 veterans) - Objetivo: Top 10
-        'CD Tenerife' => ClubProfile::REPUTATION_MODEST,
-        'Real Murcia CF' => ClubProfile::REPUTATION_MODEST,
-        'Hércules CF' => ClubProfile::REPUTATION_MODEST,
-        'Racing Ferrol' => ClubProfile::REPUTATION_MODEST,
-        'SD Ponferradina' => ClubProfile::REPUTATION_MODEST,
-        'CD Lugo' => ClubProfile::REPUTATION_MODEST,
-        'FC Cartagena' => ClubProfile::REPUTATION_MODEST,
-        'Gimnàstic de Tarragona' => ClubProfile::REPUTATION_MODEST,
-        'CE Sabadell FC' => ClubProfile::REPUTATION_MODEST,
-        'Algeciras CF' => ClubProfile::REPUTATION_MODEST,
-        'UD Ibiza' => ClubProfile::REPUTATION_MODEST,
-        'CD Eldense' => ClubProfile::REPUTATION_MODEST,
-        'AD Alcorcón' => ClubProfile::REPUTATION_MODEST,
+        // Local
+        'CD Argual' => ClubProfile::REPUTATION_LOCAL,
+        'CD Femarguín' => ClubProfile::REPUTATION_LOCAL,
+        'CD Getafe Femenino' => ClubProfile::REPUTATION_LOCAL,
+        'CD Guiniguada Apolinario' => ClubProfile::REPUTATION_LOCAL,
+        'CF Pozuelo' => ClubProfile::REPUTATION_LOCAL,
+        'CFF Olympia Las Rozas' => ClubProfile::REPUTATION_LOCAL,
+        'Cacereño Femenino Atlético' => ClubProfile::REPUTATION_LOCAL,
+        'Club Atlético Málaga' => ClubProfile::REPUTATION_LOCAL,
+        'Córdoba CF' => ClubProfile::REPUTATION_LOCAL,
+        'EMF Fuensalida' => ClubProfile::REPUTATION_LOCAL,
+        'Granada CF B' => ClubProfile::REPUTATION_LOCAL,
+        'Real Betis Balompié' => ClubProfile::REPUTATION_LOCAL,
+        'Sporting de Huelva' => ClubProfile::REPUTATION_LOCAL,
+        'UD Almeria' => ClubProfile::REPUTATION_LOCAL,
 
-        // Local (small regional clubs and B-teams) - Objetivo: No descender.
-        // B-teams (Castilla, Bilbao Athletic, Villarreal B, Sevilla Atlético,
-        // Atlético Madrileño, Celta Fortuna, Betis Deportivo, Osasuna Promesas)
-        // stay LOCAL since they cannot promote to La Liga 2 — their ambition
-        // is developmental, not sporting.
-        'Mérida AD' => ClubProfile::REPUTATION_LOCAL,
-        'Pontevedra CF' => ClubProfile::REPUTATION_LOCAL,
-        'Real Madrid Castilla' => ClubProfile::REPUTATION_LOCAL,
-        'Barakaldo CF' => ClubProfile::REPUTATION_LOCAL,
-        'Zamora CF' => ClubProfile::REPUTATION_LOCAL,
-        'CD Guadalajara' => ClubProfile::REPUTATION_LOCAL,
+        // =============================================
+        // Spain - Liga F (ES1)
+        // =============================================
+
+        // Elite
+        'F.C. Barcelona' => ClubProfile::REPUTATION_ELITE,
+        'Real Madrid' => ClubProfile::REPUTATION_ELITE,
+
+        // Continental
+        'Club Atlético de Madrid' => ClubProfile::REPUTATION_CONTINENTAL,
+        'Real Socieadad' => ClubProfile::REPUTATION_CONTINENTAL,
+
+        // Established
+        'CD Tenerife Femenino' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Deportivo Alavés Gloriosas' => ClubProfile::REPUTATION_ESTABLISHED,
+        'F.C. Sevilla' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Logroño United' => ClubProfile::REPUTATION_ESTABLISHED,
+        'SD Éibar' => ClubProfile::REPUTATION_ESTABLISHED,
+
+        // Local
+        'Athletic Bilbao' => ClubProfile::REPUTATION_LOCAL,
+        'Espanyol Barcelona' => ClubProfile::REPUTATION_LOCAL,
+        'FC Badalona Women' => ClubProfile::REPUTATION_LOCAL,
+        'Granada CF' => ClubProfile::REPUTATION_LOCAL,
+        'Madrid CFF' => ClubProfile::REPUTATION_LOCAL,
+        'RC Deportivo A Coruña' => ClubProfile::REPUTATION_LOCAL,
+        'Valencia Féminas Club de Fútbol' => ClubProfile::REPUTATION_LOCAL,
+
+        // =============================================
+        // Spain - Primera Federación (ES2)
+        // =============================================
+
+        // Modest
+        'CA Osasuna' => ClubProfile::REPUTATION_MODEST,
+        'Fundación Albacete' => ClubProfile::REPUTATION_MODEST,
+        'Levante UD' => ClubProfile::REPUTATION_MODEST,
+        'Real Unión de Tenerife' => ClubProfile::REPUTATION_MODEST,
+        'Sport Extremadura' => ClubProfile::REPUTATION_MODEST,
+
+        // Local
+        'Alhama CF' => ClubProfile::REPUTATION_LOCAL,
+        'Athletic Bilbao II' => ClubProfile::REPUTATION_LOCAL,
+        'Atlético Madrid B' => ClubProfile::REPUTATION_LOCAL,
+        'CD Tenerife Femenino B' => ClubProfile::REPUTATION_LOCAL,
         'CP Cacereño' => ClubProfile::REPUTATION_LOCAL,
-        'Ourense CF' => ClubProfile::REPUTATION_LOCAL,
-        'Real Avilés Industrial' => ClubProfile::REPUTATION_LOCAL,
-        'Unionistas CF' => ClubProfile::REPUTATION_LOCAL,
-        'CD Arenteiro' => ClubProfile::REPUTATION_LOCAL,
-        'CF Talavera de la Reina' => ClubProfile::REPUTATION_LOCAL,
-        'CA Osasuna Promesas' => ClubProfile::REPUTATION_LOCAL,
-        'Bilbao Athletic' => ClubProfile::REPUTATION_LOCAL,
-        'Arenas Club' => ClubProfile::REPUTATION_LOCAL,
-        'RC Celta Fortuna' => ClubProfile::REPUTATION_LOCAL,
-        'Villarreal CF B' => ClubProfile::REPUTATION_LOCAL,
-        'Marbella FC' => ClubProfile::REPUTATION_LOCAL,
-        'Sevilla Atlético' => ClubProfile::REPUTATION_LOCAL,
-        'Antequera CF' => ClubProfile::REPUTATION_LOCAL,
-        'CD Teruel' => ClubProfile::REPUTATION_LOCAL,
-        'Atlético Sanluqueño CF' => ClubProfile::REPUTATION_LOCAL,
+        'FC Barcelona II' => ClubProfile::REPUTATION_LOCAL,
+        'Real Madrid B' => ClubProfile::REPUTATION_LOCAL,
+        'Real Sociedad San Sebastián B' => ClubProfile::REPUTATION_LOCAL,
+        'Villarreal CF' => ClubProfile::REPUTATION_LOCAL,
+
+        // =============================================
+        // Spain - Segunda Federación II (ESP3B)
+        // =============================================
+
+        // Local
+        'AD Villaviciosa de Odón' => ClubProfile::REPUTATION_LOCAL,
+        'Atlético Baleares' => ClubProfile::REPUTATION_LOCAL,
+        'CD Samper' => ClubProfile::REPUTATION_LOCAL,
         'CE Europa' => ClubProfile::REPUTATION_LOCAL,
-        'Atlético Madrileño' => ClubProfile::REPUTATION_LOCAL,
-        'Juventud Torremolinos CF' => ClubProfile::REPUTATION_LOCAL,
-        'SD Tarazona' => ClubProfile::REPUTATION_LOCAL,
-        'Betis Deportivo Balompié' => ClubProfile::REPUTATION_LOCAL,
-        'Real Unión Club' => ClubProfile::REPUTATION_LOCAL,
-        'UD Logroñés' => ClubProfile::REPUTATION_LOCAL,
-        'CD Extremadura 1924' => ClubProfile::REPUTATION_LOCAL,
-        'Real Jaén CF' => ClubProfile::REPUTATION_LOCAL,
-        'UD Ourense' => ClubProfile::REPUTATION_LOCAL,
-        'CD Coria' => ClubProfile::REPUTATION_LOCAL,
-        'CF Rayo Majadahonda' => ClubProfile::REPUTATION_LOCAL,
-        'UE Sant Andreu' => ClubProfile::REPUTATION_LOCAL,
-        'Águilas FC' => ClubProfile::REPUTATION_LOCAL,
-        'RC Deportivo Fabril' => ClubProfile::REPUTATION_LOCAL,
+        'Elche CF' => ClubProfile::REPUTATION_LOCAL,
+        'Espanyol Barcelona B' => ClubProfile::REPUTATION_LOCAL,
+        'FC Barcelona C' => ClubProfile::REPUTATION_LOCAL,
+        'FC Ona Sant Adria' => ClubProfile::REPUTATION_LOCAL,
+        'FC Valencia B' => ClubProfile::REPUTATION_LOCAL,
+        'Prainsa' => ClubProfile::REPUTATION_LOCAL,
+        'Real Murcia' => ClubProfile::REPUTATION_LOCAL,
+        'SD Huesca' => ClubProfile::REPUTATION_LOCAL,
+        'SE AEM Lleida' => ClubProfile::REPUTATION_LOCAL,
+        'UD Levante B' => ClubProfile::REPUTATION_LOCAL,
 
         // =============================================
-        // England - Premier League (ENG1)
+        // France - Première Ligue (FR1)
         // =============================================
 
         // Elite
-        'Manchester City' => ClubProfile::REPUTATION_ELITE,
-        'Liverpool FC' => ClubProfile::REPUTATION_ELITE,
-        'Arsenal FC' => ClubProfile::REPUTATION_ELITE,
-        'Chelsea FC' => ClubProfile::REPUTATION_ELITE,
-
-        // Continental
-        'Manchester United' => ClubProfile::REPUTATION_CONTINENTAL,
-        'Tottenham Hotspur' => ClubProfile::REPUTATION_CONTINENTAL,
-        'Newcastle United' => ClubProfile::REPUTATION_CONTINENTAL,
-        'Aston Villa' => ClubProfile::REPUTATION_CONTINENTAL,
-        'West Ham United' => ClubProfile::REPUTATION_CONTINENTAL,
-
-        // Established
-        'Everton FC' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Brighton & Hove Albion' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Crystal Palace' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Wolverhampton Wanderers' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Leeds United' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Nottingham Forest' => ClubProfile::REPUTATION_ESTABLISHED,
-
-        // Modest
-        'Fulham FC' => ClubProfile::REPUTATION_MODEST,
-        'Brentford FC' => ClubProfile::REPUTATION_MODEST,
-        'AFC Bournemouth' => ClubProfile::REPUTATION_MODEST,
-        'Sunderland AFC' => ClubProfile::REPUTATION_MODEST,
-        'Burnley FC' => ClubProfile::REPUTATION_MODEST,
-        'Ipswich Town' => ClubProfile::REPUTATION_MODEST,
-        'Coventry City' => ClubProfile::REPUTATION_MODEST,
-        'Hull City' => ClubProfile::REPUTATION_MODEST,
-
-        // =============================================
-        // Germany - Bundesliga (DEU1)
-        // =============================================
-
-        // Elite
-        'Bayern Munich' => ClubProfile::REPUTATION_ELITE,
-
-        // Continental
-        'Borussia Dortmund' => ClubProfile::REPUTATION_CONTINENTAL,
-        'Bayer 04 Leverkusen' => ClubProfile::REPUTATION_CONTINENTAL,
-        'Eintracht Frankfurt' => ClubProfile::REPUTATION_CONTINENTAL,
-        'RB Leipzig' => ClubProfile::REPUTATION_CONTINENTAL,
-
-        // Established
-        'VfB Stuttgart' => ClubProfile::REPUTATION_ESTABLISHED,
-        'SC Freiburg' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Borussia Mönchengladbach' => ClubProfile::REPUTATION_ESTABLISHED,
-        'SV Werder Bremen' => ClubProfile::REPUTATION_ESTABLISHED,
-        'VfL Wolfsburg' => ClubProfile::REPUTATION_ESTABLISHED,
-        '1.FC Köln' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Hamburger SV' => ClubProfile::REPUTATION_ESTABLISHED,
-        'FC Schalke 04' => ClubProfile::REPUTATION_ESTABLISHED,
-
-        // Modest
-        '1.FC Union Berlin' => ClubProfile::REPUTATION_MODEST,
-        '1.FSV Mainz 05' => ClubProfile::REPUTATION_MODEST,
-        'TSG 1899 Hoffenheim' => ClubProfile::REPUTATION_MODEST,
-        'FC Augsburg' => ClubProfile::REPUTATION_MODEST,
-        'FC St. Pauli' => ClubProfile::REPUTATION_MODEST,
-        '1.FC Heidenheim 1846' => ClubProfile::REPUTATION_MODEST,
-        'SC Paderborn 07' => ClubProfile::REPUTATION_MODEST,
-        'SV 07 Elversberg' => ClubProfile::REPUTATION_MODEST,
-
-        // =============================================
-        // France - Ligue 1 (FRA1)
-        // =============================================
-
-        // Elite
+        'OL Lyonnes' => ClubProfile::REPUTATION_ELITE,
         'Paris Saint-Germain' => ClubProfile::REPUTATION_ELITE,
 
         // Continental
-        'Olympique Marseille' => ClubProfile::REPUTATION_CONTINENTAL,
-        'AS Monaco' => ClubProfile::REPUTATION_CONTINENTAL,
-        'Olympique Lyon' => ClubProfile::REPUTATION_CONTINENTAL,
+        'Paris FC' => ClubProfile::REPUTATION_CONTINENTAL,
 
         // Established
-        'LOSC Lille' => ClubProfile::REPUTATION_ESTABLISHED,
-        'OGC Nice' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Stade Rennais FC' => ClubProfile::REPUTATION_ESTABLISHED,
-        'RC Lens' => ClubProfile::REPUTATION_ESTABLISHED,
+        'FC Fleury 91' => ClubProfile::REPUTATION_ESTABLISHED,
         'FC Nantes' => ClubProfile::REPUTATION_ESTABLISHED,
-
-        // Modest
-        'FC Toulouse' => ClubProfile::REPUTATION_MODEST,
-        'RC Strasbourg Alsace' => ClubProfile::REPUTATION_MODEST,
-        'FC Metz' => ClubProfile::REPUTATION_MODEST,
-        'Le Havre AC' => ClubProfile::REPUTATION_MODEST,
-        'Stade Brestois 29' => ClubProfile::REPUTATION_MODEST,
-        'AJ Auxerre' => ClubProfile::REPUTATION_MODEST,
-        'Angers SCO' => ClubProfile::REPUTATION_MODEST,
-        'Paris FC' => ClubProfile::REPUTATION_MODEST,
-        'FC Lorient' => ClubProfile::REPUTATION_MODEST,
-        'ESTAC Troyes' => ClubProfile::REPUTATION_MODEST,
-        'Le Mans FC' => ClubProfile::REPUTATION_MODEST,
+        'Le Havre AC' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Montpellier FC' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Olympique de Marseille' => ClubProfile::REPUTATION_ESTABLISHED,
+        'RC Lens' => ClubProfile::REPUTATION_ESTABLISHED,
+        'RC Strasbourg' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Toulouse FC' => ClubProfile::REPUTATION_ESTABLISHED,
+        'US Saint-Malo' => ClubProfile::REPUTATION_ESTABLISHED,
 
         // =============================================
-        // Italy - Serie A (ITA1)
+        // England - Women's Super League (GB1)
         // =============================================
 
         // Elite
-        'Inter Milan' => ClubProfile::REPUTATION_ELITE,
-        'Juventus FC' => ClubProfile::REPUTATION_ELITE,
-        'AC Milan' => ClubProfile::REPUTATION_ELITE,
+        'Arsenal FC' => ClubProfile::REPUTATION_ELITE,
+        'Chelsea LFC' => ClubProfile::REPUTATION_ELITE,
 
         // Continental
-        'SSC Napoli' => ClubProfile::REPUTATION_CONTINENTAL,
-        'Atalanta BC' => ClubProfile::REPUTATION_CONTINENTAL,
-        'AS Roma' => ClubProfile::REPUTATION_CONTINENTAL,
+        'Manchester City LFC' => ClubProfile::REPUTATION_CONTINENTAL,
+        'Manchester United' => ClubProfile::REPUTATION_CONTINENTAL,
+        'Tottenham Hotspur LFC' => ClubProfile::REPUTATION_CONTINENTAL,
+
+        // Established
+        'Aston Villa LFC' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Brighton & Hove Albion WFC' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Charlton Athletic' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Crystal Palace LFC' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Everton LFC' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Liverpool LFC' => ClubProfile::REPUTATION_ESTABLISHED,
+        'West Ham United LFC' => ClubProfile::REPUTATION_ESTABLISHED,
+
+        // Local
+        'Birmingham City LFC' => ClubProfile::REPUTATION_LOCAL,
+        'London City Lionesses' => ClubProfile::REPUTATION_LOCAL,
+
+        // =============================================
+        // Italy - Serie A Women (IT1)
+        // =============================================
+
+        // Continental
+        'ACF Mailand' => ClubProfile::REPUTATION_CONTINENTAL,
+        'AS Rom' => ClubProfile::REPUTATION_CONTINENTAL,
+        'Inter Mailand' => ClubProfile::REPUTATION_CONTINENTAL,
+        'Juventus Football Club' => ClubProfile::REPUTATION_CONTINENTAL,
         'SS Lazio' => ClubProfile::REPUTATION_CONTINENTAL,
 
         // Established
-        'ACF Fiorentina' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Bologna FC 1909' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Torino FC' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Genoa CFC' => ClubProfile::REPUTATION_ESTABLISHED,
+        'ACF Florenz' => ClubProfile::REPUTATION_ESTABLISHED,
+        'ASD Napoli Femminile' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Como 1907' => ClubProfile::REPUTATION_ESTABLISHED,
 
-        // Modest
-        'Udinese Calcio' => ClubProfile::REPUTATION_MODEST,
-        'US Lecce' => ClubProfile::REPUTATION_MODEST,
-        'Parma Calcio 1913' => ClubProfile::REPUTATION_MODEST,
-        'Cagliari Calcio' => ClubProfile::REPUTATION_MODEST,
-        'Hellas Verona' => ClubProfile::REPUTATION_MODEST,
-        'US Sassuolo' => ClubProfile::REPUTATION_MODEST,
-        'Como 1907' => ClubProfile::REPUTATION_MODEST,
-        'US Cremonese' => ClubProfile::REPUTATION_MODEST,
-        'Pisa Sporting Club' => ClubProfile::REPUTATION_MODEST,
-        'AC Monza' => ClubProfile::REPUTATION_MODEST,
-        'Venezia FC' => ClubProfile::REPUTATION_MODEST,
-        'Frosinone Calcio' => ClubProfile::REPUTATION_MODEST,
+        // Local
+        'Parma Calcio 1913' => ClubProfile::REPUTATION_LOCAL,
+        'SSD Riozzese Como' => ClubProfile::REPUTATION_LOCAL,
+        'Ternana Calcio Femminile' => ClubProfile::REPUTATION_LOCAL,
+        'US Sassuolo Calcio' => ClubProfile::REPUTATION_LOCAL,
 
         // =============================================
-        // Portugal - Liga Portugal (POR1)
+        // Germany - Frauen-Bundesliga (L1)
         // =============================================
 
-        // Continental — the big three, perennial UCL/UEL entrants
-        'SL Benfica' => ClubProfile::REPUTATION_CONTINENTAL,
-        'FC Porto' => ClubProfile::REPUTATION_CONTINENTAL,
-        'Sporting CP' => ClubProfile::REPUTATION_CONTINENTAL,
+        // Elite
+        'Bayern München' => ClubProfile::REPUTATION_ELITE,
+        'VfL Wolfsburg' => ClubProfile::REPUTATION_ELITE,
+
+        // Continental
+        'Bayer Leverkusen' => ClubProfile::REPUTATION_CONTINENTAL,
+        'Eintracht Frankfurt' => ClubProfile::REPUTATION_CONTINENTAL,
 
         // Established
-        'SC Braga' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Vitória Guimarães SC' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Boavista FC' => ClubProfile::REPUTATION_ESTABLISHED,
+        '1. FC Köln' => ClubProfile::REPUTATION_ESTABLISHED,
+        '1. FC Nuremberg' => ClubProfile::REPUTATION_ESTABLISHED,
+        '1. FSV Mainz 05' => ClubProfile::REPUTATION_ESTABLISHED,
+        '1899 Hoffenheim' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Hamburger SV' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Rasenballsport Leipzig' => ClubProfile::REPUTATION_ESTABLISHED,
+        'SC Freiburg' => ClubProfile::REPUTATION_ESTABLISHED,
+        'VfB Stuttgart 1893' => ClubProfile::REPUTATION_ESTABLISHED,
 
-        // Modest
-        'Moreirense FC' => ClubProfile::REPUTATION_MODEST,
-        'CD Santa Clara' => ClubProfile::REPUTATION_MODEST,
-        'FC Famalicão' => ClubProfile::REPUTATION_MODEST,
-        'Gil Vicente FC' => ClubProfile::REPUTATION_MODEST,
-        'GD Estoril Praia' => ClubProfile::REPUTATION_MODEST,
-        'Rio Ave FC' => ClubProfile::REPUTATION_MODEST,
-        'Casa Pia AC' => ClubProfile::REPUTATION_MODEST,
-        'FC Arouca' => ClubProfile::REPUTATION_MODEST,
-        'CD Nacional' => ClubProfile::REPUTATION_MODEST,
-        'CS Marítimo' => ClubProfile::REPUTATION_MODEST,
-        'SC Farense' => ClubProfile::REPUTATION_MODEST,
-        'Portimonense SC' => ClubProfile::REPUTATION_MODEST,
-        'Vitória FC' => ClubProfile::REPUTATION_MODEST,
-        'Leixões SC' => ClubProfile::REPUTATION_MODEST,
-
-        // Local — recently promoted sides with little top-flight history
-        'Académico Viseu FC' => ClubProfile::REPUTATION_LOCAL,
-        'CF Estrela Amadora' => ClubProfile::REPUTATION_LOCAL,
-        'AVS Futebol SAD' => ClubProfile::REPUTATION_LOCAL,
-        'FC Alverca' => ClubProfile::REPUTATION_LOCAL,
-        'CD Tondela' => ClubProfile::REPUTATION_LOCAL,
+        // Local
+        '1. FC Union Berlin' => ClubProfile::REPUTATION_LOCAL,
+        'Werder Bremen' => ClubProfile::REPUTATION_LOCAL,
 
         // =============================================
-        // Netherlands - Eredivisie (NED1)
+        // Mexico - Liga MX Femenil (MEX1)
+        // =============================================
+
+        // Continental
+        'Club América' => ClubProfile::REPUTATION_CONTINENTAL,
+        'Rayados de Monterrey' => ClubProfile::REPUTATION_CONTINENTAL,
+        'Tigres de la UANL' => ClubProfile::REPUTATION_CONTINENTAL,
+
+        // Established
+        'Atlante FC' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Atlas Guadalajara' => ClubProfile::REPUTATION_ESTABLISHED,
+        'CF Pachuca' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Club Atlético de San Luis' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Club Deportivo Guadalajara' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Club Deportivo Toluca' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Club León' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Club Necaxa' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Club Puebla' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Club Santos Laguna' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Cruz Azul' => ClubProfile::REPUTATION_ESTABLISHED,
+        'FC Juárez' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Pumas UNAM' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Xolos Tijuana' => ClubProfile::REPUTATION_ESTABLISHED,
+
+        // Local
+        'Gallos Blancos de Querétaro' => ClubProfile::REPUTATION_LOCAL,
+
+        // =============================================
+        // Netherlands - Eredivisie Vrouwen (NL1)
         // =============================================
 
         // Continental
         'Ajax Amsterdam' => ClubProfile::REPUTATION_CONTINENTAL,
-        'PSV Eindhoven' => ClubProfile::REPUTATION_CONTINENTAL,
+        'FC Twente' => ClubProfile::REPUTATION_CONTINENTAL,
+        'FCE/PSV' => ClubProfile::REPUTATION_CONTINENTAL,
         'Feyenoord Rotterdam' => ClubProfile::REPUTATION_CONTINENTAL,
-
-        // Established
-        'AZ Alkmaar' => ClubProfile::REPUTATION_ESTABLISHED,
-        'FC Twente Enschede' => ClubProfile::REPUTATION_ESTABLISHED,
-        'FC Utrecht' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Vitesse Arnhem' => ClubProfile::REPUTATION_ESTABLISHED,
 
         // Modest
         'ADO Den Haag' => ClubProfile::REPUTATION_MODEST,
-        'SC Cambuur Leeuwarden' => ClubProfile::REPUTATION_MODEST,
-        'FC Groningen' => ClubProfile::REPUTATION_MODEST,
-        'SC Heerenveen' => ClubProfile::REPUTATION_MODEST,
-        'NEC Nijmegen' => ClubProfile::REPUTATION_MODEST,
-        'Sparta Rotterdam' => ClubProfile::REPUTATION_MODEST,
-        'Go Ahead Eagles' => ClubProfile::REPUTATION_MODEST,
-        'NAC Breda' => ClubProfile::REPUTATION_MODEST,
-        'Willem II Tilburg' => ClubProfile::REPUTATION_MODEST,
-        'PEC Zwolle' => ClubProfile::REPUTATION_MODEST,
-        'FC Volendam' => ClubProfile::REPUTATION_MODEST,
+        'AZ Alkmaar' => ClubProfile::REPUTATION_MODEST,
         'De Graafschap' => ClubProfile::REPUTATION_MODEST,
-        'FC Den Bosch' => ClubProfile::REPUTATION_MODEST,
+        'FC Utrecht' => ClubProfile::REPUTATION_MODEST,
+        'FC Zwolle' => ClubProfile::REPUTATION_MODEST,
+        'SC Heerenveen' => ClubProfile::REPUTATION_MODEST,
+
+        // =============================================
+        // Portugal - Liga BPI (PO1)
+        // =============================================
+
+        // Continental
+        'FC Porto' => ClubProfile::REPUTATION_CONTINENTAL,
+        'SL Benfica' => ClubProfile::REPUTATION_CONTINENTAL,
+        'Sporting Clube de Portugal' => ClubProfile::REPUTATION_CONTINENTAL,
+
+        // Modest
+        'C.S. Marítimo' => ClubProfile::REPUTATION_MODEST,
+        'Rio Ave FC' => ClubProfile::REPUTATION_MODEST,
+        'SC Uniao Torreense' => ClubProfile::REPUTATION_MODEST,
 
         // Local
-        'Fortuna Sittard' => ClubProfile::REPUTATION_LOCAL,
-        'Heracles Almelo' => ClubProfile::REPUTATION_LOCAL,
-        'Excelsior Rotterdam' => ClubProfile::REPUTATION_LOCAL,
-        'SC Telstar' => ClubProfile::REPUTATION_LOCAL,
-        'RKC Waalwijk' => ClubProfile::REPUTATION_LOCAL,
-        'Almere City FC' => ClubProfile::REPUTATION_LOCAL,
+        'Racing Power Football Club' => ClubProfile::REPUTATION_LOCAL,
+        'Sporting Clube de Braga Feminino' => ClubProfile::REPUTATION_LOCAL,
+        'Valadares Gaia Futebol Clube' => ClubProfile::REPUTATION_LOCAL,
+        'Vitória Sport Clube Guimarães' => ClubProfile::REPUTATION_LOCAL,
 
         // =============================================
         // Switzerland - AXA Women's Super League (SUI1)
         // =============================================
 
-        // Continental (UWCL)
-        'Servette FC' => ClubProfile::REPUTATION_CONTINENTAL,
-        'FC Zürich Frauen' => ClubProfile::REPUTATION_CONTINENTAL,
-
-        // Established
-        'Grasshopper Club Zürich Frauen' => ClubProfile::REPUTATION_ESTABLISHED,
-        'BSC YB Frauen' => ClubProfile::REPUTATION_ESTABLISHED,
-        'FC Basel 1893 Frauen' => ClubProfile::REPUTATION_ESTABLISHED,
+        // Continental
+        'FC Zürich' => ClubProfile::REPUTATION_CONTINENTAL,
+        'Servette FC Chênois Féminin' => ClubProfile::REPUTATION_CONTINENTAL,
 
         // Modest
-        'FC Luzern Frauen' => ClubProfile::REPUTATION_MODEST,
-        'FC St. Gallen 1879 Frauen' => ClubProfile::REPUTATION_MODEST,
-        'Yverdon Sport FC Féminin' => ClubProfile::REPUTATION_MODEST,
+        'BSC YB Frauen' => ClubProfile::REPUTATION_MODEST,
+        'FC Aarau Frauen' => ClubProfile::REPUTATION_MODEST,
+        'FC Luzern' => ClubProfile::REPUTATION_MODEST,
+        'FC Rapperswil-Jona' => ClubProfile::REPUTATION_MODEST,
+        'FC St. Gallen 1879' => ClubProfile::REPUTATION_MODEST,
+        'Yverdon Sport FC' => ClubProfile::REPUTATION_MODEST,
 
         // Local
-        'FC Rapperswil-Jona Frauen' => ClubProfile::REPUTATION_LOCAL,
-        'FC Aarau Frauen' => ClubProfile::REPUTATION_LOCAL,
+        'FC Basel 1893' => ClubProfile::REPUTATION_LOCAL,
+        'Grasshopper Club Zürich' => ClubProfile::REPUTATION_LOCAL,
 
         // =============================================
-        // European transfer pool (EUR)
+        // USA - NWSL (USA1)
         // =============================================
 
         // Continental
-        'Galatasaray' => ClubProfile::REPUTATION_CONTINENTAL,
-        'Celtic FC' => ClubProfile::REPUTATION_CONTINENTAL,
-        'Fenerbahce' => ClubProfile::REPUTATION_CONTINENTAL,
-        'Olympiacos Piraeus' => ClubProfile::REPUTATION_CONTINENTAL,
-        'Red Bull Salzburg' => ClubProfile::REPUTATION_CONTINENTAL,
-        'Shakhtar Donetsk' => ClubProfile::REPUTATION_CONTINENTAL,
+        'Orlando Pride' => ClubProfile::REPUTATION_CONTINENTAL,
+        'Portland Thorns FC' => ClubProfile::REPUTATION_CONTINENTAL,
+        'Washington Spirit' => ClubProfile::REPUTATION_CONTINENTAL,
 
         // Established
-        'Club Brugge KV' => ClubProfile::REPUTATION_ESTABLISHED,
-        'FC Copenhagen' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Rangers FC' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Red Star Belgrade' => ClubProfile::REPUTATION_ESTABLISHED,
-        'SK Slavia Prague' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Ferencvárosi TC' => ClubProfile::REPUTATION_ESTABLISHED,
-        'SK Sturm Graz' => ClubProfile::REPUTATION_ESTABLISHED,
-        'FC Basel 1893' => ClubProfile::REPUTATION_ESTABLISHED,
-        'PAOK Thessaloniki' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Panathinaikos FC' => ClubProfile::REPUTATION_ESTABLISHED,
-        'GNK Dinamo Zagreb' => ClubProfile::REPUTATION_ESTABLISHED,
-        'BSC Young Boys' => ClubProfile::REPUTATION_ESTABLISHED,
-        'RSC Anderlecht' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Besiktas JK' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Trabzonspor' => ClubProfile::REPUTATION_ESTABLISHED,
-        'AEK Athens' => ClubProfile::REPUTATION_ESTABLISHED,
-        'AC Sparta Prague' => ClubProfile::REPUTATION_ESTABLISHED,
-        'HNK Hajduk Split' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Bay FC' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Boston Legacy' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Chicago Stars' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Denver Summit' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Gotham FC' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Houston Dash' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Racing Louisville' => ClubProfile::REPUTATION_ESTABLISHED,
+        'San Diego Wave FC' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Seattle Reign FC' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Utah Royals' => ClubProfile::REPUTATION_ESTABLISHED,
 
-        // Modest
-        'KRC Genk' => ClubProfile::REPUTATION_MODEST,
-        'Union Saint-Gilloise' => ClubProfile::REPUTATION_MODEST,
-        'Malmö FF' => ClubProfile::REPUTATION_MODEST,
-        'FK Bodø/Glimt' => ClubProfile::REPUTATION_MODEST,
-        'FC Midtjylland' => ClubProfile::REPUTATION_MODEST,
-        'FCSB' => ClubProfile::REPUTATION_MODEST,
-        'FC Viktoria Plzen' => ClubProfile::REPUTATION_MODEST,
-        'Ludogorets Razgrad' => ClubProfile::REPUTATION_MODEST,
-        'Maccabi Tel Aviv' => ClubProfile::REPUTATION_MODEST,
-        'SK Brann' => ClubProfile::REPUTATION_MODEST,
-        'Qarabağ FK' => ClubProfile::REPUTATION_MODEST,
-        'Pafos FC' => ClubProfile::REPUTATION_MODEST,
-        'Kairat Almaty' => ClubProfile::REPUTATION_MODEST,
-        'KAA Gent' => ClubProfile::REPUTATION_MODEST,
-        'Sint-Truidense VV' => ClubProfile::REPUTATION_MODEST,
-        'Slovan Bratislava' => ClubProfile::REPUTATION_MODEST,
-        'FK Jablonec' => ClubProfile::REPUTATION_MODEST,
-        'Lech Poznan' => ClubProfile::REPUTATION_MODEST,
-        'Jagiellonia Bialystok' => ClubProfile::REPUTATION_MODEST,
-        'Levski Sofia' => ClubProfile::REPUTATION_MODEST,
-        'CSKA Sofia' => ClubProfile::REPUTATION_MODEST,
-        'Universitatea Craiova' => ClubProfile::REPUTATION_MODEST,
-        'NK Celje' => ClubProfile::REPUTATION_MODEST,
-        'Omonia Nicosia' => ClubProfile::REPUTATION_MODEST,
-        'Heart of Midlothian FC' => ClubProfile::REPUTATION_MODEST,
-        'FC Nordsjaelland' => ClubProfile::REPUTATION_MODEST,
-        'Aarhus GF' => ClubProfile::REPUTATION_MODEST,
-        'Viking FK' => ClubProfile::REPUTATION_MODEST,
-        'Lillestrøm SK' => ClubProfile::REPUTATION_MODEST,
-        'Mjällby AIF' => ClubProfile::REPUTATION_MODEST,
-        'LASK' => ClubProfile::REPUTATION_MODEST,
-        'FC Lugano' => ClubProfile::REPUTATION_MODEST,
-        'FC Thun' => ClubProfile::REPUTATION_MODEST,
-        'Hapoel Beer Sheva' => ClubProfile::REPUTATION_MODEST,
-        'Riga FC' => ClubProfile::REPUTATION_MODEST,
-        'SC União Torreense' => ClubProfile::REPUTATION_MODEST,
-        'OFI Crete' => ClubProfile::REPUTATION_MODEST,
+        // Local
+        'Angel City FC' => ClubProfile::REPUTATION_LOCAL,
+        'KC Current' => ClubProfile::REPUTATION_LOCAL,
+        'North Carolina Courage' => ClubProfile::REPUTATION_LOCAL,
 
-        // Local — minnows and micro-federation champions that reach Europe
-        // through the early qualifying rounds rather than on club stature.
-        'Sabah FK' => ClubProfile::REPUTATION_LOCAL,
-        'FC Ararat-Armenia' => ClubProfile::REPUTATION_LOCAL,
-        'Iberia 1999 Tbilisi' => ClubProfile::REPUTATION_LOCAL,
-        'FK Kauno Zalgiris' => ClubProfile::REPUTATION_LOCAL,
-        'FK Borac Banja Luka' => ClubProfile::REPUTATION_LOCAL,
-        'KF Egnatia' => ClubProfile::REPUTATION_LOCAL,
-        'Kuopion Palloseura' => ClubProfile::REPUTATION_LOCAL,
-        'Lincoln Red Imps FC' => ClubProfile::REPUTATION_LOCAL,
-        'Inter Club d\'Escaldes' => ClubProfile::REPUTATION_LOCAL,
-
-        // =============================================
-        // International transfer pool (INT)
-        // Non-European clubs available for transfers/loans only.
-        // =============================================
-
-        // Continental — South American giants with global reach
-        'CA Boca Juniors' => ClubProfile::REPUTATION_CONTINENTAL,
-        'CA River Plate' => ClubProfile::REPUTATION_CONTINENTAL,
-        'CR Flamengo' => ClubProfile::REPUTATION_CONTINENTAL,
-        'SE Palmeiras' => ClubProfile::REPUTATION_CONTINENTAL,
-
-        // Established — Saudi Pro League powerhouses with global star rosters
-        'Al-Hilal SFC' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Al-Nassr FC' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Al-Ittihad Club' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Al-Ahli SFC' => ClubProfile::REPUTATION_ESTABLISHED,
-
-        // Established — strong domestic clubs and high-profile MLS sides
-        'SC Corinthians Paulista' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Botafogo FR' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Cruzeiro EC' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Racing Club' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Club Estudiantes de La Plata' => ClubProfile::REPUTATION_ESTABLISHED,
-        'CA Rosario Central' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Inter Miami CF' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Los Angeles FC' => ClubProfile::REPUTATION_ESTABLISHED,
     ];
 
     /**
@@ -648,22 +536,22 @@ class ClubProfilesSeeder extends Seeder
         // ── Spain — La Liga ──────────────────────────────────────────
         // Calibrated from real 2024-25 occupancy data.
         'Real Madrid' => 8,              // 87.5%
-        'FC Barcelona' => 6,             // 67.7%
-        'Atlético de Madrid' => 8,       // 87.2%
-        'Athletic Club' => 9,            // 89.8%
+        'F.C. Barcelona' => 6,             // 67.7%
+        'Club Atlético de Madrid' => 8,       // 87.2%
+        'Athletic Bilbao' => 9,            // 89.8%
         'Real Betis Balompié' => 7,      // 84.1%
         'Villarreal CF' => 5,            // 77.1%
-        'Sevilla FC' => 7,              // 79.4%
-        'Real Sociedad' => 7,            // 78.7%
-        'Valencia CF' => 9,              // 89.9%
-        'RCD Espanyol Barcelona' => 7,   // 75.7%
+        'F.C. Sevilla' => 7,              // 79.4%
+        'Real Socieadad' => 7,            // 78.7%
+        'Valencia Féminas Club de Fútbol' => 9,              // 89.9%
+        'Espanyol Barcelona' => 7,   // 75.7%
         'RC Celta' => 9,                 // 89.0%
         'RCD Mallorca' => 5,             // 66.8%
         'CA Osasuna' => 8,              // 87.0%
         'Getafe CF' => 3,               // 48.7%
         'Rayo Vallecano' => 7,           // 81.3%
         'Girona FC' => 4,               // 79.5%
-        'Deportivo Alavés' => 7,         // 83.2%
+        'Deportivo Alavés Gloriosas' => 7,         // 83.2%
         'Elche CF' => 6,                // 84.3%
         'Levante UD' => 4,              // 76.1%
         'Real Oviedo' => 7,             // 83.0%
@@ -697,23 +585,23 @@ class ClubProfilesSeeder extends Seeder
         // runs near-capacity across the board — every club in the data
         // set exceeds 91%, so loyalty 10 for all.
         'Nottingham Forest' => 8,       // 100.1%
-        'West Ham United' => 8,         // 99.9%
+        'West Ham United LFC' => 8,         // 99.9%
         'Newcastle United' => 9,        // 99.7%
         'Brentford FC' => 7,           // 99.3%
         'Arsenal FC' => 8,             // 99.2%
         'Manchester United' => 8,       // 98.8%
         'AFC Bournemouth' => 7,         // 98.8%
-        'Everton FC' => 8,             // 98.7%
-        'Liverpool FC' => 8,           // 98.6%
-        'Brighton & Hove Albion' => 6,  // 98.4%
-        'Crystal Palace' => 7,          // 97.7%
-        'Aston Villa' => 8,            // 97.5%
-        'Tottenham Hotspur' => 7,       // 97.0%
+        'Everton LFC' => 8,             // 98.7%
+        'Liverpool LFC' => 8,           // 98.6%
+        'Brighton & Hove Albion WFC' => 6,  // 98.4%
+        'Crystal Palace LFC' => 7,          // 97.7%
+        'Aston Villa LFC' => 8,            // 97.5%
+        'Tottenham Hotspur LFC' => 7,       // 97.0%
         'Leeds United' => 6,           // 96.9%
         'Burnley FC' => 6,             // 95.4%
-        'Chelsea FC' => 7,             // 95.3%
+        'Chelsea LFC' => 7,             // 95.3%
         'Sunderland AFC' => 7,         // 95.2%
-        'Manchester City' => 6,         // 94.8%
+        'Manchester City LFC' => 6,         // 94.8%
         'Wolverhampton Wanderers' => 6, // 94.0%
         'Fulham FC' => 6,               // 91.8%
 
@@ -721,42 +609,42 @@ class ClubProfilesSeeder extends Seeder
         // Calibrated from real 2024-25 occupancy data. The Bundesliga's
         // 50+1 rule, standing sections, and cheap tickets produce near-
         // universal sellouts — almost every club sits at loyalty 10.
-        'Bayern Munich' => 10,           // 100.0%
+        'Bayern München' => 10,           // 100.0%
         'Borussia Dortmund' => 10,       // 100.0%
         'Hamburger SV' => 9,           // 99.9%
-        '1.FC Union Berlin' => 9,       // 99.9%
+        '1. FC Union Berlin' => 9,       // 99.9%
         'FC St. Pauli' => 9,           // 99.8%
-        '1.FC Köln' => 9,              // 99.8%
-        'Bayer 04 Leverkusen' => 8,     // 99.4%
+        '1. FC Köln' => 9,              // 99.8%
+        'Bayer Leverkusen' => 8,     // 99.4%
         'Eintracht Frankfurt' => 8,     // 99.3%
-        'SV Werder Bremen' => 8,        // 98.8%
+        'Werder Bremen' => 8,        // 98.8%
         'SC Freiburg' => 6,            // 98.8%
         '1.FC Heidenheim 1846' => 7,    // 98.7%
-        'VfB Stuttgart' => 5,          // 97.9%
+        'VfB Stuttgart 1893' => 5,          // 97.9%
         'FC Augsburg' => 5,            // 96.8%
-        '1.FSV Mainz 05' => 6,         // 95.0%
+        '1. FSV Mainz 05' => 6,         // 95.0%
         'Borussia Mönchengladbach' => 7, // 94.0%
-        'RB Leipzig' => 5,              // 92.8%
-        'TSG 1899 Hoffenheim' => 4,      // 86.6%
+        'Rasenballsport Leipzig' => 5,              // 92.8%
+        '1899 Hoffenheim' => 4,      // 86.6%
         'VfL Wolfsburg' => 4,            // 83.8%
 
         // ── France ───────────────────────────────────────────────────
         // Calibrated from real 2024-25 occupancy data.
-        'RC Strasbourg Alsace' => 7,    // 104.7% (standing overfill)
+        'RC Strasbourg' => 7,    // 104.7% (standing overfill)
         'RC Lens' => 7,                // 98.2%
         'Paris Saint-Germain' => 8,     // 97.8%
         'Stade Brestois 29' => 8,       // 95.0%
-        'Olympique Marseille' => 9,     // 93.2%
+        'Olympique de Marseille' => 9,     // 93.2%
         'Stade Rennais FC' => 7,        // 93.2%
         'FC Lorient' => 8,              // 90.6%
         'AJ Auxerre' => 7,             // 88.3%
         'LOSC Lille' => 7,              // 85.5%
         'Paris FC' => 6,                // 84.1%
-        'Olympique Lyon' => 6,          // 82.8%
+        'OL Lyonnes' => 6,          // 82.8%
         'FC Metz' => 7,                 // 78.5%
         'FC Nantes' => 6,               // 78.2%
         'Le Havre AC' => 6,             // 75.7%
-        'FC Toulouse' => 5,             // 73.8%
+        'Toulouse FC' => 5,             // 73.8%
         'Angers SCO' => 3,              // 64.4%
         'OGC Nice' => 2,                // 60.1%
         'AS Monaco' => 1,               // 43.8%
@@ -764,12 +652,12 @@ class ClubProfilesSeeder extends Seeder
         // ── Italy ────────────────────────────────────────────────────
         // Calibrated from real 2024-25 occupancy data.
         'Cagliari Calcio' => 8,         // 98.0%
-        'Juventus FC' => 9,             // 96.9%
-        'AC Milan' => 9,               // 94.2%
-        'SSC Napoli' => 9,             // 93.3%
-        'Inter Milan' => 8,              // 92.4%
+        'Juventus Football Club' => 9,             // 96.9%
+        'ACF Mailand' => 9,               // 94.2%
+        'ASD Napoli Femminile' => 9,             // 93.3%
+        'Inter Mailand' => 8,              // 92.4%
         'Atalanta BC' => 7,             // 90.9%
-        'AS Roma' => 8,                 // 88.4%
+        'AS Rom' => 8,                 // 88.4%
         'Genoa CFC' => 7,              // 88.8%
         'Como 1907' => 7,               // 87.4%
         'Udinese Calcio' => 8,          // 86.8%
@@ -782,7 +670,7 @@ class ClubProfilesSeeder extends Seeder
         'Hellas Verona' => 3,            // 63.5%
         'SS Lazio' => 3,                // 62.4%
         'FC Empoli' => 2,               // 54.3%
-        'ACF Fiorentina' => 3,           // 47.2%
+        'ACF Florenz' => 3,           // 47.2%
 
         // ── Portugal ─────────────────────────────────────────────────
         // Portuguese grounds run well below the top-five average: the big
@@ -790,9 +678,9 @@ class ClubProfilesSeeder extends Seeder
         // half-empty municipal grounds built for Euro 2004.
         'SL Benfica' => 7,              // ~82%, 64k Luz
         'FC Porto' => 7,                // ~82%
-        'Sporting CP' => 8,             // ~86%
-        'SC Braga' => 4,
-        'Vitória Guimarães SC' => 6,
+        'Sporting Clube de Portugal' => 8,             // ~86%
+        'Sporting Clube de Braga Feminino' => 4,
+        'Vitória Sport Clube Guimarães' => 6,
         'Boavista FC' => 4,
         'CD Nacional' => 3,
         'Rio Ave FC' => 3,
@@ -813,18 +701,18 @@ class ClubProfilesSeeder extends Seeder
         // The opposite profile: small grounds, near-permanent sell-outs
         // and season-ticket waiting lists throughout the division.
         'Ajax Amsterdam' => 9,
-        'PSV Eindhoven' => 9,
+        'FCE/PSV' => 9,
         'Feyenoord Rotterdam' => 9,
         'FC Groningen' => 8,
         'FC Utrecht' => 8,
-        'FC Twente Enschede' => 8,
+        'FC Twente' => 8,
         'AZ Alkmaar' => 7,
         'SC Heerenveen' => 7,
         'NEC Nijmegen' => 8,
         'Go Ahead Eagles' => 8,
         'NAC Breda' => 8,
         'Sparta Rotterdam' => 7,
-        'PEC Zwolle' => 7,
+        'FC Zwolle' => 7,
         'FC Volendam' => 7,
         'Willem II Tilburg' => 7,
         'Heracles Almelo' => 6,
@@ -835,15 +723,15 @@ class ClubProfilesSeeder extends Seeder
         'SC Cambuur Leeuwarden' => 9,   // routinely sells out the Kooi
 
         // ── Switzerland ──────────────────────────────────────────────
-        'Servette FC' => 7,
-        'FC Zürich Frauen' => 7,
-        'Grasshopper Club Zürich Frauen' => 6,
+        'Servette FC Chênois Féminin' => 7,
+        'FC Zürich' => 7,
+        'Grasshopper Club Zürich' => 6,
         'BSC YB Frauen' => 6,
-        'FC Basel 1893 Frauen' => 6,
-        'FC Luzern Frauen' => 5,
-        'FC St. Gallen 1879 Frauen' => 5,
-        'Yverdon Sport FC Féminin' => 5,
-        'FC Rapperswil-Jona Frauen' => 4,
+        'FC Basel 1893' => 6,
+        'FC Luzern' => 5,
+        'FC St. Gallen 1879' => 5,
+        'Yverdon Sport FC' => 5,
+        'FC Rapperswil-Jona' => 4,
         'FC Aarau Frauen' => 4,
     ];
 
@@ -861,22 +749,22 @@ class ClubProfilesSeeder extends Seeder
     private const PREFERRED_FORMATION_OVERRIDES = [
         // ── Spain — La Liga ──────────────────────────────────────────
         'Real Madrid' => '4-3-1-2',
-        'FC Barcelona' => '4-2-1-3',
-        'Atlético de Madrid' => '4-4-2',
-        'Athletic Club' => '4-2-1-3',
+        'F.C. Barcelona' => '4-2-1-3',
+        'Club Atlético de Madrid' => '4-4-2',
+        'Athletic Bilbao' => '4-2-1-3',
         'Villarreal CF' => '4-4-2',
         'Real Betis Balompié' => '4-1-2-3',
-        'Sevilla FC' => '3-4-3',
-        'Real Sociedad' => '4-2-1-3',
-        'Valencia CF' => '4-2-1-3',
-        'RCD Espanyol Barcelona' => '4-1-2-3',
+        'F.C. Sevilla' => '3-4-3',
+        'Real Socieadad' => '4-2-1-3',
+        'Valencia Féminas Club de Fútbol' => '4-2-1-3',
+        'Espanyol Barcelona' => '4-1-2-3',
         'RC Celta' => '3-4-3',
         'RCD Mallorca' => '4-3-1-2',
         'CA Osasuna' => '4-2-1-3',
         'Getafe CF' => '5-3-2',
         'Rayo Vallecano' => '4-2-1-3',
         'Girona FC' => '4-2-1-3',
-        'Deportivo Alavés' => '3-5-2',
+        'Deportivo Alavés Gloriosas' => '3-5-2',
         'Elche CF' => '5-3-2',
         'Levante UD' => '4-1-2-3',
         'Real Oviedo' => '4-2-1-3',
@@ -906,18 +794,18 @@ class ClubProfilesSeeder extends Seeder
         'Real Sociedad B' => '4-3-3',
 
         // ── England ──────────────────────────────────────────────────
-        'Manchester City' => '4-3-3',             // Guardiola
-        'Liverpool FC' => '4-3-3',
+        'Manchester City LFC' => '4-3-3',             // Guardiola
+        'Liverpool LFC' => '4-3-3',
         'Arsenal FC' => '4-3-3',                  // Arteta
-        'Chelsea FC' => '4-2-3-1',
+        'Chelsea LFC' => '4-2-3-1',
         'Manchester United' => '3-4-3',           // Amorim
-        'Tottenham Hotspur' => '4-3-3',
+        'Tottenham Hotspur LFC' => '4-3-3',
         'Newcastle United' => '4-3-3',
-        'Aston Villa' => '4-2-3-1',               // Emery
-        'West Ham United' => '4-2-3-1',
-        'Everton FC' => '4-2-3-1',
-        'Brighton & Hove Albion' => '4-2-3-1',
-        'Crystal Palace' => '3-4-3',              // Glasner
+        'Aston Villa LFC' => '4-2-3-1',               // Emery
+        'West Ham United LFC' => '4-2-3-1',
+        'Everton LFC' => '4-2-3-1',
+        'Brighton & Hove Albion WFC' => '4-2-3-1',
+        'Crystal Palace LFC' => '3-4-3',              // Glasner
         'Wolverhampton Wanderers' => '3-4-3',
         'Leeds United' => '4-2-3-1',
         'Nottingham Forest' => '4-2-3-1',
@@ -928,30 +816,30 @@ class ClubProfilesSeeder extends Seeder
         'Burnley FC' => '4-4-2',
 
         // ── Germany ──────────────────────────────────────────────────
-        'Bayern Munich' => '4-2-3-1',
+        'Bayern München' => '4-2-3-1',
         'Borussia Dortmund' => '4-2-3-1',
-        'Bayer 04 Leverkusen' => '3-4-3',         // Alonso shape
+        'Bayer Leverkusen' => '3-4-3',         // Alonso shape
         'Eintracht Frankfurt' => '3-4-3',
-        'RB Leipzig' => '4-2-3-1',
-        '1.FC Union Berlin' => '5-3-2',           // Compact block
+        'Rasenballsport Leipzig' => '4-2-3-1',
+        '1. FC Union Berlin' => '5-3-2',           // Compact block
         'FC St. Pauli' => '3-4-3',
         '1.FC Heidenheim 1846' => '4-4-2',
 
         // ── France ───────────────────────────────────────────────────
         'Paris Saint-Germain' => '4-3-3',         // Luis Enrique
-        'Olympique Marseille' => '4-2-3-1',       // De Zerbi
+        'Olympique de Marseille' => '4-2-3-1',       // De Zerbi
         'RC Lens' => '3-4-3',
         'Stade Brestois 29' => '4-4-2',
 
         // ── Italy ────────────────────────────────────────────────────
-        'Inter Milan' => '3-5-2',                 // Inzaghi trademark
-        'Juventus FC' => '4-2-3-1',
-        'AC Milan' => '4-2-3-1',
-        'SSC Napoli' => '4-3-3',                  // Conte 4-3-3 base
+        'Inter Mailand' => '3-5-2',                 // Inzaghi trademark
+        'Juventus Football Club' => '4-2-3-1',
+        'ACF Mailand' => '4-2-3-1',
+        'ASD Napoli Femminile' => '4-3-3',                  // Conte 4-3-3 base
         'Atalanta BC' => '3-4-3',                 // Gasperini
-        'AS Roma' => '3-4-3',
+        'AS Rom' => '3-4-3',
         'SS Lazio' => '4-3-3',
-        'ACF Fiorentina' => '4-2-3-1',
+        'ACF Florenz' => '4-2-3-1',
         'Bologna FC 1909' => '4-2-3-1',
         'Torino FC' => '3-5-2',
         'Genoa CFC' => '3-5-2',
@@ -963,17 +851,17 @@ class ClubProfilesSeeder extends Seeder
         // ── Portugal ─────────────────────────────────────────────────
         'SL Benfica' => '4-3-3',
         'FC Porto' => '4-2-3-1',
-        'Sporting CP' => '3-4-3',                 // Amorim legacy shape
-        'SC Braga' => '4-4-2',
-        'Vitória Guimarães SC' => '4-2-3-1',
+        'Sporting Clube de Portugal' => '3-4-3',                 // Amorim legacy shape
+        'Sporting Clube de Braga Feminino' => '4-4-2',
+        'Vitória Sport Clube Guimarães' => '4-2-3-1',
 
         // ── Netherlands ──────────────────────────────────────────────
         // The Dutch school is 4-3-3 almost without exception.
         'Ajax Amsterdam' => '4-3-3',
         'Feyenoord Rotterdam' => '4-3-3',
-        'PSV Eindhoven' => '4-3-3',
+        'FCE/PSV' => '4-3-3',
         'AZ Alkmaar' => '4-3-3',
-        'FC Twente Enschede' => '4-3-3',
+        'FC Twente' => '4-3-3',
         'FC Utrecht' => '4-3-3',
         'Go Ahead Eagles' => '4-2-3-1',
 
@@ -1006,19 +894,19 @@ class ClubProfilesSeeder extends Seeder
      */
     private const TACTICAL_AGGRESSION_OVERRIDES = [
         // ── Spain — La Liga ──────────────────────────────────────────
-        'FC Barcelona' => 1,                      // Flick possession-press
-        'Atlético de Madrid' => -2,               // Cholismo trademark
-        'Athletic Club' => 1,                     // Valverde aggressive press
-        'Real Sociedad' => 1,                     // Imanol high-tempo
-        'Valencia CF' => -1,
-        'RCD Espanyol Barcelona' => -1,
+        'F.C. Barcelona' => 1,                      // Flick possession-press
+        'Club Atlético de Madrid' => -2,               // Cholismo trademark
+        'Athletic Bilbao' => 1,                     // Valverde aggressive press
+        'Real Socieadad' => 1,                     // Imanol high-tempo
+        'Valencia Féminas Club de Fútbol' => -1,
+        'Espanyol Barcelona' => -1,
         'RC Celta' => 1,                          // Giráldez attacking
         'RCD Mallorca' => -2,                     // Aguirre block
         'CA Osasuna' => -1,
         'Getafe CF' => -2,                        // Bordalás compact
         'Rayo Vallecano' => 1,                    // Iñigo Pérez attacking
         'Girona FC' => 1,                         // Míchel possession
-        'Deportivo Alavés' => -1,
+        'Deportivo Alavés Gloriosas' => -1,
         'Real Oviedo' => -1,
 
         // ── Spain — La Liga 2 ────────────────────────────────────────
@@ -1034,32 +922,32 @@ class ClubProfilesSeeder extends Seeder
         'Real Sociedad B' => 1,                   // Mirrors first team
 
         // ── England ──────────────────────────────────────────────────
-        'Manchester City' => 2,                   // Pep extreme press
-        'Liverpool FC' => 1,
+        'Manchester City LFC' => 2,                   // Pep extreme press
+        'Liverpool LFC' => 1,
         'Arsenal FC' => 1,                        // Arteta front-foot
-        'Tottenham Hotspur' => 1,
+        'Tottenham Hotspur LFC' => 1,
         'Newcastle United' => 1,                  // Howe pressing
-        'Brighton & Hove Albion' => 1,            // Progressive system
-        'Everton FC' => -1,
+        'Brighton & Hove Albion WFC' => 1,            // Progressive system
+        'Everton LFC' => -1,
         'Nottingham Forest' => -1,
 
         // ── Germany ──────────────────────────────────────────────────
-        'Bayern Munich' => 1,
+        'Bayern München' => 1,
         'Borussia Dortmund' => 1,
-        'Bayer 04 Leverkusen' => 1,               // Alonso possession-press
-        'RB Leipzig' => 1,                        // Red Bull press
-        '1.FC Union Berlin' => -2,                // Compact 5-3-2
+        'Bayer Leverkusen' => 1,               // Alonso possession-press
+        'Rasenballsport Leipzig' => 1,                        // Red Bull press
+        '1. FC Union Berlin' => -2,                // Compact 5-3-2
         'FC Augsburg' => -1,
         '1.FC Heidenheim 1846' => -1,
 
         // ── France ───────────────────────────────────────────────────
         'Paris Saint-Germain' => 1,               // Luis Enrique press
-        'Olympique Marseille' => 1,               // De Zerbi
+        'Olympique de Marseille' => 1,               // De Zerbi
         'RC Lens' => 1,
         'Angers SCO' => -1,
 
         // ── Italy ────────────────────────────────────────────────────
-        'SSC Napoli' => 1,                        // Conte intense
+        'ASD Napoli Femminile' => 1,                        // Conte intense
         'Atalanta BC' => 2,                       // Gasperini all-out
         'Bologna FC 1909' => 1,                   // Italiano
         'Cagliari Calcio' => -1,
@@ -1067,12 +955,12 @@ class ClubProfilesSeeder extends Seeder
 
         // ── Portugal ─────────────────────────────────────────────────
         'SL Benfica' => 1,
-        'Sporting CP' => 1,
+        'Sporting Clube de Portugal' => 1,
 
         // ── Netherlands ──────────────────────────────────────────────
         'Ajax Amsterdam' => 1,
         'Feyenoord Rotterdam' => 1,
-        'PSV Eindhoven' => 1,
+        'FCE/PSV' => 1,
         'AZ Alkmaar' => 1,
 
         // ── European pool ────────────────────────────────────────────
