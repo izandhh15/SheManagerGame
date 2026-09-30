@@ -64,6 +64,15 @@ switch ($step) {
         // Selecciones nacionales + WWCQ (beta)
         run('app:seed-national-teams', ['--fresh' => true]);
         break;
+    case 'invite':
+        // Código de invitación de la beta (500 usos)
+        $code = 'BETA-' . strtoupper(substr(md5('shemanager-beta' . date('Ymd')), 0, 8));
+        Illuminate\Support\Facades\DB::table('invite_codes')->updateOrInsert(
+            ['code' => $code],
+            ['max_uses' => 500, 'times_used' => 0, 'created_at' => now(), 'updated_at' => now()]
+        );
+        echo "Invite code: $code\n---\n";
+        break;
     default:
         echo "steps: migrate, seed, seed-nt\n";
 }
