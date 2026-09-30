@@ -1,0 +1,45 @@
+<?php
+
+/**
+ * TEMPORAL — solo para el setup inicial de la beta en Wasmer.
+ * BORRAR tras ejecutar. Se protege con el secreto OPS_TOKEN.
+ *
+ * Uso: https://shemanager-beta.wasmer.app/ops-setup.php?token=SECRETO&step=migrate
+ *      https://shemanager-beta.wasmer.app/ops-setup.php?token=SECRETO&step=seed
+ *      https://shemanager-beta.wasmer.app/ops-setup.php?token=SECRETO&step=seed-nt
+ */
+
+$expected = getenv('OPS_TOKEN');
+$given = $_GET['token'] ?? '';
+
+if (!$expected || !hash_equals($expected, $given)) {
+    http_response_code(403);
+    exit('forbidden');
+}
+
+$step = $_GET['step'] ?? '';
+
+header('Content-Type: text/plain; charset=utf-8');
+
+function run(string $cmd): void
+{
+    echo "\$ $cmd\n";
+    passthru("cd /app && php artisan $cmd 2>&1");
+    echo "\n---\n";
+}
+
+switch ($step) {
+    case 'migrate':
+        run('migrate --force');
+        break;
+    case 'seed':
+        // Datos base: clubs, competiciones, plantillas (temporada 2026)
+        run('app:seed-reference-data --fresh');
+        break;
+    case 'seed-nt':
+        // Selecciones nacionales + WWCQ (beta)
+        run('app:seed-national-teams --fresh');
+        break;
+    default:
+        echo "steps: migrate, seed, seed-nt\n";
+}
