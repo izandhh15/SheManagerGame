@@ -48,8 +48,8 @@ class SeedNationalTeams extends Command
         $clubs = json_decode(file_get_contents($path), true)['clubs'] ?? [];
         $this->info('Seeding ' . count($clubs) . ' national teams...');
 
-        $this->seedTeams($clubs);
         $this->seedCompetition();
+        $this->seedTeams($clubs);
 
         $count = app(GamePlayerTemplateService::class)->generateForNationalTeams(self::SEASON);
         $this->info("Generated {$count} player templates for national teams.");
