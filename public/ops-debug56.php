@@ -24,11 +24,18 @@ try {
             exit;
         }
         
-        $team = \App\Models\Team::whereHas('competitions', function($q) {
+        echo "Looking for ESP1 teams...\n";
+        $teams = \App\Models\Team::whereHas('competitions', function($q) {
                 $q->where('competitions.id', 'ESP1');
             })
-            ->where('name', 'like', '%Valencia%')
-            ->first();
+            ->limit(5)
+            ->get(['id', 'name']);
+        
+        foreach ($teams as $t) {
+            echo "  - {$t->name} ({$t->id})\n";
+        }
+        
+        $team = $teams->first();
         
         if (!$team) {
             echo "Valencia team not found.\n";
