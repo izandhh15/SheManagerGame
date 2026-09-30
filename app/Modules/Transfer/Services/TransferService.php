@@ -532,7 +532,7 @@ class TransferService
         // Bands are matched high-to-low by market value (config/transfers.php).
         $byValue = config('transfers.ai_pre_contract.offer_chance_by_value', []);
         foreach ($byValue as $minValue => $chance) {
-            if ($player->market_value_cents >= $minValue) {
+            if ($player->market_value_cents >= (float) $minValue) {
                 return (float) $chance;
             }
         }
