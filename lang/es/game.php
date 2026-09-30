@@ -67,6 +67,8 @@ return [
     'europa_league' => 'UEFA Women\'s Europa Cup',
     'relegation' => 'Descenso',
     'world_cup_qualified' => 'Clasificado al Mundial 2027',
+    'euro_qualified' => 'Clasificada a la Eurocopa 2029',
+    'knockout_qualified' => 'Clasificada a eliminatorias',
     'direct_promotion' => 'Ascenso Directo',
     'promotion_playoff' => 'Playoff de Ascenso',
     'relegation_playoff' => 'Playoff de Descenso',

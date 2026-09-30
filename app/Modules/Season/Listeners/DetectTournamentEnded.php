@@ -5,6 +5,7 @@ namespace App\Modules\Season\Listeners;
 use App\Events\TournamentEnded;
 use App\Models\Game;
 use App\Models\TournamentSummary;
+use App\Modules\Season\Services\NationalTeamRolloverService;
 
 class DetectTournamentEnded
 {
@@ -32,6 +33,15 @@ class DetectTournamentEnded
         $hasUnplayed = $game->matches()->where('played', false)->exists();
 
         if ($hasUnplayed) {
+            return;
+        }
+
+        // National-team careers roll over into the next competition
+        // (Izan's unified multi-year calendar) instead of ending the game
+        // with a snapshot + soft-delete like one-off tournaments do.
+        $rollover = app(NationalTeamRolloverService::class);
+        if ($rollover->isContinuable($game)) {
+            $rollover->rollover($game);
             return;
         }
 

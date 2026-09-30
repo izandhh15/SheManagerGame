@@ -50,6 +50,15 @@ class TournamentCreationService
     /** UEFA Women's Nations League competition id. */
     public const WNL_ID = 'WNL';
 
+    /** FIFA Women's World Cup 2027 (final tournament) competition id. */
+    public const WWCU27_ID = 'WWCU27';
+
+    /** UEFA Women's Euro 2029 (final tournament) competition id. */
+    public const WEURO_ID = 'WEURO';
+
+    /** UEFA Women's Euro 2029 qualifying competition id. */
+    public const WEUROQ_ID = 'WEUROQ';
+
     /** Every competition id accepted as a national-team competition. */
     public const NATIONAL_TEAM_COMPETITION_IDS = [
         'WQUEFA',
@@ -60,6 +69,19 @@ class TournamentCreationService
         'WQOFC',
         'WWCQ',
         'WNL',
+        'WWCU27',
+        'WEURO',
+        'WEUROQ',
+    ];
+
+    /**
+     * Competition ids of the final tournaments (World Cup / Euros).
+     * These are set up with groups + knockout instead of a drawn
+     * qualifier group.
+     */
+    public const NATIONAL_TEAM_FINAL_IDS = [
+        'WWCU27',
+        'WEURO',
     ];
 
     /**
@@ -73,18 +95,102 @@ class TournamentCreationService
     }
 
     /**
-     * National team competition sequence for UEFA: Nations League →
-     * World Cup Qualifying → (World Cup) → Euro Qualifying → (Euros).
+     * National team competition sequence (Izan's unified calendar):
+     * Nations League → World Cup Qualifying → (World Cup 2027) →
+     * Nations League → Euro Qualifying → (Euro 2029) → Nations League…
+     *
+     * After each Nations League, the cycle alternates: the first cycle
+     * runs the World Cup qualifiers; once the game has played a World
+     * Cup, the next cycle runs the Euro qualifiers, and so on.
      * Returns the next competition id after the given one, or null if
-     * the sequence ends (cycles back to Nations League).
+     * the sequence ends.
      */
-    public static function nextCompetitionInSequence(string $currentCompetitionId): ?string
+    public static function nextCompetitionInSequence(string $currentCompetitionId, ?Game $game = null): ?string
     {
         return match ($currentCompetitionId) {
-            self::WNL_ID => 'WQUEFA',      // Nations League → World Cup Qualifying
-            'WQUEFA' => self::WNL_ID,      // World Cup Qualifying → Nations League (cycle)
+            self::WNL_ID => self::afterNationsLeague($game),
+            'WQUEFA' => self::WWCU27_ID,      // World Cup Qualifying → World Cup 2027
+            // Other confederations' qualifiers also lead to the World Cup.
+            'WQAFC', 'WQCAF', 'WQCONC', 'WQCONM', 'WQOFC' => self::WWCU27_ID,
+            self::WWCU27_ID => self::afterWorldCup($game),
+            self::WEUROQ_ID => self::WEURO_ID, // Euro Qualifying → Euro 2029
+            self::WEURO_ID => self::WNL_ID,   // Euro → Nations League
             default => null,
         };
+    }
+
+    /**
+     * After the World Cup, each team returns to its confederation's
+     * competition (Nations League for UEFA, qualifiers elsewhere).
+     */
+    private static function afterWorldCup(?Game $game): string
+    {
+        return self::competitionIdForConfederation($game?->team?->confederation);
+    }
+
+    /**
+     * After a Nations League season, alternate between the World Cup
+     * cycle and the Euro cycle based on which final the game played
+     * most recently (read from its season archives).
+     */
+    private static function afterNationsLeague(?Game $game): string
+    {
+        if ($game !== null && self::lastPlayedFinal($game) === self::WWCU27_ID) {
+            return self::WEUROQ_ID; // last final was the World Cup → Euro cycle
+        }
+
+        return 'WQUEFA'; // no final yet, or last final was the Euro → World Cup cycle
+    }
+
+    /**
+     * The most recent final tournament (WWCU27 / WEURO) this game played,
+     * from its season archives — or null if it hasn't played one yet.
+     */
+    private static function lastPlayedFinal(Game $game): ?string
+    {
+        $archives = \App\Models\SeasonArchive::where('game_id', $game->id)
+            ->orderBy('id')
+            ->get(['final_standings']);
+
+        $lastFinal = null;
+        foreach ($archives as $archive) {
+            foreach ($archive->final_standings ?? [] as $row) {
+                $cid = $row['competition_id'] ?? null;
+                if (in_array($cid, self::NATIONAL_TEAM_FINAL_IDS, true)) {
+                    $lastFinal = $cid;
+                }
+            }
+        }
+
+        return $lastFinal;
+    }
+
+    /**
+     * Did the game's team finish in the top 2 of the given qualifier
+     * competition in its most recent archived season? Used to gate
+     * entry to the final tournaments (WWCU27 / WEURO).
+     *
+     * Returns true when there is no archived standing to check
+     * (graceful fallback — never trap the user over missing data).
+     */
+    public static function userQualifiedForFinal(Game $game, string $qualifierCompetitionId): bool
+    {
+        $archive = \App\Models\SeasonArchive::where('game_id', $game->id)
+            ->orderByDesc('id')
+            ->first(['final_standings']);
+
+        if (!$archive) {
+            return true;
+        }
+
+        foreach ($archive->final_standings ?? [] as $row) {
+            if (($row['competition_id'] ?? null) === $qualifierCompetitionId
+                && ($row['team_id'] ?? null) === $game->team_id) {
+                return ($row['position'] ?? 99) <= 2;
+            }
+        }
+
+        return true;
     }
 
     /**

@@ -1,0 +1,14 @@
+{
+  "league": [
+    {"round": 1, "date": "2027-06-24"},
+    {"round": 2, "date": "2027-06-29"},
+    {"round": 3, "date": "2027-07-04"}
+  ],
+  "knockout": [
+    {"round": 2, "name": "cup.round_of_16", "date": "2027-07-06"},
+    {"round": 3, "name": "cup.quarter_finals", "date": "2027-07-10"},
+    {"round": 4, "name": "cup.semi_finals", "date": "2027-07-14"},
+    {"round": 5, "name": "cup.third_place", "date": "2027-07-24"},
+    {"round": 6, "name": "cup.final", "date": "2027-07-25"}
+  ]
+}

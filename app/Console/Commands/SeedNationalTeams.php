@@ -62,6 +62,17 @@ class SeedNationalTeams extends Command
         'OFC'      => ['WQOFC', 'Clasificación Mundial 2027 · OFC'],
     ];
 
+    /**
+     * Final tournaments and their qualifier: id => [display name, handler_type].
+     * The finals (WWCU27, WEURO) run groups + knockout via the
+     * group_stage_cup handler; WEUROQ is a drawn qualifier group like the WQ*.
+     */
+    private const FINAL_COMPETITIONS = [
+        'WWCU27' => ["FIFA Women's World Cup 2027", 'group_stage_cup'],
+        'WEURO'  => ["UEFA Women's Euro 2029", 'group_stage_cup'],
+        'WEUROQ' => ['Clasificación Eurocopa 2029 · UEFA', 'league'],
+    ];
+
     public function handle(): int
     {
         if ($this->option('fresh')) {
@@ -191,11 +202,15 @@ class SeedNationalTeams extends Command
         );
 
         foreach (self::QUALIFIER_COMPETITIONS as $confederation => [$id, $name]) {
-            // The seeder's table and the runtime mapping must agree — a drift
+            // The seeder's table and the runtime ids must agree — a drift
             // here would seed competitions no game could ever reference.
-            $expected = TournamentCreationService::competitionIdForConfederation($confederation);
-            if ($expected !== $id) {
-                $this->error("  Mapping mismatch: {$confederation} => seeder {$id} vs service {$expected} — skipped");
+            // Note: this table holds the *qualifier* ids per confederation
+            // (e.g. WQUEFA for UEFA), which is intentionally different from
+            // competitionIdForConfederation() (the *first* competition a new
+            // game plays — WNL for UEFA). The invariant is membership in
+            // NATIONAL_TEAM_COMPETITION_IDS, not equality with that mapping.
+            if (!in_array($id, TournamentCreationService::NATIONAL_TEAM_COMPETITION_IDS, true)) {
+                $this->error("  Unknown national competition id: {$confederation} => {$id} — skipped");
                 continue;
             }
 
@@ -233,6 +248,28 @@ class SeedNationalTeams extends Command
             ]
         );
         $this->info("  Competition: WNL (UEFA Women's Nations League).");
+
+        // Final tournaments (World Cup 2027 in Brazil, Euro 2029 in
+        // Germany) + the Euro 2029 qualifier. The finals run groups +
+        // knockout via the group_stage_cup handler; WEUROQ is a drawn
+        // qualifier group like the WQ* competitions.
+        foreach (self::FINAL_COMPETITIONS as $id => [$name, $handlerType]) {
+            DB::table('competitions')->updateOrInsert(
+                ['id' => $id],
+                [
+                    'name' => $name,
+                    'country' => 'IN',
+                    'flag' => null,
+                    'tier' => 1,
+                    'type' => 'league',
+                    'role' => 'league',
+                    'scope' => 'continental',
+                    'handler_type' => $handlerType,
+                    'season' => self::SEASON,
+                ]
+            );
+            $this->info("  Competition: {$id} ({$name}).");
+        }
     }
 
     private function clearExistingData(): void

@@ -1,0 +1,15 @@
+{
+  "quarter_finals": [
+    {"match_number": 1, "home": "1A", "away": "2B", "date": "2029-07-01"},
+    {"match_number": 2, "home": "1B", "away": "2A", "date": "2029-07-01"},
+    {"match_number": 3, "home": "1C", "away": "2D", "date": "2029-07-02"},
+    {"match_number": 4, "home": "1D", "away": "2C", "date": "2029-07-02"}
+  ],
+  "semi_finals": [
+    {"match_number": 5, "home": "W1", "away": "W2", "date": "2029-07-05"},
+    {"match_number": 6, "home": "W3", "away": "W4", "date": "2029-07-06"}
+  ],
+  "final": [
+    {"match_number": 7, "home": "W5", "away": "W6", "date": "2029-07-08"}
+  ]
+}

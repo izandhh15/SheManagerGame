@@ -9,14 +9,20 @@ use App\Models\Game;
 use App\Models\GameStanding;
 
 /**
- * Generates knockout bracket matchups for the FIFA World Cup 2026.
+ * Generates knockout bracket matchups for group-stage + knockout tournaments.
  *
- * 48 teams, 12 groups of 4:
- * - Group stage: 3 matchdays, top 2 per group + 8 best 3rd-place teams advance (32 total)
- * - Round of 32 → Round of 16 → Quarter-finals → Semi-finals → Third place → Final
+ * Originally built for the FIFA World Cup 2026 (men, retired):
+ * 48 teams, 12 groups of 4 — top 2 per group + 8 best 3rd-place teams
+ * advance (32 total): R32 → R16 → QF → SF → 3rd place → Final.
  *
- * Uses a fixed bracket from bracket.json (no open draw).
- * Third-place team assignment uses the FIFA deterministic lookup table.
+ * Now generalized per competition id:
+ * - WC2026 keeps the legacy behaviour (third-place qualifiers, fixed
+ *   FIFA lookup table, data/2025/WC2026/bracket.json).
+ * - Women's finals (WWCU27, WEURO, ...) load their own
+ *   data/2026/{id}/bracket.json; only the top 2 per group advance and
+ *   group-position slots ("1A", "2B") in the first knockout round are
+ *   resolved from the group standings. A competition whose bracket has
+ *   no "third_place" key simply skips that match (e.g. the Euros).
  */
 class WorldCupKnockoutGenerator
 {
@@ -42,7 +48,11 @@ class WorldCupKnockoutGenerator
         '1L' => 80,
     ];
 
-    private ?array $bracket = null;
+    /** Competitions whose format includes best-third-place qualifiers (legacy WC2026 only). */
+    private const THIRD_PLACE_QUALIFIER_COMPETITIONS = ['WC2026'];
+
+    /** @var array<string, array> competitionId → decoded bracket.json */
+    private array $brackets = [];
     private ?array $thirdPlaceTable = null;
 
     /** @var array<string, \Illuminate\Support\Collection<int, CupTie>>  gameId:competitionId → ties */
@@ -102,6 +112,15 @@ class WorldCupKnockoutGenerator
     }
 
     /**
+     * Whether this competition's bracket defines a third-place match.
+     * The Euros (WEURO) don't play one — the handler skips generating it.
+     */
+    public function hasThirdPlaceMatch(string $competitionId): bool
+    {
+        return count($this->loadBracket($competitionId)['third_place'] ?? []) > 0;
+    }
+
+    /**
      * Generate matchups for a knockout round.
      *
      * @return array<array{0: string, 1: string, 2: int|null}> Array of [homeTeamId, awayTeamId, bracketPosition]
@@ -121,10 +140,11 @@ class WorldCupKnockoutGenerator
 
     /**
      * Generate Round of 32 from group stage results using the fixed bracket.
+     * WC2026-only path (48-team format with third-place qualifiers).
      */
     private function generateRoundOf32(Game $game, string $competitionId): array
     {
-        $bracket = $this->loadBracket();
+        $bracket = $this->loadBracket($competitionId);
         $r32Matches = $bracket['round_of_32'] ?? [];
 
         // Build group standings lookup: group_label + position → team_id
@@ -144,8 +164,8 @@ class WorldCupKnockoutGenerator
 
         $matchups = [];
         foreach ($r32Matches as $match) {
-            $homeTeamId = $this->resolveR32Slot($match['home'], $positionMap, $thirdPlaceAssignment);
-            $awayTeamId = $this->resolveR32Slot($match['away'], $positionMap, $thirdPlaceAssignment);
+            $homeTeamId = $this->resolveR32Slot($match['home'], $positionMap, $thirdPlaceAssignment, $competitionId);
+            $awayTeamId = $this->resolveR32Slot($match['away'], $positionMap, $thirdPlaceAssignment, $competitionId);
 
             if ($homeTeamId && $awayTeamId) {
                 $matchups[] = [$homeTeamId, $awayTeamId, $match['match_number']];
@@ -160,7 +180,7 @@ class WorldCupKnockoutGenerator
      *
      * Handles: "1A" (group winner), "2B" (runner-up), "3ABCDF" (third-place from eligible groups).
      */
-    private function resolveR32Slot(string $slot, array $positionMap, array $thirdPlaceAssignment): ?string
+    private function resolveR32Slot(string $slot, array $positionMap, array $thirdPlaceAssignment, string $competitionId): ?string
     {
         // Simple position + group: "1A", "2B", etc.
         if (preg_match('/^([12])([A-L])$/', $slot, $m)) {
@@ -169,7 +189,7 @@ class WorldCupKnockoutGenerator
 
         // Third-place slot: "3ABCDF" — find which bracket match uses this slot label
         if (str_starts_with($slot, '3') && strlen($slot) > 2) {
-            $bracket = $this->loadBracket();
+            $bracket = $this->loadBracket($competitionId);
             foreach ($bracket['round_of_32'] as $entry) {
                 if ($entry['home'] === $slot || $entry['away'] === $slot) {
                     return $thirdPlaceAssignment[$entry['match_number']] ?? null;
@@ -219,7 +239,7 @@ class WorldCupKnockoutGenerator
         }
 
         // Map slot indices to match numbers and team IDs
-        // assignment = [1A_group, 1B_group, 1D_group, 1E_group, 1G_group, 1I_group, 1K_group, 1L_group]
+        // assignment = [1A_group, 1B_group, 1D_group, 1E_group, 1G_group, 1K_group, 1L_group]
         $result = [];
         foreach (self::THIRD_PLACE_SLOT_KEYS as $index => $slotKey) {
             $groupLetter = $assignment[$index];
@@ -231,7 +251,11 @@ class WorldCupKnockoutGenerator
     }
 
     /**
-     * Generate later knockout rounds using the fixed bracket (W73, RU101, etc.).
+     * Generate later knockout rounds using the fixed bracket (W73, RU101, 1A, 2B...).
+     *
+     * Besides winner/loser references ("W73", "RU101"), the first knockout
+     * round of the women's finals references group positions directly
+     * ("1A", "2B") — resolved from the group standings here.
      */
     private function generateFixedBracketRound(Game $game, string $competitionId, int $round): array
     {
@@ -241,7 +265,7 @@ class WorldCupKnockoutGenerator
             return $this->generateFromSemiFinals($game, $competitionId, $round);
         }
 
-        $bracket = $this->loadBracket();
+        $bracket = $this->loadBracket($competitionId);
 
         $roundKey = match ($round) {
             self::ROUND_OF_16 => 'round_of_16',
@@ -250,12 +274,24 @@ class WorldCupKnockoutGenerator
             default => throw new \RuntimeException("Unknown round: {$round}"),
         };
 
+        // Group standings lookup for position slots ("1A", "2B") in the
+        // first knockout round (women's finals).
+        $positionMap = [];
+        foreach (
+            GameStanding::where('game_id', $game->id)
+                ->where('competition_id', $competitionId)
+                ->whereNotNull('group_label')
+                ->get() as $standing
+        ) {
+            $positionMap[$standing->position . $standing->group_label] = $standing->team_id;
+        }
+
         $roundMatches = $bracket[$roundKey] ?? [];
         $matchups = [];
 
         foreach ($roundMatches as $match) {
-            $homeTeamId = $this->resolveBracketReference($match['home'], $game->id, $competitionId);
-            $awayTeamId = $this->resolveBracketReference($match['away'], $game->id, $competitionId);
+            $homeTeamId = $this->resolveBracketReference($match['home'], $game->id, $competitionId, $positionMap);
+            $awayTeamId = $this->resolveBracketReference($match['away'], $game->id, $competitionId, $positionMap);
 
             if ($homeTeamId && $awayTeamId) {
                 $matchups[] = [$homeTeamId, $awayTeamId, $match['match_number']];
@@ -268,11 +304,12 @@ class WorldCupKnockoutGenerator
     /**
      * Generate third-place or final matchup directly from semi-final results.
      *
-     * Third place = SF losers, Final = SF winners.
+     * Third place = SF losers, Final = SF winners. Competitions without a
+     * third-place entry in their bracket (e.g. WEURO) return no matchups.
      */
     private function generateFromSemiFinals(Game $game, string $competitionId, int $round): array
     {
-        $bracket = $this->loadBracket();
+        $bracket = $this->loadBracket($competitionId);
         $roundKey = $round === self::ROUND_THIRD_PLACE ? 'third_place' : 'final';
         $roundMatches = $bracket[$roundKey] ?? [];
 
@@ -310,9 +347,12 @@ class WorldCupKnockoutGenerator
     }
 
     /**
-     * Resolve a bracket reference like "W73" (winner of match 73) or "RU101" (loser of match 101).
+     * Resolve a bracket reference to a team ID.
+     *
+     * Handles: "W73" (winner of match 73), "RU101" (loser of match 101),
+     * "1A"/"2B" (group winner/runner-up, women's finals first KO round).
      */
-    private function resolveBracketReference(string $ref, string $gameId, string $competitionId): ?string
+    private function resolveBracketReference(string $ref, string $gameId, string $competitionId, array $positionMap = []): ?string
     {
         if (preg_match('/^W(\d+)$/', $ref, $m)) {
             $matchNumber = (int) $m[1];
@@ -326,6 +366,12 @@ class WorldCupKnockoutGenerator
             $tie = $this->findTieByBracketPosition($gameId, $competitionId, $matchNumber);
 
             return $tie?->getLoserId();
+        }
+
+        // Group-position slot, e.g. "1A" — first knockout round of the
+        // women's finals.
+        if (preg_match('/^([12])([A-H])$/', $ref, $m)) {
+            return $positionMap[$m[1] . $m[2]] ?? null;
         }
 
         return null;
@@ -356,16 +402,17 @@ class WorldCupKnockoutGenerator
     /**
      * Match numbers for each round in **bracket display order** — i.e. the order in which
      * slots should appear top-to-bottom so that paired ties (whose winners meet in the next
-     * round) sit adjacent. Derived by walking bracket.json from the final back to R32.
+     * round) sit adjacent. Derived by walking bracket.json from the final back to the
+     * first knockout round.
      *
      * Without this, sorting purely by `bracket_position` produces visually misaligned pairs
      * (e.g. match 73 pairs with match 75 in R16, not match 74).
      *
      * @return array<int, array<int>>  round_number => [match_number, ...] in display order
      */
-    public function getDisplayOrderPerRound(): array
+    public function getDisplayOrderPerRound(string $competitionId): array
     {
-        $bracket = $this->loadBracket();
+        $bracket = $this->loadBracket($competitionId);
 
         $finalMatches = array_map(fn ($m) => $m['match_number'], $bracket['final'] ?? []);
 
@@ -430,9 +477,9 @@ class WorldCupKnockoutGenerator
      *
      * @return array<int, int>  round_number => slot count
      */
-    public function getSlotsPerRound(): array
+    public function getSlotsPerRound(string $competitionId): array
     {
-        $bracket = $this->loadBracket();
+        $bracket = $this->loadBracket($competitionId);
 
         return [
             self::ROUND_OF_32 => count($bracket['round_of_32'] ?? []),
@@ -445,7 +492,11 @@ class WorldCupKnockoutGenerator
     }
 
     /**
-     * Get teams that qualified from the group stage (top 2 per group + best 8 third-place).
+     * Get teams that qualified from the group stage.
+     *
+     * WC2026 (legacy 48-team format): top 2 per group + best 8
+     * third-place teams. Women's finals (WWCU27, WEURO): top 2 per
+     * group only.
      *
      * @return array<string> Team IDs
      */
@@ -459,7 +510,11 @@ class WorldCupKnockoutGenerator
             ->pluck('team_id')
             ->toArray();
 
-        // Best 8 third-place teams
+        if (!in_array($competitionId, self::THIRD_PLACE_QUALIFIER_COMPETITIONS, true)) {
+            return $top2;
+        }
+
+        // Best 8 third-place teams (WC2026 legacy format only)
         $thirdPlace = GameStanding::where('game_id', $gameId)
             ->where('competition_id', $competitionId)
             ->whereNotNull('group_label')
@@ -475,14 +530,27 @@ class WorldCupKnockoutGenerator
         return array_merge($top2, $thirdPlace);
     }
 
-    private function loadBracket(): array
+    /**
+     * Load (and cache) the knockout bracket for a competition.
+     *
+     * WC2026 keeps its legacy data/2025 path; every other competition
+     * reads data/2026/{id}/bracket.json.
+     */
+    private function loadBracket(string $competitionId): array
     {
-        if ($this->bracket === null) {
-            $path = base_path('data/2025/WC2026/bracket.json');
-            $this->bracket = json_decode(file_get_contents($path), true);
+        if (!isset($this->brackets[$competitionId])) {
+            $path = $competitionId === 'WC2026'
+                ? base_path('data/2025/WC2026/bracket.json')
+                : base_path("data/2026/{$competitionId}/bracket.json");
+
+            if (!file_exists($path)) {
+                throw new \RuntimeException("Bracket file not found for competition {$competitionId}: {$path}");
+            }
+
+            $this->brackets[$competitionId] = json_decode(file_get_contents($path), true);
         }
 
-        return $this->bracket;
+        return $this->brackets[$competitionId];
     }
 
     private function loadThirdPlaceTable(): array

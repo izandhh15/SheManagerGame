@@ -1,0 +1,28 @@
+{
+  "round_of_16": [
+    {"match_number": 1, "home": "1A", "away": "2B", "date": "2027-07-06"},
+    {"match_number": 2, "home": "1B", "away": "2A", "date": "2027-07-06"},
+    {"match_number": 3, "home": "1C", "away": "2D", "date": "2027-07-07"},
+    {"match_number": 4, "home": "1D", "away": "2C", "date": "2027-07-07"},
+    {"match_number": 5, "home": "1E", "away": "2F", "date": "2027-07-06"},
+    {"match_number": 6, "home": "1F", "away": "2E", "date": "2027-07-06"},
+    {"match_number": 7, "home": "1G", "away": "2H", "date": "2027-07-07"},
+    {"match_number": 8, "home": "1H", "away": "2G", "date": "2027-07-07"}
+  ],
+  "quarter_finals": [
+    {"match_number": 9, "home": "W1", "away": "W3", "date": "2027-07-10"},
+    {"match_number": 10, "home": "W2", "away": "W4", "date": "2027-07-10"},
+    {"match_number": 11, "home": "W5", "away": "W7", "date": "2027-07-11"},
+    {"match_number": 12, "home": "W6", "away": "W8", "date": "2027-07-11"}
+  ],
+  "semi_finals": [
+    {"match_number": 13, "home": "W9", "away": "W10", "date": "2027-07-14"},
+    {"match_number": 14, "home": "W11", "away": "W12", "date": "2027-07-15"}
+  ],
+  "third_place": [
+    {"match_number": 15, "home": "RU13", "away": "RU14", "date": "2027-07-24"}
+  ],
+  "final": [
+    {"match_number": 16, "home": "W13", "away": "W14", "date": "2027-07-25"}
+  ]
+}

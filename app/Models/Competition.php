@@ -89,6 +89,9 @@ class Competition extends Model
         'WQCONM'  => 'Clasificación · CONMEBOL',
         'WQOFC'   => 'Clasificación · OFC',
         'WNL'     => 'Nations League',
+        'WWCU27'  => 'Mundial 2027',
+        'WEURO'   => 'Eurocopa',
+        'WEUROQ'  => 'Clasificación · Euro',
         'PRESEASON' => 'Amistoso',
         'FRIENDLY' => 'Amistoso',
     ];

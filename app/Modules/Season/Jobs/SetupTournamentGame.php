@@ -14,6 +14,7 @@ use App\Models\CompetitionTeam;
 use App\Models\Game;
 use App\Models\GameMatch;
 use App\Models\GamePlayer;
+use App\Models\GamePlayerTemplate;
 use App\Models\GameStanding;
 use App\Models\GameTactics;
 use App\Models\Team;
@@ -59,12 +60,27 @@ class SetupTournamentGame implements ShouldQueue
 
         // National team competition progression: if this is a new season
         // (game has archived seasons from previous competitions), advance to
-        // the next competition in the sequence (e.g. WNL → WQUEFA).
+        // the next competition in the sequence
+        // (e.g. WNL → WQUEFA → WWCU27 → WNL → WEUROQ → WEURO …).
         // This creates the unified multi-year calendar Izan wants.
         $hasPreviousSeason = \App\Models\SeasonArchive::where('game_id', $game->id)->exists();
         if ($hasPreviousSeason) {
-            $nextCompetition = TournamentCreationService::nextCompetitionInSequence($game->competition_id);
+            $nextCompetition = TournamentCreationService::nextCompetitionInSequence($game->competition_id, $game);
             if ($nextCompetition !== null && $nextCompetition !== $game->competition_id) {
+                // Final-tournament gate: the World Cup / Euro are only
+                // played when the user's side finished top 2 in its
+                // qualifier. Otherwise the cycle skips the final and the
+                // team goes back to its confederation's competition.
+                if ($nextCompetition === TournamentCreationService::WWCU27_ID
+                    && !TournamentCreationService::userQualifiedForFinal($game, $game->competition_id)) {
+                    $nextCompetition = TournamentCreationService::competitionIdForConfederation(
+                        $game->team?->confederation
+                    );
+                }
+                if ($nextCompetition === TournamentCreationService::WEURO_ID
+                    && !TournamentCreationService::userQualifiedForFinal($game, TournamentCreationService::WEUROQ_ID)) {
+                    $nextCompetition = TournamentCreationService::WNL_ID;
+                }
                 $game->update(['competition_id' => $nextCompetition]);
                 // Refresh the model to use the new competition_id below.
                 $game->refresh();
@@ -76,9 +92,24 @@ class SetupTournamentGame implements ShouldQueue
         // confederation runs its own qualifier (WQUEFA, WQAFC, ...); WWCQ is
         // the legacy alias for the original single global competition.
         // WNL (UEFA Women's Nations League) uses the real 2025 groups.
+        // WWCU27 (World Cup 2027) and WEURO (Euro 2029) are final
+        // tournaments: drawn groups + knockout bracket.
         if (in_array($game->competition_id, TournamentCreationService::NATIONAL_TEAM_COMPETITION_IDS, true)) {
+            if (in_array($game->competition_id, TournamentCreationService::NATIONAL_TEAM_FINAL_IDS, true)) {
+                $this->handleNationalFinalTournament($game, $notificationService, $formationRecommender, $formationBiasResolver);
+                return;
+            }
             $this->handleNationalQualifiers($game, $notificationService, $formationRecommender, $formationBiasResolver);
             return;
+        }
+
+        // Anti-legacy guard: a national-team game must never fall through to
+        // the retired men's WC2026 path below. Fail loudly instead.
+        $setupTeam = Team::find($this->teamId);
+        if ($setupTeam !== null && $setupTeam->type === 'national') {
+            throw new \RuntimeException(
+                "SetupTournamentGame: unknown national-team competition '{$game->competition_id}' — refusing the legacy WC2026 path."
+            );
         }
 
         // Load groups.json for fixture data and group assignments (cached for 1 hour)
@@ -176,6 +207,247 @@ class SetupTournamentGame implements ShouldQueue
             app(\App\Modules\Season\Services\ActivationTracker::class)
                 ->record($game->user_id, \App\Models\ActivationEvent::EVENT_SETUP_COMPLETED, $this->gameId, Game::MODE_TOURNAMENT);
         });
+    }
+
+    /**
+     * Final-tournament formats: group count, host nation (FIFA code,
+     * always included — Brazil 2027, Germany 2029) and the confederation
+     * the rivals are drawn from (null = worldwide, for the World Cup).
+     */
+    private const FINAL_TOURNAMENT_FORMATS = [
+        'WWCU27' => ['groups' => 8, 'host_fifa_code' => 'BRA', 'rival_confederation' => null],
+        'WEURO'  => ['groups' => 4, 'host_fifa_code' => 'GER', 'rival_confederation' => 'UEFA'],
+    ];
+
+    /**
+     * Setup for the women's final tournaments: WWCU27 (FIFA Women's
+     * World Cup 2027, hosted by Brazil) and WEURO (UEFA Women's Euro
+     * 2029, hosted by Germany).
+     *
+     * Draws groups of 4 (8 for the World Cup, 4 for the Euros), creates
+     * a single round-robin group stage with group labels, and leaves
+     * the knockout bracket to GroupStageCupHandler, which generates it
+     * progressively from data/2026/{id}/bracket.json once the groups
+     * are decided. The host nation is always in the draw.
+     */
+    private function handleNationalFinalTournament(
+        Game $game,
+        NotificationService $notificationService,
+        FormationRecommender $formationRecommender,
+        FormationBiasResolver $formationBiasResolver,
+    ): void {
+        DB::transaction(function () use ($game, $notificationService, $formationRecommender, $formationBiasResolver) {
+            $competitionId = $game->competition_id;
+
+            // Step 1: draw the groups (host nation guaranteed in)
+            $groups = $this->drawFinalGroups($game, $competitionId);
+            $allTeamIds = array_merge(...array_values($groups));
+
+            // Step 2: competition entries
+            $this->createQualifierEntries($competitionId, $allTeamIds);
+
+            // Step 3: game players (user's 23 + AI rosters)
+            $this->createQualifierPlayers($game, $allTeamIds);
+
+            // Step 4: group-stage fixtures (3 matchdays, single round-robin)
+            $this->createFinalGroupFixtures($competitionId, $groups);
+
+            // Step 5: standings WITH group labels (the KO generator needs them)
+            $this->createFinalGroupStandings($competitionId, $groups);
+
+            // Step 6: default formation for the user's squad
+            $this->setUserTeamDefaultFormation($formationRecommender, $formationBiasResolver);
+
+            // Welcome notification
+            $teamName = Team::find($this->teamId)?->getRawOriginal('name') ?? '';
+            $notificationService->notifyTournamentWelcome($game, $competitionId, $teamName);
+
+            // Mark setup as complete
+            Game::where('id', $this->gameId)->update(['setup_completed_at' => now()]);
+
+            // Record activation event
+            app(\App\Modules\Season\Services\ActivationTracker::class)
+                ->record($game->user_id, \App\Models\ActivationEvent::EVENT_SETUP_COMPLETED, $this->gameId, Game::MODE_TOURNAMENT);
+        });
+    }
+
+    /**
+     * Draw the final-tournament groups: the user's team headlines group
+     * A; the host nation (Brazil 2027 / Germany 2029) is always included;
+     * the rest are drawn (UEFA-only for the Euros, worldwide for the
+     * World Cup), preferring sides with a playable roster.
+     *
+     * @return array<string, array<int, string>> group label → team ids
+     */
+    private function drawFinalGroups(Game $game, string $competitionId): array
+    {
+        $format = self::FINAL_TOURNAMENT_FORMATS[$competitionId]
+            ?? ['groups' => 8, 'host_fifa_code' => null, 'rival_confederation' => null];
+
+        $numGroups = $format['groups'];
+        $neededRivals = $numGroups * 4 - 1;
+
+        // Host nation always qualifies (unless the user IS the host).
+        $guaranteed = [];
+        if ($format['host_fifa_code'] !== null) {
+            $hostId = Team::where('type', 'national')
+                ->where('fifa_code', $format['host_fifa_code'])
+                ->value('id');
+            if ($hostId && $hostId !== $this->teamId) {
+                $guaranteed[] = $hostId;
+            }
+        }
+
+        $rivals = $this->drawFinalRivals($game, $neededRivals - count($guaranteed), $format['rival_confederation'], $guaranteed);
+        $rivals = array_merge($guaranteed, $rivals);
+        shuffle($rivals);
+
+        $groups = ['A' => array_merge([$this->teamId], array_slice($rivals, 0, 3))];
+        $rest = array_slice($rivals, 3);
+        $labels = range('B', 'Z');
+        for ($i = 1; $i < $numGroups; $i++) {
+            $groups[$labels[$i - 1]] = array_values(array_slice($rest, ($i - 1) * 4, 4));
+        }
+
+        return $groups;
+    }
+
+    /**
+     * Draw $count final-tournament opponents, preferring sides with a
+     * playable roster (≥18 templated players for the game's season).
+     *
+     * @param string|null $confederation Restrict the draw to this FIFA
+     *        confederation (WEURO), or null for the worldwide draw (WWCU27).
+     * @param array<int, string> $excludeIds Team ids to leave out of the draw
+     *        (e.g. the already-guaranteed host nation).
+     */
+    private function drawFinalRivals(Game $game, int $count, ?string $confederation, array $excludeIds = []): array
+    {
+        if ($count <= 0) {
+            return [];
+        }
+
+        $candidatesQuery = fn () => Team::where('type', 'national')
+            ->where('is_placeholder', false)
+            ->where('id', '!=', $this->teamId)
+            ->whereNotNull('fifa_code')
+            ->when(!empty($excludeIds), fn ($query) => $query->whereNotIn('id', $excludeIds))
+            ->when($confederation !== null, fn ($query) => $query->where('confederation', $confederation));
+
+        $candidates = $candidatesQuery()->inRandomOrder()->limit(max($count * 6, 30))->pluck('id');
+
+        $withRosters = DB::table('game_player_templates')
+            ->where('season', $game->season)
+            ->whereIn('team_id', $candidates)
+            ->groupBy('team_id')
+            ->havingRaw('COUNT(*) >= 18')
+            ->pluck('team_id')
+            ->shuffle()
+            ->take($count)
+            ->all();
+
+        if (count($withRosters) < $count) {
+            $extra = $candidatesQuery()
+                ->whereNotIn('id', $withRosters)
+                ->inRandomOrder()
+                ->limit($count - count($withRosters))
+                ->pluck('id')
+                ->all();
+            $withRosters = array_merge($withRosters, $extra);
+        }
+
+        return $withRosters;
+    }
+
+    /**
+     * Create the group-stage fixtures: 3 matchdays of single
+     * round-robin per group, dated from the competition's schedule.json.
+     */
+    private function createFinalGroupFixtures(string $competitionId, array $groups): void
+    {
+        if (GameMatch::where('game_id', $this->gameId)->exists()) {
+            return;
+        }
+
+        $dates = ['2027-06-24', '2027-06-29', '2027-07-04'];
+        $schedulePath = base_path("data/2026/{$competitionId}/schedule.json");
+        if (file_exists($schedulePath)) {
+            $leagueDates = array_column(json_decode(file_get_contents($schedulePath), true)['league'] ?? [], 'date');
+            if (count($leagueDates) >= 3) {
+                $dates = array_slice($leagueDates, 0, 3);
+            }
+        }
+
+        // Single round-robin pairings for 4 teams [0,1,2,3].
+        $rounds = [
+            [[0, 3], [1, 2]],
+            [[0, 2], [3, 1]],
+            [[0, 1], [2, 3]],
+        ];
+
+        $rows = [];
+        foreach ($groups as $label => $teamIds) {
+            foreach ($rounds as $roundIndex => $pairs) {
+                foreach ($pairs as [$a, $b]) {
+                    if (!isset($teamIds[$a], $teamIds[$b])) {
+                        continue;
+                    }
+                    $rows[] = [
+                        'id' => Str::uuid()->toString(),
+                        'game_id' => $this->gameId,
+                        'competition_id' => $competitionId,
+                        'round_number' => $roundIndex + 1,
+                        'round_name' => __('game.group_stage') . ' ' . $label . ' · ' . __('game.matchday') . ' ' . ($roundIndex + 1),
+                        'home_team_id' => $teamIds[$a],
+                        'away_team_id' => $teamIds[$b],
+                        'scheduled_date' => $dates[$roundIndex],
+                        'played' => false,
+                    ];
+                }
+            }
+        }
+
+        foreach (array_chunk($rows, 500) as $chunk) {
+            GameMatch::insert($chunk);
+        }
+    }
+
+    /**
+     * Initialise the group standings WITH group labels — the knockout
+     * generator resolves qualifiers and bracket slots from them.
+     */
+    private function createFinalGroupStandings(string $competitionId, array $groups): void
+    {
+        if (GameStanding::where('game_id', $this->gameId)->exists()) {
+            return;
+        }
+
+        $rows = [];
+        foreach ($groups as $label => $teamIds) {
+            $position = 1;
+            foreach ($teamIds as $teamId) {
+                $rows[] = [
+                    'game_id' => $this->gameId,
+                    'competition_id' => $competitionId,
+                    'group_label' => $label,
+                    'team_id' => $teamId,
+                    'position' => $position,
+                    'prev_position' => null,
+                    'played' => 0,
+                    'won' => 0,
+                    'drawn' => 0,
+                    'lost' => 0,
+                    'goals_for' => 0,
+                    'goals_against' => 0,
+                    'points' => 0,
+                ];
+                $position++;
+            }
+        }
+
+        foreach (array_chunk($rows, 100) as $chunk) {
+            GameStanding::insert($chunk);
+        }
     }
 
     /**
@@ -324,13 +596,22 @@ class SetupTournamentGame implements ShouldQueue
 
     /**
      * Materialise players from templates: the user's called-up squad for
-     * their team, full templated rosters for the 5 AI opponents.
+     * their team, full templated rosters for the AI opponents.
+     *
+     * Idempotent per team: seasons after the first one reuse the same
+     * game row, so a new drawn group only creates players for teams that
+     * don't have any yet. The user's existing squad carries over between
+     * seasons instead of being re-picked.
+     *
+     * Templates are only seeded for the game's first season while the
+     * season string advances ('2026' → '2027' → …), so the queries fall
+     * back to the latest season that actually has templates.
      */
     private function createQualifierPlayers(Game $game, array $groupTeamIds): void
     {
-        if (GamePlayer::where('game_id', $this->gameId)->exists()) {
-            return;
-        }
+        $templateSeason = GamePlayerTemplate::where('season', $game->season)->exists()
+            ? $game->season
+            : GamePlayerTemplate::max('season');
 
         $columns = <<<'SQL'
             INSERT INTO game_players (
@@ -351,31 +632,47 @@ class SetupTournamentGame implements ShouldQueue
             FROM game_player_templates t
         SQL;
 
-        $aiTeamIds = array_values(array_diff($groupTeamIds, [$this->teamId]));
+        // AI rosters: only for teams without players in this game yet (a
+        // freshly drawn group brings new opponents each season).
+        $teamsWithPlayers = GamePlayer::where('game_id', $this->gameId)
+            ->whereIn('team_id', $groupTeamIds)
+            ->distinct()
+            ->pluck('team_id')
+            ->all();
+
+        $aiTeamIds = array_values(array_diff($groupTeamIds, [$this->teamId], $teamsWithPlayers));
 
         if ($aiTeamIds !== []) {
             $placeholders = implode(',', array_fill(0, count($aiTeamIds), '?'));
             DB::insert(
                 $columns . " WHERE t.season = ? AND t.team_id IN ($placeholders) ON CONFLICT (game_id, player_id) DO NOTHING",
-                [$this->gameId, $game->season, ...$aiTeamIds]
+                [$this->gameId, $templateSeason, ...$aiTeamIds]
             );
         }
 
-        // User's team: only the called-up players. Fall back to the full
-        // templated roster if no squad was stored (legacy games).
-        $squadPlayerIds = $game->national_squad_player_ids ?? [];
+        // User's team: only the called-up players. An existing squad
+        // carries over from the previous season untouched.
+        $hasSquad = GamePlayer::where('game_id', $this->gameId)
+            ->where('team_id', $this->teamId)
+            ->where('is_squad_member', true)
+            ->exists();
 
-        if ($squadPlayerIds !== []) {
-            $placeholders = implode(',', array_fill(0, count($squadPlayerIds), '?'));
-            DB::insert(
-                $columns . " WHERE t.season = ? AND t.team_id = ? AND t.player_id IN ($placeholders) ON CONFLICT (game_id, player_id) DO NOTHING",
-                [$this->gameId, $game->season, $this->teamId, ...$squadPlayerIds]
-            );
-        } else {
-            DB::insert(
-                $columns . ' WHERE t.season = ? AND t.team_id = ? ON CONFLICT (game_id, player_id) DO NOTHING',
-                [$this->gameId, $game->season, $this->teamId]
-            );
+        if (!$hasSquad) {
+            // Fall back to the full templated roster if no squad was stored (legacy games).
+            $squadPlayerIds = $game->national_squad_player_ids ?? [];
+
+            if ($squadPlayerIds !== []) {
+                $placeholders = implode(',', array_fill(0, count($squadPlayerIds), '?'));
+                DB::insert(
+                    $columns . " WHERE t.season = ? AND t.team_id = ? AND t.player_id IN ($placeholders) ON CONFLICT (game_id, player_id) DO NOTHING",
+                    [$this->gameId, $templateSeason, $this->teamId, ...$squadPlayerIds]
+                );
+            } else {
+                DB::insert(
+                    $columns . ' WHERE t.season = ? AND t.team_id = ? ON CONFLICT (game_id, player_id) DO NOTHING',
+                    [$this->gameId, $templateSeason, $this->teamId]
+                );
+            }
         }
 
         DB::insert(<<<'SQL'
@@ -388,7 +685,7 @@ class SetupTournamentGame implements ShouldQueue
              AND t.season = ?
             WHERE gp.game_id = ?
             ON CONFLICT (game_player_id) DO NOTHING
-        SQL, [$game->season, $this->gameId]);
+        SQL, [$templateSeason, $this->gameId]);
     }
 
     private function createCompetitionEntries(): void

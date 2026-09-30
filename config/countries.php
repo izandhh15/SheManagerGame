@@ -1374,8 +1374,9 @@ return [
         'name' => 'Torneos de selecciones',
         'tournament' => true,
         'continental_competitions' => [
-            'WNL'     => ['config_class' => \App\Modules\Competition\Configs\WomensNationsLeagueConfig::class],
+            'WWCU27'  => ['config_class' => \App\Modules\Competition\Configs\WomensWorldCupConfig::class],
             'WEURO'   => ['config_class' => \App\Modules\Competition\Configs\WomensEuroConfig::class],
+            'WEUROQ'  => ['config_class' => \App\Modules\Competition\Configs\WomensEuroQualifyingConfig::class],
             'WCOPAAM' => ['config_class' => \App\Modules\Competition\Configs\CopaAmericaFemeninaConfig::class],
         ],
     ],

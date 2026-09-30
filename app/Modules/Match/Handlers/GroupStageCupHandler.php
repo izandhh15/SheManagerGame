@@ -114,12 +114,14 @@ class GroupStageCupHandler extends CupCompetitionHandler
             $this->eligibilityService->resetYellowCardsForCompetition($game->id, $competitionId);
         }
 
-        // After semi-finals, generate both 3rd-place match AND final
+        // After semi-finals, generate the third-place match (when the
+        // competition plays one — the Euros don't) AND the final.
         if ($currentRound === WorldCupKnockoutGenerator::ROUND_SEMI_FINALS) {
             $thirdPlaceRound = WorldCupKnockoutGenerator::ROUND_THIRD_PLACE;
             $finalRoundNum = WorldCupKnockoutGenerator::ROUND_FINAL;
 
-            if (!$this->roundExists($game->id, $competitionId, $thirdPlaceRound)) {
+            if ($this->knockoutGenerator->hasThirdPlaceMatch($competitionId)
+                && !$this->roundExists($game->id, $competitionId, $thirdPlaceRound)) {
                 $this->generateKnockoutRound($game, $competitionId, $thirdPlaceRound);
             }
             if (!$this->roundExists($game->id, $competitionId, $finalRoundNum)) {

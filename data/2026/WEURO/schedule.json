@@ -1,0 +1,12 @@
+{
+  "league": [
+    {"round": 1, "date": "2029-06-20"},
+    {"round": 2, "date": "2029-06-24"},
+    {"round": 3, "date": "2029-06-28"}
+  ],
+  "knockout": [
+    {"round": 3, "name": "cup.quarter_finals", "date": "2029-07-01"},
+    {"round": 4, "name": "cup.semi_finals", "date": "2029-07-05"},
+    {"round": 6, "name": "cup.final", "date": "2029-07-08"}
+  ]
+}

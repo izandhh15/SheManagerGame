@@ -55,8 +55,10 @@ class ShowSquadSelection
         $transfermarktId = $game->team->transfermarkt_id;
         $jsonPath = base_path("data/2025/WC2026/teams/{$transfermarktId}.json");
 
+        // Women's national teams have no WC2026 JSON (men's data) — build
+        // the candidate list straight from the season's player templates.
         if (!file_exists($jsonPath)) {
-            return ['goalkeepers' => [], 'defenders' => [], 'midfielders' => [], 'forwards' => []];
+            return $this->loadCandidatesFromTemplates($game);
         }
 
         $data = json_decode(file_get_contents($jsonPath), true);
@@ -122,6 +124,64 @@ class ShowSquadSelection
             };
 
             $groups[$groupKey][] = $candidate;
+        }
+
+        // Sort each group by overall descending
+        foreach ($groups as &$group) {
+            usort($group, fn ($a, $b) => $b['overall'] <=> $a['overall']);
+        }
+
+        return $groups;
+    }
+
+    /**
+     * Candidate list for women's national teams: every templated player
+     * for the game's team and season, grouped by position. Used when
+     * there is no WC2026 JSON file (the men's dataset).
+     */
+    private function loadCandidatesFromTemplates(Game $game): array
+    {
+        // Templates are only seeded for the game's first season — fall
+        // back to the latest season that actually has them.
+        $templateSeason = GamePlayerTemplate::where('season', $game->season)->exists()
+            ? $game->season
+            : GamePlayerTemplate::max('season');
+
+        $templates = GamePlayerTemplate::with('tournamentInfo')
+            ->where('team_id', $game->team_id)
+            ->where('season', $templateSeason)
+            ->get();
+
+        $groups = ['goalkeepers' => [], 'defenders' => [], 'midfielders' => [], 'forwards' => []];
+
+        foreach ($templates as $template) {
+            $positionGroup = PositionMapper::getPositionGroup($template->position ?? '');
+            $positionDisplay = PositionMapper::getPositionDisplay($template->position ?? '');
+
+            $tournamentInfo = $template->tournamentInfo;
+
+            $groups[match ($positionGroup) {
+                'Goalkeeper' => 'goalkeepers',
+                'Defender' => 'defenders',
+                'Forward' => 'forwards',
+                default => 'midfielders',
+            }][] = [
+                'transfermarkt_id' => (string) $template->transfermarkt_id,
+                'player_id' => $template->player_id,
+                'name' => $template->name,
+                'position' => $template->position,
+                'position_group' => $positionGroup,
+                'position_abbreviation' => $positionDisplay['abbreviation'],
+                'position_bg' => $positionDisplay['bg'],
+                'position_text' => $positionDisplay['text'],
+                'age' => $template->date_of_birth?->age,
+                'height' => null,
+                'overall' => (int) $template->overall_score,
+                'club_name' => $tournamentInfo?->club_name,
+                'club_crest_url' => $tournamentInfo?->club_crest_url,
+                'is_injured' => (bool) $tournamentInfo?->is_injured,
+                'is_called_up' => (bool) $tournamentInfo?->is_called_up,
+            ];
         }
 
         // Sort each group by overall descending
