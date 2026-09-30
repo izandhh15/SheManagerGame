@@ -18,17 +18,21 @@ header('Content-Type: text/plain');
 try {
     switch ($action) {
         case 'fix-dup':
-            // Find which team has the duplicate
-            $teamId = '769f0bda-2e7a-4398-bb25-8eb7037b86db';
-            $team = \DB::table('teams')->where('id', $teamId)->first();
-            echo "Team: " . ($team ? $team->name : 'not found') . "\n";
-            // Check templates for this team with number 25
-            $count = \DB::table('game_player_templates')
-                ->where('season', '2026')
-                ->where('team_id', $teamId)
-                ->where('number', 25)
-                ->count();
-            echo "Templates with number 25: $count\n";
+            // Check the JSON file on production
+            $json = file_get_contents(base_path('data/2026/ARG1/teams.json'));
+            $data = json_decode($json, true);
+            foreach ($data['clubs'] as $club) {
+                if ($club['name'] === 'Racing Club') {
+                    foreach ($club['players'] as $p) {
+                        if (strpos($p['name'], 'Sailer') !== false) {
+                            echo "Sailer number in prod JSON: " . $p['number'] . "\n";
+                        }
+                        if (strpos($p['name'], 'Martina Daniela') !== false) {
+                            echo "Martina number in prod JSON: " . $p['number'] . "\n";
+                        }
+                    }
+                }
+            }
             break;
         case 'seed-ar':
             // Delete only AR/BR/MX/US/CH teams and their templates
