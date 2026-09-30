@@ -35,11 +35,14 @@ use Illuminate\Database\Eloquent\Builder;
  * @property string|null $season_goal
  * @property string $competition_id
  * @property string $game_mode
+ * @property string|null $linked_game_id  Dual-mode link: id of the primary (club) game when this save is the secondary (national-team) half of a dual pair; null otherwise.
  * @property \Illuminate\Support\Carbon|null $setup_completed_at
  * @property string $country
  * @property int $manager_reputation_points
  * @property \Illuminate\Support\Carbon|null $deleting_at
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\Loan> $activeLoans
+ * @property-read \App\Models\Game|null $linkedGame  Primary (club) game this secondary save links to.
+ * @property-read \App\Models\Game|null $linkedSecondary  Secondary (national-team) game linked to this primary save.
  * @property-read int|null $active_loans_count
  * @property-read \App\Models\ScoutReport|null $activeScoutReport
  * @property-read \App\Models\Competition $competition
@@ -149,6 +152,7 @@ class Game extends Model
         'pending_team_switch',
         'season_offers_generated_for',
         'manager_reputation_points',
+        'linked_game_id',
     ];
 
     protected $casts = [
@@ -257,6 +261,59 @@ class Game extends Model
     public function isDeleting(): bool
     {
         return $this->deleting_at !== null;
+    }
+
+    // ==========================================
+    // Dual Mode (club + national team linked saves)
+    // ==========================================
+    //
+    // The link is ASYMMETRIC on purpose:
+    //   - the CLUB game is the PRIMARY: linked_game_id = null, and it DOES
+    //     count against the 3-game limit;
+    //   - the NATIONAL game is the SECONDARY: linked_game_id = primary game
+    //     id, and it does NOT count against the limit.
+    // The two saves are separate simulations (separate squads, calendars,
+    // injuries, form): nothing crosses over automatically.
+
+    /**
+     * Primary game this save is linked to (secondary → primary).
+     */
+    public function linkedGame(): BelongsTo
+    {
+        return $this->belongsTo(Game::class, 'linked_game_id');
+    }
+
+    /**
+     * Secondary game linked to this save (primary → secondary).
+     */
+    public function linkedSecondary(): HasOne
+    {
+        return $this->hasOne(Game::class, 'linked_game_id');
+    }
+
+    /**
+     * Whether this save is the secondary (national-team) half of a dual pair.
+     */
+    public function isDualSecondary(): bool
+    {
+        return $this->linked_game_id !== null;
+    }
+
+    /**
+     * Whether this save is the primary (club) half of a dual pair.
+     */
+    public function isDualPrimary(): bool
+    {
+        return ! $this->isDualSecondary() && $this->linkedSecondary()->exists();
+    }
+
+    /**
+     * The other half of the dual pair, in whichever direction the link goes.
+     * Returns null for standalone saves.
+     */
+    public function dualPartner(): ?Game
+    {
+        return $this->isDualSecondary() ? $this->linkedGame : $this->linkedSecondary;
     }
 
     /**
