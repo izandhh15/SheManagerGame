@@ -101,7 +101,7 @@
                                     </div>
                                     <div class="shrink-0 text-right">
                                         <span class="inline-block min-w-10 text-center text-sm font-bold px-2 py-1 rounded bg-surface-700 text-text-body">{{ $p['overall'] }}</span>
-                                        @if($p['age'])<p class="text-[11px] text-text-muted mt-0.5">{{ $p['age'] }} {{ __('app.years') }}</p>@endif
+                                        @if($p['age'])<p class="text-[11px] text-text-muted mt-0.5">{{ (int) $p['age'] }} {{ __('app.years') }}</p>@endif
                                     </div>
                                 </div>
                             @endforeach
