@@ -337,10 +337,71 @@ class LeagueFixtureGeneratorTest extends TestCase
     // Validation
     // ──────────────────────────────────────────────────────────────
 
-    public function test_rejects_odd_team_count(): void
+    // ──────────────────────────────────────────────────────────────
+    // 11-team league (Seconde Ligue: 22 matchdays, 5 matches per round,
+    // one bye per round)
+    // ──────────────────────────────────────────────────────────────
+
+    public function test_11_teams_produces_110_fixtures(): void
+    {
+        $teams = $this->makeTeams(11);
+        $matchdays = $this->makeMatchdays(22);
+        $fixtures = $this->generator->generate($teams, $matchdays);
+
+        // 11 teams × 20 matches each / 2 = 110
+        $this->assertCount(110, $fixtures);
+    }
+
+    public function test_11_teams_each_team_plays_20_matches(): void
+    {
+        $teams = $this->makeTeams(11);
+        $matchdays = $this->makeMatchdays(22);
+        $fixtures = $this->generator->generate($teams, $matchdays);
+
+        $counts = $this->countMatchesPerTeam($fixtures);
+
+        $this->assertCount(11, $counts);
+        foreach ($counts as $teamId => $count) {
+            $this->assertEquals(20, $count, "Team {$teamId} has {$count} matches instead of 20");
+        }
+    }
+
+    public function test_11_teams_5_matches_per_matchday(): void
+    {
+        $teams = $this->makeTeams(11);
+        $matchdays = $this->makeMatchdays(22);
+        $fixtures = $this->generator->generate($teams, $matchdays);
+
+        $perRound = $this->countMatchesPerRound($fixtures);
+
+        $this->assertCount(22, $perRound);
+        foreach ($perRound as $round => $count) {
+            $this->assertEquals(5, $count, "Round {$round} has {$count} matches instead of 5");
+        }
+    }
+
+    public function test_11_teams_no_bye_sentinel_leaks(): void
+    {
+        $teams = $this->makeTeams(11);
+        $matchdays = $this->makeMatchdays(22);
+        $fixtures = $this->generator->generate($teams, $matchdays);
+
+        foreach ($fixtures as $fixture) {
+            $this->assertStringNotContainsString('__BYE__', $fixture['homeTeamId']);
+            $this->assertStringNotContainsString('__BYE__', $fixture['awayTeamId']);
+        }
+    }
+
+    public function test_rejects_odd_team_count_below_5(): void
     {
         $this->expectException(\InvalidArgumentException::class);
-        $this->generator->generate($this->makeTeams(19), $this->makeMatchdays(36));
+        $this->generator->generate($this->makeTeams(3), $this->makeMatchdays(6));
+    }
+
+    public function test_rejects_wrong_matchday_count_for_odd(): void
+    {
+        $this->expectException(\InvalidArgumentException::class);
+        $this->generator->generate($this->makeTeams(11), $this->makeMatchdays(20));
     }
 
     public function test_rejects_fewer_than_4_teams(): void

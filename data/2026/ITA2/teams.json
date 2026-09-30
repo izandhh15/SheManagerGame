@@ -1,0 +1,5593 @@
+{
+  "id": "ITA2",
+  "name": "Serie B Femminile",
+  "seasonID": "2026",
+  "clubs": [
+    {
+      "image": null,
+      "name": "Venezia FC",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 950001,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946257",
+          "marketValue": "",
+          "name": "Francesca Ciotta",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 8, 2003",
+          "foot": "",
+          "height": "",
+          "id": "946258",
+          "marketValue": "",
+          "name": "Lucia Sassi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "12",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 15, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946259",
+          "marketValue": "",
+          "name": "Asia Scotti",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "19",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946260",
+          "marketValue": "",
+          "name": "Camila Gallea",
+          "nationality": [
+            "Colombia"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946261",
+          "marketValue": "",
+          "name": "Elisa Donda",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "3",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 16, 1994",
+          "foot": "",
+          "height": "",
+          "id": "946262",
+          "marketValue": "",
+          "name": "Flavia Vaccari",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "4",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 13, 2005",
+          "foot": "",
+          "height": "",
+          "id": "946263",
+          "marketValue": "",
+          "name": "Ambra Liva",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "13",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946264",
+          "marketValue": "",
+          "name": "Micol Casella",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "14",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 18, 2001",
+          "foot": "",
+          "height": "",
+          "id": "946265",
+          "marketValue": "",
+          "name": "Beatrice Airola",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "16",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946266",
+          "marketValue": "",
+          "name": "Alice Muffato Miani",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "26",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 8, 2007",
+          "foot": "",
+          "height": "",
+          "id": "946267",
+          "marketValue": "",
+          "name": "Sofia Zapelli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "28",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 17, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946268",
+          "marketValue": "",
+          "name": "Serena Marchiori",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "58",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 11, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946269",
+          "marketValue": "",
+          "name": "Elena Pizzuti",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "77",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 17, 2001",
+          "foot": "",
+          "height": "",
+          "id": "946270",
+          "marketValue": "",
+          "name": "Francesca Imprezzabile",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 3, 2007",
+          "foot": "",
+          "height": "",
+          "id": "946271",
+          "marketValue": "",
+          "name": "Francesca Elli Mazis",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 24, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946272",
+          "marketValue": "",
+          "name": "Salimata Ballo",
+          "nationality": [
+            "Mali"
+          ],
+          "number": "10",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 11, 2001",
+          "foot": "",
+          "height": "",
+          "id": "946273",
+          "marketValue": "",
+          "name": "Tal Faingezicht",
+          "nationality": [
+            "Israel"
+          ],
+          "number": "18",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 25, 2001",
+          "foot": "",
+          "height": "",
+          "id": "946274",
+          "marketValue": "",
+          "name": "Alessia Salvi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "21",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 8, 1998",
+          "foot": "",
+          "height": "",
+          "id": "946275",
+          "marketValue": "",
+          "name": "Federica Cavicchia",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "23",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 21, 2007",
+          "foot": "",
+          "height": "",
+          "id": "946276",
+          "marketValue": "",
+          "name": "Matilda Imperiale",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "27",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 1, 1995",
+          "foot": "",
+          "height": "",
+          "id": "946277",
+          "marketValue": "",
+          "name": "Alice Zuanti",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "7",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 11, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946278",
+          "marketValue": "",
+          "name": "Ilaria Volpatti",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "9",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 2, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946279",
+          "marketValue": "",
+          "name": "Gaia Vergari",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "11",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 26, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946280",
+          "marketValue": "",
+          "name": "Ocean Scherlizin",
+          "nationality": [
+            "Israel"
+          ],
+          "number": "22",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 13, 2000",
+          "foot": "",
+          "height": "",
+          "id": "946281",
+          "marketValue": "",
+          "name": "Jessica Spinelli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "24",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 29, 2000",
+          "foot": "",
+          "height": "",
+          "id": "946282",
+          "marketValue": "",
+          "name": "Anita Coda",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "29",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 7, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946283",
+          "marketValue": "",
+          "name": "Fiamma Lucchetta",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "31",
+          "position": "Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "ACF Brescia",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 950002,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 3, 1990",
+          "foot": "",
+          "height": "",
+          "id": "946284",
+          "marketValue": "",
+          "name": "Sabrina Tasselli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "13",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946285",
+          "marketValue": "",
+          "name": "Anna Pučová",
+          "nationality": [
+            "Czechia"
+          ],
+          "number": "34",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946286",
+          "marketValue": "",
+          "name": "Rebecca Blatti",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "88",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946287",
+          "marketValue": "",
+          "name": "Camilla Cini",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 12, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946288",
+          "marketValue": "",
+          "name": "Chiara Marenco",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "3",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 7, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946289",
+          "marketValue": "",
+          "name": "Ludovica Nicolini",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "5",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946290",
+          "marketValue": "",
+          "name": "Giulia Balestrieri",
+          "nationality": [
+            "United States"
+          ],
+          "number": "12",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 4, 1999",
+          "foot": "",
+          "height": "",
+          "id": "946291",
+          "marketValue": "",
+          "name": "Yuka Kuratomi",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "14",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946292",
+          "marketValue": "",
+          "name": "Stella Toma",
+          "nationality": [
+            "Albania"
+          ],
+          "number": "15",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946293",
+          "marketValue": "",
+          "name": "Angelica Celestini",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "19",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946294",
+          "marketValue": "",
+          "name": "Isotta Cammi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "81",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 23, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946295",
+          "marketValue": "",
+          "name": "Martina Cherubini",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 25, 1998",
+          "foot": "",
+          "height": "",
+          "id": "946296",
+          "marketValue": "",
+          "name": "Laura Ghisi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "4",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946297",
+          "marketValue": "",
+          "name": "Ella Kaabachi",
+          "nationality": [
+            "Tunisia"
+          ],
+          "number": "7",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 8, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946298",
+          "marketValue": "",
+          "name": "Gaia Farina",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "10",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946299",
+          "marketValue": "",
+          "name": "Raffaella Giuliano",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "17",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 24, 1998",
+          "foot": "",
+          "height": "",
+          "id": "946300",
+          "marketValue": "",
+          "name": "Danila Zazzera",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "21",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 22, 2001",
+          "foot": "",
+          "height": "",
+          "id": "946301",
+          "marketValue": "",
+          "name": "Sofia Pasquali",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "22",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946302",
+          "marketValue": "",
+          "name": "Micaela Galbusera",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "28",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946303",
+          "marketValue": "",
+          "name": "Flavia Lombardo",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "47",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 10, 1999",
+          "foot": "",
+          "height": "",
+          "id": "946304",
+          "marketValue": "",
+          "name": "Isabel Cacciamali",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "9",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946305",
+          "marketValue": "",
+          "name": "Katerina-Maria Ravnachka",
+          "nationality": [
+            "Bulgaria"
+          ],
+          "number": "11",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 10, 2003",
+          "foot": "",
+          "height": "",
+          "id": "946306",
+          "marketValue": "",
+          "name": "Elena Licari",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "18",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946307",
+          "marketValue": "",
+          "name": "Angelica Franco",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "75",
+          "position": "Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Hellas Verona",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 950003,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 8, 1992",
+          "foot": "",
+          "height": "",
+          "id": "946308",
+          "marketValue": "",
+          "name": "Chiara Valzolgher",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946309",
+          "marketValue": "",
+          "name": "Irene Bucci",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "20",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946310",
+          "marketValue": "",
+          "name": "Sabína Rabčanová",
+          "nationality": [
+            "Slovakia"
+          ],
+          "number": "30",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946311",
+          "marketValue": "",
+          "name": "Alice Zaghini",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "2",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 22, 1993",
+          "foot": "",
+          "height": "",
+          "id": "946312",
+          "marketValue": "",
+          "name": "Rachel Avant",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "3",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 28, 1996",
+          "foot": "",
+          "height": "",
+          "id": "946313",
+          "marketValue": "",
+          "name": "Simona Zito",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "4",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 2, 2000",
+          "foot": "",
+          "height": "",
+          "id": "946314",
+          "marketValue": "",
+          "name": "Elena Crespi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "13",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 21, 1997",
+          "foot": "",
+          "height": "",
+          "id": "946315",
+          "marketValue": "",
+          "name": "Paola Cuciniello",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "22",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 15, 2003",
+          "foot": "",
+          "height": "",
+          "id": "946316",
+          "marketValue": "",
+          "name": "Nicole Croin",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "24",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946317",
+          "marketValue": "",
+          "name": "Alice Martari",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "26",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 2, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946318",
+          "marketValue": "",
+          "name": "Marta Maffei",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "28",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 29, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946319",
+          "marketValue": "",
+          "name": "Sara Corsi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "29",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 16, 1996",
+          "foot": "",
+          "height": "",
+          "id": "946320",
+          "marketValue": "",
+          "name": "Sara Ketiš",
+          "nationality": [
+            "Slovenia"
+          ],
+          "number": "6",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 2, 1995",
+          "foot": "",
+          "height": "",
+          "id": "946321",
+          "marketValue": "",
+          "name": "Cristina Merli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "7",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 19, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946322",
+          "marketValue": "",
+          "name": "Elisa Casellato",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "14",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 3, 2001",
+          "foot": "",
+          "height": "",
+          "id": "946323",
+          "marketValue": "",
+          "name": "Benedetta De Biase",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "16",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 8, 2001",
+          "foot": "",
+          "height": "",
+          "id": "946324",
+          "marketValue": "",
+          "name": "Maria Vlassopoulou",
+          "nationality": [
+            "Greece"
+          ],
+          "number": "17",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 3, 2000",
+          "foot": "",
+          "height": "",
+          "id": "946325",
+          "marketValue": "",
+          "name": "Marica Licco",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "21",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946326",
+          "marketValue": "",
+          "name": "Gaia Zordan",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "25",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 23, 2003",
+          "foot": "",
+          "height": "",
+          "id": "946327",
+          "marketValue": "",
+          "name": "Valentina Colombo",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "9",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 5, 1992",
+          "foot": "",
+          "height": "",
+          "id": "946328",
+          "marketValue": "",
+          "name": "Rachele Peretti",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "10",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 30, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946329",
+          "marketValue": "",
+          "name": "Linda Montesi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "11",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 6, 2007",
+          "foot": "",
+          "height": "",
+          "id": "946330",
+          "marketValue": "",
+          "name": "Maria Kimb Mangiameli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "15",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946331",
+          "marketValue": "",
+          "name": "Véronique Zang Bikoula",
+          "nationality": [
+            "Belgium"
+          ],
+          "number": "19",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946332",
+          "marketValue": "",
+          "name": "Benedetta Santoro",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "58",
+          "position": "Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "San Marino Academy",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 950004,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 23, 2000",
+          "foot": "",
+          "height": "",
+          "id": "946333",
+          "marketValue": "",
+          "name": "Giulia Limardi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "16",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946334",
+          "marketValue": "",
+          "name": "Arianna Forcellini",
+          "nationality": [
+            "San Marino"
+          ],
+          "number": "32",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 4, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946335",
+          "marketValue": "",
+          "name": "Serena Boaglio",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "77",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 14, 2005",
+          "foot": "",
+          "height": "",
+          "id": "946336",
+          "marketValue": "",
+          "name": "Sara Giannotti",
+          "nationality": [
+            "San Marino"
+          ],
+          "number": "4",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 14, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946337",
+          "marketValue": "",
+          "name": "Vanessa Lombardi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "6",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 15, 1997",
+          "foot": "",
+          "height": "",
+          "id": "946338",
+          "marketValue": "",
+          "name": "Laura Perin",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "17",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 13, 1996",
+          "foot": "",
+          "height": "",
+          "id": "946339",
+          "marketValue": "",
+          "name": "Elena Casadei",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "19",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 25, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946340",
+          "marketValue": "",
+          "name": "Linda Giovagnoli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "25",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 18, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946341",
+          "marketValue": "",
+          "name": "Greta Raggi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "26",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 9, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946342",
+          "marketValue": "",
+          "name": "Beatrice Sciarrone",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "33",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 12, 1999",
+          "foot": "",
+          "height": "",
+          "id": "946343",
+          "marketValue": "",
+          "name": "Ada Daple",
+          "nationality": [
+            "Ivory Coast"
+          ],
+          "number": "55",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 27, 2003",
+          "foot": "",
+          "height": "",
+          "id": "946344",
+          "marketValue": "",
+          "name": "Marta Lucia Collovà",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "72",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 12, 1999",
+          "foot": "",
+          "height": "",
+          "id": "946345",
+          "marketValue": "",
+          "name": "Francesca Barbaresi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "7",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 12, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946346",
+          "marketValue": "",
+          "name": "Ilaria Gattuso",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946347",
+          "marketValue": "",
+          "name": "Viola Capellupo",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "14",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 14, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946348",
+          "marketValue": "",
+          "name": "Karen Mak",
+          "nationality": [
+            "Slovakia"
+          ],
+          "number": "15",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946349",
+          "marketValue": "",
+          "name": "Anita Angeli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "21",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 6, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946350",
+          "marketValue": "",
+          "name": "Ludovica Silvioni",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "22",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 11, 1995",
+          "foot": "",
+          "height": "",
+          "id": "946351",
+          "marketValue": "",
+          "name": "Giorgia Tudisco",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "23",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 3, 2001",
+          "foot": "",
+          "height": "",
+          "id": "946352",
+          "marketValue": "",
+          "name": "Sara Tamborini",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "10",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 2, 2000",
+          "foot": "",
+          "height": "",
+          "id": "946353",
+          "marketValue": "",
+          "name": "Vanessa Lazzari",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "11",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 17, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946354",
+          "marketValue": "",
+          "name": "Rebecca D'Elia",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "24",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 27, 2003",
+          "foot": "",
+          "height": "",
+          "id": "946355",
+          "marketValue": "",
+          "name": "Martina Sechi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "27",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 5, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946356",
+          "marketValue": "",
+          "name": "Sara Iardino",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "81",
+          "position": "Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Bologna FC 1909",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 950005,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 18, 1999",
+          "foot": "",
+          "height": "",
+          "id": "946357",
+          "marketValue": "",
+          "name": "Melania Pasar",
+          "nationality": [
+            "Slovenia"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946358",
+          "marketValue": "",
+          "name": "Noemi Fedele",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "22",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946359",
+          "marketValue": "",
+          "name": "Francesca Tarozzi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "99",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946360",
+          "marketValue": "",
+          "name": "Federica Venturi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946361",
+          "marketValue": "",
+          "name": "Elisa Barioni",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 9, 1997",
+          "foot": "",
+          "height": "",
+          "id": "946362",
+          "marketValue": "",
+          "name": "Frida Lähteenmäki",
+          "nationality": [
+            "Finland"
+          ],
+          "number": "3",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 28, 1999",
+          "foot": "",
+          "height": "",
+          "id": "946363",
+          "marketValue": "",
+          "name": "Giulia Mancuso",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "4",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 8, 1995",
+          "foot": "",
+          "height": "",
+          "id": "946364",
+          "marketValue": "",
+          "name": "Tiia Peltonen",
+          "nationality": [
+            "Finland"
+          ],
+          "number": "5",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 4, 2001",
+          "foot": "",
+          "height": "",
+          "id": "946365",
+          "marketValue": "",
+          "name": "Caterina Fracaros",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "12",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946366",
+          "marketValue": "",
+          "name": "Arianna Pieri",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "14",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 31, 1997",
+          "foot": "",
+          "height": "",
+          "id": "946367",
+          "marketValue": "",
+          "name": "Federica Rizza",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "16",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 11, 2001",
+          "foot": "",
+          "height": "",
+          "id": "946368",
+          "marketValue": "",
+          "name": "Chiara Vigliucci",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "18",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 4, 1991",
+          "foot": "",
+          "height": "",
+          "id": "946369",
+          "marketValue": "",
+          "name": "Linda Tucceri Cimini",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "28",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 9, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946370",
+          "marketValue": "",
+          "name": "Alice Rossi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "46",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946371",
+          "marketValue": "",
+          "name": "Valentina Riccio",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 16, 1997",
+          "foot": "",
+          "height": "",
+          "id": "946372",
+          "marketValue": "",
+          "name": "Giulia Fusar Poli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 22, 1993",
+          "foot": "",
+          "height": "",
+          "id": "946373",
+          "marketValue": "",
+          "name": "Zhanna Ferrario",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "11",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 30, 1992",
+          "foot": "",
+          "height": "",
+          "id": "946374",
+          "marketValue": "",
+          "name": "Giulia Ferrandi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "21",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 8, 1996",
+          "foot": "",
+          "height": "",
+          "id": "946375",
+          "marketValue": "",
+          "name": "Sara Tardini",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "23",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 23, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946376",
+          "marketValue": "",
+          "name": "Veronica Battelani",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "30",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 31, 2003",
+          "foot": "",
+          "height": "",
+          "id": "946377",
+          "marketValue": "",
+          "name": "Arianna Marengoni",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "43",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 8, 2000",
+          "foot": "",
+          "height": "",
+          "id": "946378",
+          "marketValue": "",
+          "name": "Veronica Benedetti",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "58",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 30, 2007",
+          "foot": "",
+          "height": "",
+          "id": "946379",
+          "marketValue": "",
+          "name": "Alessia Guglielmini",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "81",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946380",
+          "marketValue": "",
+          "name": "Giorgia Anderlini",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 7, 2007",
+          "foot": "",
+          "height": "",
+          "id": "946381",
+          "marketValue": "",
+          "name": "Eleonora Ferraresi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "7",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 4, 1997",
+          "foot": "",
+          "height": "",
+          "id": "946382",
+          "marketValue": "",
+          "name": "Alessia Rognoni",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "10",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 24, 1999",
+          "foot": "",
+          "height": "",
+          "id": "946383",
+          "marketValue": "",
+          "name": "Greta Di Luzio",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "19",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 23, 2003",
+          "foot": "",
+          "height": "",
+          "id": "946384",
+          "marketValue": "",
+          "name": "Nicole Arcangeli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "2",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946385",
+          "marketValue": "",
+          "name": "Matilde Ciamponi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "29",
+          "position": "Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Cesena FC",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 950006,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946386",
+          "marketValue": "",
+          "name": "Beatrice Zoffoli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946387",
+          "marketValue": "",
+          "name": "Nicole Nardella",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946388",
+          "marketValue": "",
+          "name": "Giulia Mazzocchi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 1, 2003",
+          "foot": "",
+          "height": "",
+          "id": "946389",
+          "marketValue": "",
+          "name": "Meda Šeškutė",
+          "nationality": [
+            "Lithuania"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 1, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946390",
+          "marketValue": "",
+          "name": "Adelaide Serafino",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "40",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 16, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946391",
+          "marketValue": "",
+          "name": "Serena Bardi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "77",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 2, 1999",
+          "foot": "",
+          "height": "",
+          "id": "946392",
+          "marketValue": "",
+          "name": "Alessia Parnoffi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "99",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946393",
+          "marketValue": "",
+          "name": "Benedetta Toni",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946394",
+          "marketValue": "",
+          "name": "Sara Fabbri",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946395",
+          "marketValue": "",
+          "name": "Giulia Cancellieri",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946396",
+          "marketValue": "",
+          "name": "Cristina Minuscoli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946397",
+          "marketValue": "",
+          "name": "Martina Tosello",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946398",
+          "marketValue": "",
+          "name": "Sofia Verrini",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 22, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946399",
+          "marketValue": "",
+          "name": "Nicole Compiani",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 3, 1999",
+          "foot": "",
+          "height": "",
+          "id": "946400",
+          "marketValue": "",
+          "name": "Erika Santoro",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "3",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 11, 2005",
+          "foot": "",
+          "height": "",
+          "id": "946401",
+          "marketValue": "",
+          "name": "Noemi Battilana",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "6",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 27, 1994",
+          "foot": "",
+          "height": "",
+          "id": "946402",
+          "marketValue": "",
+          "name": "Chiara Groff",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "15",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 18, 2007",
+          "foot": "",
+          "height": "",
+          "id": "946403",
+          "marketValue": "",
+          "name": "Maria Giulia Dumitru",
+          "nationality": [
+            "Romania"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 1, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946404",
+          "marketValue": "",
+          "name": "Arianna Gallina",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 9, 2003",
+          "foot": "",
+          "height": "",
+          "id": "946405",
+          "marketValue": "",
+          "name": "Alice Giai",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "5",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 6, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946406",
+          "marketValue": "",
+          "name": "Anna Catelli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "2",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 11, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946407",
+          "marketValue": "",
+          "name": "Asia Belloli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 6, 2000",
+          "foot": "",
+          "height": "",
+          "id": "946408",
+          "marketValue": "",
+          "name": "Maddalena Porcarelli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "10",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 4, 1999",
+          "foot": "",
+          "height": "",
+          "id": "946409",
+          "marketValue": "",
+          "name": "Benedetta Brignoli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "4",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 17, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946410",
+          "marketValue": "",
+          "name": "Gaia Milan",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "20",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 19, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946411",
+          "marketValue": "",
+          "name": "Anastasia Conti",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 13, 2000",
+          "foot": "",
+          "height": "",
+          "id": "946412",
+          "marketValue": "",
+          "name": "Caterina Ferin",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946413",
+          "marketValue": "",
+          "name": "Karen Appiah",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946414",
+          "marketValue": "",
+          "name": "Alessia Bernabei",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 5, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946415",
+          "marketValue": "",
+          "name": "Jessica Ciano",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "7",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946416",
+          "marketValue": "",
+          "name": "Ranja Fischer",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "9",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 24, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946417",
+          "marketValue": "",
+          "name": "Giulia Ciabini",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "11",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 31, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946418",
+          "marketValue": "",
+          "name": "Matilde De Muri",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "21",
+          "position": "Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "ACF Arezzo",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 950007,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946419",
+          "marketValue": "",
+          "name": "Ester Anagni",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "20",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 23, 2007",
+          "foot": "",
+          "height": "",
+          "id": "946420",
+          "marketValue": "",
+          "name": "Sofia Belloli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "32",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 6, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946421",
+          "marketValue": "",
+          "name": "Verena Beka",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "93",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946422",
+          "marketValue": "",
+          "name": "Dania Bandieri",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 14, 1997",
+          "foot": "",
+          "height": "",
+          "id": "946423",
+          "marketValue": "",
+          "name": "Maria Giulia Tuteri",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "4",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 2, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946424",
+          "marketValue": "",
+          "name": "Simona Davico",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "5",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946425",
+          "marketValue": "",
+          "name": "Daria Moretti",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "13",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 14, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946426",
+          "marketValue": "",
+          "name": "Beatrice Bruni",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "14",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 24, 2007",
+          "foot": "",
+          "height": "",
+          "id": "946427",
+          "marketValue": "",
+          "name": "Carolina Bertora",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "22",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 20, 2007",
+          "foot": "",
+          "height": "",
+          "id": "946428",
+          "marketValue": "",
+          "name": "Sara Nasoni",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "45",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 20, 2007",
+          "foot": "",
+          "height": "",
+          "id": "946429",
+          "marketValue": "",
+          "name": "Emma Nasoni",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "54",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 31, 1996",
+          "foot": "",
+          "height": "",
+          "id": "946430",
+          "marketValue": "",
+          "name": "Francesca Blasoni",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "72",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 21, 2003",
+          "foot": "",
+          "height": "",
+          "id": "946431",
+          "marketValue": "",
+          "name": "Giulia Mancuso",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "6",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 3, 1995",
+          "foot": "",
+          "height": "",
+          "id": "946432",
+          "marketValue": "",
+          "name": "Veronique Brayda",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "7",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 22, 2007",
+          "foot": "",
+          "height": "",
+          "id": "946433",
+          "marketValue": "",
+          "name": "Penniellaine Torres",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 16, 2005",
+          "foot": "",
+          "height": "",
+          "id": "946434",
+          "marketValue": "",
+          "name": "Teresa Penzo",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "10",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 2, 2005",
+          "foot": "",
+          "height": "",
+          "id": "946435",
+          "marketValue": "",
+          "name": "Irene Barsali",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "11",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946436",
+          "marketValue": "",
+          "name": "Ginevra Tolomei",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "19",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946437",
+          "marketValue": "",
+          "name": "Martina Placidi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "24",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 10, 2007",
+          "foot": "",
+          "height": "",
+          "id": "946438",
+          "marketValue": "",
+          "name": "Gloria Milani",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "70",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 27, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946439",
+          "marketValue": "",
+          "name": "Giulia Martino",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "77",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 31, 2008",
+          "foot": "",
+          "height": "",
+          "id": "946440",
+          "marketValue": "",
+          "name": "Carlotta D'Aguì",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "80",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946441",
+          "marketValue": "",
+          "name": "Gioia Livignani",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 7, 2008",
+          "foot": "",
+          "height": "",
+          "id": "946442",
+          "marketValue": "",
+          "name": "Eva Hervieux",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "17",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 4, 2003",
+          "foot": "",
+          "height": "",
+          "id": "946443",
+          "marketValue": "",
+          "name": "Angelica Poli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "18",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 8, 2007",
+          "foot": "",
+          "height": "",
+          "id": "946444",
+          "marketValue": "",
+          "name": "Giulia Balducci",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "28",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 20, 2001",
+          "foot": "",
+          "height": "",
+          "id": "946445",
+          "marketValue": "",
+          "name": "Sofia Lorieri",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "33",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946446",
+          "marketValue": "",
+          "name": "Gabriella Tulimieri",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "73",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 13, 1997",
+          "foot": "",
+          "height": "",
+          "id": "946447",
+          "marketValue": "",
+          "name": "Costanza Razzolini",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "97",
+          "position": "Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Genoa CFC",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 950008,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946448",
+          "marketValue": "",
+          "name": "Lisa Marchetti",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 13, 1998",
+          "foot": "",
+          "height": "",
+          "id": "946449",
+          "marketValue": "",
+          "name": "Alessia Capelletti",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "13",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946450",
+          "marketValue": "",
+          "name": "Annalisa Ruotolo",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "67",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 5, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946451",
+          "marketValue": "",
+          "name": "Martina Di Bari",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "4",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 12, 1993",
+          "foot": "",
+          "height": "",
+          "id": "946452",
+          "marketValue": "",
+          "name": "Federica Di Criscio",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "15",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 20, 1998",
+          "foot": "",
+          "height": "",
+          "id": "946453",
+          "marketValue": "",
+          "name": "Heidi Giles",
+          "nationality": [
+            "Canada"
+          ],
+          "number": "20",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 21, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946454",
+          "marketValue": "",
+          "name": "Angela Passeri",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "23",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946455",
+          "marketValue": "",
+          "name": "Giulia Rizzon",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "24",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946456",
+          "marketValue": "",
+          "name": "Nina Cocconi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "35",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 23, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946457",
+          "marketValue": "",
+          "name": "Chiara Mele",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "44",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 7, 2000",
+          "foot": "",
+          "height": "",
+          "id": "946458",
+          "marketValue": "",
+          "name": "Federica Cafferata",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "77",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946459",
+          "marketValue": "",
+          "name": "Ilaria Matzedda",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 6, 2003",
+          "foot": "",
+          "height": "",
+          "id": "946460",
+          "marketValue": "",
+          "name": "Giada Abate",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "5",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 26, 1992",
+          "foot": "",
+          "height": "",
+          "id": "946461",
+          "marketValue": "",
+          "name": "Rachel Cuschieri",
+          "nationality": [
+            "Malta"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 11, 1996",
+          "foot": "",
+          "height": "",
+          "id": "946462",
+          "marketValue": "",
+          "name": "Norma Cinotti",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "10",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 22, 1991",
+          "foot": "",
+          "height": "",
+          "id": "946463",
+          "marketValue": "",
+          "name": "Valentina Cernoia",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "16",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 2, 2000",
+          "foot": "",
+          "height": "",
+          "id": "946464",
+          "marketValue": "",
+          "name": "Alma Hilaj",
+          "nationality": [
+            "Albania"
+          ],
+          "number": "18",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 12, 2000",
+          "foot": "",
+          "height": "",
+          "id": "946465",
+          "marketValue": "",
+          "name": "Elena Nichele",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "19",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 29, 1997",
+          "foot": "",
+          "height": "",
+          "id": "946466",
+          "marketValue": "",
+          "name": "Miriam Picchi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "21",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 30, 2003",
+          "foot": "",
+          "height": "",
+          "id": "946467",
+          "marketValue": "",
+          "name": "Giulia Giacobbo",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "30",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 17, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946468",
+          "marketValue": "",
+          "name": "Alessandra Massa",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "45",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 22, 2003",
+          "foot": "",
+          "height": "",
+          "id": "946469",
+          "marketValue": "",
+          "name": "Alice Söndergaard",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "9",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 19, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946470",
+          "marketValue": "",
+          "name": "Carolina Tironi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "11",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 20, 1996",
+          "foot": "",
+          "height": "",
+          "id": "946471",
+          "marketValue": "",
+          "name": "Arianna Acuti",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "17",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 25, 1995",
+          "foot": "",
+          "height": "",
+          "id": "946472",
+          "marketValue": "",
+          "name": "Caterina Bargi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "22",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 27, 1996",
+          "foot": "",
+          "height": "",
+          "id": "946473",
+          "marketValue": "",
+          "name": "Valeria Monterubbiano",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "27",
+          "position": "Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Frosinone Calcio",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 950009,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946474",
+          "marketValue": "",
+          "name": "Giordana Zuliani",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 22, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946475",
+          "marketValue": "",
+          "name": "Kerttu Karresmaa",
+          "nationality": [
+            "Finland"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 29, 1999",
+          "foot": "",
+          "height": "",
+          "id": "946476",
+          "marketValue": "",
+          "name": "Carlotta Nardi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "22",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946477",
+          "marketValue": "",
+          "name": "Martina Paniccia",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 11, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946478",
+          "marketValue": "",
+          "name": "Ikram Neddar",
+          "nationality": [
+            "Morocco"
+          ],
+          "number": "4",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946479",
+          "marketValue": "",
+          "name": "Aurora Cacchioni",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "5",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 4, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946480",
+          "marketValue": "",
+          "name": "Ilaria Capitanelli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "14",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 10, 2003",
+          "foot": "",
+          "height": "",
+          "id": "946481",
+          "marketValue": "",
+          "name": "Elena Battistini",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "15",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 5, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946482",
+          "marketValue": "",
+          "name": "Nicole Costa",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "23",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 8, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946483",
+          "marketValue": "",
+          "name": "Kristina Hoxhaj",
+          "nationality": [
+            "Albania"
+          ],
+          "number": "24",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 30, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946484",
+          "marketValue": "",
+          "name": "Sofia Bertucci",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "26",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 14, 2005",
+          "foot": "",
+          "height": "",
+          "id": "946485",
+          "marketValue": "",
+          "name": "Denise Licari",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946486",
+          "marketValue": "",
+          "name": "Beatrice Pastore",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "7",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 13, 2001",
+          "foot": "",
+          "height": "",
+          "id": "946487",
+          "marketValue": "",
+          "name": "Azzurra Corazzi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 21, 1994",
+          "foot": "",
+          "height": "",
+          "id": "946488",
+          "marketValue": "",
+          "name": "Emma Errico",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "13",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 10, 1998",
+          "foot": "",
+          "height": "",
+          "id": "946489",
+          "marketValue": "",
+          "name": "Rossella Tata",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "17",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 9, 1994",
+          "foot": "",
+          "height": "",
+          "id": "946490",
+          "marketValue": "",
+          "name": "Marin Hamamoto",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "18",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 24, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946491",
+          "marketValue": "",
+          "name": "Swami Giuliani",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "30",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 13, 2003",
+          "foot": "",
+          "height": "",
+          "id": "946492",
+          "marketValue": "",
+          "name": "Noelle Maier",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "42",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 14, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946493",
+          "marketValue": "",
+          "name": "Beatrice Calegari",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "45",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 25, 1996",
+          "foot": "",
+          "height": "",
+          "id": "946494",
+          "marketValue": "",
+          "name": "Veronica Spagnoli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 13, 1996",
+          "foot": "",
+          "height": "",
+          "id": "946495",
+          "marketValue": "",
+          "name": "Claudia Ferrato",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "9",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 23, 2001",
+          "foot": "",
+          "height": "",
+          "id": "946496",
+          "marketValue": "",
+          "name": "Giada Burbassi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "10",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 17, 2005",
+          "foot": "",
+          "height": "",
+          "id": "946497",
+          "marketValue": "",
+          "name": "Giorgia Berveglieri",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "33",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 3, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946498",
+          "marketValue": "",
+          "name": "Matilde De Matteis",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "38",
+          "position": "Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "FC Lumezzane Women",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 950010,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 20, 2005",
+          "foot": "",
+          "height": "",
+          "id": "946499",
+          "marketValue": "",
+          "name": "Giulia Zaghini",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946500",
+          "marketValue": "",
+          "name": "Sabrina Gervasoni",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "12",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 8, 2005",
+          "foot": "",
+          "height": "",
+          "id": "946501",
+          "marketValue": "",
+          "name": "Cecilia Capecchi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "23",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 12, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946502",
+          "marketValue": "",
+          "name": "Vanessa Mutti",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "2",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 11, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946503",
+          "marketValue": "",
+          "name": "Martina Pizzolato",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "3",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946504",
+          "marketValue": "",
+          "name": "Paola Zanini",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "4",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 31, 1992",
+          "foot": "",
+          "height": "",
+          "id": "946505",
+          "marketValue": "",
+          "name": "Chiara Barcella",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "5",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 13, 1999",
+          "foot": "",
+          "height": "",
+          "id": "946506",
+          "marketValue": "",
+          "name": "Chiara Viscardi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "6",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 14, 1997",
+          "foot": "",
+          "height": "",
+          "id": "946507",
+          "marketValue": "",
+          "name": "Melissa Nozzi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "13",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 14, 1992",
+          "foot": "",
+          "height": "",
+          "id": "946508",
+          "marketValue": "",
+          "name": "Elisa Galbiati",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "14",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 20, 2005",
+          "foot": "",
+          "height": "",
+          "id": "946509",
+          "marketValue": "",
+          "name": "Yoana Stankova",
+          "nationality": [
+            "Bulgaria"
+          ],
+          "number": "19",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946510",
+          "marketValue": "",
+          "name": "Nadia Zecchina",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 19, 2001",
+          "foot": "",
+          "height": "",
+          "id": "946511",
+          "marketValue": "",
+          "name": "Serena Magri",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 29, 2001",
+          "foot": "",
+          "height": "",
+          "id": "946512",
+          "marketValue": "",
+          "name": "Marta Morreale",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "11",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 7, 2005",
+          "foot": "",
+          "height": "",
+          "id": "946513",
+          "marketValue": "",
+          "name": "Alessia Marchetti",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "20",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 27, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946514",
+          "marketValue": "",
+          "name": "Elisa Zappa",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "21",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946515",
+          "marketValue": "",
+          "name": "Giorgia Bertolotti",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "22",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 31, 2000",
+          "foot": "",
+          "height": "",
+          "id": "946516",
+          "marketValue": "",
+          "name": "Elli-Noora Kainulainen",
+          "nationality": [
+            "Finland"
+          ],
+          "number": "24",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 13, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946517",
+          "marketValue": "",
+          "name": "Letizia Galdini",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "27",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 18, 2008",
+          "foot": "",
+          "height": "",
+          "id": "946518",
+          "marketValue": "",
+          "name": "Giulia Robino",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "62",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 4, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946519",
+          "marketValue": "",
+          "name": "Gaia Lonati",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "7",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 5, 2001",
+          "foot": "",
+          "height": "",
+          "id": "946520",
+          "marketValue": "",
+          "name": "Asia Bragonzi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "9",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 15, 1991",
+          "foot": "",
+          "height": "",
+          "id": "946521",
+          "marketValue": "",
+          "name": "Tatiana Bonetti",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "10",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 31, 2008",
+          "foot": "",
+          "height": "",
+          "id": "946522",
+          "marketValue": "",
+          "name": "Martina Corioni",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "17",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946523",
+          "marketValue": "",
+          "name": "Linda Zambelli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "18",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946524",
+          "marketValue": "",
+          "name": "Viola Minnei",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "28",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 7, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946525",
+          "marketValue": "",
+          "name": "Greta Bellagente",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "77",
+          "position": "Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Catania FC",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 950011,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946526",
+          "marketValue": "",
+          "name": "Viola Orlando",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 11, 1997",
+          "foot": "",
+          "height": "",
+          "id": "946527",
+          "marketValue": "",
+          "name": "Eveljn Frigotto",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "55",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 21, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946528",
+          "marketValue": "",
+          "name": "Matilde Macera",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "71",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 15, 2001",
+          "foot": "",
+          "height": "",
+          "id": "946529",
+          "marketValue": "",
+          "name": "Luana Pietrini",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "2",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946530",
+          "marketValue": "",
+          "name": "Carlotta Saraniti",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "3",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 24, 2000",
+          "foot": "",
+          "height": "",
+          "id": "946531",
+          "marketValue": "",
+          "name": "Sofia Meneghini",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "5",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946532",
+          "marketValue": "",
+          "name": "Elisabetta Fiorella",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "12",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 12, 1994",
+          "foot": "",
+          "height": "",
+          "id": "946533",
+          "marketValue": "",
+          "name": "Giorgia Spinelli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "21",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 15, 2000",
+          "foot": "",
+          "height": "",
+          "id": "946534",
+          "marketValue": "",
+          "name": "Alessandra Panarello",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "22",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 23, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946535",
+          "marketValue": "",
+          "name": "Angela Mele",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "28",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 22, 2000",
+          "foot": "",
+          "height": "",
+          "id": "946536",
+          "marketValue": "",
+          "name": "Vanessa Panzeri",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "60",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 12, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946537",
+          "marketValue": "",
+          "name": "Irene Divittorio",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "77",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946538",
+          "marketValue": "",
+          "name": "Diāna Suvītra",
+          "nationality": [
+            "Latvia"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 2, 1996",
+          "foot": "",
+          "height": "",
+          "id": "946539",
+          "marketValue": "",
+          "name": "Giulia Risina",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946540",
+          "marketValue": "",
+          "name": "Cristina Lanteri",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "4",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 14, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946541",
+          "marketValue": "",
+          "name": "Virginia Basilotta",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "7",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 16, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946542",
+          "marketValue": "",
+          "name": "Alessia Cammarata",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "10",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946543",
+          "marketValue": "",
+          "name": "Miriam Milazzo",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "15",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 5, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946544",
+          "marketValue": "",
+          "name": "Giorgia Termentini",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "20",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 2, 2005",
+          "foot": "",
+          "height": "",
+          "id": "946545",
+          "marketValue": "",
+          "name": "Liselle Palts",
+          "nationality": [
+            "Estonia"
+          ],
+          "number": "23",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 1, 2000",
+          "foot": "",
+          "height": "",
+          "id": "946546",
+          "marketValue": "",
+          "name": "Mari Liis Lillemäe",
+          "nationality": [
+            "Estonia"
+          ],
+          "number": "72",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946547",
+          "marketValue": "",
+          "name": "Flavia Sgambato",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946548",
+          "marketValue": "",
+          "name": "Chiara Barbarino",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 4, 2001",
+          "foot": "",
+          "height": "",
+          "id": "946549",
+          "marketValue": "",
+          "name": "Giulia Martinelli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "11",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 13, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946550",
+          "marketValue": "",
+          "name": "Kristina Teern",
+          "nationality": [
+            "Estonia"
+          ],
+          "number": "13",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 17, 2000",
+          "foot": "",
+          "height": "",
+          "id": "946551",
+          "marketValue": "",
+          "name": "Madelyn Robbins",
+          "nationality": [
+            "Canada"
+          ],
+          "number": "17",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 24, 1996",
+          "foot": "",
+          "height": "",
+          "id": "946552",
+          "marketValue": "",
+          "name": "Isotta Nocchi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "25",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 7, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946553",
+          "marketValue": "",
+          "name": "Lara Vacchino",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "30",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 31, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946554",
+          "marketValue": "",
+          "name": "Martina Tamburini",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "91",
+          "position": "Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Donna Roma FC",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 950012,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 16, 2005",
+          "foot": "",
+          "height": "",
+          "id": "946555",
+          "marketValue": "",
+          "name": "Liliana Merolla",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "52",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 10, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946556",
+          "marketValue": "",
+          "name": "Emma Mustafic",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "81",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946557",
+          "marketValue": "",
+          "name": "Giorgia Camplone",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "90",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 18, 1998",
+          "foot": "",
+          "height": "",
+          "id": "946558",
+          "marketValue": "",
+          "name": "Belén Taborda",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "2",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 30, 1994",
+          "foot": "",
+          "height": "",
+          "id": "946559",
+          "marketValue": "",
+          "name": "Arianna Pezzotti",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "3",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 30, 1994",
+          "foot": "",
+          "height": "",
+          "id": "946560",
+          "marketValue": "",
+          "name": "Marta Varriale",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "5",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 11, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946561",
+          "marketValue": "",
+          "name": "Kristiana Karaivanova",
+          "nationality": [
+            "Bulgaria"
+          ],
+          "number": "8",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 31, 2001",
+          "foot": "",
+          "height": "",
+          "id": "946562",
+          "marketValue": "",
+          "name": "Chiara Ripamonti",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "15",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 4, 1996",
+          "foot": "",
+          "height": "",
+          "id": "946563",
+          "marketValue": "",
+          "name": "Valentina Simeone",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "16",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 8, 1999",
+          "foot": "",
+          "height": "",
+          "id": "946564",
+          "marketValue": "",
+          "name": "Nicole Micciarelli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "23",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 1, 2003",
+          "foot": "",
+          "height": "",
+          "id": "946565",
+          "marketValue": "",
+          "name": "Maria Vittoria Nano",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "24",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 12, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946566",
+          "marketValue": "",
+          "name": "Giorgia Fortunati",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "83",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946567",
+          "marketValue": "",
+          "name": "Gaia Laudiero",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 21, 2001",
+          "foot": "",
+          "height": "",
+          "id": "946568",
+          "marketValue": "",
+          "name": "Ivana Naydenova",
+          "nationality": [
+            "Bulgaria"
+          ],
+          "number": "6",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 24, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946569",
+          "marketValue": "",
+          "name": "Anastasia Ferrara",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "14",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 21, 1999",
+          "foot": "",
+          "height": "",
+          "id": "946570",
+          "marketValue": "",
+          "name": "Virginia Di Giammarino",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "21",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 28, 1994",
+          "foot": "",
+          "height": "",
+          "id": "946571",
+          "marketValue": "",
+          "name": "Cecilia Re",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "25",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 17, 1999",
+          "foot": "",
+          "height": "",
+          "id": "946572",
+          "marketValue": "",
+          "name": "Sofieke Jansen",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "33",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 29, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946573",
+          "marketValue": "",
+          "name": "Giada Catena",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "38",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 23, 2005",
+          "foot": "",
+          "height": "",
+          "id": "946574",
+          "marketValue": "",
+          "name": "Giulia Antonelli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "39",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 9, 2001",
+          "foot": "",
+          "height": "",
+          "id": "946575",
+          "marketValue": "",
+          "name": "Kyoko Ikeguchi",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "47",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 12, 1998",
+          "foot": "",
+          "height": "",
+          "id": "946576",
+          "marketValue": "",
+          "name": "Lora Petrova",
+          "nationality": [
+            "Bulgaria"
+          ],
+          "number": "99",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 2, 1993",
+          "foot": "",
+          "height": "",
+          "id": "946577",
+          "marketValue": "",
+          "name": "Romina Pinna",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "7",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 18, 1997",
+          "foot": "",
+          "height": "",
+          "id": "946578",
+          "marketValue": "",
+          "name": "Claudia Palombi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "9",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 29, 2001",
+          "foot": "",
+          "height": "",
+          "id": "946579",
+          "marketValue": "",
+          "name": "Serena Landa",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "22",
+          "position": "Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Vicenza WFC",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 950051,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946580",
+          "marketValue": "",
+          "name": "Giorgia Gradolone",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946581",
+          "marketValue": "",
+          "name": "Agnes Stenlund",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 5, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946582",
+          "marketValue": "",
+          "name": "Erica Di Nallo",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946583",
+          "marketValue": "",
+          "name": "Alessia Passarella",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "73",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946584",
+          "marketValue": "",
+          "name": "Ludovica Falloni",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 3, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946585",
+          "marketValue": "",
+          "name": "Sofia Rosolen",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 14, 2000",
+          "foot": "",
+          "height": "",
+          "id": "946586",
+          "marketValue": "",
+          "name": "Joyce Asamoah",
+          "nationality": [
+            "Ghana"
+          ],
+          "number": "2",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 12, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946587",
+          "marketValue": "",
+          "name": "Georgiana Trandafir",
+          "nationality": [
+            "Romania"
+          ],
+          "number": "3",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 8, 1998",
+          "foot": "",
+          "height": "",
+          "id": "946588",
+          "marketValue": "",
+          "name": "Aurora Missiaggia",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "4",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 21, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946589",
+          "marketValue": "",
+          "name": "Elisabetta Pozzi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "14",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946590",
+          "marketValue": "",
+          "name": "Lisa Pegoraro",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "15",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 3, 2001",
+          "foot": "",
+          "height": "",
+          "id": "946591",
+          "marketValue": "",
+          "name": "Francesca Balestro",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "17",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 1, 2005",
+          "foot": "",
+          "height": "",
+          "id": "946592",
+          "marketValue": "",
+          "name": "Ilaria Framarin",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "39",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946593",
+          "marketValue": "",
+          "name": "Giulia Borsato",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946594",
+          "marketValue": "",
+          "name": "Claudia Zorzetto",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 27, 1997",
+          "foot": "",
+          "height": "",
+          "id": "946595",
+          "marketValue": "",
+          "name": "Martina Dezotti",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946596",
+          "marketValue": "",
+          "name": "Giorgia Antoniazzi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946597",
+          "marketValue": "",
+          "name": "Giorgia Fabris",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946598",
+          "marketValue": "",
+          "name": "Letizia Tremeschin",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946599",
+          "marketValue": "",
+          "name": "Giulia Zuin",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946600",
+          "marketValue": "",
+          "name": "Sarah Huchet",
+          "nationality": [
+            "France"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946601",
+          "marketValue": "",
+          "name": "Martina Viviani",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946602",
+          "marketValue": "",
+          "name": "Kristin Carrer",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946603",
+          "marketValue": "",
+          "name": "Aurora Pantano",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946604",
+          "marketValue": "",
+          "name": "Claudia Saggion",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946605",
+          "marketValue": "",
+          "name": "Jasmine Mounecif",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946606",
+          "marketValue": "",
+          "name": "Lilia Osman",
+          "nationality": [
+            "Finland"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 20, 2005",
+          "foot": "",
+          "height": "",
+          "id": "946607",
+          "marketValue": "",
+          "name": "Giulia Grendene",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "13",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 29, 2005",
+          "foot": "",
+          "height": "",
+          "id": "946608",
+          "marketValue": "",
+          "name": "Anna Boaretto",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "20",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946609",
+          "marketValue": "",
+          "name": "Chiara Todesco",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "21",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946610",
+          "marketValue": "",
+          "name": "Sara Boveri",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "28",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 14, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946611",
+          "marketValue": "",
+          "name": "Sofia Arpegaro",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "83",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 3, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946612",
+          "marketValue": "",
+          "name": "Chiara Modesti",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "99",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946613",
+          "marketValue": "",
+          "name": "Kornelia Okoniewska",
+          "nationality": [
+            "Poland"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 27, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946614",
+          "marketValue": "",
+          "name": "Serena Cortesi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946615",
+          "marketValue": "",
+          "name": "Desirè Lazzari",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "6",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946616",
+          "marketValue": "",
+          "name": "Asia Di Muni",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "7",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 27, 1997",
+          "foot": "",
+          "height": "",
+          "id": "946617",
+          "marketValue": "",
+          "name": "Greta Ponte",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "16",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946618",
+          "marketValue": "",
+          "name": "Giorgia Marchiori",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "22",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 29, 1988",
+          "foot": "",
+          "height": "",
+          "id": "946619",
+          "marketValue": "",
+          "name": "Stefania Tarenzi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "27",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 15, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946620",
+          "marketValue": "",
+          "name": "Emma Perrone",
+          "nationality": [
+            "Australia"
+          ],
+          "number": "44",
+          "position": "Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Moncalieri Women",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 950052,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946621",
+          "marketValue": "",
+          "name": "Elisabetta Milone",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946622",
+          "marketValue": "",
+          "name": "Rafaela Petaloti",
+          "nationality": [
+            "Greece"
+          ],
+          "number": "12",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946623",
+          "marketValue": "",
+          "name": "Giulia Tamburini",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "2",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 29, 2004",
+          "foot": "",
+          "height": "",
+          "id": "946624",
+          "marketValue": "",
+          "name": "Emanuela Testa",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "3",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946625",
+          "marketValue": "",
+          "name": "Alice Bertola",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "4",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 18, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946626",
+          "marketValue": "",
+          "name": "Julia Betti",
+          "nationality": [
+            "United States"
+          ],
+          "number": "5",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946627",
+          "marketValue": "",
+          "name": "Caterina Aimetti",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "13",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946628",
+          "marketValue": "",
+          "name": "Eleonora Bertolosi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "18",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946629",
+          "marketValue": "",
+          "name": "Selena Petroz",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "20",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 25, 2000",
+          "foot": "",
+          "height": "",
+          "id": "946630",
+          "marketValue": "",
+          "name": "Flavia Devoto",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "29",
+          "position": "Defender"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 28, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946631",
+          "marketValue": "",
+          "name": "Alessia Accornero",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 3, 1998",
+          "foot": "",
+          "height": "",
+          "id": "946632",
+          "marketValue": "",
+          "name": "Elisa Battaglioli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 18, 2005",
+          "foot": "",
+          "height": "",
+          "id": "946633",
+          "marketValue": "",
+          "name": "Martina Montemezzo",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "15",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 8, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946634",
+          "marketValue": "",
+          "name": "Fabiana Vischi",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "21",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 3, 2002",
+          "foot": "",
+          "height": "",
+          "id": "946635",
+          "marketValue": "",
+          "name": "Sara Ventura",
+          "nationality": [
+            "France"
+          ],
+          "number": "24",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946636",
+          "marketValue": "",
+          "name": "Fabiana Correale",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "25",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 11, 2001",
+          "foot": "",
+          "height": "",
+          "id": "946637",
+          "marketValue": "",
+          "name": "Silvia Zanni",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "28",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 5, 2005",
+          "foot": "",
+          "height": "",
+          "id": "946638",
+          "marketValue": "",
+          "name": "Sofia Boldrini",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "43",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 21, 1997",
+          "foot": "",
+          "height": "",
+          "id": "946639",
+          "marketValue": "",
+          "name": "Francesca Mellano",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "7",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 2, 2006",
+          "foot": "",
+          "height": "",
+          "id": "946640",
+          "marketValue": "",
+          "name": "Emma Girotto",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "9",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 16, 1990",
+          "foot": "",
+          "height": "",
+          "id": "946641",
+          "marketValue": "",
+          "name": "Pamela Gueli",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "10",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946642",
+          "marketValue": "",
+          "name": "Elisa Ceppari",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "11",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 11, 2008",
+          "foot": "",
+          "height": "",
+          "id": "946643",
+          "marketValue": "",
+          "name": "Caterina Iannaccone",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "17",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946644",
+          "marketValue": "",
+          "name": "Naiely Repetti",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "19",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 29, 2003",
+          "foot": "",
+          "height": "",
+          "id": "946645",
+          "marketValue": "",
+          "name": "Elisa Mariani",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "26",
+          "position": "Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 6, 2007",
+          "foot": "",
+          "height": "",
+          "id": "946646",
+          "marketValue": "",
+          "name": "Anna Costamagna",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "47",
+          "position": "Forward"
+        }
+      ]
+    }
+  ]
+}

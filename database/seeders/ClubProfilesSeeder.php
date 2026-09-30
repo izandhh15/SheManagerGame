@@ -348,6 +348,97 @@ private const CLUB_DATA = [
         'Grasshopper Club Zürich' => ClubProfile::REPUTATION_LOCAL,
 
         // =============================================
+        // France - Seconde Ligue (FRA2)
+        // =============================================
+
+        // Established
+        'AS Saint-Étienne' => ClubProfile::REPUTATION_ESTABLISHED,
+
+        // Modest
+        'AJ Auxerre' => ClubProfile::REPUTATION_MODEST,
+        'AS Cannes' => ClubProfile::REPUTATION_MODEST,
+        'FC Metz' => ClubProfile::REPUTATION_MODEST,
+        'Grenoble Foot 38' => ClubProfile::REPUTATION_MODEST,
+        'Le Mans FC' => ClubProfile::REPUTATION_MODEST,
+        'LOSC Lille' => ClubProfile::REPUTATION_MODEST,
+        'OGC Nice' => ClubProfile::REPUTATION_MODEST,
+        'Thonon Évian Grand Genève FC' => ClubProfile::REPUTATION_MODEST,
+
+        // Local
+        'Bourges FC' => ClubProfile::REPUTATION_LOCAL,
+        'Racing Club Roubaix Wervicq' => ClubProfile::REPUTATION_LOCAL,
+
+        // =============================================
+        // Italy - Serie B Femminile (ITA2)
+        // =============================================
+
+        // Established
+        'Genoa CFC' => ClubProfile::REPUTATION_ESTABLISHED,
+
+        // Modest
+        'ACF Arezzo' => ClubProfile::REPUTATION_MODEST,
+        'ACF Brescia' => ClubProfile::REPUTATION_MODEST,
+        'Bologna FC 1909' => ClubProfile::REPUTATION_MODEST,
+        'Cesena FC' => ClubProfile::REPUTATION_MODEST,
+        'FC Lumezzane Women' => ClubProfile::REPUTATION_MODEST,
+        'Frosinone Calcio' => ClubProfile::REPUTATION_MODEST,
+        'Hellas Verona' => ClubProfile::REPUTATION_MODEST,
+        'Venezia FC' => ClubProfile::REPUTATION_MODEST,
+
+        // Local
+        'Catania FC' => ClubProfile::REPUTATION_LOCAL,
+        'Donna Roma FC' => ClubProfile::REPUTATION_LOCAL,
+        'Moncalieri Women' => ClubProfile::REPUTATION_LOCAL,
+        'San Marino Academy' => ClubProfile::REPUTATION_LOCAL,
+        'Vicenza WFC' => ClubProfile::REPUTATION_LOCAL,
+
+        // =============================================
+        // Germany - 2. Frauen-Bundesliga (DEU2)
+        // =============================================
+
+        // Established
+        '1. FFC Turbine Potsdam' => ClubProfile::REPUTATION_ESTABLISHED,
+        'FC Carl Zeiss Jena' => ClubProfile::REPUTATION_ESTABLISHED,
+        'SGS Essen' => ClubProfile::REPUTATION_ESTABLISHED,
+
+        // Modest
+        '1. FC Köln II' => ClubProfile::REPUTATION_MODEST,
+        'Borussia Mönchengladbach' => ClubProfile::REPUTATION_MODEST,
+        'Eintracht Frankfurt II' => ClubProfile::REPUTATION_MODEST,
+        'FC Ingolstadt 04' => ClubProfile::REPUTATION_MODEST,
+        'SC Sand' => ClubProfile::REPUTATION_MODEST,
+        'SG 99 Andernach' => ClubProfile::REPUTATION_MODEST,
+        'SV Meppen' => ClubProfile::REPUTATION_MODEST,
+        'TSG 1899 Hoffenheim II' => ClubProfile::REPUTATION_MODEST,
+        'VfL Bochum' => ClubProfile::REPUTATION_MODEST,
+
+        // Local
+        'FC Viktoria 1889 Berlin' => ClubProfile::REPUTATION_LOCAL,
+        'Hertha BSC' => ClubProfile::REPUTATION_LOCAL,
+
+        // =============================================
+        // England - WSL2 (ENG2)
+        // =============================================
+
+        // Established
+        'Leicester City' => ClubProfile::REPUTATION_ESTABLISHED,
+
+        // Modest
+        'Bristol City' => ClubProfile::REPUTATION_MODEST,
+        'Durham' => ClubProfile::REPUTATION_MODEST,
+        'Ipswich Town' => ClubProfile::REPUTATION_MODEST,
+        'Newcastle United' => ClubProfile::REPUTATION_MODEST,
+        'Nottingham Forest' => ClubProfile::REPUTATION_MODEST,
+        'Sheffield United' => ClubProfile::REPUTATION_MODEST,
+        'Southampton' => ClubProfile::REPUTATION_MODEST,
+        'Sunderland' => ClubProfile::REPUTATION_MODEST,
+
+        // Local
+        'Burnley' => ClubProfile::REPUTATION_LOCAL,
+        'Watford' => ClubProfile::REPUTATION_LOCAL,
+        'Wolverhampton Wanderers' => ClubProfile::REPUTATION_LOCAL,
+
+        // =============================================
         // USA - NWSL (USA1)
         // =============================================
 
@@ -858,6 +949,20 @@ private const CLUB_DATA = [
         'FC Luzern' => 5,
         'FC St. Gallen 1879' => 5,
         'Yverdon Sport FC' => 5,
+
+        // ── France (Seconde Ligue) ───────────────────────────────────
+        'AS Saint-Étienne' => 7,
+
+        // ── Italy (Serie B Femminile) ────────────────────────────────
+        'Genoa CFC' => 6,
+
+        // ── Germany (2. Frauen-Bundesliga) ───────────────────────────
+        '1. FFC Turbine Potsdam' => 7,
+        'SGS Essen' => 6,
+        'FC Carl Zeiss Jena' => 6,
+
+        // ── England (WSL2) ───────────────────────────────────────────
+        'Leicester City' => 7,
         'FC Rapperswil-Jona' => 4,
         'FC Aarau Frauen' => 4,
     ];

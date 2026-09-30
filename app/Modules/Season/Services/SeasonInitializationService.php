@@ -98,12 +98,8 @@ class SeasonInitializationService
         }
 
         $teamCount = count($teamIds);
-        if ($teamCount % 2 !== 0) {
-            throw new \RuntimeException(
-                "Cannot generate fixtures for {$competitionId}: odd team count ({$teamCount}). " .
-                'This likely indicates a promotion/relegation imbalance in the season transition.'
-            );
-        }
+        // Odd team counts are supported: LeagueFixtureGenerator inserts an
+        // internal bye week (e.g. Seconde Ligue's 11 teams).
 
         $fixtures = $this->leagueFixtureGenerator->generate($teamIds, $matchdays);
 

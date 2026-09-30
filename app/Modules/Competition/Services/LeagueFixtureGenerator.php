@@ -138,23 +138,35 @@ class LeagueFixtureGenerator
     }
 
     /**
+     * Sentinel team inserted internally when the league has an odd team
+     * count (e.g. Seconde Ligue's 11 teams). Fixtures drawn against it are
+     * bye weeks and are filtered out of the returned list. A UUID can never
+     * equal this value, so it cannot collide with a real team.
+     */
+    private const BYE_TEAM = '__BYE__';
+
+    /**
      * Generate a full double round-robin schedule.
      *
-     * @param  array<string>  $teamIds  Team IDs (must be even count, minimum 4)
+     * Even counts need 2*(N-1) matchdays; odd counts need 2*N matchdays
+     * (each round one team rests).
+     *
+     * @param  array<string>  $teamIds  Team IDs (even count ≥ 4, or odd count ≥ 5)
      * @param  array<array{round: int, date: string}>  $matchdays  Schedule with round numbers and dates (YYYY-MM-DD)
      * @return array<array{matchday: int, date: string, homeTeamId: string, awayTeamId: string}>
      */
     public function generate(array $teamIds, array $matchdays): array
     {
         $teamCount = count($teamIds);
+        $isOdd = $teamCount % 2 !== 0;
 
-        if ($teamCount < 4 || $teamCount % 2 !== 0) {
+        if ($teamCount < 4 || ($isOdd && $teamCount < 5)) {
             throw new \InvalidArgumentException(
-                "Team count must be even and at least 4, got {$teamCount}"
+                "Team count must be even and at least 4 (or odd and at least 5), got {$teamCount}"
             );
         }
 
-        $halfSeason = $teamCount - 1;
+        $halfSeason = $isOdd ? $teamCount : $teamCount - 1;
         $expectedMatchdays = $halfSeason * 2;
 
         if (count($matchdays) !== $expectedMatchdays) {
@@ -167,9 +179,25 @@ class LeagueFixtureGenerator
         $teams = $teamIds;
         shuffle($teams);
 
+        if ($isOdd) {
+            $teams[] = self::BYE_TEAM;
+        }
+
         $firstHalf = $this->generateFirstHalf($teams);
 
-        return $this->buildFixtures($firstHalf, $matchdays, $teams);
+        $fixtures = $this->buildFixtures($firstHalf, $matchdays, $teams);
+
+        if ($isOdd) {
+            // Drop bye-week fixtures; every real team rests exactly once
+            // per half-season.
+            $fixtures = array_values(array_filter(
+                $fixtures,
+                fn (array $f) => $f['homeTeamId'] !== self::BYE_TEAM
+                    && $f['awayTeamId'] !== self::BYE_TEAM
+            ));
+        }
+
+        return $fixtures;
     }
 
     /**

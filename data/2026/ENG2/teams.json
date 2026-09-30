@@ -1,0 +1,4033 @@
+{
+  "id": "ENG2",
+  "name": "WSL2",
+  "seasonID": "2026",
+  "clubs": [
+    {
+      "image": null,
+      "name": "Bristol City",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 950039,
+      "players": [
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "",
+          "id": "946993",
+          "marketValue": "",
+          "name": "Fran Bentley",
+          "nationality": [
+            "England"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "",
+          "foot": "left",
+          "height": "1,78m",
+          "id": "946994",
+          "marketValue": "",
+          "name": "Lauren Brzykcy",
+          "nationality": [
+            "Hungary"
+          ],
+          "number": "13",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,76m",
+          "id": "946995",
+          "marketValue": "",
+          "name": "Hope McSheffrey",
+          "nationality": [
+            "Wales"
+          ],
+          "number": "17",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "946996",
+          "marketValue": "",
+          "name": "Ella Powell",
+          "nationality": [
+            "Wales"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946997",
+          "marketValue": "",
+          "name": "Gemma Lawley",
+          "nationality": [
+            "England"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "",
+          "id": "946998",
+          "marketValue": "",
+          "name": "Sille Struck",
+          "nationality": [
+            "Denmark"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,71m",
+          "id": "946999",
+          "marketValue": "",
+          "name": "Alexia Apostolakis",
+          "nationality": [
+            "Australia"
+          ],
+          "number": "12",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "",
+          "foot": "left",
+          "height": "1,83m",
+          "id": "947000",
+          "marketValue": "",
+          "name": "Oliwia Woś",
+          "nationality": [
+            "Poland"
+          ],
+          "number": "15",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947001",
+          "marketValue": "",
+          "name": "Esther Morgan",
+          "nationality": [
+            "Wales"
+          ],
+          "number": "20",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947002",
+          "marketValue": "",
+          "name": "Signe Markvardsen",
+          "nationality": [
+            "Denmark"
+          ],
+          "number": "22",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "947003",
+          "marketValue": "",
+          "name": "Brooke Aspin",
+          "nationality": [
+            "England"
+          ],
+          "number": "23",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947004",
+          "marketValue": "",
+          "name": "Neeve McDonald",
+          "nationality": [
+            "England"
+          ],
+          "number": "40",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,68m",
+          "id": "947005",
+          "marketValue": "",
+          "name": "Harley Bennett",
+          "nationality": [
+            "England"
+          ],
+          "number": "41",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947006",
+          "marketValue": "",
+          "name": "Eilidh Shore",
+          "nationality": [
+            "Scotland"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947007",
+          "marketValue": "",
+          "name": "Lia O'Leary",
+          "nationality": [
+            "Ireland"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947008",
+          "marketValue": "",
+          "name": "Maddie Durrant",
+          "nationality": [
+            "England"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "",
+          "foot": "both",
+          "height": "1,73m",
+          "id": "947009",
+          "marketValue": "",
+          "name": "Sophie Ingle",
+          "nationality": [
+            "Wales"
+          ],
+          "number": "5",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,61m",
+          "id": "947010",
+          "marketValue": "",
+          "name": "Katie Robinson",
+          "nationality": [
+            "England"
+          ],
+          "number": "7",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947011",
+          "marketValue": "",
+          "name": "Emily Syme",
+          "nationality": [
+            "England"
+          ],
+          "number": "16",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,68m",
+          "id": "947012",
+          "marketValue": "",
+          "name": "Malaika Meena",
+          "nationality": [
+            "England"
+          ],
+          "number": "18",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "left",
+          "height": "1,66m",
+          "id": "947013",
+          "marketValue": "",
+          "name": "Marine Dafeur",
+          "nationality": [
+            "Algeria"
+          ],
+          "number": "21",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "",
+          "id": "947014",
+          "marketValue": "",
+          "name": "Rio Hardy",
+          "nationality": [
+            "England"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,66m",
+          "id": "947015",
+          "marketValue": "",
+          "name": "Lotta Lindström",
+          "nationality": [
+            "Finland"
+          ],
+          "number": "10",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "947016",
+          "marketValue": "",
+          "name": "Emma Bissell",
+          "nationality": [
+            "England"
+          ],
+          "number": "14",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947017",
+          "marketValue": "",
+          "name": "Maria Farrugia",
+          "nationality": [
+            "Malta"
+          ],
+          "number": "19",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947018",
+          "marketValue": "",
+          "name": "Alexandra Madden",
+          "nationality": [
+            "England"
+          ],
+          "number": "48",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Burnley",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 950040,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947019",
+          "marketValue": "",
+          "name": "Eva Spencer",
+          "nationality": [
+            "England"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947020",
+          "marketValue": "",
+          "name": "Jackie Burns",
+          "nationality": [
+            "Northern Ireland"
+          ],
+          "number": "25",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947021",
+          "marketValue": "",
+          "name": "Kirstie Levell",
+          "nationality": [
+            "England",
+            "Scotland"
+          ],
+          "number": "28",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947022",
+          "marketValue": "",
+          "name": "Abbey-Leigh Stringer",
+          "nationality": [
+            "England"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947023",
+          "marketValue": "",
+          "name": "Charley Docherty",
+          "nationality": [
+            "England"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947024",
+          "marketValue": "",
+          "name": "Emma Siddall",
+          "nationality": [
+            "England"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947025",
+          "marketValue": "",
+          "name": "Deanna Cooper",
+          "nationality": [
+            "England"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947026",
+          "marketValue": "",
+          "name": "Kiera Sena",
+          "nationality": [
+            "Ireland",
+            "Portugal"
+          ],
+          "number": "11",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947027",
+          "marketValue": "",
+          "name": "Jade Richards",
+          "nationality": [
+            "England"
+          ],
+          "number": "13",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947028",
+          "marketValue": "",
+          "name": "Jessica Hennessy",
+          "nationality": [
+            "Ireland"
+          ],
+          "number": "14",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947029",
+          "marketValue": "",
+          "name": "Maddi Wilde",
+          "nationality": [
+            "England"
+          ],
+          "number": "20",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947030",
+          "marketValue": "",
+          "name": "Alethea Paul",
+          "nationality": [
+            "England"
+          ],
+          "number": "22",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947031",
+          "marketValue": "",
+          "name": "Naomi Hartley",
+          "nationality": [
+            "England"
+          ],
+          "number": "23",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947032",
+          "marketValue": "",
+          "name": "Brenna McPartlan",
+          "nationality": [
+            "Northern Ireland",
+            "England"
+          ],
+          "number": "4",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947033",
+          "marketValue": "",
+          "name": "Tyler Toland",
+          "nationality": [
+            "Ireland"
+          ],
+          "number": "6",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947034",
+          "marketValue": "",
+          "name": "Jamie Finn",
+          "nationality": [
+            "Ireland"
+          ],
+          "number": "8",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947035",
+          "marketValue": "",
+          "name": "Christie Harrison-Murray",
+          "nationality": [
+            "Scotland"
+          ],
+          "number": "10",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947036",
+          "marketValue": "",
+          "name": "Millie Chandarana",
+          "nationality": [
+            "England"
+          ],
+          "number": "17",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947037",
+          "marketValue": "",
+          "name": "Brooke Cairns",
+          "nationality": [
+            "England"
+          ],
+          "number": "24",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947038",
+          "marketValue": "",
+          "name": "Leah Galton",
+          "nationality": [
+            "England"
+          ],
+          "number": "44",
+          "position": "Left Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947039",
+          "marketValue": "",
+          "name": "Heidi Logan",
+          "nationality": [
+            "England"
+          ],
+          "number": "7",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947040",
+          "marketValue": "",
+          "name": "Claudia Mummery-Walker",
+          "nationality": [
+            "England"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947041",
+          "marketValue": "",
+          "name": "Rachel Williams",
+          "nationality": [
+            "England"
+          ],
+          "number": "18",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947042",
+          "marketValue": "",
+          "name": "Charlie Chadwick",
+          "nationality": [
+            "England"
+          ],
+          "number": "19",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947043",
+          "marketValue": "",
+          "name": "Charlie Wellings",
+          "nationality": [
+            "England"
+          ],
+          "number": "21",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Durham",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 950041,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947044",
+          "marketValue": "",
+          "name": "Anna King",
+          "nationality": [
+            "England"
+          ],
+          "number": "13",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947045",
+          "marketValue": "",
+          "name": "Cat Sheppard",
+          "nationality": [
+            "United States"
+          ],
+          "number": "35",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947046",
+          "marketValue": "",
+          "name": "Grace Ayre",
+          "nationality": [
+            "England"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947047",
+          "marketValue": "",
+          "name": "Lauren Briggs",
+          "nationality": [
+            "England"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947048",
+          "marketValue": "",
+          "name": "Madison McComasky",
+          "nationality": [
+            "Australia"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947049",
+          "marketValue": "",
+          "name": "Sarah Wilson",
+          "nationality": [
+            "England"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947050",
+          "marketValue": "",
+          "name": "Lucy Noble",
+          "nationality": [
+            "England"
+          ],
+          "number": "12",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947051",
+          "marketValue": "",
+          "name": "Becky Salicki",
+          "nationality": [
+            "England"
+          ],
+          "number": "14",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947052",
+          "marketValue": "",
+          "name": "Ella Wilson",
+          "nationality": [
+            "England"
+          ],
+          "number": "19",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947053",
+          "marketValue": "",
+          "name": "Michaela Foster",
+          "nationality": [
+            "New Zealand"
+          ],
+          "number": "20",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947054",
+          "marketValue": "",
+          "name": "Emma Brown",
+          "nationality": [
+            "England"
+          ],
+          "number": "25",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947055",
+          "marketValue": "",
+          "name": "Beth Hepple",
+          "nationality": [
+            "England"
+          ],
+          "number": "7",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947056",
+          "marketValue": "",
+          "name": "Dee Bradley",
+          "nationality": [
+            "Ireland",
+            "United States"
+          ],
+          "number": "15",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947057",
+          "marketValue": "",
+          "name": "Amber Stobbs",
+          "nationality": [
+            "England"
+          ],
+          "number": "21",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947058",
+          "marketValue": "",
+          "name": "Rachel Lowe",
+          "nationality": [
+            "Australia"
+          ],
+          "number": "23",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947059",
+          "marketValue": "",
+          "name": "Eloise Morran",
+          "nationality": [
+            "Scotland",
+            "England"
+          ],
+          "number": "24",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947060",
+          "marketValue": "",
+          "name": "Lucy Watson",
+          "nationality": [
+            "England"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947061",
+          "marketValue": "",
+          "name": "Grace Ede",
+          "nationality": [
+            "England"
+          ],
+          "number": "10",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947062",
+          "marketValue": "",
+          "name": "Jade Pennock",
+          "nationality": [
+            "England"
+          ],
+          "number": "11",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947063",
+          "marketValue": "",
+          "name": "Olivia Fergusson",
+          "nationality": [
+            "England"
+          ],
+          "number": "17",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947064",
+          "marketValue": "",
+          "name": "Angela Addison",
+          "nationality": [
+            "England"
+          ],
+          "number": "18",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947065",
+          "marketValue": "",
+          "name": "Bayley Hutchison",
+          "nationality": [
+            "Scotland"
+          ],
+          "number": "1",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947066",
+          "marketValue": "",
+          "name": "Grace Collinson",
+          "nationality": [
+            "England"
+          ],
+          "number": "22",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Ipswich Town",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 950042,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947067",
+          "marketValue": "",
+          "name": "Natalia Negri",
+          "nationality": [
+            "England"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947068",
+          "marketValue": "",
+          "name": "Lysianne Proulx",
+          "nationality": [
+            "Canada"
+          ],
+          "number": "44",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947069",
+          "marketValue": "",
+          "name": "Maria Boswell",
+          "nationality": [
+            "England"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947070",
+          "marketValue": "",
+          "name": "Jorja Fox",
+          "nationality": [
+            "England"
+          ],
+          "number": "3",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947071",
+          "marketValue": "",
+          "name": "Georgia Hunter",
+          "nationality": [
+            "Scotland"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947072",
+          "marketValue": "",
+          "name": "Kenzie Weir",
+          "nationality": [
+            "Scotland"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947073",
+          "marketValue": "",
+          "name": "Colette Cavanagh",
+          "nationality": [
+            "Scotland"
+          ],
+          "number": "21",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947074",
+          "marketValue": "",
+          "name": "Beth Roe",
+          "nationality": [
+            "England"
+          ],
+          "number": "22",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947075",
+          "marketValue": "",
+          "name": "Rosie Livingstone",
+          "nationality": [
+            "Scotland"
+          ],
+          "number": "7",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947076",
+          "marketValue": "",
+          "name": "Lucy O'Brien",
+          "nationality": [
+            "England"
+          ],
+          "number": "10",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947077",
+          "marketValue": "",
+          "name": "Kit Graham",
+          "nationality": [
+            "England"
+          ],
+          "number": "16",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947078",
+          "marketValue": "",
+          "name": "Lucy Ashworth-Clifford",
+          "nationality": [
+            "England"
+          ],
+          "number": "25",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947079",
+          "marketValue": "",
+          "name": "Jenna Dear",
+          "nationality": [
+            "England"
+          ],
+          "number": "29",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947080",
+          "marketValue": "",
+          "name": "Rosella Ayane",
+          "nationality": [
+            "Morocco",
+            "England"
+          ],
+          "number": "32",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947081",
+          "marketValue": "",
+          "name": "Aimee Palmer",
+          "nationality": [
+            "England"
+          ],
+          "number": "66",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947082",
+          "marketValue": "",
+          "name": "Jenna Slattery",
+          "nationality": [
+            "Ireland"
+          ],
+          "number": "8",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947083",
+          "marketValue": "",
+          "name": "Georgia Timms",
+          "nationality": [
+            "England"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947084",
+          "marketValue": "",
+          "name": "Megan Hornby",
+          "nationality": [
+            "England"
+          ],
+          "number": "11",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947085",
+          "marketValue": "",
+          "name": "Mary McAteer",
+          "nationality": [
+            "Wales"
+          ],
+          "number": "15",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947086",
+          "marketValue": "",
+          "name": "Eilidh Adams",
+          "nationality": [
+            "Scotland"
+          ],
+          "number": "18",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Leicester City",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 950043,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947087",
+          "marketValue": "",
+          "name": "Olivia Clark",
+          "nationality": [
+            "Wales",
+            "England"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947088",
+          "marketValue": "",
+          "name": "Katie Keane",
+          "nationality": [
+            "Ireland"
+          ],
+          "number": "16",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947089",
+          "marketValue": "",
+          "name": "Sarah Mayling",
+          "nationality": [
+            "England"
+          ],
+          "number": "2",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947090",
+          "marketValue": "",
+          "name": "Leah Eddie",
+          "nationality": [
+            "Scotland"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947091",
+          "marketValue": "",
+          "name": "Heather Payne",
+          "nationality": [
+            "Ireland"
+          ],
+          "number": "11",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947092",
+          "marketValue": "",
+          "name": "Asmita Ale",
+          "nationality": [
+            "England",
+            "Nepal"
+          ],
+          "number": "12",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947093",
+          "marketValue": "",
+          "name": "Jessie Stapleton",
+          "nationality": [
+            "Ireland"
+          ],
+          "number": "22",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947094",
+          "marketValue": "",
+          "name": "Sam Tierney",
+          "nationality": [
+            "England"
+          ],
+          "number": "3",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947095",
+          "marketValue": "",
+          "name": "Celeste Boureille",
+          "nationality": [
+            "United States",
+            "France"
+          ],
+          "number": "6",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947096",
+          "marketValue": "",
+          "name": "Emma Jansson",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "8",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947097",
+          "marketValue": "",
+          "name": "Simone Sherwood",
+          "nationality": [
+            "England"
+          ],
+          "number": "15",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947098",
+          "marketValue": "",
+          "name": "Emilia Pelgander",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "18",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947099",
+          "marketValue": "",
+          "name": "Libby Bance",
+          "nationality": [
+            "England"
+          ],
+          "number": "23",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947100",
+          "marketValue": "",
+          "name": "Olivia McLoughlin",
+          "nationality": [
+            "England"
+          ],
+          "number": "24",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947101",
+          "marketValue": "",
+          "name": "Jessica Ziu",
+          "nationality": [
+            "Ireland"
+          ],
+          "number": "31",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947102",
+          "marketValue": "",
+          "name": "Ffion Bowen",
+          "nationality": [
+            "Wales"
+          ],
+          "number": "46",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947103",
+          "marketValue": "",
+          "name": "Alisha Lehmann",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "7",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947104",
+          "marketValue": "",
+          "name": "Poppy Pritchard",
+          "nationality": [
+            "England"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947105",
+          "marketValue": "",
+          "name": "Missy Goodwin",
+          "nationality": [
+            "England"
+          ],
+          "number": "10",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947106",
+          "marketValue": "",
+          "name": "Paulina Nyström",
+          "nationality": [
+            "Finland",
+            "Sweden"
+          ],
+          "number": "17",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947107",
+          "marketValue": "",
+          "name": "Denny Draper",
+          "nationality": [
+            "England"
+          ],
+          "number": "19",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947108",
+          "marketValue": "",
+          "name": "Araya Dennis",
+          "nationality": [
+            "England"
+          ],
+          "number": "30",
+          "position": "Right Winger"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Newcastle United",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 950044,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947109",
+          "marketValue": "",
+          "name": "Anna Tamminen",
+          "nationality": [
+            "Finland"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947110",
+          "marketValue": "",
+          "name": "Kayla Rendell",
+          "nationality": [
+            "England"
+          ],
+          "number": "12",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947111",
+          "marketValue": "",
+          "name": "Charlotte Wardlaw",
+          "nationality": [
+            "Scotland",
+            "England"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947112",
+          "marketValue": "",
+          "name": "Demi Stokes",
+          "nationality": [
+            "England"
+          ],
+          "number": "3",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947113",
+          "marketValue": "",
+          "name": "Jemma Purfield",
+          "nationality": [
+            "England"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947114",
+          "marketValue": "",
+          "name": "Hanna Németh",
+          "nationality": [
+            "Hungary"
+          ],
+          "number": "15",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947115",
+          "marketValue": "",
+          "name": "Kaitlyn Torpey",
+          "nationality": [
+            "Australia"
+          ],
+          "number": "18",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947116",
+          "marketValue": "",
+          "name": "Lois Joel",
+          "nationality": [
+            "Wales",
+            "England"
+          ],
+          "number": "22",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947117",
+          "marketValue": "",
+          "name": "Gemma Evans",
+          "nationality": [
+            "Wales"
+          ],
+          "number": "23",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947118",
+          "marketValue": "",
+          "name": "Aoife Mannion",
+          "nationality": [
+            "Ireland",
+            "England"
+          ],
+          "number": "25",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947119",
+          "marketValue": "",
+          "name": "Rachel McLauchlan",
+          "nationality": [
+            "Scotland"
+          ],
+          "number": "27",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947120",
+          "marketValue": "",
+          "name": "Jordan Nobbs",
+          "nationality": [
+            "England"
+          ],
+          "number": "4",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947121",
+          "marketValue": "",
+          "name": "Morgan Gautrat",
+          "nationality": [
+            "United States"
+          ],
+          "number": "7",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947122",
+          "marketValue": "",
+          "name": "Mollie Lambert",
+          "nationality": [
+            "England"
+          ],
+          "number": "10",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947123",
+          "marketValue": "",
+          "name": "Freya Gregory",
+          "nationality": [
+            "Scotland",
+            "England"
+          ],
+          "number": "11",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947124",
+          "marketValue": "",
+          "name": "Hildur Antonsdóttir",
+          "nationality": [
+            "Iceland"
+          ],
+          "number": "16",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947125",
+          "marketValue": "",
+          "name": "Katie Bradley",
+          "nationality": [
+            "England"
+          ],
+          "number": "19",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947126",
+          "marketValue": "",
+          "name": "Kathleen McGovern",
+          "nationality": [
+            "Scotland"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947127",
+          "marketValue": "",
+          "name": "Emilia Larsson",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "14",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947128",
+          "marketValue": "",
+          "name": "Martha Thomas",
+          "nationality": [
+            "Scotland",
+            "England"
+          ],
+          "number": "17",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947129",
+          "marketValue": "",
+          "name": "Oona Sevenius",
+          "nationality": [
+            "Finland"
+          ],
+          "number": "20",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947130",
+          "marketValue": "",
+          "name": "Leanne Kiernan",
+          "nationality": [
+            "Ireland"
+          ],
+          "number": "33",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Nottingham Forest",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 950045,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947131",
+          "marketValue": "",
+          "name": "Lucy Carney",
+          "nationality": [
+            "England"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947132",
+          "marketValue": "",
+          "name": "Katie Cox",
+          "nationality": [
+            "England"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947133",
+          "marketValue": "",
+          "name": "Emily Batty",
+          "nationality": [
+            "England"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947134",
+          "marketValue": "",
+          "name": "Georgie Ferguson",
+          "nationality": [
+            "England"
+          ],
+          "number": "29",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947135",
+          "marketValue": "",
+          "name": "Chloe Warrington",
+          "nationality": [
+            "Scotland"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947136",
+          "marketValue": "",
+          "name": "Cerys Brown",
+          "nationality": [
+            "England"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947137",
+          "marketValue": "",
+          "name": "Abbie Lafayette",
+          "nationality": [
+            "England"
+          ],
+          "number": "3",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947138",
+          "marketValue": "",
+          "name": "Georgia Brougham",
+          "nationality": [
+            "England"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947139",
+          "marketValue": "",
+          "name": "Chloe Mustaki",
+          "nationality": [
+            "Ireland",
+            "United States"
+          ],
+          "number": "5",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947140",
+          "marketValue": "",
+          "name": "Ebba Hed",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "12",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947141",
+          "marketValue": "",
+          "name": "Hannah Coan",
+          "nationality": [
+            "England"
+          ],
+          "number": "15",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947142",
+          "marketValue": "",
+          "name": "Codie Thomas",
+          "nationality": [
+            "England"
+          ],
+          "number": "16",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947143",
+          "marketValue": "",
+          "name": "Grace McEwen",
+          "nationality": [
+            "England"
+          ],
+          "number": "22",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947144",
+          "marketValue": "",
+          "name": "Tove Almqvist",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "11",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947145",
+          "marketValue": "",
+          "name": "Rachel Rowe",
+          "nationality": [
+            "Wales"
+          ],
+          "number": "13",
+          "position": "Left Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947146",
+          "marketValue": "",
+          "name": "Freya Thomas",
+          "nationality": [
+            "England"
+          ],
+          "number": "17",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947147",
+          "marketValue": "",
+          "name": "Ilona Walta",
+          "nationality": [
+            "Finland"
+          ],
+          "number": "18",
+          "position": "Left Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947148",
+          "marketValue": "",
+          "name": "Alana Murphy",
+          "nationality": [
+            "Australia"
+          ],
+          "number": "31",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947149",
+          "marketValue": "",
+          "name": "Shania Hayles",
+          "nationality": [
+            "Jamaica",
+            "England"
+          ],
+          "number": "",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947150",
+          "marketValue": "",
+          "name": "Deanne Rose",
+          "nationality": [
+            "Canada",
+            "Jamaica"
+          ],
+          "number": "6",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947151",
+          "marketValue": "",
+          "name": "Chantelle Boye-Hlorkah",
+          "nationality": [
+            "Ghana",
+            "England"
+          ],
+          "number": "8",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947152",
+          "marketValue": "",
+          "name": "Mel Johnson",
+          "nationality": [
+            "Jamaica",
+            "England"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947153",
+          "marketValue": "",
+          "name": "Aimee Claypole",
+          "nationality": [
+            "England",
+            "Finland"
+          ],
+          "number": "10",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947154",
+          "marketValue": "",
+          "name": "Tuva Espås",
+          "nationality": [
+            "Norway"
+          ],
+          "number": "20",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947155",
+          "marketValue": "",
+          "name": "Lois Shooter",
+          "nationality": [
+            "England"
+          ],
+          "number": "21",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Sheffield United",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 950046,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947156",
+          "marketValue": "",
+          "name": "Sian Rogers",
+          "nationality": [
+            "England"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947157",
+          "marketValue": "",
+          "name": "Poppy Soper",
+          "nationality": [
+            "Wales"
+          ],
+          "number": "13",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947158",
+          "marketValue": "",
+          "name": "Leanne Cowan",
+          "nationality": [
+            "England"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947159",
+          "marketValue": "",
+          "name": "Molly Graham",
+          "nationality": [
+            "England"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947160",
+          "marketValue": "",
+          "name": "Gracie Pearse",
+          "nationality": [
+            "England"
+          ],
+          "number": "6",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947161",
+          "marketValue": "",
+          "name": "Maria Reynolds",
+          "nationality": [
+            "Ireland"
+          ],
+          "number": "12",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947162",
+          "marketValue": "",
+          "name": "Sophie O'Rourke",
+          "nationality": [
+            "England"
+          ],
+          "number": "20",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947163",
+          "marketValue": "",
+          "name": "Sophie Harwood",
+          "nationality": [
+            "England"
+          ],
+          "number": "22",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947164",
+          "marketValue": "",
+          "name": "Jess Reavill",
+          "nationality": [
+            "England"
+          ],
+          "number": "41",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947165",
+          "marketValue": "",
+          "name": "Ella Kinzett",
+          "nationality": [
+            "England"
+          ],
+          "number": "4",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947166",
+          "marketValue": "",
+          "name": "Charlie Devlin",
+          "nationality": [
+            "England"
+          ],
+          "number": "10",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947167",
+          "marketValue": "",
+          "name": "Halle Houssein",
+          "nationality": [
+            "Turkey",
+            "England"
+          ],
+          "number": "14",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947168",
+          "marketValue": "",
+          "name": "Lucy Quinn",
+          "nationality": [
+            "Ireland",
+            "England"
+          ],
+          "number": "15",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947169",
+          "marketValue": "",
+          "name": "Tilly Bristow",
+          "nationality": [
+            "England"
+          ],
+          "number": "17",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947170",
+          "marketValue": "",
+          "name": "Connie Scofield",
+          "nationality": [
+            "Northern Ireland",
+            "England"
+          ],
+          "number": "23",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947171",
+          "marketValue": "",
+          "name": "Mollie Rouse",
+          "nationality": [
+            "England"
+          ],
+          "number": "25",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947172",
+          "marketValue": "",
+          "name": "Amy Andrews",
+          "nationality": [
+            "England"
+          ],
+          "number": "7",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947173",
+          "marketValue": "",
+          "name": "Joy Ralph",
+          "nationality": [
+            "Ireland"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947174",
+          "marketValue": "",
+          "name": "Ava Baker",
+          "nationality": [
+            "England"
+          ],
+          "number": "11",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947175",
+          "marketValue": "",
+          "name": "Alyssa Aherne",
+          "nationality": [
+            "England"
+          ],
+          "number": "3",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947176",
+          "marketValue": "",
+          "name": "Lauren Thomas",
+          "nationality": [
+            "Wales",
+            "England"
+          ],
+          "number": "21",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947177",
+          "marketValue": "",
+          "name": "Eva Butler",
+          "nationality": [
+            "England"
+          ],
+          "number": "28",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Southampton",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 950047,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947178",
+          "marketValue": "",
+          "name": "Grace Moloney",
+          "nationality": [
+            "Ireland",
+            "England"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947179",
+          "marketValue": "",
+          "name": "Alina Santos",
+          "nationality": [
+            "New Zealand"
+          ],
+          "number": "13",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947180",
+          "marketValue": "",
+          "name": "Jess Philps",
+          "nationality": [
+            "England"
+          ],
+          "number": "30",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947181",
+          "marketValue": "",
+          "name": "Rachel Brown",
+          "nationality": [
+            "Scotland"
+          ],
+          "number": "2",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947182",
+          "marketValue": "",
+          "name": "Milly Mott",
+          "nationality": [
+            "England"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947183",
+          "marketValue": "",
+          "name": "Amy Goddard",
+          "nationality": [
+            "England"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947184",
+          "marketValue": "",
+          "name": "Ellie Hack",
+          "nationality": [
+            "England"
+          ],
+          "number": "6",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947185",
+          "marketValue": "",
+          "name": "Niamh Murphy",
+          "nationality": [
+            "Scotland"
+          ],
+          "number": "15",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947186",
+          "marketValue": "",
+          "name": "Megan Collett",
+          "nationality": [
+            "England"
+          ],
+          "number": "23",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947187",
+          "marketValue": "",
+          "name": "Mary Bashford",
+          "nationality": [
+            "England"
+          ],
+          "number": "4",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947188",
+          "marketValue": "",
+          "name": "Chloe Peplow",
+          "nationality": [
+            "England"
+          ],
+          "number": "8",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947189",
+          "marketValue": "",
+          "name": "Michaela McAlonie",
+          "nationality": [
+            "Scotland"
+          ],
+          "number": "10",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947190",
+          "marketValue": "",
+          "name": "Abbie Ferguson",
+          "nationality": [
+            "Scotland"
+          ],
+          "number": "11",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947191",
+          "marketValue": "",
+          "name": "Laura Hughes",
+          "nationality": [
+            "Wales",
+            "Australia"
+          ],
+          "number": "14",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947192",
+          "marketValue": "",
+          "name": "Libbi McInnes",
+          "nationality": [
+            "England"
+          ],
+          "number": "17",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947193",
+          "marketValue": "",
+          "name": "Freya Jupp",
+          "nationality": [
+            "England"
+          ],
+          "number": "18",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947194",
+          "marketValue": "",
+          "name": "Saffia Rae",
+          "nationality": [
+            "England"
+          ],
+          "number": "27",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947195",
+          "marketValue": "",
+          "name": "Jessie Archibald",
+          "nationality": [
+            "England"
+          ],
+          "number": "28",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947196",
+          "marketValue": "",
+          "name": "Jasmine Lampard",
+          "nationality": [
+            "England"
+          ],
+          "number": "29",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947197",
+          "marketValue": "",
+          "name": "Safia Bolton",
+          "nationality": [
+            "England"
+          ],
+          "number": "33",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947198",
+          "marketValue": "",
+          "name": "Ellie Brazil",
+          "nationality": [
+            "England"
+          ],
+          "number": "7",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947199",
+          "marketValue": "",
+          "name": "Emma Harries",
+          "nationality": [
+            "England"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947200",
+          "marketValue": "",
+          "name": "Maria Edwards",
+          "nationality": [
+            "England"
+          ],
+          "number": "12",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947201",
+          "marketValue": "",
+          "name": "Ruby Tucker",
+          "nationality": [
+            "England"
+          ],
+          "number": "26",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Sunderland",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 950048,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947202",
+          "marketValue": "",
+          "name": "Fran Stenson",
+          "nationality": [
+            "England"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947203",
+          "marketValue": "",
+          "name": "Grace Donnelly",
+          "nationality": [
+            "England"
+          ],
+          "number": "13",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947204",
+          "marketValue": "",
+          "name": "Noa Schumacher",
+          "nationality": [
+            "United States"
+          ],
+          "number": "18",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947205",
+          "marketValue": "",
+          "name": "Ria Bose",
+          "nationality": [
+            "England"
+          ],
+          "number": "2",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947206",
+          "marketValue": "",
+          "name": "Rhiannon Roberts",
+          "nationality": [
+            "Wales",
+            "England"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947207",
+          "marketValue": "",
+          "name": "Tara Bourne",
+          "nationality": [
+            "England"
+          ],
+          "number": "6",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947208",
+          "marketValue": "",
+          "name": "Jessica Brown",
+          "nationality": [
+            "England"
+          ],
+          "number": "11",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947209",
+          "marketValue": "",
+          "name": "Brianna Westrup",
+          "nationality": [
+            "Scotland",
+            "United States"
+          ],
+          "number": "27",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947210",
+          "marketValue": "",
+          "name": "Ella West",
+          "nationality": [
+            "Scotland",
+            "England"
+          ],
+          "number": "30",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947211",
+          "marketValue": "",
+          "name": "Mary Corbyn",
+          "nationality": [
+            "England"
+          ],
+          "number": "3",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947212",
+          "marketValue": "",
+          "name": "Katie Kitching",
+          "nationality": [
+            "New Zealand",
+            "England"
+          ],
+          "number": "10",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947213",
+          "marketValue": "",
+          "name": "Natasha Fenton",
+          "nationality": [
+            "England"
+          ],
+          "number": "14",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947214",
+          "marketValue": "",
+          "name": "Lily Dent",
+          "nationality": [
+            "England"
+          ],
+          "number": "19",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947215",
+          "marketValue": "",
+          "name": "Atlanta Primus",
+          "nationality": [
+            "Jamaica",
+            "England"
+          ],
+          "number": "20",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947216",
+          "marketValue": "",
+          "name": "Marissa Sheva",
+          "nationality": [
+            "Ireland",
+            "United States"
+          ],
+          "number": "21",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947217",
+          "marketValue": "",
+          "name": "Kassandra Missipo",
+          "nationality": [
+            "Belgium",
+            "Cameroon"
+          ],
+          "number": "23",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947218",
+          "marketValue": "",
+          "name": "Tess Laplacette",
+          "nationality": [
+            "France"
+          ],
+          "number": "77",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947219",
+          "marketValue": "",
+          "name": "Katy Watson",
+          "nationality": [
+            "England"
+          ],
+          "number": "7",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947220",
+          "marketValue": "",
+          "name": "Emily Scarr",
+          "nationality": [
+            "England"
+          ],
+          "number": "8",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947221",
+          "marketValue": "",
+          "name": "Elise Hughes",
+          "nationality": [
+            "Wales"
+          ],
+          "number": "9",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947222",
+          "marketValue": "",
+          "name": "Sanni Franssi",
+          "nationality": [
+            "Finland"
+          ],
+          "number": "16",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947223",
+          "marketValue": "",
+          "name": "Izzy Atkinson",
+          "nationality": [
+            "Ireland"
+          ],
+          "number": "17",
+          "position": "Left Winger"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Watford",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 950049,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947224",
+          "marketValue": "",
+          "name": "Demi Lambourne",
+          "nationality": [
+            "England"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947225",
+          "marketValue": "",
+          "name": "Chloe Sansom",
+          "nationality": [
+            "England"
+          ],
+          "number": "13",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947226",
+          "marketValue": "",
+          "name": "Naomi Williams",
+          "nationality": [
+            "England"
+          ],
+          "number": "25",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947227",
+          "marketValue": "",
+          "name": "Zara Bailey",
+          "nationality": [
+            "England"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947228",
+          "marketValue": "",
+          "name": "Grace Garrad",
+          "nationality": [
+            "England"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947229",
+          "marketValue": "",
+          "name": "Lucy Lyon",
+          "nationality": [
+            "England"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947230",
+          "marketValue": "",
+          "name": "Hannah Greenwood",
+          "nationality": [
+            "England"
+          ],
+          "number": "6",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947231",
+          "marketValue": "",
+          "name": "Eden Skyers",
+          "nationality": [
+            "England"
+          ],
+          "number": "12",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947232",
+          "marketValue": "",
+          "name": "Eva Gray",
+          "nationality": [
+            "England"
+          ],
+          "number": "14",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947233",
+          "marketValue": "",
+          "name": "Grace Neville",
+          "nationality": [
+            "New Zealand",
+            "England"
+          ],
+          "number": "22",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947234",
+          "marketValue": "",
+          "name": "Anna Filbey",
+          "nationality": [
+            "Wales",
+            "England"
+          ],
+          "number": "4",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947235",
+          "marketValue": "",
+          "name": "Ava Kuyken",
+          "nationality": [
+            "England"
+          ],
+          "number": "8",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947236",
+          "marketValue": "",
+          "name": "Aoibheann Clancy",
+          "nationality": [
+            "Ireland"
+          ],
+          "number": "15",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947237",
+          "marketValue": "",
+          "name": "Poppy Wilson",
+          "nationality": [
+            "England"
+          ],
+          "number": "18",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947238",
+          "marketValue": "",
+          "name": "Ellie Noble",
+          "nationality": [
+            "England"
+          ],
+          "number": "19",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947239",
+          "marketValue": "",
+          "name": "Coral Haines",
+          "nationality": [
+            "England"
+          ],
+          "number": "23",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947240",
+          "marketValue": "",
+          "name": "Lachante Paul",
+          "nationality": [
+            "England"
+          ],
+          "number": "7",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947241",
+          "marketValue": "",
+          "name": "Madison Perry",
+          "nationality": [
+            "England"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947242",
+          "marketValue": "",
+          "name": "Phoebie Poole",
+          "nationality": [
+            "Wales"
+          ],
+          "number": "10",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947243",
+          "marketValue": "",
+          "name": "Karin Muya",
+          "nationality": [
+            "England"
+          ],
+          "number": "16",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Wolverhampton Wanderers",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": 950050,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947244",
+          "marketValue": "",
+          "name": "Alex Brooks",
+          "nationality": [
+            "England"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947245",
+          "marketValue": "",
+          "name": "Emily Orman",
+          "nationality": [
+            "England"
+          ],
+          "number": "32",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947246",
+          "marketValue": "",
+          "name": "Lily Simkin",
+          "nationality": [
+            "England"
+          ],
+          "number": "",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947247",
+          "marketValue": "",
+          "name": "Milly Robertson",
+          "nationality": [
+            "England"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947248",
+          "marketValue": "",
+          "name": "Anna Morphet",
+          "nationality": [
+            "Wales"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947249",
+          "marketValue": "",
+          "name": "Jasmine Matthews",
+          "nationality": [
+            "England"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947250",
+          "marketValue": "",
+          "name": "Georgia Marshall",
+          "nationality": [
+            "England"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947251",
+          "marketValue": "",
+          "name": "Katie Johnson",
+          "nationality": [
+            "England"
+          ],
+          "number": "17",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947252",
+          "marketValue": "",
+          "name": "Beth Roberts",
+          "nationality": [
+            "England"
+          ],
+          "number": "22",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947253",
+          "marketValue": "",
+          "name": "Abbi Jenner",
+          "nationality": [
+            "England"
+          ],
+          "number": "27",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947254",
+          "marketValue": "",
+          "name": "Tara O'Hanlon",
+          "nationality": [
+            "Ireland"
+          ],
+          "number": "33",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947255",
+          "marketValue": "",
+          "name": "Merrick Will",
+          "nationality": [
+            "England"
+          ],
+          "number": "",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947256",
+          "marketValue": "",
+          "name": "Tammi George",
+          "nationality": [
+            "England"
+          ],
+          "number": "7",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947257",
+          "marketValue": "",
+          "name": "Layla Proctor",
+          "nationality": [
+            "Australia",
+            "England"
+          ],
+          "number": "8",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947258",
+          "marketValue": "",
+          "name": "Mel Filis",
+          "nationality": [
+            "Ireland",
+            "England"
+          ],
+          "number": "10",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947259",
+          "marketValue": "",
+          "name": "Hollie Olding",
+          "nationality": [
+            "Ireland",
+            "England"
+          ],
+          "number": "15",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947260",
+          "marketValue": "",
+          "name": "Amy Sims",
+          "nationality": [
+            "England"
+          ],
+          "number": "18",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947261",
+          "marketValue": "",
+          "name": "Becky Anderson",
+          "nationality": [
+            "England"
+          ],
+          "number": "19",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947262",
+          "marketValue": "",
+          "name": "Ellen Jones",
+          "nationality": [
+            "Wales",
+            "England"
+          ],
+          "number": "21",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947263",
+          "marketValue": "",
+          "name": "Chloe Williams",
+          "nationality": [
+            "Wales"
+          ],
+          "number": "24",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947264",
+          "marketValue": "",
+          "name": "Charlotte Greengrass",
+          "nationality": [
+            "England"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947265",
+          "marketValue": "",
+          "name": "Amber Hughes",
+          "nationality": [
+            "England"
+          ],
+          "number": "11",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947266",
+          "marketValue": "",
+          "name": "Melissa Lawley",
+          "nationality": [
+            "England"
+          ],
+          "number": "14",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947267",
+          "marketValue": "",
+          "name": "Yana Daniëls",
+          "nationality": [
+            "Belgium"
+          ],
+          "number": "20",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947268",
+          "marketValue": "",
+          "name": "Olivia Francis",
+          "nationality": [
+            "Wales"
+          ],
+          "number": "23",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "947269",
+          "marketValue": "",
+          "name": "Louanne Worsey",
+          "nationality": [
+            "England"
+          ],
+          "number": "36",
+          "position": "Centre-Forward"
+        }
+      ]
+    }
+  ]
+}

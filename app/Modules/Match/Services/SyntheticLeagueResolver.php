@@ -204,7 +204,7 @@ class SyntheticLeagueResolver
             return;
         }
 
-        if (count($teamIds) % 2 !== 0 || count($teamIds) < 4) {
+        if (count($teamIds) < 4) {
             Log::warning('[SyntheticLeague] Cannot generate fixtures: invalid team count', [
                 'game_id' => $game->id,
                 'competition_id' => $competition->id,

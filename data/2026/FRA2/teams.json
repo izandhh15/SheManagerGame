@@ -1,0 +1,3320 @@
+{
+  "id": "FRA2",
+  "name": "Seconde Ligue",
+  "seasonID": "2026",
+  "clubs": [
+    {
+      "image": null,
+      "name": "AS Saint-Étienne",
+      "stadiumName": "Stade Salif-Keita",
+      "stadiumSeats": 1500,
+      "transfermarktId": 950013,
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "946001",
+          "marketValue": "",
+          "name": "Emma Templier",
+          "nationality": [
+            "France"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946002",
+          "marketValue": "",
+          "name": "Ithaisa Viñoly",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "13",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,67m",
+          "id": "946003",
+          "marketValue": "",
+          "name": "Céleste Delcroix",
+          "nationality": [
+            "France"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "946004",
+          "marketValue": "",
+          "name": "Mathilde Kack",
+          "nationality": [
+            "Cameroon"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,60m",
+          "id": "946005",
+          "marketValue": "",
+          "name": "Louna Belhout-Achi",
+          "nationality": [
+            "France"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "946006",
+          "marketValue": "",
+          "name": "Héloïse Mansuy",
+          "nationality": [
+            "France"
+          ],
+          "number": "8",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946007",
+          "marketValue": "",
+          "name": "Ninon Blanchard",
+          "nationality": [
+            "France"
+          ],
+          "number": "15",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,74m",
+          "id": "946008",
+          "marketValue": "",
+          "name": "Agathe Felden",
+          "nationality": [
+            "France"
+          ],
+          "number": "18",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "946009",
+          "marketValue": "",
+          "name": "Roxane Couasnon",
+          "nationality": [
+            "France"
+          ],
+          "number": "22",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "left",
+          "height": "1,61m",
+          "id": "946010",
+          "marketValue": "",
+          "name": "Pauline Sierra",
+          "nationality": [
+            "France"
+          ],
+          "number": "28",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946011",
+          "marketValue": "",
+          "name": "Noélie Chovin",
+          "nationality": [
+            "France"
+          ],
+          "number": "33",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946012",
+          "marketValue": "",
+          "name": "Laura Quily",
+          "nationality": [
+            "France"
+          ],
+          "number": "36",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "946013",
+          "marketValue": "",
+          "name": "Faustine Bataillard",
+          "nationality": [
+            "France"
+          ],
+          "number": "6",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,66m",
+          "id": "946014",
+          "marketValue": "",
+          "name": "Sarah Cambot",
+          "nationality": [
+            "France"
+          ],
+          "number": "9",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "946015",
+          "marketValue": "",
+          "name": "Rachel Corboz",
+          "nationality": [
+            "United States"
+          ],
+          "number": "10",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946016",
+          "marketValue": "",
+          "name": "Lorna Chicha Douvier",
+          "nationality": [
+            "France"
+          ],
+          "number": "19",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946017",
+          "marketValue": "",
+          "name": "Emmy Ganne",
+          "nationality": [
+            "France"
+          ],
+          "number": "35",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946018",
+          "marketValue": "",
+          "name": "Sara Mujdžić",
+          "nationality": [
+            "Bosnia-Herzegovina"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946019",
+          "marketValue": "",
+          "name": "Jalia Chabourine",
+          "nationality": [
+            "France"
+          ],
+          "number": "7",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,70m",
+          "id": "946020",
+          "marketValue": "",
+          "name": "Tyler Isgrig",
+          "nationality": [
+            "United States"
+          ],
+          "number": "11",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946021",
+          "marketValue": "",
+          "name": "Jana Žufánková",
+          "nationality": [
+            "Czech Republic"
+          ],
+          "number": "14",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "",
+          "id": "946022",
+          "marketValue": "",
+          "name": "Inna Hlushchenko",
+          "nationality": [
+            "Ukraine"
+          ],
+          "number": "17",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,64m",
+          "id": "946023",
+          "marketValue": "",
+          "name": "Dona Scannapieco",
+          "nationality": [
+            "France"
+          ],
+          "number": "24",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946024",
+          "marketValue": "",
+          "name": "Hanna'a Chamsoudine",
+          "nationality": [
+            "France"
+          ],
+          "number": "29",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Le Mans FC",
+      "stadiumName": "Complexe de la Californie",
+      "stadiumSeats": 400,
+      "transfermarktId": 950014,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946025",
+          "marketValue": "",
+          "name": "Anouck Laisney",
+          "nationality": [],
+          "number": "16",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,60m",
+          "id": "946026",
+          "marketValue": "",
+          "name": "Jade Dumas",
+          "nationality": [],
+          "number": "30",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946027",
+          "marketValue": "",
+          "name": "Valentine Roger",
+          "nationality": [],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946028",
+          "marketValue": "",
+          "name": "Émilie Giffaut",
+          "nationality": [],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "946029",
+          "marketValue": "",
+          "name": "Nesryne El Chad",
+          "nationality": [],
+          "number": "13",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "left",
+          "height": "1,61m",
+          "id": "946030",
+          "marketValue": "",
+          "name": "Fanny Hoarau",
+          "nationality": [],
+          "number": "20",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,61m",
+          "id": "946031",
+          "marketValue": "",
+          "name": "Pauline Dechilly",
+          "nationality": [],
+          "number": "23",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946032",
+          "marketValue": "",
+          "name": "Angélique Huet",
+          "nationality": [],
+          "number": "25",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,78m",
+          "id": "946033",
+          "marketValue": "",
+          "name": "Roxanne Vilain",
+          "nationality": [],
+          "number": "33",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "946034",
+          "marketValue": "",
+          "name": "Assimina Maoulida",
+          "nationality": [],
+          "number": "41",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946035",
+          "marketValue": "",
+          "name": "Marie-Laure Palene",
+          "nationality": [],
+          "number": "88",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,62m",
+          "id": "946036",
+          "marketValue": "",
+          "name": "Sana Daoudi",
+          "nationality": [],
+          "number": "6",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946037",
+          "marketValue": "",
+          "name": "Sana Guermazi",
+          "nationality": [],
+          "number": "7",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946038",
+          "marketValue": "",
+          "name": "Chloé Philippe",
+          "nationality": [],
+          "number": "8",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946039",
+          "marketValue": "",
+          "name": "Anaïs Gasnier",
+          "nationality": [],
+          "number": "10",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,65m",
+          "id": "946040",
+          "marketValue": "",
+          "name": "Anyssa Ibrahim",
+          "nationality": [],
+          "number": "11",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946041",
+          "marketValue": "",
+          "name": "Clélia Favennec",
+          "nationality": [],
+          "number": "17",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946042",
+          "marketValue": "",
+          "name": "Nassima Bekhti",
+          "nationality": [],
+          "number": "21",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946043",
+          "marketValue": "",
+          "name": "Marie Oger",
+          "nationality": [],
+          "number": "26",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946044",
+          "marketValue": "",
+          "name": "Geylisa Lemarchand",
+          "nationality": [],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946045",
+          "marketValue": "",
+          "name": "Amélie Joseph",
+          "nationality": [],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "946046",
+          "marketValue": "",
+          "name": "Naomie Vagre",
+          "nationality": [],
+          "number": "15",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "946047",
+          "marketValue": "",
+          "name": "Kenza Chapelle",
+          "nationality": [],
+          "number": "22",
+          "position": "Second Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946048",
+          "marketValue": "",
+          "name": "Charlotte Faity",
+          "nationality": [],
+          "number": "27",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "LOSC Lille",
+      "stadiumName": "Stadium (Lille)",
+      "stadiumSeats": 550,
+      "transfermarktId": 950015,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946049",
+          "marketValue": "",
+          "name": "Maëlle Bonnel",
+          "nationality": [],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946050",
+          "marketValue": "",
+          "name": "Élina Dewaele",
+          "nationality": [],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "946051",
+          "marketValue": "",
+          "name": "Emma Francart",
+          "nationality": [],
+          "number": "16",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946052",
+          "marketValue": "",
+          "name": "Célia Delaby",
+          "nationality": [],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946053",
+          "marketValue": "",
+          "name": "Elmira Djaraoui",
+          "nationality": [],
+          "number": "17",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946054",
+          "marketValue": "",
+          "name": "Valéryane Policnik",
+          "nationality": [],
+          "number": "20",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,72m",
+          "id": "946055",
+          "marketValue": "",
+          "name": "Jana Janečka",
+          "nationality": [],
+          "number": "27",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946056",
+          "marketValue": "",
+          "name": "Andréa Felix",
+          "nationality": [],
+          "number": "29",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "946057",
+          "marketValue": "",
+          "name": "Chloé Neller",
+          "nationality": [],
+          "number": "8",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "left",
+          "height": "1,64m",
+          "id": "946058",
+          "marketValue": "",
+          "name": "Wissem Bouzid",
+          "nationality": [],
+          "number": "10",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946059",
+          "marketValue": "",
+          "name": "Lisa Nicot",
+          "nationality": [],
+          "number": "14",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,66m",
+          "id": "946060",
+          "marketValue": "",
+          "name": "Eléna Moreira da Rocha",
+          "nationality": [],
+          "number": "18",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946061",
+          "marketValue": "",
+          "name": "Déborah Piette",
+          "nationality": [],
+          "number": "24",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946062",
+          "marketValue": "",
+          "name": "Manon Lebargy",
+          "nationality": [],
+          "number": "25",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "946063",
+          "marketValue": "",
+          "name": "Pauline Haugou",
+          "nationality": [],
+          "number": "7",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946064",
+          "marketValue": "",
+          "name": "Coumba Gaucher",
+          "nationality": [],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "",
+          "id": "946065",
+          "marketValue": "",
+          "name": "Coralie Monguillon",
+          "nationality": [],
+          "number": "11",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946066",
+          "marketValue": "",
+          "name": "Joséphine Vanuxeem",
+          "nationality": [],
+          "number": "12",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946067",
+          "marketValue": "",
+          "name": "Sonia Roumiga",
+          "nationality": [],
+          "number": "15",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946068",
+          "marketValue": "",
+          "name": "Sarah Djaraoui",
+          "nationality": [],
+          "number": "19",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946069",
+          "marketValue": "",
+          "name": "Tania Bonomo",
+          "nationality": [],
+          "number": "2",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "FC Metz",
+      "stadiumName": "Stade Dezavelle, Longeville-lès-Metz",
+      "stadiumSeats": 1500,
+      "transfermarktId": 950016,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,60m",
+          "id": "946070",
+          "marketValue": "",
+          "name": "Gillian Nottelet",
+          "nationality": [],
+          "number": "16",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "946071",
+          "marketValue": "€25k",
+          "name": "Lisa Lebrun",
+          "nationality": [],
+          "number": "40",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946072",
+          "marketValue": "",
+          "name": "Coraline Gil",
+          "nationality": [],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946073",
+          "marketValue": "",
+          "name": "Loane Ballarin",
+          "nationality": [],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946074",
+          "marketValue": "",
+          "name": "Fara Gomes",
+          "nationality": [],
+          "number": "17",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946075",
+          "marketValue": "",
+          "name": "Kaylia Rosan",
+          "nationality": [],
+          "number": "18",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,70m",
+          "id": "946076",
+          "marketValue": "",
+          "name": "Clara Petitjean",
+          "nationality": [],
+          "number": "21",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946077",
+          "marketValue": "",
+          "name": "Chloé D'Abadie",
+          "nationality": [],
+          "number": "22",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946078",
+          "marketValue": "",
+          "name": "Éléa Lejeune",
+          "nationality": [],
+          "number": "23",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "946079",
+          "marketValue": "€10k",
+          "name": "Maud Antoine",
+          "nationality": [],
+          "number": "26",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,57m",
+          "id": "946080",
+          "marketValue": "",
+          "name": "Léa Munier",
+          "nationality": [],
+          "number": "6",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946081",
+          "marketValue": "",
+          "name": "Anastasia Soulac",
+          "nationality": [],
+          "number": "7",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946082",
+          "marketValue": "",
+          "name": "Tess David",
+          "nationality": [],
+          "number": "8",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "946083",
+          "marketValue": "€10k",
+          "name": "Nermyne Ben Khaled",
+          "nationality": [],
+          "number": "11",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946084",
+          "marketValue": "",
+          "name": "Lina Thivillon",
+          "nationality": [],
+          "number": "13",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946085",
+          "marketValue": "€10k",
+          "name": "Margot Esposito",
+          "nationality": [],
+          "number": "25",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946086",
+          "marketValue": "",
+          "name": "Maria Fodil",
+          "nationality": [],
+          "number": "29",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,63m",
+          "id": "946087",
+          "marketValue": "",
+          "name": "Assia Djebli",
+          "nationality": [],
+          "number": "31",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,59m",
+          "id": "946088",
+          "marketValue": "",
+          "name": "Salma Zemzem",
+          "nationality": [],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,67m",
+          "id": "946089",
+          "marketValue": "",
+          "name": "Assia Bouktit",
+          "nationality": [],
+          "number": "27",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,65m",
+          "id": "946090",
+          "marketValue": "",
+          "name": "Mikayla Dayes",
+          "nationality": [],
+          "number": "28",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Grenoble Foot 38",
+      "stadiumName": "Stade des Alpes",
+      "stadiumSeats": 20000,
+      "transfermarktId": 950017,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946091",
+          "marketValue": "",
+          "name": "Léna Da Silva",
+          "nationality": [],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946092",
+          "marketValue": "",
+          "name": "Gaëlle Grillon",
+          "nationality": [],
+          "number": "16",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946093",
+          "marketValue": "",
+          "name": "Julie Tissino",
+          "nationality": [],
+          "number": "30",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "both",
+          "height": "",
+          "id": "946094",
+          "marketValue": "€15k",
+          "name": "Alyssia Paljevic",
+          "nationality": [],
+          "number": "69",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946095",
+          "marketValue": "",
+          "name": "Romane Pilot",
+          "nationality": [],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946096",
+          "marketValue": "",
+          "name": "Galina Gras",
+          "nationality": [],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946097",
+          "marketValue": "",
+          "name": "Elsa Domenjoud",
+          "nationality": [],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946098",
+          "marketValue": "€25k",
+          "name": "Maëlle Richelandet",
+          "nationality": [],
+          "number": "19",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946099",
+          "marketValue": "",
+          "name": "Pauline Monadier",
+          "nationality": [],
+          "number": "20",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946100",
+          "marketValue": "",
+          "name": "Ophélie Wasner",
+          "nationality": [],
+          "number": "23",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946101",
+          "marketValue": "",
+          "name": "Sophie Pin",
+          "nationality": [],
+          "number": "27",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946102",
+          "marketValue": "",
+          "name": "Louise Grandjean Beylot",
+          "nationality": [],
+          "number": "8",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946103",
+          "marketValue": "€15k",
+          "name": "Laurine Baga",
+          "nationality": [],
+          "number": "10",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946104",
+          "marketValue": "€10k",
+          "name": "Inés Avenant",
+          "nationality": [],
+          "number": "11",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946105",
+          "marketValue": "",
+          "name": "Grazziella Mazza",
+          "nationality": [],
+          "number": "13",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946106",
+          "marketValue": "",
+          "name": "Yosra Ben Hadj Mahmoud",
+          "nationality": [],
+          "number": "22",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946107",
+          "marketValue": "",
+          "name": "N'Deye Lohourignon",
+          "nationality": [],
+          "number": "93",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946108",
+          "marketValue": "",
+          "name": "Claudia Fabre",
+          "nationality": [],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946109",
+          "marketValue": "",
+          "name": "Mara Irys Akpa",
+          "nationality": [],
+          "number": "14",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946110",
+          "marketValue": "€10k",
+          "name": "Coralie Delacellery",
+          "nationality": [],
+          "number": "15",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946111",
+          "marketValue": "€10k",
+          "name": "Djenna Léna Tene",
+          "nationality": [],
+          "number": "17",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946112",
+          "marketValue": "",
+          "name": "Candice Charbonnier",
+          "nationality": [],
+          "number": "18",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946113",
+          "marketValue": "",
+          "name": "Nehla Sadiki",
+          "nationality": [],
+          "number": "21",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946114",
+          "marketValue": "",
+          "name": "Mélanie Chabrier",
+          "nationality": [],
+          "number": "28",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "OGC Nice",
+      "stadiumName": "Stade de la Plaine du Var",
+      "stadiumSeats": 1000,
+      "transfermarktId": 950018,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946115",
+          "marketValue": "",
+          "name": "Noa Gaumet",
+          "nationality": [],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946116",
+          "marketValue": "",
+          "name": "Lina-Lou Nicolas",
+          "nationality": [],
+          "number": "30",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,71m",
+          "id": "946117",
+          "marketValue": "",
+          "name": "Maureen Saint-Léger",
+          "nationality": [],
+          "number": "99",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946118",
+          "marketValue": "",
+          "name": "Marina Zuccala",
+          "nationality": [],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946119",
+          "marketValue": "",
+          "name": "Juliette Gillet",
+          "nationality": [],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946120",
+          "marketValue": "",
+          "name": "Élisa Raimbault",
+          "nationality": [],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946121",
+          "marketValue": "",
+          "name": "Marina Rousseau",
+          "nationality": [],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,68m",
+          "id": "946122",
+          "marketValue": "",
+          "name": "Estelle Laurier",
+          "nationality": [],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,72m",
+          "id": "946123",
+          "marketValue": "",
+          "name": "Julie Marichaud",
+          "nationality": [],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946124",
+          "marketValue": "",
+          "name": "Clara Galli",
+          "nationality": [],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "left",
+          "height": "1,62m",
+          "id": "946125",
+          "marketValue": "",
+          "name": "Coline Bouby",
+          "nationality": [],
+          "number": "14",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946126",
+          "marketValue": "",
+          "name": "Victorine Ferreux",
+          "nationality": [],
+          "number": "18",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946127",
+          "marketValue": "",
+          "name": "Mélinne D'Oria",
+          "nationality": [],
+          "number": "93",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946128",
+          "marketValue": "€10k",
+          "name": "Lina Chabane",
+          "nationality": [],
+          "number": "6",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946129",
+          "marketValue": "",
+          "name": "Léa Cassagne",
+          "nationality": [],
+          "number": "7",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946130",
+          "marketValue": "",
+          "name": "Léa Servolle",
+          "nationality": [],
+          "number": "8",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,77m",
+          "id": "946131",
+          "marketValue": "€15k",
+          "name": "Lucie Tengue",
+          "nationality": [],
+          "number": "19",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946132",
+          "marketValue": "",
+          "name": "Jade Gaiffe",
+          "nationality": [],
+          "number": "24",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946133",
+          "marketValue": "",
+          "name": "Sherly Jeudy",
+          "nationality": [],
+          "number": "27",
+          "position": "Right Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946134",
+          "marketValue": "",
+          "name": "Marie Gibrien Ericher",
+          "nationality": [],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,72m",
+          "id": "946135",
+          "marketValue": "€15k",
+          "name": "Inès Barrier",
+          "nationality": [],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "946136",
+          "marketValue": "",
+          "name": "Joséphine Palin",
+          "nationality": [],
+          "number": "10",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,64m",
+          "id": "946137",
+          "marketValue": "",
+          "name": "Sylviane Gomes",
+          "nationality": [],
+          "number": "11",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "946138",
+          "marketValue": "€15k",
+          "name": "Madeleine Yetna",
+          "nationality": [],
+          "number": "21",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Thonon Évian Grand Genève FC",
+      "stadiumName": "Stade Camille-Fournier, Évian-les-Bains",
+      "stadiumSeats": 1524,
+      "transfermarktId": 950019,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "left",
+          "height": "1,72m",
+          "id": "946139",
+          "marketValue": "",
+          "name": "Blandine Joly",
+          "nationality": [
+            "France"
+          ],
+          "number": "30",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946140",
+          "marketValue": "",
+          "name": "Nina Rousselot",
+          "nationality": [
+            "France"
+          ],
+          "number": "36",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946141",
+          "marketValue": "",
+          "name": "Maureen Palma",
+          "nationality": [
+            "France"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946142",
+          "marketValue": "",
+          "name": "Félicia Goyi",
+          "nationality": [
+            "France"
+          ],
+          "number": "15",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "left",
+          "height": "1,68m",
+          "id": "946143",
+          "marketValue": "",
+          "name": "Lalie Rageot",
+          "nationality": [
+            "France"
+          ],
+          "number": "18",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946144",
+          "marketValue": "",
+          "name": "Lalie Valentino",
+          "nationality": [
+            "France"
+          ],
+          "number": "19",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946145",
+          "marketValue": "",
+          "name": "Emy Bogeat",
+          "nationality": [
+            "France"
+          ],
+          "number": "20",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "946146",
+          "marketValue": "",
+          "name": "Léane Lescop",
+          "nationality": [
+            "France"
+          ],
+          "number": "22",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946147",
+          "marketValue": "",
+          "name": "Cyriel Sibailly",
+          "nationality": [
+            "France"
+          ],
+          "number": "27",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946148",
+          "marketValue": "",
+          "name": "Sarah Rougeron",
+          "nationality": [
+            "France"
+          ],
+          "number": "33",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,55m",
+          "id": "946149",
+          "marketValue": "",
+          "name": "Jessica Mazo",
+          "nationality": [
+            "Colombia"
+          ],
+          "number": "6",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,65m",
+          "id": "946150",
+          "marketValue": "",
+          "name": "Anna Clérac",
+          "nationality": [
+            "France"
+          ],
+          "number": "7",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "946151",
+          "marketValue": "",
+          "name": "Maya Ladhani",
+          "nationality": [
+            "Canada"
+          ],
+          "number": "10",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,67m",
+          "id": "946152",
+          "marketValue": "",
+          "name": "Da-kyeong Choi",
+          "nationality": [
+            "South Korea"
+          ],
+          "number": "11",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946153",
+          "marketValue": "",
+          "name": "Coline Stephen",
+          "nationality": [
+            "France"
+          ],
+          "number": "13",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946154",
+          "marketValue": "",
+          "name": "Liana Priol",
+          "nationality": [
+            "France"
+          ],
+          "number": "23",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,68m",
+          "id": "946155",
+          "marketValue": "",
+          "name": "Naomi Ekwalla Ekassa",
+          "nationality": [
+            "France"
+          ],
+          "number": "24",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946156",
+          "marketValue": "",
+          "name": "Candice Touiba",
+          "nationality": [
+            "France"
+          ],
+          "number": "8",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946157",
+          "marketValue": "",
+          "name": "Ju-yeong Park",
+          "nationality": [
+            "South Korea"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,72m",
+          "id": "946158",
+          "marketValue": "",
+          "name": "Ena Taslidža",
+          "nationality": [
+            "Bosnia-Herzegovina"
+          ],
+          "number": "17",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946159",
+          "marketValue": "",
+          "name": "Ines Aboucharif",
+          "nationality": [
+            "Morocco"
+          ],
+          "number": "34",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946160",
+          "marketValue": "",
+          "name": "Inès Belmiliani",
+          "nationality": [
+            "France"
+          ],
+          "number": "63",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "AS Cannes",
+      "stadiumName": "Stade Maurice Chevalier",
+      "stadiumSeats": 400,
+      "transfermarktId": 950020,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,68m",
+          "id": "946161",
+          "marketValue": "€10k",
+          "name": "Djanaë Longo",
+          "nationality": [],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "946162",
+          "marketValue": "€15k",
+          "name": "Olesya Arsenieva",
+          "nationality": [],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946163",
+          "marketValue": "",
+          "name": "Mary Innebeer",
+          "nationality": [],
+          "number": "3",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946164",
+          "marketValue": "",
+          "name": "Nawel Jaaoni",
+          "nationality": [],
+          "number": "16",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946165",
+          "marketValue": "",
+          "name": "Lauriane Roth",
+          "nationality": [],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946166",
+          "marketValue": "",
+          "name": "Elizabeth Zwerver",
+          "nationality": [],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,65m",
+          "id": "946167",
+          "marketValue": "",
+          "name": "Océane Elineau",
+          "nationality": [],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "both",
+          "height": "1,69m",
+          "id": "946168",
+          "marketValue": "",
+          "name": "Lydia Belkacemi",
+          "nationality": [],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "946169",
+          "marketValue": "€20k",
+          "name": "Wassilah Pacaud",
+          "nationality": [],
+          "number": "",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,73m",
+          "id": "946170",
+          "marketValue": "",
+          "name": "Monika Šišković",
+          "nationality": [],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,56m",
+          "id": "946171",
+          "marketValue": "",
+          "name": "Sandra Rochetaing",
+          "nationality": [],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,69m",
+          "id": "946172",
+          "marketValue": "",
+          "name": "Mélissa Godart",
+          "nationality": [],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,68m",
+          "id": "946173",
+          "marketValue": "",
+          "name": "Anaïs Chareyron",
+          "nationality": [],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946174",
+          "marketValue": "",
+          "name": "Philippine Peloux",
+          "nationality": [],
+          "number": "4",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946175",
+          "marketValue": "",
+          "name": "Maëva Froment",
+          "nationality": [],
+          "number": "6",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946176",
+          "marketValue": "",
+          "name": "Dylanie Delrio",
+          "nationality": [],
+          "number": "10",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946177",
+          "marketValue": "",
+          "name": "Doriane Busquet",
+          "nationality": [],
+          "number": "14",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946178",
+          "marketValue": "",
+          "name": "Lina Bouziani",
+          "nationality": [],
+          "number": "18",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946179",
+          "marketValue": "",
+          "name": "Angela Malaussena",
+          "nationality": [],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "946180",
+          "marketValue": "",
+          "name": "Nouhed Naïli",
+          "nationality": [],
+          "number": "",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,66m",
+          "id": "946181",
+          "marketValue": "€10k",
+          "name": "Kaysha Hassani",
+          "nationality": [],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "946182",
+          "marketValue": "",
+          "name": "Mafille Woedikou",
+          "nationality": [],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "946183",
+          "marketValue": "",
+          "name": "Darlina Joseph",
+          "nationality": [],
+          "number": "",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "946184",
+          "marketValue": "",
+          "name": "Lynda Bendris",
+          "nationality": [],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946185",
+          "marketValue": "",
+          "name": "Baptysia Doisy",
+          "nationality": [],
+          "number": "7",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Bourges FC",
+      "stadiumName": "Stade Jacques-Rimbault",
+      "stadiumSeats": 8000,
+      "transfermarktId": 950021,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946186",
+          "marketValue": "",
+          "name": "Emma Darrigade",
+          "nationality": [
+            "France"
+          ],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "",
+          "id": "946187",
+          "marketValue": "",
+          "name": "Océane Basil",
+          "nationality": [
+            "DR Congo"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "946188",
+          "marketValue": "",
+          "name": "Adji Ndiaye",
+          "nationality": [
+            "Senegal"
+          ],
+          "number": "99",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946189",
+          "marketValue": "",
+          "name": "Margaux Ernandes",
+          "nationality": [
+            "France"
+          ],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,60m",
+          "id": "946190",
+          "marketValue": "",
+          "name": "Christine Manie",
+          "nationality": [
+            "Cameroon"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,60m",
+          "id": "946191",
+          "marketValue": "",
+          "name": "Catherine Mbengono",
+          "nationality": [
+            "Cameroon"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946192",
+          "marketValue": "",
+          "name": "Assiame Ballamna Silara",
+          "nationality": [
+            "France"
+          ],
+          "number": "8",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,64m",
+          "id": "946193",
+          "marketValue": "",
+          "name": "Lola Chezeau",
+          "nationality": [
+            "France"
+          ],
+          "number": "14",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "946194",
+          "marketValue": "",
+          "name": "Lou Autin",
+          "nationality": [
+            "France"
+          ],
+          "number": "15",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "left",
+          "height": "1,61m",
+          "id": "946195",
+          "marketValue": "",
+          "name": "Kahissa Saïdi",
+          "nationality": [
+            "Tunisia"
+          ],
+          "number": "18",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946196",
+          "marketValue": "",
+          "name": "Eugénie Vallée",
+          "nationality": [
+            "France"
+          ],
+          "number": "26",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "946197",
+          "marketValue": "",
+          "name": "Tabita Joseph",
+          "nationality": [
+            "Haiti"
+          ],
+          "number": "28",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "946198",
+          "marketValue": "",
+          "name": "Fatoumata Dramé",
+          "nationality": [
+            "Senegal"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946199",
+          "marketValue": "",
+          "name": "Léocade Bailly",
+          "nationality": [
+            "France"
+          ],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,61m",
+          "id": "946200",
+          "marketValue": "",
+          "name": "Laura Rueda",
+          "nationality": [
+            "France"
+          ],
+          "number": "5",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946201",
+          "marketValue": "",
+          "name": "Christelle Léger",
+          "nationality": [
+            "France"
+          ],
+          "number": "7",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946202",
+          "marketValue": "",
+          "name": "Lili Teinturier",
+          "nationality": [
+            "France"
+          ],
+          "number": "10",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946203",
+          "marketValue": "",
+          "name": "Souhina Hadj Safi",
+          "nationality": [
+            "France"
+          ],
+          "number": "23",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,68m",
+          "id": "946204",
+          "marketValue": "",
+          "name": "Maëlys Rousset",
+          "nationality": [
+            "France"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,54m",
+          "id": "946205",
+          "marketValue": "",
+          "name": "Yrma Mzé Issa",
+          "nationality": [
+            "France"
+          ],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,74m",
+          "id": "946206",
+          "marketValue": "",
+          "name": "Nguenar Ndiaye",
+          "nationality": [
+            "Senegal"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "946207",
+          "marketValue": "",
+          "name": "Shana Battouri",
+          "nationality": [
+            "Algeria"
+          ],
+          "number": "11",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946208",
+          "marketValue": "",
+          "name": "Amélie Trachet",
+          "nationality": [
+            "France"
+          ],
+          "number": "12",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946209",
+          "marketValue": "",
+          "name": "Marie Virginie Diop",
+          "nationality": [
+            "Senegal"
+          ],
+          "number": "3",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946210",
+          "marketValue": "",
+          "name": "Fatoumata Niakaté",
+          "nationality": [
+            "Mali"
+          ],
+          "number": "19",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "AJ Auxerre",
+      "stadiumName": "Stade de l'Abbé-Deschamps",
+      "stadiumSeats": 18000,
+      "transfermarktId": 950022,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946211",
+          "marketValue": "",
+          "name": "Camille André",
+          "nationality": [],
+          "number": "",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946212",
+          "marketValue": "",
+          "name": "Emma Faure",
+          "nationality": [],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946213",
+          "marketValue": "",
+          "name": "Pauline Vassard",
+          "nationality": [],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946214",
+          "marketValue": "",
+          "name": "Amandine Vinatier",
+          "nationality": [],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946215",
+          "marketValue": "",
+          "name": "Carla Giaimo",
+          "nationality": [],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946216",
+          "marketValue": "",
+          "name": "Joye Serrano Mijan",
+          "nationality": [],
+          "number": "",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946217",
+          "marketValue": "€20k",
+          "name": "Éloïse Sévenne",
+          "nationality": [],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946218",
+          "marketValue": "€25k",
+          "name": "Anaëlle Anglais",
+          "nationality": [],
+          "number": "12",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946219",
+          "marketValue": "€30k",
+          "name": "Marine Perea",
+          "nationality": [],
+          "number": "15",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946220",
+          "marketValue": "",
+          "name": "Imène Diyen",
+          "nationality": [],
+          "number": "",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946221",
+          "marketValue": "",
+          "name": "Elsa Mosse",
+          "nationality": [],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946222",
+          "marketValue": "",
+          "name": "Zineb Erroudany",
+          "nationality": [],
+          "number": "8",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946223",
+          "marketValue": "€30k",
+          "name": "Nina Richard",
+          "nationality": [],
+          "number": "10",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946224",
+          "marketValue": "",
+          "name": "Jamila Hamidou",
+          "nationality": [],
+          "number": "13",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946225",
+          "marketValue": "€30k",
+          "name": "Frédérique Abrogoua",
+          "nationality": [],
+          "number": "17",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946226",
+          "marketValue": "",
+          "name": "Inès Kbida",
+          "nationality": [],
+          "number": "20",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946227",
+          "marketValue": "",
+          "name": "Gloria Mabomba",
+          "nationality": [],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946228",
+          "marketValue": "",
+          "name": "Samiat Martins",
+          "nationality": [],
+          "number": "",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946229",
+          "marketValue": "",
+          "name": "Inès Boutaleb",
+          "nationality": [],
+          "number": "14",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946230",
+          "marketValue": "€30k",
+          "name": "Nadjma Ali Nadjim",
+          "nationality": [],
+          "number": "19",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946231",
+          "marketValue": "",
+          "name": "Alizée Mereau",
+          "nationality": [],
+          "number": "21",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": null,
+      "name": "Racing Club Roubaix Wervicq",
+      "stadiumName": "Stade Antoine-Maillard",
+      "stadiumSeats": 3000,
+      "transfermarktId": 950023,
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946232",
+          "marketValue": "",
+          "name": "Anaïs Elie",
+          "nationality": [],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946233",
+          "marketValue": "",
+          "name": "Marie Percebois",
+          "nationality": [],
+          "number": "30",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946234",
+          "marketValue": "",
+          "name": "Chloé Bourt",
+          "nationality": [],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946235",
+          "marketValue": "",
+          "name": "Laura Obrecht",
+          "nationality": [],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "left",
+          "height": "1,75m",
+          "id": "946236",
+          "marketValue": "",
+          "name": "Kate Nado",
+          "nationality": [],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946237",
+          "marketValue": "",
+          "name": "Andréa Prette",
+          "nationality": [],
+          "number": "13",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946238",
+          "marketValue": "",
+          "name": "Orokia Sissoko",
+          "nationality": [],
+          "number": "22",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946239",
+          "marketValue": "€20k",
+          "name": "Gwenaëlle Devleesschauwer",
+          "nationality": [],
+          "number": "27",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,62m",
+          "id": "946240",
+          "marketValue": "€20k",
+          "name": "Laurine Pinot",
+          "nationality": [],
+          "number": "",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946241",
+          "marketValue": "€25k",
+          "name": "Aurore Paprzycki",
+          "nationality": [],
+          "number": "",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946242",
+          "marketValue": "",
+          "name": "Victoire Martinowski",
+          "nationality": [],
+          "number": "6",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946243",
+          "marketValue": "",
+          "name": "Heïta Baradji",
+          "nationality": [],
+          "number": "10",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946244",
+          "marketValue": "",
+          "name": "Marie Hannedouche",
+          "nationality": [],
+          "number": "11",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,66m",
+          "id": "946245",
+          "marketValue": "€25k",
+          "name": "Maureen Bigot",
+          "nationality": [],
+          "number": "24",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946246",
+          "marketValue": "",
+          "name": "Mariam Marega",
+          "nationality": [],
+          "number": "26",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,71m",
+          "id": "946247",
+          "marketValue": "",
+          "name": "Justine Rougemont",
+          "nationality": [],
+          "number": "28",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946248",
+          "marketValue": "",
+          "name": "Sasha Pinot",
+          "nationality": [],
+          "number": "29",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946249",
+          "marketValue": "",
+          "name": "Héléna Theriez",
+          "nationality": [],
+          "number": "7",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946250",
+          "marketValue": "",
+          "name": "Oumayma El Amrani",
+          "nationality": [],
+          "number": "8",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946251",
+          "marketValue": "",
+          "name": "Chanel Tchaptchet",
+          "nationality": [],
+          "number": "14",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "1,65m",
+          "id": "946252",
+          "marketValue": "",
+          "name": "Chloé Zubieta",
+          "nationality": [],
+          "number": "15",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946253",
+          "marketValue": "",
+          "name": "Confidence Bongben Buh",
+          "nationality": [],
+          "number": "20",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946254",
+          "marketValue": "",
+          "name": "Keilya Coupé",
+          "nationality": [],
+          "number": "23",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "",
+          "height": "",
+          "id": "946255",
+          "marketValue": "",
+          "name": "Lisa Bugna",
+          "nationality": [],
+          "number": "5",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "946256",
+          "marketValue": "€35k",
+          "name": "Mélissa Gomes",
+          "nationality": [],
+          "number": "77",
+          "position": "Centre-Forward"
+        }
+      ]
+    }
+  ]
+}

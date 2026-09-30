@@ -133,16 +133,17 @@ class ValidateSeason extends Command
         }
 
         $teamCount = count($clubs);
-        if ($teamCount < 4 || $teamCount % 2 !== 0) {
-            $this->errors[] = "{$code}: round-robin league needs an even count ≥ 4, got {$teamCount} clubs.";
+        if ($teamCount < 4) {
+            $this->errors[] = "{$code}: round-robin league needs at least 4 clubs, got {$teamCount}.";
         }
 
-        // The fixture generator requires exactly 2*(teams-1) league rounds.
+        // The fixture generator requires exactly 2*(teams-1) league rounds
+        // for even counts, 2*teams for odd counts (one bye per round).
         $schedule = $this->loadSchedule($code, "{$dir}/schedule.json");
         if ($schedule !== null) {
             $rounds = count($schedule['league'] ?? []);
-            $expected = 2 * ($teamCount - 1);
-            if ($teamCount % 2 === 0 && $rounds !== $expected) {
+            $expected = $teamCount % 2 === 0 ? 2 * ($teamCount - 1) : 2 * $teamCount;
+            if ($rounds !== $expected) {
                 $this->errors[] = "{$code}: expected {$expected} league rounds for {$teamCount} teams, schedule has {$rounds}.";
             }
         }
@@ -436,8 +437,26 @@ class ValidateSeason extends Command
 
     private function validatePool(string $code, string $dir): void
     {
-        $files = array_filter(glob("{$dir}/*.json") ?: [], fn ($p) => basename($p) !== 'schedule.json');
-        if (count($files) === 0) {
+        // Manifest-style pools (e.g. LIBERTADORES, CONCACHAMPIONS) keep a
+        // teams.json with a 'clubs' array instead of per-team {id}.json
+        // files. Validate the manifest's clubs; skip it in the per-team
+        // image check below.
+        $manifestPath = "{$dir}/teams.json";
+        if (file_exists($manifestPath)) {
+            $manifest = json_decode(file_get_contents($manifestPath), true);
+            foreach ($manifest['clubs'] ?? [] as $club) {
+                if (SeasonData::resolveTransfermarktId((array) $club) === null) {
+                    $this->errors[] = "{$code}: teams.json club '" . ($club['name'] ?? '(unnamed)')
+                        . "' has no resolvable transfermarkt id.";
+                }
+            }
+        }
+
+        $files = array_filter(
+            glob("{$dir}/*.json") ?: [],
+            fn ($p) => !in_array(basename($p), ['schedule.json', 'teams.json'], true)
+        );
+        if (count($files) === 0 && !file_exists($manifestPath)) {
             $this->errors[] = "{$code}: team pool has no per-team {id}.json files.";
             return;
         }
@@ -447,7 +466,10 @@ class ValidateSeason extends Command
                 $this->errors[] = "{$code}: " . basename($file) . " has no resolvable transfermarkt id (image).";
             }
         }
-        $this->line("  {$code}: " . count($files) . " pool teams ✓");
+        $count = count($files) + ($manifestPath && file_exists($manifestPath)
+            ? count(json_decode(file_get_contents($manifestPath), true)['clubs'] ?? [])
+            : 0);
+        $this->line("  {$code}: " . $count . " pool teams ✓");
     }
 
     private function validateScheduleOnly(string $code, string $dir): void
