@@ -3,19 +3,19 @@
 # Tras el primer deploy, Wasmer escribe aquí el app_id. No commitear secretos.
 
 kind: wasmer.io/App.v0
-name: shemanager
+name: shemanager-beta
 # ⚠️ REEMPLAZAR por el nombre de usuario/namespaces de Izan en Wasmer
 owner: izandhh15
 package: .
 
 env:
-  APP_NAME: "SheManagerGame"
+  APP_NAME: "SheManagerGame Beta"
   APP_ENV: "production"
   APP_DEBUG: "false"
   # Temporada de datos femeninos (data/2026). Sin esto el seeder usaría 2025.
   GAME_SEASON: "2026"
   # ⚠️ Actualizar con el dominio real tras el primer deploy
-  APP_URL: "https://shemanager.wasmer.app"
+  APP_URL: "https://shemanager-beta.wasmer.app"
   # La BD gestionada inyecta DB_HOST, DB_PORT, DB_NAME, DB_USERNAME, DB_PASSWORD
   DB_CONNECTION: "pgsql"
   DB_SSLMODE: "prefer"
@@ -60,4 +60,3 @@ scaling:
 #       execute:
 #         command: php
 #         cli_args: ["artisan", "schedule:run"]
-app_id: da_KD4Iat7UJLyd
