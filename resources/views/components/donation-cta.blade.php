@@ -15,7 +15,7 @@
             {{ __('app.donation_description') }}
         </p>
 
-        <a href="https://ko-fi.com/virtuafc"
+        <a href="https://ko-fi.com/izandhh"
            target="_blank"
            rel="noopener noreferrer"
            class="inline-flex items-center justify-center gap-2 px-6 py-2.5 min-h-[44px] text-sm font-semibold rounded-lg bg-white/20 text-white border border-white/30 hover:bg-white/30 hover:border-white/40 transition ease-in-out duration-150"
