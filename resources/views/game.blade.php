@@ -23,6 +23,27 @@
             </x-status-banner>
         @endif
 
+        {{-- Dual-mode switcher: this save is linked to another save (club ⇄
+             nation). They are SEPARATE simulations — injuries, form and
+             calendars never cross over; "advance both" simply steps each save
+             forward one matchday so their calendars stay in lockstep. --}}
+        @php $dualPartner = $game->dualPartner(); @endphp
+        @if($dualPartner)
+        <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 rounded-xl border border-accent-green/30 bg-accent-green/5 px-4 py-3">
+            <span class="text-[10px] font-semibold uppercase tracking-widest text-accent-green">{{ __('game.dual_mode') }}</span>
+            <a href="{{ route('show-game', $dualPartner->id) }}" class="inline-flex items-center gap-2 text-sm font-semibold text-text-body hover:text-accent-green transition-colors">
+                <x-team-crest :team="$dualPartner->team" class="w-6 h-6" />
+                {{ $game->isDualSecondary() ? __('game.dual_go_club') : __('game.dual_go_nation') }}: {{ $dualPartner->team->name }}
+            </a>
+            <form action="{{ route('game.advance-both', $game->id) }}" method="POST" class="ml-auto" x-data="{ submitting: false }" @submit="if (submitting) { $event.preventDefault(); return; } submitting = true; $dispatch('matchday-advance-starting')">
+                @csrf
+                <x-primary-button color="green" size="sm" x-bind:disabled="submitting">
+                    {{ __('game.advance_both') }}
+                </x-primary-button>
+            </form>
+        </div>
+        @endif
+
         @if($nextMatch)
         <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
             {{-- Context rail: next match + fixtures + standings. The narrow 1/3

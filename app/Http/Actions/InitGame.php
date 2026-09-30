@@ -9,6 +9,7 @@ use App\Modules\Season\Services\GameCreationService;
 use App\Modules\Season\Services\TournamentCreationService;
 use App\Models\Game;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Validation\Rule;
 
 class InitGame
@@ -22,8 +23,15 @@ class InitGame
 
     public function __invoke(Request $request)
     {
-        $gameCount = Game::where('user_id', $request->user()->id)->whereNull('deleting_at')->count();
-        if ($gameCount >= 3) {
+        // Only primary saves count against the 3-game limit: dual-mode
+        // secondaries (games.linked_game_id not null) are bookkeeping for
+        // the same career. The hasColumn guard keeps this working if the
+        // code runs before the linked_game_id migration.
+        $gameQuery = Game::where('user_id', $request->user()->id)->whereNull('deleting_at');
+        if (Schema::hasColumn('games', 'linked_game_id')) {
+            $gameQuery->whereNull('linked_game_id');
+        }
+        if ($gameQuery->count() >= 3) {
             return back()->withErrors(['limit' => __('messages.game_limit_reached')]);
         }
 
