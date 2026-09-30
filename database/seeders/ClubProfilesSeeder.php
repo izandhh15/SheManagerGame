@@ -355,23 +355,111 @@ private const CLUB_DATA = [
         'Orlando Pride' => ClubProfile::REPUTATION_CONTINENTAL,
         'Portland Thorns FC' => ClubProfile::REPUTATION_CONTINENTAL,
         'Washington Spirit' => ClubProfile::REPUTATION_CONTINENTAL,
+        'Kansas City Current' => ClubProfile::REPUTATION_CONTINENTAL,
 
         // Established
         'Bay FC' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Boston Legacy' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Chicago Stars' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Denver Summit' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Boston Legacy FC' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Chicago Stars FC' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Denver Summit FC' => ClubProfile::REPUTATION_ESTABLISHED,
         'Gotham FC' => ClubProfile::REPUTATION_ESTABLISHED,
         'Houston Dash' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Racing Louisville' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Racing Louisville FC' => ClubProfile::REPUTATION_ESTABLISHED,
         'San Diego Wave FC' => ClubProfile::REPUTATION_ESTABLISHED,
         'Seattle Reign FC' => ClubProfile::REPUTATION_ESTABLISHED,
-        'Utah Royals' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Utah Royals FC' => ClubProfile::REPUTATION_ESTABLISHED,
 
         // Local
         'Angel City FC' => ClubProfile::REPUTATION_LOCAL,
-        'KC Current' => ClubProfile::REPUTATION_LOCAL,
         'North Carolina Courage' => ClubProfile::REPUTATION_LOCAL,
+
+        // =============================================
+        // Argentina - Primera División A (ARG1)
+        // =============================================
+
+        // Continental
+        'Boca Juniors' => ClubProfile::REPUTATION_CONTINENTAL,
+        'River Plate' => ClubProfile::REPUTATION_CONTINENTAL,
+
+        // Established
+        'San Lorenzo' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Racing Club' => ClubProfile::REPUTATION_ESTABLISHED,
+
+        // Modest
+        'Belgrano' => ClubProfile::REPUTATION_MODEST,
+        'Gimnasia y Esgrima' => ClubProfile::REPUTATION_MODEST,
+        'Banfield' => ClubProfile::REPUTATION_MODEST,
+        "Newell's" => ClubProfile::REPUTATION_MODEST,
+        'Talleres' => ClubProfile::REPUTATION_MODEST,
+        'Huracán' => ClubProfile::REPUTATION_MODEST,
+        'Independiente' => ClubProfile::REPUTATION_MODEST,
+        'Lanús' => ClubProfile::REPUTATION_MODEST,
+
+        // Local
+        'San Luis FC' => ClubProfile::REPUTATION_LOCAL,
+        'Ferro Carril Oeste' => ClubProfile::REPUTATION_LOCAL,
+        'Social Atlético Televisión' => ClubProfile::REPUTATION_LOCAL,
+        'Unión de Santa Fe' => ClubProfile::REPUTATION_LOCAL,
+
+        // =============================================
+        // Brasil - Brasileirão Feminino Série A1 (BRA1)
+        // =============================================
+
+        // Continental
+        'Corinthians' => ClubProfile::REPUTATION_CONTINENTAL,
+        'Palmeiras' => ClubProfile::REPUTATION_CONTINENTAL,
+        'São Paulo' => ClubProfile::REPUTATION_CONTINENTAL,
+        'Flamengo' => ClubProfile::REPUTATION_CONTINENTAL,
+
+        // Established
+        'Internacional' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Grêmio' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Santos' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Ferroviária' => ClubProfile::REPUTATION_ESTABLISHED,
+
+        // Modest
+        'Cruzeiro' => ClubProfile::REPUTATION_MODEST,
+        'Atlético Mineiro' => ClubProfile::REPUTATION_MODEST,
+        'Bahia' => ClubProfile::REPUTATION_MODEST,
+        'Botafogo' => ClubProfile::REPUTATION_MODEST,
+        'Fluminense' => ClubProfile::REPUTATION_MODEST,
+        'Red Bull Bragantino' => ClubProfile::REPUTATION_MODEST,
+
+        // Local
+        'América Mineiro' => ClubProfile::REPUTATION_LOCAL,
+        'Juventude' => ClubProfile::REPUTATION_LOCAL,
+        'Mixto' => ClubProfile::REPUTATION_LOCAL,
+        'Vitória' => ClubProfile::REPUTATION_LOCAL,
+
+        // =============================================
+        // México - Liga MX Femenil (MEX1)
+        // =============================================
+
+        // Continental
+        'Tigres de la UANL' => ClubProfile::REPUTATION_CONTINENTAL,
+        'Club América' => ClubProfile::REPUTATION_CONTINENTAL,
+        'Rayados de Monterrey' => ClubProfile::REPUTATION_CONTINENTAL,
+        'Club Deportivo Guadalajara' => ClubProfile::REPUTATION_CONTINENTAL,
+
+        // Established
+        'CF Pachuca' => ClubProfile::REPUTATION_ESTABLISHED,
+        'Pumas UNAM' => ClubProfile::REPUTATION_ESTABLISHED,
+
+        // Modest
+        'Cruz Azul' => ClubProfile::REPUTATION_MODEST,
+        'Atlas Guadalajara' => ClubProfile::REPUTATION_MODEST,
+        'Club Deportivo Toluca' => ClubProfile::REPUTATION_MODEST,
+        'Club León' => ClubProfile::REPUTATION_MODEST,
+        'Xolos Tijuana' => ClubProfile::REPUTATION_MODEST,
+
+        // Local
+        'Club Santos Laguna' => ClubProfile::REPUTATION_LOCAL,
+        'Club Necaxa' => ClubProfile::REPUTATION_LOCAL,
+        'Club Atlético de San Luis' => ClubProfile::REPUTATION_LOCAL,
+        'Club Puebla' => ClubProfile::REPUTATION_LOCAL,
+        'FC Juárez' => ClubProfile::REPUTATION_LOCAL,
+        'Gallos Blancos de Querétaro' => ClubProfile::REPUTATION_LOCAL,
+        'Atlante FC' => ClubProfile::REPUTATION_LOCAL,
 
     ];
 

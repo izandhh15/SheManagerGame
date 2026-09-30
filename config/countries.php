@@ -243,6 +243,10 @@ return [
                 // EUR club pool — individual team files, for European clubs
                 // outside the modelled leagues
                 'SUI1' => ['role' => 'league', 'handler' => 'league', 'country' => 'CH', 'from_season' => '2026'],
+                'ARG1' => ['role' => 'league', 'handler' => 'league', 'country' => 'AR', 'from_season' => '2026'],
+                'BRA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'BR', 'from_season' => '2026'],
+                'MEX1' => ['role' => 'league', 'handler' => 'league', 'country' => 'MX', 'from_season' => '2026'],
+                'USA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'US', 'from_season' => '2026'],
                 'EUR'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'EU'],
                 // INT club pool — non-European clubs (South America, MLS, etc.)
                 // for transfer market only; never participates in fixtures
@@ -370,6 +374,10 @@ return [
                 'POR1' => ['role' => 'league', 'handler' => 'league', 'country' => 'PT', 'from_season' => '2026'],
                 'NED1' => ['role' => 'league', 'handler' => 'league', 'country' => 'NL', 'from_season' => '2026'],
                 'SUI1' => ['role' => 'league', 'handler' => 'league', 'country' => 'CH', 'from_season' => '2026'],
+                'ARG1' => ['role' => 'league', 'handler' => 'league', 'country' => 'AR', 'from_season' => '2026'],
+                'BRA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'BR', 'from_season' => '2026'],
+                'MEX1' => ['role' => 'league', 'handler' => 'league', 'country' => 'MX', 'from_season' => '2026'],
+                'USA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'US', 'from_season' => '2026'],
                 'EUR'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'EU'],
                 'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
             ],
@@ -477,6 +485,10 @@ return [
                 'POR1' => ['role' => 'league', 'handler' => 'league', 'country' => 'PT', 'from_season' => '2026'],
                 'NED1' => ['role' => 'league', 'handler' => 'league', 'country' => 'NL', 'from_season' => '2026'],
                 'SUI1' => ['role' => 'league', 'handler' => 'league', 'country' => 'CH', 'from_season' => '2026'],
+                'ARG1' => ['role' => 'league', 'handler' => 'league', 'country' => 'AR', 'from_season' => '2026'],
+                'BRA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'BR', 'from_season' => '2026'],
+                'MEX1' => ['role' => 'league', 'handler' => 'league', 'country' => 'MX', 'from_season' => '2026'],
+                'USA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'US', 'from_season' => '2026'],
                 'EUR'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'EU'],
                 'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
             ],
@@ -595,6 +607,10 @@ return [
                 'POR1' => ['role' => 'league', 'handler' => 'league', 'country' => 'PT', 'from_season' => '2026'],
                 'NED1' => ['role' => 'league', 'handler' => 'league', 'country' => 'NL', 'from_season' => '2026'],
                 'SUI1' => ['role' => 'league', 'handler' => 'league', 'country' => 'CH', 'from_season' => '2026'],
+                'ARG1' => ['role' => 'league', 'handler' => 'league', 'country' => 'AR', 'from_season' => '2026'],
+                'BRA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'BR', 'from_season' => '2026'],
+                'MEX1' => ['role' => 'league', 'handler' => 'league', 'country' => 'MX', 'from_season' => '2026'],
+                'USA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'US', 'from_season' => '2026'],
                 'EUR'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'EU'],
                 'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
             ],
@@ -698,6 +714,10 @@ return [
                 'POR1' => ['role' => 'league', 'handler' => 'league', 'country' => 'PT', 'from_season' => '2026'],
                 'NED1' => ['role' => 'league', 'handler' => 'league', 'country' => 'NL', 'from_season' => '2026'],
                 'SUI1' => ['role' => 'league', 'handler' => 'league', 'country' => 'CH', 'from_season' => '2026'],
+                'ARG1' => ['role' => 'league', 'handler' => 'league', 'country' => 'AR', 'from_season' => '2026'],
+                'BRA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'BR', 'from_season' => '2026'],
+                'MEX1' => ['role' => 'league', 'handler' => 'league', 'country' => 'MX', 'from_season' => '2026'],
+                'USA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'US', 'from_season' => '2026'],
                 'EUR'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'EU'],
                 'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
             ],
@@ -806,6 +826,10 @@ return [
                 'ITA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'IT'],
                 'NED1' => ['role' => 'league', 'handler' => 'league', 'country' => 'NL', 'from_season' => '2026'],
                 'SUI1' => ['role' => 'league', 'handler' => 'league', 'country' => 'CH', 'from_season' => '2026'],
+                'ARG1' => ['role' => 'league', 'handler' => 'league', 'country' => 'AR', 'from_season' => '2026'],
+                'BRA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'BR', 'from_season' => '2026'],
+                'MEX1' => ['role' => 'league', 'handler' => 'league', 'country' => 'MX', 'from_season' => '2026'],
+                'USA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'US', 'from_season' => '2026'],
                 'EUR'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'EU'],
                 'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
             ],
@@ -925,6 +949,10 @@ return [
                 'ITA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'IT'],
                 'POR1' => ['role' => 'league', 'handler' => 'league', 'country' => 'PT', 'from_season' => '2026'],
                 'SUI1' => ['role' => 'league', 'handler' => 'league', 'country' => 'CH', 'from_season' => '2026'],
+                'ARG1' => ['role' => 'league', 'handler' => 'league', 'country' => 'AR', 'from_season' => '2026'],
+                'BRA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'BR', 'from_season' => '2026'],
+                'MEX1' => ['role' => 'league', 'handler' => 'league', 'country' => 'MX', 'from_season' => '2026'],
+                'USA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'US', 'from_season' => '2026'],
                 'EUR'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'EU'],
                 'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
             ],
@@ -987,6 +1015,140 @@ return [
                 'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
                 'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
             ],
+        ],
+    ],
+
+    'AR' => [
+        'name' => 'Argentina',
+        'from_season' => '2026',
+
+        'tiers' => [
+            1 => [
+                'competition' => 'ARG1',
+                'teams' => 16,
+                'handler' => 'league',
+                'config_class' => \App\Modules\Competition\Configs\ArgentinePrimeraConfig::class,
+            ],
+        ],
+
+        'promotions' => [],
+
+        'continental_slots' => [],
+
+        'cup_winner_slot' => [],
+
+        'continental_competitions' => [],
+
+        'support' => [
+            'transfer_pool' => [
+                'ESP1' => ['role' => 'league', 'handler' => 'league', 'country' => 'ES'],
+                'ENG1' => ['role' => 'league', 'handler' => 'league', 'country' => 'EN'],
+                'DEU1' => ['role' => 'league', 'handler' => 'league', 'country' => 'DE'],
+                'FRA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'FR'],
+                'ITA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'IT'],
+                'BRA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'BR', 'from_season' => '2026'],
+                'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
+            ],
+            'continental' => [],
+        ],
+    ],
+
+    'BR' => [
+        'name' => 'Brasil',
+        'from_season' => '2026',
+
+        'tiers' => [
+            1 => [
+                'competition' => 'BRA1',
+                'teams' => 18,
+                'handler' => 'league',
+                'config_class' => \App\Modules\Competition\Configs\BrasileiraoFemininoConfig::class,
+            ],
+        ],
+
+        'promotions' => [],
+
+        'continental_slots' => [],
+
+        'cup_winner_slot' => [],
+
+        'continental_competitions' => [],
+
+        'support' => [
+            'transfer_pool' => [
+                'ESP1' => ['role' => 'league', 'handler' => 'league', 'country' => 'ES'],
+                'ENG1' => ['role' => 'league', 'handler' => 'league', 'country' => 'EN'],
+                'DEU1' => ['role' => 'league', 'handler' => 'league', 'country' => 'DE'],
+                'FRA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'FR'],
+                'ITA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'IT'],
+                'ARG1' => ['role' => 'league', 'handler' => 'league', 'country' => 'AR', 'from_season' => '2026'],
+                'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
+            ],
+            'continental' => [],
+        ],
+    ],
+
+    'MX' => [
+        'name' => 'México',
+        'from_season' => '2026',
+
+        'tiers' => [
+            1 => [
+                'competition' => 'MEX1',
+                'teams' => 18,
+                'handler' => 'league',
+                'config_class' => \App\Modules\Competition\Configs\LigaMXFemenilConfig::class,
+            ],
+        ],
+
+        'promotions' => [],
+
+        'continental_slots' => [],
+
+        'cup_winner_slot' => [],
+
+        'continental_competitions' => [],
+
+        'support' => [
+            'transfer_pool' => [
+                'ESP1' => ['role' => 'league', 'handler' => 'league', 'country' => 'ES'],
+                'ENG1' => ['role' => 'league', 'handler' => 'league', 'country' => 'EN'],
+                'USA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'US', 'from_season' => '2026'],
+                'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
+            ],
+            'continental' => [],
+        ],
+    ],
+
+    'US' => [
+        'name' => 'Estados Unidos',
+        'from_season' => '2026',
+
+        'tiers' => [
+            1 => [
+                'competition' => 'USA1',
+                'teams' => 16,
+                'handler' => 'league',
+                'config_class' => \App\Modules\Competition\Configs\NWSLConfig::class,
+            ],
+        ],
+
+        'promotions' => [],
+
+        'continental_slots' => [],
+
+        'cup_winner_slot' => [],
+
+        'continental_competitions' => [],
+
+        'support' => [
+            'transfer_pool' => [
+                'ESP1' => ['role' => 'league', 'handler' => 'league', 'country' => 'ES'],
+                'ENG1' => ['role' => 'league', 'handler' => 'league', 'country' => 'EN'],
+                'MEX1' => ['role' => 'league', 'handler' => 'league', 'country' => 'MX', 'from_season' => '2026'],
+                'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
+            ],
+            'continental' => [],
         ],
     ],
 
