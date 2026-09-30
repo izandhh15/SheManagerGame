@@ -10,6 +10,7 @@
 
         <div x-data="{
                 q: '',
+                clubFilter: '',
                 selected: [],
                 toggle(id) {
                     const i = this.selected.indexOf(id);
@@ -19,8 +20,17 @@
                 isSelected(id) { return this.selected.includes(id); },
             }">
             <div class="sticky top-0 z-10 bg-surface-900/95 backdrop-blur py-3 space-y-3">
-                <input type="text" x-model="q" placeholder="{{ __('game.squad_picker_search') }}"
-                       class="w-full rounded-lg border border-border-default bg-surface-800 px-4 py-2.5 text-sm text-text-body placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-accent-blue/50" />
+                <div class="flex flex-col sm:flex-row gap-2">
+                    <input type="text" x-model="q" placeholder="{{ __('game.squad_picker_search') }}"
+                           class="flex-1 rounded-lg border border-border-default bg-surface-800 px-4 py-2.5 text-sm text-text-body placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-accent-blue/50" />
+                    <select x-model="clubFilter"
+                            class="sm:w-56 rounded-lg border border-border-default bg-surface-800 px-3 py-2.5 text-sm text-text-body focus:outline-none focus:ring-2 focus:ring-accent-blue/50">
+                        <option value="">{{ __('game.squad_picker_all_clubs') }}</option>
+                        @foreach($clubs as $club)
+                            <option value="{{ $club }}">{{ $club }}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <div class="flex items-center justify-between">
                     <p class="text-sm font-semibold" :class="selected.length === 23 ? 'text-accent-green' : 'text-text-secondary'">
                         <span x-text="selected.length"></span> / 23
@@ -49,7 +59,7 @@
                         <h3 class="font-heading text-sm md:text-base font-semibold uppercase tracking-wide text-text-secondary mt-6 mb-2">{{ $groupLabels[$pos] ?? $pos }}</h3>
                         <div class="space-y-1.5">
                             @foreach($grouped[$pos] as $p)
-                                <div x-show="q === '' || '{{ addslashes($p['name']) }}'.toLowerCase().includes(q.toLowerCase())"
+                                <div x-show="(q === '' || '{{ addslashes($p['name']) }}'.toLowerCase().includes(q.toLowerCase())) && (clubFilter === '' || clubFilter === '{{ addslashes($p['club'] ?? '') }}')"
                                      @click="toggle('{{ $p['player_id'] }}')"
                                      :class="isSelected('{{ $p['player_id'] }}') ? 'border-accent-blue/60 bg-accent-blue/10' : 'border-border-default hover:bg-surface-700/50'"
                                      class="flex items-center gap-3 rounded-lg border p-2.5 md:p-3 cursor-pointer transition-all select-none">

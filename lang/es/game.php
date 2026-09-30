@@ -434,6 +434,7 @@ return [
     'squad_picker_confirm' => 'Confirmar convocatoria',
     'squad_picker_need_23' => 'Tienes que convocar exactamente 23 jugadoras.',
     'squad_picker_search' => 'Buscar jugadora…',
+    'squad_picker_all_clubs' => 'Todos los clubes',
     'legacy_saves_notice' => 'Las partidas guardadas mantienen las plantillas con las que empezaron. Para jugar con los datos :season, empieza una partida nueva.',
     'wc2026_name' => 'Copa del Mundo 2026',
     'career_unlock_hint' => 'Gana el Mundial para desbloquearlo',

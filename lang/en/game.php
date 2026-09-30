@@ -434,6 +434,7 @@ return [
     'squad_picker_confirm' => 'Confirm squad',
     'squad_picker_need_23' => 'You must call up exactly 23 players.',
     'squad_picker_search' => 'Search player…',
+    'squad_picker_all_clubs' => 'All clubs',
     'legacy_saves_notice' => 'Saved careers keep the squads they started with. To play with :season data, start a new career.',
     'wc2026_name' => 'World Cup 2026',
     'career_unlock_hint' => 'Win the World Cup to unlock',

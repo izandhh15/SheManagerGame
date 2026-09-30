@@ -78,6 +78,7 @@ final class ShowNationalSquadPicker
         return view('national-squad-picker', [
             'team' => $team,
             'players' => $players,
+            'clubs' => $players->pluck('club')->filter()->unique()->sort()->values(),
         ]);
     }
 }
