@@ -102,9 +102,7 @@ final class SelectTeam
         // teams with seeded templates. Shown when WWCQ is seeded.
         $ntTeams = collect();
         $ntFeaturedTeams = collect();
-        $hasNationalMode = config('game.tournament_mode_enabled')
-            && $request->user()->canPlayTournamentMode()
-            && Competition::where('id', 'WWCQ')->exists();
+        $hasNationalMode = Competition::where('id', 'WWCQ')->exists();
 
         if ($hasNationalMode) {
             $locale = app()->getLocale();

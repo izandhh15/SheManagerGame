@@ -7,6 +7,7 @@ use App\Modules\Season\Services\ActivationTracker;
 use App\Modules\Season\Services\TournamentCreationService;
 use App\Models\Game;
 use App\Models\Team;
+use App\Models\Competition;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -30,7 +31,7 @@ class InitNationalGame
             return back()->withErrors(['limit' => __('messages.game_limit_reached')]);
         }
 
-        if (! config('game.tournament_mode_enabled') || ! $request->user()->canPlayTournamentMode()) {
+        if (! Competition::where('id', 'WWCQ')->exists()) {
             return back()->withErrors(['game_mode' => __('messages.tournament_mode_requires_access')]);
         }
 
