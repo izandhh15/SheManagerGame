@@ -14,7 +14,7 @@ use App\Models\Game;
 class DefaultLeagueConfig implements CompetitionConfig, HasSeasonGoals
 {
     private int $numTeams;
-    private int $baseTvRevenue;
+    private int|float $baseTvRevenue;
 
     /**
      * Default reputation to goal mapping.
@@ -27,7 +27,7 @@ class DefaultLeagueConfig implements CompetitionConfig, HasSeasonGoals
         ClubProfile::REPUTATION_LOCAL => Game::GOAL_SURVIVAL,
     ];
 
-    public function __construct(int $numTeams = 20, int $baseTvRevenue = 5_000_000_000)
+    public function __construct(int $numTeams = 20, int|float $baseTvRevenue = 5_000_000_000)
     {
         $this->numTeams = $numTeams;
         $this->baseTvRevenue = $baseTvRevenue; // €50M default base
