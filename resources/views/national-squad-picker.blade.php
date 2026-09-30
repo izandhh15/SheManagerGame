@@ -73,6 +73,16 @@
             <form method="post" action="{{ route('init-national-game') }}" @submit="if (selected.length !== 23) $event.preventDefault()">
                 @csrf
                 <input type="hidden" name="team_id" value="{{ $team->id }}" />
+                @if(!empty($competitions))
+                <div class="mb-6 rounded-lg border border-border-default bg-surface-800 p-4">
+                    <label for="competition_id" class="block text-sm font-semibold text-text-primary mb-2">Competición</label>
+                    <select name="competition_id" id="competition_id" class="w-full rounded-lg border border-border-default bg-surface-700 px-3 py-2 text-text-primary">
+                        @foreach($competitions as $comp)
+                        <option value="{{ $comp['id'] }}">{{ $comp['name'] }}</option>
+                        @endforeach
+                    </select>
+                </div>
+                @endif
             @endif
                 <template x-for="id in selected" :key="id">
                     <input type="hidden" name="player_ids[]" :value="id" />

@@ -120,12 +120,24 @@ final class ShowNationalSquadPicker
             fn ($group) => $group->take(150)
         )->values();
 
+        // Available competitions: UEFA teams can choose between World Cup
+        // qualifying and the Nations League; other confederations only have
+        // their qualifier.
+        $competitions = [];
+        if ($team->confederation === 'UEFA' && !$updateGame) {
+            $competitions = [
+                ['id' => 'WNL', 'name' => "UEFA Women's Nations League"],
+                ['id' => \App\Modules\Season\Services\TournamentCreationService::competitionIdForConfederation($team->confederation), 'name' => 'Clasificación Mundial 2027'],
+            ];
+        }
+
         return view('national-squad-picker', [
             'team' => $team,
             'players' => $players,
             'clubs' => $players->pluck('club')->filter()->unique()->sort()->values(),
             'dualClub' => $dualClub,
             'updateGame' => $updateGame,
+            'competitions' => $competitions,
         ]);
     }
 }
