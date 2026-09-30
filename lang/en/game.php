@@ -69,6 +69,7 @@ return [
     'world_cup_qualified' => 'Qualified for World Cup 2027',
     'direct_promotion' => 'Direct Promotion',
     'promotion_playoff' => 'Promotion Playoff',
+    'relegation_playoff' => 'Relegation Playoff',
     'primera_rfef' => 'Primera RFEF',
     'primera_rfef_group_a' => 'Primera RFEF — Group 1',
     'primera_rfef_group_b' => 'Primera RFEF — Group 2',

@@ -69,6 +69,7 @@ return [
     'world_cup_qualified' => 'Clasificado al Mundial 2027',
     'direct_promotion' => 'Ascenso Directo',
     'promotion_playoff' => 'Playoff de Ascenso',
+    'relegation_playoff' => 'Playoff de Descenso',
     'primera_rfef' => 'Primera RFEF',
     'primera_rfef_group_a' => 'Primera RFEF — Grupo 1',
     'primera_rfef_group_b' => 'Primera RFEF — Grupo 2',

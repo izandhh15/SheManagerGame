@@ -83,6 +83,17 @@ class WSLRelegationPlayoffGenerator implements PlayoffGenerator
             : [];
     }
 
+    /**
+     * Lang key for the qualifying (playoff) positions label. ENG1's 13th
+     * fights to avoid relegation; ENG2's 2nd fights for promotion.
+     */
+    public function getQualifyingLabel(): string
+    {
+        return $this->perspective === self::ENG2_ID
+            ? 'cup.promotion_playoff'
+            : 'cup.relegation_playoff';
+    }
+
     public function getTriggerMatchday(): int
     {
         return $this->triggerMatchday;

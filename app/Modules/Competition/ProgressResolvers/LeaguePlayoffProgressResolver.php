@@ -26,7 +26,11 @@ class LeaguePlayoffProgressResolver implements ProgressResolver
         }
 
         if (in_array($standing->position, $generator->getQualifyingPositions())) {
-            return QualificationOutcome::playoff('cup.promotion_playoff');
+            $label = method_exists($generator, 'getQualifyingLabel')
+                ? $generator->getQualifyingLabel()
+                : 'cup.promotion_playoff';
+
+            return QualificationOutcome::playoff($label);
         }
 
         return null;
