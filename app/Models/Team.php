@@ -15,6 +15,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  * @property string $id
  * @property int|null $transfermarkt_id
  * @property string|null $fifa_code
+ * @property string|null $confederation
  * @property bool $is_placeholder
  * @property string $name
  * @property string|null $slug
@@ -53,6 +54,7 @@ class Team extends Model
         'transfermarkt_id',
         'type',
         'fifa_code',
+        'confederation',
         'is_placeholder',
         'name',
         'slug',
@@ -75,6 +77,17 @@ class Team extends Model
     public function scopeWorldCupEligible(Builder $query): Builder
     {
         return $query->where('type', 'national')->whereNotNull('fifa_code');
+    }
+
+    /**
+     * Filter national teams by FIFA confederation (UEFA, AFC, CAF,
+     * CONCACAF, CONMEBOL, OFC). Teams with a null confederation (seeded
+     * before the field existed) are simply excluded — callers that need the
+     * legacy global behavior pass no confederation filter.
+     */
+    public function scopeConfederation(Builder $query, ?string $confederation): Builder
+    {
+        return $query->where('confederation', $confederation);
     }
 
     /**
