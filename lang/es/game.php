@@ -500,6 +500,7 @@ return [
     // UEFA Swiss Format - Season Goals
     // Tournament Dramatic Results (knockout stage)
     'tournament_champion_title' => '¡Campeones del Mundo!',
+    'tournament_winner' => 'Campeona',
     'tournament_runner_up_title' => 'Subcampeones',
     'tournament_third_place_title' => '¡Tercer Puesto!',
     'tournament_fourth_place_title' => 'Cuarto Puesto',

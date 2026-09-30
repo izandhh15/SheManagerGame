@@ -1018,4 +1018,25 @@ return [
         ],
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Other women's national-team tournaments
+    |--------------------------------------------------------------------------
+    |
+    | Continental championships, same 'tournament' treatment as the WQ*
+    | qualifiers above: they only exist so
+    | CountryConfig::configClassForCompetition() resolves the ids;
+    | participants come from the database seeds, not from this file.
+    */
+    'WNT' => [
+        'name' => 'Torneos de selecciones',
+        'tournament' => true,
+        'continental_competitions' => [
+            'WNL'     => ['config_class' => \App\Modules\Competition\Configs\WomensNationsLeagueConfig::class],
+            'WEURO'   => ['config_class' => \App\Modules\Competition\Configs\WomensEuroConfig::class],
+            'WGOLD'   => ['config_class' => \App\Modules\Competition\Configs\WGoldCupConfig::class],
+            'WCOPAAM' => ['config_class' => \App\Modules\Competition\Configs\CopaAmericaFemeninaConfig::class],
+        ],
+    ],
+
 ];
