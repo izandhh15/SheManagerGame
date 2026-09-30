@@ -17,6 +17,10 @@ if (!$expected || !hash_equals($expected, $given)) {
     exit('forbidden');
 }
 
+// El seed tarda minutos: que no lo mate ni el timeout ni el cliente.
+ignore_user_abort(true);
+set_time_limit(0);
+
 $step = $_GET['step'] ?? '';
 
 header('Content-Type: text/plain; charset=utf-8');
