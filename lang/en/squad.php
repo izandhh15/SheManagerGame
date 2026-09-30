@@ -1,0 +1,403 @@
+<?php
+
+return [
+    // Page title
+    'squad' => 'Squad',
+    'first_team' => 'First Team',
+    'development' => 'Development',
+    'stats' => 'Stats',
+
+    // Position groups
+    'goalkeepers' => 'Goalkeepers',
+    'defenders' => 'Defenders',
+    'midfielders' => 'Midfielders',
+    'forwards' => 'Forwards',
+    'goalkeepers_short' => 'GK',
+    'defenders_short' => 'DEF',
+    'midfielders_short' => 'MID',
+    'forwards_short' => 'FWD',
+
+    // Columns
+    'years_abbr' => 'yrs',
+    'fitness' => 'ENE',
+    'morale' => 'MOR',
+    'overall' => 'Overall',
+    'overall_short' => 'OVR',
+    'attack_short' => 'ATK',
+    'defense_short' => 'DEF',
+    'attack_xg_label' => 'Attack xG',
+    'defense_xg_label' => 'Defense xG',
+
+    // Status labels
+    'on_loan' => 'On Loan',
+    'loaned_from' => 'On loan from',
+    'loaned_to' => 'Loaned to',
+    'leaving_free' => 'Leaving (Free)',
+    'renewed' => 'Renewed',
+    'sale_agreed' => 'Sale Agreed',
+    'retiring' => 'Retiring',
+    'listed' => 'Listed',
+    'list_for_sale' => 'List for Sale',
+    'unlist_from_sale' => 'Remove from Sale',
+    'loan_out' => 'Loan Out',
+    'release_player' => 'Release',
+    'release_confirm_title' => 'Release Player',
+    'release_confirm_message' => 'Are you sure you want to release :player? This action cannot be undone.',
+    'release_severance_label' => 'Severance cost',
+    'release_remaining_contract' => 'Remaining contract',
+    'release_years_remaining' => ':years year(s)',
+    'release_confirm_button' => 'Confirm Release',
+    'loan_searching' => 'Searching for loan destination',
+    'contract_expiring' => 'Contract expiring',
+
+    // Summary
+    'wage_bill' => 'Wage Bill',
+    'per_year' => '/yr',
+    'avg_fitness' => 'Avg Energy',
+    'avg_morale' => 'Avg Morale',
+    'low' => 'low',
+
+    // Contract management
+    'free_transfer' => 'Free',
+    'let_go' => 'Let Go',
+    'pre_contract_signed' => 'Pre-contract signed',
+    'new_wage_from_next' => 'New wage from next season',
+    'has_pre_contract_offers' => 'Has pre-contract offers!',
+    'renew' => 'Renew',
+    'expires_in_days' => '{0}Expires today|{1}Expires in :count day|[2,*]Expires in :count days',
+
+    // Lineup validation
+    'formation_position_mismatch' => 'Formation :formation requires :required :position, but you selected :actual.',
+    'player_not_available' => 'One or more selected players are not available.',
+
+    // Lineup
+    'formation' => 'Formation',
+    'mentality' => 'Mentality',
+    'auto_select' => 'Auto Select',
+    'opponent' => 'Opponent',
+    'need' => 'need',
+
+    // Compatibility
+    'natural' => 'Natural',
+    'very_good' => 'Very Good',
+    'good' => 'Good',
+    'okay' => 'Okay',
+    'poor' => 'Poor',
+    'unsuitable' => 'Unsuitable',
+
+
+    // Lineup editor
+    'pitch' => 'Pitch',
+
+    // Opponent scout
+    'injured' => 'injured',
+    'suspended' => 'suspended',
+
+    // Coach assistant
+    'coach_recommendations' => 'Recommendations',
+    'coach_no_tips' => 'No special recommendations for this match.',
+    'coach_defensive_recommended' => 'Opponent is stronger. Defensive mentality reduces their expected goals by 30%.',
+    'coach_attacking_recommended' => 'You have the advantage. Attacking mentality can maximize your goals.',
+    'coach_risky_formation' => 'Your attacking formation against a stronger opponent will give them more chances. Consider a more defensive one.',
+    'coach_home_advantage' => "You're playing at home (+0.15 expected goals).",
+    'coach_critical_fitness' => ':names at critical energy (<50). 2x injury risk. Consider rotating them.',
+    'coach_low_fitness' => ':count player(s) with low energy (<70). They perform worse and have higher injury risk.',
+    'coach_low_morale' => ':count player(s) with low morale. They\'ll perform worse in the match.',
+    'coach_bench_frustration' => ':count quality player(s) not playing and losing morale. Rotate to keep them happy.',
+    'coach_opponent_expected_label' => 'Expected',
+    'coach_opponent_defensive_setup' => 'Opponent expected to play :formation (:mentality). Consider an attacking approach to break them down.',
+    'coach_opponent_attacking_setup' => 'Opponent expected to play :formation (:mentality). They\'ll leave space — a solid defense can exploit this.',
+    'coach_opponent_deep_block' => 'Opponent playing with 5 defenders. Width and patience will be key.',
+    'coach_out_of_position' => ':names out of position. They\'ll perform worse in the match.',
+    'mentality_defensive' => 'Defensive',
+    'mentality_balanced' => 'Balanced',
+    'mentality_attacking' => 'Attacking',
+
+    // Unavailability reasons
+    'suspended_matches' => 'Suspended (:count match)|Suspended (:count matches)',
+    'injured_generic' => 'Injured',
+    'injury_return_date' => 'out until :date',
+
+    // Injury types
+    'injury_muscle_fatigue' => 'Muscle fatigue',
+    'injury_muscle_strain' => 'Muscle strain',
+    'injury_calf_strain' => 'Calf strain',
+    'injury_ankle_sprain' => 'Ankle sprain',
+    'injury_groin_strain' => 'Groin strain',
+    'injury_hamstring_tear' => 'Hamstring tear',
+    'injury_knee_contusion' => 'Knee contusion',
+    'injury_metatarsal_fracture' => 'Metatarsal fracture',
+    'injury_acl_tear' => 'ACL tear',
+    'injury_achilles_rupture' => 'Achilles tendon rupture',
+
+    // Development page
+    'ability' => 'Ability',
+    'playing_time' => 'Minutes',
+    'high_potential' => 'High Potential',
+    'growing' => 'Growing',
+    'declining' => 'Declining',
+    'peak' => 'Peak',
+    'all' => 'All',
+    'no_players_match_filter' => 'No players match the selected filter.',
+    'pot' => 'POT',
+    'apps' => 'Apps',
+    'projection' => 'Projection',
+    'potential' => 'Potential',
+    'potential_range' => 'Potential Range',
+    'starter_bonus' => 'starter bonus',
+    'needs_appearances' => 'Needs :count+ appearances for starter bonus',
+    'qualifies_starter_bonus' => 'Qualifies for starter bonus (+50% development)',
+
+    // Stats page
+    'goals' => 'G',
+    'assists' => 'A',
+    'goal_contributions' => 'G+A',
+    'goals_per_game' => 'G/App',
+    'own_goals' => 'OG',
+    'yellow_cards' => 'YC',
+    'red_cards' => 'RC',
+    'clean_sheets' => 'CS',
+    'appearances' => 'Appearances',
+    'bookings' => 'Bookings',
+    'click_to_sort' => 'Click column headers to sort',
+
+    // Stats highlights
+    'top_in_squad' => 'Top in squad',
+
+    // Legend labels
+    'legend_apps' => 'Appearances',
+    'legend_goals' => 'Goals',
+    'legend_assists' => 'Assists',
+    'legend_contributions' => 'Goal Contributions',
+    'legend_own_goals' => 'Own Goals',
+    'legend_mvp' => 'Player of the Match awards',
+    'legend_clean_sheets' => 'Clean Sheets (GK only)',
+
+    // Squad number
+    'assign_number' => 'Assign number',
+    'number_taken' => 'This number is already taken',
+    'number_updated' => 'Number updated',
+    'number_invalid' => 'Number must be between 1 and 99',
+
+    // Player detail modal
+    'abilities' => 'Abilities',
+    'overall_full' => 'Overall',
+    'fitness_full' => 'Energy',
+    'morale_full' => 'Morale',
+    'season_stats' => 'Season Stats',
+    'clean_sheets_full' => 'Clean Sheets',
+    'goals_conceded_full' => 'Goals Conceded',
+    'discovered' => 'Discovered',
+    'origin' => 'Origin',
+    'joined' => 'Joined',
+    'origin_academy' => 'Academy',
+    'origin_free_agent' => 'Free agent',
+    'precontract_banner_title' => 'Pre-contract signed',
+    'precontract_banner_body' => 'Not on your roster yet — joins the squad at the start of the :year season on a free transfer.',
+    'career_history' => 'Career history',
+    'no_career_history' => 'No completed seasons yet.',
+
+    // Academy
+    'academy' => 'Academy',
+    'promote_to_first_team' => 'Promote to First Team',
+    'academy_tier' => 'Academy Tier',
+    'academy_players' => 'Players',
+    'no_academy_prospects' => 'No academy prospects available.',
+    'academy_explanation' => 'New academy prospects arrive at the start of each season based on your academy investment.',
+    'academy_dismiss' => 'Dismiss',
+    'academy_dismiss_confirm' => 'Are you sure? The player will be permanently dismissed.',
+    'academy_dismiss_desc' => 'Player is permanently dismissed from the club.',
+    'academy_loan_out' => 'Loan Out',
+    'academy_loan_desc' => 'Player goes on loan with accelerated development (1.5x) and returns at end of season.',
+    'academy_promote' => 'Promote',
+    'academy_promote_desc' => 'Player joins the first team with a professional contract.',
+    'academy_on_loan' => 'On Loan',
+    'academy_seasons' => ':count season|:count seasons',
+    // Academy help text
+    'academy_help_toggle' => 'How does the academy work?',
+    'academy_help_development' => 'The academy functions as your B team, producing players calibrated to your squad level. Academy players develop throughout the season and can be promoted to the first team when ready.',
+    'academy_help_actions_title' => 'Available actions',
+    'academy_help_promote' => 'Promote - permanently joins the first team with a professional contract',
+    'academy_help_loan' => 'Loan - develops faster on loan and returns at end of season',
+    'academy_help_dismiss' => 'Dismiss - leaves the club permanently',
+    'academy_help_age_rule' => 'Players who turn 21 will be automatically promoted to the first team at the start of the season.',
+
+    'academy_tier_0' => 'Minimal Academy',
+    'academy_tier_1' => 'Basic Academy',
+    'academy_tier_2' => 'Good Academy',
+    'academy_tier_3' => 'Elite Academy',
+    'academy_tier_4' => 'World-Class Academy',
+    'academy_tier_unknown' => 'Unknown',
+
+    // Reserve team (filial)
+    'reserve_team' => 'Reserve Team',
+    'reserve_squad' => 'Reserve squad',
+    'no_reserve_players' => 'No reserve-team players.',
+    'call_up' => 'Call up',
+    'call_up_to_first_team' => 'Call up to first team',
+    'send_back' => 'Send back',
+    'send_back_to_reserve' => 'Send back to reserve',
+    'send_down_to_reserve' => 'Send down to reserve',
+    'send_down_to_reserve_confirm' => 'Send this U23 player down to the reserve team?',
+    'called_up_indicator' => 'Called up',
+    'homegrown_indicator' => 'Homegrown',
+    'actions' => 'Actions',
+    'reserve_help_toggle' => 'How does the reserve team work?',
+    'reserve_help_development' => 'Your reserve team is your filial — its squad belongs to the reserve, not the first team. New academy prospects arrive here each season based on your academy investment, and develop alongside the existing reserve roster.',
+    'reserve_help_age_rule' => 'Players over 23 are automatically promoted to the first team at season close. The first team can call up reserve players any time during the season.',
+    'reserve_help_actions_title' => 'Available actions',
+    'reserve_help_call_up' => 'Call up - the player joins the first team on a temporary loan and can play first-team matches',
+    'reserve_help_send_back' => 'Send back - returns the called-up player to the reserve squad',
+
+    // Lineup help text
+    'lineup_help_toggle' => 'How does lineup selection work?',
+    'lineup_help_intro' => 'Choose 11 players for each match. Your formation, player energy, and positional compatibility all affect performance.',
+    'lineup_help_formation_title' => 'Formation & Mentality',
+    'lineup_help_formation_desc' => 'The formation determines which positions are available on the pitch. Players perform best in their natural position.',
+    'lineup_help_compatibility_natural' => 'Natural — player is in their best position, full performance.',
+    'lineup_help_compatibility_good' => 'Very Good — plays without penalty. Good — 25% match penalty.',
+    'lineup_help_compatibility_poor' => 'Poor / Unsuitable — 25% performance penalty. Avoid if possible.',
+    'lineup_help_mentality_desc' => 'Mentality affects how attacking or defensive your team plays.',
+    'lineup_help_condition_title' => 'Fitness & Morale',
+    'lineup_help_condition_desc' => 'Players with low energy or morale perform worse. Rotate your squad to keep everyone fresh.',
+    'lineup_help_fitness' => 'Energy drops during each match and recovers between matchdays. Players start matches at their current energy level — manage rotations to keep them fresh.',
+    'lineup_help_morale' => 'Morale is affected by results, playing time, and contract status.',
+    'lineup_help_auto' => 'Use "Auto Select" to let the system pick the best available XI for your formation.',
+
+    // Squad selection (tournament onboarding)
+    'squad_selection_title' => 'Select your squad',
+    'squad_selection_subtitle' => 'Choose 26 players for the tournament',
+    'confirm_squad' => 'Confirm',
+    'squad_confirmed' => 'Squad confirmed!',
+    'invalid_selection' => 'Invalid selection. Please check the selected players.',
+    'download_squad' => 'Download squad',
+    'squad_list' => 'Squad List',
+    'called_up_badge' => 'Called up',
+
+    // Radar chart
+    'radar_gk' => 'Goalkeeping',
+    'radar_def' => 'Defense',
+    'radar_mid' => 'Midfield',
+    'radar_att' => 'Attack',
+    'radar_fit' => 'Energy',
+    'radar_mor' => 'Morale',
+    'radar_overall' => 'Overall',
+
+    // Registration
+    'not_registered' => 'Not registered',
+    'too_many_first_team' => 'Maximum 25 first-team registrations (numbers 1-25) allowed.',
+    'drag_to_assign' => 'Drag a player here to assign them',
+
+    // Grid positioning
+    'drag_or_tap' => 'Tap a cell or drag the player',
+    'select_player_for_slot' => 'Select a player from the list',
+
+    // Squad dashboard KPIs
+    'squad_size' => 'Squad Size',
+    'avg_age' => 'Avg Age',
+    'condition' => 'Condition',
+    'squad_value' => 'Squad Value',
+
+    // View modes
+    'tactical' => 'Tactical',
+    'planning' => 'Planning',
+    'numbers' => 'Numbers',
+
+    // Table headers
+    'mvp' => 'MVP',
+    'cards' => 'Cards',
+    'avg_ovr' => 'Avg',
+
+    // Filters
+    'available' => 'Available',
+    'unavailable' => 'Unavailable',
+    'clear_filters' => 'Clear filters',
+
+    // Sidebar
+    'squad_analysis' => 'Squad Analysis',
+    'alerts' => 'Alerts',
+    'position_depth' => 'Position Depth',
+    'age_profile' => 'Age Profile',
+    'contract_watch' => 'Contract Watch',
+    'expiring_this_season' => 'Expiring this season',
+    'no_contract_issues' => 'No contract issues',
+    'highest_earners' => 'Highest earners',
+
+    // Tooltips
+    'tooltip_fitness' => 'Avg squad energy — determines starting energy in matches and affects performance',
+    'tooltip_morale' => 'Avg squad morale — affects motivation and consistency',
+    'tooltip_avg_overall' => 'Avg squad overall rating',
+
+    // Alerts
+    'alert_many_injured' => ':count players injured — consider resting starters',
+    'alert_low_morale' => ':count players with low morale',
+    'alert_low_fitness' => ':count players with low energy',
+    'alert_thin_position' => 'Only :count player(s) at :position — thin cover',
+    'alert_no_cover' => 'No cover at :position',
+    'alert_no_natural_cover' => 'No natural :position — partial cover available',
+    'alert_window_closing' => 'Transfer window closes on :date',
+
+    // Number grid
+    'number_grid' => 'Number Grid',
+    'assigned' => 'Assigned',
+    'available_number' => 'Available',
+
+    // Column headers (new design)
+    'player' => 'Player',
+    'pos' => 'Pos',
+    'players_count' => 'players',
+    'dev_status_label' => 'Status',
+
+    // Morale labels
+    'morale_ecstatic' => 'Ecstatic',
+    'morale_happy' => 'Happy',
+    'morale_content' => 'Content',
+    'morale_frustrated' => 'Frustrated',
+    'morale_unhappy' => 'Unhappy',
+
+    // Lineup tabs & labels
+    'tactics' => 'Tactics',
+    'defensive_line' => 'Defensive Line',
+    'unsaved_changes' => 'Unsaved changes',
+
+    // Lineup redesign
+    'opponent_goal' => 'Opponent Goal',
+    'available_players' => 'Available Players',
+    'substitutes' => 'Substitutes',
+    'lineup_overview' => 'Lineup Overview',
+
+    // Tactical presets
+    'presets' => 'Presets',
+    'save_preset' => 'Save tactic',
+    'preset_name' => 'Name',
+    'preset_name_placeholder' => 'E.g.: Starters, Cup, Subs...',
+    'preset_apply_now' => 'Use this tactic for the next match',
+    'save_and_confirm' => 'Save & confirm',
+    'preset_delete_confirm' => 'Delete this saved tactic?',
+    'preset_overwrite_toggle' => 'Overwrite tactic',
+    'preset_replace_required_hint' => 'You already have three saved tactics. Choose one to replace with your current board.',
+
+    // Number
+    'number' => 'Number',
+
+    // Squad registration
+    'registration' => 'Registration',
+    'registration_title' => 'Squad Registration',
+    'registration_subtitle' => 'Assign shirt numbers for the season',
+    'first_team_slots' => 'First Team (1-25)',
+    'academy_slots' => 'Academy (26-99)',
+    'unregistered_players' => 'Unregistered',
+    'empty_slot' => 'Empty',
+    'save_registration' => 'Save',
+    'registration_saved' => 'Squad registration saved',
+    'registered_count' => ':count registered',
+    'academy_age_limit' => 'Only players marked U-23 can be registered with academy numbers (26-99)',
+    'registration_rules_title' => 'Registration Rules',
+    'registration_rule_first_team' => 'First team players are assigned shirt numbers 1 to 25.',
+    'registration_rule_academy' => 'Academy numbers (26-99) are reserved for players marked U-23 (under 24 on January 1).',
+    'registration_rule_u23_badge' => 'Players marked U-23 are eligible for academy slots all season, even if they turn 24 mid-season — eligibility is locked to their age on January 1.',
+    'registration_rule_unregistered' => 'Unregistered players cannot be selected for matchday squads.',
+    'registration_readonly' => 'You can register players and modify shirt numbers only during transfer windows.',
+    'u23_badge_label' => 'U-23',
+    'u23_badge_tooltip' => 'Eligible for academy slot — under 24 on January 1 of the season.',
+];

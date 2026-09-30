@@ -1,0 +1,403 @@
+<?php
+
+return [
+    // Page title
+    'squad' => 'Plantilla',
+    'first_team' => 'Primer Equipo',
+    'development' => 'Desarrollo',
+    'stats' => 'Estadísticas',
+
+    // Position groups
+    'goalkeepers' => 'Porteras',
+    'defenders' => 'Defensas',
+    'midfielders' => 'Centrocampistas',
+    'forwards' => 'Delanteras',
+    'goalkeepers_short' => 'PO',
+    'defenders_short' => 'DEF',
+    'midfielders_short' => 'MC',
+    'forwards_short' => 'DEL',
+
+    // Columns
+    'years_abbr' => 'años',
+    'fitness' => 'ENE',
+    'morale' => 'MOR',
+    'overall' => 'Media',
+    'overall_short' => 'MED',
+    'attack_short' => 'ATQ',
+    'defense_short' => 'DEF',
+    'attack_xg_label' => 'Ataque xG',
+    'defense_xg_label' => 'Defensa xG',
+
+    // Status labels
+    'on_loan' => 'Cedida',
+    'loaned_from' => 'Cedida por',
+    'loaned_to' => 'Cedida a',
+    'leaving_free' => 'Se va (Libre)',
+    'renewed' => 'Renovado',
+    'sale_agreed' => 'Venta Acordada',
+    'retiring' => 'Se retira',
+    'listed' => 'En Venta',
+    'list_for_sale' => 'Poner a la Venta',
+    'unlist_from_sale' => 'Retirar de la Venta',
+    'loan_out' => 'Ceder',
+    'release_player' => 'Liberar',
+    'release_confirm_title' => 'Liberar Jugadora',
+    'release_confirm_message' => '¿Estás seguro de que quieres liberar a :player? Esta acción no se puede deshacer.',
+    'release_severance_label' => 'Coste de indemnización',
+    'release_remaining_contract' => 'Contrato restante',
+    'release_years_remaining' => ':years año(s)',
+    'release_confirm_button' => 'Confirmar Liberación',
+    'loan_searching' => 'Buscando destino de cesión',
+    'contract_expiring' => 'Contrato por expirar',
+
+    // Summary
+    'wage_bill' => 'Masa Salarial',
+    'per_year' => '/año',
+    'avg_fitness' => 'Media Energía',
+    'avg_morale' => 'Media Moral',
+    'low' => 'bajo',
+
+    // Contract management
+    'free_transfer' => 'Libre',
+    'let_go' => 'Dejar Ir',
+    'pre_contract_signed' => 'Precontrato firmado',
+    'new_wage_from_next' => 'Nuevo salario desde próxima temporada',
+    'has_pre_contract_offers' => '¡Tiene ofertas de precontrato!',
+    'renew' => 'Renovar',
+    'expires_in_days' => '{0}Expira hoy|{1}Expira en :count día|[2,*]Expira en :count días',
+
+    // Lineup validation
+    'formation_position_mismatch' => 'La formación :formation requiere :required :position, pero seleccionaste :actual.',
+    'player_not_available' => 'Uno o más jugadoras seleccionados no están disponibles.',
+
+    // Lineup
+    'formation' => 'Formación',
+    'mentality' => 'Mentalidad',
+    'auto_select' => 'Selección Auto',
+    'opponent' => 'Rival',
+    'need' => 'necesitas',
+
+    // Compatibility
+    'natural' => 'Natural',
+    'very_good' => 'Muy Bueno',
+    'good' => 'Bueno',
+    'okay' => 'Aceptable',
+    'poor' => 'Malo',
+    'unsuitable' => 'Inadecuado',
+
+
+    // Lineup editor
+    'pitch' => 'Campo',
+
+    // Opponent scout
+    'injured' => 'lesionadas',
+    'suspended' => 'sancionadas',
+
+    // Coach assistant
+    'coach_recommendations' => 'Recomendaciones',
+    'coach_no_tips' => 'Sin recomendaciones especiales para este partido.',
+    'coach_defensive_recommended' => 'Rival más fuerte. Mentalidad defensiva reduce sus goles esperados un 30%.',
+    'coach_attacking_recommended' => 'Tienes ventaja. Una mentalidad ofensiva puede maximizar tus goles.',
+    'coach_risky_formation' => 'Tu formación ofensiva contra un rival superior les dará más ocasiones. Considera una más defensiva.',
+    'coach_home_advantage' => 'Jugáis en casa (+0.15 goles esperados).',
+    'coach_critical_fitness' => ':names con energía crítica (<50). Riesgo de lesión 2x mayor. Considera rotarlos.',
+    'coach_low_fitness' => ':count jugadora(es) con energía baja (<70). Rinden peor y tienen mayor riesgo de lesión.',
+    'coach_low_morale' => ':count jugadora(es) con moral baja. Tendrán peor rendimiento en el partido.',
+    'coach_bench_frustration' => ':count jugadora(es) de calidad sin jugar y perdiendo moral. Rota para mantenerlas contentas.',
+    'coach_opponent_expected_label' => 'Previsto',
+    'coach_opponent_defensive_setup' => 'Rival previsto con :formation (:mentality). Considera un enfoque ofensivo para desbloquearlos.',
+    'coach_opponent_attacking_setup' => 'Rival previsto con :formation (:mentality). Dejarán espacios — una defensa sólida puede aprovecharlos.',
+    'coach_opponent_deep_block' => 'Rival con 5 defensas. Amplitud y paciencia serán clave.',
+    'coach_out_of_position' => ':names fuera de posición. Rendirán peor en el partido.',
+    'mentality_defensive' => 'Defensiva',
+    'mentality_balanced' => 'Equilibrada',
+    'mentality_attacking' => 'Ofensiva',
+
+    // Unavailability reasons
+    'suspended_matches' => 'Sancionada (:count partido)|Sancionada (:count partidos)',
+    'injured_generic' => 'Lesionada',
+    'injury_return_date' => 'baja hasta :date',
+
+    // Injury types
+    'injury_muscle_fatigue' => 'Fatiga muscular',
+    'injury_muscle_strain' => 'Distensión muscular',
+    'injury_calf_strain' => 'Distensión de gemelo',
+    'injury_ankle_sprain' => 'Esguince de tobillo',
+    'injury_groin_strain' => 'Distensión de aductor',
+    'injury_hamstring_tear' => 'Rotura de isquiotibial',
+    'injury_knee_contusion' => 'Contusión de rodilla',
+    'injury_metatarsal_fracture' => 'Fractura de metatarso',
+    'injury_acl_tear' => 'Rotura de ligamento cruzado',
+    'injury_achilles_rupture' => 'Rotura del tendón de Aquiles',
+
+    // Development page
+    'ability' => 'Habilidad',
+    'playing_time' => 'Minutos',
+    'high_potential' => 'Alto Potencial',
+    'growing' => 'Creciendo',
+    'declining' => 'Declinando',
+    'peak' => 'En su Pico',
+    'all' => 'Todos',
+    'no_players_match_filter' => 'Ninguna jugadora coincide con el filtro seleccionado.',
+    'pot' => 'POT',
+    'apps' => 'PJ',
+    'projection' => 'Proyección',
+    'potential' => 'Potencial',
+    'potential_range' => 'Rango de Potencial',
+    'starter_bonus' => 'bonus de titular',
+    'needs_appearances' => 'Necesita :count+ partidos para bonus de titular',
+    'qualifies_starter_bonus' => 'Cualifica para bonus de titular (+50% desarrollo)',
+
+    // Stats page
+    'goals' => 'G',
+    'assists' => 'A',
+    'goal_contributions' => 'G+A',
+    'goals_per_game' => 'G/P',
+    'own_goals' => 'PP',
+    'yellow_cards' => 'TA',
+    'red_cards' => 'TR',
+    'clean_sheets' => 'PC',
+    'appearances' => 'Partidos',
+    'bookings' => 'Amonestaciones',
+    'click_to_sort' => 'Haz clic en las cabeceras de columna para ordenar',
+
+    // Stats highlights
+    'top_in_squad' => 'Máximo en plantilla',
+
+    // Legend labels
+    'legend_apps' => 'Partidos',
+    'legend_goals' => 'Goles',
+    'legend_assists' => 'Asistencias',
+    'legend_contributions' => 'Contribuciones de Gol',
+    'legend_own_goals' => 'Goles en Propia',
+    'legend_mvp' => 'Premios MVP del partido',
+    'legend_clean_sheets' => 'Porterías a Cero (solo PO)',
+
+    // Squad number
+    'assign_number' => 'Asignar dorsal',
+    'number_taken' => 'Este dorsal ya está asignado',
+    'number_updated' => 'Dorsal actualizado',
+    'number_invalid' => 'El dorsal debe estar entre 1 y 99',
+
+    // Player detail modal
+    'abilities' => 'Habilidades',
+    'overall_full' => 'Media',
+    'fitness_full' => 'Energía',
+    'morale_full' => 'Moral',
+    'season_stats' => 'Estadísticas de Temporada',
+    'clean_sheets_full' => 'Porterías a Cero',
+    'goals_conceded_full' => 'Goles Encajados',
+    'discovered' => 'Descubierto',
+    'origin' => 'Procedencia',
+    'joined' => 'Incorporación',
+    'origin_academy' => 'Filial',
+    'origin_free_agent' => 'Agente libre',
+    'precontract_banner_title' => 'Precontrato firmado',
+    'precontract_banner_body' => 'Aún no está en tu plantilla — se incorpora al inicio de la temporada :year en transferencia libre.',
+    'career_history' => 'Trayectoria',
+    'no_career_history' => 'Aún no hay temporadas completadas.',
+
+    // Academy
+    'academy' => 'Cantera',
+    'promote_to_first_team' => 'Subir al Primer Equipo',
+    'academy_tier' => 'Nivel de Cantera',
+    'academy_players' => 'Jugadoras',
+    'no_academy_prospects' => 'No hay canteranos disponibles.',
+    'academy_explanation' => 'Los nuevos canteranos llegan al inicio de cada temporada según tu inversión en cantera.',
+    'academy_dismiss' => 'Despedir',
+    'academy_dismiss_confirm' => '¿Estás seguro? La jugadora será despedido de forma permanente.',
+    'academy_dismiss_desc' => 'La jugadora es despedido del club de forma permanente.',
+    'academy_loan_out' => 'Ceder',
+    'academy_loan_desc' => 'La jugadora sale cedida con desarrollo acelerado (1.5x) y regresa a final de temporada.',
+    'academy_promote' => 'Subir',
+    'academy_promote_desc' => 'La jugadora se incorpora al primer equipo con contrato profesional.',
+    'academy_on_loan' => 'Cedida',
+    'academy_seasons' => ':count temporada|:count temporadas',
+    // Academy help text
+    'academy_help_toggle' => '¿Cómo funciona la cantera?',
+    'academy_help_development' => 'La cantera funciona como tu equipo B, generando jugadoras calibradas al nivel de tu plantilla. Las canteranas se desarrollan a lo largo de la temporada y pueden ser subidos al primer equipo cuando estén listos.',
+    'academy_help_actions_title' => 'Acciones disponibles',
+    'academy_help_promote' => 'Subir — se incorpora permanentemente al primer equipo con contrato profesional',
+    'academy_help_loan' => 'Ceder — se desarrolla más rápido cedida y regresa al final de temporada',
+    'academy_help_dismiss' => 'Despedir — abandona el club de forma permanente',
+    'academy_help_age_rule' => 'Las jugadoras que cumplan 21 años serán promocionadas automáticamente al primer equipo al inicio de temporada.',
+
+    'academy_tier_0' => 'Cantera Mínima',
+    'academy_tier_1' => 'Cantera Básica',
+    'academy_tier_2' => 'Buena Cantera',
+    'academy_tier_3' => 'Cantera de Élite',
+    'academy_tier_4' => 'Cantera de Clase Mundial',
+    'academy_tier_unknown' => 'Desconocido',
+
+    // Reserve team (filial)
+    'reserve_team' => 'Filial',
+    'reserve_squad' => 'Plantilla del filial',
+    'no_reserve_players' => 'No hay jugadoras en el filial.',
+    'call_up' => 'Subir',
+    'call_up_to_first_team' => 'Subir al primer equipo',
+    'send_back' => 'Bajar',
+    'send_back_to_reserve' => 'Bajar al filial',
+    'send_down_to_reserve' => 'Bajar al filial',
+    'send_down_to_reserve_confirm' => '¿Bajar esta jugadora sub-23 al filial?',
+    'called_up_indicator' => 'En el primer equipo',
+    'homegrown_indicator' => 'Canterano',
+    'actions' => 'Acciones',
+    'reserve_help_toggle' => '¿Cómo funciona el filial?',
+    'reserve_help_development' => 'Tu filial es la cantera oficial — las jugadoras pertenecen al filial, no al primer equipo. Cada temporada llegan nuevos canteranos según tu inversión en la cantera, que se desarrollan junto con el resto del filial.',
+    'reserve_help_age_rule' => 'Las jugadoras que cumplen 24 años pasan automáticamente al primer equipo al final de la temporada. El primer equipo puede subir jugadoras del filial en cualquier momento.',
+    'reserve_help_actions_title' => 'Acciones disponibles',
+    'reserve_help_call_up' => 'Subir - la jugadora se incorpora al primer equipo en cesión y puede disputar partidos con el primer equipo',
+    'reserve_help_send_back' => 'Bajar - devuelve a la jugadora subido al filial',
+
+    // Lineup help text
+    'lineup_help_toggle' => '¿Cómo funciona la alineación?',
+    'lineup_help_intro' => 'Elige 11 jugadoras para cada partido. Tu formación, la energía y la compatibilidad posicional afectan al rendimiento.',
+    'lineup_help_formation_title' => 'Formación y Mentalidad',
+    'lineup_help_formation_desc' => 'La formación determina qué posiciones hay disponibles en el campo. Las jugadoras rinden mejor en su posición natural.',
+    'lineup_help_compatibility_natural' => 'Natural — la jugadora está en su mejor posición, rendimiento completo.',
+    'lineup_help_compatibility_good' => 'Muy Bueno — juega sin penalización. Bueno — penalización del 25% en el partido.',
+    'lineup_help_compatibility_poor' => 'Malo / Inadecuado — penalización del 25%. Evítalo si es posible.',
+    'lineup_help_mentality_desc' => 'La mentalidad afecta a lo ofensivo o defensivo que juega tu equipo.',
+    'lineup_help_condition_title' => 'Energía y Moral',
+    'lineup_help_condition_desc' => 'Las jugadoras con baja energía o moral rinden peor. Rota la plantilla para mantener a todos frescos.',
+    'lineup_help_fitness' => 'La energía baja durante cada partido y se recupera entre jornadas. Las jugadoras empiezan los partidos con su nivel de energía actual — gestiona las rotaciones para mantenerlos frescos.',
+    'lineup_help_morale' => 'La moral se ve afectada por los resultados, los minutos jugados y la situación contractual.',
+    'lineup_help_auto' => 'Usa "Selección Auto" para que el sistema elija el mejor XI disponible para tu formación.',
+
+    // Squad selection (tournament onboarding)
+    'squad_selection_title' => 'Selecciona tu convocatoria',
+    'squad_selection_subtitle' => 'Elige 26 jugadoras para el torneo',
+    'confirm_squad' => 'Confirmar',
+    'squad_confirmed' => '¡Convocatoria confirmada!',
+    'invalid_selection' => 'Selección inválida. Verifica las jugadoras seleccionadas.',
+    'download_squad' => 'Descargar convocatoria',
+    'squad_list' => 'Lista de convocadas',
+    'called_up_badge' => 'Convocada',
+
+    // Radar chart
+    'radar_gk' => 'Portería',
+    'radar_def' => 'Defensa',
+    'radar_mid' => 'Mediocampo',
+    'radar_att' => 'Ataque',
+    'radar_fit' => 'Energía',
+    'radar_mor' => 'Moral',
+    'radar_overall' => 'Media',
+
+    // Registration
+    'not_registered' => 'No inscrito',
+    'too_many_first_team' => 'Máximo 25 inscripciones de primer equipo (dorsales 1-25).',
+    'drag_to_assign' => 'Arrastra una jugadora aquí para asignarlo',
+
+    // Grid positioning
+    'drag_or_tap' => 'Toca una celda o arrastra a la jugadora',
+    'select_player_for_slot' => 'Selecciona una jugadora de la lista',
+
+    // Squad dashboard KPIs
+    'squad_size' => 'Plantilla',
+    'avg_age' => 'Edad Media',
+    'condition' => 'Estado',
+    'squad_value' => 'Valor Plantilla',
+
+    // View modes
+    'tactical' => 'Táctico',
+    'planning' => 'Planificación',
+    'numbers' => 'Dorsales',
+
+    // Table headers
+    'mvp' => 'MVP',
+    'cards' => 'Tarjetas',
+    'avg_ovr' => 'Media',
+
+    // Filters
+    'available' => 'Disponibles',
+    'unavailable' => 'No disponibles',
+    'clear_filters' => 'Limpiar filtros',
+
+    // Sidebar
+    'squad_analysis' => 'Análisis Plantilla',
+    'alerts' => 'Alertas',
+    'position_depth' => 'Profundidad Posicional',
+    'age_profile' => 'Perfil de Edad',
+    'contract_watch' => 'Contratos',
+    'expiring_this_season' => 'Expiran esta temporada',
+    'no_contract_issues' => 'Sin contratos pendientes',
+    'highest_earners' => 'Mayores salarios',
+
+    // Tooltips
+    'tooltip_fitness' => 'Energía media — determina la energía inicial en los partidos y afecta el rendimiento',
+    'tooltip_morale' => 'Moral media — afecta motivación y consistencia',
+    'tooltip_avg_overall' => 'Puntuación media de la plantilla',
+
+    // Alerts
+    'alert_many_injured' => ':count jugadoras lesionadas — considera rotar titulares',
+    'alert_low_morale' => ':count jugadoras con moral baja',
+    'alert_low_fitness' => ':count jugadoras con baja energía',
+    'alert_thin_position' => 'Solo :count jugadora(es) en :position — poca cobertura',
+    'alert_no_cover' => 'Sin cobertura en :position',
+    'alert_no_natural_cover' => 'Sin :position natural — cobertura parcial disponible',
+    'alert_window_closing' => 'La ventana de traspasos cierra el :date',
+
+    // Number grid
+    'number_grid' => 'Dorsales',
+    'assigned' => 'Asignado',
+    'available_number' => 'Disponible',
+
+    // Column headers (new design)
+    'player' => 'Jugadora',
+    'pos' => 'Pos',
+    'players_count' => 'jugadoras',
+    'dev_status_label' => 'Estado',
+
+    // Morale labels
+    'morale_ecstatic' => 'Eufórico',
+    'morale_happy' => 'Contento',
+    'morale_content' => 'Normal',
+    'morale_frustrated' => 'Frustrado',
+    'morale_unhappy' => 'Descontento',
+
+    // Lineup tabs & labels
+    'tactics' => 'Táctica',
+    'defensive_line' => 'Línea Defensiva',
+    'unsaved_changes' => 'Cambios sin guardar',
+
+    // Lineup redesign
+    'opponent_goal' => 'Portería Rival',
+    'available_players' => 'Jugadoras Disponibles',
+    'substitutes' => 'Suplentes',
+    'lineup_overview' => 'Resumen de Alineación',
+
+    // Tactical presets
+    'presets' => 'Guardadas',
+    'save_preset' => 'Guardar táctica',
+    'preset_name' => 'Nombre',
+    'preset_name_placeholder' => 'Ej: Titulares, Copa, Suplentes...',
+    'preset_apply_now' => 'Usar esta táctica en el próximo partido',
+    'save_and_confirm' => 'Guardar y confirmar',
+    'preset_delete_confirm' => '¿Eliminar esta táctica guardada?',
+    'preset_overwrite_toggle' => 'Sobreescribir táctica',
+    'preset_replace_required_hint' => 'Ya tienes tres tácticas guardadas. Elige cuál sustituir por la alineación actual.',
+
+    // Dorsales
+    'number' => 'Dorsal',
+
+    // Inscripción de plantilla
+    'registration' => 'Inscripción',
+    'registration_title' => 'Inscripción de Plantilla',
+    'registration_subtitle' => 'Asigna dorsales para la temporada',
+    'first_team_slots' => 'Primer Equipo (1-25)',
+    'academy_slots' => 'Cantera (26-99)',
+    'unregistered_players' => 'No inscritos',
+    'empty_slot' => 'Vacío',
+    'save_registration' => 'Guardar',
+    'registration_saved' => 'Inscripción guardada',
+    'registered_count' => ':count inscritos',
+    'academy_age_limit' => 'Solo las jugadoras marcados Sub-23 pueden inscribirse con dorsal de cantera (26-99)',
+    'registration_rules_title' => 'Reglas de Inscripción',
+    'registration_rule_first_team' => 'Las jugadoras del primer equipo llevan dorsales del 1 al 25.',
+    'registration_rule_academy' => 'Los dorsales de cantera (26-99) están reservados para jugadoras marcados Sub-23 (menores de 24 a 1 de enero).',
+    'registration_rule_u23_badge' => 'Las jugadoras marcados Sub-23 son elegibles para dorsal de cantera toda la temporada, aunque cumplan 24 a mitad de temporada — la elegibilidad se fija según su edad a 1 de enero.',
+    'registration_rule_unregistered' => 'Las jugadoras no inscritos no pueden ser convocados para los partidos.',
+    'registration_readonly' => 'Puedes inscribir jugadoras y modificar dorsales solo durante las ventanas de fichajes.',
+    'u23_badge_label' => 'Sub-23',
+    'u23_badge_tooltip' => 'Apto para dorsal de cantera — menor de 24 a 1 de enero de la temporada.',
+];

@@ -1,0 +1,374 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/7383.png",
+  "name": "Rosenborg BK Trondheim",
+  "players": [
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Jul 7, 2002",
+      "foot": "",
+      "height": "",
+      "id": "50185",
+      "marketValue": "",
+      "name": "Rugile Rulyte",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 4, 2008",
+      "foot": "",
+      "height": "1,81m",
+      "id": "109359",
+      "marketValue": "",
+      "name": "Tiril Sand",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "12",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Nov 15, 2007",
+      "foot": "",
+      "height": "",
+      "id": "80858",
+      "marketValue": "",
+      "name": "Hanna Krog",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "24",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Aug 6, 1996",
+      "foot": "right",
+      "height": "",
+      "id": "25998",
+      "marketValue": "€35k",
+      "name": "Kristine Leine",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "2",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "May 5, 1994",
+      "foot": "right",
+      "height": "1,74m",
+      "id": "15245",
+      "marketValue": "",
+      "name": "Mali Næss",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "3",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Feb 1, 2004",
+      "foot": "left",
+      "height": "",
+      "id": "85983",
+      "marketValue": "",
+      "name": "Synne Aunehaugen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 24, 2006",
+      "foot": "",
+      "height": "",
+      "id": "122730",
+      "marketValue": "",
+      "name": "Una Borgen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "20",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Apr 18, 2003",
+      "foot": "",
+      "height": "",
+      "id": "47271",
+      "marketValue": "",
+      "name": "Mari Kristine Vik",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "25",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Feb 27, 2004",
+      "foot": "",
+      "height": "",
+      "id": "61948",
+      "marketValue": "",
+      "name": "Karoline Svanes",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "44",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Oct 13, 1996",
+      "foot": "",
+      "height": "",
+      "id": "19883",
+      "marketValue": "",
+      "name": "Cesilie Andreassen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "5",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Sep 22, 2003",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "47260",
+      "marketValue": "",
+      "name": "Irene Dirdal",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "6",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Apr 19, 2000",
+      "foot": "right",
+      "height": "1,63m",
+      "id": "34418",
+      "marketValue": "€25k",
+      "name": "Agnes Nyberg",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "8",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Oct 31, 2001",
+      "foot": "",
+      "height": "",
+      "id": "48294",
+      "marketValue": "",
+      "name": "Oline Fuglem",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "14",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Sep 22, 1999",
+      "foot": "right",
+      "height": "1,58m",
+      "id": "36508",
+      "marketValue": "",
+      "name": "Beate Marcussen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "15",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Jan 7, 2006",
+      "foot": "",
+      "height": "",
+      "id": "53741",
+      "marketValue": "",
+      "name": "Cille Nilsen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "22",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Dec 1, 2008",
+      "foot": "",
+      "height": "",
+      "id": "95944",
+      "marketValue": "",
+      "name": "Karna Sødahl",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "23",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 23, 1998",
+      "foot": "both",
+      "height": "1,68m",
+      "id": "31045",
+      "marketValue": "€45k",
+      "name": "Selma Sól Magnúsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "27",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Jun 19, 2008",
+      "foot": "",
+      "height": "1,70m",
+      "id": "103802",
+      "marketValue": "",
+      "name": "Maren Fuglås",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "29",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Aug 16, 2001",
+      "foot": "left",
+      "height": "",
+      "id": "51264",
+      "marketValue": "€35k",
+      "name": "Milena Kokosz Matre",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "30",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Feb 21, 2007",
+      "foot": "",
+      "height": "",
+      "id": "85984",
+      "marketValue": "",
+      "name": "Andrea Buberg",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "31",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 16, 2000",
+      "foot": "",
+      "height": "",
+      "id": "34752",
+      "marketValue": "",
+      "name": "Matilde Rogde",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "7",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2029",
+      "dateOfBirth": "Jun 16, 2002",
+      "foot": "",
+      "height": "",
+      "id": "39712",
+      "marketValue": "",
+      "name": "Joshualyn Reeves",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "10",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 27, 1999",
+      "foot": "",
+      "height": "",
+      "id": "46562",
+      "marketValue": "",
+      "name": "Celine Nergård",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "11",
+      "position": "Striker"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "May 10, 2003",
+      "foot": "",
+      "height": "",
+      "id": "61955",
+      "marketValue": "",
+      "name": "Ine Berre",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "16",
+      "position": "Striker"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Jun 21, 2003",
+      "foot": "",
+      "height": "",
+      "id": "47257",
+      "marketValue": "",
+      "name": "Synne Brønstad",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "18",
+      "position": "Striker"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Nov 30, 1996",
+      "foot": "",
+      "height": "",
+      "id": "33414",
+      "marketValue": "",
+      "name": "Rebecka Holum",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "19",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Koteng Arena",
+  "stadiumSeats": "1000",
+  "transfermarktId": "7383",
+  "country": "NO"
+}

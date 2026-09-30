@@ -1,0 +1,425 @@
+{
+  "image": "https://assets.virtuafc.com/crests/3577.png",
+  "name": "Panama",
+  "players": [
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/50531.png",
+        "name": "Al-Fayha FC"
+      },
+      "dateOfBirth": "Dec 25, 1994",
+      "foot": "right",
+      "height": "1,91m",
+      "id": "402979",
+      "injured": false,
+      "marketValue": "€650k",
+      "name": "Orlando Mosquera",
+      "overall_score": 70,
+      "position": "Goalkeeper",
+      "potential": 70
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/4523.png",
+        "name": "CD Marathón"
+      },
+      "dateOfBirth": "Feb 23, 1994",
+      "foot": "left",
+      "height": "1,88m",
+      "id": "865550",
+      "injured": false,
+      "marketValue": "€300k",
+      "name": "César Samudio",
+      "overall_score": 63,
+      "position": "Goalkeeper",
+      "potential": 63
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/866.png",
+        "name": "Club Nacional"
+      },
+      "dateOfBirth": "Mar 16, 1991",
+      "foot": "left",
+      "height": "1,91m",
+      "id": "76715",
+      "injured": false,
+      "marketValue": "€250k",
+      "name": "Luis Mejía",
+      "overall_score": 72,
+      "position": "Goalkeeper",
+      "potential": 72
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1123.png",
+        "name": "Norwich City"
+      },
+      "dateOfBirth": "Jun 3, 2001",
+      "foot": "left",
+      "height": "1,85m",
+      "id": "698415",
+      "injured": false,
+      "marketValue": "€4.50m",
+      "name": "José Córdoba",
+      "overall_score": 70,
+      "position": "Centre-Back",
+      "potential": 75
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/413.png",
+        "name": "LASK"
+      },
+      "dateOfBirth": "Oct 16, 1998",
+      "foot": "left",
+      "height": "1,87m",
+      "id": "403808",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "Andrés Andrade",
+      "overall_score": 69,
+      "position": "Centre-Back",
+      "potential": 72
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/49702.png",
+        "name": "FC Pari Nizhniy Novgorod"
+      },
+      "dateOfBirth": "Oct 19, 2001",
+      "foot": "right",
+      "height": "1,95m",
+      "id": "923177",
+      "injured": false,
+      "marketValue": "€900k",
+      "name": "Edgardo Fariña",
+      "overall_score": 60,
+      "position": "Centre-Back",
+      "potential": 64
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/45193.png",
+        "name": "Academia Puerto Cabello"
+      },
+      "dateOfBirth": "Jan 26, 1997",
+      "foot": "right",
+      "height": "1,89m",
+      "id": "403809",
+      "injured": false,
+      "marketValue": "€400k",
+      "name": "Jiovany Ramos",
+      "overall_score": 67,
+      "position": "Centre-Back",
+      "potential": 68
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/4720.png",
+        "name": "Deportivo Saprissa"
+      },
+      "dateOfBirth": "Jan 9, 1995",
+      "foot": "right",
+      "height": "1,84m",
+      "id": "345716",
+      "injured": false,
+      "marketValue": "€350k",
+      "name": "Fidel Escobar",
+      "overall_score": 65,
+      "position": "Centre-Back",
+      "potential": 65
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/9526.png",
+        "name": "Turan-Tovuz IK"
+      },
+      "dateOfBirth": "Apr 3, 1992",
+      "foot": "left",
+      "height": "1,90m",
+      "id": "157154",
+      "injured": false,
+      "marketValue": "€200k",
+      "name": "Roderick Miller",
+      "overall_score": 64,
+      "position": "Centre-Back",
+      "potential": 64
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/26468.png",
+        "name": "Deportivo La Guaira"
+      },
+      "dateOfBirth": "Sep 1, 1998",
+      "foot": "left",
+      "height": "1,71m",
+      "id": "443379",
+      "injured": false,
+      "marketValue": "€750k",
+      "name": "Jorge Gutiérrez",
+      "overall_score": 70,
+      "position": "Left-Back",
+      "potential": 71
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/20960.png",
+        "name": "CD Plaza Amador"
+      },
+      "dateOfBirth": "Mar 31, 1991",
+      "foot": "left",
+      "height": "1,80m",
+      "id": "121791",
+      "injured": false,
+      "marketValue": "€50k",
+      "name": "Éric Davis",
+      "overall_score": 67,
+      "position": "Left-Back",
+      "potential": 67
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/114.png",
+        "name": "Besiktas JK"
+      },
+      "dateOfBirth": "Feb 11, 1996",
+      "foot": "right",
+      "height": "1,84m",
+      "id": "354482",
+      "injured": false,
+      "marketValue": "€7.00m",
+      "name": "Amir Murillo",
+      "overall_score": 75,
+      "position": "Right-Back",
+      "potential": 75
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/540.png",
+        "name": "Slovan Bratislava"
+      },
+      "dateOfBirth": "Apr 2, 1998",
+      "foot": "right",
+      "height": "1,74m",
+      "id": "440383",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "César Blackman",
+      "overall_score": 67,
+      "position": "Right-Back",
+      "potential": 67
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6028.png",
+        "name": "Ironi Kiryat Shmona"
+      },
+      "dateOfBirth": "Feb 6, 1997",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "419247",
+      "injured": false,
+      "marketValue": "€750k",
+      "name": "Cristian Martínez",
+      "overall_score": 63,
+      "position": "Defensive Midfield",
+      "potential": 63
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/56089.png",
+        "name": "Minnesota United FC"
+      },
+      "dateOfBirth": "Feb 3, 2000",
+      "foot": "right",
+      "height": "1,84m",
+      "id": "628806",
+      "injured": false,
+      "marketValue": "€600k",
+      "name": "Carlos Harvey",
+      "overall_score": 66,
+      "position": "Defensive Midfield",
+      "potential": 70
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/114977.png",
+        "name": "San Diego FC"
+      },
+      "dateOfBirth": "Feb 10, 1990",
+      "foot": "left",
+      "height": "1,83m",
+      "id": "161671",
+      "injured": false,
+      "marketValue": "€100k",
+      "name": "Aníbal Godoy",
+      "overall_score": 70,
+      "position": "Defensive Midfield",
+      "potential": 70
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/7633.png",
+        "name": "UNAM Pumas"
+      },
+      "dateOfBirth": "Nov 28, 1998",
+      "foot": "right",
+      "height": "1,71m",
+      "id": "375300",
+      "injured": false,
+      "marketValue": "€4.00m",
+      "name": "Adalberto Carrasquilla",
+      "overall_score": 74,
+      "position": "Central Midfield",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/49283.png",
+        "name": "FC Juárez"
+      },
+      "dateOfBirth": "Jun 19, 1998",
+      "foot": "left",
+      "height": "1,83m",
+      "id": "425028",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "José Luis Rodríguez",
+      "overall_score": 72,
+      "position": "Left Winger",
+      "potential": 72
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/4941.png",
+        "name": "Club León FC"
+      },
+      "dateOfBirth": "May 12, 1997",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "243298",
+      "injured": false,
+      "marketValue": "€1.80m",
+      "name": "Ismael Díaz",
+      "overall_score": 73,
+      "position": "Left Winger",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/82696.png",
+        "name": "Mazatlán FC"
+      },
+      "dateOfBirth": "Oct 23, 1993",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "283473",
+      "injured": false,
+      "marketValue": "€650k",
+      "name": "Yoel Bárcenas",
+      "overall_score": 71,
+      "position": "Right Winger",
+      "potential": 71
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/17482.png",
+        "name": "CD Cobresal"
+      },
+      "dateOfBirth": "Jan 28, 1996",
+      "foot": "left",
+      "height": "1,60m",
+      "id": "741098",
+      "injured": false,
+      "marketValue": "€350k",
+      "name": "César Yanis",
+      "overall_score": 68,
+      "position": "Right Winger",
+      "potential": 68
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/20960.png",
+        "name": "CD Plaza Amador"
+      },
+      "dateOfBirth": "Dec 18, 1987",
+      "foot": "right",
+      "height": "1,68m",
+      "id": "126019",
+      "injured": false,
+      "marketValue": "€75k",
+      "name": "Alberto Quintero",
+      "overall_score": 67,
+      "position": "Right Winger",
+      "potential": 67
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/17584.png",
+        "name": "CD Universidad Católica"
+      },
+      "dateOfBirth": "Jun 21, 2001",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "860998",
+      "injured": false,
+      "marketValue": "€1.20m",
+      "name": "Azarías Londoño",
+      "overall_score": 71,
+      "position": "Centre-Forward",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/4720.png",
+        "name": "Deportivo Saprissa"
+      },
+      "dateOfBirth": "Mar 9, 1999",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "569205",
+      "injured": false,
+      "marketValue": "€1.00m",
+      "name": "Tomás Rodríguez",
+      "overall_score": 67,
+      "position": "Centre-Forward",
+      "potential": 68
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/17584.png",
+        "name": "CD Universidad Católica"
+      },
+      "dateOfBirth": "Aug 18, 1993",
+      "foot": "right",
+      "height": "1,81m",
+      "id": "546803",
+      "injured": false,
+      "marketValue": "€600k",
+      "name": "José Fajardo",
+      "overall_score": 68,
+      "position": "Centre-Forward",
+      "potential": 68
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/5622.png",
+        "name": "Universidad de Concepción"
+      },
+      "dateOfBirth": "Apr 13, 1991",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "177064",
+      "injured": false,
+      "marketValue": "€350k",
+      "name": "Cecilio Waterman",
+      "overall_score": 70,
+      "position": "Centre-Forward",
+      "potential": 70
+    }
+  ],
+  "stadiumName": null,
+  "stadiumSeats": null,
+  "transfermarktId": "3577"
+}

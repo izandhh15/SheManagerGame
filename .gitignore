@@ -1,0 +1,59 @@
+/.phpunit.cache
+/node_modules
+/public/build
+/public/hot
+/public/storage
+/storage/*.key
+/storage/pail
+/vendor
+/landing/.wrangler
+/landing/node_modules
+.env
+.env.backup
+.env.production
+.phpactor.json
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+auth.json
+npm-debug.log
+yarn-error.log
+/.fleet
+/.idea
+/.nova
+/.vscode
+/.zed
+
+**/caddy
+frankenphp
+frankenphp-worker.php
+.DS_Store
+/videos
+
+# Regenerated on demand with `php artisan ide-helper:models`; goes stale fast and
+# nothing (phpstan included) reads it, so it is not worth tracking.
+/_ide_helper_models.php
+
+# Local scratch databases (DuckDB analysis dumps and the like) — hundreds of MB
+# and unrelated to the app's PostgreSQL schema.
+*.duckdb
+
+# Published Telescope assets. Telescope is a require-dev, local-only tool;
+# `php artisan telescope:publish` regenerates these.
+/public/vendor/telescope
+
+# Player photos live in the R2 bucket the CDN serves, not in the repo: there are
+# thousands of them and git cannot delta-compress them. Fetch with
+# `app:fetch-player-photos`, publish with scripts/upload-assets-to-r2.sh.
+# (Crests predate this and are tracked; they are a fraction of the size.)
+/public/players
+
+# Raw Transfermarkt→external-id crosswalk source (large). The slim, committed
+# data/sofascore_ids.json is built from it via `app:build-sofascore-id-map`.
+# data/raw/ is the current home; data/*/raw/ is kept for older season folders.
+data/raw/*
+data/*/raw/*
+
+# Generated per refresh by app:list-missing-positions; the durable record is
+# the scrape ledger (esp-player-ids.csv), which is committed.
+/scripts/transfermarkt-scraper/player-ids-todo.csv

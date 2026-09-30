@@ -1,0 +1,499 @@
+{
+  "image": "https://assets.virtuafc.com/crests/3381.png",
+  "name": "Türkiye",
+  "players": [
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/141.png",
+        "name": "Galatasaray"
+      },
+      "dateOfBirth": "Apr 5, 1996",
+      "foot": "right",
+      "height": "1,91m",
+      "id": "292199",
+      "injured": false,
+      "marketValue": "€15.00m",
+      "name": "Uğurcan Çakır",
+      "position": "Goalkeeper"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/985.png",
+        "name": "Manchester United"
+      },
+      "dateOfBirth": "Apr 14, 1998",
+      "foot": "right",
+      "height": "1,98m",
+      "id": "336077",
+      "injured": false,
+      "marketValue": "€7.00m",
+      "name": "Altay Bayındır",
+      "position": "Goalkeeper"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/114.png",
+        "name": "Besiktas JK"
+      },
+      "dateOfBirth": "Jan 1, 2001",
+      "foot": "right",
+      "height": "1,95m",
+      "id": "500091",
+      "injured": false,
+      "marketValue": "€4.00m",
+      "name": "Ersin Destanoğlu",
+      "position": "Goalkeeper"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6890.png",
+        "name": "Basaksehir FK"
+      },
+      "dateOfBirth": "Jan 5, 1997",
+      "foot": "right",
+      "height": "1,92m",
+      "id": "330871",
+      "injured": false,
+      "marketValue": "€3.50m",
+      "name": "Muhammed Şengezer",
+      "position": "Goalkeeper"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/36.png",
+        "name": "Fenerbahce"
+      },
+      "dateOfBirth": "Mar 1, 1989",
+      "foot": "right",
+      "height": "1,96m",
+      "id": "51894",
+      "injured": false,
+      "marketValue": "€500k",
+      "name": "Mert Günok",
+      "position": "Goalkeeper"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/533.png",
+        "name": "TSG 1899 Hoffenheim"
+      },
+      "dateOfBirth": "Mar 25, 2000",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "361260",
+      "injured": false,
+      "marketValue": "€15.00m",
+      "name": "Ozan Kabak",
+      "position": "Centre-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1114.png",
+        "name": "Al-Hilal SFC"
+      },
+      "dateOfBirth": "Jan 25, 2006",
+      "foot": "left",
+      "height": "1,93m",
+      "id": "1100642",
+      "injured": false,
+      "marketValue": "€15.00m",
+      "name": "Yusuf Akçiçek",
+      "position": "Centre-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/18487.png",
+        "name": "Al-Ahli SFC"
+      },
+      "dateOfBirth": "Mar 5, 1998",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "340879",
+      "injured": false,
+      "marketValue": "€14.00m",
+      "name": "Merih Demiral",
+      "position": "Centre-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/467.png",
+        "name": "NEC Nijmegen"
+      },
+      "dateOfBirth": "Jan 16, 2003",
+      "foot": "left",
+      "height": "1,89m",
+      "id": "662131",
+      "injured": false,
+      "marketValue": "€7.00m",
+      "name": "Ahmetcan Kaplan",
+      "position": "Centre-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/141.png",
+        "name": "Galatasaray"
+      },
+      "dateOfBirth": "Sep 7, 1994",
+      "foot": "left",
+      "height": "1,85m",
+      "id": "199316",
+      "injured": false,
+      "marketValue": "€6.50m",
+      "name": "Abdülkerim Bardakcı",
+      "position": "Centre-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/36.png",
+        "name": "Fenerbahce"
+      },
+      "dateOfBirth": "May 23, 1996",
+      "foot": "both",
+      "height": "1,85m",
+      "id": "320141",
+      "injured": false,
+      "marketValue": "€3.50m",
+      "name": "Çağlar Söyüncü",
+      "position": "Centre-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/126.png",
+        "name": "Caykur Rizespor"
+      },
+      "dateOfBirth": "Mar 13, 1994",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "295024",
+      "injured": false,
+      "marketValue": "€1.20m",
+      "name": "Samet Akaydin",
+      "position": "Centre-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1237.png",
+        "name": "Brighton & Hove Albion"
+      },
+      "dateOfBirth": "Oct 7, 1999",
+      "foot": "right",
+      "height": "1,74m",
+      "id": "369316",
+      "injured": false,
+      "marketValue": "€30.00m",
+      "name": "Ferdi Kadıoğlu",
+      "position": "Left-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/141.png",
+        "name": "Galatasaray"
+      },
+      "dateOfBirth": "Jul 7, 2000",
+      "foot": "left",
+      "height": "1,81m",
+      "id": "616894",
+      "injured": false,
+      "marketValue": "€5.00m",
+      "name": "Eren Elmalı",
+      "position": "Left-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/449.png",
+        "name": "Trabzonspor"
+      },
+      "dateOfBirth": "May 5, 1997",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "390379",
+      "injured": false,
+      "marketValue": "€4.00m",
+      "name": "Mustafa Eskihellaç",
+      "position": "Left-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/12.png",
+        "name": "AS Roma"
+      },
+      "dateOfBirth": "Feb 17, 1997",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "251075",
+      "injured": false,
+      "marketValue": "€14.00m",
+      "name": "Zeki Çelik",
+      "position": "Right-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/36.png",
+        "name": "Fenerbahce"
+      },
+      "dateOfBirth": "Apr 3, 1999",
+      "foot": "right",
+      "height": "1,84m",
+      "id": "353922",
+      "injured": false,
+      "marketValue": "€7.00m",
+      "name": "Mert Müldür",
+      "position": "Right-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/46.png",
+        "name": "Inter Milan"
+      },
+      "dateOfBirth": "Feb 8, 1994",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "126414",
+      "injured": false,
+      "marketValue": "€16.00m",
+      "name": "Hakan Çalhanoğlu",
+      "position": "Defensive Midfield"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/36.png",
+        "name": "Fenerbahce"
+      },
+      "dateOfBirth": "Jan 26, 1999",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "613725",
+      "injured": false,
+      "marketValue": "€15.00m",
+      "name": "İsmail Yüksek",
+      "position": "Defensive Midfield"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/79.png",
+        "name": "VfB Stuttgart"
+      },
+      "dateOfBirth": "Oct 13, 1996",
+      "foot": "right",
+      "height": "1,91m",
+      "id": "232320",
+      "injured": false,
+      "marketValue": "€8.00m",
+      "name": "Atakan Karazor",
+      "position": "Defensive Midfield"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1075.png",
+        "name": "SC Braga"
+      },
+      "dateOfBirth": "Aug 17, 2004",
+      "foot": "right",
+      "height": "1,93m",
+      "id": "875337",
+      "injured": false,
+      "marketValue": "€8.00m",
+      "name": "Demir Ege Tıknaz",
+      "position": "Defensive Midfield"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/16.png",
+        "name": "Borussia Dortmund"
+      },
+      "dateOfBirth": "Jan 11, 1998",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "244940",
+      "injured": false,
+      "marketValue": "€3.50m",
+      "name": "Salih Özcan",
+      "position": "Defensive Midfield"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/141.png",
+        "name": "Galatasaray"
+      },
+      "dateOfBirth": "Nov 10, 1994",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "119031",
+      "injured": false,
+      "marketValue": "€1.50m",
+      "name": "Kaan Ayhan",
+      "position": "Defensive Midfield"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/114.png",
+        "name": "Besiktas JK"
+      },
+      "dateOfBirth": "Dec 29, 2000",
+      "foot": "both",
+      "height": "1,75m",
+      "id": "454567",
+      "injured": false,
+      "marketValue": "€25.00m",
+      "name": "Orkun Kökçü",
+      "position": "Central Midfield"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/418.png",
+        "name": "Real Madrid"
+      },
+      "dateOfBirth": "Feb 25, 2005",
+      "foot": "left",
+      "height": "1,75m",
+      "id": "861410",
+      "injured": false,
+      "marketValue": "€90.00m",
+      "name": "Arda Güler",
+      "position": "Attacking Midfield"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/24.png",
+        "name": "Eintracht Frankfurt"
+      },
+      "dateOfBirth": "Nov 11, 2005",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "816585",
+      "injured": false,
+      "marketValue": "€45.00m",
+      "name": "Can Uzun",
+      "position": "Attacking Midfield"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/506.png",
+        "name": "Juventus FC"
+      },
+      "dateOfBirth": "May 4, 2005",
+      "foot": "both",
+      "height": "1,87m",
+      "id": "845654",
+      "injured": true,
+      "marketValue": "€75.00m",
+      "name": "Kenan Yıldız",
+      "position": "Left Winger"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/141.png",
+        "name": "Galatasaray"
+      },
+      "dateOfBirth": "May 23, 2000",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "541537",
+      "injured": false,
+      "marketValue": "€30.00m",
+      "name": "Barış Alper Yılmaz",
+      "position": "Left Winger"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/36.png",
+        "name": "Fenerbahce"
+      },
+      "dateOfBirth": "Oct 21, 1998",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "382528",
+      "injured": true,
+      "marketValue": "€20.00m",
+      "name": "Kerem Aktürkoğlu",
+      "position": "Left Winger"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/865.png",
+        "name": "FC Midtjylland"
+      },
+      "dateOfBirth": "Jun 19, 2002",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "514887",
+      "injured": false,
+      "marketValue": "€10.00m",
+      "name": "Aral Şimşir",
+      "position": "Left Winger"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/36.png",
+        "name": "Fenerbahce"
+      },
+      "dateOfBirth": "Oct 27, 2000",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "563749",
+      "injured": false,
+      "marketValue": "€7.00m",
+      "name": "Oğuz Aydın",
+      "position": "Left Winger"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/141.png",
+        "name": "Galatasaray"
+      },
+      "dateOfBirth": "Jul 7, 2000",
+      "foot": "left",
+      "height": "1,73m",
+      "id": "396908",
+      "injured": false,
+      "marketValue": "€18.00m",
+      "name": "Yunus Akgün",
+      "position": "Right Winger"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6890.png",
+        "name": "Basaksehir FK"
+      },
+      "dateOfBirth": "Nov 20, 1998",
+      "foot": "left",
+      "height": "1,68m",
+      "id": "517376",
+      "injured": false,
+      "marketValue": "€4.00m",
+      "name": "Yusuf Sarı",
+      "position": "Right Winger"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/10484.png",
+        "name": "Kasimpasa"
+      },
+      "dateOfBirth": "Jul 15, 1995",
+      "foot": "left",
+      "height": "1,80m",
+      "id": "216603",
+      "injured": false,
+      "marketValue": "€3.00m",
+      "name": "İrfan Can Kahveci",
+      "position": "Right Winger"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/720.png",
+        "name": "FC Porto"
+      },
+      "dateOfBirth": "Jul 2, 2004",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "1063292",
+      "injured": false,
+      "marketValue": "€5.00m",
+      "name": "Deniz Gül",
+      "position": "Centre-Forward"
+    }
+  ],
+  "stadiumName": null,
+  "stadiumSeats": null,
+  "transfermarktId": "3381"
+}

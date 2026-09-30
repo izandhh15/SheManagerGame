@@ -1,0 +1,383 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
+use App\Modules\Lineup\Enums\Formation;
+use App\Support\PositionSlotMapper;
+
+/**
+ * @property string $id
+ * @property string $game_id
+ * @property string $competition_id
+ * @property int $round_number
+ * @property string|null $round_name
+ * @property string $home_team_id
+ * @property string $away_team_id
+ * @property \Illuminate\Support\Carbon $scheduled_date
+ * @property int|null $home_score
+ * @property int|null $away_score
+ * @property bool $played
+ * @property string|null $cup_tie_id
+ * @property bool $is_extra_time
+ * @property int|null $home_score_et
+ * @property int|null $away_score_et
+ * @property int|null $home_score_penalties
+ * @property int|null $away_score_penalties
+ * @property int $first_half_stoppage
+ * @property int $second_half_stoppage
+ * @property int|null $et_first_half_stoppage
+ * @property int|null $et_second_half_stoppage
+ * @property array<array-key, mixed>|null $home_lineup
+ * @property array<array-key, mixed>|null $away_lineup
+ * @property string|null $home_formation
+ * @property string|null $away_formation
+ * @property string|null $home_mentality
+ * @property string|null $away_mentality
+ * @property string|null $mvp_player_id
+ * @property array<array-key, mixed>|null $home_pitch_positions
+ * @property array<array-key, mixed>|null $away_pitch_positions
+ * @property array<array-key, mixed>|null $home_slot_assignments
+ * @property array<array-key, mixed>|null $away_slot_assignments
+ * @property array<array-key, mixed>|null $substitutions
+ * @property string|null $neutral_venue_name
+ * @property int|null $neutral_venue_capacity
+ * @property-read \App\Models\Team $awayTeam
+ * @property-read \App\Models\GamePlayer|null $mvpPlayer
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\MatchEvent> $cardEvents
+ * @property-read int|null $card_events_count
+ * @property-read \App\Models\Competition $competition
+ * @property-read \App\Models\CupTie|null $cupTie
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\MatchEvent> $events
+ * @property-read int|null $events_count
+ * @property-read \App\Models\Game $game
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\MatchEvent> $goalEvents
+ * @property-read int|null $goal_events_count
+ * @property-read \App\Models\Team $homeTeam
+ * @method static \Database\Factories\GameMatchFactory factory($count = null, $state = [])
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch whereAwayFormation($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch whereAwayLineup($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch whereAwayMentality($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch whereAwayScore($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch whereAwayScoreEt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch whereAwayScorePenalties($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch whereAwayTeamId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch whereCompetitionId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch whereCupTieId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch whereGameId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch whereHomeFormation($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch whereHomeLineup($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch whereHomeMentality($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch whereHomeScore($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch whereHomeScoreEt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch whereHomeScorePenalties($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch whereHomeTeamId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch whereIsExtraTime($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch wherePlayed($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch whereRoundName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch whereRoundNumber($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch whereScheduledDate($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|GameMatch whereSubstitutions($value)
+ * @mixin \Eloquent
+ */
+class GameMatch extends Model
+{
+    use HasFactory, HasUuids;
+
+    public $timestamps = false;
+
+    protected $fillable = [
+        'game_id',
+        'competition_id',
+        'round_number',
+        'round_name',
+        'home_team_id',
+        'away_team_id',
+        'scheduled_date',
+        'home_score',
+        'away_score',
+        'played',
+        'home_lineup',
+        'away_lineup',
+        'home_formation',
+        'away_formation',
+        'home_mentality',
+        'away_mentality',
+        'home_playing_style',
+        'away_playing_style',
+        'home_pressing',
+        'away_pressing',
+        'home_defensive_line',
+        'away_defensive_line',
+        'home_pitch_positions',
+        'away_pitch_positions',
+        'home_slot_assignments',
+        'away_slot_assignments',
+        'cup_tie_id',
+        'is_extra_time',
+        'home_score_et',
+        'away_score_et',
+        'home_score_penalties',
+        'away_score_penalties',
+        'first_half_stoppage',
+        'second_half_stoppage',
+        'et_first_half_stoppage',
+        'et_second_half_stoppage',
+        'home_possession',
+        'away_possession',
+        'mvp_player_id',
+        'substitutions',
+        'standings_applied',
+        'neutral_venue_name',
+        'neutral_venue_capacity',
+    ];
+
+    protected $casts = [
+        'round_number' => 'integer',
+        'scheduled_date' => 'datetime',
+        'home_score' => 'integer',
+        'away_score' => 'integer',
+        'home_lineup' => 'array',
+        'away_lineup' => 'array',
+        'home_formation' => 'string',
+        'away_formation' => 'string',
+        'home_mentality' => 'string',
+        'away_mentality' => 'string',
+        'home_playing_style' => 'string',
+        'away_playing_style' => 'string',
+        'home_pressing' => 'string',
+        'away_pressing' => 'string',
+        'home_defensive_line' => 'string',
+        'away_defensive_line' => 'string',
+        'home_pitch_positions' => 'array',
+        'away_pitch_positions' => 'array',
+        'home_slot_assignments' => 'array',
+        'away_slot_assignments' => 'array',
+        'played' => 'boolean',
+        'is_extra_time' => 'boolean',
+        'home_score_et' => 'integer',
+        'away_score_et' => 'integer',
+        'home_score_penalties' => 'integer',
+        'away_score_penalties' => 'integer',
+        'home_possession' => 'integer',
+        'away_possession' => 'integer',
+        'first_half_stoppage' => 'integer',
+        'second_half_stoppage' => 'integer',
+        'et_first_half_stoppage' => 'integer',
+        'et_second_half_stoppage' => 'integer',
+        'substitutions' => 'array',
+        'standings_applied' => 'boolean',
+        'neutral_venue_capacity' => 'integer',
+    ];
+
+    public function game(): BelongsTo
+    {
+        return $this->belongsTo(Game::class);
+    }
+
+    public function competition(): BelongsTo
+    {
+        return $this->belongsTo(Competition::class);
+    }
+
+    public function homeTeam(): BelongsTo
+    {
+        return $this->belongsTo(Team::class, 'home_team_id');
+    }
+
+    public function awayTeam(): BelongsTo
+    {
+        return $this->belongsTo(Team::class, 'away_team_id');
+    }
+
+    public function cupTie(): BelongsTo
+    {
+        return $this->belongsTo(CupTie::class);
+    }
+
+    public function mvpPlayer(): BelongsTo
+    {
+        return $this->belongsTo(GamePlayer::class, 'mvp_player_id');
+    }
+
+    public function isCupMatch(): bool
+    {
+        return $this->cup_tie_id !== null;
+    }
+
+    public function events(): HasMany
+    {
+        // Phase tuple ordering — minute alone is ambiguous in stoppage time.
+        return $this->hasMany(MatchEvent::class, 'game_match_id')->orderedChronologically();
+    }
+
+    /**
+     * Get goal events for this match.
+     */
+    public function goalEvents(): HasMany
+    {
+        return $this->events()->whereIn('event_type', ['goal', 'own_goal']);
+    }
+
+    /**
+     * Get card events for this match.
+     */
+    public function cardEvents(): HasMany
+    {
+        return $this->events()->whereIn('event_type', ['yellow_card', 'red_card']);
+    }
+
+    public function isNeutralVenue(): bool
+    {
+        return $this->competition_id === 'WC2026'
+            || $this->neutral_venue_name !== null;
+    }
+
+    public function venueName(): ?string
+    {
+        if ($this->neutral_venue_name !== null) {
+            return $this->neutral_venue_name;
+        }
+
+        // Resolve the game-scoped name (manual rename / naming-rights sponsor)
+        // with the control-plane Team.stadium_name as the fallback. The
+        // resolver caches per request, so calling this across a fixture list
+        // doesn't fan out into an N+1.
+        return app(\App\Modules\Stadium\Services\GameStadiumResolver::class)
+            ->effectiveName($this->game_id, $this->home_team_id, $this->homeTeam?->stadium_name);
+    }
+
+    public function venueCapacity(): ?int
+    {
+        if ($this->neutral_venue_capacity !== null) {
+            return (int) $this->neutral_venue_capacity;
+        }
+
+        $seats = $this->homeTeam?->stadium_seats;
+        return $seats !== null ? (int) $seats : null;
+    }
+
+    public function involvesTeam(string $teamId): bool
+    {
+        return $this->home_team_id === $teamId || $this->away_team_id === $teamId;
+    }
+
+    /**
+     * Slot-bookkeeping check: is the team in the home_team_id slot?
+     *
+     * Use this for picking score columns, lineup arrays, opponent identity,
+     * narrative copy, etc. For game mechanics (xG, AI tactics, coach tips),
+     * use hasHomeAdvantage() instead so neutral-venue matches behave correctly.
+     */
+    public function isHomeTeam(string $teamId): bool
+    {
+        return $this->home_team_id === $teamId;
+    }
+
+    /**
+     * Whether the given team gets the home-field advantage for this match.
+     *
+     * Use this anywhere the answer affects gameplay or guidance — xG / morale
+     * / coach tips / AI tactics — so neutral-venue matches (World Cup, finals
+     * at La Cartuja, UEFA finals) don't incorrectly apply the home boost.
+     */
+    public function hasHomeAdvantage(string $teamId): bool
+    {
+        return $this->isHomeTeam($teamId) && ! $this->isNeutralVenue();
+    }
+
+    public function getOpponentFor(string $teamId): ?Team
+    {
+        if ($this->home_team_id === $teamId) {
+            return $this->awayTeam;
+        }
+        if ($this->away_team_id === $teamId) {
+            return $this->homeTeam;
+        }
+        return null;
+    }
+
+    public function getResultString(): string
+    {
+        if (!$this->played) {
+            return '-';
+        }
+        return "{$this->home_score} - {$this->away_score}";
+    }
+
+    /**
+     * Count MVP awards per player for a given game, optionally filtered by competition and/or teams.
+     *
+     * @return Collection<string, int>  Keyed by mvp_player_id => count
+     */
+    public static function mvpCountsByPlayer(string $gameId, ?string $competitionId = null, ?array $teamIds = null): Collection
+    {
+        $query = DB::table('game_matches')
+            ->where('game_id', $gameId)
+            ->where('played', true)
+            ->whereNotNull('mvp_player_id');
+
+        if ($competitionId) {
+            $query->where('competition_id', $competitionId);
+        }
+
+        if ($teamIds) {
+            $query->where(fn ($q) => $q
+                ->whereIn('home_team_id', $teamIds)
+                ->orWhereIn('away_team_id', $teamIds));
+        }
+
+        return $query
+            ->selectRaw('mvp_player_id, COUNT(*) as count')
+            ->groupBy('mvp_player_id')
+            ->pluck('count', 'mvp_player_id');
+    }
+
+    public function getWinnerId(): ?string
+    {
+        if (!$this->played) {
+            return null;
+        }
+        if ($this->home_score > $this->away_score) {
+            return $this->home_team_id;
+        }
+        if ($this->away_score > $this->home_score) {
+            return $this->away_team_id;
+        }
+        return null; // Draw
+    }
+
+    /**
+     * Build a {playerId => slotCode} map for one side of the match.
+     *
+     * Combines the persisted slot assignments with the formation's pitch slots
+     * to produce the map consumed by MatchSimulator for position penalties.
+     *
+     * @return array<string, string>
+     */
+    public function playerSlotMap(string $side): array
+    {
+        $slotAssignments = $this->{"{$side}_slot_assignments"} ?? [];
+        $formationValue = $this->{"{$side}_formation"} ?? null;
+
+        if (empty($slotAssignments) || empty($formationValue)) {
+            return [];
+        }
+
+        $formation = Formation::tryFrom($formationValue);
+
+        return $formation
+            ? PositionSlotMapper::buildPlayerSlotMap($slotAssignments, $formation->pitchSlots())
+            : [];
+    }
+}

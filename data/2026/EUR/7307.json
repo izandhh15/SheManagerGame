@@ -1,0 +1,430 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/7307.png",
+  "name": "HB Køge",
+  "players": [
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Nov 14, 2004",
+      "foot": "",
+      "height": "1,82m",
+      "id": "42299",
+      "marketValue": "€45k",
+      "name": "Alberte Vingum",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Feb 23, 2006",
+      "foot": "",
+      "height": "",
+      "id": "84197",
+      "marketValue": "€25k",
+      "name": "Emilie Møller",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "30",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 11, 2000",
+      "foot": "",
+      "height": "1,78m",
+      "id": "83474",
+      "marketValue": "€40k",
+      "name": "Lauren Kozal",
+      "nationality": [
+        "United States"
+      ],
+      "number": "66",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2031",
+      "dateOfBirth": "Oct 5, 1999",
+      "foot": "",
+      "height": "1,71m",
+      "id": "42163",
+      "marketValue": "€30k",
+      "name": "Maria Uhre",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "2",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 28, 2000",
+      "foot": "",
+      "height": "1,80m",
+      "id": "110387",
+      "marketValue": "€35k",
+      "name": "Macy Schultz",
+      "nationality": [
+        "United States"
+      ],
+      "number": "3",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 17, 2003",
+      "foot": "right",
+      "height": "1,66m",
+      "id": "63900",
+      "marketValue": "€35k",
+      "name": "Yukina Sakabe",
+      "nationality": [
+        "Japan"
+      ],
+      "number": "4",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 24, 2002",
+      "foot": "",
+      "height": "1,63m",
+      "id": "107457",
+      "marketValue": "€35k",
+      "name": "Sydney Jones",
+      "nationality": [
+        "United States"
+      ],
+      "number": "5",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Nov 5, 2003",
+      "foot": "",
+      "height": "1,66m",
+      "id": "39563",
+      "marketValue": "€25k",
+      "name": "Sarah Thygesen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "12",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 3, 2005",
+      "foot": "",
+      "height": "",
+      "id": "42332",
+      "marketValue": "€35k",
+      "name": "Ida Marie Jørgensen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "15",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 10, 2007",
+      "foot": "",
+      "height": "",
+      "id": "85443",
+      "marketValue": "€40k",
+      "name": "Andrea Termansen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "27",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 3, 1992",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "9323",
+      "marketValue": "€25k",
+      "name": "Simone Boye",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "28",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 19, 2004",
+      "foot": "",
+      "height": "1,68m",
+      "id": "120964",
+      "marketValue": "€35k",
+      "name": "Emma Flick",
+      "nationality": [
+        "United States"
+      ],
+      "number": "32",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 19, 2004",
+      "foot": "",
+      "height": "1,58m",
+      "id": "44440",
+      "marketValue": "€30k",
+      "name": "Aemu Oyama",
+      "nationality": [
+        "Japan"
+      ],
+      "number": "6",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 23, 2008",
+      "foot": "",
+      "height": "",
+      "id": "84877",
+      "marketValue": "€35k",
+      "name": "Nadia Tahirukaj",
+      "nationality": [
+        "Albania"
+      ],
+      "number": "21",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 28, 2003",
+      "foot": "",
+      "height": "",
+      "id": "37414",
+      "marketValue": "€30k",
+      "name": "Laura Hermann",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "24",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Mar 24, 2006",
+      "foot": "",
+      "height": "",
+      "id": "78401",
+      "marketValue": "€40k",
+      "name": "Augusta Callesen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "25",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 4, 1997",
+      "foot": "right",
+      "height": "1,59m",
+      "id": "45468",
+      "marketValue": "€30k",
+      "name": "Adam Jereko",
+      "nationality": [
+        "Kenya"
+      ],
+      "number": "33",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 19, 2007",
+      "foot": "right",
+      "height": "1,63m",
+      "id": "70525",
+      "marketValue": "€40k",
+      "name": "Zuzanna Witek",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "88",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 23, 2008",
+      "foot": "",
+      "height": "1,54m",
+      "id": "103981",
+      "marketValue": "",
+      "name": "Mercy Chipasula",
+      "nationality": [
+        "Zambia"
+      ],
+      "number": 10,
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 14, 1995",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "38849",
+      "marketValue": "€45k",
+      "name": "Kyra Carusa",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "7",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 15, 2006",
+      "foot": "",
+      "height": "",
+      "id": "99862",
+      "marketValue": "€35k",
+      "name": "Mai Wendicke",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "8",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jan 2, 1988",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "1322",
+      "marketValue": "€25k",
+      "name": "Nadia Nadim",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "9",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 5, 2001",
+      "foot": "",
+      "height": "1,70m",
+      "id": "102069",
+      "marketValue": "€35k",
+      "name": "Catherine Paulson",
+      "nationality": [
+        "United States"
+      ],
+      "number": "13",
+      "position": "Left Winger"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 3, 2001",
+      "foot": "",
+      "height": "1,63m",
+      "id": "110511",
+      "marketValue": "€30k",
+      "name": "Samantha Williams",
+      "nationality": [
+        "United States"
+      ],
+      "number": "14",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 9, 1997",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "36495",
+      "marketValue": "€40k",
+      "name": "Rikke Madsen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "17",
+      "position": "Right Winger"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 5, 2006",
+      "foot": "",
+      "height": "",
+      "id": "63585",
+      "marketValue": "€50k",
+      "name": "Emelía Óskarsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "22",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 23, 1999",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "33847",
+      "marketValue": "€75k",
+      "name": "Mille Gejl",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "23",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 16, 1999",
+      "foot": "",
+      "height": "1,60m",
+      "id": "105706",
+      "marketValue": "€35k",
+      "name": "Flora Marta Lacho",
+      "nationality": [
+        "Angola"
+      ],
+      "number": "26",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Jul 28, 2009",
+      "foot": "",
+      "height": "",
+      "id": "109662",
+      "marketValue": "€30k",
+      "name": "Kaia Carruthers",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "31",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 17, 2006",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "55246",
+      "marketValue": "€35k",
+      "name": "Julia Gutowska",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "77",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Capelli Sport Stadion",
+  "stadiumSeats": "4000",
+  "transfermarktId": "7307",
+  "country": "DK"
+}

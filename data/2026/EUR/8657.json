@@ -1,0 +1,402 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/8657.png",
+  "name": "BK Häcken",
+  "players": [
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Apr 26, 1993",
+      "foot": "right",
+      "height": "1,71m",
+      "id": "20624",
+      "marketValue": "€75k",
+      "name": "Jennifer Falk",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "13",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 3, 2009",
+      "foot": "",
+      "height": "1,78m",
+      "id": "85382",
+      "marketValue": "€25k",
+      "name": "Hanna Karlsson",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "29",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 12, 2002",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "84698",
+      "marketValue": "€40k",
+      "name": "Disa Hellwig",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "40",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Mar 18, 1985",
+      "foot": "right",
+      "height": "1,66m",
+      "id": "1133",
+      "marketValue": "€10k",
+      "name": "Aivi Luik",
+      "nationality": [
+        "Australia"
+      ],
+      "number": "3",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Jul 28, 2000",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "32110",
+      "marketValue": "€65k",
+      "name": "Emma Östlund",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Jan 24, 1996",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "12585",
+      "marketValue": "€45k",
+      "name": "Stine Sandbech",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "12",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Mar 3, 2000",
+      "foot": "left",
+      "height": "1,69m",
+      "id": "32106",
+      "marketValue": "€65k",
+      "name": "Alva Selerud",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "15",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Sep 14, 2004",
+      "foot": "right",
+      "height": "1,71m",
+      "id": "62756",
+      "marketValue": "€70k",
+      "name": "Lisa Löwing",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "18",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Dec 31, 2004",
+      "foot": "right",
+      "height": "1,60m",
+      "id": "56811",
+      "marketValue": "€80k",
+      "name": "Nesrin Akgün",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "19",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2029",
+      "dateOfBirth": "Jan 19, 1998",
+      "foot": "left",
+      "height": "1,68m",
+      "id": "34165",
+      "marketValue": "€100k",
+      "name": "Josefine Rybrink",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "20",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 16, 2004",
+      "foot": "",
+      "height": "1,65m",
+      "id": "86646",
+      "marketValue": "€40k",
+      "name": "Ella McBride",
+      "nationality": [
+        "Canada"
+      ],
+      "number": "22",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Aug 25, 1995",
+      "foot": "right",
+      "height": "1,65m",
+      "id": "52730",
+      "marketValue": "€80k",
+      "name": "Tabby Tindell",
+      "nationality": [
+        "United States"
+      ],
+      "number": "24",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "May 20, 2004",
+      "foot": "",
+      "height": "",
+      "id": "117034",
+      "marketValue": "€60k",
+      "name": "Laney Matriano",
+      "nationality": [
+        "United States"
+      ],
+      "number": "5",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Dec 31, 2030",
+      "dateOfBirth": "Nov 26, 2005",
+      "foot": "right",
+      "height": "1,63m",
+      "id": "62608",
+      "marketValue": "€70k",
+      "name": "Pernille Sanvig",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "7",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Dec 31, 2029",
+      "dateOfBirth": "Jun 15, 2005",
+      "foot": "both",
+      "height": "",
+      "id": "64622",
+      "marketValue": "€45k",
+      "name": "Josefin Baudou",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "8",
+      "position": "Left Winger"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Feb 12, 2007",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "110783",
+      "marketValue": "€45k",
+      "name": "Faith Chinzimu",
+      "nationality": [
+        "Malawi"
+      ],
+      "number": "17",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Nov 28, 2005",
+      "foot": "left",
+      "height": "1,70m",
+      "id": "42305",
+      "marketValue": "€80k",
+      "name": "Jóhanna Fossdalsá",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "21",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "May 11, 1993",
+      "foot": "right",
+      "height": "1,65m",
+      "id": "3990",
+      "marketValue": "€40k",
+      "name": "Elin Rubensson",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "23",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 1, 2007",
+      "foot": "",
+      "height": "1,63m",
+      "id": "80543",
+      "marketValue": "€40k",
+      "name": "Nathalie Staaf",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "26",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "May 16, 1995",
+      "foot": "right",
+      "height": "1,65m",
+      "id": "18162",
+      "marketValue": "€45k",
+      "name": "Halimatu Ayinde",
+      "nationality": [
+        "Nigeria"
+      ],
+      "number": "28",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Dec 31, 2029",
+      "dateOfBirth": "Feb 4, 2002",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "37899",
+      "marketValue": "€80k",
+      "name": "Helena Sampaio",
+      "nationality": [
+        "Brazil"
+      ],
+      "number": "30",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2030",
+      "dateOfBirth": "May 21, 2008",
+      "foot": "",
+      "height": "1,74m",
+      "id": "96607",
+      "marketValue": "",
+      "name": "Julie Steen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": 1,
+      "position": "Striker"
+    },
+    {
+      "contract": "Dec 31, 2029",
+      "dateOfBirth": "Dec 1, 2002",
+      "foot": "left",
+      "height": "1,77m",
+      "id": "56280",
+      "marketValue": "€40k",
+      "name": "Joy Omewa",
+      "nationality": [
+        "Nigeria"
+      ],
+      "number": "6",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Dec 31, 2030",
+      "dateOfBirth": "Sep 15, 2001",
+      "foot": "",
+      "height": "",
+      "id": "32961",
+      "marketValue": "€80k",
+      "name": "Maja Bodin",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "9",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "May 10, 1997",
+      "foot": "both",
+      "height": "1,68m",
+      "id": "34315",
+      "marketValue": "€75k",
+      "name": "Anna Anvegård",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "10",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 5, 2007",
+      "foot": "right",
+      "height": "1,58m",
+      "id": "87252",
+      "marketValue": "€50k",
+      "name": "Tilde Karlsson",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "14",
+      "position": "Left Winger"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 3, 2005",
+      "foot": "right",
+      "height": "",
+      "id": "81481",
+      "marketValue": "€75k",
+      "name": "Tuva Ölvestad",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "16",
+      "position": "Striker"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Apr 18, 2008",
+      "foot": "",
+      "height": "",
+      "id": "87614",
+      "marketValue": "€60k",
+      "name": "Thelma Karen Pálmadóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "27",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Bravida Arena",
+  "stadiumSeats": "6500",
+  "transfermarktId": "8657",
+  "country": "SE"
+}

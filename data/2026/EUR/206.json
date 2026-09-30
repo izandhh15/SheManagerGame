@@ -1,0 +1,430 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/206.png",
+  "name": "FC Rosengård",
+  "players": [
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "May 14, 2000",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "34134",
+      "marketValue": "€45k",
+      "name": "Moa Edrud",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Jul 25, 2007",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "80530",
+      "marketValue": "€25k",
+      "name": "Saga Andersson",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "43",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 3, 2008",
+      "foot": "",
+      "height": "",
+      "id": "111813",
+      "marketValue": "",
+      "name": "Adela Dautovic-Rix",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "48",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Jun 8, 2005",
+      "foot": "right",
+      "height": "1,74m",
+      "id": "54986",
+      "marketValue": "€60k",
+      "name": "Klara Svensson Senelius",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "2",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 29, 2002",
+      "foot": "",
+      "height": "1,60m",
+      "id": "37765",
+      "marketValue": "",
+      "name": "Ran Iwai",
+      "nationality": [
+        "Japan"
+      ],
+      "number": "3",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Nov 29, 1997",
+      "foot": "",
+      "height": "1,70m",
+      "id": "22830",
+      "marketValue": "€35k",
+      "name": "Emma Pennsäter",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Aug 19, 2003",
+      "foot": "right",
+      "height": "1,65m",
+      "id": "38776",
+      "marketValue": "€45k",
+      "name": "Anni Hartikainen",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "5",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Oct 24, 1999",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "28993",
+      "marketValue": "€45k",
+      "name": "Elli Pikkujämsä",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "8",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Jan 4, 2007",
+      "foot": "",
+      "height": "1,83m",
+      "id": "85573",
+      "marketValue": "€30k",
+      "name": "Cecily Wellesley-Smith",
+      "nationality": [
+        "England"
+      ],
+      "number": "15",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Sep 6, 2004",
+      "foot": "",
+      "height": "",
+      "id": "39659",
+      "marketValue": "",
+      "name": "Julie Mathiasen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "25",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 5, 2008",
+      "foot": "",
+      "height": "",
+      "id": "103805",
+      "marketValue": "",
+      "name": "Thea Carlsson",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "32",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 13, 2007",
+      "foot": "",
+      "height": "",
+      "id": "98009",
+      "marketValue": "",
+      "name": "Sara Sulaiman",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "40",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Oct 6, 2004",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "66650",
+      "marketValue": "€40k",
+      "name": "Jo-Anne Cronquist",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "44",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Dec 31, 2029",
+      "dateOfBirth": "May 3, 2007",
+      "foot": "",
+      "height": "1,75m",
+      "id": "98017",
+      "marketValue": "€25k",
+      "name": "Alice Enehov",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "49",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 15, 1994",
+      "foot": "left",
+      "height": "1,69m",
+      "id": "16671",
+      "marketValue": "€70k",
+      "name": "Ria Laihonen",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "6",
+      "position": "Right Midfield"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Mar 28, 2003",
+      "foot": "right",
+      "height": "1,74m",
+      "id": "47261",
+      "marketValue": "€50k",
+      "name": "Thea Sørbo",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "7",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 31, 2001",
+      "foot": "right",
+      "height": "1,65m",
+      "id": "39110",
+      "marketValue": "",
+      "name": "Cecilie Larsen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "9",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Jun 11, 2002",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "41568",
+      "marketValue": "€35k",
+      "name": "Molly Johansson",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "11",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Jul 6, 2002",
+      "foot": "",
+      "height": "",
+      "id": "53576",
+      "marketValue": "",
+      "name": "Isabel Gomez",
+      "nationality": [
+        "Australia"
+      ],
+      "number": "20",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Jan 23, 2004",
+      "foot": "left",
+      "height": "1,61m",
+      "id": "46235",
+      "marketValue": "€40k",
+      "name": "Anastasiya Pobegaylo",
+      "nationality": [
+        "Belarus"
+      ],
+      "number": "23",
+      "position": "Right Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 28, 2007",
+      "foot": "",
+      "height": "",
+      "id": "80540",
+      "marketValue": "",
+      "name": "Saga Kristell",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "41",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Mar 30, 2006",
+      "foot": "",
+      "height": "1,65m",
+      "id": "66648",
+      "marketValue": "€35k",
+      "name": "Tilde Björklund",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "45",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 12, 2007",
+      "foot": "",
+      "height": "1,66m",
+      "id": "80535",
+      "marketValue": "",
+      "name": "Thea Staffansson",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "51",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 10, 1999",
+      "foot": "right",
+      "height": "1,62m",
+      "id": "31960",
+      "marketValue": "€70k",
+      "name": "Remy Siemsen",
+      "nationality": [
+        "Australia"
+      ],
+      "number": "10",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Feb 11, 2001",
+      "foot": "left",
+      "height": "1,68m",
+      "id": "64870",
+      "marketValue": "€25k",
+      "name": "Amanda West",
+      "nationality": [
+        "Canada"
+      ],
+      "number": "18",
+      "position": "Left Winger"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 10, 2007",
+      "foot": "",
+      "height": "",
+      "id": "85518",
+      "marketValue": "€10k",
+      "name": "Stella Malmros",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "21",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 30, 2000",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "35770",
+      "marketValue": "€45k",
+      "name": "Anam Imo",
+      "nationality": [
+        "Nigeria"
+      ],
+      "number": "24",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "May 5, 2003",
+      "foot": "",
+      "height": "1,65m",
+      "id": "52912",
+      "marketValue": "",
+      "name": "Bryleeh Henry",
+      "nationality": [
+        "Australia"
+      ],
+      "number": "26",
+      "position": "Right Winger"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Aug 7, 2008",
+      "foot": "right",
+      "height": "",
+      "id": "98686",
+      "marketValue": "€45k",
+      "name": "Filippa Sjöström",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "47",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 28, 2003",
+      "foot": "",
+      "height": "1,62m",
+      "id": "69727",
+      "marketValue": "€30k",
+      "name": "Simone Jackson",
+      "nationality": [
+        "United States"
+      ],
+      "number": "80",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Malmö IP",
+  "stadiumSeats": "7600",
+  "transfermarktId": "206",
+  "country": "SE"
+}

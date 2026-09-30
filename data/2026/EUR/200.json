@@ -1,0 +1,304 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/200.png",
+  "name": "Kristianstads DFF",
+  "players": [
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Dec 14, 2006",
+      "foot": "",
+      "height": "",
+      "id": "99910",
+      "marketValue": "€30k",
+      "name": "Malva Mellblom",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Sep 21, 1998",
+      "foot": "",
+      "height": "",
+      "id": "30298",
+      "marketValue": "€65k",
+      "name": "Moa Olsson",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "33",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Jun 2, 2001",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "99817",
+      "marketValue": "€40k",
+      "name": "Waniya Hudson",
+      "nationality": [
+        "United States"
+      ],
+      "number": "2",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 2, 2002",
+      "foot": "",
+      "height": "1,75m",
+      "id": "110436",
+      "marketValue": "",
+      "name": "Courtney Ruedt",
+      "nationality": [
+        "United States"
+      ],
+      "number": "3",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 27, 1994",
+      "foot": "",
+      "height": "1,65m",
+      "id": "4277",
+      "marketValue": "€25k",
+      "name": "Alice Nilsson",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "8",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Dec 7, 2000",
+      "foot": "right",
+      "height": "1,57m",
+      "id": "30169",
+      "marketValue": "€50k",
+      "name": "Tilda Persson",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "14",
+      "position": "Right Midfield"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Jan 22, 2006",
+      "foot": "",
+      "height": "",
+      "id": "114867",
+      "marketValue": "",
+      "name": "Eira Persson",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "16",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Aug 4, 2000",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "35131",
+      "marketValue": "€60k",
+      "name": "Guðný Árnadóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "20",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "May 6, 2003",
+      "foot": "",
+      "height": "1,60m",
+      "id": "68239",
+      "marketValue": "",
+      "name": "Lova Sternfeldt",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "22",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 9, 1998",
+      "foot": "left",
+      "height": "1,69m",
+      "id": "80623",
+      "marketValue": "€50k",
+      "name": "Viktoria Persson",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "27",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Mar 19, 2000",
+      "foot": "right",
+      "height": "1,67m",
+      "id": "35072",
+      "marketValue": "€60k",
+      "name": "Alexandra Jóhannsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "6",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 7, 2005",
+      "foot": "",
+      "height": "",
+      "id": "48454",
+      "marketValue": "€40k",
+      "name": "Elísa Lana Sigurjónsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "7",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Sep 4, 2003",
+      "foot": "",
+      "height": "1,60m",
+      "id": "77117",
+      "marketValue": "€10k",
+      "name": "Sadie Sider-Echenberg",
+      "nationality": [
+        "Canada"
+      ],
+      "number": "10",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Jan 29, 2002",
+      "foot": "left",
+      "height": "1,62m",
+      "id": "34778",
+      "marketValue": "€45k",
+      "name": "Annika Huhta",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "12",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Oct 7, 2005",
+      "foot": "",
+      "height": "",
+      "id": "62605",
+      "marketValue": "€35k",
+      "name": "Maja Hagemann",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "13",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Mar 23, 2009",
+      "foot": "right",
+      "height": "",
+      "id": "97640",
+      "marketValue": "€55k",
+      "name": "Filippa Andersson Widén",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "18",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 11, 2002",
+      "foot": "",
+      "height": "",
+      "id": "105970",
+      "marketValue": "",
+      "name": "Elin Hansson",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "19",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Oct 31, 2007",
+      "foot": "",
+      "height": "",
+      "id": "112831",
+      "marketValue": "",
+      "name": "Inez Rosengren",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "29",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 16, 2003",
+      "foot": "",
+      "height": "1,72m",
+      "id": "57142",
+      "marketValue": "€60k",
+      "name": "Alice Egnér",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "4",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 19, 1997",
+      "foot": "",
+      "height": "1,61m",
+      "id": "22726",
+      "marketValue": "",
+      "name": "Michelle de Jongh",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "9",
+      "position": "Striker"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Jan 7, 2002",
+      "foot": "",
+      "height": "1,75m",
+      "id": "42787",
+      "marketValue": "€65k",
+      "name": "Hanna Ekengren",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "11",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Kristianstads Fotbollsarena",
+  "stadiumSeats": "2500",
+  "transfermarktId": "200",
+  "country": "SE"
+}

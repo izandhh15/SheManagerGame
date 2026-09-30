@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtua FC — A new football manager. Like the classics.</title>
+    <meta name="description" content="A free football manager with no installation required. Manage real teams from 7 European leagues, sign players, develop youth prospects and compete in Europe. Inspired by the classics. Made to play anytime.">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="alternate" hreflang="es" href="/index.html">
+    <link rel="alternate" hreflang="en" href="/index-en.html">
+    <link rel="alternate" hreflang="x-default" href="/index.html">
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=barlow-semi-condensed:400,600,800|inter:400,500,600" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                fontSize: {
+                    xs: '0.8rem',
+                    sm: '1rem',
+                    base: '1.25rem',
+                    xl: '1.563rem',
+                    '2xl': '1.953rem',
+                    '3xl': '2.441rem',
+                    '4xl': '3.052rem',
+                },
+                extend: {
+                    fontFamily: {
+                        heading: ['"Barlow Semi Condensed"', 'sans-serif'],
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        surface: {
+                            900: '#0B1120',
+                            800: '#0F172A',
+                            700: '#1E293B',
+                            600: '#334155',
+                        },
+                        accent: {
+                            blue: '#3B82F6',
+                            gold: '#F59E0B',
+                            green: '#22C55E',
+                            red: '#EF4444',
+                            orange: '#F97316',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="min-h-screen bg-surface-900 font-sans text-white antialiased">
+
+    <!-- Season announcement -->
+    <div class="bg-accent-gold/10 border-b border-accent-gold/20">
+        <div class="max-w-7xl mx-auto px-6 py-2.5 flex items-center justify-center gap-2.5">
+            <span class="hidden sm:block w-2 h-2 bg-accent-gold rounded-full shrink-0"></span>
+            <p class="text-xs font-semibold text-accent-gold uppercase tracking-wider text-center">
+                Squads and competitions updated for the 2026/27 season
+            </p>
+        </div>
+    </div>
+
+    <!-- Nav -->
+    <nav class="max-w-7xl mx-auto px-6 py-6 flex items-center justify-between">
+        <div class="-skew-x-12 bg-accent-red px-3 sm:px-4 py-1">
+            <span class="skew-x-12 inline-block font-heading text-xl sm:text-3xl font-bold text-white tracking-tight">Virtua FC</span>
+        </div>
+        <div class="flex items-center gap-2 sm:gap-4">
+            <a href="/index.html" class="text-xs font-semibold text-slate-400 hover:text-white transition uppercase tracking-wider">ES</a>
+            <span class="text-slate-600">|</span>
+            <a href="/index-en.html" class="text-xs font-semibold text-white transition uppercase tracking-wider">EN</a>
+            <a href="https://play.virtuafc.com/login" class="text-sm font-semibold text-white bg-white/10 border border-white/20 hover:bg-white/20 px-3 sm:px-5 py-2 rounded-md transition">Log in</a>
+        </div>
+    </nav>
+
+    <!-- Hero + Form (above the fold) -->
+    <section class="relative max-w-7xl mx-auto px-6 pt-12 pb-24 sm:pt-20 sm:pb-24 overflow-hidden">
+        <!-- Decorative background element -->
+        <div class="absolute -bottom-32 -left-32 w-[400px] h-[400px] bg-accent-blue/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div>
+            <div class="inline-flex items-center gap-2 bg-accent-green/10 border border-accent-green/20 rounded-full px-4 py-1.5 mb-6">
+                <span class="w-2 h-2 bg-accent-green rounded-full animate-pulse"></span>
+                <span class="text-xs font-semibold text-accent-green uppercase tracking-wider">In active development</span>
+            </div>
+            <h1 class="font-heading text-3xl sm:text-[3.5rem] font-bold leading-tight tracking-tight uppercase">
+                A new football manager.
+                <span class="text-accent-red">Like the classics.</span>
+            </h1>
+            <p class="mt-6 text-sm sm:text-xl text-slate-300 leading-relaxed">
+                Manage real teams from 7 European leagues, sign players, develop youth prospects and compete in Europe. Inspired by the classics. Made to play anytime.
+            </p>
+
+            <!-- Inline waitlist -->
+            <form id="waitlist-form" class="mt-8 flex flex-col sm:flex-row gap-3 max-w-xl">
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    placeholder="Your name"
+                    class="sm:w-40 px-4 py-3 rounded-md bg-white/10 border border-white/20 text-white placeholder-slate-500 focus:outline-hidden focus:ring-2 focus:ring-accent-blue focus:border-transparent transition text-sm"
+                >
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    placeholder="you@email.com"
+                    class="flex-1 px-4 py-3 rounded-md bg-white/10 border border-white/20 text-white placeholder-slate-500 focus:outline-hidden focus:ring-2 focus:ring-accent-blue focus:border-transparent transition text-sm"
+                >
+                <button
+                    type="submit"
+                    id="submit-btn"
+                    class="bg-accent-red hover:bg-red-600 active:bg-red-700 text-white px-6 py-3 rounded-md font-semibold uppercase tracking-wide text-xs whitespace-nowrap transition ease-in-out duration-150"
+                >
+                    Early Access
+                </button>
+            </form>
+            <div id="form-message" class="hidden text-xs mt-3"></div>
+            <p id="waitlist" class="mt-3 text-xs text-slate-500">Join the waitlist. No spam.</p>
+
+            <!-- Stats -->
+            <div class="mt-10 flex divide-x divide-white/10 max-w-md">
+                <div class="text-center flex-1 px-2">
+                    <div class="font-heading text-2xl font-bold text-accent-blue tracking-tight">7</div>
+                    <div class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Countries</div>
+                </div>
+                <div class="text-center flex-1 px-2">
+                    <div class="font-heading text-2xl font-bold text-accent-blue tracking-tight">29</div>
+                    <div class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Compet.</div>
+                </div>
+                <div class="text-center flex-1 px-2">
+                    <div class="font-heading text-2xl font-bold text-accent-blue tracking-tight">560</div>
+                    <div class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Teams</div>
+                </div>
+                <div class="text-center flex-1 px-2">
+                    <div class="font-heading text-2xl font-bold text-accent-blue tracking-tight">7,424</div>
+                    <div class="text-xs text-slate-500 uppercase tracking-wider font-semibold">Players</div>
+                </div>
+            </div>
+
+            <!-- USP highlights -->
+            <div class="mt-10 grid sm:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="font-heading text-xl font-semibold text-white mb-2">Play in your browser</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">No downloads, no installation, no requirements. Open your browser and start playing. On your laptop, tablet or phone.</p>
+                </div>
+                <div>
+                    <h3 class="font-heading text-xl font-semibold text-white mb-2">Free and Open Source</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">No payments, no microtransactions, no tricks. The code is open and development is transparent.</p>
+                </div>
+            </div>
+
+        </div>
+        </div>
+    </section>
+
+    <!-- Video Showcase -->
+    <section class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-12">
+            <h2 class="font-heading text-3xl font-bold mb-3 uppercase tracking-wide">The Game in Action</h2>
+            <p class="text-sm text-slate-400 max-w-2xl mx-auto">Manage every aspect of your club: tactics, transfers, youth academy, finances and European competitions.</p>
+        </div>
+        <div class="relative max-w-5xl mx-auto">
+            <!-- Ambient glow behind video -->
+            <div class="absolute -inset-4 bg-accent-red/8 rounded-3xl blur-2xl"></div>
+            <!-- Video container -->
+            <div class="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl shadow-black/50" style="aspect-ratio: 16/9;">
+                <video
+                    id="promo-video"
+                    class="w-full h-full object-cover"
+                    poster="/screenshots/video.png"
+                    playsinline
+                    preload="metadata"
+                >
+                    <source src="/virtuafc-promo.webm" type="video/webm">
+                    <source src="/virtuafc-promo.mp4" type="video/mp4">
+                </video>
+                <!-- Play overlay -->
+                <button id="video-play-btn" class="absolute inset-0 flex items-center justify-center bg-black/30 hover:bg-black/20 transition-colors duration-300 cursor-pointer group" aria-label="Play video">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-accent-red/90 group-hover:bg-accent-red group-hover:scale-110 flex items-center justify-center transition-all duration-300 shadow-lg shadow-accent-red/30">
+                        <svg class="w-7 h-7 sm:w-8 sm:h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                </button>
+            </div>
+            <!-- Subtle caption -->
+            <p class="text-center text-xs text-slate-500 mt-4 uppercase tracking-widest">Real gameplay · Unedited</p>
+        </div>
+    </section>
+
+    <!-- Features + Testimonials -->
+    <section id="features" class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-12">
+            <h2 class="font-heading text-3xl font-bold mb-3 uppercase tracking-wide">Everything you need</h2>
+            <p class="text-sm text-slate-400 max-w-2xl mx-auto">Tactics, transfers, youth academy, finances and European competitions. All in your browser.</p>
+        </div>
+        <div class="grid lg:grid-cols-3 gap-8 lg:gap-12">
+
+            <!-- USPs -->
+            <div class="lg:col-span-2">
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div class="bg-surface-800 border border-white/5 rounded-xl p-6">
+                        <div class="flex">
+                            <div class="w-10 h-10 bg-accent-red/20 flex items-center justify-center mb-4 mr-4 rounded-lg">
+                                <svg class="w-5 h-5 text-accent-red" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                            </div>
+                            <h3 class="font-heading text-xl font-semibold mb-2">Live Match</h3>
+                        </div>
+                        <p class="text-sm text-slate-400 leading-relaxed">Watch every match in real time. Make up to 5 substitutions, switch formation and adjust mentality mid-game.</p>
+                    </div>
+                    <div class="bg-surface-800 border border-white/5 rounded-xl p-6">
+                        <div class="flex">
+                            <div class="w-10 h-10 bg-accent-blue/20 flex items-center justify-center mb-4 mr-4 rounded-lg">
+                                <svg class="w-5 h-5 text-accent-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                            </div>
+                            <h3 class="font-heading text-xl font-semibold mb-2">Transfers & Scouting</h3>
+                        </div>
+                        <p class="text-sm text-slate-400 leading-relaxed">Send scouts, negotiate with counter-offers, loan players in and out, or sign pre-contracts with free agents.</p>
+                    </div>
+                    <div class="bg-surface-800 border border-white/5 rounded-xl p-6">
+                        <div class="flex">
+                            <div class="w-10 h-10 bg-accent-green/20 flex items-center justify-center mb-4 mr-4 rounded-lg">
+                                <svg class="w-5 h-5 text-accent-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                            </div>
+                            <h3 class="font-heading text-xl font-semibold mb-2">Youth Academy</h3>
+                        </div>
+                        <p class="text-sm text-slate-400 leading-relaxed">New prospects every season with hidden attributes. Decide who earns a first-team spot, goes on loan, or gets released.</p>
+                    </div>
+                    <div class="bg-surface-800 border border-white/5 rounded-xl p-6">
+                        <div class="flex">
+                            <div class="w-10 h-10 bg-accent-gold/20 flex items-center justify-center mb-4 mr-4 rounded-lg">
+                                <svg class="w-5 h-5 text-accent-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                            </div>
+                            <h3 class="font-heading text-xl font-semibold mb-2">29 Competitions</h3>
+                        </div>
+                        <p class="text-sm text-slate-400 leading-relaxed">Leagues, cups, Supercopa, Champions League, Europa League and Conference League. Promotion, relegation and playoffs across 7 countries.</p>
+                    </div>
+                    <div class="bg-surface-800 border border-white/5 rounded-xl p-6">
+                        <div class="flex">
+                            <div class="w-10 h-10 bg-accent-orange/20 flex items-center justify-center mb-4 mr-4 rounded-lg">
+                                <svg class="w-5 h-5 text-accent-orange" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <h3 class="font-heading text-xl font-semibold mb-2">Club Economy</h3>
+                        </div>
+                        <p class="text-sm text-slate-400 leading-relaxed">Split your budget across transfers, academy, medical staff, scouting and facilities. On-pitch results drive next season's revenue.</p>
+                    </div>
+                    <div class="bg-surface-800 border border-white/5 rounded-xl p-6">
+                        <div class="flex">
+                            <div class="w-10 h-10 bg-accent-blue/20 flex items-center justify-center mb-4 mr-4 rounded-lg">
+                                <svg class="w-5 h-5 text-accent-blue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg>
+                            </div>
+                            <h3 class="font-heading text-xl font-semibold mb-2">Real 2026/27 Data</h3>
+                        </div>
+                        <p class="text-sm text-slate-400 leading-relaxed">560 teams from 43 countries and 7,424 real players of 140 nationalities. Ratings from real market values. Realistic development over time.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonials -->
+            <div class="lg:col-span-1">
+                <h2 class="font-heading text-2xl font-bold mb-8 uppercase tracking-wide">What Players Say</h2>
+                <div class="space-y-8">
+                    <blockquote class="border-l-4 border-accent-red pl-5">
+                        <p class="text-sm lg:text-base text-slate-200 leading-relaxed italic">"Llevo un rato jugando y sin darme cuenta ha pasado una hora y media, con decirte que desde el PcFutbol 7.0 no me pasaba lo que te estoy contando con un manager de fútbol ya está todo dicho."</p>
+                        <footer class="mt-3 text-xs text-slate-500 font-semibold uppercase tracking-wider">Beta tester</footer>
+                    </blockquote>
+                    <blockquote class="border-l-4 border-accent-red pl-5">
+                        <p class="text-sm lg:text-base text-slate-200 leading-relaxed italic">"El juego tiene un ritmo rápido, es adictivo y agradezco la simplicidad que tiene."</p>
+                        <footer class="mt-3 text-xs text-slate-500 font-semibold uppercase tracking-wider">Beta tester</footer>
+                    </blockquote>
+                    <blockquote class="border-l-4 border-accent-red pl-5">
+                        <p class="text-sm lg:text-base text-slate-200 leading-relaxed italic">"Estoy disfrutando mucho jugando y tiene un potencial enorme."</p>
+                        <footer class="mt-3 text-xs text-slate-500 font-semibold uppercase tracking-wider">Beta tester</footer>
+                    </blockquote>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Data partner -->
+    <section class="max-w-7xl mx-auto px-6 pb-4">
+        <div class="border-t border-white/10 pt-10 flex flex-col items-center gap-4 text-center">
+            <span class="text-xs uppercase tracking-wider text-slate-500">Powered by data from</span>
+            <a href="https://sofifa.com" target="_blank" rel="noopener" class="transition-opacity hover:opacity-80">
+                <img src="/img/sofifa-logo-for-dark-background.png" alt="SoFIFA" class="h-8">
+            </a>
+            <p class="text-xs text-slate-500 max-w-md">Player ratings and data courtesy of SoFIFA.</p>
+        </div>
+    </section>
+
+    <!-- Open Source + Creator -->
+    <section class="max-w-7xl mx-auto px-6 py-20">
+        <div class="grid lg:grid-cols-2 gap-8">
+            <!-- Open Source -->
+            <div class="bg-surface-800 border border-white/5 rounded-xl p-8 sm:p-10">
+                <div class="flex items-center gap-3 mb-4">
+                    <svg class="w-8 h-8 text-accent-green" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    <h2 class="font-heading text-2xl font-bold uppercase tracking-wide">Open Source Project</h2>
+                </div>
+                <div class="space-y-3 mb-6">
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-accent-green/20 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                            <svg class="w-3 h-3 text-accent-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <div>
+                            <span class="font-semibold">Full source code</span>
+                            <span class="text-sm text-slate-400"> — Browse, study and learn from the entire codebase.</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-accent-green/20 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                            <svg class="w-3 h-3 text-accent-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <div>
+                            <span class="font-semibold">Transparent development</span>
+                            <span class="text-sm text-slate-400"> — Follow along with every commit and design decision.</span>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 bg-accent-green/20 rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                            <svg class="w-3 h-3 text-accent-green" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <div>
+                            <span class="font-semibold">Open community</span>
+                            <span class="text-sm text-slate-400"> — Suggest features, report bugs or contribute code.</span>
+                        </div>
+                    </div>
+                </div>
+                <a href="https://github.com/pabloroman/virtua-fc" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 text-white px-6 py-3 rounded-md font-semibold text-sm transition">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    View on GitHub
+                </a>
+            </div>
+
+            <!-- Creator -->
+            <div class="bg-surface-800 border border-white/5 rounded-xl p-8 sm:p-10 flex flex-col items-center text-center">
+                <img src="https://pabloroman.es/images/pablo-2x.jpg" class="border border-white/20 rounded-full w-24 h-24 mb-6">
+                <h2 class="font-heading text-2xl font-bold mb-2">Created by Pablo Román</h2>
+                <p class="text-slate-400 mb-6">
+                    Software engineer and football fan. Virtua FC is a personal project exploring game development with AI.
+                </p>
+                <div class="flex items-center justify-center gap-4 mt-auto">
+                    <a href="mailto:pablo.roman85@gmail.com" class="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        Email
+                    </a>
+                    <a href="https://www.linkedin.com/in/pabloroman85/" target="_blank" rel="noopener" class="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/pabloroman" target="_blank" rel="noopener" class="flex items-center gap-2 text-sm text-slate-400 hover:text-white transition">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="max-w-7xl mx-auto px-6 py-20 text-center">
+        <h2 class="font-heading text-3xl font-bold mb-4 uppercase tracking-wide">Ready to manage your club?</h2>
+        <p class="text-sm text-slate-400 mb-8">Join the waitlist and be the first to know when we launch.</p>
+        <a href="#waitlist" class="inline-block bg-accent-red hover:bg-red-600 active:bg-red-700 text-white px-10 py-3 rounded-md font-semibold uppercase tracking-wide text-sm transition ease-in-out duration-150">
+            Join the Waitlist
+        </a>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="max-w-7xl mx-auto px-6 py-12 border-t border-white/10">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="-skew-x-12 bg-accent-red px-3 py-1">
+                <span class="skew-x-12 inline-block font-heading text-xl font-bold text-white tracking-tight">Virtua FC</span>
+            </div>
+            <div class="text-xs text-slate-500">
+                © 2026 Pablo Román · Open Source Project · <a href="https://play.virtuafc.com/legal" class="hover:text-slate-400">Legal Notice</a> · <a href="https://github.com/pabloroman/virtua-fc" target="_blank" class="hover:text-slate-400">GitHub</a> · <a href="https://sofifa.com" target="_blank" rel="noopener" class="hover:text-slate-400">Data by SoFIFA</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const form = document.getElementById('waitlist-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const formMessage = document.getElementById('form-message');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = form.name.value.trim();
+            const email = form.email.value.trim();
+
+            if (!name || !email) return;
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            formMessage.classList.add('hidden');
+
+            try {
+                const res = await fetch('https://play.virtuafc.com/api/waitlist', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email }),
+                });
+
+                const data = await res.json();
+
+                if (res.ok) {
+                    formMessage.textContent = "You're on the list! Check your inbox (and spam folder) for your invitation.";
+                    formMessage.className = 'text-xs mt-3 text-green-400';
+                    formMessage.classList.remove('hidden');
+                    form.reset();
+                } else {
+                    formMessage.textContent = data.error || 'Something went wrong. Please try again.';
+                    formMessage.className = 'text-xs mt-3 text-red-400';
+                    formMessage.classList.remove('hidden');
+                }
+            } catch (err) {
+                formMessage.textContent = 'Connection error. Please try again.';
+                formMessage.className = 'text-xs mt-3 text-red-400';
+                formMessage.classList.remove('hidden');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Early Access';
+            }
+        });
+    </script>
+
+    <script>
+        const video = document.getElementById('promo-video');
+        const playBtn = document.getElementById('video-play-btn');
+
+        playBtn.addEventListener('click', () => {
+            video.play();
+            playBtn.style.display = 'none';
+            video.setAttribute('controls', '');
+        });
+
+        video.addEventListener('ended', () => {
+            playBtn.style.display = '';
+            video.removeAttribute('controls');
+        });
+    </script>
+
+</body>
+</html>

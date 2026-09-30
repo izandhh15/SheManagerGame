@@ -1,0 +1,178 @@
+<?php
+
+namespace App\Support;
+
+use App\Models\Game;
+use App\Models\GamePlayer;
+use App\Modules\Lineup\Services\LineupService;
+use Carbon\CarbonInterface;
+
+/**
+ * Shapes GamePlayer rows into the array payloads the live-match view
+ * consumes — starting XI, user bench, opponent bench (minimal), and
+ * home/away display rosters.
+ */
+class LiveMatchLineupPresenter
+{
+    /**
+     * Full-detail payload for the user's starting XI (feeds the sub-out picker).
+     * No performance data — ratings are only relevant at full-time for the bench.
+     *
+     * @param  array<int, string>  $lineupIds
+     * @return array<int, array<string, mixed>>
+     */
+    public static function startingLineup(array $lineupIds, CarbonInterface $currentDate): array
+    {
+        return GamePlayer::with(['matchState'])
+            ->whereIn('id', $lineupIds)
+            ->get()
+            ->map(fn ($p) => self::fullCard($p, $currentDate, null, 0))
+            ->sortBy('positionSort')
+            ->values()
+            ->all();
+    }
+
+    /**
+     * Full-detail payload for the user's bench: all squad players not in the
+     * starting XI, not suspended, not injured, optionally requiring enrollment.
+     *
+     * @param  array<int, string>  $lineupIds
+     * @param  array<int, string>  $suspendedIds
+     * @param  array<string, mixed>  $performances
+     * @return array<int, array<string, mixed>>
+     */
+    public static function userBench(
+        Game $game,
+        array $lineupIds,
+        array $suspendedIds,
+        CarbonInterface $matchDate,
+        CarbonInterface $currentDate,
+        array $performances,
+    ): array {
+        return GamePlayer::with(['matchState'])
+            ->where('game_players.game_id', $game->id)
+            ->where('team_id', $game->team_id)
+            ->whereNotIn('id', $lineupIds)
+            ->whereNotIn('id', $suspendedIds)
+            ->when($game->requiresSquadEnrollment(), fn ($q) => $q->whereNotNull('number'))
+            ->notInjuredOn($matchDate)
+            ->get()
+            ->map(fn ($p) => self::fullCard($p, $currentDate, $performances[$p->id] ?? null, null))
+            ->sortBy('positionSort')
+            ->values()
+            ->all();
+    }
+
+    /**
+     * Minimal payload for the opponent's bench — only the fields the client-side
+     * substitute-rating formula needs.
+     *
+     * @param  array<int, string>  $lineupIds
+     * @param  array<string, mixed>  $performances
+     * @return array<int, array<string, mixed>>
+     */
+    public static function opponentBench(
+        string $gameId,
+        string $opponentTeamId,
+        array $lineupIds,
+        array $performances,
+    ): array {
+        return GamePlayer::where('game_players.game_id', $gameId)
+            ->where('team_id', $opponentTeamId)
+            ->whereNotIn('id', $lineupIds)
+            ->get()
+            ->map(fn ($p) => [
+                'id' => $p->id,
+                'positionGroup' => $p->position_group,
+                'performance' => $performances[$p->id] ?? null,
+                'teamId' => $opponentTeamId,
+            ])
+            ->all();
+    }
+
+    /**
+     * Display-only payload for home/away lineup rosters shown in the ratings
+     * tab.
+     *
+     * @param  array<int, string>  $lineupIds
+     * @param  array<string, mixed>  $performances
+     * @param  array<string, float>  $ratings  Precomputed 1.0–10.0 ratings keyed by player id
+     * @return array<int, array<string, mixed>>
+     */
+    public static function displayRoster(array $lineupIds, array $performances, array $ratings = []): array
+    {
+        return self::displayRosters(['_' => $lineupIds], $performances, $ratings)['_'];
+    }
+
+    /**
+     * Batch variant of `displayRoster` — resolves several ID groups in a
+     * single query and returns one display roster per group key. Use this
+     * when a single view needs home + away + sub-ins together so we don't
+     * pay one round trip per group.
+     *
+     * @param  array<string, array<int, string>>  $idGroups
+     * @param  array<string, mixed>  $performances
+     * @param  array<string, float>  $ratings  Precomputed 1.0–10.0 ratings keyed by player id.
+     *                                        Empty for the live-match path; populated by
+     *                                        MatchSummaryPresenter from game_player_match_ratings.
+     * @return array<string, array<int, array<string, mixed>>>
+     */
+    public static function displayRosters(array $idGroups, array $performances, array $ratings = []): array
+    {
+        $allIds = array_values(array_unique(array_merge(...array_values($idGroups))));
+
+        $playersById = empty($allIds)
+            ? collect()
+            : GamePlayer::with(['matchState'])->whereIn('id', $allIds)->get()->keyBy('id');
+
+        $result = [];
+        foreach ($idGroups as $key => $ids) {
+            $result[$key] = collect($ids)
+                ->map(fn ($id) => $playersById->get($id))
+                ->filter()
+                ->map(fn ($p) => [
+                    'id' => $p->id,
+                    'name' => $p->name ?? '',
+                    'positionAbbr' => PositionMapper::toAbbreviation($p->position),
+                    'positionGroup' => $p->position_group,
+                    'positionSort' => LineupService::positionSortOrder($p->position),
+                    'performance' => $performances[$p->id] ?? null,
+                    'rating' => $ratings[$p->id] ?? null,
+                ])
+                ->sortBy('positionSort')
+                ->values()
+                ->all();
+        }
+
+        return $result;
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private static function fullCard(
+        GamePlayer $p,
+        CarbonInterface $currentDate,
+        mixed $performance,
+        ?int $minuteEntered,
+    ): array {
+        $card = [
+            'id' => $p->id,
+            'name' => $p->name ?? '',
+            'position' => $p->position,
+            'positionAbbr' => PositionMapper::toAbbreviation($p->position),
+            'positionGroup' => $p->position_group,
+            'positionSort' => LineupService::positionSortOrder($p->position),
+            'positions' => $p->positions,
+            'age' => $p->age($currentDate),
+            'overallScore' => $p->effective_rating,
+            'fitness' => $p->fitness,
+            'morale' => $p->morale,
+            'minuteEntered' => $minuteEntered,
+        ];
+        if ($performance !== null) {
+            $card['performance'] = $performance;
+        }
+        return $card;
+    }
+}

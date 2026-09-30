@@ -1,0 +1,360 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/76.png",
+  "name": "Brøndby IF",
+  "players": [
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 8, 1999",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "58713",
+      "marketValue": "",
+      "name": "Vanessa Karungi",
+      "nationality": [
+        "Uganda"
+      ],
+      "number": "21",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 14, 1997",
+      "foot": "",
+      "height": "",
+      "id": "44806",
+      "marketValue": "",
+      "name": "Jalen Tompkins",
+      "nationality": [
+        "United States"
+      ],
+      "number": "32",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Mar 17, 2009",
+      "foot": "",
+      "height": "",
+      "id": "113555",
+      "marketValue": "",
+      "name": "Isabella Andersen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "40",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Mar 9, 1997",
+      "foot": "",
+      "height": "1,67m",
+      "id": "43679",
+      "marketValue": "€20k",
+      "name": "Michaela Kovacs",
+      "nationality": [
+        "United States"
+      ],
+      "number": "3",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 25, 2002",
+      "foot": "",
+      "height": "1,80m",
+      "id": "39099",
+      "marketValue": "",
+      "name": "Julie Madsen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "May 7, 2000",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "32560",
+      "marketValue": "€30k",
+      "name": "Kamilla Karlsen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "12",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 19, 2006",
+      "foot": "",
+      "height": "",
+      "id": "63497",
+      "marketValue": "",
+      "name": "Elvira Nejmann",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "15",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Mar 13, 1999",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "30442",
+      "marketValue": "",
+      "name": "Malin Brenn",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "18",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 30, 2004",
+      "foot": "",
+      "height": "",
+      "id": "63228",
+      "marketValue": "",
+      "name": "Emilie Fink",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "23",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 23, 2009",
+      "foot": "",
+      "height": "",
+      "id": "109319",
+      "marketValue": "",
+      "name": "Evelina Thygesen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "25",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "May 4, 2000",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "34852",
+      "marketValue": "€20k",
+      "name": "Amy Rodgers",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "6",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Mar 7, 2002",
+      "foot": "",
+      "height": "",
+      "id": "37438",
+      "marketValue": "",
+      "name": "Mathilde Carstens",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "7",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Aug 24, 2001",
+      "foot": "",
+      "height": "1,61m",
+      "id": "32567",
+      "marketValue": "€40k",
+      "name": "Tilde Lindwall",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "10",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 11, 1995",
+      "foot": "",
+      "height": "",
+      "id": "33795",
+      "marketValue": "",
+      "name": "Cecilie Buchberg",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "11",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 7, 2001",
+      "foot": "",
+      "height": "",
+      "id": "55123",
+      "marketValue": "€30k",
+      "name": "Martyna Brodzik",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "13",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Oct 17, 2001",
+      "foot": "right",
+      "height": "1,67m",
+      "id": "34989",
+      "marketValue": "€35k",
+      "name": "Hanna Andersson",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "16",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Sep 23, 1998",
+      "foot": "",
+      "height": "1,76m",
+      "id": "33440",
+      "marketValue": "€30k",
+      "name": "Rakel Engesvik",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "19",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2029",
+      "dateOfBirth": "Aug 16, 2011",
+      "foot": "",
+      "height": "",
+      "id": "122088",
+      "marketValue": "",
+      "name": "Kaya Mortensen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "22",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 20, 2003",
+      "foot": "",
+      "height": "1,70m",
+      "id": "106569",
+      "marketValue": "",
+      "name": "Emma Pelkowski",
+      "nationality": [
+        "United States"
+      ],
+      "number": "26",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Sep 22, 2002",
+      "foot": "",
+      "height": "",
+      "id": "37448",
+      "marketValue": "",
+      "name": "Mathilde Rasmussen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "8",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Oct 1, 2002",
+      "foot": "left",
+      "height": "1,71m",
+      "id": "46445",
+      "marketValue": "€40k",
+      "name": "Hafrún Rakel Halldórsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "14",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Apr 17, 1995",
+      "foot": "right",
+      "height": "1,68m",
+      "id": "12649",
+      "marketValue": "€45k",
+      "name": "Amalie Thestrup",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "17",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Jan 15, 2001",
+      "foot": "",
+      "height": "",
+      "id": "32974",
+      "marketValue": "",
+      "name": "Chiara Messerli",
+      "nationality": [
+        "Switzerland"
+      ],
+      "number": "20",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Jul 1, 2005",
+      "foot": "",
+      "height": "",
+      "id": "58995",
+      "marketValue": "",
+      "name": "Lilli Halttunen",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "33",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 1, 2009",
+      "foot": "",
+      "height": "",
+      "id": "102158",
+      "marketValue": "",
+      "name": "Mila Bischoff",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "37",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "1964 Park",
+  "stadiumSeats": "2000",
+  "transfermarktId": "76",
+  "country": "DK"
+}

@@ -1,0 +1,766 @@
+{
+  "image": "https://assets.virtuafc.com/crests/3262.png",
+  "name": "Germany",
+  "players": [
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/12321.png",
+        "name": "Girona FC"
+      },
+      "dateOfBirth": "Apr 30, 1992",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "74857",
+      "injured": false,
+      "marketValue": "€15.00m",
+      "name": "Marc-André ter Stegen",
+      "position": "Goalkeeper"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/79.png",
+        "name": "VfB Stuttgart"
+      },
+      "dateOfBirth": "Sep 30, 1996",
+      "foot": "right",
+      "height": "1,93m",
+      "id": "195778",
+      "injured": false,
+      "marketValue": "€12.00m",
+      "name": "Alexander Nübel",
+      "overall_score": 80,
+      "position": "Goalkeeper",
+      "potential": 81
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/703.png",
+        "name": "Nottingham Forest"
+      },
+      "dateOfBirth": "Nov 6, 1992",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "85941",
+      "injured": false,
+      "marketValue": "€9.00m",
+      "name": "Stefan Ortega",
+      "position": "Goalkeeper"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/533.png",
+        "name": "TSG 1899 Hoffenheim"
+      },
+      "dateOfBirth": "Jun 2, 1990",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "55089",
+      "injured": false,
+      "marketValue": "€3.00m",
+      "name": "Oliver Baumann",
+      "overall_score": 84,
+      "position": "Goalkeeper",
+      "potential": 84
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/167.png",
+        "name": "FC Augsburg"
+      },
+      "dateOfBirth": "Mar 27, 1998",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "251299",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "Finn Dahmen",
+      "position": "Goalkeeper"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/27.png",
+        "name": "Bayern Munich"
+      },
+      "dateOfBirth": "Mar 27, 1986",
+      "foot": "right",
+      "height": "1,93m",
+      "id": "17259",
+      "injured": false,
+      "marketValue": "€4.00m",
+      "name": "Manuel Neuer",
+      "overall_score": 82,
+      "position": "Goalkeeper",
+      "potential": 82
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/16.png",
+        "name": "Borussia Dortmund"
+      },
+      "dateOfBirth": "Dec 1, 1999",
+      "foot": "left",
+      "height": "1,91m",
+      "id": "388198",
+      "injured": false,
+      "marketValue": "€55.00m",
+      "name": "Nico Schlotterbeck",
+      "overall_score": 86,
+      "position": "Centre-Back",
+      "potential": 88
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/46.png",
+        "name": "Inter Milan"
+      },
+      "dateOfBirth": "Nov 29, 2000",
+      "foot": "right",
+      "height": "1,96m",
+      "id": "441986",
+      "injured": false,
+      "marketValue": "€30.00m",
+      "name": "Yann Bisseck",
+      "position": "Centre-Back"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/27.png",
+        "name": "Bayern Munich"
+      },
+      "dateOfBirth": "Feb 11, 1996",
+      "foot": "right",
+      "height": "1,95m",
+      "id": "196357",
+      "injured": false,
+      "marketValue": "€30.00m",
+      "name": "Jonathan Tah",
+      "overall_score": 87,
+      "position": "Centre-Back",
+      "potential": 87
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/418.png",
+        "name": "Real Madrid"
+      },
+      "dateOfBirth": "Mar 3, 1993",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "86202",
+      "injured": false,
+      "marketValue": "€9.00m",
+      "name": "Antonio Rüdiger",
+      "overall_score": 84,
+      "position": "Centre-Back",
+      "potential": 84
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/16.png",
+        "name": "Borussia Dortmund"
+      },
+      "dateOfBirth": "Jul 20, 1996",
+      "foot": "right",
+      "height": "1,89m",
+      "id": "193004",
+      "injured": false,
+      "marketValue": "€18.00m",
+      "name": "Waldemar Anton",
+      "overall_score": 83,
+      "position": "Centre-Back",
+      "potential": 83
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/762.png",
+        "name": "Newcastle United"
+      },
+      "dateOfBirth": "Aug 8, 2001",
+      "foot": "right",
+      "height": "1,94m",
+      "id": "521964",
+      "injured": false,
+      "marketValue": "€45.00m",
+      "name": "Malick Thiaw",
+      "overall_score": 81,
+      "position": "Centre-Back",
+      "potential": 85
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/24.png",
+        "name": "Eintracht Frankfurt"
+      },
+      "dateOfBirth": "Jul 17, 1996",
+      "foot": "right",
+      "height": "1,92m",
+      "id": "328784",
+      "injured": false,
+      "marketValue": "€18.00m",
+      "name": "Robin Koch",
+      "position": "Centre-Back"
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/162.png",
+        "name": "AS Monaco"
+      },
+      "dateOfBirth": "Sep 21, 1996",
+      "foot": "both",
+      "height": "1,86m",
+      "id": "228948",
+      "injured": false,
+      "marketValue": "€15.00m",
+      "name": "Thilo Kehrer",
+      "position": "Centre-Back"
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/24.png",
+        "name": "Eintracht Frankfurt"
+      },
+      "dateOfBirth": "Jan 10, 2004",
+      "foot": "right",
+      "height": "1,88m",
+      "id": "684315",
+      "injured": true,
+      "marketValue": "€4.00m",
+      "name": "Nnamdi Collins",
+      "position": "Centre-Back"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/23826.png",
+        "name": "RB Leipzig"
+      },
+      "dateOfBirth": "Apr 22, 1998",
+      "foot": "left",
+      "height": "1,81m",
+      "id": "318204",
+      "injured": false,
+      "marketValue": "€22.00m",
+      "name": "David Raum",
+      "overall_score": 83,
+      "position": "Left-Back",
+      "potential": 83
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/79.png",
+        "name": "VfB Stuttgart"
+      },
+      "dateOfBirth": "Mar 18, 1997",
+      "foot": "left",
+      "height": "1,80m",
+      "id": "282660",
+      "injured": false,
+      "marketValue": "€20.00m",
+      "name": "Maximilian Mittelstädt",
+      "position": "Left-Back"
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/430.png",
+        "name": "ACF Fiorentina"
+      },
+      "dateOfBirth": "Jul 5, 1994",
+      "foot": "left",
+      "height": "1,83m",
+      "id": "273132",
+      "injured": false,
+      "marketValue": "€8.00m",
+      "name": "Robin Gosens",
+      "position": "Left-Back"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/24.png",
+        "name": "Eintracht Frankfurt"
+      },
+      "dateOfBirth": "Jun 16, 2003",
+      "foot": "left",
+      "height": "1,76m",
+      "id": "691892",
+      "injured": false,
+      "marketValue": "€35.00m",
+      "name": "Nathaniel Brown",
+      "overall_score": 80,
+      "position": "Left-Back",
+      "potential": 86
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/23826.png",
+        "name": "RB Leipzig"
+      },
+      "dateOfBirth": "Apr 8, 1998",
+      "foot": "right",
+      "height": "1,76m",
+      "id": "327251",
+      "injured": false,
+      "marketValue": "€7.00m",
+      "name": "Ridle Baku",
+      "position": "Right-Back"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/27.png",
+        "name": "Bayern Munich"
+      },
+      "dateOfBirth": "Feb 8, 1995",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "161056",
+      "injured": false,
+      "marketValue": "€40.00m",
+      "name": "Joshua Kimmich",
+      "overall_score": 89,
+      "position": "Defensive Midfield",
+      "potential": 89
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/27.png",
+        "name": "Bayern Munich"
+      },
+      "dateOfBirth": "May 3, 2004",
+      "foot": "both",
+      "height": "1,88m",
+      "id": "792380",
+      "injured": false,
+      "marketValue": "€75.00m",
+      "name": "Aleksandar Pavlovic",
+      "overall_score": 82,
+      "position": "Defensive Midfield",
+      "potential": 87
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/79.png",
+        "name": "VfB Stuttgart"
+      },
+      "dateOfBirth": "Apr 4, 2001",
+      "foot": "left",
+      "height": "1,83m",
+      "id": "443710",
+      "injured": false,
+      "marketValue": "€45.00m",
+      "name": "Angelo Stiller",
+      "overall_score": 83,
+      "position": "Defensive Midfield",
+      "potential": 87
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/15.png",
+        "name": "Bayer 04 Leverkusen"
+      },
+      "dateOfBirth": "Sep 22, 1994",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "159088",
+      "injured": false,
+      "marketValue": "€15.00m",
+      "name": "Robert Andrich",
+      "position": "Defensive Midfield"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/16.png",
+        "name": "Borussia Dortmund"
+      },
+      "dateOfBirth": "Oct 10, 2000",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "406640",
+      "injured": false,
+      "marketValue": "€50.00m",
+      "name": "Felix Nmecha",
+      "overall_score": 84,
+      "position": "Central Midfield",
+      "potential": 86
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/27.png",
+        "name": "Bayern Munich"
+      },
+      "dateOfBirth": "Feb 6, 1995",
+      "foot": "right",
+      "height": "1,89m",
+      "id": "153084",
+      "injured": false,
+      "marketValue": "€15.00m",
+      "name": "Leon Goretzka",
+      "overall_score": 81,
+      "position": "Central Midfield",
+      "potential": 81
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/27.png",
+        "name": "Bayern Munich"
+      },
+      "dateOfBirth": "Jun 28, 2005",
+      "foot": "left",
+      "height": "1,76m",
+      "id": "822959",
+      "injured": false,
+      "marketValue": "€12.00m",
+      "name": "Tom Bischof",
+      "position": "Central Midfield"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/39.png",
+        "name": "1.FSV Mainz 05"
+      },
+      "dateOfBirth": "Oct 27, 1996",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "232454",
+      "injured": false,
+      "marketValue": "€17.00m",
+      "name": "Nadiem Amiri",
+      "overall_score": 80,
+      "position": "Central Midfield",
+      "potential": 80
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/23826.png",
+        "name": "RB Leipzig"
+      },
+      "dateOfBirth": "May 9, 2006",
+      "foot": "right",
+      "height": "1,91m",
+      "id": "897424",
+      "injured": false,
+      "marketValue": "€10.00m",
+      "name": "Assan Ouédraogo",
+      "position": "Central Midfield"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1237.png",
+        "name": "Brighton & Hove Albion"
+      },
+      "dateOfBirth": "Jun 15, 1991",
+      "foot": "right",
+      "height": "1,81m",
+      "id": "82873",
+      "injured": false,
+      "marketValue": "€3.50m",
+      "name": "Pascal Groß",
+      "overall_score": 78,
+      "position": "Central Midfield",
+      "potential": 78
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/27.png",
+        "name": "Bayern Munich"
+      },
+      "dateOfBirth": "Feb 26, 2003",
+      "foot": "right",
+      "height": "1,84m",
+      "id": "580195",
+      "injured": false,
+      "marketValue": "€120.00m",
+      "name": "Jamal Musiala",
+      "overall_score": 87,
+      "position": "Attacking Midfield",
+      "potential": 91
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/31.png",
+        "name": "Liverpool FC"
+      },
+      "dateOfBirth": "May 3, 2003",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "598577",
+      "injured": false,
+      "marketValue": "€110.00m",
+      "name": "Florian Wirtz",
+      "overall_score": 87,
+      "position": "Attacking Midfield",
+      "potential": 91
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/39.png",
+        "name": "1.FSV Mainz 05"
+      },
+      "dateOfBirth": "Oct 10, 2002",
+      "foot": "both",
+      "height": "1,69m",
+      "id": "503160",
+      "injured": false,
+      "marketValue": "€7.00m",
+      "name": "Paul Nebel",
+      "position": "Attacking Midfield"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/27.png",
+        "name": "Bayern Munich"
+      },
+      "dateOfBirth": "Feb 22, 2008",
+      "foot": "left",
+      "height": "1,68m",
+      "id": "1075147",
+      "injured": false,
+      "marketValue": "€60.00m",
+      "name": "Lennart Karl",
+      "overall_score": 75,
+      "position": "Attacking Midfield",
+      "potential": 88
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1148.png",
+        "name": "Brentford FC"
+      },
+      "dateOfBirth": "Nov 27, 2001",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "473050",
+      "injured": false,
+      "marketValue": "€22.00m",
+      "name": "Kevin Schade",
+      "position": "Left Winger"
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/3.png",
+        "name": "1.FC Köln"
+      },
+      "dateOfBirth": "Aug 26, 2006",
+      "foot": "both",
+      "height": "1,87m",
+      "id": "1168219",
+      "injured": false,
+      "marketValue": "€1.00m",
+      "name": "Said El Mala",
+      "position": "Left Winger"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/141.png",
+        "name": "Galatasaray"
+      },
+      "dateOfBirth": "Jan 11, 1996",
+      "foot": "left",
+      "height": "1,83m",
+      "id": "192565",
+      "injured": false,
+      "marketValue": "€20.00m",
+      "name": "Leroy Sané",
+      "overall_score": 81,
+      "position": "Right Winger",
+      "potential": 81
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/16.png",
+        "name": "Borussia Dortmund"
+      },
+      "dateOfBirth": "Jan 18, 2002",
+      "foot": "left",
+      "height": "1,80m",
+      "id": "496094",
+      "injured": false,
+      "marketValue": "€35.00m",
+      "name": "Karim Adeyemi",
+      "position": "Right Winger"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/79.png",
+        "name": "VfB Stuttgart"
+      },
+      "dateOfBirth": "Feb 26, 2001",
+      "foot": "both",
+      "height": "1,85m",
+      "id": "518505",
+      "injured": false,
+      "marketValue": "€40.00m",
+      "name": "Jamie Leweling",
+      "overall_score": 78,
+      "position": "Right Winger",
+      "potential": 81
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/27.png",
+        "name": "Bayern Munich"
+      },
+      "dateOfBirth": "Jul 14, 1995",
+      "foot": "right",
+      "height": "1,76m",
+      "id": "159471",
+      "injured": true,
+      "marketValue": "€35.00m",
+      "name": "Serge Gnabry",
+      "position": "Second Striker"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/16.png",
+        "name": "Borussia Dortmund"
+      },
+      "dateOfBirth": "Oct 17, 2002",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "578392",
+      "injured": false,
+      "marketValue": "€40.00m",
+      "name": "Maximilian Beier",
+      "overall_score": 80,
+      "position": "Centre-Forward",
+      "potential": 84
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/79.png",
+        "name": "VfB Stuttgart"
+      },
+      "dateOfBirth": "Jul 19, 1996",
+      "foot": "both",
+      "height": "1,79m",
+      "id": "339314",
+      "injured": false,
+      "marketValue": "€22.00m",
+      "name": "Deniz Undav",
+      "overall_score": 82,
+      "position": "Centre-Forward",
+      "potential": 82
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/24.png",
+        "name": "Eintracht Frankfurt"
+      },
+      "dateOfBirth": "Jul 11, 2000",
+      "foot": "right",
+      "height": "1,81m",
+      "id": "333647",
+      "injured": false,
+      "marketValue": "€25.00m",
+      "name": "Jonathan Burkardt",
+      "position": "Centre-Forward"
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/5.png",
+        "name": "AC Milan"
+      },
+      "dateOfBirth": "Feb 9, 1993",
+      "foot": "right",
+      "height": "1,89m",
+      "id": "75489",
+      "injured": false,
+      "marketValue": "€15.00m",
+      "name": "Niclas Füllkrug",
+      "position": "Centre-Forward"
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/18.png",
+        "name": "Borussia Mönchengladbach"
+      },
+      "dateOfBirth": "Aug 31, 1995",
+      "foot": "both",
+      "height": "1,94m",
+      "id": "193033",
+      "injured": false,
+      "marketValue": "€12.00m",
+      "name": "Tim Kleindienst",
+      "position": "Centre-Forward"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/762.png",
+        "name": "Newcastle United"
+      },
+      "dateOfBirth": "Feb 14, 2002",
+      "foot": "right",
+      "height": "1,98m",
+      "id": "455661",
+      "injured": false,
+      "marketValue": "€65.00m",
+      "name": "Nick Woltemade",
+      "overall_score": 80,
+      "position": "Centre-Forward",
+      "potential": 85
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/11.png",
+        "name": "Arsenal FC"
+      },
+      "dateOfBirth": "Jun 11, 1999",
+      "foot": "left",
+      "height": "1,93m",
+      "id": "309400",
+      "injured": false,
+      "marketValue": "€50.00m",
+      "name": "Kai Havertz",
+      "overall_score": 82,
+      "position": "Centre-Forward",
+      "potential": 84
+    }
+  ],
+  "stadiumName": null,
+  "stadiumSeats": null,
+  "transfermarktId": "3262"
+}

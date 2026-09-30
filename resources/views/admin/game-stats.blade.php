@@ -1,0 +1,90 @@
+<x-admin-layout>
+    <h1 class="font-heading text-2xl lg:text-3xl font-bold uppercase tracking-wide text-text-primary mb-6">
+        {{ __('admin.game_stats_title') }}
+    </h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        {{-- Club Popularity --}}
+        <div class="bg-surface-800 border border-border-default rounded-xl p-5">
+            <h2 class="font-heading text-sm font-bold uppercase tracking-wider text-text-primary mb-4">
+                {{ __('admin.club_popularity') }}
+            </h2>
+
+            @if($clubPopularity->isEmpty())
+                <p class="text-sm text-text-muted">{{ __('admin.no_data') }}</p>
+            @else
+                @php $maxPicks = $clubPopularity->max('picks'); @endphp
+                <div class="space-y-2">
+                    @foreach($clubPopularity as $index => $entry)
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs text-text-muted w-5 text-right shrink-0">{{ $index + 1 }}</span>
+                            @if($entry->team)
+                                <x-team-crest :team="$entry->team" class="w-5 h-5 shrink-0" />
+                            @else
+                                <div class="w-5 h-5 shrink-0 rounded bg-surface-700"></div>
+                            @endif
+                            <span class="text-sm text-text-primary truncate w-28 shrink-0">{{ $entry->team?->name ?? '—' }}</span>
+                            <div class="flex-1 h-5 bg-surface-700 rounded-sm overflow-hidden">
+                                <div class="h-full bg-accent-blue/60 rounded-sm" style="width: {{ ($entry->picks / $maxPicks) * 100 }}%"></div>
+                            </div>
+                            <span class="text-xs text-text-muted shrink-0 w-12 text-right">{{ $entry->picks }}</span>
+                        </div>
+                    @endforeach
+                </div>
+            @endif
+        </div>
+
+        {{-- National Team Popularity --}}
+        <div class="bg-surface-800 border border-border-default rounded-xl p-5">
+            <h2 class="font-heading text-sm font-bold uppercase tracking-wider text-text-primary mb-4">
+                {{ __('admin.national_team_popularity') }}
+            </h2>
+
+            @if($nationalTeamPopularity->isEmpty())
+                <p class="text-sm text-text-muted">{{ __('admin.no_data') }}</p>
+            @else
+                @php $maxPicks = $nationalTeamPopularity->max('picks'); @endphp
+                <div class="space-y-2">
+                    @foreach($nationalTeamPopularity as $index => $entry)
+                        <div class="flex items-center gap-3">
+                            <span class="text-xs text-text-muted w-5 text-right shrink-0">{{ $index + 1 }}</span>
+                            @if($entry->team)
+                                <x-team-crest :team="$entry->team" class="w-5 h-5 shrink-0" />
+                            @else
+                                <div class="w-5 h-5 shrink-0 rounded bg-surface-700"></div>
+                            @endif
+                            <span class="text-sm text-text-primary truncate w-28 shrink-0">{{ $entry->team?->name ?? '—' }}</span>
+                            <div class="flex-1 h-5 bg-surface-700 rounded-sm overflow-hidden">
+                                <div class="h-full bg-accent-blue/60 rounded-sm" style="width: {{ ($entry->picks / $maxPicks) * 100 }}%"></div>
+                            </div>
+                            <span class="text-xs text-text-muted shrink-0 w-12 text-right">{{ $entry->picks }}</span>
+                        </div>
+                    @endforeach
+                </div>
+            @endif
+        </div>
+    </div>
+
+    {{-- Season Progress --}}
+    <div class="bg-surface-800 border border-border-default rounded-xl p-5">
+        <h2 class="font-heading text-sm font-bold uppercase tracking-wider text-text-primary mb-4">
+            {{ __('admin.season_progress') }}
+        </h2>
+
+        @if($seasonProgress->isEmpty())
+            <p class="text-sm text-text-muted">{{ __('admin.no_data') }}</p>
+        @else
+            @php $maxSeason = $seasonProgress->max('count'); @endphp
+            <div class="flex items-end gap-2 md:gap-3 h-40">
+                @foreach($seasonProgress as $entry)
+                    @php $heightPct = ($entry->count / $maxSeason) * 100; @endphp
+                    <div class="flex-1 flex flex-col items-center justify-end h-full gap-1">
+                        <span class="text-xs text-text-muted">{{ $entry->count }}</span>
+                        <div class="w-full bg-accent-blue/60 rounded-t-sm" style="height: {{ $heightPct }}%"></div>
+                        <span class="text-xs text-text-muted truncate max-w-full">S{{ $entry->season }}</span>
+                    </div>
+                @endforeach
+            </div>
+        @endif
+    </div>
+</x-admin-layout>

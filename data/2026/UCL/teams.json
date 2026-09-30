@@ -1,0 +1,223 @@
+{
+  "id": "UCL",
+  "name": "UEFA Women's Champions League",
+  "seasonID": "2026",
+  "clubs": [
+    {
+      "id": "1132",
+      "name": "F.C. Barcelona",
+      "country": "ES",
+      "pot": 1
+    },
+    {
+      "id": "36",
+      "name": "Arsenal FC",
+      "country": "EN",
+      "pot": 1
+    },
+    {
+      "id": "16742",
+      "name": "OL Lyonnes",
+      "country": "FR",
+      "pot": 1
+    },
+    {
+      "id": "87",
+      "name": "Chelsea LFC",
+      "country": "EN",
+      "pot": 1
+    },
+    {
+      "id": "57",
+      "name": "Bayern München",
+      "country": "DE",
+      "pot": 1
+    },
+    {
+      "id": "6551",
+      "name": "Real Madrid",
+      "country": "ES",
+      "pot": 1
+    },
+    {
+      "id": "4458",
+      "name": "Manchester United",
+      "country": "EN",
+      "pot": 1
+    },
+    {
+      "id": "254",
+      "name": "Paris Saint-Germain",
+      "country": "FR",
+      "pot": 1
+    },
+    {
+      "id": "407",
+      "name": "VfL Wolfsburg",
+      "country": "DE",
+      "pot": 1
+    },
+    {
+      "id": "1129",
+      "name": "Club Atlético de Madrid",
+      "country": "ES",
+      "pot": 2
+    },
+    {
+      "id": "6245",
+      "name": "Juventus Football Club",
+      "country": "IT",
+      "pot": 2
+    },
+    {
+      "id": "104",
+      "name": "Eintracht Frankfurt",
+      "country": "DE",
+      "pot": 2
+    },
+    {
+      "id": "6328",
+      "name": "Paris FC",
+      "country": "FR",
+      "pot": 2
+    },
+    {
+      "id": "6954",
+      "name": "Inter Mailand",
+      "country": "IT",
+      "pot": 2
+    },
+    {
+      "id": "165",
+      "name": "Hammarby",
+      "country": "SE",
+      "pot": 2
+    },
+    {
+      "id": "6534",
+      "name": "SL Benfica",
+      "country": "PT",
+      "pot": 2
+    },
+    {
+      "id": "8657",
+      "name": "BK Häcken",
+      "country": "SE",
+      "pot": 2
+    },
+    {
+      "id": "7382",
+      "name": "Malmö FF",
+      "country": "SE",
+      "pot": 2
+    },
+    {
+      "id": "4566",
+      "name": "Ajax Amsterdam",
+      "country": "NL",
+      "pot": 3
+    },
+    {
+      "id": "2222",
+      "name": "CS Chenois",
+      "country": "CH",
+      "pot": 3
+    },
+    {
+      "id": "2311",
+      "name": "Oud-Heverlee Leuven",
+      "country": "BE",
+      "pot": 3
+    },
+    {
+      "id": "7307",
+      "name": "HB Køge",
+      "country": "DK",
+      "pot": 3
+    },
+    {
+      "id": "9341",
+      "name": "FK Austria Wien",
+      "country": "AT",
+      "pot": 3
+    },
+    {
+      "id": "206",
+      "name": "FC Rosengård",
+      "country": "SE",
+      "pot": 3
+    },
+    {
+      "id": "1471",
+      "name": "SKN St. Pölten Frauen",
+      "country": "AT",
+      "pot": 3
+    },
+    {
+      "id": "200",
+      "name": "Kristianstads DFF",
+      "country": "SE",
+      "pot": 3
+    },
+    {
+      "id": "5299",
+      "name": "First Vienna FC 1894",
+      "country": "AT",
+      "pot": 3
+    },
+    {
+      "id": "2260",
+      "name": "SK Sturm Graz",
+      "country": "AT",
+      "pot": 4
+    },
+    {
+      "id": "4259",
+      "name": "Vittsjö GIK",
+      "country": "SE",
+      "pot": 4
+    },
+    {
+      "id": "12636",
+      "name": "Red Bull Salzburg",
+      "country": "AT",
+      "pot": 4
+    },
+    {
+      "id": "9537",
+      "name": "Galatasaray SK",
+      "country": "TR",
+      "pot": 4
+    },
+    {
+      "id": "9638",
+      "name": "SK Brann",
+      "country": "NO",
+      "pot": 4
+    },
+    {
+      "id": "76",
+      "name": "Brøndby IF",
+      "country": "DK",
+      "pot": 4
+    },
+    {
+      "id": "1702",
+      "name": "Vålerenga Fotball",
+      "country": "NO",
+      "pot": 4
+    },
+    {
+      "id": "746",
+      "name": "Slavia Praha",
+      "country": "CZ",
+      "pot": 4
+    },
+    {
+      "id": "2287",
+      "name": "RSC Anderlecht",
+      "country": "BE",
+      "pot": 4
+    }
+  ]
+}

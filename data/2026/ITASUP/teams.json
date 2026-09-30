@@ -1,0 +1,15 @@
+{
+  "id": "ITASUP",
+  "name": "Supercoppa Italiana Femminile",
+  "seasonID": "2026",
+  "clubs": [
+    {
+      "id": "6245",
+      "name": "Juventus Football Club"
+    },
+    {
+      "id": "6954",
+      "name": "Inter Mailand"
+    }
+  ]
+}

@@ -1,0 +1,938 @@
+<?php
+
+namespace App\Console\Commands;
+
+use App\Modules\Competition\Services\CountryConfig;
+use App\Modules\Stadium\UefaCategory;
+use App\Models\User;
+use App\Support\ClubNames;
+use App\Support\Money;
+use App\Support\SeasonData;
+use App\Support\TeamColors;
+use Carbon\Carbon;
+use Database\Seeders\ClubProfilesSeeder;
+use Illuminate\Console\Command;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+use Symfony\Component\Console\Command\Command as CommandAlias;
+
+class SeedReferenceData extends Command
+{
+    protected $signature = 'app:seed-reference-data
+                            {--fresh : Clear existing data before seeding}
+                            {--country= : Seed only a specific country (e.g., ES)}';
+
+    protected $description = 'Seed teams, competitions, fixtures, and players from the current season JSON data files';
+
+    /** @var array<string, true> Track competitions already seeded to avoid redundant work */
+    private array $seededCompetitions = [];
+
+    /** Base season being seeded (e.g. '2026'); governs the data/{season}/ folder. */
+    private string $season;
+
+    /**
+     * Continental participants that could not be linked to a team row. Seeding
+     * continues so the operator gets a complete picture, but the command exits
+     * non-zero: a European competition short of a full league phase is silently
+     * skipped at game setup and would otherwise ship broken.
+     *
+     * @var string[]
+     */
+    private array $unlinkedContinentalClubs = [];
+
+    public function handle(): int
+    {
+        $this->season = config('season.current');
+        $countryFilter = $this->option('country');
+
+        if ($this->option('fresh')) {
+            $this->clearExistingData();
+        }
+
+        if (App::environment('local')) {
+            $this->createDefaultUsers();
+        }
+
+        $countryConfig = app(CountryConfig::class);
+        $countryCodes = $countryConfig->playableCountryCodes($this->season);
+
+        if ($countryFilter) {
+            $countryFilter = strtoupper($countryFilter);
+            if (!in_array($countryFilter, $countryCodes)) {
+                $this->error("Country '{$countryFilter}' is not a playable country.");
+                return CommandAlias::FAILURE;
+            }
+            $countryCodes = [$countryFilter];
+        }
+
+        foreach ($countryCodes as $countryCode) {
+            try {
+                $this->seedCountry($countryCode, $countryConfig);
+            } catch (\Throwable $e) {
+                $this->error("FAILED seeding country {$countryCode}: {$e->getMessage()}");
+                $this->error("  at {$e->getFile()}:{$e->getLine()}");
+                $this->newLine();
+                $this->error($e->getTraceAsString());
+                return CommandAlias::FAILURE;
+            }
+        }
+
+        // Seed club profiles for all teams
+        try {
+            $this->info('Seeding club profiles...');
+            $seeder = new ClubProfilesSeeder();
+            $seeder->setCommand($this);
+            $seeder->run();
+        } catch (\Throwable $e) {
+            $this->error("FAILED seeding club profiles: {$e->getMessage()}");
+            $this->error("  at {$e->getFile()}:{$e->getLine()}");
+            $this->newLine();
+            $this->error($e->getTraceAsString());
+            return CommandAlias::FAILURE;
+        }
+
+        // Generate pre-computed game player templates
+        try {
+            $args = ['--season' => $this->season];
+            if ($countryFilter) {
+                $args['--country'] = $countryFilter;
+            }
+            $this->call('app:refresh-player-templates', $args);
+        } catch (\Throwable $e) {
+            $this->error("FAILED generating game player templates: {$e->getMessage()}");
+            $this->error("  at {$e->getFile()}:{$e->getLine()}");
+            $this->newLine();
+            $this->error($e->getTraceAsString());
+            return CommandAlias::FAILURE;
+        }
+
+        $this->displaySummary();
+
+        if (!empty($this->unlinkedContinentalClubs)) {
+            $this->newLine();
+            $this->error('Continental participants with no squad data (they were dropped from their competition):');
+            foreach ($this->unlinkedContinentalClubs as $club) {
+                $this->line("  ✗ {$club}");
+            }
+            $this->line("Add a data/{$this->season}/EUR/{id}.json for each, then re-seed. "
+                . 'php artisan app:validate-season catches this before it reaches the database.');
+
+            return CommandAlias::FAILURE;
+        }
+
+        return CommandAlias::SUCCESS;
+    }
+
+    /**
+     * Seed all competitions for a country in dependency order:
+     * tiers → domestic cups (supercup first) → transfer pool → continental.
+     */
+    private function seedCountry(string $countryCode, CountryConfig $countryConfig): void
+    {
+        $config = $countryConfig->get($countryCode);
+        if (!$config) {
+            $this->warn("No config found for country: {$countryCode}");
+            return;
+        }
+
+        $this->newLine();
+        $this->info("=== {$config['name']} ({$countryCode}) ===");
+
+        // Step 1: Seed tier competitions (leagues with teams + players).
+        // Each tier entry may declare a 'siblings' list of additional
+        // competitions at the same tier (e.g. Primera RFEF has ESP3A + ESP3B),
+        // which are seeded here alongside the primary entry.
+        $tiers = $config['tiers'] ?? [];
+        $flag = $countryConfig->flag($countryCode);
+        $tierSeedList = [];
+        foreach ($tiers as $tier => $tierConfig) {
+            $tierSeedList[] = [$tier, $tierConfig];
+            foreach ($tierConfig['siblings'] ?? [] as $sibling) {
+                $tierSeedList[] = [$tier, $sibling];
+            }
+        }
+        $this->line("  Step 1/4: Seeding " . count($tierSeedList) . " tier competition(s)...");
+        foreach ($tierSeedList as [$tier, $tierEntry]) {
+            $this->seedCompetition([
+                'code' => $tierEntry['competition'],
+                'path' => "data/{$this->season}/{$tierEntry['competition']}",
+                'tier' => $tier,
+                'handler' => $tierEntry['handler'] ?? 'league',
+                'country' => $countryCode,
+                'flag' => $flag,
+                'role' => 'league',
+            ]);
+        }
+        $this->line("  Step 1/4: Done.");
+
+        // Step 1b: Link reserve teams to their parent teams
+        $this->linkReserveTeams($config);
+
+        // Step 1c: Seed promotion playoff competitions (e.g. Primera RFEF's
+        // ESP3PO). These are bare knockout_cup competition rows with no
+        // pre-populated teams — per-game entries are populated dynamically by
+        // PrimeraRFEFPlayoffGenerator when the regular season ends.
+        $promotionPlayoffs = $config['promotion_playoffs'] ?? [];
+        if (!empty($promotionPlayoffs)) {
+            $this->line("  Step 1c: Seeding " . count($promotionPlayoffs) . " promotion playoff(s)...");
+            foreach ($promotionPlayoffs as $playoffId => $playoffConfig) {
+                $this->seedPromotionPlayoff(
+                    $playoffId,
+                    $playoffConfig['parent_tier'] ?? 0,
+                    $playoffConfig['handler'] ?? 'knockout_cup',
+                    $countryCode,
+                    $flag,
+                    $playoffConfig['name'] ?? null,
+                );
+            }
+            $this->line("  Step 1c: Done.");
+        }
+
+        // Step 2: Seed domestic cups — supercup first so main cup can look up
+        // supercup teams for entry_round calculation
+        $cupIds = $countryConfig->domesticCupIds($countryCode, $this->season);
+        $this->line("  Step 2/4: Seeding " . count($cupIds) . " domestic cup(s)...");
+        $supercupConfig = $countryConfig->supercup($countryCode, $this->season);
+        if ($supercupConfig) {
+            $supercupId = $supercupConfig['competition'];
+            $cupIds = array_values(array_diff($cupIds, [$supercupId]));
+            array_unshift($cupIds, $supercupId);
+        }
+
+        foreach ($cupIds as $cupId) {
+            $cupConfig = $config['domestic_cups'][$cupId];
+            $this->seedCompetition([
+                'code' => $cupId,
+                'path' => "data/{$this->season}/{$cupId}",
+                'tier' => 0,
+                'handler' => $cupConfig['handler'] ?? 'knockout_cup',
+                'country' => $countryCode,
+                'flag' => $flag,
+                'role' => 'domestic_cup',
+            ]);
+        }
+        $this->line("  Step 2/4: Done.");
+
+        // Step 3: Seed transfer pool (foreign leagues + EUR pool)
+        $support = $countryConfig->support($countryCode);
+        $transferPool = $countryConfig->transferPool($countryCode, $this->season);
+        $this->line("  Step 3/4: Seeding " . count($transferPool) . " transfer pool competition(s)...");
+        foreach ($transferPool as $code => $poolConfig) {
+            $poolCountry = $poolConfig['country'] ?? 'EU';
+            $poolFlag = $countryConfig->flag($poolCountry);
+            $this->seedCompetition([
+                'code' => $code,
+                'path' => "data/{$this->season}/{$code}",
+                'tier' => 1,
+                'handler' => $poolConfig['handler'] ?? 'league',
+                'country' => $poolCountry,
+                'flag' => $poolFlag,
+                'role' => $poolConfig['role'] ?? 'league',
+            ]);
+        }
+        $this->line("  Step 3/4: Done.");
+
+        // Step 4: Seed continental competitions (link existing teams)
+        $continental = $support['continental'] ?? [];
+        $this->line("  Step 4/4: Seeding " . count($continental) . " continental competition(s)...");
+        foreach ($continental as $code => $continentalConfig) {
+            $contCountry = $continentalConfig['country'] ?? 'EU';
+            $contFlag = $countryConfig->flag($contCountry);
+            $this->seedCompetition([
+                'code' => $code,
+                'path' => "data/{$this->season}/{$code}",
+                'tier' => 0,
+                'handler' => $continentalConfig['handler'] ?? 'swiss_format',
+                'country' => $contCountry,
+                'flag' => $contFlag,
+                'role' => 'european',
+            ]);
+        }
+        $this->line("  Step 4/4: Done.");
+
+        // Seed the pre-season competition (used for pre-season matches)
+        DB::table('competitions')->updateOrInsert(
+            ['id' => 'PRESEASON'],
+            [
+                'name' => 'game.pre_season',
+                'country' => 'XX',
+                'flag' => null,
+                'tier' => 0,
+                'type' => 'league',
+                'role' => 'preseason',
+                'scope' => 'domestic',
+                'handler_type' => 'preseason',
+                'season' => $this->season,
+            ]
+        );
+    }
+
+    protected function linkReserveTeams(array $config): void
+    {
+        $reserveTeams = $config['reserve_teams'] ?? [];
+        if (empty($reserveTeams)) {
+            return;
+        }
+
+        foreach ($reserveTeams as $childTransfermarktId => $parentTransfermarktId) {
+            $child = DB::table('teams')->where('transfermarkt_id', $childTransfermarktId)->first();
+            $parent = DB::table('teams')->where('transfermarkt_id', $parentTransfermarktId)->first();
+
+            if ($child && $parent) {
+                DB::table('teams')->where('id', $child->id)->update([
+                    'parent_team_id' => $parent->id,
+                ]);
+                $this->line("  Linked reserve team: {$child->name} → {$parent->name}");
+            }
+        }
+    }
+
+    /**
+     * Seed a specific subset of competitions from a country's config into an
+     * existing database, reusing the same idempotent primitives as a full
+     * country seed. Codes may refer to tier competitions (including siblings
+     * like ESP3A/ESP3B) or promotion_playoffs entries (like ESP3PO). Unknown
+     * codes are warned about and skipped.
+     *
+     * Used by targeted one-off commands that want to add a handful of new
+     * competitions without re-touching unrelated data.
+     *
+     * @param  string[]  $competitionCodes
+     */
+    protected function seedCompetitionsByCode(string $countryCode, array $competitionCodes): void
+    {
+        $countryConfig = app(CountryConfig::class);
+        $config = $countryConfig->get($countryCode);
+        if (!$config) {
+            $this->warn("No config found for country: {$countryCode}");
+            return;
+        }
+
+        $flag = $countryConfig->flag($countryCode);
+
+        // Build a lookup of every tier competition (primary + siblings) keyed by code.
+        $tierLookup = [];
+        foreach ($config['tiers'] ?? [] as $tier => $tierConfig) {
+            $tierLookup[$tierConfig['competition']] = [$tier, $tierConfig];
+            foreach ($tierConfig['siblings'] ?? [] as $sibling) {
+                $tierLookup[$sibling['competition']] = [$tier, $sibling];
+            }
+        }
+
+        $promotionPlayoffs = $config['promotion_playoffs'] ?? [];
+
+        foreach ($competitionCodes as $code) {
+            if (isset($tierLookup[$code])) {
+                [$tier, $entry] = $tierLookup[$code];
+                $this->seedCompetition([
+                    'code'    => $code,
+                    'path'    => "data/{$this->season}/{$code}",
+                    'tier'    => $tier,
+                    'handler' => $entry['handler'] ?? 'league',
+                    'country' => $countryCode,
+                    'flag'    => $flag,
+                    'role'    => 'league',
+                ]);
+                continue;
+            }
+
+            if (isset($promotionPlayoffs[$code])) {
+                $playoffConfig = $promotionPlayoffs[$code];
+                $this->seedPromotionPlayoff(
+                    $code,
+                    $playoffConfig['parent_tier'] ?? 0,
+                    $playoffConfig['handler'] ?? 'knockout_cup',
+                    $countryCode,
+                    $flag,
+                    $playoffConfig['name'] ?? null,
+                );
+                continue;
+            }
+
+            $this->warn("  Unknown competition code for {$countryCode}: {$code}");
+        }
+
+        // Link any reserve teams whose parent/child pair now exists. Safe to
+        // call repeatedly — rows already set are a no-op update.
+        $this->linkReserveTeams($config);
+    }
+
+    private function createDefaultUsers(): void
+    {
+        $defaultUsers = [
+            ['email' => 'test@test.com', 'name' => 'Test User'],
+            ['email' => 'test2@test.com', 'name' => 'Test User 2'],
+        ];
+
+        foreach ($defaultUsers as $defaultUser) {
+            $user = User::firstOrCreate(
+                ['email' => $defaultUser['email']],
+                [
+                    'name' => $defaultUser['name'],
+                    'password' => Hash::make('password'),
+                ]
+            );
+
+            $user->forceFill([
+                'email_verified_at' => $user->email_verified_at ?? now(),
+                'has_career_access' => true,
+                'has_tournament_access' => true,
+            ])->save();
+
+            $this->line("Default user: {$defaultUser['email']} / password");
+        }
+    }
+
+    private function clearExistingData(): void
+    {
+        $this->info('Clearing existing reference data...');
+
+        // Clear game-scoped tables first
+        DB::table('game_players')->delete();
+        DB::table('match_events')->delete();
+        DB::table('cup_ties')->delete();
+        DB::table('game_standings')->delete();
+        DB::table('game_matches')->delete();
+        DB::table('games')->delete();
+
+        // Clear reference tables
+        DB::table('game_player_templates')->delete();
+        DB::table('competition_teams')->delete();
+        DB::table('teams')->delete();
+        DB::table('competitions')->delete();
+
+        $this->info('Cleared.');
+    }
+
+    protected function seedCompetition(array $config): void
+    {
+        $basePath = base_path($config['path']);
+        $code = $config['code'];
+        $tier = $config['tier'];
+        $handler = $config['handler'] ?? 'league';
+        $country = $config['country'] ?? 'ES';
+        $flag = $config['flag'] ?? strtolower($country);
+        $role = $config['role'] ?? 'league';
+        $configName = $config['name'] ?? null;
+
+        $isCup = in_array($handler, ['knockout_cup', 'group_stage_cup']);
+        $isSwiss = $handler === 'swiss_format';
+        $isTeamPool = $handler === 'team_pool';
+
+        // Skip competitions already seeded by a previous country
+        if (isset($this->seededCompetitions[$code])) {
+            $this->line("  Skipping {$code} (already seeded)");
+            return;
+        }
+
+        // Skip gracefully when team data is not yet available. This lets us
+        // ship code scaffolding for new competitions (e.g. Primera RFEF's
+        // ESP3A/ESP3B) before the matching data files land; the competition
+        // is simply left out of the DB until real data is provided.
+        if (!$isTeamPool && !file_exists("{$basePath}/teams.json")) {
+            $this->warn("  Skipping {$code}: teams.json not found at {$basePath}/");
+            return;
+        }
+
+        $this->seededCompetitions[$code] = true;
+
+        $this->info("Seeding {$code} ({$handler})...");
+
+        if ($isTeamPool) {
+            $this->seedTeamPoolCompetition($basePath, $code, $tier, $handler, $country, $flag, $role, $configName);
+        } elseif ($isSwiss) {
+            $this->seedSwissFormatCompetition($basePath, $code, $tier, $handler, $country, $flag, $role);
+        } elseif ($isCup) {
+            $this->seedCupCompetition($basePath, $code, $tier, $handler, $country, $flag, $role);
+        } else {
+            $this->seedLeagueCompetition($basePath, $code, $tier, $handler, $country, $flag, $role, $configName);
+        }
+        $this->line("  ✓ {$code} done.");
+    }
+
+    private function seedLeagueCompetition(string $basePath, string $code, int $tier, string $handler, string $country, string $flag, string $role = 'league', ?string $configName = null): void
+    {
+        $teamsData = $this->loadJson("{$basePath}/teams.json");
+
+        // Handle foreign leagues with simpler JSON structure
+        $seasonId = $teamsData['seasonID'] ?? $this->season;
+        $leagueName = $teamsData['name'] ?? $configName ?? $code;
+
+        // Normalize teams data for seedCompetitionRecord
+        $normalizedData = [
+            'name' => $leagueName,
+            'seasonID' => $seasonId,
+        ];
+
+        // Seed competition record
+        $this->seedCompetitionRecord($code, $normalizedData, $tier, 'league', $handler, $country, $flag, $role);
+
+        // Build team ID mapping (transfermarktId -> UUID)
+        $this->seedTeams($teamsData['clubs'], $code, $seasonId, $country);
+    }
+
+    private function seedCupCompetition(string $basePath, string $code, int $tier, string $handler, string $country, string $flag, string $role = 'domestic_cup'): void
+    {
+        $teamsData = $this->loadJson("{$basePath}/teams.json");
+
+        // Same resolution seedCompetitionRecord() uses for competitions.season.
+        // The two must agree: reads are scoped by comparing a pivot row's season
+        // against its competition's (CompetitionTeam::SEASON_MATCHES_COMPETITION),
+        // so a cup whose teams.json seasonID lagged GAME_SEASON would link its
+        // clubs under one season, record the competition under another, and then
+        // resolve to no teams at all.
+        $season = $teamsData['seasonID'] ?? $this->season;
+
+        // Seed competition record
+        $this->seedCompetitionRecord($code, $teamsData, $tier, 'cup', $handler, $country, $flag, $role);
+
+        // Seed cup teams (link existing teams to cup)
+        $this->seedCupTeams($teamsData['clubs'], $code, $season, $country);
+    }
+
+    private function seedSwissFormatCompetition(string $basePath, string $code, int $tier, string $handler, string $country, string $flag, string $role = 'european'): void
+    {
+        $teamsData = $this->loadJson("{$basePath}/teams.json");
+
+        $season = $teamsData['seasonID'] ?? $this->season;
+
+        // Swiss format uses 'league' type so standings are updated during league phase
+        $this->seedCompetitionRecord($code, $teamsData, $tier, 'league', $handler, $country, $flag, $role);
+
+        // Seed teams (links existing teams by transfermarkt_id, like cups)
+        $this->seedSwissFormatTeams($teamsData['clubs'], $code, $season);
+
+        // Swiss league phase fixtures are generated per-game by SetupNewGame
+
+        $this->line("  Swiss format competition seeded successfully");
+    }
+
+    /**
+     * Seed a player pool competition from individual team JSON files.
+     * Each file is named {transfermarkt_id}.json and contains {id, players}.
+     * Teams must already exist from their league seeding.
+     */
+    private function seedTeamPoolCompetition(string $basePath, string $code, int $tier, string $handler, string $country, string $flag, string $role, ?string $configName = null): void
+    {
+        $season = $this->season;
+
+        $this->seedCompetitionRecord($code, ['name' => $configName ?? $code, 'seasonID' => $season], $tier, 'league', $handler, $country, $flag, $role);
+
+        // Get existing teams by transfermarkt_id
+        $teamsByTransfermarktId = DB::table('teams')
+            ->whereNotNull('transfermarkt_id')
+            ->pluck('id', 'transfermarkt_id')
+            ->toArray();
+
+        $teamIdMap = [];
+
+        foreach (glob("{$basePath}/*.json") as $filePath) {
+            $data = $this->loadJson($filePath);
+            $transfermarktId = $this->extractTransfermarktIdFromImage($data['image'] ?? '');
+
+            if (!$transfermarktId) {
+                continue;
+            }
+
+            // Find or create team
+            $teamId = $teamsByTransfermarktId[$transfermarktId] ?? null;
+
+            // Use per-team country from JSON if available, fall back to pool country
+            $teamCountry = $data['country'] ?? $country;
+
+            if (!$teamId) {
+                $teamId = Str::uuid()->toString();
+                $stadiumSeats = isset($data['stadiumSeats'])
+                    ? (int) str_replace(['.', ','], '', $data['stadiumSeats'])
+                    : 0;
+                DB::table('teams')->insert([
+                    'id' => $teamId,
+                    'transfermarkt_id' => $transfermarktId,
+                    'name' => ClubNames::canonical($data['name'] ?? "Unknown ({$transfermarktId})"),
+                    'slug' => Str::slug(ClubNames::canonical($data['name'] ?? "unknown-{$transfermarktId}")),
+                    'country' => $teamCountry,
+                    'image' => $data['image'] ?? null,
+                    'stadium_name' => $data['stadiumName'] ?? null,
+                    'stadium_seats' => $stadiumSeats,
+                    'uefa_stadium_category' => UefaCategory::deriveFromCapacity($stadiumSeats),
+                ]);
+                $teamsByTransfermarktId[$transfermarktId] = $teamId;
+            } else {
+                // Update country if JSON provides a more specific one than the pool default
+                if (isset($data['country'])) {
+                    DB::table('teams')->where('id', $teamId)->update(['country' => $teamCountry]);
+                }
+            }
+
+            $teamIdMap[$transfermarktId] = $teamId;
+
+            // Link team to competition
+            DB::table('competition_teams')->updateOrInsert(
+                [
+                    'competition_id' => $code,
+                    'team_id' => $teamId,
+                    'season' => $season,
+                ],
+                []
+            );
+
+        }
+
+        $this->line("  Teams: " . count($teamIdMap));
+    }
+
+    /**
+     * Seed teams for Swiss format competitions.
+     * Links existing teams by transfermarkt_id (all teams must already exist from their league seeding).
+     */
+    private function seedSwissFormatTeams(array $clubs, string $competitionId, string $season): array
+    {
+        $teamIdMap = [];
+        $count = 0;
+
+        // Get existing teams by transfermarkt_id
+        $teamsByTransfermarktId = DB::table('teams')
+            ->whereNotNull('transfermarkt_id')
+            ->pluck('id', 'transfermarkt_id')
+            ->toArray();
+
+        foreach ($clubs as $club) {
+            $transfermarktId = $club['id'] ?? null;
+            if (!$transfermarktId) {
+                continue;
+            }
+
+            $teamId = $teamsByTransfermarktId[$transfermarktId] ?? null;
+
+            if (!$teamId) {
+                $this->warn("  Team not found for transfermarkt_id {$transfermarktId}: {$club['name']}");
+                $this->unlinkedContinentalClubs[] = "{$competitionId}: {$club['name']} ({$transfermarktId})";
+                continue;
+            }
+
+            $teamIdMap[$transfermarktId] = $teamId;
+
+            // Link team to competition
+            DB::table('competition_teams')->updateOrInsert(
+                [
+                    'competition_id' => $competitionId,
+                    'team_id' => $teamId,
+                    'season' => $season,
+                ],
+                [
+                    'entry_round' => 1,
+                ]
+            );
+
+            $count++;
+        }
+
+        $this->line("  Teams: {$count}");
+
+        return $teamIdMap;
+    }
+
+    /**
+     * Seed a bare promotion playoff competition (e.g. Primera RFEF's ESP3PO).
+     *
+     * Promotion playoffs have no pre-seeded teams or players — their
+     * CompetitionEntry rows are created dynamically at the end of the
+     * Primera RFEF regular season by PrimeraRFEFPlayoffGenerator. Only the
+     * competition row itself needs to exist so cup ties / matches can point
+     * at it.
+     */
+    protected function seedPromotionPlayoff(string $code, int $tier, string $handler, string $country, string $flag, ?string $name = null): void
+    {
+        if (isset($this->seededCompetitions[$code])) {
+            $this->line("  Skipping {$code} (already seeded)");
+            return;
+        }
+        $this->seededCompetitions[$code] = true;
+
+        DB::table('competitions')->updateOrInsert(
+            ['id' => $code],
+            [
+                'name' => $name ?? $code,
+                'country' => $country,
+                'flag' => $flag,
+                'tier' => $tier,
+                'type' => 'cup',
+                'role' => 'domestic_cup',
+                'scope' => 'domestic',
+                'handler_type' => $handler,
+                'season' => $this->season,
+            ]
+        );
+
+        $this->line("  Competition: {$code} (promotion playoff)");
+    }
+
+    private function seedCompetitionRecord(string $code, array $data, int $tier, string $type, string $handler, string $country, string $flag, string $role = 'league'): void
+    {
+        $season = $data['seasonID'] ?? $this->season;
+        $scope = ($role === 'european') ? 'continental' : 'domestic';
+
+        DB::table('competitions')->updateOrInsert(
+            ['id' => $code],
+            [
+                'name' => $data['name'],
+                'country' => $country,
+                'flag' => $flag,
+                'tier' => $tier,
+                'type' => $type,
+                'role' => $role,
+                'scope' => $scope,
+                'handler_type' => $handler,
+                'season' => $season,
+            ]
+        );
+
+        $this->line("  Competition: {$data['name']} ({$role})");
+    }
+
+    /**
+     * Seed teams and return mapping of transfermarktId -> UUID.
+     */
+    private function seedTeams(array $clubs, string $competitionId, string $season, string $country = 'ES'): array
+    {
+        $teamIdMap = [];
+        $count = 0;
+
+        foreach ($clubs as $club) {
+            // Try to get transfermarktId from club data, or extract from image URL
+            $transfermarktId = $club['transfermarktId'] ?? $this->extractTransfermarktIdFromImage($club['image'] ?? '');
+            if (!$transfermarktId) {
+                $this->warn("  Skipping club without transfermarktId: {$club['name']}");
+                continue;
+            }
+
+            // Check if team already exists
+            $existingTeam = DB::table('teams')
+                ->where('transfermarkt_id', $transfermarktId)
+                ->first();
+
+            $name = ClubNames::canonical($club['name']);
+            $colors = TeamColors::get($name);
+
+            if ($existingTeam) {
+                $teamId = $existingTeam->id;
+                // Update mutable fields for existing teams so reference
+                // refreshes pick up new data.
+                $stadiumSeats = isset($club['stadiumSeats'])
+                    ? (int) str_replace(['.', ','], '', $club['stadiumSeats'])
+                    : 0;
+
+                $effectiveSeats = (int) ($stadiumSeats ?: $existingTeam->stadium_seats);
+                DB::table('teams')->where('id', $teamId)->update([
+                    'image' => $club['image'] ?? $existingTeam->image,
+                    'stadium_name' => $club['stadiumName'] ?? $existingTeam->stadium_name,
+                    'stadium_seats' => $effectiveSeats,
+                    'uefa_stadium_category' => $existingTeam->uefa_stadium_category
+                        ?? UefaCategory::deriveFromCapacity($effectiveSeats),
+                    'colors' => json_encode($colors),
+                ]);
+            } else {
+                $teamId = Str::uuid()->toString();
+
+                // Parse stadium seats
+                $stadiumSeats = isset($club['stadiumSeats'])
+                    ? (int) str_replace(['.', ','], '', $club['stadiumSeats'])
+                    : 0;
+
+                DB::table('teams')->insert([
+                    'id' => $teamId,
+                    'transfermarkt_id' => $transfermarktId,
+                    'name' => $name,
+                    'slug' => Str::slug($name),
+                    'country' => $country,
+                    'image' => $club['image'] ?? null,
+                    'stadium_name' => $club['stadiumName'] ?? null,
+                    'stadium_seats' => $stadiumSeats,
+                    'uefa_stadium_category' => UefaCategory::deriveFromCapacity($stadiumSeats),
+                    'colors' => json_encode($colors),
+                ]);
+            }
+
+            $teamIdMap[$transfermarktId] = $teamId;
+
+            // Link team to competition
+            DB::table('competition_teams')->updateOrInsert(
+                [
+                    'competition_id' => $competitionId,
+                    'team_id' => $teamId,
+                    'season' => $season,
+                ],
+                []
+            );
+
+            $count++;
+        }
+
+        $this->line("  Teams: {$count}");
+
+        return $teamIdMap;
+    }
+
+    /**
+     * Link a cup's participants to the competition, creating "ghost" teams
+     * for clubs the leagues don't carry.
+     *
+     * A ghost is a lower-division side that exists only as a cup entrant:
+     * a name, a crest and a country, no squad. Its matches are resolved from
+     * a default strength, so a cup can field the whole pyramid without
+     * seeding a roster per club. Every club is identified by its
+     * Transfermarkt `id`, which is what links it to a league row when one
+     * exists and keeps a ghost the same club across seasons.
+     *
+     * Per-club keys: `id`, `name`, optional `entryRound` (the round the
+     * club joins at, defaulting to the first), `stadiumName`,
+     * `stadiumSeats`.
+     */
+    private function seedCupTeams(array $clubs, string $competitionId, string $season, string $country = 'ES'): void
+    {
+        $count = 0;
+
+        // Get existing teams by transfermarkt_id
+        $teamsByTransfermarktId = DB::table('teams')
+            ->whereNotNull('transfermarkt_id')
+            ->get(['id', 'transfermarkt_id', 'name', 'country'])
+            ->keyBy(fn ($team) => (string) $team->transfermarkt_id);
+
+        foreach ($clubs as $club) {
+            $name = ClubNames::canonical(trim((string) ($club['name'] ?? '')));
+            // Same id resolution the season validator uses, so a cup list
+            // composed from a league stadiums scrape (which writes
+            // `transfermarktId`, not `id`) seeds instead of silently
+            // warning past every club.
+            $transfermarktId = SeasonData::resolveTransfermarktId($club);
+
+            if ($name === '' || $transfermarktId === null) {
+                $this->warn("  Skipping cup club without a name or transfermarkt id in {$competitionId}: " . ($name ?: '(unnamed)'));
+                continue;
+            }
+
+            // Entry round as the data file declares it, and nothing else:
+            // the supercup skip-ahead is derived per game by
+            // CupEntryRoundService, not baked into the seed data.
+            $entryRound = max(1, (int) ($club['entryRound'] ?? 1));
+
+            $existing = $teamsByTransfermarktId[$transfermarktId] ?? null;
+
+            // A cup entrant resolving to a club of another country is a
+            // wrong id (they are typed by hand for lower-division sides).
+            // Linking it would drag a foreign club into the cup.
+            if ($existing && $existing->country !== $country) {
+                $this->warn("  Skipping {$name}: id {$transfermarktId} belongs to {$existing->name} ({$existing->country})");
+                continue;
+            }
+
+            $teamId = $existing?->id;
+
+            if ($teamId === null) {
+                $teamId = $this->createGhostTeam($club, $name, $transfermarktId, $country);
+                $teamsByTransfermarktId[$transfermarktId] = (object) [
+                    'id' => $teamId, 'transfermarkt_id' => $transfermarktId, 'name' => $name, 'country' => $country,
+                ];
+            }
+
+            // Link team to cup competition
+            DB::table('competition_teams')->updateOrInsert(
+                [
+                    'competition_id' => $competitionId,
+                    'team_id' => $teamId,
+                    'season' => $season,
+                ],
+                [
+                    'entry_round' => $entryRound,
+                ]
+            );
+
+            $count++;
+        }
+
+        $this->line("  Cup teams: {$count}");
+    }
+
+    /**
+     * Insert a ghost team row for a cup-only club and return its id.
+     */
+    private function createGhostTeam(array $club, string $name, string $transfermarktId, string $country): string
+    {
+        $teamId = Str::uuid()->toString();
+        $stadiumSeats = isset($club['stadiumSeats'])
+            ? (int) str_replace(['.', ','], '', (string) $club['stadiumSeats'])
+            : 0;
+
+        DB::table('teams')->insert([
+            'id' => $teamId,
+            'transfermarkt_id' => (int) $transfermarktId,
+            'name' => $name,
+            'slug' => $this->uniqueTeamSlug($name),
+            'country' => $country,
+            'image' => "https://tmssl.akamaized.net/images/wappen/big/{$transfermarktId}.png",
+            'stadium_name' => $club['stadiumName'] ?? null,
+            'stadium_seats' => $stadiumSeats,
+            'uefa_stadium_category' => UefaCategory::deriveFromCapacity($stadiumSeats),
+        ]);
+
+        return $teamId;
+    }
+
+    /**
+     * Team slugs are unique across every country, so a taken slug falls back
+     * to a counter (two "Athletic" sides in different pyramids, say).
+     */
+    private function uniqueTeamSlug(string $name): string
+    {
+        $base = Str::slug($name) ?: 'team';
+
+        for ($candidate = $base, $i = 2; ; $candidate = "{$base}-" . $i++) {
+            if (!DB::table('teams')->where('slug', $candidate)->exists()) {
+                return $candidate;
+            }
+        }
+    }
+
+    private function loadJson(string $path): array
+    {
+        if (!file_exists($path)) {
+            throw new \RuntimeException("JSON file not found: {$path}");
+        }
+
+        $content = file_get_contents($path);
+        $data = json_decode($content, true);
+
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            throw new \RuntimeException("Invalid JSON in {$path}: " . json_last_error_msg());
+        }
+
+        return $data;
+    }
+
+    /**
+     * Extract transfermarkt ID from image URL.
+     * URL format: https://tmssl.akamaized.net/images/wappen/big/{id}.png
+     */
+    private function extractTransfermarktIdFromImage(string $imageUrl): ?string
+    {
+        if (preg_match('/\/(\d+)\.png$/', $imageUrl, $matches)) {
+            return $matches[1];
+        }
+
+        return null;
+    }
+
+    private function displaySummary(): void
+    {
+        $this->newLine();
+        $this->info('Summary:');
+        $this->line('  Competitions: ' . DB::table('competitions')->count());
+        $this->line('  Teams: ' . DB::table('teams')->count());
+        $this->line('  Competition-Team links: ' . DB::table('competition_teams')->count());
+        $this->line('  Game player templates: ' . DB::table('game_player_templates')->count());
+        $this->newLine();
+        $this->info('Reference data seeded successfully!');
+    }
+}

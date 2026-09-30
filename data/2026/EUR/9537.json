@@ -1,0 +1,374 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/9537.png",
+  "name": "Galatasaray SK",
+  "players": [
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Nov 22, 2000",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "30462",
+      "marketValue": "€30k",
+      "name": "Roberta Aprile",
+      "nationality": [
+        "Italy"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jan 4, 2008",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "92865",
+      "marketValue": "",
+      "name": "Esra Yarim",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "26",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Jun 17, 1992",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "10583",
+      "marketValue": "€35k",
+      "name": "Patrícia Morais",
+      "nationality": [
+        "Portugal"
+      ],
+      "number": "92",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 15, 1995",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "15627",
+      "marketValue": "",
+      "name": "Eda Karataş",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "5",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Sep 12, 2007",
+      "foot": "left",
+      "height": "1,72m",
+      "id": "99957",
+      "marketValue": "",
+      "name": "Lahna Diawara",
+      "nationality": [
+        "France"
+      ],
+      "number": "12",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 3, 1990",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "3864",
+      "marketValue": "€30k",
+      "name": "Carole Costa",
+      "nationality": [
+        "Portugal"
+      ],
+      "number": "15",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 26, 2004",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "42004",
+      "marketValue": "",
+      "name": "Narin Yakut",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "23",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 14, 2005",
+      "foot": "left",
+      "height": "1,71m",
+      "id": "42284",
+      "marketValue": "",
+      "name": "Meryem Başkaya",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "64",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 21, 1996",
+      "foot": "left",
+      "height": "1,58m",
+      "id": "39622",
+      "marketValue": "",
+      "name": "Chang Jang",
+      "nationality": [
+        "Korea, South"
+      ],
+      "number": "6",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Mar 29, 1995",
+      "foot": "right",
+      "height": "1,71m",
+      "id": "16620",
+      "marketValue": "€30k",
+      "name": "Eleni Markou",
+      "nationality": [
+        "Greece"
+      ],
+      "number": "11",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Nov 3, 2005",
+      "foot": "left",
+      "height": "1,61m",
+      "id": "71199",
+      "marketValue": "",
+      "name": "Sila Tetik",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "13",
+      "position": "Left Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 18, 2007",
+      "foot": "right",
+      "height": "1,63m",
+      "id": "87338",
+      "marketValue": "",
+      "name": "Berra Pekgöz",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "14",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 27, 1996",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "22013",
+      "marketValue": "",
+      "name": "Ebru Topçu",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "16",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Aug 17, 2000",
+      "foot": "right",
+      "height": "1,64m",
+      "id": "39865",
+      "marketValue": "",
+      "name": "İrem Eren",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "17",
+      "position": "Right Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jan 2, 2004",
+      "foot": "right",
+      "height": "1,61m",
+      "id": "70876",
+      "marketValue": "€60k",
+      "name": "Oliwia Domin",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "21",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 7, 1998",
+      "foot": "both",
+      "height": "1,69m",
+      "id": "17640",
+      "marketValue": "",
+      "name": "Ecem Cümert",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "22",
+      "position": "Right Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 27, 2002",
+      "foot": "right",
+      "height": "1,68m",
+      "id": "35135",
+      "marketValue": "€45k",
+      "name": "Dana Foederer",
+      "nationality": [
+        "Netherlands"
+      ],
+      "number": "27",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jul 1, 2004",
+      "foot": "right",
+      "height": "1,61m",
+      "id": "41988",
+      "marketValue": "",
+      "name": "Arzu Akkurt",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "47",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 12, 2002",
+      "foot": "right",
+      "height": "1,63m",
+      "id": "40117",
+      "marketValue": "",
+      "name": "Elif Keskin",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "55",
+      "position": "Right Midfield"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Dec 8, 1998",
+      "foot": "right",
+      "height": "1,64m",
+      "id": "78486",
+      "marketValue": "",
+      "name": "Aude Gbedjissi",
+      "nationality": [
+        "Benin"
+      ],
+      "number": "98",
+      "position": "Left Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Aug 26, 1999",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "51282",
+      "marketValue": "€30k",
+      "name": "Vitória Almeida",
+      "nationality": [
+        "Brazil"
+      ],
+      "number": "7",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 27, 2000",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "45317",
+      "marketValue": "€30k",
+      "name": "Marta Cintra",
+      "nationality": [
+        "Brazil"
+      ],
+      "number": "8",
+      "position": "Right Winger"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Mar 14, 1993",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "3705",
+      "marketValue": "€110k",
+      "name": "Cristina Martín-Prieto",
+      "nationality": [
+        "Spain"
+      ],
+      "number": "9",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 14, 1995",
+      "foot": "both",
+      "height": "1,72m",
+      "id": "17569",
+      "marketValue": "€30k",
+      "name": "Melike Pekel",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "10",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Dec 11, 1994",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "19097",
+      "marketValue": "€50k",
+      "name": "Jéssica Silva",
+      "nationality": [
+        "Portugal"
+      ],
+      "number": "20",
+      "position": "Left Winger"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 1, 2001",
+      "foot": "right",
+      "height": "1,66m",
+      "id": "39870",
+      "marketValue": "",
+      "name": "Melike Öztürk",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "71",
+      "position": "Attacking Midfield"
+    }
+  ],
+  "stadiumName": "Florya Metin Oktay Tesisleri Çim Sahası",
+  "stadiumSeats": "500",
+  "transfermarktId": "9537",
+  "country": "TR"
+}

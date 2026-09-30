@@ -1,0 +1,2919 @@
+{
+  "id": "ESP3A",
+  "name": "Segunda Federación I",
+  "seasonID": "2026",
+  "clubs": [
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/271.png",
+      "name": "Rayo Vallecano",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": "271",
+      "players": [
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Jun 30, 2005",
+          "foot": "",
+          "height": "",
+          "id": "90363",
+          "marketValue": "",
+          "name": "Edurne Rubio",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 20, 2005",
+          "foot": "",
+          "height": "",
+          "id": "57100",
+          "marketValue": "",
+          "name": "Irene Arias",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "1",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Oct 25, 1995",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "22671",
+          "marketValue": "",
+          "name": "Ayaka Noguchi",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "6",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Feb 12, 1997",
+          "foot": "",
+          "height": "",
+          "id": "40259",
+          "marketValue": "",
+          "name": "Teresa Rey",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "7",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Dec 4, 2002",
+          "foot": "",
+          "height": "",
+          "id": "57369",
+          "marketValue": "",
+          "name": "Laura Aguado",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Jul 29, 2002",
+          "foot": "",
+          "height": "",
+          "id": "88499",
+          "marketValue": "",
+          "name": "Carmen Búrdalo",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "9",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Jul 18, 2005",
+          "foot": "",
+          "height": "",
+          "id": "112503",
+          "marketValue": "",
+          "name": "Candela Lisotto",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "11",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Jan 17, 1998",
+          "foot": "",
+          "height": "",
+          "id": "44767",
+          "marketValue": "",
+          "name": "Mónica Braojos",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "14",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "May 15, 2003",
+          "foot": "",
+          "height": "1,52m",
+          "id": "75678",
+          "marketValue": "",
+          "name": "Anita Almarza",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "19",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Jun 30, 1990",
+          "foot": "",
+          "height": "",
+          "id": "5030",
+          "marketValue": "",
+          "name": "Mery Martí",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "10",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Aug 31, 2001",
+          "foot": "right",
+          "height": "1,58m",
+          "id": "95809",
+          "marketValue": "",
+          "name": "Ana Recarte",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "22",
+          "position": "Left Winger"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/7124.png",
+      "name": "Sporting de Gijón",
+      "stadiumName": "Escuela de Fútbol de Mareo",
+      "stadiumSeats": 3000,
+      "transfermarktId": "7124",
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 5, 2004",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "78070",
+          "marketValue": "",
+          "name": "Adriana Sirgo",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "6",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Oct 27, 2000",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "71163",
+          "marketValue": "",
+          "name": "Cris Carbajal",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 16, 1999",
+          "foot": "",
+          "height": "",
+          "id": "112469",
+          "marketValue": "",
+          "name": "Mireya Rivera",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "25",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 15, 2009",
+          "foot": "",
+          "height": "1,68m",
+          "id": "103054",
+          "marketValue": "",
+          "name": "Andrea Vergel",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "10",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Apr 5, 2003",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "51313",
+          "marketValue": "",
+          "name": "Alba Fernández",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "2",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "May 28, 2007",
+          "foot": "",
+          "height": "",
+          "id": "88308",
+          "marketValue": "",
+          "name": "Sofía Bocanument",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Mar 26, 2004",
+          "foot": "right",
+          "height": "1,61m",
+          "id": "51311",
+          "marketValue": "",
+          "name": "Yaiza Cernuda",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Dec 19, 2004",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "63119",
+          "marketValue": "",
+          "name": "Rosa Menéndez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Jul 5, 2001",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "51320",
+          "marketValue": "",
+          "name": "Natalia Sobero",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "9",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "May 20, 2005",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "102517",
+          "marketValue": "",
+          "name": "Alba Andreu",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "16",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Nov 15, 2004",
+          "foot": "left",
+          "height": "1,70m",
+          "id": "73856",
+          "marketValue": "",
+          "name": "Mariuca González",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "21",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 26, 2006",
+          "foot": "",
+          "height": "",
+          "id": "79629",
+          "marketValue": "",
+          "name": "Ángela Moreno",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "12",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 3, 2003",
+          "foot": "",
+          "height": "",
+          "id": "79642",
+          "marketValue": "",
+          "name": "Paula Jiménez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "13",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "May 21, 2003",
+          "foot": "right",
+          "height": "1,66m",
+          "id": "51312",
+          "marketValue": "",
+          "name": "Nuri Cueto",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "7",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Aug 21, 2005",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "101325",
+          "marketValue": "",
+          "name": "Laura Testa",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "8",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Feb 22, 2006",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "78063",
+          "marketValue": "",
+          "name": "Ainhoa Corredor",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "15",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Mar 23, 2004",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "78065",
+          "marketValue": "",
+          "name": "Sarita Fernández",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "18",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Feb 5, 2006",
+          "foot": "",
+          "height": "1,78m",
+          "id": "100823",
+          "marketValue": "",
+          "name": "Sandra Corral",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "20",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 3, 2005",
+          "foot": "",
+          "height": "1,80m",
+          "id": "112875",
+          "marketValue": "",
+          "name": "Noa Bartels",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "17",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "May 18, 2004",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "51328",
+          "marketValue": "",
+          "name": "Lucía Granda",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "11",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Aug 5, 2008",
+          "foot": "",
+          "height": "",
+          "id": "96021",
+          "marketValue": "",
+          "name": "Lucía Valle",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "14",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Aug 14, 2007",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "80897",
+          "marketValue": "",
+          "name": "Angela Ávila",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "19",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/7195.png",
+      "name": "Madrid CFF B",
+      "stadiumName": "Estadio Antiguo Canódromo",
+      "stadiumSeats": 4000,
+      "transfermarktId": "7195",
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 7, 2004",
+          "foot": "",
+          "height": "",
+          "id": "90339",
+          "marketValue": "",
+          "name": "Paula Cubero",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "1",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 10, 2007",
+          "foot": "",
+          "height": "",
+          "id": "108374",
+          "marketValue": "",
+          "name": "Henar Martín",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 18, 2006",
+          "foot": "",
+          "height": "",
+          "id": "86860",
+          "marketValue": "",
+          "name": "Mónica Erce",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 2, 2004",
+          "foot": "",
+          "height": "",
+          "id": "73231",
+          "marketValue": "",
+          "name": "Clara Villanueva",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 12, 2006",
+          "foot": "",
+          "height": "",
+          "id": "70006",
+          "marketValue": "€25k",
+          "name": "Estefanía González",
+          "nationality": [
+            "Puerto Rico"
+          ],
+          "number": "14",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 3, 2002",
+          "foot": "",
+          "height": "",
+          "id": "122268",
+          "marketValue": "",
+          "name": "Paula Castro Garcia",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "4",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 23, 2008",
+          "foot": "",
+          "height": "",
+          "id": "106740",
+          "marketValue": "",
+          "name": "Marta Calero",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "7",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 5, 2007",
+          "foot": "",
+          "height": "",
+          "id": "104974",
+          "marketValue": "",
+          "name": "Noemí González",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 13, 2007",
+          "foot": "",
+          "height": "",
+          "id": "96587",
+          "marketValue": "",
+          "name": "Marina Ochoa",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "6",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 2, 2008",
+          "foot": "",
+          "height": "",
+          "id": "96977",
+          "marketValue": "",
+          "name": "María Olah",
+          "nationality": [
+            "Romania"
+          ],
+          "number": "9",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 9, 2007",
+          "foot": "",
+          "height": "",
+          "id": "103218",
+          "marketValue": "",
+          "name": "Elsa Tejero",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "11",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 6, 2009",
+          "foot": "",
+          "height": "",
+          "id": "112874",
+          "marketValue": "",
+          "name": "Amara Ballesteros",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "16",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/7441.png",
+      "name": "RC Deportivo A Coruña B",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": "7441",
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 23, 2006",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "105179",
+          "marketValue": "€25k",
+          "name": "Martina Rivas",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Nov 12, 2005",
+          "foot": "",
+          "height": "",
+          "id": "90296",
+          "marketValue": "",
+          "name": "Alejandra Vázquez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 23, 2008",
+          "foot": "",
+          "height": "1,60m",
+          "id": "100850",
+          "marketValue": "€30k",
+          "name": "Carla Castiñeyras",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 12, 2008",
+          "foot": "",
+          "height": "",
+          "id": "84972",
+          "marketValue": "",
+          "name": "Sara Barreda",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 20, 2007",
+          "foot": "",
+          "height": "",
+          "id": "111535",
+          "marketValue": "",
+          "name": "Noe Mayo",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 21, 2005",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "90691",
+          "marketValue": "€25k",
+          "name": "Carmen Carballada",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "7",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 19, 2007",
+          "foot": "",
+          "height": "",
+          "id": "111532",
+          "marketValue": "",
+          "name": "Sara Cercido",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Apr 29, 2005",
+          "foot": "",
+          "height": "",
+          "id": "59245",
+          "marketValue": "",
+          "name": "Marta Rico",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "10",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 5, 2006",
+          "foot": "",
+          "height": "",
+          "id": "111534",
+          "marketValue": "",
+          "name": "Lucia Mariño",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "14",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 6, 2007",
+          "foot": "right",
+          "height": "",
+          "id": "96588",
+          "marketValue": "",
+          "name": "Daniela Valbuena",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "18",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 18, 2007",
+          "foot": "",
+          "height": "",
+          "id": "103572",
+          "marketValue": "€25k",
+          "name": "Laura Ruiz",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "20",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Dec 18, 2009",
+          "foot": "",
+          "height": "",
+          "id": "105866",
+          "marketValue": "",
+          "name": "Elsa Ayats",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "6",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Sep 16, 2006",
+          "foot": "",
+          "height": "1,77m",
+          "id": "88296",
+          "marketValue": "",
+          "name": "Antía Mayo",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "11",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Aug 7, 2005",
+          "foot": "",
+          "height": "",
+          "id": "67456",
+          "marketValue": "",
+          "name": "Karla Bermejo",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "12",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 15, 2006",
+          "foot": "",
+          "height": "",
+          "id": "106639",
+          "marketValue": "€25k",
+          "name": "Laura Otero",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "9",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 19, 2008",
+          "foot": "",
+          "height": "",
+          "id": "111533",
+          "marketValue": "",
+          "name": "Yanís Citoula",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "22",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 30, 2003",
+          "foot": "",
+          "height": "",
+          "id": "72579",
+          "marketValue": "",
+          "name": "Jenny Rodríguez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "23",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/8237.png",
+      "name": "CA Osasuna B",
+      "stadiumName": "Anexo Tajonar 3",
+      "stadiumSeats": 0,
+      "transfermarktId": "8237",
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 4, 1997",
+          "foot": "right",
+          "height": "1,62m",
+          "id": "67224",
+          "marketValue": "",
+          "name": "Paula Díaz",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "1",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 5, 2006",
+          "foot": "",
+          "height": "",
+          "id": "85797",
+          "marketValue": "",
+          "name": "Laura Augusto",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 9, 2001",
+          "foot": "",
+          "height": "",
+          "id": "51863",
+          "marketValue": "",
+          "name": "Paula Capilla",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "6",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 28, 2006",
+          "foot": "",
+          "height": "",
+          "id": "78004",
+          "marketValue": "",
+          "name": "Andrea Doncel",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "19",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 12, 2007",
+          "foot": "",
+          "height": "",
+          "id": "102527",
+          "marketValue": "",
+          "name": "Irati Miqueleiz",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "21",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 17, 2004",
+          "foot": "",
+          "height": "",
+          "id": "77997",
+          "marketValue": "",
+          "name": "Lola Mateo",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "2",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 2, 2008",
+          "foot": "",
+          "height": "",
+          "id": "84866",
+          "marketValue": "",
+          "name": "Flavia Cortina",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "3",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 8, 2001",
+          "foot": "",
+          "height": "",
+          "id": "77995",
+          "marketValue": "",
+          "name": "Lydia Ezponda",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "7",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 5, 1997",
+          "foot": "",
+          "height": "",
+          "id": "51905",
+          "marketValue": "",
+          "name": "Uxoa Bertiz",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "10",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 25, 2006",
+          "foot": "",
+          "height": "",
+          "id": "76253",
+          "marketValue": "",
+          "name": "Julia Rodríguez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "16",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 5, 2007",
+          "foot": "",
+          "height": "",
+          "id": "86283",
+          "marketValue": "",
+          "name": "Zaira Bendoiro",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "5",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 7, 2008",
+          "foot": "",
+          "height": "",
+          "id": "90742",
+          "marketValue": "",
+          "name": "Iraia López",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "8",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 4, 2006",
+          "foot": "",
+          "height": "",
+          "id": "78001",
+          "marketValue": "",
+          "name": "Gisela Grández",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "18",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/8368.png",
+      "name": "Bizkerre FT",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": "8368",
+      "players": [
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Jun 12, 2006",
+          "foot": "",
+          "height": "",
+          "id": "77313",
+          "marketValue": "",
+          "name": "Iraia Zamora",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Apr 30, 2004",
+          "foot": "",
+          "height": "",
+          "id": "56296",
+          "marketValue": "",
+          "name": "Aizaro Rodrigo",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Aug 6, 1998",
+          "foot": "",
+          "height": "",
+          "id": "47640",
+          "marketValue": "",
+          "name": "María Ceberio",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "May 31, 2004",
+          "foot": "",
+          "height": "",
+          "id": "47659",
+          "marketValue": "",
+          "name": "Julene Palacios",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Jul 9, 1997",
+          "foot": "",
+          "height": "",
+          "id": "77314",
+          "marketValue": "",
+          "name": "Aintzane Gamboa",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "8",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Feb 12, 2001",
+          "foot": "",
+          "height": "",
+          "id": "77315",
+          "marketValue": "",
+          "name": "Amets Argaluza",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "14",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Apr 7, 1999",
+          "foot": "",
+          "height": "",
+          "id": "112440",
+          "marketValue": "",
+          "name": "Naira Solís",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "18",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "May 30, 1999",
+          "foot": "",
+          "height": "",
+          "id": "77321",
+          "marketValue": "",
+          "name": "Anemi Salazar",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "22",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "May 27, 2005",
+          "foot": "",
+          "height": "",
+          "id": "77326",
+          "marketValue": "",
+          "name": "Enara Mendikute",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "25",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Oct 28, 1999",
+          "foot": "",
+          "height": "",
+          "id": "77331",
+          "marketValue": "",
+          "name": "Marta Ávila",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "9",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Oct 28, 1996",
+          "foot": "",
+          "height": "",
+          "id": "77330",
+          "marketValue": "",
+          "name": "Ainhoa Atxirika",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "11",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Jun 14, 2002",
+          "foot": "",
+          "height": "",
+          "id": "90416",
+          "marketValue": "",
+          "name": "Maitena Porset",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "12",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Jun 3, 2002",
+          "foot": "",
+          "height": "",
+          "id": "95562",
+          "marketValue": "",
+          "name": "Paula Pinilla",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "23",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/11985.png",
+      "name": "Real Avilés",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": "11985",
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 23, 2003",
+          "foot": "",
+          "height": "1,67m",
+          "id": "51316",
+          "marketValue": "",
+          "name": "Paula Madrazo",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 6, 1998",
+          "foot": "left",
+          "height": "1,60m",
+          "id": "42252",
+          "marketValue": "",
+          "name": "Patri Díaz",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "2",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 3, 2005",
+          "foot": "",
+          "height": "1,68m",
+          "id": "106080",
+          "marketValue": "",
+          "name": "Andrea Martín",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 28, 2001",
+          "foot": "",
+          "height": "",
+          "id": "55512",
+          "marketValue": "",
+          "name": "Rebeca Oliveira",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "6",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 11, 1995",
+          "foot": "right",
+          "height": "1,64m",
+          "id": "100513",
+          "marketValue": "",
+          "name": "Eli Rodríguez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 31, 2002",
+          "foot": "",
+          "height": "1,64m",
+          "id": "63201",
+          "marketValue": "",
+          "name": "Lucía Ayuso",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "14",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 24, 1995",
+          "foot": "right",
+          "height": "",
+          "id": "21839",
+          "marketValue": "",
+          "name": "María Iglesias",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "22",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 5, 2002",
+          "foot": "",
+          "height": "1,68m",
+          "id": "100479",
+          "marketValue": "",
+          "name": "Carol Moreno",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 8, 2003",
+          "foot": "",
+          "height": "",
+          "id": "53592",
+          "marketValue": "",
+          "name": "Raquel Martín",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "12",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 22, 2003",
+          "foot": "",
+          "height": "",
+          "id": "60524",
+          "marketValue": "",
+          "name": "Mery Gómez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "13",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 11, 1997",
+          "foot": "",
+          "height": "1,67m",
+          "id": "100143",
+          "marketValue": "",
+          "name": "Carmen Peñalver",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "7",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Aug 23, 1999",
+          "foot": "",
+          "height": "1,60m",
+          "id": "77684",
+          "marketValue": "",
+          "name": "Shara Rández",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "19",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 27, 2002",
+          "foot": "",
+          "height": "1,64m",
+          "id": "76361",
+          "marketValue": "",
+          "name": "Nuria Torres",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "20",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 14, 2001",
+          "foot": "right",
+          "height": "1,62m",
+          "id": "53750",
+          "marketValue": "",
+          "name": "Tati Rodríguez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "21",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 24, 1992",
+          "foot": "both",
+          "height": "1,73m",
+          "id": "25900",
+          "marketValue": "",
+          "name": "Gloria Douglas",
+          "nationality": [
+            "Puerto Rico"
+          ],
+          "number": "16",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Apr 15, 2004",
+          "foot": "right",
+          "height": "",
+          "id": "93686",
+          "marketValue": "",
+          "name": "Cristina Menéndez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "3",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 15, 2007",
+          "foot": "",
+          "height": "",
+          "id": "101047",
+          "marketValue": "",
+          "name": "Noa Díaz",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "9",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 1, 2002",
+          "foot": "",
+          "height": "1,70m",
+          "id": "50759",
+          "marketValue": "",
+          "name": "Marina Monteserín",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "10",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 25, 2003",
+          "foot": "",
+          "height": "",
+          "id": "52003",
+          "marketValue": "",
+          "name": "Amaya Coleman",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "11",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 23, 2001",
+          "foot": "",
+          "height": "",
+          "id": "112470",
+          "marketValue": "",
+          "name": "Paula Riesgo",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "15",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Jul 6, 1997",
+          "foot": "right",
+          "height": "",
+          "id": "52584",
+          "marketValue": "",
+          "name": "Elena Pradilla",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "23",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/15528.png",
+      "name": "As Celtas",
+      "stadiumName": "Estadio Abanca-Balaídos",
+      "stadiumSeats": 24870,
+      "transfermarktId": "15528",
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 3, 2007",
+          "foot": "",
+          "height": "",
+          "id": "111528",
+          "marketValue": "",
+          "name": "Naiara Martínez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "May 24, 2005",
+          "foot": "",
+          "height": "",
+          "id": "96318",
+          "marketValue": "€10k",
+          "name": "Sol Moreno",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "13",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 24, 2008",
+          "foot": "",
+          "height": "",
+          "id": "112651",
+          "marketValue": "",
+          "name": "Paula Rodríguez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 23, 2007",
+          "foot": "",
+          "height": "",
+          "id": "85671",
+          "marketValue": "",
+          "name": "Noa García",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 20, 1999",
+          "foot": "",
+          "height": "",
+          "id": "51315",
+          "marketValue": "",
+          "name": "Pañu Vior",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 1, 2003",
+          "foot": "",
+          "height": "",
+          "id": "78179",
+          "marketValue": "",
+          "name": "Elena Pérez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "6",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 1, 2003",
+          "foot": "both",
+          "height": "1,66m",
+          "id": "48815",
+          "marketValue": "€10k",
+          "name": "Sara Álvarez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "21",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 21, 2003",
+          "foot": "",
+          "height": "",
+          "id": "52589",
+          "marketValue": "€10k",
+          "name": "Tati Cruz",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "10",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 30, 2004",
+          "foot": "",
+          "height": "",
+          "id": "85414",
+          "marketValue": "",
+          "name": "Estela Castro",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "14",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 13, 2002",
+          "foot": "",
+          "height": "",
+          "id": "54206",
+          "marketValue": "",
+          "name": "María Figueroa",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "15",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 12, 1998",
+          "foot": "",
+          "height": "",
+          "id": "51970",
+          "marketValue": "",
+          "name": "Nerea Cuquejo",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "23",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 27, 2002",
+          "foot": "",
+          "height": "",
+          "id": "74463",
+          "marketValue": "",
+          "name": "Andrea Albiol",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "7",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 3, 2005",
+          "foot": "",
+          "height": "1,65m",
+          "id": "100515",
+          "marketValue": "",
+          "name": "Aitana Sánchez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "3",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 15, 2004",
+          "foot": "",
+          "height": "",
+          "id": "111530",
+          "marketValue": "",
+          "name": "Ana Toubes",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "11",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 25, 2008",
+          "foot": "right",
+          "height": "",
+          "id": "111526",
+          "marketValue": "",
+          "name": "Nara Fernández",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "16",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 31, 2003",
+          "foot": "right",
+          "height": "1,64m",
+          "id": "70942",
+          "marketValue": "",
+          "name": "Noela Sánchez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "17",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 6, 2000",
+          "foot": "",
+          "height": "",
+          "id": "111529",
+          "marketValue": "",
+          "name": "María Nogueira",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "19",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/15769.png",
+      "name": "Real Racing Club de Santander",
+      "stadiumName": "Campo de Fútbol Municipal La Planchada",
+      "stadiumSeats": 2000,
+      "transfermarktId": "15769",
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 20, 2003",
+          "foot": "",
+          "height": "",
+          "id": "88457",
+          "marketValue": "",
+          "name": "Paula Muñoz",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 10, 2003",
+          "foot": "",
+          "height": "",
+          "id": "66164",
+          "marketValue": "",
+          "name": "Inés García",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "13",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 25, 2010",
+          "foot": "",
+          "height": "1,71m",
+          "id": "124579",
+          "marketValue": "",
+          "name": "Gabriela Susinos",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "25",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 8, 2007",
+          "foot": "",
+          "height": "1,70m",
+          "id": "101670",
+          "marketValue": "",
+          "name": "Ángela Fernández",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "6",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 29, 2006",
+          "foot": "",
+          "height": "",
+          "id": "79672",
+          "marketValue": "",
+          "name": "Arantxa Pérez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 16, 2007",
+          "foot": "left",
+          "height": "",
+          "id": "87302",
+          "marketValue": "",
+          "name": "Ana Domínguez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 5, 2002",
+          "foot": "",
+          "height": "",
+          "id": "57890",
+          "marketValue": "",
+          "name": "María Corbacho",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 2, 2006",
+          "foot": "",
+          "height": "",
+          "id": "77293",
+          "marketValue": "",
+          "name": "Naroa Flores",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 19, 2000",
+          "foot": "",
+          "height": "",
+          "id": "64526",
+          "marketValue": "",
+          "name": "Esther Calderón",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "19",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 14, 2003",
+          "foot": "",
+          "height": "",
+          "id": "81446",
+          "marketValue": "€25k",
+          "name": "Noa Ruiz",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "7",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 20, 2008",
+          "foot": "",
+          "height": "1,64m",
+          "id": "90417",
+          "marketValue": "",
+          "name": "Paulita García",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 16, 2006",
+          "foot": "",
+          "height": "",
+          "id": "78932",
+          "marketValue": "",
+          "name": "Valentina Lucumí",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "20",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 10, 2009",
+          "foot": "",
+          "height": "1,57m",
+          "id": "124578",
+          "marketValue": "",
+          "name": "Irene Barón",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "29",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 11, 2003",
+          "foot": "left",
+          "height": "",
+          "id": "40411",
+          "marketValue": "",
+          "name": "Maríajo Gutiérrez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "9",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 7, 2006",
+          "foot": "",
+          "height": "",
+          "id": "90598",
+          "marketValue": "",
+          "name": "Claudia Rabasco",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "12",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 4, 2001",
+          "foot": "",
+          "height": "1,70m",
+          "id": "101330",
+          "marketValue": "",
+          "name": "Jimena Cabrero",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "14",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 11, 2004",
+          "foot": "",
+          "height": "",
+          "id": "52258",
+          "marketValue": "€25k",
+          "name": "Karolina Sarasua",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "21",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 19, 2004",
+          "foot": "",
+          "height": "",
+          "id": "57930",
+          "marketValue": "",
+          "name": "Claudia Gómez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "22",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 7, 2003",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "49283",
+          "marketValue": "",
+          "name": "Nerea de Diego",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "23",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 19, 2008",
+          "foot": "",
+          "height": "1,61m",
+          "id": "102761",
+          "marketValue": "",
+          "name": "Aitana García",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "24",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/8152.png",
+      "name": "SD Eibar B",
+      "stadiumName": "Unbe Inferior",
+      "stadiumSeats": 1000,
+      "transfermarktId": "8152",
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 2, 2002",
+          "foot": "both",
+          "height": "",
+          "id": "48054",
+          "marketValue": "",
+          "name": "Eider Egaña",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "4",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 12, 2005",
+          "foot": "",
+          "height": "",
+          "id": "81421",
+          "marketValue": "€25k",
+          "name": "Garazi Aurrekoetxea",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 23, 2004",
+          "foot": "",
+          "height": "",
+          "id": "42910",
+          "marketValue": "",
+          "name": "Amaiur Atexte",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "6",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 13, 2004",
+          "foot": "",
+          "height": "",
+          "id": "92081",
+          "marketValue": "€10k",
+          "name": "Irati Arostegui",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 17, 2004",
+          "foot": "",
+          "height": "",
+          "id": "101301",
+          "marketValue": "",
+          "name": "Maren Beristain",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 23, 2008",
+          "foot": "",
+          "height": "",
+          "id": "112919",
+          "marketValue": "",
+          "name": "Aroa Cantero",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "12",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 1, 2002",
+          "foot": "",
+          "height": "",
+          "id": "112645",
+          "marketValue": "",
+          "name": "Nerea Gallastegi",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "15",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 25, 2003",
+          "foot": "",
+          "height": "",
+          "id": "48046",
+          "marketValue": "",
+          "name": "Uxue Guezala",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "24",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 23, 2007",
+          "foot": "",
+          "height": "",
+          "id": "77291",
+          "marketValue": "",
+          "name": "Ane Baigorri",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "7",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 26, 2007",
+          "foot": "",
+          "height": "",
+          "id": "112513",
+          "marketValue": "",
+          "name": "Ane Alonso",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 15, 2004",
+          "foot": "left",
+          "height": "1,65m",
+          "id": "101334",
+          "marketValue": "€25k",
+          "name": "Iraia Yerobi",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "5",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 2, 2000",
+          "foot": "",
+          "height": "",
+          "id": "71849",
+          "marketValue": "",
+          "name": "Itxaso Arteaga",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "14",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 8, 2004",
+          "foot": "",
+          "height": "",
+          "id": "67853",
+          "marketValue": "",
+          "name": "Nagore Lekue",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "9",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 18, 2001",
+          "foot": "both",
+          "height": "",
+          "id": "48040",
+          "marketValue": "€10k",
+          "name": "Nahia Larrinaga",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "19",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/9960.png",
+      "name": "CD Arratia",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": "9960",
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 13, 2006",
+          "foot": "",
+          "height": "",
+          "id": "85236",
+          "marketValue": "",
+          "name": "Lucía Maeso",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 5, 2008",
+          "foot": "",
+          "height": "",
+          "id": "91045",
+          "marketValue": "",
+          "name": "Maddi Bilbao",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "2",
+          "position": "Goalkeeper"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/1165.png",
+      "name": "Club de Fútbol Oviedo Moderno Universida",
+      "stadiumName": "Campo de Fútbol José Ramón Suarez Fernández",
+      "stadiumSeats": 0,
+      "transfermarktId": "1165",
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 5, 2004",
+          "foot": "",
+          "height": "",
+          "id": "54685",
+          "marketValue": "",
+          "name": "Ainhoa Ramírez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 4, 2006",
+          "foot": "right",
+          "height": "1,75m",
+          "id": "60388",
+          "marketValue": "",
+          "name": "Saray Vázquez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "13",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 12, 2002",
+          "foot": "",
+          "height": "",
+          "id": "47652",
+          "marketValue": "",
+          "name": "Leire Egía",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "4",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 8, 2007",
+          "foot": "",
+          "height": "1,71m",
+          "id": "78281",
+          "marketValue": "",
+          "name": "Martina Turiel",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "7",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 23, 2003",
+          "foot": "",
+          "height": "1,70m",
+          "id": "100363",
+          "marketValue": "",
+          "name": "Tayré Fernández",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "8",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 7, 2000",
+          "foot": "left",
+          "height": "",
+          "id": "51965",
+          "marketValue": "",
+          "name": "Goretti Neira",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "10",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 17, 1998",
+          "foot": "right",
+          "height": "",
+          "id": "50758",
+          "marketValue": "",
+          "name": "Gema Ginés",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "2",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 19, 2001",
+          "foot": "",
+          "height": "",
+          "id": "95627",
+          "marketValue": "",
+          "name": "Eva Lois",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 10, 1998",
+          "foot": "",
+          "height": "",
+          "id": "41597",
+          "marketValue": "",
+          "name": "Marina Martín",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Jul 27, 2004",
+          "foot": "right",
+          "height": "",
+          "id": "66566",
+          "marketValue": "",
+          "name": "Anina Menéndez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "14",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 22, 2005",
+          "foot": "",
+          "height": "",
+          "id": "80898",
+          "marketValue": "€25k",
+          "name": "Paula Roldán",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "15",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 30, 2004",
+          "foot": "",
+          "height": "",
+          "id": "53535",
+          "marketValue": "",
+          "name": "Nerea Lombardero",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "6",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 18, 2005",
+          "foot": "right",
+          "height": "1,64m",
+          "id": "51997",
+          "marketValue": "",
+          "name": "Andrea Sordo",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "11",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Oct 7, 2006",
+          "foot": "",
+          "height": "1,79m",
+          "id": "77984",
+          "marketValue": "",
+          "name": "Andrea Villadeamigo",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "12",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 2, 2005",
+          "foot": "",
+          "height": "",
+          "id": "102521",
+          "marketValue": "",
+          "name": "Celia Rubio",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "16",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 14, 2008",
+          "foot": "",
+          "height": "",
+          "id": "96632",
+          "marketValue": "",
+          "name": "Elena Lara",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "17",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 12, 2006",
+          "foot": "",
+          "height": "",
+          "id": "103106",
+          "marketValue": "€25k",
+          "name": "Ana María González",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "18",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 16, 2005",
+          "foot": "",
+          "height": "",
+          "id": "58972",
+          "marketValue": "",
+          "name": "Aitana Muñoz",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "19",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 31, 2003",
+          "foot": "",
+          "height": "1,61m",
+          "id": "54431",
+          "marketValue": "",
+          "name": "Daniela González",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "21",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 6, 2002",
+          "foot": "right",
+          "height": "1,64m",
+          "id": "52158",
+          "marketValue": "",
+          "name": "Sheila Garrido",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "9",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 26, 2003",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "49413",
+          "marketValue": "",
+          "name": "Nati Cano",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "20",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/7914.png",
+      "name": "Victoria CF",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": "7914",
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 21, 1995",
+          "foot": "",
+          "height": "",
+          "id": "21841",
+          "marketValue": "",
+          "name": "Maria Sánchez-Migallón",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "1",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 15, 1997",
+          "foot": "",
+          "height": "",
+          "id": "51971",
+          "marketValue": "",
+          "name": "Natalia Llames",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/12229.png",
+      "name": "Burgos CF",
+      "stadiumName": "Estadio Municipal de El Plantío",
+      "stadiumSeats": 11355,
+      "transfermarktId": "12229",
+      "players": [
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Jul 8, 2003",
+          "foot": "",
+          "height": "1,71m",
+          "id": "112515",
+          "marketValue": "",
+          "name": "Laura Inés",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Jul 24, 1999",
+          "foot": "",
+          "height": "",
+          "id": "49227",
+          "marketValue": "€10k",
+          "name": "Neike Barga",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "13",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Mar 11, 2000",
+          "foot": "",
+          "height": "1,67m",
+          "id": "51968",
+          "marketValue": "",
+          "name": "Mónica Barreiro",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Feb 10, 2000",
+          "foot": "",
+          "height": "",
+          "id": "79612",
+          "marketValue": "",
+          "name": "Estefanía Romero",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Apr 20, 2002",
+          "foot": "",
+          "height": "",
+          "id": "112516",
+          "marketValue": "",
+          "name": "Cristina López",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Mar 2, 2004",
+          "foot": "",
+          "height": "1,67m",
+          "id": "60523",
+          "marketValue": "",
+          "name": "Rebeca Cuesta",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "14",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 3, 2003",
+          "foot": "",
+          "height": "",
+          "id": "78277",
+          "marketValue": "€10k",
+          "name": "Mar Imbérgamo",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "2",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Apr 17, 2000",
+          "foot": "",
+          "height": "1,54m",
+          "id": "112514",
+          "marketValue": "",
+          "name": "Andrea González",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 8, 2006",
+          "foot": "",
+          "height": "",
+          "id": "73194",
+          "marketValue": "",
+          "name": "Julia Ceballos",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "6",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 15, 2005",
+          "foot": "",
+          "height": "",
+          "id": "122246",
+          "marketValue": "",
+          "name": "Maria Clara Jaureguiberry Ribeiro",
+          "nationality": [
+            "Uruguay"
+          ],
+          "number": "9",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Jan 22, 2008",
+          "foot": "",
+          "height": "",
+          "id": "112519",
+          "marketValue": "",
+          "name": "Lara Pasarín",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "7",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Sep 30, 2003",
+          "foot": "",
+          "height": "1,62m",
+          "id": "112520",
+          "marketValue": "",
+          "name": "Cata Roselló",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "10",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Feb 14, 2006",
+          "foot": "",
+          "height": "1,61m",
+          "id": "112518",
+          "marketValue": "",
+          "name": "Irene Mateo",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "11",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "May 27, 2002",
+          "foot": "",
+          "height": "",
+          "id": "112521",
+          "marketValue": "",
+          "name": "Sofía Salas",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "17",
+          "position": "Striker"
+        }
+      ]
+    }
+  ]
+}

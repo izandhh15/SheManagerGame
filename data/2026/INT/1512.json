@@ -1,0 +1,402 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/1512.png",
+  "name": "Tigres de la UANL",
+  "players": [
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 19, 1994",
+      "foot": "",
+      "height": "1,75m",
+      "id": "6835",
+      "marketValue": "",
+      "name": "Cecilia Santiago",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 14, 1994",
+      "foot": "",
+      "height": "1,65m",
+      "id": "16811",
+      "marketValue": "",
+      "name": "Itzel González",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "23",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 17, 2000",
+      "foot": "",
+      "height": "1,66m",
+      "id": "53893",
+      "marketValue": "",
+      "name": "Hannia de Ávila",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "33",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 9, 2006",
+      "foot": "",
+      "height": "1,55m",
+      "id": "81940",
+      "marketValue": "",
+      "name": "María González",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "2",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 10, 2008",
+      "foot": "left",
+      "height": "1,65m",
+      "id": "87167",
+      "marketValue": "",
+      "name": "Mia Villalpando",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "3",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 5, 1995",
+      "foot": "left",
+      "height": "1,71m",
+      "id": "17962",
+      "marketValue": "",
+      "name": "Greta Espinoza",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 30, 1999",
+      "foot": "left",
+      "height": "1,71m",
+      "id": "33984",
+      "marketValue": "",
+      "name": "Jimena López",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "6",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 17, 1999",
+      "foot": "",
+      "height": "1,69m",
+      "id": "74559",
+      "marketValue": "",
+      "name": "Sabrina Enciso",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "17",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 3, 2002",
+      "foot": "both",
+      "height": "1,68m",
+      "id": "64598",
+      "marketValue": "",
+      "name": "Susan Duah",
+      "nationality": [
+        "Ghana"
+      ],
+      "number": "18",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 8, 2001",
+      "foot": "right",
+      "height": "1,64m",
+      "id": "45318",
+      "marketValue": "",
+      "name": "Mariza",
+      "nationality": [
+        "Brazil"
+      ],
+      "number": "20",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 4, 1997",
+      "foot": "",
+      "height": "1,57m",
+      "id": "48576",
+      "marketValue": "",
+      "name": "Anika Rodríguez",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "22",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 10, 2007",
+      "foot": "",
+      "height": "1,67m",
+      "id": "81932",
+      "marketValue": "",
+      "name": "Natalia Muñoz",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "32",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 5, 2000",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "35904",
+      "marketValue": "",
+      "name": "Grace Asantewaa",
+      "nationality": [
+        "Ghana"
+      ],
+      "number": "5",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 20, 1996",
+      "foot": "left",
+      "height": "1,70m",
+      "id": "27889",
+      "marketValue": "",
+      "name": "María Sánchez",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "7",
+      "position": "Left Winger"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 9, 1999",
+      "foot": "",
+      "height": "1,63m",
+      "id": "33973",
+      "marketValue": "",
+      "name": "Alexia Delgado",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "8",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 2, 1996",
+      "foot": "right",
+      "height": "1,57m",
+      "id": "30873",
+      "marketValue": "",
+      "name": "Thembi Kgatlana",
+      "nationality": [
+        "South Africa"
+      ],
+      "number": "16",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 14, 2002",
+      "foot": "",
+      "height": "1,60m",
+      "id": "37743",
+      "marketValue": "",
+      "name": "Ilana Izquierdo",
+      "nationality": [
+        "Colombia"
+      ],
+      "number": "21",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 23, 2000",
+      "foot": "",
+      "height": "1,70m",
+      "id": "33991",
+      "marketValue": "",
+      "name": "Maricarmen Reyes",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "24",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 18, 2006",
+      "foot": "",
+      "height": "1,73m",
+      "id": "81929",
+      "marketValue": "",
+      "name": "Angelica Antonio",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "35",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 6, 2007",
+      "foot": "",
+      "height": "1,65m",
+      "id": "81945",
+      "marketValue": "",
+      "name": "Ana Salas",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "63",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 23, 1991",
+      "foot": "",
+      "height": "1,63m",
+      "id": "7363",
+      "marketValue": "",
+      "name": "Stephany Mayor",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "9",
+      "position": "Left Winger"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 18, 1999",
+      "foot": "right",
+      "height": "1,65m",
+      "id": "22916",
+      "marketValue": "€100k",
+      "name": "Deyna Castellanos",
+      "nationality": [
+        "Venezuela"
+      ],
+      "number": "10",
+      "position": "Second Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 6, 2001",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "37882",
+      "marketValue": "",
+      "name": "Jheniffer",
+      "nationality": [
+        "Brazil"
+      ],
+      "number": "11",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 26, 2001",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "35369",
+      "marketValue": "",
+      "name": "Diana Ordóñez",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "12",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 9, 1995",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "41058",
+      "marketValue": "",
+      "name": "Myra Delgadillo",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "14",
+      "position": "Left Winger"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 15, 2005",
+      "foot": "",
+      "height": "1,76m",
+      "id": "69356",
+      "marketValue": "",
+      "name": "Tatiana Flores",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "19",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 3, 2002",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "37961",
+      "marketValue": "",
+      "name": "Álison González",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "30",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 30, 2006",
+      "foot": "",
+      "height": "1,60m",
+      "id": "72873",
+      "marketValue": "",
+      "name": "Deiry Ramírez",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "34",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Estadio Universitario",
+  "stadiumSeats": "41886",
+  "transfermarktId": "1512",
+  "country": "MX"
+}

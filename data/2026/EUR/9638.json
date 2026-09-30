@@ -1,0 +1,332 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/9638.png",
+  "name": "SK Brann",
+  "players": [
+    {
+      "contract": "Dec 31, 2030",
+      "dateOfBirth": "May 22, 2002",
+      "foot": "right",
+      "height": "",
+      "id": "46377",
+      "marketValue": "€20k",
+      "name": "Sunniva Skoglund",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 15, 2007",
+      "foot": "",
+      "height": "",
+      "id": "97454",
+      "marketValue": "",
+      "name": "Maria Flister",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "12",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Dec 23, 1995",
+      "foot": "",
+      "height": "1,74m",
+      "id": "38436",
+      "marketValue": "€10k",
+      "name": "Sandra Stavenes",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "21",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Sep 11, 1995",
+      "foot": "right",
+      "height": "1,58m",
+      "id": "15250",
+      "marketValue": "€45k",
+      "name": "Cecilie Redisch Kvamme",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "2",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Jun 10, 2002",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "38269",
+      "marketValue": "",
+      "name": "Mia Authen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "3",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Oct 16, 2003",
+      "foot": "",
+      "height": "",
+      "id": "47259",
+      "marketValue": "",
+      "name": "Emma Brunes",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2029",
+      "dateOfBirth": "Aug 7, 2004",
+      "foot": "",
+      "height": "",
+      "id": "55335",
+      "marketValue": "",
+      "name": "Josefine Birkelund",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "20",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2029",
+      "dateOfBirth": "Mar 2, 2006",
+      "foot": "left",
+      "height": "1,80m",
+      "id": "64714",
+      "marketValue": "€30k",
+      "name": "Tomine Svendheim",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "23",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Oct 24, 1998",
+      "foot": "both",
+      "height": "1,64m",
+      "id": "29208",
+      "marketValue": "€50k",
+      "name": "Nea Lehtola",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "24",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Sep 1, 2001",
+      "foot": "",
+      "height": "1,70m",
+      "id": "34665",
+      "marketValue": "€45k",
+      "name": "Joanna Tynnilä",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "30",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "Dec 31, 2029",
+      "dateOfBirth": "Sep 29, 2006",
+      "foot": "right",
+      "height": "",
+      "id": "71813",
+      "marketValue": "",
+      "name": "Carina Alfredsen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "6",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Dec 31, 2029",
+      "dateOfBirth": "Feb 23, 1998",
+      "foot": "",
+      "height": "1,65m",
+      "id": "22081",
+      "marketValue": "€30k",
+      "name": "Karoline Haugland",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "8",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Aug 26, 1995",
+      "foot": "right",
+      "height": "1,64m",
+      "id": "10229",
+      "marketValue": "€40k",
+      "name": "Amalie Eikeland",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "9",
+      "position": "Right Winger"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Nov 11, 2001",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "35127",
+      "marketValue": "€40k",
+      "name": "Diljá Ýr Zomers",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "16",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Apr 22, 1997",
+      "foot": "right",
+      "height": "1,68m",
+      "id": "25999",
+      "marketValue": "€25k",
+      "name": "Nora Lie Eghdami",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "18",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Nov 30, 1999",
+      "foot": "right",
+      "height": "1,64m",
+      "id": "34714",
+      "marketValue": "",
+      "name": "Emma Peuhkurinen",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "28",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Sep 18, 2005",
+      "foot": "right",
+      "height": "1,60m",
+      "id": "100782",
+      "marketValue": "€20k",
+      "name": "Stella Nyamekye",
+      "nationality": [
+        "Ghana"
+      ],
+      "number": "90",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Mar 12, 1997",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "43463",
+      "marketValue": "",
+      "name": "Brenna Lovera",
+      "nationality": [
+        "United States"
+      ],
+      "number": "13",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Jan 19, 2000",
+      "foot": "",
+      "height": "1,74m",
+      "id": "47734",
+      "marketValue": "€35k",
+      "name": "Anna Aahjem",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "17",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Jul 8, 2003",
+      "foot": "right",
+      "height": "",
+      "id": "47268",
+      "marketValue": "",
+      "name": "Monica Isaksen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "19",
+      "position": "Striker"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Oct 1, 2001",
+      "foot": "right",
+      "height": "",
+      "id": "40805",
+      "marketValue": "",
+      "name": "Lauren Davidson",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "22",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 24, 2008",
+      "foot": "",
+      "height": "1,50m",
+      "id": "96280",
+      "marketValue": "",
+      "name": "Heidi Halbmayr",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "26",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 14, 2007",
+      "foot": "",
+      "height": "",
+      "id": "105006",
+      "marketValue": "",
+      "name": "Maren Johnsen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "32",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Brann Stadion",
+  "stadiumSeats": "16750",
+  "transfermarktId": "9638",
+  "country": "NO"
+}

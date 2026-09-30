@@ -1,0 +1,346 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/9341.png",
+  "name": "FK Austria Wien",
+  "players": [
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Aug 24, 1996",
+      "foot": "right",
+      "height": "1,76m",
+      "id": "12407",
+      "marketValue": "€55k",
+      "name": "Jasmin Pal",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 6, 2006",
+      "foot": "right",
+      "height": "1,68m",
+      "id": "63633",
+      "marketValue": "€15k",
+      "name": "Emma Goetz",
+      "nationality": [
+        "Luxembourg"
+      ],
+      "number": "12",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 18, 2009",
+      "foot": "",
+      "height": "",
+      "id": "94440",
+      "marketValue": "€15k",
+      "name": "Katharina Gartner",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "25",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2029",
+      "dateOfBirth": "Dec 25, 2001",
+      "foot": "right",
+      "height": "1,74m",
+      "id": "74552",
+      "marketValue": "€60k",
+      "name": "Louise Schöffel",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "2",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 13, 2002",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "31688",
+      "marketValue": "€25k",
+      "name": "Chiara Pucci",
+      "nationality": [
+        "Italy"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Feb 27, 1993",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "2665",
+      "marketValue": "€25k",
+      "name": "Katharina Schiechtl",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "8",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "May 25, 1993",
+      "foot": "right",
+      "height": "1,76m",
+      "id": "936",
+      "marketValue": "€25k",
+      "name": "Virginia Kirchberger-Prohaska",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "13",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Jan 20, 1994",
+      "foot": "left",
+      "height": "1,70m",
+      "id": "67",
+      "marketValue": "€55k",
+      "name": "Verena Hanshaw",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "18",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Feb 6, 1991",
+      "foot": "right",
+      "height": "1,79m",
+      "id": "2078",
+      "marketValue": "€20k",
+      "name": "Carina Wenninger",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "23",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Dec 8, 2000",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "27561",
+      "marketValue": "€40k",
+      "name": "Yvonne Weilharter",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "24",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2029",
+      "dateOfBirth": "Feb 28, 2005",
+      "foot": "right",
+      "height": "1,68m",
+      "id": "60579",
+      "marketValue": "€30k",
+      "name": "Anna Schorn",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "26",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Jan 13, 2004",
+      "foot": "right",
+      "height": "1,71m",
+      "id": "40384",
+      "marketValue": "€45k",
+      "name": "Tatjana Weiss",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "5",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 27, 2001",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "31698",
+      "marketValue": "€40k",
+      "name": "Lotta Cordes",
+      "nationality": [
+        "Germany"
+      ],
+      "number": "6",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Jun 30, 2029",
+      "dateOfBirth": "May 26, 2004",
+      "foot": "right",
+      "height": "1,65m",
+      "id": "59498",
+      "marketValue": "€55k",
+      "name": "Elisa Pfattner",
+      "nationality": [
+        "Italy"
+      ],
+      "number": "7",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 29, 1999",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "34308",
+      "marketValue": "€25k",
+      "name": "Sandra Leegaard Jakobsen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "14",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "May 19, 2008",
+      "foot": "left",
+      "height": "1,74m",
+      "id": "80157",
+      "marketValue": "€20k",
+      "name": "Emily Schäfer",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "19",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Jun 22, 2005",
+      "foot": "",
+      "height": "1,65m",
+      "id": "49979",
+      "marketValue": "€25k",
+      "name": "Lucia Orkić",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": "21",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 13, 2008",
+      "foot": "right",
+      "height": "1,60m",
+      "id": "91034",
+      "marketValue": "€30k",
+      "name": "Valentina Pötzl",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "29",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 19, 2011",
+      "foot": "",
+      "height": "",
+      "id": "119078",
+      "marketValue": "",
+      "name": "Helena Bruckner-Kedl",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "30",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Aug 21, 1991",
+      "foot": "right",
+      "height": "1,63m",
+      "id": "9140",
+      "marketValue": "€35k",
+      "name": "Dominika Škorvánková",
+      "nationality": [
+        "Slovakia"
+      ],
+      "number": "38",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Apr 5, 2002",
+      "foot": "left",
+      "height": "1,64m",
+      "id": "36734",
+      "marketValue": "€35k",
+      "name": "Andrea Glibo",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": "10",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2029",
+      "dateOfBirth": "Feb 2, 2006",
+      "foot": "right",
+      "height": "1,68m",
+      "id": "53994",
+      "marketValue": "€50k",
+      "name": "Almedina Šišić",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "11",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Dec 22, 2003",
+      "foot": "right",
+      "height": "1,65m",
+      "id": "35572",
+      "marketValue": "€50k",
+      "name": "Patricia Pfanner",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "15",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 23, 1999",
+      "foot": "left",
+      "height": "1,72m",
+      "id": "27662",
+      "marketValue": "€55k",
+      "name": "Modesta Uka",
+      "nationality": [
+        "Kosovo"
+      ],
+      "number": "22",
+      "position": "Right Winger"
+    }
+  ],
+  "stadiumName": "GENERALI-Arena",
+  "stadiumSeats": "17500",
+  "transfermarktId": "9341",
+  "country": "AT"
+}

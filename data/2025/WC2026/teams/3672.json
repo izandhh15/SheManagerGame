@@ -1,0 +1,420 @@
+{
+  "image": "https://assets.virtuafc.com/crests/3672.png",
+  "name": "Egypt",
+  "players": [
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/7.png",
+        "name": "Al Ahly FC"
+      },
+      "dateOfBirth": "Mar 17, 2000",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "661455",
+      "injured": false,
+      "marketValue": "€1.20m",
+      "name": "Oufa Shobeir",
+      "overall_score": 71,
+      "position": "Goalkeeper",
+      "potential": 76
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/20572.png",
+        "name": "El Gouna FC"
+      },
+      "dateOfBirth": "Sep 1, 1999",
+      "foot": "right",
+      "id": "1307898",
+      "injured": false,
+      "marketValue": "€1.20m",
+      "name": "Mohamed Alaa",
+      "position": "Goalkeeper"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/7.png",
+        "name": "Al Ahly FC"
+      },
+      "dateOfBirth": "Dec 18, 1988",
+      "foot": "right",
+      "height": "1,91m",
+      "id": "134573",
+      "injured": false,
+      "marketValue": "€500k",
+      "name": "Mohamed El Shenawy",
+      "overall_score": 74,
+      "position": "Goalkeeper",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/664.png",
+        "name": "Zamalek SC"
+      },
+      "dateOfBirth": "Jun 8, 1987",
+      "foot": "right",
+      "height": "1,89m",
+      "id": "104951",
+      "injured": false,
+      "marketValue": "€150k",
+      "name": "El Mahdi Soliman",
+      "overall_score": 68,
+      "position": "Goalkeeper",
+      "potential": 68
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/417.png",
+        "name": "OGC Nice"
+      },
+      "dateOfBirth": "Feb 1, 1999",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "566025",
+      "injured": false,
+      "marketValue": "€3.00m",
+      "name": "Mohamed Abdelmonem",
+      "overall_score": 73,
+      "position": "Centre-Back",
+      "potential": 76
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/664.png",
+        "name": "Zamalek SC"
+      },
+      "dateOfBirth": "Apr 30, 2001",
+      "foot": "right",
+      "height": "1,94m",
+      "id": "737524",
+      "injured": false,
+      "marketValue": "€2.00m",
+      "name": "Hossam Abdelmaguid",
+      "overall_score": 69,
+      "position": "Centre-Back",
+      "potential": 75
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2150.png",
+        "name": "Al-Ain FC"
+      },
+      "dateOfBirth": "May 20, 1993",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "172623",
+      "injured": false,
+      "marketValue": "€600k",
+      "name": "Ramy Rabia",
+      "overall_score": 70,
+      "position": "Centre-Back",
+      "potential": 70
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/7.png",
+        "name": "Al Ahly FC"
+      },
+      "dateOfBirth": "Feb 10, 1993",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "237425",
+      "injured": false,
+      "marketValue": "€275k",
+      "name": "Yasser Ibrahim",
+      "overall_score": 72,
+      "position": "Centre-Back",
+      "potential": 72
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/664.png",
+        "name": "Zamalek SC"
+      },
+      "dateOfBirth": "Mar 22, 1998",
+      "foot": "left",
+      "height": "1,78m",
+      "id": "465966",
+      "injured": false,
+      "marketValue": "€1.00m",
+      "name": "Ahmed Fatouh",
+      "overall_score": 68,
+      "position": "Left-Back",
+      "potential": 68
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/44664.png",
+        "name": "Pyramids FC"
+      },
+      "dateOfBirth": "Mar 12, 1996",
+      "foot": "left",
+      "height": "1,75m",
+      "id": "333004",
+      "injured": false,
+      "marketValue": "€700k",
+      "name": "Karim Hafez",
+      "overall_score": 70,
+      "position": "Left-Back",
+      "potential": 70
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/7.png",
+        "name": "Al Ahly FC"
+      },
+      "dateOfBirth": "Jan 25, 1996",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "343974",
+      "injured": false,
+      "marketValue": "€1.50m",
+      "name": "Mohamed Hany",
+      "overall_score": 71,
+      "position": "Right-Back",
+      "potential": 71
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/47010.png",
+        "name": "Zed FC"
+      },
+      "dateOfBirth": "Jan 5, 2002",
+      "foot": "right",
+      "id": "1087789",
+      "injured": false,
+      "marketValue": "€250k",
+      "name": "Tarek Alaa",
+      "overall_score": 66,
+      "position": "Right-Back",
+      "potential": 68
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/7.png",
+        "name": "Al Ahly FC"
+      },
+      "dateOfBirth": "Aug 12, 1998",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "734542",
+      "injured": false,
+      "marketValue": "€4.00m",
+      "name": "Marwan Ateya",
+      "overall_score": 74,
+      "position": "Defensive Midfield",
+      "potential": 76
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/44664.png",
+        "name": "Pyramids FC"
+      },
+      "dateOfBirth": "May 29, 1996",
+      "foot": "right",
+      "height": "1,79m",
+      "id": "479682",
+      "injured": false,
+      "marketValue": "€3.00m",
+      "name": "Mohanad Lasheen",
+      "overall_score": 68,
+      "position": "Defensive Midfield",
+      "potential": 68
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/13509.png",
+        "name": "Al-Wakrah SC"
+      },
+      "dateOfBirth": "Sep 29, 1994",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "340303",
+      "injured": false,
+      "marketValue": "€1.80m",
+      "name": "Hamdy Fathy",
+      "overall_score": 74,
+      "position": "Defensive Midfield",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/32328.png",
+        "name": "Al-Najma SC"
+      },
+      "dateOfBirth": "Apr 6, 1996",
+      "foot": "right",
+      "height": "1,79m",
+      "id": "479683",
+      "injured": false,
+      "marketValue": "€1.20m",
+      "name": "Nabil Dunga",
+      "overall_score": 64,
+      "position": "Defensive Midfield",
+      "potential": 64
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/7.png",
+        "name": "Al Ahly FC"
+      },
+      "dateOfBirth": "Feb 20, 1998",
+      "foot": "right",
+      "height": "1,82m",
+      "id": "604008",
+      "injured": false,
+      "marketValue": "€4.00m",
+      "name": "Emam Ashour",
+      "overall_score": 75,
+      "position": "Central Midfield",
+      "potential": 75
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/47010.png",
+        "name": "Zed FC"
+      },
+      "dateOfBirth": "Jul 30, 2001",
+      "foot": "right",
+      "id": "729390",
+      "injured": false,
+      "marketValue": "€1.50m",
+      "name": "Mahmoud Saber",
+      "overall_score": 70,
+      "position": "Central Midfield",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/7.png",
+        "name": "Al Ahly FC"
+      },
+      "dateOfBirth": "Oct 1, 1994",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "234189",
+      "injured": false,
+      "marketValue": "€4.50m",
+      "name": "Trezeguet",
+      "overall_score": 75,
+      "position": "Left Winger",
+      "potential": 75
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2778.png",
+        "name": "FC Nordsjaelland"
+      },
+      "dateOfBirth": "Apr 23, 2001",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "677278",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "Ibrahim Adel",
+      "overall_score": 70,
+      "position": "Left Winger",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/44664.png",
+        "name": "Pyramids FC"
+      },
+      "dateOfBirth": "Apr 27, 1997",
+      "foot": "right",
+      "height": "1,82m",
+      "id": "896616",
+      "injured": false,
+      "marketValue": "€1.80m",
+      "name": "Mostafa Ziko",
+      "overall_score": 62,
+      "position": "Left Winger",
+      "potential": 62
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/31.png",
+        "name": "Liverpool FC"
+      },
+      "dateOfBirth": "Jun 15, 1992",
+      "foot": "left",
+      "height": "1,75m",
+      "id": "148455",
+      "injured": false,
+      "marketValue": "€30.00m",
+      "name": "Mohamed Salah",
+      "overall_score": 89,
+      "position": "Right Winger",
+      "potential": 89
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2497.png",
+        "name": "Real Oviedo"
+      },
+      "dateOfBirth": "Feb 8, 2002",
+      "foot": "left",
+      "height": "1,75m",
+      "id": "620164",
+      "injured": false,
+      "marketValue": "€4.00m",
+      "name": "Haissem Hassan",
+      "overall_score": 73,
+      "position": "Right Winger",
+      "potential": 79
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/7.png",
+        "name": "Al Ahly FC"
+      },
+      "dateOfBirth": "Jan 10, 1996",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "320722",
+      "injured": false,
+      "marketValue": "€3.50m",
+      "name": "Zizo",
+      "overall_score": 74,
+      "position": "Right Winger",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/281.png",
+        "name": "Manchester City"
+      },
+      "dateOfBirth": "Feb 7, 1999",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "445939",
+      "injured": false,
+      "marketValue": "€60.00m",
+      "name": "Omar Marmoush",
+      "overall_score": 83,
+      "position": "Centre-Forward",
+      "potential": 83
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2470.png",
+        "name": "FC Barcelona U19"
+      },
+      "dateOfBirth": "Jan 1, 2008",
+      "foot": "both",
+      "height": "1,82m",
+      "id": "1259085",
+      "injured": false,
+      "marketValue": "€1.00m",
+      "name": "Hamza Abdelkarim",
+      "overall_score": 60,
+      "position": "Centre-Forward",
+      "potential": 83
+    }
+  ],
+  "stadiumName": null,
+  "stadiumSeats": null,
+  "transfermarktId": "3672"
+}

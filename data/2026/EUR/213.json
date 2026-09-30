@@ -1,0 +1,360 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/213.png",
+  "name": "Lillestrøm SK",
+  "players": [
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Nov 14, 1997",
+      "foot": "",
+      "height": "",
+      "id": "28608",
+      "marketValue": "",
+      "name": "Klara Sporsem",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 13, 2003",
+      "foot": "",
+      "height": "",
+      "id": "52847",
+      "marketValue": "",
+      "name": "Emma Sjåfjell",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "30",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 1, 2009",
+      "foot": "",
+      "height": "",
+      "id": "93619",
+      "marketValue": "",
+      "name": "India Guzman",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "31",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 30, 2007",
+      "foot": "",
+      "height": "",
+      "id": "116686",
+      "marketValue": "",
+      "name": "Maiken Johannesen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "2",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 18, 2005",
+      "foot": "",
+      "height": "",
+      "id": "76739",
+      "marketValue": "",
+      "name": "Sarah Tofft",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Aug 3, 1996",
+      "foot": "",
+      "height": "1,66m",
+      "id": "28851",
+      "marketValue": "€35k",
+      "name": "Mimmi Nurmela",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "5",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 22, 2006",
+      "foot": "",
+      "height": "",
+      "id": "71976",
+      "marketValue": "",
+      "name": "Linnea Tveit",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "15",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Dec 27, 2004",
+      "foot": "",
+      "height": "",
+      "id": "46728",
+      "marketValue": "€15k",
+      "name": "Jasmin Mansaray",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "19",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 2, 1999",
+      "foot": "",
+      "height": "",
+      "id": "30440",
+      "marketValue": "",
+      "name": "Marte Bjelde",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "29",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Nov 17, 2005",
+      "foot": "",
+      "height": "",
+      "id": "84712",
+      "marketValue": "",
+      "name": "Emma Reshane",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "35",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Apr 29, 1997",
+      "foot": "",
+      "height": "1,70m",
+      "id": "28211",
+      "marketValue": "",
+      "name": "Sara Eggesvik",
+      "nationality": [
+        "Philippines"
+      ],
+      "number": "3",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 4, 2006",
+      "foot": "both",
+      "height": "1,68m",
+      "id": "71979",
+      "marketValue": "",
+      "name": "Kaja Hjelmhaug",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "8",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Apr 5, 2006",
+      "foot": "both",
+      "height": "1,66m",
+      "id": "52804",
+      "marketValue": "",
+      "name": "Tilda Råtts",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "9",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Nov 3, 2004",
+      "foot": "",
+      "height": "",
+      "id": "54951",
+      "marketValue": "",
+      "name": "Mille Ivi Christensen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "10",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 1, 2009",
+      "foot": "",
+      "height": "",
+      "id": "109363",
+      "marketValue": "",
+      "name": "Sofia Mendelin-Norebø",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "20",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 26, 2009",
+      "foot": "",
+      "height": "",
+      "id": "112337",
+      "marketValue": "",
+      "name": "Isabella Lepore",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "21",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 31, 2004",
+      "foot": "",
+      "height": "",
+      "id": "64633",
+      "marketValue": "",
+      "name": "Elise Thorud",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "27",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Aug 26, 2007",
+      "foot": "",
+      "height": "",
+      "id": "79832",
+      "marketValue": "",
+      "name": "Tilde Andersson",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "33",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Aug 8, 1994",
+      "foot": "right",
+      "height": "1,74m",
+      "id": "7816",
+      "marketValue": "",
+      "name": "Tonje Erikstein",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "99",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Sep 10, 2008",
+      "foot": "",
+      "height": "1,64m",
+      "id": "95530",
+      "marketValue": "",
+      "name": "Christina Herseth",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "12",
+      "position": "Striker"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Nov 27, 2007",
+      "foot": "",
+      "height": "",
+      "id": "84711",
+      "marketValue": "",
+      "name": "Luana Cotrau",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "22",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 21, 2004",
+      "foot": "",
+      "height": "",
+      "id": "61097",
+      "marketValue": "",
+      "name": "Sunniva Raaen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "24",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 7, 1999",
+      "foot": "",
+      "height": "",
+      "id": "34723",
+      "marketValue": "",
+      "name": "Julie Klæboe",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "25",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 24, 2008",
+      "foot": "",
+      "height": "",
+      "id": "108772",
+      "marketValue": "",
+      "name": "Leah Rimbault",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "26",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 6, 2006",
+      "foot": "",
+      "height": "",
+      "id": "82925",
+      "marketValue": "",
+      "name": "Karen Rygg Ims",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "32",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "LSK-Hallen",
+  "stadiumSeats": "1500",
+  "transfermarktId": "213",
+  "country": "NO"
+}

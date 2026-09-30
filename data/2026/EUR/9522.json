@@ -1,0 +1,416 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/9522.png",
+  "name": "Fenerbahçe SK",
+  "players": [
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Aug 14, 2003",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "55060",
+      "marketValue": "€28k",
+      "name": "Sol Belotto",
+      "nationality": [
+        "Paraguay"
+      ],
+      "number": "21",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Aug 20, 2009",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "121773",
+      "marketValue": "",
+      "name": "Ilayda Demir",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "22",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Dec 1, 1993",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "10584",
+      "marketValue": "",
+      "name": "Natalia Munteanu",
+      "nationality": [
+        "Moldova"
+      ],
+      "number": "71",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Aug 2, 1997",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "27213",
+      "marketValue": "",
+      "name": "Konya Plummer",
+      "nationality": [
+        "Jamaica"
+      ],
+      "number": "2",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Sep 25, 1995",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "20160",
+      "marketValue": "",
+      "name": "Yaşam Göksu",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "5",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Jul 19, 2000",
+      "foot": "left",
+      "height": "1,63m",
+      "id": "56679",
+      "marketValue": "€40k",
+      "name": "Colette Ndzana",
+      "nationality": [
+        "Cameroon"
+      ],
+      "number": "7",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Apr 15, 1994",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "8995",
+      "marketValue": "",
+      "name": "Katie Bowen",
+      "nationality": [
+        "New Zealand"
+      ],
+      "number": "14",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Oct 28, 1994",
+      "foot": "left",
+      "height": "1,75m",
+      "id": "28932",
+      "marketValue": "",
+      "name": "İpek Kaya",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "17",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Mar 26, 1999",
+      "foot": "right",
+      "height": "1,64m",
+      "id": "21825",
+      "marketValue": "",
+      "name": "Fatma Şakar",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "24",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Aug 24, 2009",
+      "foot": "left",
+      "height": "1,61m",
+      "id": "121768",
+      "marketValue": "",
+      "name": "Idil Acar",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "32",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Sep 4, 2009",
+      "foot": "both",
+      "height": "1,67m",
+      "id": "121789",
+      "marketValue": "",
+      "name": "Esmanur Teke",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "33",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Feb 18, 2009",
+      "foot": "right",
+      "height": "1,57m",
+      "id": "121770",
+      "marketValue": "",
+      "name": "Rabia Akbaba",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "35",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 6, 2008",
+      "foot": "",
+      "height": "",
+      "id": "121778",
+      "marketValue": "",
+      "name": "Edanur Gokce",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "38",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Aug 5, 1996",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "53380",
+      "marketValue": "",
+      "name": "Regina Otu",
+      "nationality": [
+        "Nigeria"
+      ],
+      "number": "6",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jan 30, 2002",
+      "foot": "right",
+      "height": "1,68m",
+      "id": "40115",
+      "marketValue": "",
+      "name": "Cansu Gürel",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "8",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jul 19, 1998",
+      "foot": "both",
+      "height": "1,65m",
+      "id": "27856",
+      "marketValue": "",
+      "name": "Busem Şeker",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "9",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Apr 14, 1999",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "30283",
+      "marketValue": "",
+      "name": "Ece Türkoğlu",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "10",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jun 15, 1999",
+      "foot": "both",
+      "height": "1,65m",
+      "id": "40696",
+      "marketValue": "",
+      "name": "Peritan Bozdağ",
+      "nationality": [
+        "Azerbaijan"
+      ],
+      "number": "16",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jan 1, 2003",
+      "foot": "left",
+      "height": "1,76m",
+      "id": "41989",
+      "marketValue": "",
+      "name": "Mesude Alayont",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "19",
+      "position": "Left Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Dec 3, 2001",
+      "foot": "both",
+      "height": "1,69m",
+      "id": "105047",
+      "marketValue": "",
+      "name": "Suliat Abideen",
+      "nationality": [
+        "Nigeria"
+      ],
+      "number": "26",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "May 3, 2010",
+      "foot": "right",
+      "height": "1,58m",
+      "id": "121791",
+      "marketValue": "",
+      "name": "Belinay Tuğla",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "31",
+      "position": "Right Midfield"
+    },
+    {
+      "contract": "Jun 30, 2029",
+      "dateOfBirth": "Jan 23, 2011",
+      "foot": "right",
+      "height": "1,63m",
+      "id": "121007",
+      "marketValue": "",
+      "name": "Tuana Ozocak",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "34",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jul 7, 1993",
+      "foot": "right",
+      "height": "1,63m",
+      "id": "24235",
+      "marketValue": "",
+      "name": "Maria Alves",
+      "nationality": [
+        "Brazil"
+      ],
+      "number": "93",
+      "position": "Right Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Feb 19, 1990",
+      "foot": "right",
+      "height": "1,81m",
+      "id": "10615",
+      "marketValue": "",
+      "name": "Yağmur Uraz",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "11",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "May 13, 2003",
+      "foot": "right",
+      "height": "1,59m",
+      "id": "41998",
+      "marketValue": "",
+      "name": "Zeynep Kerimoğlu",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "13",
+      "position": "Right Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Oct 20, 2002",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "37725",
+      "marketValue": "",
+      "name": "Marie Ngah",
+      "nationality": [
+        "Cameroon"
+      ],
+      "number": "30",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Jun 30, 2029",
+      "dateOfBirth": "Mar 9, 2011",
+      "foot": "right",
+      "height": "1,66m",
+      "id": "120783",
+      "marketValue": "",
+      "name": "Ayca Uzgenç",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "36",
+      "position": "Right Winger"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Sep 16, 1997",
+      "foot": "left",
+      "height": "1,70m",
+      "id": "19133",
+      "marketValue": "€30k",
+      "name": "Zsanett Kaján",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "55",
+      "position": "Left Winger"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "May 12, 2000",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "30522",
+      "marketValue": "",
+      "name": "Andrea Stašková",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "77",
+      "position": "Centre-Forward"
+    }
+  ],
+  "stadiumName": "Beylerbeyi 75. Yil Stadi",
+  "stadiumSeats": "0",
+  "transfermarktId": "9522",
+  "country": "TR"
+}

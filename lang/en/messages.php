@@ -1,0 +1,226 @@
+<?php
+
+return [
+    // Transfer messages
+    'transfer_complete' => 'Transfer complete! :player has joined your squad.',
+    'transfer_agreed' => ':message The transfer will be completed when the :window window opens.',
+    'bid_exceeds_budget' => 'The bid exceeds your transfer budget.',
+    'player_listed' => ':player listed for sale. Offers may arrive after the next matchday.',
+    'player_unlisted' => ':player removed from the transfer list.',
+    'cannot_sell_same_window' => 'Cannot sell :player — they were signed recently and can\'t be transferred yet.',
+    'offer_rejected' => ':team_de offer rejected.',
+    'cannot_reject_release_clause_offer' => 'You can\'t reject this offer — it meets :player\'s release clause, so the sale is mandatory.',
+    'offer_accepted_sale' => ':player sold :team_a for :fee.',
+    'offer_accepted_pre_contract' => 'Deal agreed! :player will sign for :team for :fee when the :window window opens.',
+    'offer_accepted_intra_window' => 'Deal agreed! :player will leave for :team for :fee after the next match.',
+
+    // Free agent signing
+    'free_agent_signed' => ':player has signed for your team as a free agent!',
+    'free_agent_agreed' => 'Deal agreed! :player will join your team as a free agent after the next match.',
+    'not_free_agent' => 'This player is not a free agent.',
+    'free_agent_reputation_too_low' => 'This player has no interest in joining a club of your reputation level.',
+    'transfer_window_closed' => 'The transfer window is closed.',
+    'wage_budget_exceeded' => 'Signing this player would exceed your wage budget.',
+    'signing_exceeds_salary_cap' => 'Signing :player at :wage/yr would push your wage bill to :total, over your :cap salary limit. Free up :shortfall by selling players first.',
+    'salary_cap_locked' => "You're over your salary limit. Sell players to get back under the limit before signing or renewing.",
+    'pre_contract_exceeds_salary_cap' => "Signing :player at :wage/yr would push next season's wage bill to :total, over your :cap salary limit. You are :shortfall short.",
+
+    // Bid/loan submission confirmations
+    'bid_already_exists' => 'You already have a pending bid for this player.',
+    'loan_request_submitted' => 'Your loan request for :player has been submitted. You will receive a response soon.',
+
+    // Loan messages
+    'loan_agreed' => ':message The loan will begin when the :window window opens.',
+    'loan_in_complete' => ':message The loan is now active.',
+    'already_on_loan' => ':player is already on loan.',
+    'loan_search_started' => 'A loan destination search has started for :player. You will be notified when a club is found.',
+    'loan_search_active' => ':player already has an active loan search.',
+    'loan_offer_accepted' => ':player loaned :team_a.',
+    'loan_offer_accepted_pre_window' => ':player will be loaned to :team when the :window window opens.',
+    'loan_offer_agreed_intra_window' => ':player will be loaned to :team after the next match.',
+    'loan_search_cancelled' => ':player loan search has been cancelled.',
+
+    // Contract messages
+    'renewal_agreed' => ':player has accepted a :years-year extension at :wage/yr (effective from next season).',
+    'renewal_failed' => 'Could not process the renewal.',
+    'renewal_declined' => 'You have decided not to renew :player. They will leave at the end of the season.',
+    'renewal_reconsidered' => 'You have reconsidered :player\'s renewal.',
+    'cannot_renew' => 'This player cannot receive a renewal offer.',
+    'renewal_invalid_offer' => 'The offer must be greater than zero.',
+
+    // Pre-contract messages
+    'pre_contract_accepted' => ':player has accepted your pre-contract offer! They will join your team at the end of the season.',
+    'pre_contract_rejected' => ':player has rejected your pre-contract offer. Try improving the wage offer.',
+    'pre_contract_not_available' => 'Pre-contract offers are only available between January and May.',
+    'player_not_expiring' => 'This player\'s contract is not in its final year.',
+    'pre_contract_submitted' => 'Pre-contract offer sent. The player will respond in the coming days.',
+    'pre_contract_result_accepted' => ':player has accepted your pre-contract offer!',
+    'pre_contract_result_rejected' => ':player has rejected your pre-contract offer.',
+
+    // Scout messages
+    'scout_search_started' => 'The scout has started searching.',
+    'scout_already_searching' => 'You already have an active search. Cancel it first or wait for results.',
+    'scout_search_cancelled' => 'Scout search cancelled.',
+    'scout_search_deleted' => 'Search deleted.',
+    'scout_search_limit' => 'You have reached the search limit (maximum :max). Delete an old search to start a new one.',
+
+    // Shortlist messages
+    'shortlist_added' => ':player added to your shortlist.',
+    'shortlist_removed' => ':player removed from your shortlist.',
+    'shortlist_full' => 'Your shortlist is full (maximum :max players).',
+
+    // Budget messages
+    'budget_saved' => 'Budget allocation saved.',
+    'budget_no_projections' => 'No financial projections found.',
+
+    // Stadium / season tickets
+    'season_tickets_saved' => 'Season ticket prices saved.',
+    'season_tickets_locked' => 'Season ticket prices are already locked for this season.',
+
+    // Season messages
+    'budget_exceeds_surplus' => 'Total allocation exceeds available surplus.',
+    'budget_minimum_tier' => 'All infrastructure areas must be at least Tier 1.',
+
+    // Infrastructure upgrades
+    'infrastructure_upgraded' => ':area upgraded to Tier :tier.',
+    'infrastructure_upgrade_invalid_area' => 'Invalid infrastructure area.',
+    'infrastructure_upgrade_not_higher' => 'Target tier must be higher than current tier.',
+    'infrastructure_upgrade_max_tier' => 'Maximum tier is 4.',
+    'infrastructure_upgrade_insufficient_budget' => 'Insufficient transfer budget. Upgrade costs :cost.',
+    'investment_downgrade_not_lower' => 'Choose a tier lower than the current one.',
+    'investment_saved' => 'Plan saved.',
+    'investment_locked_no_edit' => 'The season is underway — you can upgrade any time, but the plan can no longer be freely re-allocated.',
+    'investment_downgrade_staged' => 'Reduction staged — it takes effect next season.',
+    'investment_downgrade_cleared' => 'Staged reduction cancelled.',
+
+    // Onboarding
+    'welcome_to_team' => 'Welcome :team_a! Your season awaits.',
+
+    // Season
+    'season_not_complete' => 'Cannot start a new season - the current season has not ended.',
+
+    // Academy
+    'academy_player_promoted' => ':player has been promoted to the first team.',
+    'academy_player_dismissed' => ':player has been dismissed from the academy.',
+    'academy_player_loaned' => ':player has been loaned out.',
+    'academy_must_decide_21' => 'Players aged 21+ will be automatically promoted to the first team.',
+
+    // Reserve team (filial)
+    'reserve_player_called_up' => ':player has been called up to the first team.',
+    'reserve_player_sent_back' => ':player has been sent back to the reserve team.',
+    'reserve_player_call_up_blocked_full' => 'First-team squad is full. Release a player before calling up another.',
+    'reserve_player_promoted' => ':player has been promoted to the first team.',
+    'player_sent_down_to_reserve' => ':player has been sent down to the reserve team.',
+    'send_down_not_allowed' => 'This player cannot be sent down to the reserve team.',
+    'reserve_move_blocked_by_deal' => ':player has an agreed transfer or pre-contract and cannot be moved between squads until it completes.',
+    'send_down_squad_too_small' => 'Cannot send down — the first team must have at least :min players.',
+    'send_down_position_minimum' => 'Cannot send down — the first team needs at least :min :group.',
+
+    // Player release messages
+    'player_released' => ':player has been released. Severance paid: :severance.',
+    'release_not_your_player' => 'You can only release players from your own team.',
+    'release_on_loan' => 'Cannot release a player who is on loan.',
+    'release_has_agreed_transfer' => 'Cannot release a player with an agreed transfer.',
+    'release_has_pre_contract' => 'Cannot release a player with a pre-contract agreement.',
+    'release_squad_too_small' => 'Cannot release — your squad must have at least :min players.',
+    'release_position_minimum' => 'Cannot release — you need at least :min :group.',
+
+    // Squad-minimum guards on promote / demote / list / accept
+    'promote_squad_too_small' => 'Cannot call up — the reserve squad must have at least :min players.',
+    'promote_position_minimum' => 'Cannot call up — the reserve squad needs at least :min :group.',
+    'demote_squad_too_small' => 'Cannot send back — the first team must have at least :min players.',
+    'demote_position_minimum' => 'Cannot send back — the first team needs at least :min :group.',
+    'list_for_sale_squad_too_small' => 'Cannot list for sale — your squad must have at least :min players.',
+    'list_for_sale_position_minimum' => 'Cannot list for sale — you need at least :min :group.',
+    'list_for_loan_squad_too_small' => 'Cannot loan out — your squad must have at least :min players.',
+    'list_for_loan_position_minimum' => 'Cannot loan out — you need at least :min :group.',
+    'accept_offer_squad_too_small' => 'Cannot accept the offer — your squad must have at least :min players.',
+    'accept_offer_position_minimum' => 'Cannot accept the offer — you need at least :min :group.',
+    'accept_loan_squad_too_small' => 'Cannot accept the loan — your squad must have at least :min players.',
+    'accept_loan_position_minimum' => 'Cannot accept the loan — you need at least :min :group.',
+
+    'cannot_loan_free_agent' => 'Cannot loan a free agent. Sign them directly instead.',
+
+    // Pending actions
+    'action_required' => 'There are pending actions you must resolve before continuing.',
+    'action_required_short' => 'Action Required',
+
+    // Tactical presets
+    'preset_saved' => 'Tactic saved.',
+    'preset_updated' => 'Tactic updated.',
+    'preset_deleted' => 'Tactic deleted.',
+    'preset_limit_reached' => 'Maximum of 3 saved tactics reached.',
+
+    // Game management
+    'game_deleted' => 'Game is being deleted.',
+    'game_limit_reached' => 'You have reached the maximum limit of 3 games. Delete one to create another.',
+    'career_mode_requires_invite' => 'Club Manager and Pro Manager require an invitation. Play the World Cup for free!',
+    'tournament_mode_requires_access' => 'Tournament mode requires access. Contact an admin to get started.',
+    'invalid_pro_manager_team' => 'Pick one of the clubs shown — Pro Manager careers start in Primera RFEF.',
+
+    // Pre-match confirmation
+    'pre_match_title' => 'Pre-Match',
+    'pre_match_no_lineup' => 'You don\'t have a lineup configured.',
+    'pre_match_incomplete' => 'Your lineup has fewer than 11 players.',
+    'pre_match_unavailable_injured' => 'You have an injured player in your lineup.',
+    'pre_match_unavailable_suspended' => 'You have a suspended player in your lineup.',
+    'pre_match_unavailable_multiple' => 'You have unavailable players in your lineup.',
+    'pre_match_auto_explanation' => 'If you don\'t change it, your coaching staff will pick the best lineup from available players.',
+    'pre_match_warning_title' => 'Your lineup needs attention',
+    'pre_match_play' => 'Play Match',
+    'pre_match_continue' => 'Continue',
+    'pre_match_edit_lineup' => 'Edit Lineup',
+    'pre_match_reason_injured' => 'injured',
+    'pre_match_reason_suspended' => 'suspended',
+    'pre_match_starting_xi' => 'Starting XI',
+    'pre_match_no_lineup_set' => 'No lineup configured',
+    'pre_match_auto_lineup' => 'Let the coaching staff automatically adjust the lineup when there are unavailable players.',
+    'pre_match_auto_select_done' => 'The best lineup has been automatically selected from available players.',
+
+    // Matchday advance
+    'advance_failed' => 'Something went wrong advancing the matchday. Please try again.',
+
+    // Fast mode
+    'fast_mode_enabled' => 'Fast mode is on. Your assistant coach will run the team.',
+    'fast_mode_disabled' => 'Fast mode is off. You are back in full control.',
+    'fast_mode_action_required' => 'An action requires your attention. Exit fast mode to resolve it.',
+    'fast_mode_blocked_live_match' => 'Finish the current match before enabling fast mode.',
+    'fast_mode_blocked_tournament' => 'Fast mode is not available in tournament mode.',
+    'fast_mode_advance_failed_retry' => 'Could not simulate the matchday. Please try again.',
+
+    // Budget loan messages
+    'budget_loan_approved' => 'Loan of :amount approved and added to your transfer budget.',
+    'loan_not_available' => 'A budget loan is not available right now.',
+    'loan_below_minimum' => 'The loan amount is below the minimum.',
+    'loan_exceeds_maximum' => 'The loan amount exceeds the maximum allowed.',
+
+    'stadium_supplementary_committed' => 'Construction started: :seats temporary seats will be ready in 30 days.',
+    'stadium_stand_expansion_committed' => 'Stand expansion approved: :seats new permanent seats will be ready next season.',
+    'stadium_rebuild_committed' => 'Stadium rebuild approved. New target capacity: :capacity.',
+    'stadium_active_project_exists' => 'You already have a project in progress. Wait for it to finish before starting another.',
+    'stadium_supplementary_too_few_seats' => 'You must add at least one temporary seat.',
+    'stadium_supplementary_exceeds_cap' => 'Exceeds the maximum number of temporary stands allowed.',
+    'stadium_stand_expansion_too_few_seats' => 'The stand expansion is below the minimum number of seats.',
+    'stadium_stand_expansion_exceeds_cap' => 'Exceeds the maximum stand-expansion size allowed.',
+    'stadium_rebuild_reputation_too_low' => 'Your reputation does not yet allow a full stadium rebuild.',
+    'stadium_rebuild_must_be_larger' => 'Target capacity must be larger than the current capacity.',
+    'stadium_rebuild_exceeds_max_capacity' => 'Target capacity exceeds what your reputation and projected revenue can finance.',
+    'stadium_invalid_financing' => 'Invalid financing option.',
+    'stadium_insufficient_budget' => 'Not enough budget to pay for the project in cash.',
+    'stadium_loan_exceeds_cap' => 'The requested loan exceeds the ceiling the bank is willing to lend.',
+    'stadium_uefa_upgrade_committed' => 'UEFA upgrade started: the stadium will reach Category :level next season.',
+    'stadium_uefa_already_max' => 'Your stadium is already at the top UEFA category.',
+    'stadium_uefa_capacity_floor' => 'Current capacity is below the minimum required by the next UEFA category.',
+    'stadium_uefa_no_base_level' => 'Your stadium has no UEFA category yet. Expand the capacity first.',
+
+    'naming_rights_accepted' => 'Naming-rights deal signed with :sponsor. The stadium has been renamed.',
+    'stadium_renamed' => 'Stadium renamed to :name.',
+    'naming_rights_window_closed' => 'Stadium identity can only be changed in pre-season, up to the first league match.',
+    'naming_rights_deal_active' => 'A naming-rights deal is already active — the sponsor owns the stadium name until it expires.',
+    'naming_rights_offer_unavailable' => 'That naming-rights offer is no longer available.',
+    'stadium_already_renamed' => 'The stadium has already been renamed this season.',
+    'naming_rights_search_complete' => '{0}The agency found no new sponsors.|{1}The agency brought in :count sponsorship offer.|[2,*]The agency brought in :count sponsorship offers.',
+    'naming_rights_search_cooldown' => 'Your commercial agency is still canvassing the market. Wait a few days before searching again.',
+    'naming_rights_search_unaffordable' => 'You can\'t afford the commercial agency fee.',
+    'naming_rights_board_full' => 'You already have the maximum offers on the table. Accept one or pass before seeking more.',
+];

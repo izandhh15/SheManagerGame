@@ -1,0 +1,392 @@
+<?php
+
+use App\Http\Actions\Admin\DeletePlayerTemplate;
+use App\Http\Actions\Admin\RestorePlayerTemplate;
+use App\Http\Actions\Admin\SearchPlayers;
+use App\Http\Actions\Admin\SearchTeams;
+use App\Http\Actions\Admin\StorePlayerTemplate;
+use App\Http\Actions\Admin\UpdatePlayerTemplate;
+use App\Http\Actions\UpgradeInfrastructure;
+use App\Http\Actions\ImpersonateByGame;
+use App\Http\Actions\LookupGame;
+use App\Http\Actions\StartImpersonation;
+use App\Http\Actions\StopImpersonation;
+use App\Http\Actions\ToggleCareerAccess;
+use App\Http\Actions\ToggleDatabaseEditing;
+use App\Http\Actions\ToggleTournamentAccess;
+use App\Http\Actions\ResendWaitlistInvite;
+use App\Http\Actions\SendBulkWaitlistInvites;
+use App\Http\Actions\SendWaitlistInvite;
+use App\Http\Views\AdminActivation;
+use App\Http\Views\AdminDashboard;
+use App\Http\Views\AdminGameStats;
+use App\Http\Views\AdminTechTools;
+use App\Http\Views\AdminPlayerTemplateAuditLog;
+use App\Http\Views\AdminPlayerTemplates;
+use App\Http\Views\AdminPlayerTemplateSquad;
+use App\Http\Views\AdminUsers;
+use App\Http\Views\AdminWaitlist;
+use App\Http\Actions\DeleteGame;
+use App\Http\Actions\CompleteNewSeason;
+use App\Http\Actions\CompleteWelcome;
+use App\Http\Actions\AcceptLoanOffer;
+use App\Http\Actions\AcceptTransferOffer;
+use App\Http\Actions\SignFreeAgent;
+use App\Http\Actions\DeclineRenewal;
+use App\Http\Actions\ReconsiderRenewal;
+use App\Http\Actions\AdvanceFastMatchday;
+use App\Http\Actions\AdvanceMatchday;
+use App\Http\Actions\EnterFastMode;
+use App\Http\Actions\ExitFastMode;
+use App\Http\Actions\SimulateTournament;
+use App\Http\Actions\CancelLoanSearch;
+use App\Http\Actions\CancelScoutSearch;
+use App\Http\Actions\AcknowledgeCriticalAlerts;
+use App\Http\Actions\ViewCriticalAlerts;
+use App\Http\Actions\SaveClubInvestment;
+use App\Http\Actions\StageInvestmentDowngrade;
+use App\Http\Actions\SaveSeasonTicketPricing;
+use App\Http\Views\ShowClubInvestment;
+use App\Http\Actions\FinalizeMatch;
+use App\Http\Actions\GetAutoLineup;
+use App\Http\Actions\ProcessExtraTime;
+use App\Http\Actions\ProcessPenalties;
+use App\Http\Actions\InitGame;
+use App\Http\Actions\ListPlayerForTransfer;
+use App\Http\Actions\NegotiateCounterOffer;
+use App\Http\Actions\NegotiateFreeAgent;
+use App\Http\Actions\NegotiateLoan;
+use App\Http\Actions\NegotiatePreContract;
+use App\Http\Actions\NegotiateRenewal;
+use App\Http\Actions\NegotiateTransfer;
+use App\Http\Actions\ReleasePlayer;
+use App\Http\Actions\RejectTransferOffer;
+use App\Http\Actions\RequestBudgetLoan;
+use App\Http\Actions\CommitSupplementaryStands;
+use App\Http\Actions\CommitStandExpansion;
+use App\Http\Actions\CommitStadiumRebuild;
+use App\Http\Actions\CommitStadiumUefaUpgrade;
+use App\Http\Actions\AcceptNamingRightsDeal;
+use App\Http\Actions\RenameStadium;
+use App\Http\Actions\SeekSponsors;
+use App\Http\Actions\RequestLoan;
+use App\Http\Actions\WithdrawTransferOffer;
+use App\Http\Actions\ComputeSlotAssignments;
+use App\Http\Actions\SaveLineup;
+use App\Http\Actions\SaveTacticalPreset;
+use App\Http\Actions\DeleteTacticalPreset;
+
+use App\Http\Actions\SaveSquadRegistration;
+use App\Http\Actions\SaveSquadSelection;
+use App\Http\Views\ShowSquadRegistration;
+use App\Http\Views\ShowSquadSelection;
+use App\Http\Actions\SubmitScoutSearch;
+use App\Http\Actions\SubmitPreContractOffer;
+use App\Http\Actions\ToggleShortlist;
+use App\Http\Actions\RemoveFromShortlist;
+use App\Http\Actions\DeleteScoutSearch;
+use App\Http\Actions\SavePreseasonOpponents;
+use App\Http\Actions\UnlistPlayerFromTransfer;
+use App\Http\Views\ShowLineup;
+use App\Http\Views\ShowOpponentAnalysis;
+use App\Http\Views\ShowPreMatchData;
+use App\Http\Controllers\ProfileController;
+use App\Http\Views\Dashboard;
+use App\Http\Views\SelectTeam;
+use App\Http\Views\ShowCalendar;
+use App\Http\Views\ShowClubCommercial;
+use App\Http\Views\ShowClubReputation;
+use App\Http\Views\ShowClubStadium;
+use App\Http\Views\ShowFinances;
+use App\Http\Views\ShowFastMode;
+use App\Http\Views\ShowGame;
+use App\Http\Views\ShowNewSeason;
+use App\Http\Views\ShowPreseasonSetup;
+use App\Http\Views\ShowWelcome;
+use App\Http\Views\ShowCompetition;
+use App\Http\Views\ShowLiveMatch;
+use App\Http\Views\ShowMatchResults;
+use App\Http\Views\ShowMatchSummary;
+use App\Http\Views\ShowIncomingTransfers;
+use App\Http\Views\ShowScoutingHub;
+use App\Http\Views\ShowScoutReportResults;
+use App\Http\Views\ShowExplore;
+use App\Http\Views\ExploreTeams;
+use App\Http\Views\ExplorePoolTeams;
+use App\Http\Views\ExploreSquad;
+use App\Http\Views\ShowManagerCareer;
+use App\Http\Views\ShowSeasonEnd;
+use App\Http\Views\ShowSeasonOffers;
+use App\Http\Views\ShowTournamentEnd;
+use App\Http\Actions\DismissAcademyPlayer;
+use App\Http\Actions\LoanAcademyPlayer;
+use App\Http\Views\ShowAcademy;
+use App\Http\Views\GameSetupStatus;
+use App\Http\Views\ShowAcademyPlayerDetail;
+use App\Http\Views\ShowPlayerDetail;
+use App\Http\Views\ShowSquad;
+use App\Http\Views\ShowSquadPlanner;
+use App\Http\Views\ShowTransferActivity;
+use App\Http\Views\ShowOutgoingTransfers;
+use App\Http\Views\ShowTransferMarket;
+use App\Http\Views\ShowLeaderboard;
+use App\Http\Views\ShowManagerProfile;
+use App\Http\Views\ShowTeamLeaderboard;
+use App\Http\Views\ShowTeamLeaderboardIndex;
+use App\Http\Views\ShowNationalTeamStats;
+use App\Http\Views\ShowNationalTeamStatsIndex;
+use App\Http\Views\ShowTournamentLeaderboard;
+use App\Http\Views\ShowTournamentSummary;
+use App\Http\Actions\ProcessTacticalActions;
+use App\Http\Actions\PromoteAcademyPlayer;
+use App\Http\Actions\CallUpReservePlayer;
+use App\Http\Actions\SendBackReservePlayer;
+use App\Http\Actions\SendDownToReserve;
+use App\Http\Views\ShowReserveTeam;
+use App\Http\Actions\SkipMatchToEnd;
+use App\Http\Actions\StartNewSeason;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', function () {
+    return redirect('login');
+});
+
+Route::get('/legal', fn () => view('legal'))->name('legal');
+Route::get('/leaderboard', ShowLeaderboard::class)->name('leaderboard');
+Route::get('/leaderboard/teams', ShowTeamLeaderboardIndex::class)->name('leaderboard.teams');
+Route::get('/leaderboard/team/{slug}', ShowTeamLeaderboard::class)->name('leaderboard.team');
+Route::get('/leaderboard/tournament', ShowTournamentLeaderboard::class)->name('leaderboard.tournament');
+Route::get('/leaderboard/national-teams', ShowNationalTeamStatsIndex::class)->name('leaderboard.national-teams');
+Route::get('/leaderboard/national-team/{slug}', ShowNationalTeamStats::class)->name('leaderboard.national-team');
+Route::get('/manager/{username}', ShowManagerProfile::class)->name('manager.profile');
+Route::get('/design-system', fn () => view('design-system.index', [
+    'allTeams' => \App\Support\TeamColors::allGrouped(),
+]))->name('design-system');
+
+Route::middleware('auth')->group(function () {
+    // Dashboard & Game Creation
+    Route::get('/dashboard', Dashboard::class)->name('dashboard');
+    Route::get('/new-game', SelectTeam::class)->name('select-team');
+    Route::post('/new-game', InitGame::class)->middleware('throttle:game-creation')->name('init-game');
+
+    Route::get('/tournament-summary/{summaryId}', ShowTournamentSummary::class)->name('tournament-summary.show');
+
+    // All game routes require ownership verification
+    Route::middleware('game.owner')->group(function () {
+        Route::delete('/game/{gameId}', DeleteGame::class)->name('game.destroy');
+
+        // Game Views
+        Route::get('/game/{gameId}', ShowGame::class)->name('show-game');
+        Route::get('/game/{gameId}/squad', ShowSquad::class)->name('game.squad');
+        Route::get('/game/{gameId}/squad/planner', ShowSquadPlanner::class)->name('game.squad.planner');
+        Route::get('/game/{gameId}/squad/academy', ShowAcademy::class)->name('game.squad.academy');
+        Route::get('/game/{gameId}/squad/registration', ShowSquadRegistration::class)->name('game.squad.registration');
+        Route::post('/game/{gameId}/squad/registration', SaveSquadRegistration::class)->name('game.squad.registration.save');
+        Route::get('/game/{gameId}/player/{playerId}/detail', ShowPlayerDetail::class)->name('game.player.detail');
+        Route::get('/game/{gameId}/academy/{playerId}/detail', ShowAcademyPlayerDetail::class)->name('game.academy.detail');
+        Route::post('/game/{gameId}/academy/{playerId}/promote', PromoteAcademyPlayer::class)->name('game.academy.promote');
+        Route::post('/game/{gameId}/academy/{playerId}/loan', LoanAcademyPlayer::class)->name('game.academy.loan');
+        Route::post('/game/{gameId}/academy/{playerId}/dismiss', DismissAcademyPlayer::class)->name('game.academy.dismiss');
+        // Reserve team (filial games)
+        Route::get('/game/{gameId}/squad/reserve', ShowReserveTeam::class)->name('game.squad.reserve');
+        Route::post('/game/{gameId}/reserve/{playerId}/call-up', CallUpReservePlayer::class)->name('game.reserve.call-up');
+        Route::post('/game/{gameId}/reserve/{playerId}/send-back', SendBackReservePlayer::class)->name('game.reserve.send-back');
+        Route::post('/game/{gameId}/squad/{playerId}/send-down', SendDownToReserve::class)->name('game.squad.send-down');
+        // Club hub — Finances, Stadium, Reputation (and future non-sporting tenants)
+        Route::get('/game/{gameId}/club', fn (string $gameId) => redirect()->route('game.club.finances', $gameId))->name('game.club');
+        Route::get('/game/{gameId}/club/finances', ShowFinances::class)->name('game.club.finances');
+        Route::get('/game/{gameId}/club/stadium', ShowClubStadium::class)->name('game.club.stadium');
+        Route::post('/game/{gameId}/club/stadium/season-tickets', SaveSeasonTicketPricing::class)->name('game.club.stadium.season-tickets.save');
+        Route::post('/game/{gameId}/club/stadium/supplementary', CommitSupplementaryStands::class)->name('game.club.stadium.supplementary');
+        Route::post('/game/{gameId}/club/stadium/expansion', CommitStandExpansion::class)->name('game.club.stadium.expansion');
+        Route::post('/game/{gameId}/club/stadium/rebuild', CommitStadiumRebuild::class)->name('game.club.stadium.rebuild');
+        Route::post('/game/{gameId}/club/stadium/uefa-upgrade', CommitStadiumUefaUpgrade::class)->name('game.club.stadium.uefa-upgrade');
+        Route::post('/game/{gameId}/club/stadium/rename', RenameStadium::class)->name('game.club.stadium.rename');
+        Route::get('/game/{gameId}/club/commercial', ShowClubCommercial::class)->name('game.club.commercial');
+        Route::post('/game/{gameId}/club/commercial/seek', SeekSponsors::class)->name('game.club.commercial.seek');
+        Route::post('/game/{gameId}/club/commercial/naming-rights/accept', AcceptNamingRightsDeal::class)->name('game.club.commercial.naming-rights.accept');
+        Route::get('/game/{gameId}/club/reputation', ShowClubReputation::class)->name('game.club.reputation');
+        Route::get('/game/{gameId}/club/investment', ShowClubInvestment::class)->name('game.club.investment');
+        Route::post('/game/{gameId}/club/investment', SaveClubInvestment::class)->name('game.club.investment.save');
+        Route::post('/game/{gameId}/club/investment/stage-downgrade', StageInvestmentDowngrade::class)->name('game.club.investment.stage-downgrade');
+        Route::get('/game/{gameId}/transfers', ShowIncomingTransfers::class)->name('game.transfers');
+        Route::get('/game/{gameId}/transfers/outgoing', ShowOutgoingTransfers::class)->name('game.transfers.outgoing');
+        Route::get('/game/{gameId}/transfers/market', ShowTransferMarket::class)->name('game.transfers.market');
+        Route::get('/game/{gameId}/transfer-activity', ShowTransferActivity::class)->name('game.transfer-activity');
+        Route::get('/game/{gameId}/calendar', ShowCalendar::class)->name('game.calendar');
+        Route::get('/game/{gameId}/competition/{competitionId}', ShowCompetition::class)->name('game.competition');
+        Route::get('/game/{gameId}/results/{competition}/{matchday}', ShowMatchResults::class)->name('game.results');
+        Route::get('/game/{gameId}/match/{matchId}/summary', ShowMatchSummary::class)->name('game.match.summary');
+        Route::get('/game/{gameId}/live/{matchId}', ShowLiveMatch::class)->name('game.live-match');
+        Route::get('/game/{gameId}/lineup', ShowLineup::class)->name('game.lineup');
+        Route::get('/game/{gameId}/opponent', ShowOpponentAnalysis::class)->name('game.opponent-analysis');
+        Route::get('/game/{gameId}/pre-match-data', ShowPreMatchData::class)->name('game.pre-match-data');
+
+        // Game Actions
+        Route::post('/game/{gameId}/advance', AdvanceMatchday::class)->name('game.advance');
+
+        // Fast mode (assistant coach)
+        Route::get('/game/{gameId}/fast-mode', ShowFastMode::class)->name('game.fast-mode');
+        Route::post('/game/{gameId}/fast-mode/enter', EnterFastMode::class)->name('game.fast-mode.enter');
+        Route::post('/game/{gameId}/fast-mode/exit', ExitFastMode::class)->name('game.fast-mode.exit');
+        Route::post('/game/{gameId}/fast-mode/advance', AdvanceFastMatchday::class)->name('game.fast-mode.advance');
+        Route::post('/game/{gameId}/lineup', SaveLineup::class)->name('game.lineup.save');
+        Route::get('/game/{gameId}/lineup/auto', GetAutoLineup::class)->name('game.lineup.auto');
+        Route::post('/game/{gameId}/lineup/compute-slots', ComputeSlotAssignments::class)->name('game.lineup.computeSlots');
+        Route::post('/game/{gameId}/tactical-presets', SaveTacticalPreset::class)->name('game.tactical-presets.save');
+        Route::delete('/game/{gameId}/tactical-presets/{presetId}', DeleteTacticalPreset::class)->name('game.tactical-presets.delete');
+
+        Route::post('/game/{gameId}/match/{matchId}/tactical-actions', ProcessTacticalActions::class)->name('game.match.tactical-actions');
+        Route::post('/game/{gameId}/match/{matchId}/skip-to-end', SkipMatchToEnd::class)->name('game.match.skip-to-end');
+        Route::post('/game/{gameId}/match/{matchId}/extra-time', ProcessExtraTime::class)->name('game.match.extra-time');
+        Route::post('/game/{gameId}/match/{matchId}/penalties', ProcessPenalties::class)->name('game.match.penalties');
+        Route::post('/game/{gameId}/finalize-match', FinalizeMatch::class)->name('game.finalize-match');
+        // Transfers
+        Route::post('/game/{gameId}/transfers/list/{playerId}', ListPlayerForTransfer::class)->name('game.transfers.list');
+        Route::post('/game/{gameId}/transfers/unlist/{playerId}', UnlistPlayerFromTransfer::class)->name('game.transfers.unlist');
+        Route::post('/game/{gameId}/transfers/accept/{offerId}', AcceptTransferOffer::class)->name('game.transfers.accept');
+        Route::post('/game/{gameId}/transfers/reject/{offerId}', RejectTransferOffer::class)->name('game.transfers.reject');
+        Route::post('/game/{gameId}/transfers/withdraw/{offerId}', WithdrawTransferOffer::class)->name('game.transfers.withdraw');
+        Route::post('/game/{gameId}/negotiate/renewal/{playerId}', NegotiateRenewal::class)->name('game.negotiate.renewal');
+        Route::post('/game/{gameId}/negotiate/transfer/{playerId}', NegotiateTransfer::class)->name('game.negotiate.transfer');
+        Route::post('/game/{gameId}/negotiate/counter-offer/{offerId}', NegotiateCounterOffer::class)->name('game.negotiate.counter-offer');
+        Route::post('/game/{gameId}/negotiate/pre-contract/{playerId}', NegotiatePreContract::class)->name('game.negotiate.pre-contract');
+        Route::post('/game/{gameId}/negotiate/loan/{playerId}', NegotiateLoan::class)->name('game.negotiate.loan');
+        Route::post('/game/{gameId}/negotiate/free-agent/{playerId}', NegotiateFreeAgent::class)->name('game.negotiate.free-agent');
+        Route::post('/game/{gameId}/transfers/decline-renewal/{playerId}', DeclineRenewal::class)->name('game.transfers.decline-renewal');
+        Route::post('/game/{gameId}/transfers/reconsider-renewal/{playerId}', ReconsiderRenewal::class)->name('game.transfers.reconsider-renewal');
+        Route::post('/game/{gameId}/squad/release/{playerId}', ReleasePlayer::class)->name('game.squad.release');
+
+        // Scouting
+        Route::get('/game/{gameId}/scouting', ShowScoutingHub::class)->name('game.scouting');
+        Route::get('/game/{gameId}/scouting/{reportId}/results', ShowScoutReportResults::class)->name('game.scouting.results');
+        Route::post('/game/{gameId}/scouting/search', SubmitScoutSearch::class)->name('game.scouting.search');
+        Route::post('/game/{gameId}/scouting/cancel', CancelScoutSearch::class)->name('game.scouting.cancel');
+        Route::post('/game/{gameId}/scouting/{playerId}/loan', RequestLoan::class)->name('game.scouting.loan');
+        Route::post('/game/{gameId}/scouting/{playerId}/sign-free-agent', SignFreeAgent::class)->name('game.scouting.sign-free-agent');
+        Route::post('/game/{gameId}/scouting/{playerId}/pre-contract', SubmitPreContractOffer::class)->name('game.scouting.pre-contract');
+        Route::post('/game/{gameId}/scouting/shortlist/{playerId}', ToggleShortlist::class)->name('game.scouting.shortlist.toggle');
+        Route::post('/game/{gameId}/scouting/shortlist/{playerId}/remove', RemoveFromShortlist::class)->name('game.scouting.shortlist.remove');
+        Route::delete('/game/{gameId}/scouting/{reportId}', DeleteScoutSearch::class)->name('game.scouting.delete');
+
+        // Explorer
+        Route::get('/game/{gameId}/explore', ShowExplore::class)->name('game.explore');
+        Route::get('/game/{gameId}/explore/teams/{competitionId}', ExploreTeams::class)->name('game.explore.teams');
+        Route::get('/game/{gameId}/explore/squad/{teamId}', ExploreSquad::class)->name('game.explore.squad');
+        Route::get('/game/{gameId}/explore/pool-teams/{poolId}', ExplorePoolTeams::class)->name('game.explore.pool-teams');
+        Route::get('/game/{gameId}/explore/team/{slug}', ShowExplore::class)->name('game.explore.team');
+
+        // Loans (redirect old URL to transfers)
+        Route::get('/game/{gameId}/loans', function (string $gameId) {
+            return redirect()->route('game.transfers.outgoing', $gameId);
+        })->name('game.loans');
+        Route::post('/game/{gameId}/loans/out/{playerId}', RequestLoan::class)->name('game.loans.out');
+        Route::post('/game/{gameId}/loans/cancel/{playerId}', CancelLoanSearch::class)->name('game.loans.cancel');
+        Route::post('/game/{gameId}/loans/offers/{offerId}/accept', AcceptLoanOffer::class)->name('game.loans.offers.accept');
+
+        // Season End
+        Route::get('/game/{gameId}/season-end', ShowSeasonEnd::class)->name('game.season-end');
+        Route::post('/game/{gameId}/start-new-season', StartNewSeason::class)->name('game.start-new-season');
+
+        // Pro-manager between-seasons decision screen. Continue on
+        // /season-end routes here when the user has unresolved offers; the
+        // Accept/Decline actions below re-enter StartNewSeason to kick off
+        // the closing pipeline.
+        Route::get('/game/{gameId}/season-offers', ShowSeasonOffers::class)->name('game.season-offers');
+
+        // Accepting stages the team-switch (applied by
+        // ApplyPendingTeamSwitchProcessor on the next SeasonSetupPipeline
+        // run); declining is blocked when fired.
+        Route::post('/game/{gameId}/job-offers/{offerId}/accept', \App\Http\Actions\AcceptSeasonOffer::class)
+            ->name('game.job-offers.accept');
+        Route::post('/game/{gameId}/job-offers/decline', \App\Http\Actions\DeclineSeasonOffers::class)
+            ->name('game.job-offers.decline');
+
+        // Pro-manager career history (season-by-season summary). 404s in
+        // non-pro-manager modes — gated inside the view class.
+        Route::get('/game/{gameId}/career', ShowManagerCareer::class)->name('game.manager.career');
+
+        // Tournament End
+        Route::get('/game/{gameId}/tournament-end', ShowTournamentEnd::class)->name('game.tournament-end');
+        Route::get('/game/{gameId}/simulate-tournament', SimulateTournament::class)->middleware('throttle:tournament-simulation')->name('game.simulate-tournament');
+
+        // Budget Allocation
+        // Legacy budget route — investment now lives on the Club investment page.
+        Route::get('/game/{gameId}/budget', fn (string $gameId) => redirect()->route('game.club.investment', $gameId))->name('game.budget');
+        Route::post('/game/{gameId}/infrastructure/upgrade', UpgradeInfrastructure::class)->name('game.infrastructure.upgrade');
+        Route::post('/game/{gameId}/budget-loan', RequestBudgetLoan::class)->name('game.budget-loan');
+
+        // Welcome Tutorial (new games only)
+        Route::get('/game/{gameId}/welcome', ShowWelcome::class)->name('game.welcome');
+        Route::post('/game/{gameId}/welcome', CompleteWelcome::class)->name('game.welcome.complete');
+
+        // New Season (season budget allocation)
+        Route::get('/game/{gameId}/new-season', ShowNewSeason::class)->name('game.new-season');
+        Route::post('/game/{gameId}/new-season', CompleteNewSeason::class)->name('game.new-season.complete');
+
+        // Pre-Season opponent selection (mandatory at season start)
+        Route::get('/game/{gameId}/preseason-setup', ShowPreseasonSetup::class)->name('game.preseason-setup');
+        Route::post('/game/{gameId}/preseason-setup', SavePreseasonOpponents::class)->name('game.preseason-setup.save');
+
+        // Squad Selection (Tournament mode new-season setup)
+        Route::get('/game/{gameId}/squad-selection', ShowSquadSelection::class)->name('game.squad-selection');
+        Route::post('/game/{gameId}/squad-selection', SaveSquadSelection::class)->name('game.squad-selection.save');
+
+        // Game Setup Status (polling endpoint)
+        Route::get('/game/{gameId}/setup-status', GameSetupStatus::class)->name('game.setup-status');
+
+        // Notifications. Reads are automatic — the inbox is a persistent feed
+        // and markAllAsRead runs at the start of each matchday advance (see
+        // MatchdayOrchestrator::advance) — so only the blocking critical-alert
+        // acknowledgements have explicit routes.
+        Route::post('/game/{gameId}/notifications/acknowledge-critical', AcknowledgeCriticalAlerts::class)->name('game.notifications.acknowledge-critical');
+        Route::post('/game/{gameId}/notifications/view-critical', ViewCriticalAlerts::class)->name('game.notifications.view-critical');
+    });
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+// Admin routes
+Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+    // Accessible while impersonating (impersonated user may not be admin)
+    Route::post('/stop-impersonation', StopImpersonation::class)->name('stop-impersonation');
+
+    // Admin-only routes
+    Route::middleware('admin')->group(function () {
+        Route::get('/', AdminDashboard::class)->name('dashboard');
+        Route::get('/users', AdminUsers::class)->name('users');
+        Route::get('/activation', AdminActivation::class)->name('activation');
+        Route::get('/game-stats', AdminGameStats::class)->name('game-stats');
+        Route::get('/waitlist', AdminWaitlist::class)->name('waitlist');
+        Route::post('/waitlist/{waitlistEntry}/invite', SendWaitlistInvite::class)->name('send-waitlist-invite');
+        Route::post('/waitlist/{waitlistEntry}/resend', ResendWaitlistInvite::class)->name('resend-waitlist-invite');
+        Route::post('/waitlist/bulk-invite', SendBulkWaitlistInvites::class)->name('bulk-waitlist-invite');
+        Route::post('/impersonate/{userId}', StartImpersonation::class)->name('impersonate');
+        Route::post('/users/{userId}/toggle-career', ToggleCareerAccess::class)->name('toggle-career');
+        Route::post('/users/{userId}/toggle-tournament', ToggleTournamentAccess::class)->name('toggle-tournament');
+        Route::post('/users/{userId}/toggle-database-editing', ToggleDatabaseEditing::class)->name('toggle-database-editing');
+        Route::get('/tech-tools', AdminTechTools::class)->name('tech-tools');
+        Route::get('/tech-tools/lookup-game', LookupGame::class)->name('lookup-game');
+        Route::post('/tech-tools/impersonate-by-game', ImpersonateByGame::class)->name('impersonate-by-game');
+    });
+});
+
+// Database editor routes
+Route::middleware(['auth', 'database.editor'])->prefix('editor')->name('editor.')->group(function () {
+    Route::get('/', fn () => redirect()->route('editor.player-templates.index'));
+    Route::get('/player-templates/search-players', SearchPlayers::class)->name('player-templates.search-players');
+    Route::get('/player-templates/search-teams', SearchTeams::class)->name('player-templates.search-teams');
+    Route::get('/player-templates/audit-log', AdminPlayerTemplateAuditLog::class)->name('player-templates.audit-log');
+    Route::get('/player-templates', AdminPlayerTemplates::class)->name('player-templates.index');
+    Route::get('/player-templates/{teamId}', AdminPlayerTemplateSquad::class)->name('player-templates.squad');
+    Route::post('/player-templates', StorePlayerTemplate::class)->name('player-templates.store');
+    Route::put('/player-templates/{id}', UpdatePlayerTemplate::class)->name('player-templates.update');
+    Route::delete('/player-templates/{id}', DeletePlayerTemplate::class)->name('player-templates.delete');
+    Route::post('/player-templates/{id}/restore/{auditId}', RestorePlayerTemplate::class)->name('player-templates.restore');
+});
+
+require __DIR__.'/auth.php';

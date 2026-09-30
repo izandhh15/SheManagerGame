@@ -1,0 +1,360 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/6981.png",
+  "name": "Beşiktaş JK",
+  "players": [
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jun 9, 1993",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "15623",
+      "marketValue": "",
+      "name": "Selda Akgöz",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Feb 2, 2000",
+      "foot": "left",
+      "height": "1,76m",
+      "id": "39873",
+      "marketValue": "",
+      "name": "Damla Şahin",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "26",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "May 8, 2008",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "121565",
+      "marketValue": "",
+      "name": "Nisa Yildiz",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "93",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jan 26, 1996",
+      "foot": "right",
+      "height": "1,66m",
+      "id": "22244",
+      "marketValue": "",
+      "name": "Berna Yeniçeri",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "2",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Dec 25, 1998",
+      "foot": "both",
+      "height": "1,70m",
+      "id": "35763",
+      "marketValue": "",
+      "name": "Glory Ogbonna",
+      "nationality": [
+        "Nigeria"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Mar 3, 2004",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "70675",
+      "marketValue": "",
+      "name": "Meryem Küçükbirinci",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "5",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Feb 23, 2002",
+      "foot": "right",
+      "height": "1,59m",
+      "id": "41726",
+      "marketValue": "",
+      "name": "Ece Tekmen",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "13",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Sep 14, 1998",
+      "foot": "right",
+      "height": "1,71m",
+      "id": "40697",
+      "marketValue": "",
+      "name": "Damla Bozyel",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "21",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "May 31, 2027",
+      "dateOfBirth": "Dec 19, 1997",
+      "foot": "left",
+      "height": "1,68m",
+      "id": "41607",
+      "marketValue": "",
+      "name": "Yeliz Açar",
+      "nationality": [
+        "Azerbaijan"
+      ],
+      "number": "23",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jul 10, 1998",
+      "foot": "left",
+      "height": "1,67m",
+      "id": "38636",
+      "marketValue": "",
+      "name": "Yana Derkach",
+      "nationality": [
+        "Ukraine"
+      ],
+      "number": "99",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Dec 9, 1993",
+      "foot": "both",
+      "height": "1,57m",
+      "id": "51334",
+      "marketValue": "",
+      "name": "Rafa Sudré",
+      "nationality": [
+        "Brazil"
+      ],
+      "number": "7",
+      "position": "Left Midfield"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "Jan 9, 2006",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "63004",
+      "marketValue": "",
+      "name": "Nihal Saraç",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "8",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "May 31, 2026",
+      "dateOfBirth": "Jul 22, 2002",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "37706",
+      "marketValue": "€20k",
+      "name": "Fatima Kome",
+      "nationality": [
+        "Cameroon"
+      ],
+      "number": "10",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jul 6, 1998",
+      "foot": "left",
+      "height": "1,68m",
+      "id": "40741",
+      "marketValue": "",
+      "name": "İlayda Civelek",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "17",
+      "position": "Left Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Oct 23, 2007",
+      "foot": "both",
+      "height": "1,60m",
+      "id": "77024",
+      "marketValue": "",
+      "name": "Ecemnur Öztürk",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "18",
+      "position": "Right Midfield"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "Feb 28, 2000",
+      "foot": "right",
+      "height": "1,65m",
+      "id": "39868",
+      "marketValue": "",
+      "name": "Cansu Kaya",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "20",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Feb 17, 1998",
+      "foot": "right",
+      "height": "1,64m",
+      "id": "30644",
+      "marketValue": "€25k",
+      "name": "Amira Ould Braham",
+      "nationality": [
+        "Algeria"
+      ],
+      "number": "22",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Mar 1, 2000",
+      "foot": "right",
+      "height": "1,52m",
+      "id": "43914",
+      "marketValue": "",
+      "name": "Sara Begallo",
+      "nationality": [
+        "Albania"
+      ],
+      "number": "53",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Mar 6, 2009",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "119543",
+      "marketValue": "",
+      "name": "Gamze Ağirman",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "58",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "May 31, 2026",
+      "dateOfBirth": "Jan 15, 1994",
+      "foot": "right",
+      "height": "1,66m",
+      "id": "15624",
+      "marketValue": "",
+      "name": "Sevgi Çınar",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "77",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Oct 10, 2003",
+      "foot": "right",
+      "height": "1,64m",
+      "id": "89266",
+      "marketValue": "",
+      "name": "Milica Popović",
+      "nationality": [
+        "Serbia"
+      ],
+      "number": "9",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Oct 5, 2002",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "36125",
+      "marketValue": "€40k",
+      "name": "Jelena Karličić",
+      "nationality": [
+        "Montenegro"
+      ],
+      "number": "11",
+      "position": "Right Winger"
+    },
+    {
+      "contract": "May 31, 2027",
+      "dateOfBirth": "Apr 11, 1999",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "44807",
+      "marketValue": "",
+      "name": "Esra Manya",
+      "nationality": [
+        "Azerbaijan"
+      ],
+      "number": "19",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Mar 23, 2000",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "39871",
+      "marketValue": "€35k",
+      "name": "Birgül Sadikoğlu",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "27",
+      "position": "Left Winger"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Dec 27, 2008",
+      "foot": "both",
+      "height": "1,64m",
+      "id": "91645",
+      "marketValue": "",
+      "name": "Elif Mutlu",
+      "nationality": [
+        "Turkey"
+      ],
+      "number": "90",
+      "position": "Right Winger"
+    }
+  ],
+  "stadiumName": "Fulya Hakki Yeten Tesisleri",
+  "stadiumSeats": "250",
+  "transfermarktId": "6981",
+  "country": "TR"
+}

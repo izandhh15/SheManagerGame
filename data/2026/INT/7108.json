@@ -1,0 +1,402 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/7108.png",
+  "name": "Club América",
+  "players": [
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 9, 2003",
+      "foot": "",
+      "height": "1,76m",
+      "id": "43707",
+      "marketValue": "",
+      "name": "Celeste Espino",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 23, 2004",
+      "foot": "",
+      "height": "1,72m",
+      "id": "57667",
+      "marketValue": "",
+      "name": "Itzel Velasco",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "12",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 22, 2008",
+      "foot": "",
+      "height": "1,70m",
+      "id": "81710",
+      "marketValue": "",
+      "name": "Valentina Murrieta",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "20",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 24, 2001",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "37953",
+      "marketValue": "",
+      "name": "Jaidy Gutiérrez",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "23",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2029",
+      "dateOfBirth": "Jan 20, 2001",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "37887",
+      "marketValue": "",
+      "name": "Isa Haas",
+      "nationality": [
+        "Brazil"
+      ],
+      "number": "2",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 2, 1999",
+      "foot": "",
+      "height": "1,72m",
+      "id": "31798",
+      "marketValue": "",
+      "name": "Karina Rodríguez",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "3",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 2, 2003",
+      "foot": "",
+      "height": "1,67m",
+      "id": "43482",
+      "marketValue": "",
+      "name": "Karol Bernal",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 26, 1999",
+      "foot": "left",
+      "height": "1,69m",
+      "id": "23058",
+      "marketValue": "",
+      "name": "Kimberly Rodríguez",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "15",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 12, 1998",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "40587",
+      "marketValue": "",
+      "name": "Karen Luna",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "26",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 20, 2005",
+      "foot": "",
+      "height": "1,64m",
+      "id": "81720",
+      "marketValue": "",
+      "name": "Mariela Ramos",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "28",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 21, 2007",
+      "foot": "",
+      "height": "1,67m",
+      "id": "82322",
+      "marketValue": "",
+      "name": "Nicol de Léon",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "72",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Apr 2, 1997",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "42254",
+      "marketValue": "",
+      "name": "Gaby García",
+      "nationality": [
+        "Venezuela"
+      ],
+      "number": "5",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "Dec 12, 1996",
+      "foot": "",
+      "height": "1,68m",
+      "id": "38463",
+      "marketValue": "",
+      "name": "Irene Guerrero",
+      "nationality": [
+        "Spain"
+      ],
+      "number": "8",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 30, 2004",
+      "foot": "",
+      "height": "1,75m",
+      "id": "116545",
+      "marketValue": "",
+      "name": "Xcaret Pineda",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "13",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 20, 2007",
+      "foot": "",
+      "height": "1,60m",
+      "id": "81722",
+      "marketValue": "",
+      "name": "Alexa Soto",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "14",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 24, 2005",
+      "foot": "right",
+      "height": "1,67m",
+      "id": "79085",
+      "marketValue": "",
+      "name": "Julie Lopez",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "16",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 2, 1996",
+      "foot": "",
+      "height": "1,71m",
+      "id": "25250",
+      "marketValue": "",
+      "name": "Nancy Antonio",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "18",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 20, 2006",
+      "foot": "left",
+      "height": "1,78m",
+      "id": "60082",
+      "marketValue": "",
+      "name": "Montserrat Saldívar",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "19",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Jun 30, 2029",
+      "dateOfBirth": "Dec 16, 1997",
+      "foot": "both",
+      "height": "1,72m",
+      "id": "48579",
+      "marketValue": "",
+      "name": "Sarah Luebbert",
+      "nationality": [
+        "United States"
+      ],
+      "number": "22",
+      "position": "Right Winger"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 25, 2003",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "43517",
+      "marketValue": "",
+      "name": "Jana Gutiérrez",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "25",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 1, 2008",
+      "foot": "",
+      "height": "1,67m",
+      "id": "82484",
+      "marketValue": "",
+      "name": "Ana Pedrero",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "66",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jun 4, 2002",
+      "foot": "left",
+      "height": "1,63m",
+      "id": "35194",
+      "marketValue": "",
+      "name": "Bruna Vilamala",
+      "nationality": [
+        "Spain"
+      ],
+      "number": "6",
+      "position": "Right Winger"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Aug 22, 2004",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "68507",
+      "marketValue": "",
+      "name": "Priscila",
+      "nationality": [
+        "Brazil"
+      ],
+      "number": "9",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 20, 2000",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "67251",
+      "marketValue": "",
+      "name": "Scarlett Camberos",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "10",
+      "position": "Left Winger"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 18, 2003",
+      "foot": "",
+      "height": "1,54m",
+      "id": "37972",
+      "marketValue": "",
+      "name": "Aylin Aviléz",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "11",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 27, 1998",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "35787",
+      "marketValue": "",
+      "name": "Geyse",
+      "nationality": [
+        "Brazil"
+      ],
+      "number": "17",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 21, 2005",
+      "foot": "right",
+      "height": "1,56m",
+      "id": "75158",
+      "marketValue": "",
+      "name": "Alondra Cabanillas",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "24",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 13, 2004",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "99496",
+      "marketValue": "",
+      "name": "Giana Riley",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "30",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Estadio Azteca",
+  "stadiumSeats": "81070",
+  "transfermarktId": "7108",
+  "country": "MX"
+}

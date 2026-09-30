@@ -1,0 +1,425 @@
+{
+  "image": "https://assets.virtuafc.com/crests/3854.png",
+  "name": "DR Congo",
+  "players": [
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/3057.png",
+        "name": "Standard Liège"
+      },
+      "dateOfBirth": "Jan 15, 2005",
+      "foot": "right",
+      "height": "1,89m",
+      "id": "680218",
+      "injured": false,
+      "marketValue": "€5.00m",
+      "name": "Matthieu Epolo",
+      "overall_score": 75,
+      "position": "Goalkeeper",
+      "potential": 85
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/60368.png",
+        "name": "FC Noah Yerevan"
+      },
+      "dateOfBirth": "Jul 24, 1999",
+      "foot": "right",
+      "height": "1,92m",
+      "id": "541420",
+      "injured": false,
+      "marketValue": "€800k",
+      "name": "Timothy Fayulu",
+      "overall_score": 69,
+      "position": "Goalkeeper",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/738.png",
+        "name": "Le Havre AC"
+      },
+      "dateOfBirth": "Aug 1, 1994",
+      "foot": "right",
+      "height": "1,82m",
+      "id": "164915",
+      "injured": false,
+      "marketValue": "€400k",
+      "name": "Lionel Mpasi-Nzau",
+      "overall_score": 70,
+      "position": "Goalkeeper",
+      "potential": 70
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1132.png",
+        "name": "Burnley FC"
+      },
+      "dateOfBirth": "Nov 14, 1997",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "342046",
+      "injured": false,
+      "marketValue": "€5.00m",
+      "name": "Axel Tuanzebe",
+      "overall_score": 73,
+      "position": "Centre-Back",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1082.png",
+        "name": "LOSC Lille"
+      },
+      "dateOfBirth": "Aug 8, 1994",
+      "foot": "right",
+      "height": "1,82m",
+      "id": "203348",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "Chancel Mbemba",
+      "overall_score": 76,
+      "position": "Centre-Back",
+      "potential": 76
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/88.png",
+        "name": "Widzew Lodz"
+      },
+      "dateOfBirth": "Apr 30, 1998",
+      "foot": "left",
+      "height": "1,96m",
+      "id": "679709",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "Steve Kapuadi",
+      "overall_score": 70,
+      "position": "Centre-Back",
+      "potential": 70
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/4603.png",
+        "name": "AE Larisa"
+      },
+      "dateOfBirth": "Feb 15, 1996",
+      "foot": "right",
+      "height": "1,88m",
+      "id": "289432",
+      "injured": false,
+      "marketValue": "€700k",
+      "name": "Dylan Batubinsika",
+      "overall_score": 69,
+      "position": "Centre-Back",
+      "potential": 70
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1184.png",
+        "name": "KRC Genk"
+      },
+      "dateOfBirth": "Aug 8, 1994",
+      "foot": "left",
+      "height": "1,81m",
+      "id": "129586",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "Joris Kayembe",
+      "overall_score": 74,
+      "position": "Left-Back",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/826.png",
+        "name": "RC Lens"
+      },
+      "dateOfBirth": "Nov 7, 1993",
+      "foot": "left",
+      "height": "1,79m",
+      "id": "181380",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "Arthur Masuaku",
+      "overall_score": 74,
+      "position": "Left-Back",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/379.png",
+        "name": "West Ham United"
+      },
+      "dateOfBirth": "Nov 26, 1997",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "477758",
+      "injured": false,
+      "marketValue": "€22.00m",
+      "name": "Aaron Wan-Bissaka",
+      "overall_score": 79,
+      "position": "Right-Back",
+      "potential": 79
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/10586.png",
+        "name": "Aris Limassol"
+      },
+      "dateOfBirth": "Aug 29, 1997",
+      "foot": "right",
+      "height": "1,79m",
+      "id": "395685",
+      "injured": false,
+      "marketValue": "€1.30m",
+      "name": "Gédéon Kalulu",
+      "overall_score": 71,
+      "position": "Right-Back",
+      "potential": 71
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1082.png",
+        "name": "LOSC Lille"
+      },
+      "dateOfBirth": "Nov 3, 2004",
+      "foot": "left",
+      "height": "1,86m",
+      "id": "1016015",
+      "injured": false,
+      "marketValue": "€12.00m",
+      "name": "Ngal'ayel Mukau",
+      "overall_score": 74,
+      "position": "Defensive Midfield",
+      "potential": 82
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/714.png",
+        "name": "RCD Espanyol Barcelona"
+      },
+      "dateOfBirth": "May 15, 1997",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "243879",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "Charles Pickel",
+      "overall_score": 70,
+      "position": "Defensive Midfield",
+      "potential": 70
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/289.png",
+        "name": "Sunderland AFC"
+      },
+      "dateOfBirth": "Dec 17, 2004",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "727089",
+      "injured": false,
+      "marketValue": "€30.00m",
+      "name": "Noah Sadiki",
+      "overall_score": 79,
+      "position": "Central Midfield",
+      "potential": 85
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1010.png",
+        "name": "Watford FC"
+      },
+      "dateOfBirth": "Jun 3, 1998",
+      "foot": "left",
+      "height": "1,83m",
+      "id": "486477",
+      "injured": false,
+      "marketValue": "€4.00m",
+      "name": "Edo Kayembe",
+      "overall_score": 71,
+      "position": "Central Midfield",
+      "potential": 72
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/3060.png",
+        "name": "Atromitos Athens"
+      },
+      "dateOfBirth": "Aug 12, 1996",
+      "foot": "left",
+      "height": "1,76m",
+      "id": "353403",
+      "injured": false,
+      "marketValue": "€1.20m",
+      "name": "Samuel Moutoussamy",
+      "overall_score": 70,
+      "position": "Central Midfield",
+      "potential": 70
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2553.png",
+        "name": "Kilmarnock FC"
+      },
+      "dateOfBirth": "Jan 2, 1995",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "243633",
+      "injured": false,
+      "marketValue": "€150k",
+      "name": "Aaron Tshibola",
+      "overall_score": 64,
+      "position": "Central Midfield",
+      "potential": 64
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/11282.png",
+        "name": "Alanyaspor"
+      },
+      "dateOfBirth": "Aug 6, 1997",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "423678",
+      "injured": false,
+      "marketValue": "€1.50m",
+      "name": "Meschack Elia",
+      "overall_score": 67,
+      "position": "Attacking Midfield",
+      "potential": 67
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/4603.png",
+        "name": "AE Larisa"
+      },
+      "dateOfBirth": "Jun 21, 1991",
+      "foot": "left",
+      "height": "1,73m",
+      "id": "74297",
+      "injured": false,
+      "marketValue": "€300k",
+      "name": "Gaël Kakuta",
+      "overall_score": 68,
+      "position": "Attacking Midfield",
+      "potential": 68
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/969.png",
+        "name": "Montpellier HSC"
+      },
+      "dateOfBirth": "Mar 16, 2002",
+      "foot": "left",
+      "height": "1,70m",
+      "id": "557614",
+      "injured": false,
+      "marketValue": "€2.00m",
+      "name": "Nathanaël Mbuku",
+      "overall_score": 70,
+      "position": "Left Winger",
+      "potential": 76
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2502.png",
+        "name": "CD Castellón"
+      },
+      "dateOfBirth": "Mar 11, 1998",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "700565",
+      "injured": false,
+      "marketValue": "€2.00m",
+      "name": "Brian Cipenga",
+      "overall_score": 73,
+      "position": "Left Winger",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/232.png",
+        "name": "Spartak Moscow"
+      },
+      "dateOfBirth": "Nov 20, 1995",
+      "foot": "left",
+      "height": "1,75m",
+      "id": "280701",
+      "injured": false,
+      "marketValue": "€3.00m",
+      "name": "Théo Bongonda",
+      "overall_score": 74,
+      "position": "Right Winger",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/762.png",
+        "name": "Newcastle United"
+      },
+      "dateOfBirth": "Sep 3, 1996",
+      "foot": "right",
+      "height": "1,76m",
+      "id": "388165",
+      "injured": false,
+      "marketValue": "€30.00m",
+      "name": "Yoane Wissa",
+      "overall_score": 81,
+      "position": "Centre-Forward",
+      "potential": 81
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2524.png",
+        "name": "Al-Jazira Club"
+      },
+      "dateOfBirth": "Aug 13, 1996",
+      "foot": "right",
+      "height": "1,89m",
+      "id": "344869",
+      "injured": false,
+      "marketValue": "€10.00m",
+      "name": "Simon Banza",
+      "overall_score": 80,
+      "position": "Centre-Forward",
+      "potential": 80
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/44664.png",
+        "name": "Pyramids FC"
+      },
+      "dateOfBirth": "Jun 24, 1994",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "727157",
+      "injured": false,
+      "marketValue": "€1.80m",
+      "name": "Fiston Mayele",
+      "overall_score": 73,
+      "position": "Centre-Forward",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/150.png",
+        "name": "Real Betis Balompié"
+      },
+      "dateOfBirth": "Apr 11, 1991",
+      "foot": "right",
+      "height": "1,82m",
+      "id": "127048",
+      "injured": false,
+      "marketValue": "€1.40m",
+      "name": "Cédric Bakambu",
+      "overall_score": 75,
+      "position": "Centre-Forward",
+      "potential": 75
+    }
+  ],
+  "stadiumName": null,
+  "stadiumSeats": null,
+  "transfermarktId": "3854"
+}

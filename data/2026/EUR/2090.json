@@ -1,0 +1,360 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/2090.png",
+  "name": "Glasgow Rangers LFC",
+  "players": [
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Dec 1, 1995",
+      "foot": "",
+      "height": "1,75m",
+      "id": "31617",
+      "marketValue": "",
+      "name": "Jenna Fife",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jul 11, 2002",
+      "foot": "right",
+      "height": "1,71m",
+      "id": "37758",
+      "marketValue": "",
+      "name": "Shu Ohba",
+      "nationality": [
+        "Japan"
+      ],
+      "number": "18",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 11, 2010",
+      "foot": "",
+      "height": "",
+      "id": "121738",
+      "marketValue": "",
+      "name": "Lola Rose Rarity",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "36",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Aug 23, 1992",
+      "foot": "",
+      "height": "1,70m",
+      "id": "10824",
+      "marketValue": "",
+      "name": "Nicola Docherty",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "2",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jun 21, 1994",
+      "foot": "",
+      "height": "1,73m",
+      "id": "10830",
+      "marketValue": "",
+      "name": "Kathryn Hill",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Apr 29, 1996",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "23279",
+      "marketValue": "",
+      "name": "Laura Rafferty",
+      "nationality": [
+        "Northern Ireland"
+      ],
+      "number": "6",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Mar 11, 1998",
+      "foot": "left",
+      "height": "1,73m",
+      "id": "27901",
+      "marketValue": "",
+      "name": "Mijke Roelfsema",
+      "nationality": [
+        "Netherlands"
+      ],
+      "number": "11",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2029",
+      "dateOfBirth": "Jan 3, 2009",
+      "foot": "",
+      "height": "",
+      "id": "94389",
+      "marketValue": "",
+      "name": "Lily Boyce",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "13",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "May 15, 2005",
+      "foot": "",
+      "height": "",
+      "id": "62911",
+      "marketValue": "",
+      "name": "Eilidh Austin",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "16",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Jan 6, 1994",
+      "foot": "both",
+      "height": "1,64m",
+      "id": "11452",
+      "marketValue": "",
+      "name": "Kirsty Smith",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "22",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jul 14, 2006",
+      "foot": "",
+      "height": "",
+      "id": "89357",
+      "marketValue": "",
+      "name": "Fallon Connolly-Jackson",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "29",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 29, 2010",
+      "foot": "",
+      "height": "",
+      "id": "113658",
+      "marketValue": "",
+      "name": "Isla Miller",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "49",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 20, 2010",
+      "foot": "",
+      "height": "",
+      "id": "113656",
+      "marketValue": "",
+      "name": "Lexie Kelly Fellows",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "58",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Mar 1, 1999",
+      "foot": "",
+      "height": "",
+      "id": "39679",
+      "marketValue": "",
+      "name": "Brogan Hay",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "7",
+      "position": "Right Midfield"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Jul 1, 2000",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "36985",
+      "marketValue": "",
+      "name": "Gry Thrysøe",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "8",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Apr 30, 2008",
+      "foot": "",
+      "height": "1,71m",
+      "id": "85577",
+      "marketValue": "",
+      "name": "Eva Hendle",
+      "nationality": [
+        "England"
+      ],
+      "number": "14",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Sep 6, 2009",
+      "foot": "",
+      "height": "1,75m",
+      "id": "94391",
+      "marketValue": "",
+      "name": "May Cruft",
+      "nationality": [
+        "England"
+      ],
+      "number": "21",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Jun 1, 2005",
+      "foot": "",
+      "height": "",
+      "id": "63284",
+      "marketValue": "",
+      "name": "Jodi McLeary",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "26",
+      "position": "Left Midfield"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Feb 29, 2008",
+      "foot": "",
+      "height": "",
+      "id": "83033",
+      "marketValue": "",
+      "name": "Sophie Black",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "40",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Aug 20, 2003",
+      "foot": "",
+      "height": "",
+      "id": "62880",
+      "marketValue": "",
+      "name": "Bailley Collins",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "3",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Jun 11, 2007",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "70623",
+      "marketValue": "",
+      "name": "Laura Berry",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "9",
+      "position": "Right Winger"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "May 5, 2000",
+      "foot": "",
+      "height": "1,71m",
+      "id": "35822",
+      "marketValue": "",
+      "name": "Hannah Blake",
+      "nationality": [
+        "New Zealand"
+      ],
+      "number": "10",
+      "position": "Right Winger"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Apr 19, 1992",
+      "foot": "",
+      "height": "1,73m",
+      "id": "10076",
+      "marketValue": "",
+      "name": "Sarah Ewens",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "19",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Jul 9, 2002",
+      "foot": "",
+      "height": "1,70m",
+      "id": "107064",
+      "marketValue": "",
+      "name": "Calliste Brookshire",
+      "nationality": [
+        "Greece"
+      ],
+      "number": "24",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Nov 5, 1994",
+      "foot": "",
+      "height": "",
+      "id": "12364",
+      "marketValue": "",
+      "name": "Katie Wilkinson",
+      "nationality": [
+        "England"
+      ],
+      "number": "44",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Broadwood Stadium",
+  "stadiumSeats": "8086",
+  "transfermarktId": "2090",
+  "country": "GB-SCT"
+}

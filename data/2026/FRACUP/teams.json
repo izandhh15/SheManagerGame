@@ -1,0 +1,67 @@
+{
+  "id": "FRACUP",
+  "name": "Coupe de France Féminine",
+  "seasonID": "2026",
+  "clubs": [
+    {
+      "id": "4782",
+      "name": "US Saint-Malo",
+      "entryRound": 1
+    },
+    {
+      "id": "361",
+      "name": "Toulouse FC",
+      "entryRound": 1
+    },
+    {
+      "id": "6896",
+      "name": "Le Havre AC",
+      "entryRound": 1
+    },
+    {
+      "id": "8038",
+      "name": "RC Lens",
+      "entryRound": 1
+    },
+    {
+      "id": "18001",
+      "name": "Montpellier FC",
+      "entryRound": 1
+    },
+    {
+      "id": "6650",
+      "name": "FC Nantes",
+      "entryRound": 1
+    },
+    {
+      "id": "7214",
+      "name": "RC Strasbourg",
+      "entryRound": 1
+    },
+    {
+      "id": "4696",
+      "name": "Olympique de Marseille",
+      "entryRound": 1
+    },
+    {
+      "id": "6327",
+      "name": "FC Fleury 91",
+      "entryRound": 2
+    },
+    {
+      "id": "6328",
+      "name": "Paris FC",
+      "entryRound": 2
+    },
+    {
+      "id": "254",
+      "name": "Paris Saint-Germain",
+      "entryRound": 2
+    },
+    {
+      "id": "16742",
+      "name": "OL Lyonnes",
+      "entryRound": 2
+    }
+  ]
+}

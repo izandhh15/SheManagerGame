@@ -1,0 +1,306 @@
+<?php
+
+namespace App\Modules\Match\Services;
+
+use App\Modules\Match\DTOs\MatchResult;
+use App\Modules\Competition\DTOs\PlayoffRoundConfig;
+use App\Modules\Competition\Services\PlayoffTiebreakerService;
+use App\Models\CupTie;
+use App\Models\GameMatch;
+use App\Models\GamePlayer;
+use App\Models\Team;
+use App\Modules\Match\Support\ScoreEventsAuditor;
+use App\Modules\Match\Support\StoppageCalculator;
+use App\Modules\Match\Support\StoppageDurations;
+use Illuminate\Support\Collection;
+use App\Modules\Match\Services\MatchSimulator;
+
+class CupTieResolver
+{
+    public function __construct(
+        private readonly MatchSimulator $matchSimulator,
+        private readonly MatchEventRepository $matchEventRepository,
+        private readonly PlayoffTiebreakerService $playoffTiebreakerService,
+        private readonly MatchLineupResolver $lineupResolver = new MatchLineupResolver,
+        private readonly StoppageCalculator $stoppageCalculator = new StoppageCalculator,
+    ) {}
+
+    /**
+     * Attempt to resolve a cup tie and determine the winner.
+     * Returns the winner team_id if tie is complete, null if more matches needed.
+     */
+    public function resolve(CupTie $tie, Collection $allPlayers, ?PlayoffRoundConfig $roundConfig = null): ?string
+    {
+        $roundConfig ??= $tie->getRoundConfig();
+
+        if (!$roundConfig) {
+            return null;
+        }
+
+        $firstLeg = $tie->firstLegMatch;
+
+        if (!$firstLeg?->played) {
+            return null;
+        }
+
+        if ($roundConfig->twoLegged) {
+            return $this->resolveTwoLeggedTie($tie, $allPlayers);
+        }
+
+        return $this->resolveSingleLegMatch($tie, $firstLeg, $allPlayers);
+    }
+
+    /**
+     * Resolve a single-leg knockout match.
+     * If drawn after 90 minutes, goes to extra time then penalties.
+     */
+    private function resolveSingleLegMatch(CupTie $tie, GameMatch $match, Collection $allPlayers): string
+    {
+        $homeScore = $match->home_score;
+        $awayScore = $match->away_score;
+
+        // Clear winner after 90 minutes?
+        if ($homeScore !== $awayScore) {
+            $winnerId = $homeScore > $awayScore ? $match->home_team_id : $match->away_team_id;
+            $this->completeTie($tie, $winnerId, ['type' => 'normal']);
+            return $winnerId;
+        }
+
+        // Check if ET was already simulated during the live match
+        if ($match->is_extra_time) {
+            $homeScoreEt = $match->home_score_et ?? 0;
+            $awayScoreEt = $match->away_score_et ?? 0;
+        } else {
+            // Draw - need extra time. Use eager-loaded relations or fall back to query.
+            $homePlayers = $allPlayers->get($match->home_team_id, collect());
+            $awayPlayers = $allPlayers->get($match->away_team_id, collect());
+            $homeTeam = $match->relationLoaded('homeTeam') ? $match->homeTeam : Team::find($match->home_team_id);
+            $awayTeam = $match->relationLoaded('awayTeam') ? $match->awayTeam : Team::find($match->away_team_id);
+
+            $extraTimeResult = $this->matchSimulator->simulateExtraTime(
+                $homeTeam,
+                $awayTeam,
+                $homePlayers,
+                $awayPlayers,
+                neutralVenue: $match->isNeutralVenue(),
+                homePlayerSlots: $match->playerSlotMap('home'),
+                awayPlayerSlots: $match->playerSlotMap('away'),
+                stoppage: StoppageDurations::fromMatch($match),
+            );
+
+            $homeScoreEt = $extraTimeResult->homeScore;
+            $awayScoreEt = $extraTimeResult->awayScore;
+
+            // Derive ET stoppage from events, persist before event-insert.
+            $etStoppage = $this->stoppageCalculator->calculateExtraTime(
+                $extraTimeResult->events,
+                regulationStoppage: (int) ($match->first_half_stoppage ?? 0)
+                    + (int) ($match->second_half_stoppage ?? 0),
+            );
+
+            $match->update([
+                'is_extra_time' => true,
+                'home_score_et' => $homeScoreEt,
+                'away_score_et' => $awayScoreEt,
+                'home_possession' => $extraTimeResult->homePossession,
+                'away_possession' => $extraTimeResult->awayPossession,
+                'et_first_half_stoppage' => $etStoppage['et_first_half'],
+                'et_second_half_stoppage' => $etStoppage['et_second_half'],
+            ]);
+
+            // Persist ET goal/card/etc. events so scorer lists stay consistent
+            // with the ET-inclusive totals reported by the match views.
+            $this->matchEventRepository->bulkInsert(
+                $extraTimeResult->events,
+                $match->game_id,
+                $match->id,
+            );
+
+            ScoreEventsAuditor::audit($match->refresh(), 'cup_tie_single_leg_extra_time');
+        }
+
+        $totalHome = $homeScore + $homeScoreEt;
+        $totalAway = $awayScore + $awayScoreEt;
+
+        if ($totalHome !== $totalAway) {
+            $winnerId = $totalHome > $totalAway ? $match->home_team_id : $match->away_team_id;
+            $this->completeTie($tie, $winnerId, [
+                'type' => 'extra_time',
+                'score_after_et' => "{$totalHome}-{$totalAway}",
+            ]);
+            return $winnerId;
+        }
+
+        // Check if penalties were already simulated during the live match
+        if ($match->home_score_penalties !== null) {
+            $homePens = $match->home_score_penalties;
+            $awayPens = $match->away_score_penalties;
+        } else {
+            // Only players on the pitch at the final whistle of ET can take penalties.
+            [$homePitch, $awayPitch] = $this->lineupResolver->playersOnPitchAtEnd($match);
+
+            [$homePens, $awayPens] = $this->matchSimulator->simulatePenalties($homePitch, $awayPitch);
+
+            $match->update([
+                'home_score_penalties' => $homePens,
+                'away_score_penalties' => $awayPens,
+            ]);
+        }
+
+        $winnerId = $homePens > $awayPens ? $match->home_team_id : $match->away_team_id;
+        $this->completeTie($tie, $winnerId, [
+            'type' => 'penalties',
+            'score_after_et' => "{$totalHome}-{$totalAway}",
+            'penalties' => "{$homePens}-{$awayPens}",
+        ]);
+
+        return $winnerId;
+    }
+
+    /**
+     * Resolve a two-legged tie using aggregate score.
+     * If tied on aggregate, extra time and penalties in second leg.
+     */
+    private function resolveTwoLeggedTie(CupTie $tie, Collection $allPlayers): ?string
+    {
+        $secondLeg = $tie->secondLegMatch;
+
+        if (!$secondLeg?->played) {
+            return null;
+        }
+
+        $aggregate = $tie->getAggregateScore();
+        $homeTotal = $aggregate['home'];
+        $awayTotal = $aggregate['away'];
+
+        // Clear winner on aggregate?
+        if ($homeTotal !== $awayTotal) {
+            $winnerId = $homeTotal > $awayTotal ? $tie->home_team_id : $tie->away_team_id;
+            $this->completeTie($tie, $winnerId, [
+                'type' => 'aggregate',
+                'aggregate' => "{$homeTotal}-{$awayTotal}",
+            ]);
+            return $winnerId;
+        }
+
+        // Tied on aggregate - extra time in second leg
+        // Check if ET was already simulated during the live match
+        if ($secondLeg->is_extra_time) {
+            $homeScoreEt = $secondLeg->home_score_et ?? 0;
+            $awayScoreEt = $secondLeg->away_score_et ?? 0;
+        } else {
+            $homePlayers = $allPlayers->get($secondLeg->home_team_id, collect());
+            $awayPlayers = $allPlayers->get($secondLeg->away_team_id, collect());
+            $homeTeam = $secondLeg->relationLoaded('homeTeam') ? $secondLeg->homeTeam : Team::find($secondLeg->home_team_id);
+            $awayTeam = $secondLeg->relationLoaded('awayTeam') ? $secondLeg->awayTeam : Team::find($secondLeg->away_team_id);
+
+            $extraTimeResult = $this->matchSimulator->simulateExtraTime(
+                $homeTeam,
+                $awayTeam,
+                $homePlayers,
+                $awayPlayers,
+                neutralVenue: $secondLeg->isNeutralVenue(),
+                homePlayerSlots: $secondLeg->playerSlotMap('home'),
+                awayPlayerSlots: $secondLeg->playerSlotMap('away'),
+                stoppage: StoppageDurations::fromMatch($secondLeg),
+            );
+
+            $homeScoreEt = $extraTimeResult->homeScore;
+            $awayScoreEt = $extraTimeResult->awayScore;
+
+            $etStoppage = $this->stoppageCalculator->calculateExtraTime(
+                $extraTimeResult->events,
+                regulationStoppage: (int) ($secondLeg->first_half_stoppage ?? 0)
+                    + (int) ($secondLeg->second_half_stoppage ?? 0),
+            );
+
+            $secondLeg->update([
+                'is_extra_time' => true,
+                'home_score_et' => $homeScoreEt,
+                'away_score_et' => $awayScoreEt,
+                'home_possession' => $extraTimeResult->homePossession,
+                'away_possession' => $extraTimeResult->awayPossession,
+                'et_first_half_stoppage' => $etStoppage['et_first_half'],
+                'et_second_half_stoppage' => $etStoppage['et_second_half'],
+            ]);
+
+            // Persist ET events so scorer lists stay consistent with the
+            // ET-inclusive totals reported by the match views.
+            $this->matchEventRepository->bulkInsert(
+                $extraTimeResult->events,
+                $secondLeg->game_id,
+                $secondLeg->id,
+            );
+
+            ScoreEventsAuditor::audit($secondLeg->refresh(), 'cup_tie_two_leg_extra_time');
+        }
+
+        // Extra time goals affect aggregate
+        // Second leg home team = tie's away team
+        $homeTotal += $awayScoreEt; // Tie's home team was away in 2nd leg
+        $awayTotal += $homeScoreEt; // Tie's away team was home in 2nd leg
+
+        if ($homeTotal !== $awayTotal) {
+            $winnerId = $homeTotal > $awayTotal ? $tie->home_team_id : $tie->away_team_id;
+            $this->completeTie($tie, $winnerId, [
+                'type' => 'extra_time',
+                'aggregate' => "{$homeTotal}-{$awayTotal}",
+            ]);
+            return $winnerId;
+        }
+
+        // Promotion playoffs (La Liga 2 → La Liga and Primera Federación → La
+        // Liga 2) skip penalties when level after extra time — the side that
+        // finished higher in the regular season goes through instead.
+        $higherSeedWinner = $this->playoffTiebreakerService->resolveWinner($tie, $tie->game);
+        if ($higherSeedWinner !== null) {
+            $this->completeTie($tie, $higherSeedWinner, [
+                'type' => 'higher_seed',
+                'aggregate' => "{$homeTotal}-{$awayTotal}",
+            ]);
+            return $higherSeedWinner;
+        }
+
+        // Check if penalties were already simulated during the live match
+        if ($secondLeg->home_score_penalties !== null) {
+            $homePens = $secondLeg->home_score_penalties;
+            $awayPens = $secondLeg->away_score_penalties;
+        } else {
+            // Only players on the pitch at the final whistle of ET can take penalties.
+            [$homePitch, $awayPitch] = $this->lineupResolver->playersOnPitchAtEnd($secondLeg);
+
+            [$homePens, $awayPens] = $this->matchSimulator->simulatePenalties($homePitch, $awayPitch);
+
+            $secondLeg->update([
+                'home_score_penalties' => $homePens,
+                'away_score_penalties' => $awayPens,
+            ]);
+        }
+
+        // Second leg home team = tie's away team
+        $tieHomeWins = $awayPens > $homePens;
+        $winnerId = $tieHomeWins ? $tie->home_team_id : $tie->away_team_id;
+
+        $this->completeTie($tie, $winnerId, [
+            'type' => 'penalties',
+            'aggregate' => "{$homeTotal}-{$awayTotal}",
+            'penalties' => $tieHomeWins ? "{$awayPens}-{$homePens}" : "{$homePens}-{$awayPens}",
+        ]);
+
+        return $winnerId;
+    }
+
+    /**
+     * Mark a tie as completed with the given winner.
+     */
+    private function completeTie(CupTie $tie, string $winnerId, array $resolution): void
+    {
+        $tie->update([
+            'winner_id' => $winnerId,
+            'completed' => true,
+            'resolution' => $resolution,
+        ]);
+    }
+
+
+}

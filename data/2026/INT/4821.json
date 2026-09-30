@@ -1,0 +1,416 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/4821.png",
+  "name": "Wuhan Women",
+  "players": [
+    {
+      "contract": "",
+      "dateOfBirth": "May 12, 1998",
+      "foot": "",
+      "height": "1,83m",
+      "id": "23126",
+      "marketValue": "",
+      "name": "Shimeng Peng",
+      "nationality": [
+        "China"
+      ],
+      "number": "12",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 26, 1993",
+      "foot": "",
+      "height": "1,85m",
+      "id": "59442",
+      "marketValue": "",
+      "name": "Chen Chen",
+      "nationality": [
+        "China"
+      ],
+      "number": "22",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 14, 2003",
+      "foot": "",
+      "height": "1,83m",
+      "id": "65350",
+      "marketValue": "",
+      "name": "Sijin Yu",
+      "nationality": [
+        "China"
+      ],
+      "number": "24",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 11, 1989",
+      "foot": "",
+      "height": "1,78m",
+      "id": "56737",
+      "marketValue": "",
+      "name": "Xuan Ding",
+      "nationality": [
+        "China"
+      ],
+      "number": "29",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 16, 1997",
+      "foot": "",
+      "height": "1,74m",
+      "id": "59444",
+      "marketValue": "",
+      "name": "Hao Zhang",
+      "nationality": [
+        "China"
+      ],
+      "number": "31",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 26, 1993",
+      "foot": "",
+      "height": "1,68m",
+      "id": "16753",
+      "marketValue": "",
+      "name": "Haiyan Wu",
+      "nationality": [
+        "China"
+      ],
+      "number": "5",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 31, 1995",
+      "foot": "",
+      "height": "1,60m",
+      "id": "18009",
+      "marketValue": "",
+      "name": "Yanqiu Liu",
+      "nationality": [
+        "China"
+      ],
+      "number": "15",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 3, 2000",
+      "foot": "",
+      "height": "1,67m",
+      "id": "66377",
+      "marketValue": "",
+      "name": "QianQian Xu",
+      "nationality": [
+        "China"
+      ],
+      "number": "18",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 11, 1997",
+      "foot": "",
+      "height": "1,74m",
+      "id": "23127",
+      "marketValue": "",
+      "name": "Manman Qin",
+      "nationality": [
+        "China"
+      ],
+      "number": "20",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 17, 2003",
+      "foot": "",
+      "height": "1,70m",
+      "id": "70275",
+      "marketValue": "",
+      "name": "Runzhi Cao",
+      "nationality": [
+        "China"
+      ],
+      "number": "23",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 29, 1998",
+      "foot": "",
+      "height": "1,73m",
+      "id": "59519",
+      "marketValue": "",
+      "name": "Yuxin Zhao",
+      "nationality": [
+        "China"
+      ],
+      "number": "32",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 3, 2002",
+      "foot": "",
+      "height": "1,62m",
+      "id": "69107",
+      "marketValue": "",
+      "name": "Jingyi Zhao",
+      "nationality": [
+        "China"
+      ],
+      "number": "36",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 23, 2005",
+      "foot": "",
+      "height": "1,73m",
+      "id": "69454",
+      "marketValue": "",
+      "name": "Baoying Huang",
+      "nationality": [
+        "China"
+      ],
+      "number": "46",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 23, 1995",
+      "foot": "left",
+      "height": "1,67m",
+      "id": "16763",
+      "marketValue": "",
+      "name": "Shuang Wang",
+      "nationality": [
+        "China"
+      ],
+      "number": "7",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 13, 1995",
+      "foot": "",
+      "height": "1,68m",
+      "id": "18065",
+      "marketValue": "",
+      "name": "Yueyun Lyu",
+      "nationality": [
+        "China"
+      ],
+      "number": "8",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 1, 1997",
+      "foot": "",
+      "height": "1,68m",
+      "id": "23132",
+      "marketValue": "",
+      "name": "Wei Yao",
+      "nationality": [
+        "China"
+      ],
+      "number": "10",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 4, 1999",
+      "foot": "",
+      "height": "1,72m",
+      "id": "59449",
+      "marketValue": "",
+      "name": "Qi Yan",
+      "nationality": [
+        "China"
+      ],
+      "number": "13",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 18, 2005",
+      "foot": "",
+      "height": "1,62m",
+      "id": "121281",
+      "marketValue": "",
+      "name": "Grace Thao",
+      "nationality": [
+        "United States"
+      ],
+      "number": "19",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 21, 2006",
+      "foot": "",
+      "height": "1,65m",
+      "id": "69466",
+      "marketValue": "",
+      "name": "Yuhuan Ouyang",
+      "nationality": [
+        "China"
+      ],
+      "number": "21",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 23, 2004",
+      "foot": "",
+      "height": "1,61m",
+      "id": "64523",
+      "marketValue": "",
+      "name": "Chenjing Jiang",
+      "nationality": [
+        "China"
+      ],
+      "number": "26",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 22, 2003",
+      "foot": "",
+      "height": "1,53m",
+      "id": "107781",
+      "marketValue": "",
+      "name": "Qianqian Wang",
+      "nationality": [
+        "China"
+      ],
+      "number": "30",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 2, 1995",
+      "foot": "",
+      "height": "1,69m",
+      "id": "18033",
+      "marketValue": "",
+      "name": "Duan Song",
+      "nationality": [
+        "China"
+      ],
+      "number": "37",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 1, 2005",
+      "foot": "",
+      "height": "1,73m",
+      "id": "70586",
+      "marketValue": "",
+      "name": "Jianqun Du",
+      "nationality": [
+        "China"
+      ],
+      "number": "47",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Jun 6, 2007",
+      "foot": "right",
+      "height": "1,65m",
+      "id": "58361",
+      "marketValue": "",
+      "name": "Namute Chileshe",
+      "nationality": [
+        "Zambia"
+      ],
+      "number": "9",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 1, 1999",
+      "foot": "",
+      "height": "1,70m",
+      "id": "59605",
+      "marketValue": "",
+      "name": "Zubila Abuduwaili",
+      "nationality": [
+        "China"
+      ],
+      "number": "11",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 3, 2003",
+      "foot": "",
+      "height": "1,76m",
+      "id": "121279",
+      "marketValue": "",
+      "name": "Jeannine Mukandayisenga",
+      "nationality": [
+        "Rwanda"
+      ],
+      "number": "16",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 3, 2001",
+      "foot": "",
+      "height": "1,64m",
+      "id": "39882",
+      "marketValue": "",
+      "name": "Han Tang",
+      "nationality": [
+        "China"
+      ],
+      "number": "17",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 12, 2006",
+      "foot": "",
+      "height": "1,59m",
+      "id": "83899",
+      "marketValue": "",
+      "name": "Luo Luo",
+      "nationality": [
+        "China"
+      ],
+      "number": "25",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 25, 2001",
+      "foot": "",
+      "height": "1,77m",
+      "id": "69103",
+      "marketValue": "",
+      "name": "Mengye Deng",
+      "nationality": [
+        "China"
+      ],
+      "number": "27",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Tazi Lake Sports Center Stadium",
+  "stadiumSeats": "40000",
+  "transfermarktId": "4821",
+  "country": "CN"
+}

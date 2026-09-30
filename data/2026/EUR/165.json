@@ -1,0 +1,388 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/165.png",
+  "name": "Hammarby",
+  "players": [
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "May 13, 1997",
+      "foot": "right",
+      "height": "1,71m",
+      "id": "30114",
+      "marketValue": "€40k",
+      "name": "Emma Holmgren",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Feb 4, 2000",
+      "foot": "",
+      "height": "1,78m",
+      "id": "33846",
+      "marketValue": "€40k",
+      "name": "Lene Christensen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "28",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Jan 19, 1993",
+      "foot": "",
+      "height": "1,76m",
+      "id": "28706",
+      "marketValue": "€35k",
+      "name": "Cajsa Andersson",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "29",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 3, 2008",
+      "foot": "right",
+      "height": "",
+      "id": "93664",
+      "marketValue": "€30k",
+      "name": "Fanny Jurander",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "30",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Dec 16, 2001",
+      "foot": "right",
+      "height": "1,88m",
+      "id": "35218",
+      "marketValue": "€80k",
+      "name": "Emilie Bragstad",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "2",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Jul 29, 1995",
+      "foot": "right",
+      "height": "1,71m",
+      "id": "30199",
+      "marketValue": "€45k",
+      "name": "Guðrún Arnardóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "3",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 14, 2007",
+      "foot": "",
+      "height": "",
+      "id": "85572",
+      "marketValue": "€25k",
+      "name": "Jess Pegram",
+      "nationality": [
+        "England"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2029",
+      "dateOfBirth": "Feb 14, 2005",
+      "foot": "right",
+      "height": "1,71m",
+      "id": "48695",
+      "marketValue": "€175k",
+      "name": "Mathilde Janzen",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "14",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "Dec 31, 2029",
+      "dateOfBirth": "Mar 15, 2004",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "54745",
+      "marketValue": "€90k",
+      "name": "Sofia Reidy",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "15",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Apr 4, 1997",
+      "foot": "right",
+      "height": "1,74m",
+      "id": "34340",
+      "marketValue": "€70k",
+      "name": "Stina Lennartsson",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "17",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Sep 15, 1995",
+      "foot": "right",
+      "height": "",
+      "id": "52649",
+      "marketValue": "€45k",
+      "name": "Alice Carlsson",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "18",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Apr 3, 2003",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "53600",
+      "marketValue": "€70k",
+      "name": "Athinna Persson Lundgren",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "23",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Nov 27, 2008",
+      "foot": "right",
+      "height": "",
+      "id": "103804",
+      "marketValue": "€30k",
+      "name": "Sally Nylén",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "24",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 21, 2009",
+      "foot": "",
+      "height": "",
+      "id": "117856",
+      "marketValue": "",
+      "name": "Ebba Hedlund",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "42",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Aug 2, 1995",
+      "foot": "right",
+      "height": "1,67m",
+      "id": "22569",
+      "marketValue": "€65k",
+      "name": "Filippa Curmark",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "5",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Mar 6, 2000",
+      "foot": "",
+      "height": "",
+      "id": "34728",
+      "marketValue": "€75k",
+      "name": "Elin Sørum",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "6",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Nov 21, 2002",
+      "foot": "",
+      "height": "1,62m",
+      "id": "35065",
+      "marketValue": "€75k",
+      "name": "Vilma Koivisto",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "8",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 6, 2008",
+      "foot": "",
+      "height": "",
+      "id": "93675",
+      "marketValue": "€30k",
+      "name": "Inés Lorenius",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "11",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2030",
+      "dateOfBirth": "Jul 13, 2002",
+      "foot": "",
+      "height": "1,78m",
+      "id": "43448",
+      "marketValue": "€50k",
+      "name": "Ída Marín Hermannsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "19",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Jun 27, 1997",
+      "foot": "left",
+      "height": "1,72m",
+      "id": "27847",
+      "marketValue": "€150k",
+      "name": "Vilde Hasund",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "20",
+      "position": "Left Winger"
+    },
+    {
+      "contract": "Dec 31, 2029",
+      "dateOfBirth": "Oct 23, 2009",
+      "foot": "right",
+      "height": "",
+      "id": "103811",
+      "marketValue": "€125k",
+      "name": "Fanny Peterson",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "25",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Jan 13, 2008",
+      "foot": "",
+      "height": "",
+      "id": "93677",
+      "marketValue": "€30k",
+      "name": "Doris Petz",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "26",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Apr 2, 2009",
+      "foot": "",
+      "height": "",
+      "id": "107286",
+      "marketValue": "€45k",
+      "name": "Stella Maiquez",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "27",
+      "position": "Right Winger"
+    },
+    {
+      "contract": "Jun 30, 2030",
+      "dateOfBirth": "Apr 21, 2004",
+      "foot": "right",
+      "height": "",
+      "id": "39394",
+      "marketValue": "€30k",
+      "name": "Anna Walter",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "7",
+      "position": "Left Winger"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 6, 2004",
+      "foot": "",
+      "height": "",
+      "id": "58425",
+      "marketValue": "€80k",
+      "name": "Mari Nyhagen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "9",
+      "position": "Striker"
+    },
+    {
+      "contract": "Dec 31, 2029",
+      "dateOfBirth": "Jun 21, 2004",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "56818",
+      "marketValue": "€75k",
+      "name": "Svea Rehnberg",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "16",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2029",
+      "dateOfBirth": "Dec 13, 2008",
+      "foot": "",
+      "height": "",
+      "id": "106586",
+      "marketValue": "€25k",
+      "name": "Anna Linder",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "22",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Hammarby IP",
+  "stadiumSeats": "2369",
+  "transfermarktId": "165",
+  "country": "SE"
+}

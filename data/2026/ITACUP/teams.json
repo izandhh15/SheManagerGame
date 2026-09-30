@@ -1,0 +1,67 @@
+{
+  "id": "ITACUP",
+  "name": "Coppa Italia Femminile",
+  "seasonID": "2026",
+  "clubs": [
+    {
+      "id": "7549",
+      "name": "Ternana Calcio Femminile",
+      "entryRound": 1
+    },
+    {
+      "id": "6329",
+      "name": "US Sassuolo Calcio",
+      "entryRound": 1
+    },
+    {
+      "id": "7445",
+      "name": "ASD Napoli Femminile",
+      "entryRound": 1
+    },
+    {
+      "id": "8049",
+      "name": "SS Lazio",
+      "entryRound": 1
+    },
+    {
+      "id": "8278",
+      "name": "Parma Calcio 1913",
+      "entryRound": 1
+    },
+    {
+      "id": "8968",
+      "name": "SSD Riozzese Como",
+      "entryRound": 1
+    },
+    {
+      "id": "15673",
+      "name": "Como 1907",
+      "entryRound": 1
+    },
+    {
+      "id": "6937",
+      "name": "ACF Mailand",
+      "entryRound": 1
+    },
+    {
+      "id": "6940",
+      "name": "ACF Florenz",
+      "entryRound": 2
+    },
+    {
+      "id": "6952",
+      "name": "AS Rom",
+      "entryRound": 2
+    },
+    {
+      "id": "6954",
+      "name": "Inter Mailand",
+      "entryRound": 2
+    },
+    {
+      "id": "6245",
+      "name": "Juventus Football Club",
+      "entryRound": 2
+    }
+  ]
+}

@@ -1,0 +1,262 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/5685.png",
+  "name": "Dinamo Zagreb",
+  "players": [
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 21, 2005",
+      "foot": "",
+      "height": "",
+      "id": "98506",
+      "marketValue": "",
+      "name": "Matea Tomkić",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": 2,
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 4, 2003",
+      "foot": "",
+      "height": "",
+      "id": "47034",
+      "marketValue": "",
+      "name": "Ana Filipović",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 18, 2006",
+      "foot": "",
+      "height": "",
+      "id": "63688",
+      "marketValue": "",
+      "name": "Lucija Vunić",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": "6",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 10, 1998",
+      "foot": "",
+      "height": "",
+      "id": "45496",
+      "marketValue": "",
+      "name": "Lea Zdunić",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": "16",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 9, 2000",
+      "foot": "",
+      "height": "",
+      "id": "71961",
+      "marketValue": "",
+      "name": "Ana Bartolović",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": "22",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 10, 2009",
+      "foot": "",
+      "height": "",
+      "id": "117284",
+      "marketValue": "",
+      "name": "Mija-Ana Dalić",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": 3,
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 25, 1997",
+      "foot": "",
+      "height": "",
+      "id": "98511",
+      "marketValue": "",
+      "name": "Marija Žagar",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": 5,
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 22, 2006",
+      "foot": "",
+      "height": "",
+      "id": "98504",
+      "marketValue": "",
+      "name": "Laura Huzanić",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": 9,
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 29, 1991",
+      "foot": "left",
+      "height": "1,66m",
+      "id": "16652",
+      "marketValue": "",
+      "name": "Jasna Djoković",
+      "nationality": [
+        "Montenegro"
+      ],
+      "number": 12,
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 2, 1997",
+      "foot": "",
+      "height": "",
+      "id": "28830",
+      "marketValue": "",
+      "name": "Endrina Elezaj",
+      "nationality": [
+        "Albania"
+      ],
+      "number": "4",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 8, 2000",
+      "foot": "",
+      "height": "",
+      "id": "36278",
+      "marketValue": "",
+      "name": "Helena Spajić",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": "8",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 11, 1992",
+      "foot": "right",
+      "height": "1,63m",
+      "id": "2459",
+      "marketValue": "",
+      "name": "Aida Hadžić",
+      "nationality": [
+        "Bosnia-Herzegovina"
+      ],
+      "number": "10",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 13, 2002",
+      "foot": "",
+      "height": "",
+      "id": "53715",
+      "marketValue": "",
+      "name": "Siena Stambolich",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": "11",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 25, 2000",
+      "foot": "both",
+      "height": "",
+      "id": "42401",
+      "marketValue": "",
+      "name": "Martina Taritaš",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": "13",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 24, 2001",
+      "foot": "",
+      "height": "",
+      "id": "46458",
+      "marketValue": "",
+      "name": "Mara Stančić",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": "20",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 16, 2000",
+      "foot": "",
+      "height": "",
+      "id": "54764",
+      "marketValue": "€20k",
+      "name": "Karla Jedvaj",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": 14,
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 2, 2002",
+      "foot": "",
+      "height": "",
+      "id": "46452",
+      "marketValue": "",
+      "name": "Nika Petarić",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": "7",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 18, 2004",
+      "foot": "",
+      "height": "",
+      "id": "47032",
+      "marketValue": "",
+      "name": "Patricija Crkvenčić",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": "18",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "",
+  "stadiumSeats": "0",
+  "transfermarktId": "5685",
+  "country": "HR"
+}

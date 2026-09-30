@@ -1,0 +1,1580 @@
+<?php
+
+namespace App\Modules\Transfer\Services;
+
+use App\Models\ClubProfile;
+use App\Models\Competition;
+use App\Modules\Player\PlayerAge;
+use App\Modules\Player\Services\PlayerValuationService;
+use App\Modules\Transfer\Enums\NegotiationScenario;
+use App\Models\FinancialTransaction;
+use App\Models\Game;
+use App\Models\GameNotification;
+use App\Models\GamePlayer;
+use App\Models\RenewalNegotiation;
+use App\Models\Team;
+use App\Models\TransferListing;
+use App\Models\TransferOffer;
+use App\Modules\Notification\Services\NotificationService;
+use App\Modules\Squad\Services\SquadMinimumService;
+use App\Support\Money;
+use Carbon\Carbon;
+use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
+
+class ContractService
+{
+    /**
+     * Minimum annual wages by competition tier (in cents).
+     * Based on Spanish labor regulations for professional football.
+     * Tier 1 is the real Liga F collective-bargaining floor (II Convenio
+     * colectivo: €23.5K for 2025-26; €25K used as the 2026-27 figure).
+     */
+    private const MINIMUM_WAGES = [
+        1 => 2_500_000, // €25K - Liga F (collective-bargaining floor)
+        2 => 1_200_000, // €12K - Primera Federación (no CBA; ~half of tier 1)
+        3 => 250_000,   // €2.5K - Segunda Federación (nominal floor)
+    ];
+
+    private const DEFAULT_MINIMUM_WAGE = 1_200_000; // €12K
+
+    /**
+     * Club reputation multiplier on top of the competition tier baseline.
+     * Applied only at tier 3+ because La Liga and La Liga 2 have sector-wide
+     * minimums that don't meaningfully vary by club ambition — tier-3 wages,
+     * by contrast, span a wide range between historic ex-top-flight clubs
+     * and small regional sides. The tier-3 baseline is the nominal floor
+     * (€2.5K); multipliers lift the floor for higher-reputation
+     * clubs, while top earners still come from the market-value-based
+     * wage formula, not the floor.
+     */
+    private const REPUTATION_WAGE_MULTIPLIERS = [
+        ClubProfile::REPUTATION_ELITE => 3.0,
+        ClubProfile::REPUTATION_CONTINENTAL => 2.5,
+        ClubProfile::REPUTATION_ESTABLISHED => 2.0,
+        ClubProfile::REPUTATION_MODEST => 1.5,
+        ClubProfile::REPUTATION_LOCAL => 1.0,
+    ];
+
+    private array $minimumWageCache = [];
+
+    public function __construct(
+        private readonly WageNegotiationEvaluator $wageNegotiationEvaluator,
+        private readonly DispositionService $dispositionService,
+        private readonly SquadMinimumService $squadMinimumService,
+        private readonly PlayerValuationService $valuationService,
+    ) {}
+
+    /**
+     * Wage percentage tiers based on market value.
+     * Higher value players command a larger percentage of their value as wages.
+     * Rescaled ÷100 to the women's economy; the top bracket is lifted to 25%
+     * (from 17.5%) so a €2M world-class star lands ~€330K base (~€385K on
+     * renewal) — the low end of real Liga F top salaries (€500K-1M) that the
+     * ÷100 revenue base can support without breaking squad wage bills.
+     */
+    private const WAGE_TIERS = [
+        ['min_value' => 100_000_000, 'percentage' => 0.25],  // €1M+ → 25%
+        ['min_value' => 50_000_000, 'percentage' => 0.15],   // €500K-€1M → 15%
+        ['min_value' => 20_000_000, 'percentage' => 0.125],  // €200K-€500K → 12.5%
+        ['min_value' => 10_000_000, 'percentage' => 0.11],   // €100K-€200K → 11%
+        ['min_value' => 5_000_000, 'percentage' => 0.10],     // €50K-€100K → 10%
+        ['min_value' => 2_000_000, 'percentage' => 0.09],     // €20K-€50K → 9%
+        ['min_value' => 0, 'percentage' => 0.08],             // <€20K → 8%
+    ];
+
+    /**
+     * Age-based wage modifiers by PlayerAge tier.
+     *
+     * Academy: Rookie contracts with no leverage - underpaid relative to value.
+     * Young: Developing players, still below market rate.
+     * Prime: Fair market contracts.
+     * Veteran: Legacy contracts from peak years - overpaid relative to current value.
+     */
+    private const AGE_WAGE_MODIFIERS = [
+        'academy' => 0.25,
+        'young' => 0.65,
+        'prime' => 1.0,
+        'veteran' => 5.0,
+    ];
+
+    /**
+     * Level normalization for the ability-anchored wage model (engaged by
+     * config `finances.wage_ability_anchor`). Anchoring to ability raises most
+     * wages above their market-value figure, so the whole model is scaled by
+     * this factor at full strength to hold the population wage bill — and thus
+     * the salary cap / budget scale — fixed. Tuned so the total bill stays
+     * ~1.00× today's; the shape changes, the scale does not. No effect at
+     * wage_ability_anchor = 0.
+     */
+    private const WAGE_ANCHOR_SCALE = 0.66;
+
+    /**
+     * Calculate annual wage for a player based on market value and age.
+     *
+     * The age modifier accounts for contract dynamics:
+     * - Young players have rookie contracts (discount)
+     * - Veterans have legacy contracts from their prime (premium)
+     *
+     * Includes ±10% variance and enforces league minimum wage.
+     *
+     * @param int $marketValueCents Player's market value in cents
+     * @param int $minimumWageCents League minimum wage in cents
+     * @param int|null $age Player's age (null defaults to prime-age calculation)
+     * @return int Annual wage in cents
+     */
+    public function calculateAnnualWage(int $marketValueCents, int $minimumWageCents, ?int $age = null, bool $deterministic = false): int
+    {
+        // Get wage percentage based on market value tier
+        $percentage = $this->getWagePercentage($marketValueCents);
+
+        // Calculate base wage from market value
+        $baseWage = (int) ($marketValueCents * $percentage);
+
+        // Apply age-based modifier
+        $ageModifier = $this->getAgeWageModifier($age);
+        $baseWage = (int) ($baseWage * $ageModifier);
+
+        // Normalize the ability-anchored model back to today's total wage bill
+        // so the economy / salary-cap scale stays fixed (no-op when
+        // wage_ability_anchor = 0; the anchor + age curve only reshape who
+        // earns what, this holds the overall level).
+        $baseWage = (int) ($baseWage * $this->wageAnchorScale());
+
+        if (!$deterministic) {
+            // Apply ±10% variance for squad diversity
+            $variance = 0.90 + (mt_rand(0, 2000) / 10000); // 0.90 to 1.10
+            $baseWage = (int) ($baseWage * $variance);
+        }
+
+        // Round to nearest €1K (100_000 cents)
+        $wage = (int) (round($baseWage / 100_000) * 100_000);
+
+        // Enforce minimum wage
+        return max($wage, $minimumWageCents);
+    }
+
+    /**
+     * Ability-aware wage: blends the value anchor from raw market value toward
+     * the player's ability-derived wage base (PlayerValuationService::
+     * wageBaseValue) by config `finances.wage_ability_anchor`, then runs the
+     * normal wage formula. Seed/AI callers that have a player's overall_score
+     * should use this instead of calculateAnnualWage(marketValue, …) so that
+     * still-able prime/veteran players aren't priced off their age-deflated
+     * market value. At wage_ability_anchor = 0 this is identical to
+     * calculateAnnualWage(marketValue, …).
+     *
+     * @param int $overallScore Player's current overall ability
+     * @param int $marketValueCents Player's market value in cents
+     * @param int $minimumWageCents League minimum wage in cents
+     * @param int|null $age Player's age (null defaults to prime-age calculation)
+     * @param string|null $position Primary position (goalkeepers scale like market value)
+     * @return int Annual wage in cents
+     */
+    public function calculateAnnualWageForPlayer(int $overallScore, int $marketValueCents, int $minimumWageCents, ?int $age = null, ?string $position = null, bool $deterministic = false): int
+    {
+        $anchorValue = $this->blendWageAnchor($marketValueCents, $overallScore, $age, $position);
+
+        return $this->calculateAnnualWage($anchorValue, $minimumWageCents, $age, $deterministic);
+    }
+
+    /**
+     * A player's RELATIVE wage weight: the ability/age/position shape of the wage
+     * formula, with no club context. It is calculateAnnualWageForPlayer() stripped
+     * of everything whose effect is purely absolute — the WAGE_ANCHOR_SCALE level
+     * normalisation (a global constant), the ±10% variance, the round-to-€10k and
+     * the league-minimum floor — leaving just `anchor × wage% × ageModifier`.
+     *
+     * Only the proportion between players matters: WageModelService turns a weight
+     * into an actual wage by `weight × clubWageLevel`, where the level carries all
+     * the absolute scale (the club's affordable bill ÷ its squad's total weight).
+     * Because that division cancels any global factor, dropping WAGE_ANCHOR_SCALE
+     * here leaves the resulting wage unchanged — a mid-game signing priced this way
+     * lands in the same band as the club's setup-leveled squad.
+     */
+    public function playerWeight(int $overallScore, int $marketValueCents, ?int $age = null, ?string $position = null): int
+    {
+        $anchor = $this->blendWageAnchor($marketValueCents, $overallScore, $age, $position);
+        $base = $anchor * $this->getWagePercentage($anchor);
+        $base = $base * $this->getAgeWageModifier($age);
+
+        return (int) round($base);
+    }
+
+    /**
+     * Blend a wage value anchor from raw market value (weight 0) toward the
+     * ability-derived wage base (weight 1) by `finances.wage_ability_anchor`.
+     * Returns the market value unchanged when the knob is off or overall is
+     * unknown, so behaviour is identical to today by default.
+     */
+    private function blendWageAnchor(int $marketValueCents, int $overallScore, ?int $age, ?string $position): int
+    {
+        $weight = $this->abilityAnchorWeight();
+        if ($weight <= 0.0 || $overallScore <= 0) {
+            return $marketValueCents;
+        }
+
+        $abilityValue = $this->valuationService->wageBaseValue($overallScore, $age ?? PlayerAge::PRIME_END, $position);
+
+        return (int) round((1.0 - $weight) * $marketValueCents + $weight * $abilityValue);
+    }
+
+    /** Clamped strength of the ability-anchor correction, from config. */
+    private function abilityAnchorWeight(): float
+    {
+        return max(0.0, min(1.0, (float) config('finances.wage_ability_anchor', 0.0)));
+    }
+
+    /** Level normalization for the ability-anchored model; 1.0 when the knob is off. */
+    private function wageAnchorScale(): float
+    {
+        $weight = $this->abilityAnchorWeight();
+
+        return 1.0 - $weight + $weight * self::WAGE_ANCHOR_SCALE;
+    }
+
+    /**
+     * Get age-based wage modifier using PlayerAge tiers.
+     *
+     * @return float Multiplier (0.25 for academy to 5.0 for veterans)
+     */
+    private function getAgeWageModifier(?int $age): float
+    {
+        if ($age === null) {
+            return self::AGE_WAGE_MODIFIERS['prime'];
+        }
+
+        $tier = match (true) {
+            $age <= PlayerAge::ACADEMY_END => 'academy',
+            $age <= PlayerAge::YOUNG_END => 'young',
+            $age <= PlayerAge::PRIME_END => 'prime',
+            default => 'veteran',
+        };
+
+        $discrete = self::AGE_WAGE_MODIFIERS[$tier];
+
+        // Blend toward a smooth curve as the ability anchor engages. The
+        // discrete veteran ×5 exists to undo market-value age-deflation; once
+        // the anchor is ability-derived (which deflates far less), that step
+        // would over-pay and leaves a cliff at 35, so it ramps smoothly instead.
+        $weight = $this->abilityAnchorWeight();
+        if ($weight <= 0.0) {
+            return $discrete;
+        }
+
+        return (1.0 - $weight) * $discrete + $weight * $this->smoothAgeWageModifier($age);
+    }
+
+    /**
+     * Continuous age-wage curve engaged at full wage_ability_anchor. Keeps the
+     * young rookie discounts and the prime baseline, and for declining players
+     * un-deflates the ability anchor (≈ 1 / ageValueMultiplier) so the wage
+     * tracks ability through age — a smooth ramp replacing the veteran ×5 step.
+     */
+    private function smoothAgeWageModifier(int $age): float
+    {
+        return match (true) {
+            $age <= PlayerAge::ACADEMY_END => 0.25,
+            $age <= PlayerAge::YOUNG_END => 0.65,
+            $age <= 31 => 1.0,
+            $age <= 33 => 1.33,
+            $age <= 35 => 2.22,
+            $age <= 37 => 3.33,
+            default => 3.50,
+        };
+    }
+
+    /**
+     * Get wage percentage tier based on market value.
+     */
+    private function getWagePercentage(int $marketValueCents): float
+    {
+        foreach (self::WAGE_TIERS as $tier) {
+            if ($marketValueCents >= $tier['min_value']) {
+                return $tier['percentage'];
+            }
+        }
+
+        return 0.08; // Default fallback
+    }
+
+    /**
+     * Get the minimum annual wage for a team based on their primary league.
+     *
+     * @param Team $team
+     * @return int Minimum wage in cents
+     */
+    public function getDefaultMinimumWage(): int
+    {
+        return self::DEFAULT_MINIMUM_WAGE;
+    }
+
+    /**
+     * Resolve the wage floor to use when computing a player's demand. The
+     * buying club's tier minimum applies whenever the player is being signed
+     * by a different club (transfer / pre-contract / free agent); renewals
+     * fall back to the current team's minimum.
+     */
+    private function resolveDemandMinimumWage(GamePlayer $player, ?Team $buyingClub): int
+    {
+        if ($buyingClub !== null) {
+            return $this->getMinimumWageForTeam($buyingClub);
+        }
+
+        return $player->team
+            ? $this->getMinimumWageForTeam($player->team)
+            : $this->getDefaultMinimumWage();
+    }
+
+    public function getMinimumWageForTeam(Team $team): int
+    {
+        if (isset($this->minimumWageCache[$team->id])) {
+            return $this->minimumWageCache[$team->id];
+        }
+
+        $league = Competition::whereHas('teams', function ($query) use ($team) {
+            $query->where('teams.id', $team->id);
+        })
+            ->where('role', Competition::ROLE_LEAGUE)
+            ->first();
+
+        $reputation = $team->clubProfile?->reputation_level;
+
+        return $this->minimumWageCache[$team->id] = $this->getMinimumWageForClub($league?->tier, $reputation);
+    }
+
+    /**
+     * Get the minimum annual wage for a competition, optionally scaled by
+     * the reputation of a specific team within that competition.
+     *
+     * Passing $teamId is required to get reputation-aware scaling at tier 3+;
+     * otherwise the competition-tier baseline is returned.
+     *
+     * @param string $competitionId
+     * @param string|null $teamId
+     * @return int Minimum wage in cents
+     */
+    public function getMinimumWageForCompetition(string $competitionId, ?string $teamId = null): int
+    {
+        $competition = Competition::find($competitionId);
+
+        $reputation = $teamId
+            ? ClubProfile::where('team_id', $teamId)->value('reputation_level')
+            : null;
+
+        return $this->getMinimumWageForClub($competition?->tier, $reputation);
+    }
+
+    /**
+     * Resolve the minimum annual wage for a club given its competition tier
+     * and reputation. Reputation scaling only applies at tier 3+ — see the
+     * REPUTATION_WAGE_MULTIPLIERS docblock for rationale.
+     */
+    public function getMinimumWageForClub(?int $tier, ?string $reputation): int
+    {
+        // $tier can be null when a team has no league membership or a
+        // competition lookup misses; null array offsets are deprecated in
+        // PHP 8.5, so guard the lookup and fall back to the default floor.
+        $base = $tier !== null
+            ? (self::MINIMUM_WAGES[$tier] ?? self::DEFAULT_MINIMUM_WAGE)
+            : self::DEFAULT_MINIMUM_WAGE;
+
+        if ($tier !== null && $tier >= 3 && $reputation !== null) {
+            $multiplier = self::REPUTATION_WAGE_MULTIPLIERS[$reputation] ?? 1.0;
+            return (int) round($base * $multiplier);
+        }
+
+        return $base;
+    }
+
+    /**
+     * Calculate total annual wage bill for a game's squad.
+     *
+     * @param Game $game
+     * @return int Total annual wages in cents
+     */
+    public function calculateAnnualWageBill(Game $game): int
+    {
+        return GamePlayer::where('game_id', $game->id)
+            ->where('team_id', $game->team_id)
+            ->sum('annual_wage');
+    }
+
+    // =========================================
+    // UNIFIED WAGE DEMAND
+    // =========================================
+
+    /**
+     * Calculate what wage a player demands for any negotiation scenario.
+     *
+     * All scenarios start from the same base market wage. The scenario enum
+     * drives the premium multiplier and contract length. Renewals additionally
+     * floor the demand against the player's current wage.
+     *
+     * When $buyingClub is provided (transfer/pre-contract/free-agent signings),
+     * the wage floor is the buying club's competition-tier minimum — a La Liga
+     * club signing a Primera Federación player can't pay below the La Liga
+     * regulatory minimum. Without $buyingClub (renewals), the player's current
+     * team minimum applies.
+     *
+     * @return array{wage: int, contractYears: int, formattedWage: string}
+     */
+    public function calculateWageDemand(GamePlayer $player, NegotiationScenario $scenario, ?Team $buyingClub = null, ?int $peerMedian = null): array
+    {
+        $minimumWage = $this->resolveDemandMinimumWage($player, $buyingClub);
+
+        $age = $player->age($player->game->current_date);
+
+        // Anchor the demand to the player's *current* ability, not his
+        // market value: market value (and the tier derived from it) carries a
+        // youth premium that prices in potential, which is what makes a
+        // developing youngster demand a star's wage. wageBaseValue() strips
+        // that youth premium so the base wage tracks who the player is today.
+        $abilityValue = $this->valuationService->wageBaseValue($player->overall_score, $age, $player->position);
+
+        // Cap the anchor at the player's *real* market value. The ability-derived
+        // value comes from generous anchors (overall 88 ≈ €1.65M) that sit well above
+        // the real market values rival clubs' wages are priced from — without this
+        // cap an established star renews at double/triple his current wage and far
+        // above what equivalent players earn elsewhere. Taking the lesser of the two
+        // keeps the wonderkid protection above (whose market value is the *higher*,
+        // potential-inflated figure, so the stripped ability value still wins) while
+        // pulling established players back in line with the market economy.
+        //
+        // Veterans (age > PRIME_END) are exempt: wageBaseValue() already preserves
+        // their age decline, and the veteran wage modifier in calculateAnnualWage()
+        // (AGE_WAGE_MODIFIERS['veteran'] = 5.0) is calibrated against that depressed
+        // ability value — capping by market value too would double-count the decline.
+        $cappedAnchor = $abilityValue;
+        if ($age <= PlayerAge::PRIME_END && $player->market_value_cents > 0) {
+            $cappedAnchor = min($abilityValue, $player->market_value_cents);
+        }
+
+        // The wage_ability_anchor knob relaxes the market-value cap toward the
+        // pure ability value, in lock-step with the seed path, so a still-able
+        // prime/declining player's demand tracks his ability rather than his
+        // age-deflated price. At 0 this is exactly the capped value above.
+        $weight = $this->abilityAnchorWeight();
+        $anchorValue = (int) round((1.0 - $weight) * $cappedAnchor + $weight * $abilityValue);
+
+        $baseWage = $this->calculateAnnualWage(
+            $anchorValue,
+            $minimumWage,
+            $age,
+            deterministic: true,
+        );
+
+        // The premium is a scenario markup tied to the player's market stature
+        // (what rival clubs would pay / the Bosman leverage), so it stays keyed
+        // off market value and tier — only the *base wage* is re-anchored to
+        // current ability above.
+        $premium = $scenario->wagePremium($player->market_value_cents, $player->tier);
+        $demandedWage = (int) ($baseWage * $premium);
+
+        // Pre-contract floor: the player is mid-contract at another club and
+        // would be walking away on a free transfer. He won't take a pay cut
+        // to do that — without this floor, a Segunda Federación (LOCAL) club can
+        // offer a Real Madrid fringe player a wage demand computed off the
+        // LOCAL tier-3 minimum (€2.5K) and pre-contract him for ~10% of his
+        // current salary. Mirrors the same-current-wage floor renewals use,
+        // with the same per-tier premium acting as the raise the player
+        // expects for leaving on a Bosman.
+        if ($scenario === NegotiationScenario::PRE_CONTRACT && $player->annual_wage > 0) {
+            $currentWageWithPremium = (int) ($player->annual_wage * $premium);
+            $demandedWage = max($demandedWage, $currentWageWithPremium);
+        }
+
+        // Renewals: nudge the demand toward the peer-median ("market rate") of
+        // similar-ability squadmates, for every player — not just those who've
+        // voiced their unhappiness (the salary_unhappy_since flag drives morale
+        // drip and the UI signal, not pricing). This is a *partial* pull, not a
+        // hard floor: it closes only a fraction of the gap so equally-able
+        // players don't fully converge and a manager can still run a wage
+        // scale. When the caller has already computed the peer median for the
+        // squad (e.g. squad page renewal loop), reuse it to avoid an N+1.
+        if ($scenario === NegotiationScenario::RENEWAL) {
+            $resolvedMedian = $peerMedian ?? $this->dispositionService->peerMedianWage($player);
+            if ($resolvedMedian > $demandedWage) {
+                $pullFactor = (float) config('finances.renewal_peer_pull_factor', 0.5);
+                $demandedWage += (int) round($pullFactor * ($resolvedMedian - $demandedWage));
+            }
+        }
+
+        // Homegrown loyalty: academy/filial-developed players are less greedy
+        // when re-signing. Applied before the raise floor below, so they still
+        // never demand a pay cut — only the size of the raise they ask shrinks.
+        if ($scenario === NegotiationScenario::RENEWAL && $player->isHomegrown()) {
+            $discount = (float) config('finances.homegrown.renewal_demand_discount', 0.15);
+            $demandedWage = (int) round($demandedWage * (1.0 - $discount));
+        }
+
+        // Renewals: player wants at least a raise over their current wage
+        if ($scenario === NegotiationScenario::RENEWAL) {
+            $currentWageWithPremium = (int) ($player->annual_wage * $premium);
+            $demandedWage = max($demandedWage, $currentWageWithPremium);
+            $demandedWage = $this->roundWage($demandedWage);
+
+            // Ensure the demand is strictly above the current wage
+            if ($demandedWage <= $player->annual_wage) {
+                $unit = $demandedWage < 10_000_000 ? 100_000 : 1_000_000;
+                $demandedWage = $player->annual_wage + $unit;
+            }
+        } else {
+            $demandedWage = Money::roundPrice($demandedWage);
+        }
+
+        $contractYears = $scenario->preferredContractYears($age);
+
+        return [
+            'wage' => $demandedWage,
+            'contractYears' => $contractYears,
+            'formattedWage' => Money::format($demandedWage),
+        ];
+    }
+
+    // =========================================
+    // RELEASE CLAUSE (CLÁUSULA DE RESCISIÓN)
+    // =========================================
+
+    /**
+     * Resolve a player's release clause (in cents) for a given club at a
+     * contract agreement. Pure function — takes primitives so bulk seeding and
+     * generation paths can call it without loading a Team per player.
+     *
+     * Mandatory for ES clubs (defaults to the floor); optional elsewhere
+     * (null unless the manager opts in via $userRequestedCents). A manager's
+     * requested amount is honoured as-is above the floor — there is no upper
+     * cap. The cost of a high clause is paid in wages, not capped here: a clause
+     * above the floor raises the wage the player demands to re-sign (see
+     * effectiveDemandWithReleaseClause), so by the time a renewal is agreed the
+     * wage already justifies the clause. Returns null when no clause applies.
+     *
+     * @param int $marketValueCents Player's market value in cents
+     * @param string|null $clubCountry Owning club's country (uppercase 2-char, e.g. 'ES')
+     * @param int|null $userRequestedCents Manager-requested clause; null = derived default
+     * @return int|null Clause in cents, or null when no clause applies
+     */
+    public function calculateReleaseClause(
+        int $marketValueCents,
+        ?string $clubCountry,
+        ?int $userRequestedCents = null,
+    ): ?int {
+        // Optional (non-ES) clubs only carry a clause when the manager opts in.
+        if (!$this->isReleaseClauseMandatory($clubCountry) && $userRequestedCents === null) {
+            return null;
+        }
+
+        // No meaningful market value → no clause (avoids a €0 buyout).
+        if ($marketValueCents <= 0) {
+            return null;
+        }
+
+        $floor = $this->releaseClauseFloorCents($marketValueCents);
+
+        // Derived default at agreement = the floor. A manager request is honoured
+        // both ways: above the floor with no upper bound (golden handcuffs, paid in
+        // wages), and below it down to the absolute minimum (a cheap buyout the
+        // manager accepts in exchange for far easier AI poaching). No request ⇒ floor.
+        return max($this->releaseClauseMinCents($marketValueCents), $userRequestedCents ?? $floor);
+    }
+
+    /**
+     * Default clause (in cents) for a given market value: where a derived/default
+     * clause sits, and where the negotiation slider starts. NOT a hard minimum any
+     * more — see releaseClauseMinCents for the floor a manager request is clamped to.
+     */
+    public function releaseClauseFloorCents(int $marketValueCents): int
+    {
+        return Money::roundPrice((int) round($marketValueCents * (float) config('finances.release_clause.es_floor_multiplier', 1.25)));
+    }
+
+    /**
+     * Absolute minimum clause (in cents) a manager may set, as a multiple of market
+     * value (config es_min_multiplier, below 1.0 = below market value). Lets a
+     * manager set a deliberately cheap buyout; the cost is poaching exposure, not a
+     * clamp. Kept above zero so a contract never carries a €0 buyout.
+     */
+    public function releaseClauseMinCents(int $marketValueCents): int
+    {
+        return Money::roundPrice((int) round($marketValueCents * (float) config('finances.release_clause.es_min_multiplier', 0.25)));
+    }
+
+    /**
+     * The wage demand (in cents) a player holds out for once a release clause
+     * above the mandatory floor is on the table — "golden handcuffs". Locking the
+     * player in with a bigger buyout costs more in wages: each market-value
+     * multiple of clause above the floor lifts the demand by 1/premium_slope.
+     *
+     *   factor = 1 + (clause − floor) / (premium_slope × marketValue)
+     *
+     * This is the algebraic inverse of the old tolerance cap, so the same
+     * premium_slope tuning carries over. At clause = floor the factor is 1.0,
+     * leaving the base demand (and prior floor-only behaviour) untouched. There
+     * is no ceiling — the wage requirement just keeps climbing with the clause.
+     *
+     * Homegrown players accept a higher clause for a smaller wage bump: their
+     * slope is steepened (see releaseClausePremiumSlope), flattening the factor.
+     *
+     * @return int The clause-adjusted wage demand in cents (≥ base demand)
+     */
+    public function effectiveDemandWithReleaseClause(
+        int $baseDemandCents,
+        int $marketValueCents,
+        ?int $requestedClauseCents,
+        ?string $clubCountry,
+        bool $isHomegrown = false,
+    ): int {
+        if (!$this->isReleaseClauseMandatory($clubCountry)
+            || $requestedClauseCents === null
+            || $marketValueCents <= 0) {
+            return $baseDemandCents;
+        }
+
+        $floor = $this->releaseClauseFloorCents($marketValueCents);
+        if ($requestedClauseCents <= $floor) {
+            return $baseDemandCents;
+        }
+
+        $slope = $this->releaseClausePremiumSlope($isHomegrown);
+        $factor = 1.0 + ($requestedClauseCents - $floor) / ($slope * $marketValueCents);
+
+        return (int) round($baseDemandCents * $factor);
+    }
+
+    /**
+     * The golden-handcuffs premium slope to use for a clause above the floor.
+     * Homegrown players accept a higher clause for less of a wage bump, so their
+     * slope is multiplied up (a steeper slope flattens the wage-demand factor).
+     * Shared by effectiveDemandWithReleaseClause and the renewal chat's client
+     * advisory (NegotiateRenewal::clausePayload) so the two never diverge.
+     */
+    public function releaseClausePremiumSlope(bool $isHomegrown = false): float
+    {
+        $slope = (float) config('finances.release_clause.tolerance.premium_slope', 2.5);
+
+        if ($isHomegrown) {
+            $slope *= (float) config('finances.homegrown.clause_slope_multiplier', 2.0);
+        }
+
+        return $slope;
+    }
+
+    /**
+     * Release-clause data for a negotiation chat's clause control. Returned only
+     * when the feature is on and the signing club (always the user's team for
+     * every flow that calls this — renewals, buy transfers, pre-contracts, free
+     * agents) sits in a mandatory-clause country; otherwise an empty array, so the
+     * client never shows the control and never sends a clause. The client uses the
+     * market value + base demand + premium slope to advise the wage the player
+     * will want for a chosen clause, but the server (effectiveDemandWithReleaseClause)
+     * stays authoritative. $demandWageCents is the player's BASE wage demand (the
+     * ask shown in chat), not a counter.
+     *
+     * @return array<string, mixed>
+     */
+    public function releaseClausePayload(Game $game, GamePlayer $player, int $demandWageCents): array
+    {
+        if (! $game->release_clauses_enabled || ! $this->isReleaseClauseMandatory($game->country)) {
+            return [];
+        }
+
+        $marketValueCents = (int) $player->market_value_cents;
+
+        return [
+            'clause_enabled' => true,
+            'clause_floor' => (int) ($this->releaseClauseFloorCents($marketValueCents) / 100),
+            // The slider's hard lower bound — managers may go below the floor (and
+            // below market value) down to here, accepting heavier AI poaching.
+            'clause_min' => (int) ($this->releaseClauseMinCents($marketValueCents) / 100),
+            'clause_market_value' => (int) ($marketValueCents / 100),
+            'clause_demand' => (int) ($demandWageCents / 100),
+            // Homegrown players accept a higher clause for a smaller wage bump:
+            // send their steepened slope so the client advisory matches the
+            // server's effectiveDemandWithReleaseClause evaluation.
+            'clause_premium_slope' => $this->releaseClausePremiumSlope($player->isHomegrown()),
+        ];
+    }
+
+    /**
+     * Normalise a clause value (in euros) submitted from a negotiation chat into
+     * cents, or null when no clause can apply. The control only exists for
+     * mandatory-clause (ES) clubs with the feature on; everywhere else any
+     * incoming value is ignored. There is no upper cap — a clause above the floor
+     * just raises the wage the player demands (effectiveDemandWithReleaseClause),
+     * so this only converts and gates; the floor stays the single server-side clamp.
+     */
+    public function resolveRequestedClauseCents(?int $clauseEuros, Game $game): ?int
+    {
+        if (! $game->release_clauses_enabled
+            || $clauseEuros === null
+            || ! $this->isReleaseClauseMandatory($game->country)) {
+            return null;
+        }
+
+        return $clauseEuros * 100;
+    }
+
+    /**
+     * Whether clubs of this country must carry a release clause on every contract
+     * (mirrors Royal Decree 1006/1985 — buyout clauses are mandatory in Spain).
+     * The mandatory-country list is shared with the display layer
+     * (GamePlayer::displaysReleaseClauseAsMarketReference) via config so the two
+     * never diverge. Team.country stores uppercase 2-char codes (England is 'EN').
+     */
+    private function isReleaseClauseMandatory(?string $clubCountry): bool
+    {
+        return in_array($clubCountry, config('finances.release_clause.mandatory_countries', []), true);
+    }
+
+    // =========================================
+    // CONTRACT RENEWAL
+    // =========================================
+
+    /**
+     * Process a contract renewal offer.
+     * Updates contract end date immediately, stores pending wage for end of season.
+     *
+     * @param GamePlayer $player
+     * @param int $newWage The agreed wage (in cents)
+     * @param int $contractYears How many years to extend
+     * @param int|null $requestedClauseCents Clause the manager set in the renewal chat (cents).
+     *                                        Null ⇒ untouched: ES clubs fall back to the mandatory floor.
+     * @return bool Success
+     */
+    public function processRenewal(
+        GamePlayer $player,
+        int $newWage,
+        int $contractYears,
+        ?int $requestedClauseCents = null,
+    ): bool {
+        $game = $player->game;
+        $seasonEndDate = $game->getSeasonEndDate();
+
+        if (!$player->canBeOfferedRenewal($seasonEndDate)) {
+            return false;
+        }
+
+        // Capture salary-unhappy state before the update so we can clear
+        // the flag and grant a relief boost when this renewal actually
+        // closes the gap. Only flagged players get the boost — unflagged
+        // underpaid players had no morale drip running, so there is no
+        // grievance to relieve. Peer median is read now because the
+        // player is about to be updated.
+        $wasSalaryUnhappy = $this->dispositionService->isSalaryUnhappy($player);
+        $peerMedian = $wasSalaryUnhappy ? $this->dispositionService->peerMedianWage($player) : 0;
+
+        $seasonYear = (int) $game->season;
+
+        // New contract ends in June of (current season + contract years).
+        // Never shorten an existing contract — early renewals only extend or adjust wages.
+        $newContractEnd = \Carbon\Carbon::createFromDate($seasonYear + $contractYears + 1, 6, 30);
+        if ($player->contract_until && $newContractEnd->lt($player->contract_until)) {
+            $newContractEnd = $player->contract_until->copy();
+        }
+
+        $updates = [
+            'contract_until' => $newContractEnd,
+            'pending_annual_wage' => $newWage,
+        ];
+
+        // Release clause refreshes at every agreement. Renewals only happen for
+        // the manager's own players, so the owning club is the user's team and
+        // its country is $game->country. ES clubs get the mandatory floor by
+        // default, or a higher value the manager set in the renewal chat (honoured
+        // as-is above the floor — the golden-handcuffs cost was already paid in the
+        // agreed wage during negotiation); non-ES clubs always get null — no clause
+        // is possible outside mandatory-clause countries. When the clause was
+        // untouched ($requestedClauseCents === null) the result is exactly the
+        // floor, preserving prior behaviour.
+        //
+        // The request is dropped outright for non-mandatory countries: the renewal
+        // chat already gates it via resolveRequestedClauseCents, but this keeps the
+        // "non-ES never carries a clause" guarantee even when processRenewal is
+        // called directly (calculateReleaseClause itself permits non-ES opt-in).
+        if ($game->release_clauses_enabled) {
+            $clauseRequest = $this->isReleaseClauseMandatory($game->country) ? $requestedClauseCents : null;
+            $updates['release_clause'] = $this->calculateReleaseClause(
+                $player->market_value_cents,
+                $game->country,
+                $clauseRequest,
+            );
+        }
+
+        // Synchronous flag clear: if the new effective wage lifts the player
+        // out of the wage-gap band (>= 60% of peer median), drop the flag now
+        // so the squad page doesn't keep showing "wants raise" until the next
+        // roll catches up.
+        if ($wasSalaryUnhappy && $peerMedian > 0
+            && $newWage >= (int) ($peerMedian * DispositionService::WAGE_GAP_RATIO)) {
+            $updates['salary_unhappy_since'] = null;
+        }
+
+        $player->update($updates);
+
+        // Wage-gap resolution: small morale boost when the renewal actually
+        // closes the peer-median gap. Token raises that don't clear the gap
+        // get no boost — the drip will keep firing.
+        if ($wasSalaryUnhappy && $newWage >= $peerMedian && $player->matchState) {
+            $player->matchState->update([
+                'morale' => min(
+                    DispositionService::MAX_MORALE,
+                    $player->matchState->morale + DispositionService::WAGE_GAP_RENEWAL_BOOST,
+                ),
+            ]);
+        }
+
+        return true;
+    }
+
+    /**
+     * Apply pending wage increases (called at end of season).
+     * Returns array of players whose wages were updated.
+     *
+     * @param Game $game
+     * @return Collection<GamePlayer>
+     */
+    public function applyPendingWages(Game $game): Collection
+    {
+        // Fetch affected players first (for return value / metadata)
+        $players = GamePlayer::where('game_id', $game->id)
+            ->where('team_id', $game->team_id)
+            ->whereNotNull('pending_annual_wage')
+            ->get();
+
+        // Single bulk update: copy pending_annual_wage → annual_wage, then clear
+        if ($players->isNotEmpty()) {
+            GamePlayer::where('game_id', $game->id)
+                ->where('team_id', $game->team_id)
+                ->whereNotNull('pending_annual_wage')
+                ->update([
+                    'annual_wage' => DB::raw('pending_annual_wage'),
+                    'pending_annual_wage' => null,
+                ]);
+        }
+
+        return $players;
+    }
+
+    /**
+     * Re-derive annual_wage from current market value and extend the contract
+     * for a batch of AI players being renewed.
+     *
+     * AI wages are seeded once from real market value and were then frozen —
+     * renewals only extended contract_until, so a rival's developing star kept
+     * his cheap rookie wage forever. Here the wage is re-derived from the
+     * player's *current* market value via calculateAnnualWage(), which shares the
+     * seed path's age curve and ability-anchor normalization, so AI pay tracks
+     * the market economy. Wages move both ways (a
+     * developed player earns more, a declining one less); the only downstream
+     * consumer is AITeamBudgetCalculator::financialPressure(), which keeps AI
+     * transfer budgets balanced as wage bills shift.
+     *
+     * @param  Collection<int, object>  $rows  each with id, team_id, market_value_cents, date_of_birth
+     */
+    public function renewAiContracts(Collection $rows, string $newContractEnd, string $referenceDate): void
+    {
+        if ($rows->isEmpty()) {
+            return;
+        }
+
+        // Resolve each distinct team's minimum wage once (the method caches, but
+        // it needs a hydrated Team with its clubProfile to read reputation).
+        // Key by string so lookups match regardless of whether the raw rows
+        // expose team_id as int or string.
+        $teamMinimums = Team::with('clubProfile')
+            ->whereIn('id', $rows->pluck('team_id')->unique()->filter()->all())
+            ->get()
+            ->mapWithKeys(fn (Team $team) => [(string) $team->id => $this->getMinimumWageForTeam($team)]);
+
+        $reference = Carbon::parse($referenceDate);
+
+        $updates = [];
+        foreach ($rows as $row) {
+            $marketValue = (int) $row->market_value_cents;
+            if ($marketValue <= 0 || $row->date_of_birth === null) {
+                // No reliable basis to re-derive a wage — extend the contract
+                // only, leaving the existing wage untouched.
+                $updates[] = ['id' => $row->id, 'wage' => null];
+                continue;
+            }
+
+            // diff()->y is absolute full years (int), avoiding Carbon 3's
+            // signed-float diffInYears().
+            $age = $reference->diff(Carbon::parse($row->date_of_birth))->y;
+            $minimumWage = $teamMinimums[(string) $row->team_id] ?? $this->getDefaultMinimumWage();
+
+            $updates[] = [
+                'id' => $row->id,
+                'wage' => $this->calculateAnnualWage($marketValue, $minimumWage, $age),
+            ];
+        }
+
+        foreach (array_chunk($updates, 500) as $chunk) {
+            $this->applyAiRenewalChunk($chunk, $newContractEnd);
+        }
+    }
+
+    /**
+     * Write one chunk of AI renewals: extend contract_until for every row, and
+     * set annual_wage where a new wage was computed (rows with a null wage keep
+     * their existing wage). Mirrors PlayerDevelopmentProcessor's UPDATE…FROM
+     * (VALUES …) pattern so each statement stays a plan-trivial PK lookup.
+     *
+     * @param  array<int, array{id:string, wage:int|null}>  $chunk
+     */
+    private function applyAiRenewalChunk(array $chunk, string $newContractEnd): void
+    {
+        if ($chunk === []) {
+            return;
+        }
+
+        $valueRows = [];
+        $valueBindings = [];
+        foreach ($chunk as $row) {
+            $valueRows[] = '(?::uuid, ?::bigint)';
+            $valueBindings[] = $row['id'];
+            $valueBindings[] = $row['wage'];
+        }
+        $values = implode(', ', $valueRows);
+
+        // COALESCE keeps the current annual_wage when v.wage is NULL. The
+        // contract_until placeholder binds first (it precedes the VALUES list
+        // in the statement text).
+        DB::update(<<<SQL
+            UPDATE game_players AS gp
+            SET annual_wage    = COALESCE(v.wage, gp.annual_wage),
+                contract_until = ?
+            FROM (VALUES {$values}) AS v(id, wage)
+            WHERE gp.id = v.id
+        SQL, [$newContractEnd, ...$valueBindings]);
+    }
+
+    /**
+     * Get players eligible for contract renewal.
+     *
+     * @param Game $game
+     * @return Collection<GamePlayer>
+     */
+    public function getPlayersEligibleForRenewal(Game $game): Collection
+    {
+        $seasonEndDate = $game->getSeasonEndDate();
+
+        return GamePlayer::with(['team', 'game', 'transferOffers', 'latestRenewalNegotiation', 'activeRenewalNegotiation', 'activeLoan'])
+            ->where('game_id', $game->id)
+            ->ownedByTeam($game->team_id)
+            ->get()
+            ->filter(fn ($player) => $player->canBeOfferedRenewal($seasonEndDate, $game->current_date))
+            ->sortBy('contract_until');
+    }
+
+    /**
+     * Get players with pending renewals (wage increase at end of season).
+     *
+     * @param Game $game
+     * @return Collection<GamePlayer>
+     */
+    public function getPlayersWithPendingRenewals(Game $game): Collection
+    {
+        return GamePlayer::query()
+            ->where('game_id', $game->id)
+            ->ownedByTeam($game->team_id)
+            ->whereNotNull('pending_annual_wage')
+            ->orderByDesc('pending_annual_wage')
+            ->get();
+    }
+
+    // =========================================
+    // CONTRACT NEGOTIATION
+    // =========================================
+
+    public const MAX_NEGOTIATION_ROUNDS = 3;
+
+    /**
+     * Calculate a player's disposition for any negotiation scenario.
+     * Convenience wrapper for DispositionService::calculateNegotiationDisposition().
+     */
+    public function calculateDisposition(
+        GamePlayer $player,
+        NegotiationScenario $scenario,
+        ?Game $buyingClubGame = null,
+        int $round = 1,
+    ): float {
+        return $this->dispositionService->calculateNegotiationDisposition($player, $scenario, $buyingClubGame, $round);
+    }
+
+    /**
+     * Get the mood label and color for a disposition score.
+     *
+     * @return array{label: string, color: string}
+     */
+    public function getMoodIndicator(float $disposition, string $context = 'renewal'): array
+    {
+        $mappedContext = $context === 'transfer' ? 'transfer_sign' : $context;
+
+        return $this->dispositionService->moodIndicator($disposition, $mappedContext);
+    }
+
+    /**
+     * Adaptive wage rounding: €1K for wages under €100K, €10K otherwise.
+     */
+    private function roundWage(int $wageCents): int
+    {
+        $unit = $wageCents < 10_000_000 ? 100_000 : 1_000_000;
+
+        return (int) (round($wageCents / $unit) * $unit);
+    }
+
+    /**
+     * Initiate a new renewal negotiation.
+     */
+    public function initiateNegotiation(GamePlayer $player, int $offerWage, int $offeredYears, ?int $requestedClauseCents = null): RenewalNegotiation
+    {
+        $demand = $this->calculateWageDemand($player, NegotiationScenario::RENEWAL);
+
+        // Check for any previous negotiations (for round carry-over)
+        $previousNegotiation = RenewalNegotiation::where('game_player_id', $player->id)
+            ->whereIn('status', [
+                RenewalNegotiation::STATUS_PLAYER_REJECTED,
+                RenewalNegotiation::STATUS_CLUB_DECLINED,
+                RenewalNegotiation::STATUS_CLUB_RECONSIDERED,
+                RenewalNegotiation::STATUS_EXPIRED,
+            ])
+            ->orderByDesc('round')
+            ->first();
+
+        $startRound = $previousNegotiation ? min($previousNegotiation->round + 1, self::MAX_NEGOTIATION_ROUNDS) : 1;
+
+        return RenewalNegotiation::create([
+            'game_id' => $player->game_id,
+            'game_player_id' => $player->id,
+            'status' => RenewalNegotiation::STATUS_OFFER_PENDING,
+            'round' => $startRound,
+            'player_demand' => $demand['wage'],
+            'preferred_years' => $demand['contractYears'],
+            'user_offer' => $offerWage,
+            'offered_years' => $offeredYears,
+            'release_clause_requested' => $requestedClauseCents,
+        ]);
+    }
+
+    /**
+     * Evaluate a pending negotiation offer. Called synchronously during chat negotiation.
+     *
+     * @return string 'accepted' | 'countered' | 'rejected'
+     */
+    public function evaluateOffer(RenewalNegotiation $negotiation): string
+    {
+        $player = $negotiation->gamePlayer;
+        $disposition = $this->dispositionService->calculateNegotiationDisposition(
+            $player, NegotiationScenario::RENEWAL, null, $negotiation->round,
+        );
+
+        // Salary floor: players don't take pay cuts (exception: content veterans)
+        $age = $player->age($player->game->current_date);
+        $salaryFloor = ($age >= PlayerAge::PRIME_END && $player->morale >= 70)
+            ? null
+            : $player->annual_wage;
+
+        // A release clause raised above the mandatory floor is golden handcuffs:
+        // the player holds out for a higher wage to be locked in. Feed the
+        // clause-adjusted demand into the evaluator so the whole accept/counter/
+        // reject ladder (and the counter wage) reflects the clause cost. The
+        // stored player_demand (the base ask shown in chat) is left untouched.
+        $effectiveDemand = $this->effectiveDemandWithReleaseClause(
+            $negotiation->player_demand,
+            $player->market_value_cents,
+            $negotiation->release_clause_requested,
+            $player->game->country,
+            $player->isHomegrown(),
+        );
+
+        $evaluation = $this->wageNegotiationEvaluator->evaluate(
+            offerWage: $negotiation->user_offer,
+            offeredYears: $negotiation->offered_years,
+            playerDemand: $effectiveDemand,
+            preferredYears: $negotiation->preferred_years,
+            disposition: $disposition,
+            round: $negotiation->round,
+            maxRounds: self::MAX_NEGOTIATION_ROUNDS,
+            salaryFloor: $salaryFloor,
+            previousCounter: $negotiation->counter_offer,
+            flexibilityRatio: NegotiationScenario::RENEWAL->flexibilityRatio($player->tier),
+        );
+
+        $updateData = ['disposition' => $disposition];
+
+        if ($evaluation['result'] === 'accepted') {
+            $contractYears = $negotiation->offered_years;
+            $updateData['status'] = RenewalNegotiation::STATUS_ACCEPTED;
+            $updateData['contract_years'] = $contractYears;
+
+            $negotiation->fill($updateData)->save();
+            $this->processRenewal(
+                $player,
+                $negotiation->user_offer,
+                $contractYears,
+                $negotiation->release_clause_requested,
+            );
+
+            return 'accepted';
+        }
+
+        if ($evaluation['result'] === 'countered') {
+            $updateData['status'] = RenewalNegotiation::STATUS_PLAYER_COUNTERED;
+            $updateData['counter_offer'] = $evaluation['counterWage'];
+
+            $negotiation->fill($updateData)->save();
+
+            return 'countered';
+        }
+
+        $updateData['status'] = RenewalNegotiation::STATUS_PLAYER_REJECTED;
+        $updateData['rejected_at'] = $player->game->current_date;
+        $negotiation->fill($updateData)->save();
+
+        return 'rejected';
+    }
+
+    /**
+     * Accept a counter-offer from the player (instant resolution).
+     */
+    public function acceptCounterOffer(RenewalNegotiation $negotiation): bool
+    {
+        if (!$negotiation->isCountered()) {
+            return false;
+        }
+
+        $player = $negotiation->gamePlayer;
+        $contractYears = $negotiation->preferred_years;
+
+        $negotiation->update([
+            'status' => RenewalNegotiation::STATUS_ACCEPTED,
+            'contract_years' => $contractYears,
+        ]);
+
+        // The player's counter already priced in the requested clause (it raised
+        // the demand the counter is anchored to), so accepting it means the wage
+        // justifies the clause; store the requested clause as-is above the floor.
+        $this->processRenewal(
+            $player,
+            $negotiation->counter_offer,
+            $contractYears,
+            $negotiation->release_clause_requested,
+        );
+
+        return true;
+    }
+
+    /**
+     * Submit a new offer in response to a counter (next round).
+     */
+    public function submitNewOffer(RenewalNegotiation $negotiation, int $newOfferWage, int $offeredYears, ?int $requestedClauseCents = null): RenewalNegotiation
+    {
+        if (!$negotiation->isCountered()) {
+            return $negotiation;
+        }
+
+        $nextRound = $negotiation->round + 1;
+
+        $negotiation->update([
+            'status' => RenewalNegotiation::STATUS_OFFER_PENDING,
+            'round' => $nextRound,
+            'user_offer' => $newOfferWage,
+            'offered_years' => $offeredYears,
+            'release_clause_requested' => $requestedClauseCents,
+        ]);
+
+        return $negotiation;
+    }
+
+    /**
+     * Cancel an active negotiation (user walks away).
+     */
+    public function cancelNegotiation(RenewalNegotiation $negotiation): void
+    {
+        $negotiation->update(['status' => RenewalNegotiation::STATUS_CLUB_DECLINED]);
+    }
+
+    /**
+     * Decline renewal without negotiating (user says "No renovar").
+     * Creates a club_declined record so the decision is tracked.
+     */
+    public function declineWithoutNegotiation(GamePlayer $player): RenewalNegotiation
+    {
+        return RenewalNegotiation::create([
+            'game_id' => $player->game_id,
+            'game_player_id' => $player->id,
+            'status' => RenewalNegotiation::STATUS_CLUB_DECLINED,
+            'round' => 0,
+        ]);
+    }
+
+    /**
+     * Reconsider a previously declined/rejected renewal.
+     * Marks the blocking record as club_reconsidered so the player becomes eligible again.
+     */
+    public function reconsiderRenewal(GamePlayer $player): void
+    {
+        /** @var RenewalNegotiation|null $latest */
+        $latest = $player->relationLoaded('latestRenewalNegotiation')
+            ? $player->latestRenewalNegotiation
+            : $player->latestRenewalNegotiation()->first();
+
+        if ($latest && $latest->isBlocking()) {
+            $latest->update(['status' => RenewalNegotiation::STATUS_CLUB_RECONSIDERED]);
+        }
+    }
+
+    /**
+     * Synchronous negotiation: initiate (or continue) and evaluate in one call.
+     * Used by the chat-based negotiation UI.
+     *
+     * @return array{result: string, negotiation: RenewalNegotiation}
+     */
+    public function negotiateSync(GamePlayer $player, int $offerWage, int $offeredYears, ?int $requestedClauseCents = null): array
+    {
+        // Check if continuing from a counter-offer
+        $existing = RenewalNegotiation::where('game_player_id', $player->id)
+            ->where('status', RenewalNegotiation::STATUS_PLAYER_COUNTERED)
+            ->first();
+
+        if ($existing) {
+            $negotiation = $this->submitNewOffer($existing, $offerWage, $offeredYears, $requestedClauseCents);
+        } else {
+            $negotiation = $this->initiateNegotiation($player, $offerWage, $offeredYears, $requestedClauseCents);
+        }
+
+        // Immediately evaluate (instead of waiting for matchday)
+        $result = $this->evaluateOffer($negotiation);
+
+        return [
+            'result' => $result,
+            'negotiation' => $negotiation,
+        ];
+    }
+
+    /**
+     * Clean up stale negotiations (e.g., at season end).
+     */
+    public function expireStaleNegotiations(Game $game): int
+    {
+        return RenewalNegotiation::where('game_id', $game->id)
+            ->whereIn('status', [RenewalNegotiation::STATUS_OFFER_PENDING, RenewalNegotiation::STATUS_PLAYER_COUNTERED])
+            ->update(['status' => RenewalNegotiation::STATUS_EXPIRED]);
+    }
+
+    // =========================================
+    // PLAYER RELEASE (CONTRACT TERMINATION)
+    // =========================================
+
+    /**
+     * Severance rate: fraction of remaining contract wages paid as compensation.
+     */
+    private const SEVERANCE_RATE = 0.50;
+
+    /**
+     * Release a player from the user's squad (unilateral contract termination).
+     *
+     * The player becomes a free agent (team_id = null) and the club pays
+     * severance equal to 50% of remaining contract wages.
+     *
+     * @return array{error?: string, playerName?: string, severance?: int, formattedSeverance?: string}
+     */
+    public function releasePlayer(Game $game, GamePlayer $player): array
+    {
+        $playerName = $player->name;
+
+        // Eligibility checks
+        if ($error = $this->validateRelease($game, $player)) {
+            return ['error' => $error];
+        }
+
+        // Calculate severance
+        $severance = $this->calculateSeverance($game, $player);
+
+        // Record severance as a financial transaction
+        if ($severance > 0) {
+            FinancialTransaction::recordExpense(
+                gameId: $game->id,
+                category: FinancialTransaction::CATEGORY_SEVERANCE,
+                amount: $severance,
+                description: __('finances.tx_player_released', ['player' => $playerName]),
+                transactionDate: $game->current_date,
+                relatedPlayerId: $player->id,
+            );
+        }
+
+        // Release the player to the free agent pool
+        TransferListing::where('game_player_id', $player->id)->delete();
+        $player->update([
+            'team_id' => null,
+            'number' => null,
+            // Free agent → no contract → no release clause (non-null ⟺ under
+            // contract). Mirrors the contract-expiry free-agent path.
+            'release_clause' => null,
+        ]);
+
+        // Cancel any active renewal negotiations
+        $activeNegotiation = $player->activeRenewalNegotiation;
+        if ($activeNegotiation) {
+            $activeNegotiation->update(['status' => RenewalNegotiation::STATUS_EXPIRED]);
+        }
+
+        // Send notification
+        app(NotificationService::class)->notifyPlayerReleased(
+            $game,
+            $playerName,
+            $severance,
+        );
+
+        return [
+            'playerName' => $playerName,
+            'severance' => $severance,
+            'formattedSeverance' => Money::format($severance),
+        ];
+    }
+
+    /**
+     * Validate whether a player can be released.
+     *
+     * @return string|null Error message, or null if valid
+     */
+    private function validateRelease(Game $game, GamePlayer $player): ?string
+    {
+        // Must be a user-owned player physically on a user roster. The roster
+        // check rejects players loaned out to a third-party club; the
+        // ownership check rejects players loaned in from a third-party club.
+        if (!in_array($player->team_id, $game->userTeamIds(), true)) {
+            return __('messages.release_not_your_player');
+        }
+
+        if (!$player->isUserOwned($game)) {
+            return __('messages.release_on_loan');
+        }
+
+        // Squad-size and position-group minimums apply to the roster the
+        // player effectively occupies. Filial call-ups sit on the first team
+        // physically but their parent club (and the roster they belong to
+        // for these checks) is the reserve team.
+        $rosterTeamId = $player->isCalledUpFromReserve($game)
+            ? $game->reserve_team_id
+            : $player->team_id;
+
+        // Cannot release players with agreed transfers
+        if ($player->hasAgreedTransfer()) {
+            return __('messages.release_has_agreed_transfer');
+        }
+
+        // Cannot release players with pre-contract agreements
+        if ($player->hasPreContractAgreement()) {
+            return __('messages.release_has_pre_contract');
+        }
+
+        // Squad-composition guard: total roster size and per-position-group
+        // minimums on the team that would lose the player.
+        $breach = $this->squadMinimumService->validateRemoval($game, $player, $rosterTeamId);
+        if ($breach !== null) {
+            if ($breach['type'] === 'too_small') {
+                return __('messages.release_squad_too_small', ['min' => $breach['min']]);
+            }
+
+            return __('messages.release_position_minimum', [
+                'group' => __('squad.' . strtolower($breach['group']) . 's'),
+                'min'   => $breach['min'],
+            ]);
+        }
+
+        return null;
+    }
+
+    /**
+     * Calculate severance pay for releasing a player.
+     *
+     * Severance = remaining contract years x annual wage x severance rate (50%).
+     */
+    public function calculateSeverance(Game $game, GamePlayer $player): int
+    {
+        if (!$player->contract_until || !$player->annual_wage) {
+            return 0;
+        }
+
+        $remainingYears = max(0, $game->current_date->diffInYears($player->contract_until, true));
+
+        return (int) ($player->annual_wage * $remainingYears * self::SEVERANCE_RATE);
+    }
+
+    // =========================================
+    // SHARED TERMS NEGOTIATION HELPERS
+    // =========================================
+
+    /**
+     * Apply a wage evaluation result to a TransferOffer's terms fields.
+     *
+     * @param  array  $evaluation  Result from WageNegotiationEvaluator::evaluate()
+     * @param  string|null  $acceptedStatus  Offer status that accepted terms settle the deal into (NegotiationScenario::acceptedStatus())
+     * @return array{result: string, offer: TransferOffer}
+     */
+    private function applyTermsEvaluation(TransferOffer $offer, array $evaluation, ?string $acceptedStatus = null): array
+    {
+        if ($evaluation['result'] === 'accepted') {
+            $this->settleTerms($offer, $acceptedStatus, ['terms_status' => 'accepted']);
+
+            return ['result' => 'accepted', 'offer' => $offer->fresh()];
+        }
+
+        if ($evaluation['result'] === 'countered') {
+            $offer->update([
+                'terms_status' => 'countered',
+                'wage_counter_offer' => $evaluation['counterWage'],
+            ]);
+
+            return ['result' => 'countered', 'offer' => $offer->fresh()];
+        }
+
+        $offer->transitionTo(TransferOffer::STATUS_REJECTED, $offer->game->current_date, ['terms_status' => 'rejected']);
+
+        return ['result' => 'rejected', 'offer' => $offer->fresh()];
+    }
+
+    /**
+     * Accept a player's counter-offer on personal terms.
+     */
+    private function acceptTermsCounter(TransferOffer $offer, ?string $acceptedStatus = null): TransferOffer
+    {
+        if ($offer->terms_status !== 'countered') {
+            throw new \InvalidArgumentException(__('messages.transfer_failed'));
+        }
+
+        $this->settleTerms($offer, $acceptedStatus, [
+            'offered_wage' => $offer->wage_counter_offer,
+            'offered_years' => $offer->preferred_years,
+            'terms_status' => 'accepted',
+        ]);
+
+        return $offer->fresh();
+    }
+
+    /**
+     * Record accepted personal terms and, where the scenario says terms alone
+     * settle the deal (pre-contracts, free agents), move the offer there.
+     */
+    private function settleTerms(TransferOffer $offer, ?string $acceptedStatus, array $terms): void
+    {
+        if ($acceptedStatus === null) {
+            $offer->update($terms);
+
+            return;
+        }
+
+        $offer->transitionTo($acceptedStatus, $offer->game->current_date, $terms);
+    }
+
+    // =========================================
+    // UNIFIED PERSONAL TERMS NEGOTIATION
+    // =========================================
+
+    /**
+     * Check if a player is willing to negotiate personal terms.
+     * Rejects the offer if the player refuses based on club reputation gap.
+     *
+     * @return array{willing: bool, offer: TransferOffer}
+     */
+    public function checkPlayerWillingness(TransferOffer $offer, Game $buyingClubGame): array
+    {
+        $player = $offer->gamePlayer;
+        $reputationModifier = $this->dispositionService->reputationModifier($buyingClubGame->team, $player);
+
+        if ($reputationModifier < 1.0 && rand(1, 100) > (int) ($reputationModifier * 100)) {
+            $offer->transitionTo(TransferOffer::STATUS_REJECTED, $buyingClubGame->current_date, ['terms_status' => 'rejected']);
+
+            return ['willing' => false, 'offer' => $offer->fresh()];
+        }
+
+        return ['willing' => true, 'offer' => $offer];
+    }
+
+    /**
+     * Synchronous personal terms negotiation for transfers, pre-contracts, and free agents.
+     *
+     * All three scenarios share the same flow: initialize or continue negotiation,
+     * compute disposition, evaluate via WageNegotiationEvaluator, apply result.
+     * The NegotiationScenario enum drives the differences (flexibility, premiums, statuses).
+     *
+     * @return array{result: string, offer: TransferOffer}
+     */
+    public function negotiateTermsSync(
+        TransferOffer $offer,
+        int $offerWageCents,
+        int $offeredYears,
+        NegotiationScenario $scenario,
+        Game $buyingClubGame,
+        ?int $requestedClauseCents = null,
+    ): array {
+        $player = $offer->gamePlayer;
+        $buyingClubFloor = $this->getMinimumWageForTeam($buyingClubGame->team);
+
+        if ($offer->terms_status === 'countered') {
+            $offer->update([
+                'terms_round' => min(($offer->terms_round ?? 1) + 1, self::MAX_NEGOTIATION_ROUNDS),
+                'offered_wage' => $offerWageCents,
+                'offered_years' => $offeredYears,
+                'release_clause_requested' => $requestedClauseCents,
+            ]);
+        } else {
+            $demand = $this->calculateWageDemand($player, $scenario, $buyingClubGame->team);
+            $offer->update([
+                'terms_status' => 'pending',
+                'terms_round' => 1,
+                'player_demand' => $demand['wage'],
+                'preferred_years' => $demand['contractYears'],
+                'offered_wage' => $offerWageCents,
+                'offered_years' => $offeredYears,
+                'release_clause_requested' => $requestedClauseCents,
+            ]);
+        }
+
+        $disposition = $this->dispositionService->calculateNegotiationDisposition(
+            $player, $scenario, $buyingClubGame, $offer->terms_round,
+        );
+        $offer->update(['terms_disposition' => $disposition]);
+
+        // A release clause raised above the mandatory floor is golden handcuffs:
+        // the player holds out for a higher wage to be locked in. Feed the
+        // clause-adjusted demand into the evaluator so the whole accept/counter/
+        // reject ladder (and the counter wage) reflects the clause cost. The
+        // stored player_demand (the base ask shown in chat) is left untouched.
+        // Mirrors the renewal path (evaluateOffer). For buy transfers, pre-
+        // contracts, and free agents the signing club is the user's team, so the
+        // mandatory-clause check uses $buyingClubGame->country.
+        $effectiveDemand = $this->effectiveDemandWithReleaseClause(
+            $offer->player_demand,
+            $player->market_value_cents,
+            $requestedClauseCents,
+            $buyingClubGame->country,
+            $player->isHomegrown(),
+        );
+
+        $evaluation = $this->wageNegotiationEvaluator->evaluate(
+            offerWage: $offer->offered_wage,
+            offeredYears: $offer->offered_years,
+            playerDemand: $effectiveDemand,
+            preferredYears: $offer->preferred_years,
+            disposition: $disposition,
+            round: $offer->terms_round,
+            maxRounds: self::MAX_NEGOTIATION_ROUNDS,
+            salaryFloor: $buyingClubFloor,
+            previousCounter: $offer->wage_counter_offer,
+            flexibilityRatio: $scenario->flexibilityRatio($player->tier),
+        );
+
+        return $this->applyTermsEvaluation($offer, $evaluation, $scenario->acceptedStatus());
+    }
+
+    /**
+     * Accept the player's counter-offer on personal terms.
+     */
+    public function acceptTermsCounterForScenario(TransferOffer $offer, NegotiationScenario $scenario): TransferOffer
+    {
+        return $this->acceptTermsCounter($offer, $scenario->acceptedStatus());
+    }
+}

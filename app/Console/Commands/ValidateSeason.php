@@ -1,0 +1,769 @@
+<?php
+
+namespace App\Console\Commands;
+
+use App\Modules\Competition\Services\CountryConfig;
+use App\Modules\Competition\Services\SwissDrawService;
+use App\Support\FixtureCalendar;
+use App\Support\SeasonData;
+use Database\Seeders\ClubProfilesSeeder;
+use Illuminate\Console\Command;
+
+/**
+ * Validate a season's data folder before seeding.
+ *
+ * Read-only pre-seed gate: checks that every competition declared in
+ * config/countries.php has the squad data the seeder expects, that
+ * transfermarkt ids resolve, that any declared seasonID agrees with the
+ * folder, and that round-robin league schedules have the exact number of
+ * rounds the fixture generator requires (2 * (teams - 1)) — the invariant
+ * that otherwise throws at seed/fixture time (LeagueFixtureGenerator).
+ *
+ * Mirrors the seeder's skip rules: team pools (EUR/INT) are validated as
+ * per-team files, bare promotion playoffs (ESP3PO) are schedule-only.
+ *
+ * Continental competitions (UCL/UEL) get extra rules, because
+ * their participant lists only *link* clubs seeded elsewhere. A participant
+ * with no squad data anywhere in the season folder is dropped with a warning by
+ * SeedReferenceData, and SeasonInitializationService then finds an incomplete
+ * league phase and skips it — leaving a competition with no fixtures at all and
+ * nothing user-visible to explain why. Catching that here is the whole point.
+ * Their shape is checked too: a Swiss league phase is exactly 36 clubs and no
+ * club appears in two of them, a continental knockout is exactly two.
+ *
+ * Exits non-zero if any error is found so it can gate a release pipeline.
+ */
+class ValidateSeason extends Command
+{
+    protected $signature = 'app:validate-season
+                            {season : Season to validate (e.g. 2026)}';
+
+    protected $description = 'Validate a season data folder for completeness and correctness before seeding';
+
+    /**
+     * Squad coverage below this in the player-photo crosswalk earns a warning.
+     * Some shortfall is normal — youth and fresh signings routinely predate the
+     * last people.csv export — so this sits well under 100%.
+     */
+    private const PHOTO_COVERAGE_WARN_PCT = 90.0;
+
+    /** @var string[] */
+    private array $errors = [];
+
+    /** @var string[] */
+    private array $warnings = [];
+
+    /**
+     * Transfermarkt id -> the Swiss competition that already claimed it. A club
+     * plays in exactly one of UCL/UEL/UECL, so a second claim is a data error.
+     * The Super Cup is deliberately absent: its two finalists legitimately also
+     * play in that season's Champions or Europa League.
+     *
+     * @var array<string, string>
+     */
+    private array $swissEntrants = [];
+
+    /**
+     * Every transfermarkt id in this season folder that can supply a squad —
+     * league teams.json clubs and EUR/INT pool files — mapped to its name and
+     * country. Continental competitions only *link* clubs, so this is what
+     * their participants have to resolve against.
+     *
+     * @var array<string, array{name: string, country: string|null}>
+     */
+    private array $squadSources = [];
+
+    public function handle(CountryConfig $countryConfig): int
+    {
+        $season = $this->argument('season');
+        $base = base_path("data/{$season}");
+
+        if (!is_dir($base)) {
+            $this->error("Season folder not found: {$base}");
+            return self::FAILURE;
+        }
+
+        $this->info("Validating data/{$season}...");
+        $this->newLine();
+
+        $competitions = SeasonData::competitions($countryConfig, $season);
+        $handlers = SeasonData::continentalHandlers($countryConfig, $season);
+        $this->indexSquadSources($season, $competitions, $countryConfig);
+
+        foreach ($competitions as ['code' => $code, 'type' => $type]) {
+            $dir = "{$base}/{$code}";
+
+            match ($type) {
+                'league' => $this->validateLeague($code, $dir, $season),
+                'cup' => $this->validateParticipantList($code, $dir, $season),
+                'continental' => $this->validateContinental($code, $dir, $season, $handlers[$code] ?? ''),
+                'pool' => $this->validatePool($code, $dir),
+                'none' => $this->validateScheduleOnly($code, $dir),
+            };
+        }
+
+        $this->validateSquadNumbers($season, $competitions);
+        $this->validatePhotoCrosswalk($season, $competitions);
+        $this->validateNoFixtureClashes($season, $countryConfig);
+        $this->warnUnprofiledClubs();
+
+        foreach ($this->warnings as $warning) {
+            $this->warn("  ⚠ {$warning}");
+        }
+
+        $this->newLine();
+
+        if (!empty($this->errors)) {
+            $this->error('Validation FAILED:');
+            foreach ($this->errors as $error) {
+                $this->line("  ✗ {$error}");
+            }
+            return self::FAILURE;
+        }
+
+        $this->info('Validation passed. Season data is ready to seed.');
+        return self::SUCCESS;
+    }
+
+    private function validateLeague(string $code, string $dir, string $season): void
+    {
+        $clubs = $this->loadClubs($code, "{$dir}/teams.json", $season);
+        if ($clubs === null) {
+            return;
+        }
+
+        $teamCount = count($clubs);
+        if ($teamCount < 4 || $teamCount % 2 !== 0) {
+            $this->errors[] = "{$code}: round-robin league needs an even count ≥ 4, got {$teamCount} clubs.";
+        }
+
+        // The fixture generator requires exactly 2*(teams-1) league rounds.
+        $schedule = $this->loadSchedule($code, "{$dir}/schedule.json");
+        if ($schedule !== null) {
+            $rounds = count($schedule['league'] ?? []);
+            $expected = 2 * ($teamCount - 1);
+            if ($teamCount % 2 === 0 && $rounds !== $expected) {
+                $this->errors[] = "{$code}: expected {$expected} league rounds for {$teamCount} teams, schedule has {$rounds}.";
+            }
+        }
+
+        $this->line("  {$code}: {$teamCount} clubs ✓");
+    }
+
+    private function validateParticipantList(string $code, string $dir, string $season): void
+    {
+        $clubs = $this->loadClubs($code, "{$dir}/teams.json", $season);
+        if ($clubs === null) {
+            return;
+        }
+        // Swiss/cup fixtures are drawn per-game, so no round-count invariant.
+        if (!file_exists("{$dir}/schedule.json")) {
+            $this->warnings[] = "{$code}: no schedule.json (knockout/round dates) found.";
+        }
+        $this->validateEntryRounds($code, $dir, $clubs);
+        $this->validateBracketParity($code, $dir, $clubs);
+        $this->line("  {$code}: " . count($clubs) . " clubs ✓");
+    }
+
+    /**
+     * A club's `entryRound` has to be a round the cup actually has.
+     *
+     * @param  array<int, array<string, mixed>>  $clubs
+     */
+    private function validateEntryRounds(string $code, string $dir, array $clubs): void
+    {
+        $schedule = file_exists("{$dir}/schedule.json")
+            ? json_decode((string) file_get_contents("{$dir}/schedule.json"), true)
+            : null;
+        $rounds = array_map(fn ($round) => (int) ($round['round'] ?? 0), $schedule['knockout'] ?? []);
+        $lastRound = $rounds === [] ? null : max($rounds);
+
+        foreach ($clubs as $club) {
+            if (!isset($club['entryRound'])) {
+                continue;
+            }
+            $entryRound = (int) $club['entryRound'];
+            $name = $club['name'] ?? '(unnamed)';
+            if ($entryRound < 1 || ($lastRound !== null && $entryRound > $lastRound)) {
+                $this->errors[] = "{$code}: club '{$name}' has entryRound {$entryRound}, outside rounds 1–" . ($lastRound ?? '?') . '.';
+            }
+        }
+    }
+
+    /**
+     * A knockout is a chain of halvings, so every round's field has to be
+     * even. Walk the rounds: each one starts with the winners of the last
+     * plus whoever enters at it, and must halve.
+     *
+     * A cup that fails this doesn't fail loudly — CupDrawService throws
+     * OddCupDrawPoolException, ConductNextCupRoundDraw swallows it, and the
+     * competition simply stops mid-season. A warning here is the only place
+     * it's visible before a save is already broken.
+     *
+     * Warning rather than error, because the field is reshaped again at each
+     * season's close by DomesticCupQualificationProcessor. What the data
+     * declares is only the opening field.
+     *
+     * @param  array<int, array<string, mixed>>  $clubs
+     */
+    private function validateBracketParity(string $code, string $dir, array $clubs): void
+    {
+        $schedule = file_exists("{$dir}/schedule.json")
+            ? json_decode((string) file_get_contents("{$dir}/schedule.json"), true)
+            : null;
+        $rounds = array_map(fn ($round) => (int) ($round['round'] ?? 0), $schedule['knockout'] ?? []);
+
+        if ($rounds === []) {
+            return;
+        }
+
+        sort($rounds);
+
+        $entrantsByRound = [];
+        foreach ($clubs as $club) {
+            $entryRound = max(1, (int) ($club['entryRound'] ?? 1));
+            $entrantsByRound[$entryRound] = ($entrantsByRound[$entryRound] ?? 0) + 1;
+        }
+
+        $this->applySupercupSkipAhead($code, $entrantsByRound);
+
+        $survivors = 0;
+        foreach ($rounds as $round) {
+            $field = $survivors + ($entrantsByRound[$round] ?? 0);
+
+            if ($field % 2 !== 0) {
+                $this->warnings[] = "{$code}: round {$round} fields {$field} clubs, which is odd — "
+                    . 'the draw will leave a club unpaired and the cup will stop there.';
+
+                return;
+            }
+
+            $survivors = intdiv($field, 2);
+        }
+
+        if ($survivors !== 1) {
+            $this->warnings[] = "{$code}: the rounds resolve to {$survivors} winners, not 1 — "
+                . 'the field and the declared rounds disagree.';
+        }
+    }
+
+    /**
+     * Move the supercup field to the round it skips ahead to, the way
+     * CupEntryRoundService does at season setup. Spain's four Supercopa
+     * clubs join the Copa at the round of 32, which is what makes its
+     * opening round even — without applying it here, a correctly sized
+     * cup reads as odd.
+     *
+     * @param  array<int, int>  $entrantsByRound
+     */
+    private function applySupercupSkipAhead(string $code, array &$entrantsByRound): void
+    {
+        foreach (config('countries') as $country) {
+            $supercup = $country['supercup'] ?? null;
+            if (($supercup['cup'] ?? null) !== $code) {
+                continue;
+            }
+
+            $skipToRound = (int) ($supercup['cup_entry_round'] ?? 0);
+            if ($skipToRound < 2) {
+                return;
+            }
+
+            $moving = min((int) ($supercup['teams'] ?? 4), $entrantsByRound[1] ?? 0);
+            $entrantsByRound[1] -= $moving;
+            $entrantsByRound[$skipToRound] = ($entrantsByRound[$skipToRound] ?? 0) + $moving;
+
+            return;
+        }
+    }
+
+    /**
+     * Continental participant lists get every check a cup gets, plus the ones
+     * that keep a European competition from quietly ending up empty.
+     */
+    private function validateContinental(string $code, string $dir, string $season, string $handler): void
+    {
+        $clubs = $this->loadClubs($code, "{$dir}/teams.json", $season);
+        if ($clubs === null) {
+            return;
+        }
+
+        if (!file_exists("{$dir}/schedule.json")) {
+            $this->warnings[] = "{$code}: no schedule.json (knockout/round dates) found.";
+        }
+
+        $errorsBefore = count($this->errors);
+
+        $this->validateParticipantsAreSeedable($code, $season, $clubs);
+
+        if ($handler === 'swiss_format') {
+            $this->validateSwissShape($code, $clubs);
+            $this->validateNoRepeatEntrants($code, $clubs);
+        }
+
+        if (count($this->errors) === $errorsBefore) {
+            $this->line("  {$code}: " . count($clubs) . " clubs ✓");
+        }
+    }
+
+    /**
+     * A club plays in exactly one of the Swiss competitions. Two claims mean the
+     * participant lists were read off a page that spans more than one — a
+     * fixture list including qualifying rounds puts a club knocked out of the
+     * Champions League into both it and the Europa League.
+     *
+     * @param  array<int, array<string, mixed>>  $clubs
+     */
+    private function validateNoRepeatEntrants(string $code, array $clubs): void
+    {
+        foreach ($clubs as $club) {
+            if (empty($club['id'])) {
+                continue;   // already reported by validateParticipantsAreSeedable
+            }
+
+            $id = (string) $club['id'];
+            $name = $club['name'] ?? '(unnamed)';
+
+            if (isset($this->swissEntrants[$id])) {
+                $this->errors[] = "{$code}: '{$name}' ({$id}) is also a {$this->swissEntrants[$id]} "
+                    . 'entrant — a club plays in one European competition per season.';
+                continue;
+            }
+
+            $this->swissEntrants[$id] = $code;
+        }
+    }
+
+    /**
+     * Every participant must carry a literal `id` and have squad data somewhere
+     * in this season folder.
+     *
+     * The literal-`id` rule is deliberately stricter than loadClubs(): the
+     * seeder and SetupNewGame both read `$club['id']` directly, so a club
+     * identified only by `transfermarktId` or a crest URL resolves here but is
+     * skipped there. Without squad data the seeder drops the club with a
+     * warning and the competition is left short of a full league phase, which
+     * SeasonInitializationService then skips outright — no fixtures, no error.
+     *
+     * @param  array<int, array<string, mixed>>  $clubs
+     */
+    private function validateParticipantsAreSeedable(string $code, string $season, array $clubs): void
+    {
+        $unseedable = [];
+
+        foreach ($clubs as $club) {
+            $name = $club['name'] ?? '(unnamed)';
+
+            if (empty($club['id'])) {
+                $this->errors[] = "{$code}: club '{$name}' has no literal 'id' key — "
+                    . 'the seeder links continental clubs by that field only.';
+                continue;
+            }
+
+            $id = (string) $club['id'];
+            if (!isset($this->squadSources[$id])) {
+                $unseedable[] = "{$name} ({$id})";
+            }
+        }
+
+        if (!empty($unseedable)) {
+            $this->errors[] = "{$code}: " . count($unseedable) . ' club(s) have no squad data — not in any '
+                . "league teams.json and no data/{$season}/{EUR,INT}/{id}.json: " . implode(', ', $unseedable) . '.';
+        }
+    }
+
+    /**
+     * A Swiss league phase is drawn from four equal pots, so the participant
+     * list has to be exactly that shape or SwissDrawService throws.
+     *
+     * Real seeding pots are optional — the scraper cannot read them off
+     * Transfermarkt, and SetupNewGame falls back to pots by squad market value
+     * when they are absent. A *partial* set is the dangerous case: it usually
+     * means a re-scrape overwrote hand-entered pots.
+     *
+     * @param  array<int, array<string, mixed>>  $clubs
+     */
+    private function validateSwissShape(string $code, array $clubs): void
+    {
+        $total = count($clubs);
+        $expected = SwissDrawService::LEAGUE_PHASE_TEAMS;
+
+        if ($total !== $expected) {
+            $this->errors[] = "{$code}: swiss league phase needs exactly {$expected} clubs, got {$total}.";
+        }
+
+        $potted = array_values(array_filter($clubs, fn ($club) => isset($club['pot'])));
+
+        if (count($potted) === 0) {
+            $this->warnings[] = "{$code}: no seeding pots — the draw will fall back to squad market value.";
+        } elseif (count($potted) !== $total) {
+            $this->errors[] = "{$code}: only " . count($potted) . " of {$total} clubs have a 'pot' "
+                . '(a re-scrape probably overwrote them). Give every club a pot, or none at all.';
+        } else {
+            $sizes = array_count_values(array_map(fn ($club) => (int) $club['pot'], $potted));
+            $perPot = SwissDrawService::TEAMS_PER_POT;
+            $wrong = [];
+
+            foreach (range(1, SwissDrawService::POTS) as $pot) {
+                if (($sizes[$pot] ?? 0) !== $perPot) {
+                    $wrong[] = "pot {$pot} has " . ($sizes[$pot] ?? 0);
+                }
+            }
+            foreach (array_keys($sizes) as $pot) {
+                if ($pot < 1 || $pot > SwissDrawService::POTS) {
+                    $wrong[] = "pot {$pot} is out of range";
+                }
+            }
+
+            if (!empty($wrong)) {
+                $this->errors[] = "{$code}: every pot must hold exactly {$perPot} clubs — "
+                    . implode(', ', $wrong) . '.';
+            }
+        }
+
+        $noCountry = array_values(array_filter(
+            $clubs,
+            fn ($club) => empty($club['country'])
+                && empty($this->squadSources[(string) ($club['id'] ?? '')]['country']),
+        ));
+
+        if (!empty($noCountry)) {
+            $names = array_map(fn ($club) => (string) ($club['name'] ?? '(unnamed)'), $noCountry);
+            $this->warnings[] = "{$code}: " . count($noCountry) . ' club(s) have no country, so the draw '
+                . 'cannot keep them apart from their compatriots: ' . $this->summarize($names) . '.';
+        }
+    }
+
+    private function validatePool(string $code, string $dir): void
+    {
+        $files = array_filter(glob("{$dir}/*.json") ?: [], fn ($p) => basename($p) !== 'schedule.json');
+        if (count($files) === 0) {
+            $this->errors[] = "{$code}: team pool has no per-team {id}.json files.";
+            return;
+        }
+        foreach ($files as $file) {
+            $data = json_decode(file_get_contents($file), true);
+            if (!is_array($data) || empty($data['image']) || SeasonData::idFromImage($data['image']) === null) {
+                $this->errors[] = "{$code}: " . basename($file) . " has no resolvable transfermarkt id (image).";
+            }
+        }
+        $this->line("  {$code}: " . count($files) . " pool teams ✓");
+    }
+
+    private function validateScheduleOnly(string $code, string $dir): void
+    {
+        if (!file_exists("{$dir}/schedule.json")) {
+            $this->warnings[] = "{$code}: bare playoff has no schedule.json.";
+            return;
+        }
+        $this->loadSchedule($code, "{$dir}/schedule.json");
+        $this->line("  {$code}: schedule only ✓");
+    }
+
+    /**
+     * Every squad member must hold a shirt number no team-mate also holds.
+     *
+     * `game_player_templates` is uniquely indexed on (season, team_id, number)
+     * — the guard that stops SetupNewGame silently dropping a player and then
+     * FK-failing on his match-state row. A single duplicated shirt in the
+     * source data therefore aborts `app:refresh-player-templates` for the whole
+     * season, so it belongs in the pre-seed gate rather than in a stack trace.
+     *
+     * Only squad-bearing folders are read: continental participant lists carry
+     * no players, and a club listed in more than one of them (a league squad
+     * that also appears in the domestic cup) is checked once.
+     *
+     * @param  array<int, array{code: string, type: string}>  $competitions
+     */
+    private function validateSquadNumbers(string $season, array $competitions): void
+    {
+        $checked = [];
+
+        foreach ($competitions as ['code' => $code, 'type' => $type]) {
+            if (!in_array($type, ['league', 'cup', 'pool'], true)) {
+                continue;
+            }
+
+            foreach (SeasonData::readCompetitionClubs($season, $code, $type) ?? [] as $club) {
+                if (isset($checked[$club['id']]) || empty($club['numbers'])) {
+                    continue;
+                }
+                $checked[$club['id']] = true;
+
+                $holdersByNumber = [];
+                foreach ($club['numbers'] as $playerId => $number) {
+                    $holdersByNumber[$number][] = ($club['players'][$playerId] ?? $playerId) . " ({$playerId})";
+                }
+
+                foreach ($holdersByNumber as $number => $holders) {
+                    if (count($holders) > 1) {
+                        $this->errors[] = "{$code}: '{$club['name']}' ({$club['id']}) has "
+                            . count($holders) . " players on shirt #{$number}: " . implode(', ', $holders)
+                            . ' — squad numbers must be unique within a club.';
+                    }
+                }
+            }
+        }
+    }
+
+    /**
+     * Warn when this season's squads are poorly covered by the player-photo
+     * crosswalk (data/sofascore_ids.json).
+     *
+     * Photos resolve transfermarkt_id → sofascore_id → a file on the assets CDN.
+     * A player the crosswalk doesn't cover silently falls back to the default
+     * avatar — there is no error anywhere, which is exactly how the 2026 refresh
+     * shipped with the file missing entirely and *every* player photo gone.
+     *
+     * Warn-only, and one line: a fresh season legitimately adds players the last
+     * people.csv export predates, and low coverage means "re-export people.csv
+     * and rerun app:build-sofascore-id-map", not "don't seed". Kept to a summary
+     * for the reason warnUnprofiledClubs() gives — a wall of warnings just trains
+     * people to ignore the validator.
+     *
+     * @param  array<int, array{code: string, type: string}>  $competitions
+     */
+    private function validatePhotoCrosswalk(string $season, array $competitions): void
+    {
+        $path = base_path('data/sofascore_ids.json');
+        if (!file_exists($path)) {
+            $this->warnings[] = 'data/sofascore_ids.json is missing — every player will fall back to the '
+                . 'default avatar. Build it with `php artisan app:build-sofascore-id-map`.';
+
+            return;
+        }
+
+        $map = json_decode((string) file_get_contents($path), true);
+        if (!is_array($map)) {
+            $this->warnings[] = 'data/sofascore_ids.json is not readable as JSON — every player will fall '
+                . 'back to the default avatar.';
+
+            return;
+        }
+
+        $seen = [];
+        foreach ($competitions as ['code' => $code, 'type' => $type]) {
+            if (!in_array($type, ['league', 'cup', 'pool'], true)) {
+                continue;
+            }
+
+            foreach (SeasonData::readCompetitionClubs($season, $code, $type) ?? [] as $club) {
+                foreach (array_keys($club['players'] ?? []) as $playerId) {
+                    $seen[(string) $playerId] = true;
+                }
+            }
+        }
+
+        if ($seen === []) {
+            return;
+        }
+
+        $missing = count(array_diff_key($seen, $map));
+        $total = count($seen);
+        $coverage = 100 * ($total - $missing) / $total;
+
+        if ($coverage < self::PHOTO_COVERAGE_WARN_PCT) {
+            $this->warnings[] = sprintf(
+                'Player-photo crosswalk covers only %.1f%% of squads (%d of %d players unmapped). '
+                . 'Re-export people.csv to data/raw/ and rerun `php artisan app:build-sofascore-id-map`.',
+                $coverage,
+                $missing,
+                $total,
+            );
+        }
+    }
+
+    /**
+     * Index every club in this season folder that can supply a squad: clubs in
+     * a league teams.json (country from config/countries.php) and EUR/INT pool
+     * files (country from the file itself).
+     *
+     * Built once per run and read by the continental checks. Missing files are
+     * skipped silently — they are reported by their own competition's checks,
+     * and a partial folder must not fatal here.
+     *
+     * @param  array<int, array{code: string, type: string}>  $competitions
+     */
+    private function indexSquadSources(string $season, array $competitions, CountryConfig $countryConfig): void
+    {
+        foreach ($competitions as ['code' => $code, 'type' => $type]) {
+            if ($type === 'league') {
+                $country = $countryConfig->countryForCompetition($code);
+                foreach (SeasonData::readCompetitionClubs($season, $code, $type) ?? [] as $club) {
+                    $this->squadSources[$club['id']] ??= ['name' => $club['name'], 'country' => $country];
+                }
+                continue;
+            }
+
+            if ($type === 'pool') {
+                // Read the pool files directly rather than via
+                // readCompetitionClubs: only the file itself carries the club's
+                // country, and it is the country that makes the Swiss draw able
+                // to keep compatriots apart.
+                $dir = base_path("data/{$season}/{$code}");
+                $files = array_filter(glob("{$dir}/*.json") ?: [], fn ($p) => basename($p) !== 'schedule.json');
+
+                foreach ($files as $file) {
+                    $data = json_decode((string) file_get_contents($file), true);
+                    if (!is_array($data)) {
+                        continue;
+                    }
+                    $id = SeasonData::resolveTransfermarktId($data);
+                    if ($id === null) {
+                        continue;
+                    }
+                    $this->squadSources[$id] ??= [
+                        'name' => (string) ($data['name'] ?? "({$id})"),
+                        'country' => !empty($data['country']) ? (string) $data['country'] : null,
+                    ];
+                }
+            }
+        }
+    }
+
+    /**
+     * Flag clubs with no curated entry in ClubProfilesSeeder, which silently
+     * fall back to a local-reputation, neutral-loyalty profile — wrong for a
+     * side that just qualified for Europe.
+     *
+     * Kept to a single summary line (the full list needs -v): the current data
+     * has dozens of these and a wall of warnings just trains people to ignore
+     * the validator. Names are taken from the squad-source index rather than
+     * the continental lists, because those use short forms ("Barcelona") that
+     * never match the seeded team name ("FC Barcelona").
+     */
+    private function warnUnprofiledClubs(): void
+    {
+        $profiled = array_flip(ClubProfilesSeeder::profiledClubNames());
+        $missing = [];
+
+        foreach ($this->squadSources as $source) {
+            if (!isset($profiled[$source['name']])) {
+                $missing[] = $source['name'];
+            }
+        }
+
+        if (empty($missing)) {
+            return;
+        }
+
+        sort($missing);
+        $detail = $this->output->isVerbose()
+            ? implode(', ', $missing)
+            : 'run with -v to list them';
+
+        $this->warnings[] = count($missing) . ' club(s) have no ClubProfilesSeeder entry and will be seeded '
+            . "as local-reputation clubs: {$detail}.";
+    }
+
+    /**
+     * No club may be booked for two matches on one date.
+     *
+     * Nothing catches this at runtime: MatchdayService collects every unplayed
+     * match on the earliest date and the orchestrator takes the first as the
+     * user's, so the second is simulated in the same batch, same legs, same
+     * fitness, silently. It is the bug `177c77d` fixed by hand after it
+     * reached production.
+     *
+     * Errors only where both fields are known from the files — a league round
+     * books its whole division, a Swiss matchday all 36, a cup's opening round
+     * whoever declares that entry round. Everything downstream of a draw is a
+     * superset, so it warns instead. See App\Support\FixtureCalendar for what
+     * is deliberately not modelled.
+     */
+    private function validateNoFixtureClashes(string $season, CountryConfig $countryConfig): void
+    {
+        foreach (FixtureCalendar::collisions($season, $countryConfig) as $collision) {
+            $rounds = implode(' and ', array_map(
+                fn (array $r): string => $r['competition'] . ' round ' . $r['round']
+                    . ($r['leg'] === 'second_leg_date' ? ' (2nd leg)' : ''),
+                $collision['rounds'],
+            ));
+
+            $clubs = $this->summarize($collision['clubs']);
+            $count = count($collision['clubs']);
+
+            if ($collision['certain']) {
+                $this->errors[] = "{$collision['date']}: {$rounds} are both on this date, so "
+                    . "{$count} club(s) are booked twice — {$clubs}.";
+
+                continue;
+            }
+
+            $reachable = min($collision['slots'], $count);
+            $this->warnings[] = "{$collision['date']}: {$rounds} share this date. Up to {$reachable} "
+                . "of the {$count} club(s) in both could be booked twice — {$clubs}. Which of them "
+                . 'reach the round depends on the draw.';
+        }
+    }
+
+    /**
+     * Render a name list without letting a wholesale gap print dozens of lines.
+     *
+     * @param  array<int, string>  $names
+     */
+    private function summarize(array $names, int $limit = 5): string
+    {
+        if (count($names) <= $limit) {
+            return implode(', ', $names);
+        }
+
+        return implode(', ', array_slice($names, 0, $limit)) . ' and ' . (count($names) - $limit) . ' more';
+    }
+
+    /**
+     * Load and validate a teams.json clubs array. Returns null (and records an
+     * error) when the file is missing or unusable.
+     *
+     * @return array<int, array<string, mixed>>|null
+     */
+    private function loadClubs(string $code, string $path, string $season): ?array
+    {
+        if (!file_exists($path)) {
+            $this->errors[] = "{$code}: teams.json missing at {$path}.";
+            return null;
+        }
+
+        $data = json_decode(file_get_contents($path), true);
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            $this->errors[] = "{$code}: invalid JSON in teams.json — " . json_last_error_msg();
+            return null;
+        }
+
+        if (isset($data['seasonID']) && (string) $data['seasonID'] !== $season) {
+            $this->errors[] = "{$code}: seasonID is '{$data['seasonID']}', expected '{$season}'.";
+        }
+
+        $clubs = $data['clubs'] ?? [];
+        if (!is_array($clubs) || count($clubs) === 0) {
+            $this->errors[] = "{$code}: teams.json has no clubs.";
+            return null;
+        }
+
+        foreach ($clubs as $club) {
+            if (SeasonData::resolveTransfermarktId($club) === null) {
+                $name = $club['name'] ?? '(unnamed)';
+                $this->errors[] = "{$code}: club '{$name}' has no resolvable transfermarkt id.";
+            }
+        }
+
+        return $clubs;
+    }
+
+    /**
+     * @return array<string, mixed>|null
+     */
+    private function loadSchedule(string $code, string $path): ?array
+    {
+        if (!file_exists($path)) {
+            $this->warnings[] = "{$code}: schedule.json missing at {$path}.";
+            return null;
+        }
+        $data = json_decode(file_get_contents($path), true);
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            $this->errors[] = "{$code}: invalid JSON in schedule.json — " . json_last_error_msg();
+            return null;
+        }
+        return $data;
+    }
+}

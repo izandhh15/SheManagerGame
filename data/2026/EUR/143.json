@@ -1,0 +1,388 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/143.png",
+  "name": "Fortuna Hjørring",
+  "players": [
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Jul 24, 2002",
+      "foot": "",
+      "height": "",
+      "id": "38840",
+      "marketValue": "€30k",
+      "name": "Freja Thisgaard",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Nov 27, 1994",
+      "foot": "right",
+      "height": "1,74m",
+      "id": "6868",
+      "marketValue": "€20k",
+      "name": "Andreea Părăluță",
+      "nationality": [
+        "Romania"
+      ],
+      "number": "12",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 17, 2002",
+      "foot": "",
+      "height": "",
+      "id": "39129",
+      "marketValue": "",
+      "name": "Laura Jensen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "16",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 12, 2009",
+      "foot": "",
+      "height": "",
+      "id": "112278",
+      "marketValue": "",
+      "name": "Julie Baurycza Langstrup Petersen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "33",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jul 9, 1999",
+      "foot": "",
+      "height": "1,72m",
+      "id": "30328",
+      "marketValue": "€25k",
+      "name": "Sara Olai",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "3",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Oct 8, 2007",
+      "foot": "",
+      "height": "1,67m",
+      "id": "103972",
+      "marketValue": "",
+      "name": "Samantha Rodríguez",
+      "nationality": [
+        "Colombia"
+      ],
+      "number": "6",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 3, 1998",
+      "foot": "",
+      "height": "",
+      "id": "27080",
+      "marketValue": "",
+      "name": "Laura Frank",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "19",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 9, 1997",
+      "foot": "right",
+      "height": "1,65m",
+      "id": "67716",
+      "marketValue": "€15k",
+      "name": "Kaitlyn Parcell",
+      "nationality": [
+        "United States"
+      ],
+      "number": "22",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 23, 2009",
+      "foot": "",
+      "height": "",
+      "id": "116582",
+      "marketValue": "",
+      "name": "Frida Vestergaard Frederiksen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "35",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 24, 1987",
+      "foot": "right",
+      "height": "1,66m",
+      "id": "20965",
+      "marketValue": "€20k",
+      "name": "Janelle Cordia",
+      "nationality": [
+        "United States"
+      ],
+      "number": "66",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 24, 1992",
+      "foot": "both",
+      "height": "1,76m",
+      "id": "9488",
+      "marketValue": "€30k",
+      "name": "Sofie Junge",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "4",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "May 24, 2006",
+      "foot": "",
+      "height": "",
+      "id": "63499",
+      "marketValue": "",
+      "name": "Josefine Valvik",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "7",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Sep 14, 1999",
+      "foot": "right",
+      "height": "",
+      "id": "36993",
+      "marketValue": "",
+      "name": "Pernille Pedersen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "8",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 14, 1996",
+      "foot": "right",
+      "height": "",
+      "id": "29880",
+      "marketValue": "",
+      "name": "Sarah Dyrehauge",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "9",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Nov 24, 1998",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "39969",
+      "marketValue": "€35k",
+      "name": "Emma Westin",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "14",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 19, 2007",
+      "foot": "",
+      "height": "",
+      "id": "90549",
+      "marketValue": "",
+      "name": "Rie Skotte",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "15",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Jan 8, 2006",
+      "foot": "",
+      "height": "1,67m",
+      "id": "78793",
+      "marketValue": "",
+      "name": "Shakirat Oyinlola",
+      "nationality": [
+        "Nigeria"
+      ],
+      "number": "17",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "May 24, 2002",
+      "foot": "",
+      "height": "",
+      "id": "37440",
+      "marketValue": "",
+      "name": "Rebekka Frederiksen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "20",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 7, 2002",
+      "foot": "",
+      "height": "",
+      "id": "37316",
+      "marketValue": "",
+      "name": "Signe Carstens",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "21",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Nov 30, 1993",
+      "foot": "",
+      "height": "1,65m",
+      "id": "31094",
+      "marketValue": "",
+      "name": "Ashley Riefner",
+      "nationality": [
+        "United States"
+      ],
+      "number": "25",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 16, 2010",
+      "foot": "",
+      "height": "",
+      "id": "117988",
+      "marketValue": "",
+      "name": "Olivia Krogsgaard",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "31",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 29, 2008",
+      "foot": "",
+      "height": "",
+      "id": "102314",
+      "marketValue": "",
+      "name": "Anna Pallesen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "87",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Aug 6, 1985",
+      "foot": "left",
+      "height": "",
+      "id": "4883",
+      "marketValue": "",
+      "name": "Florentina Olar",
+      "nationality": [
+        "Romania"
+      ],
+      "number": "11",
+      "position": "Left Winger"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 5, 2004",
+      "foot": "",
+      "height": "1,80m",
+      "id": "62626",
+      "marketValue": "",
+      "name": "Lumi Kostmayer",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "13",
+      "position": "Striker"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Jul 26, 2001",
+      "foot": "",
+      "height": "1,71m",
+      "id": "99396",
+      "marketValue": "",
+      "name": "Risako Watanabe",
+      "nationality": [
+        "Japan"
+      ],
+      "number": "24",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 6, 2009",
+      "foot": "",
+      "height": "",
+      "id": "112274",
+      "marketValue": "",
+      "name": "Emma Lynnerup",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "76",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "Aug 29, 2005",
+      "foot": "",
+      "height": "",
+      "id": "43084",
+      "marketValue": "",
+      "name": "Ida Sort",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "77",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Nord Energi Arena",
+  "stadiumSeats": "10000",
+  "transfermarktId": "143",
+  "country": "DK"
+}

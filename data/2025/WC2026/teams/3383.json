@@ -1,0 +1,425 @@
+{
+  "image": "https://assets.virtuafc.com/crests/3383.png",
+  "name": "Austria",
+  "players": [
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/409.png",
+        "name": "Red Bull Salzburg"
+      },
+      "dateOfBirth": "Feb 1, 1996",
+      "foot": "right",
+      "height": "1,84m",
+      "id": "186374",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "Alexander Schlager",
+      "overall_score": 72,
+      "position": "Goalkeeper",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/941.png",
+        "name": "FC Viktoria Plzen"
+      },
+      "dateOfBirth": "Mar 21, 2001",
+      "foot": "left",
+      "height": "2,05m",
+      "id": "393999",
+      "injured": false,
+      "marketValue": "€2.20m",
+      "name": "Florian Wiegele",
+      "overall_score": 69,
+      "position": "Goalkeeper",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/206.png",
+        "name": "Bröndby IF"
+      },
+      "dateOfBirth": "Jan 2, 1997",
+      "foot": "left",
+      "height": "1,83m",
+      "id": "223972",
+      "injured": false,
+      "marketValue": "€2.20m",
+      "name": "Patrick Pentz",
+      "overall_score": 72,
+      "position": "Goalkeeper",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/148.png",
+        "name": "Tottenham Hotspur"
+      },
+      "dateOfBirth": "Sep 19, 1998",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "263236",
+      "injured": false,
+      "marketValue": "€20.00m",
+      "name": "Kevin Danso",
+      "overall_score": 79,
+      "position": "Centre-Back",
+      "potential": 82
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/60.png",
+        "name": "SC Freiburg"
+      },
+      "dateOfBirth": "Jul 11, 1996",
+      "foot": "right",
+      "height": "1,89m",
+      "id": "225657",
+      "injured": false,
+      "marketValue": "€12.00m",
+      "name": "Philipp Lienhart",
+      "overall_score": 78,
+      "position": "Centre-Back",
+      "potential": 78
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/86.png",
+        "name": "SV Werder Bremen"
+      },
+      "dateOfBirth": "Mar 16, 1998",
+      "foot": "left",
+      "height": "1,87m",
+      "id": "156990",
+      "injured": false,
+      "marketValue": "€12.00m",
+      "name": "Marco Friedl",
+      "overall_score": 77,
+      "position": "Centre-Back",
+      "potential": 79
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1531.png",
+        "name": "Elche CF"
+      },
+      "dateOfBirth": "Mar 19, 2001",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "452483",
+      "injured": false,
+      "marketValue": "€9.00m",
+      "name": "David Affengruber",
+      "overall_score": 75,
+      "position": "Centre-Back",
+      "potential": 82
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/39.png",
+        "name": "1.FSV Mainz 05"
+      },
+      "dateOfBirth": "May 14, 1997",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "223974",
+      "injured": false,
+      "marketValue": "€5.50m",
+      "name": "Stefan Posch",
+      "overall_score": 78,
+      "position": "Centre-Back",
+      "potential": 78
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/418.png",
+        "name": "Real Madrid"
+      },
+      "dateOfBirth": "Jun 24, 1992",
+      "foot": "left",
+      "height": "1,80m",
+      "id": "59016",
+      "injured": false,
+      "marketValue": "€3.50m",
+      "name": "David Alaba",
+      "overall_score": 80,
+      "position": "Centre-Back",
+      "potential": 80
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/607.png",
+        "name": "Venezia FC"
+      },
+      "dateOfBirth": "Oct 15, 1998",
+      "foot": "right",
+      "height": "1,95m",
+      "id": "438961",
+      "injured": false,
+      "marketValue": "€3.00m",
+      "name": "Michael Svoboda",
+      "overall_score": 72,
+      "position": "Centre-Back",
+      "potential": 72
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/39.png",
+        "name": "1.FSV Mainz 05"
+      },
+      "dateOfBirth": "Jan 29, 1994",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "127573",
+      "injured": false,
+      "marketValue": "€1.50m",
+      "name": "Phillipp Mwene",
+      "overall_score": 75,
+      "position": "Left-Back",
+      "potential": 75
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/27.png",
+        "name": "Bayern Munich"
+      },
+      "dateOfBirth": "May 27, 1997",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "223967",
+      "injured": false,
+      "marketValue": "€32.00m",
+      "name": "Konrad Laimer",
+      "overall_score": 84,
+      "position": "Right-Back",
+      "potential": 84
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/23826.png",
+        "name": "RB Leipzig"
+      },
+      "dateOfBirth": "May 4, 2001",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "404950",
+      "injured": false,
+      "marketValue": "€22.00m",
+      "name": "Nicolas Seiwald",
+      "overall_score": 80,
+      "position": "Defensive Midfield",
+      "potential": 85
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1075.png",
+        "name": "SC Braga"
+      },
+      "dateOfBirth": "Aug 7, 1995",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "195736",
+      "injured": false,
+      "marketValue": "€2.00m",
+      "name": "Florian Grillitsch",
+      "overall_score": 76,
+      "position": "Defensive Midfield",
+      "potential": 76
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/16.png",
+        "name": "Borussia Dortmund"
+      },
+      "dateOfBirth": "Oct 20, 2003",
+      "foot": "right",
+      "height": "1,88m",
+      "id": "659459",
+      "injured": false,
+      "marketValue": "€20.00m",
+      "name": "Carney Chukwuemeka",
+      "overall_score": 78,
+      "position": "Central Midfield",
+      "potential": 84
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/23826.png",
+        "name": "RB Leipzig"
+      },
+      "dateOfBirth": "Sep 28, 1997",
+      "foot": "left",
+      "height": "1,74m",
+      "id": "223979",
+      "injured": false,
+      "marketValue": "€10.00m",
+      "name": "Xaver Schlager",
+      "overall_score": 78,
+      "position": "Central Midfield",
+      "potential": 79
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/16.png",
+        "name": "Borussia Dortmund"
+      },
+      "dateOfBirth": "Mar 17, 1994",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "106987",
+      "injured": false,
+      "marketValue": "€7.00m",
+      "name": "Marcel Sabitzer",
+      "overall_score": 81,
+      "position": "Central Midfield",
+      "potential": 81
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/4441.png",
+        "name": "Wolfsberger AC"
+      },
+      "dateOfBirth": "Feb 7, 1994",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "118397",
+      "injured": false,
+      "marketValue": "€900k",
+      "name": "Alessandro Schöpf",
+      "overall_score": 68,
+      "position": "Central Midfield",
+      "potential": 68
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/533.png",
+        "name": "TSG 1899 Hoffenheim"
+      },
+      "dateOfBirth": "May 26, 2001",
+      "foot": "left",
+      "height": "1,82m",
+      "id": "434116",
+      "injured": false,
+      "marketValue": "€7.00m",
+      "name": "Alexander Prass",
+      "overall_score": 75,
+      "position": "Left Midfield",
+      "potential": 77
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/23826.png",
+        "name": "RB Leipzig"
+      },
+      "dateOfBirth": "Aug 1, 1999",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "324278",
+      "injured": false,
+      "marketValue": "€30.00m",
+      "name": "Christoph Baumgartner",
+      "overall_score": 81,
+      "position": "Attacking Midfield",
+      "potential": 83
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/383.png",
+        "name": "PSV Eindhoven"
+      },
+      "dateOfBirth": "Dec 23, 2005",
+      "foot": "left",
+      "height": "1,85m",
+      "id": "900909",
+      "injured": false,
+      "marketValue": "€18.00m",
+      "name": "Paul Wanner",
+      "overall_score": 75,
+      "position": "Attacking Midfield",
+      "potential": 86
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/86.png",
+        "name": "SV Werder Bremen"
+      },
+      "dateOfBirth": "Jan 27, 2000",
+      "foot": "right",
+      "height": "1,68m",
+      "id": "346853",
+      "injured": false,
+      "marketValue": "€15.00m",
+      "name": "Romano Schmid",
+      "overall_score": 78,
+      "position": "Attacking Midfield",
+      "potential": 81
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/82.png",
+        "name": "VfL Wolfsburg"
+      },
+      "dateOfBirth": "May 30, 2001",
+      "foot": "right",
+      "height": "1,82m",
+      "id": "533295",
+      "injured": true,
+      "marketValue": "€15.00m",
+      "name": "Patrick Wimmer",
+      "overall_score": 77,
+      "position": "Right Winger",
+      "potential": 83
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/159.png",
+        "name": "Red Star Belgrade"
+      },
+      "dateOfBirth": "Apr 19, 1989",
+      "foot": "both",
+      "height": "1,92m",
+      "id": "41384",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "Marko Arnautovic",
+      "overall_score": 77,
+      "position": "Centre-Forward",
+      "potential": 77
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/413.png",
+        "name": "LASK"
+      },
+      "dateOfBirth": "Jul 7, 1997",
+      "foot": "right",
+      "height": "2,00m",
+      "id": "369567",
+      "injured": false,
+      "marketValue": "€2.00m",
+      "name": "Sasa Kalajdzic",
+      "overall_score": 73,
+      "position": "Centre-Forward",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/167.png",
+        "name": "FC Augsburg"
+      },
+      "dateOfBirth": "Apr 18, 1994",
+      "foot": "left",
+      "height": "1,93m",
+      "id": "120205",
+      "injured": false,
+      "marketValue": "€1.50m",
+      "name": "Michael Gregoritsch",
+      "overall_score": 75,
+      "position": "Centre-Forward",
+      "potential": 75
+    }
+  ],
+  "stadiumName": null,
+  "stadiumSeats": null,
+  "transfermarktId": "3383"
+}

@@ -1,0 +1,178 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/5867.png",
+  "name": "ZNK Split",
+  "players": [
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "Jan 16, 2005",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "61825",
+      "marketValue": "",
+      "name": "Iman Dumanjić",
+      "nationality": [
+        "Bosnia-Herzegovina"
+      ],
+      "number": 3,
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 7, 2004",
+      "foot": "",
+      "height": "",
+      "id": "47110",
+      "marketValue": "",
+      "name": "Anamarija Prljević",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 12, 2001",
+      "foot": "",
+      "height": "",
+      "id": "54770",
+      "marketValue": "",
+      "name": "Jasmina Skenderi",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": 4,
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 25, 2007",
+      "foot": "",
+      "height": "",
+      "id": "81565",
+      "marketValue": "",
+      "name": "Lana Plazibat",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": 5,
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 29, 2008",
+      "foot": "",
+      "height": "",
+      "id": "106901",
+      "marketValue": "",
+      "name": "Franciska Kelava",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": 6,
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 8, 1994",
+      "foot": "",
+      "height": "1,65m",
+      "id": "22311",
+      "marketValue": "",
+      "name": "Nickolette Driesse",
+      "nationality": [
+        "Puerto Rico"
+      ],
+      "number": 7,
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 19, 2004",
+      "foot": "",
+      "height": "",
+      "id": "47052",
+      "marketValue": "",
+      "name": "Antonela Blažević",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": "18",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 3, 1989",
+      "foot": "right",
+      "height": "1,63m",
+      "id": "7677",
+      "marketValue": "€30k",
+      "name": "Iva Lazeta",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": "19",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 1, 2004",
+      "foot": "",
+      "height": "",
+      "id": "72363",
+      "marketValue": "",
+      "name": "Petra Michieli Tomić",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": 8,
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 20, 2004",
+      "foot": "",
+      "height": "",
+      "id": "110702",
+      "marketValue": "",
+      "name": "Lana Rusković",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": 9,
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 15, 1996",
+      "foot": "",
+      "height": "",
+      "id": "38396",
+      "marketValue": "",
+      "name": "Gabrielle Matulich",
+      "nationality": [
+        "United States"
+      ],
+      "number": "2",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 15, 2003",
+      "foot": "",
+      "height": "",
+      "id": "44369",
+      "marketValue": "",
+      "name": "Karla Šabašov",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": "14",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "",
+  "stadiumSeats": "0",
+  "transfermarktId": "5867",
+  "country": "HR"
+}

@@ -1,0 +1,676 @@
+{
+  "image": "https://assets.virtuafc.com/crests/3379.png",
+  "name": "Netherlands",
+  "players": [
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1237.png",
+        "name": "Brighton & Hove Albion"
+      },
+      "dateOfBirth": "Aug 18, 2002",
+      "foot": "right",
+      "height": "1,94m",
+      "id": "565093",
+      "injured": false,
+      "marketValue": "€40.00m",
+      "name": "Bart Verbruggen",
+      "overall_score": 80,
+      "position": "Goalkeeper",
+      "potential": 86
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/15.png",
+        "name": "Bayer 04 Leverkusen"
+      },
+      "dateOfBirth": "Jun 13, 1993",
+      "foot": "both",
+      "height": "1,95m",
+      "id": "125714",
+      "injured": false,
+      "marketValue": "€6.00m",
+      "name": "Mark Flekken",
+      "overall_score": 78,
+      "position": "Goalkeeper",
+      "potential": 78
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/3948.png",
+        "name": "Union Saint-Gilloise"
+      },
+      "dateOfBirth": "Jan 23, 2000",
+      "foot": "right",
+      "height": "2,06m",
+      "id": "463527",
+      "injured": false,
+      "marketValue": "€4.00m",
+      "name": "Kjell Scherpen",
+      "position": "Goalkeeper"
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/383.png",
+        "name": "PSV Eindhoven"
+      },
+      "dateOfBirth": "Aug 1, 1995",
+      "foot": "right",
+      "height": "1,84m",
+      "id": "215094",
+      "injured": false,
+      "marketValue": "€3.50m",
+      "name": "Nick Olij",
+      "position": "Goalkeeper"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/289.png",
+        "name": "Sunderland AFC"
+      },
+      "dateOfBirth": "Jan 17, 2003",
+      "foot": "left",
+      "height": "1,93m",
+      "id": "646991",
+      "injured": false,
+      "marketValue": "€25.00m",
+      "name": "Robin Roefs",
+      "overall_score": 80,
+      "position": "Goalkeeper",
+      "potential": 86
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/148.png",
+        "name": "Tottenham Hotspur"
+      },
+      "dateOfBirth": "Apr 19, 2001",
+      "foot": "left",
+      "height": "1,93m",
+      "id": "557459",
+      "injured": false,
+      "marketValue": "€65.00m",
+      "name": "Micky van de Ven",
+      "overall_score": 82,
+      "position": "Centre-Back",
+      "potential": 85
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/985.png",
+        "name": "Manchester United"
+      },
+      "dateOfBirth": "Aug 12, 1999",
+      "foot": "right",
+      "height": "1,89m",
+      "id": "326031",
+      "injured": true,
+      "marketValue": "€45.00m",
+      "name": "Matthijs de Ligt",
+      "position": "Centre-Back"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/281.png",
+        "name": "Manchester City"
+      },
+      "dateOfBirth": "Feb 18, 1995",
+      "foot": "left",
+      "height": "1,80m",
+      "id": "177476",
+      "injured": false,
+      "marketValue": "€15.00m",
+      "name": "Nathan Aké",
+      "overall_score": 82,
+      "position": "Centre-Back",
+      "potential": 82
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1237.png",
+        "name": "Brighton & Hove Albion"
+      },
+      "dateOfBirth": "Jun 8, 2000",
+      "foot": "right",
+      "height": "1,89m",
+      "id": "576314",
+      "injured": false,
+      "marketValue": "€35.00m",
+      "name": "Jan Paul van Hecke",
+      "overall_score": 80,
+      "position": "Centre-Back",
+      "potential": 83
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/31.png",
+        "name": "Liverpool FC"
+      },
+      "dateOfBirth": "Jul 8, 1991",
+      "foot": "right",
+      "height": "1,95m",
+      "id": "139208",
+      "injured": false,
+      "marketValue": "€18.00m",
+      "name": "Virgil van Dijk",
+      "overall_score": 88,
+      "position": "Centre-Back",
+      "potential": 88
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/46.png",
+        "name": "Inter Milan"
+      },
+      "dateOfBirth": "Feb 5, 1992",
+      "foot": "right",
+      "height": "1,89m",
+      "id": "111196",
+      "injured": true,
+      "marketValue": "€7.00m",
+      "name": "Stefan de Vrij",
+      "position": "Centre-Back"
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/610.png",
+        "name": "Ajax Amsterdam"
+      },
+      "dateOfBirth": "Mar 17, 2003",
+      "foot": "left",
+      "height": "1,88m",
+      "id": "559327",
+      "injured": false,
+      "marketValue": "€6.00m",
+      "name": "Youri Baas",
+      "position": "Centre-Back"
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/405.png",
+        "name": "Aston Villa"
+      },
+      "dateOfBirth": "Mar 10, 2002",
+      "foot": "left",
+      "height": "1,78m",
+      "id": "485585",
+      "injured": false,
+      "marketValue": "€32.00m",
+      "name": "Ian Maatsen",
+      "position": "Left-Back"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/631.png",
+        "name": "Chelsea FC"
+      },
+      "dateOfBirth": "Mar 7, 2006",
+      "foot": "left",
+      "height": "1,82m",
+      "id": "904802",
+      "injured": false,
+      "marketValue": "€35.00m",
+      "name": "Jorrel Hato",
+      "overall_score": 78,
+      "position": "Left-Back",
+      "potential": 87
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1132.png",
+        "name": "Burnley FC"
+      },
+      "dateOfBirth": "Nov 14, 2001",
+      "foot": "left",
+      "height": "1,83m",
+      "id": "514285",
+      "injured": false,
+      "marketValue": "€23.00m",
+      "name": "Quilindschy Hartman",
+      "position": "Left-Back"
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/31.png",
+        "name": "Liverpool FC"
+      },
+      "dateOfBirth": "Dec 10, 2000",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "484547",
+      "injured": false,
+      "marketValue": "€50.00m",
+      "name": "Jeremie Frimpong",
+      "position": "Right-Back"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/11.png",
+        "name": "Arsenal FC"
+      },
+      "dateOfBirth": "Jun 17, 2001",
+      "foot": "right",
+      "height": "1,79m",
+      "id": "420243",
+      "injured": false,
+      "marketValue": "€70.00m",
+      "name": "Jurriën Timber",
+      "overall_score": 84,
+      "position": "Right-Back",
+      "potential": 87
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/289.png",
+        "name": "Sunderland AFC"
+      },
+      "dateOfBirth": "Jul 18, 2000",
+      "foot": "right",
+      "height": "1,84m",
+      "id": "420210",
+      "injured": false,
+      "marketValue": "€32.00m",
+      "name": "Lutsharel Geertruida",
+      "position": "Right-Back"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1237.png",
+        "name": "Brighton & Hove Albion"
+      },
+      "dateOfBirth": "Nov 16, 1999",
+      "foot": "right",
+      "height": "1,88m",
+      "id": "415381",
+      "injured": false,
+      "marketValue": "€25.00m",
+      "name": "Mats Wieffer",
+      "overall_score": 78,
+      "position": "Right-Back",
+      "potential": 81
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/46.png",
+        "name": "Inter Milan"
+      },
+      "dateOfBirth": "Apr 18, 1996",
+      "foot": "right",
+      "height": "1,88m",
+      "id": "321528",
+      "injured": false,
+      "marketValue": "€25.00m",
+      "name": "Denzel Dumfries",
+      "overall_score": 84,
+      "position": "Right-Back",
+      "potential": 84
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/31.png",
+        "name": "Liverpool FC"
+      },
+      "dateOfBirth": "May 16, 2002",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "478573",
+      "injured": false,
+      "marketValue": "€90.00m",
+      "name": "Ryan Gravenberch",
+      "overall_score": 86,
+      "position": "Defensive Midfield",
+      "potential": 89
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/506.png",
+        "name": "Juventus FC"
+      },
+      "dateOfBirth": "Feb 28, 1998",
+      "foot": "left",
+      "height": "1,84m",
+      "id": "360518",
+      "injured": false,
+      "marketValue": "€20.00m",
+      "name": "Teun Koopmeiners",
+      "overall_score": 80,
+      "position": "Defensive Midfield",
+      "potential": 80
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/383.png",
+        "name": "PSV Eindhoven"
+      },
+      "dateOfBirth": "Jan 12, 1997",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "347900",
+      "injured": true,
+      "marketValue": "€32.00m",
+      "name": "Jerdy Schouten",
+      "position": "Defensive Midfield"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/281.png",
+        "name": "Manchester City"
+      },
+      "dateOfBirth": "Jul 29, 1998",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "460939",
+      "injured": false,
+      "marketValue": "€60.00m",
+      "name": "Tijjani Reijnders",
+      "overall_score": 85,
+      "position": "Central Midfield",
+      "potential": 86
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/131.png",
+        "name": "FC Barcelona"
+      },
+      "dateOfBirth": "May 12, 1997",
+      "foot": "right",
+      "height": "1,81m",
+      "id": "326330",
+      "injured": false,
+      "marketValue": "€45.00m",
+      "name": "Frenkie de Jong",
+      "overall_score": 87,
+      "position": "Central Midfield",
+      "potential": 87
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/244.png",
+        "name": "Olympique Marseille"
+      },
+      "dateOfBirth": "Jun 17, 2001",
+      "foot": "right",
+      "height": "1,79m",
+      "id": "420213",
+      "injured": false,
+      "marketValue": "€25.00m",
+      "name": "Quinten Timber",
+      "overall_score": 80,
+      "position": "Central Midfield",
+      "potential": 85
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/398.png",
+        "name": "SS Lazio"
+      },
+      "dateOfBirth": "May 16, 2002",
+      "foot": "left",
+      "height": "1,82m",
+      "id": "470394",
+      "injured": false,
+      "marketValue": "€16.00m",
+      "name": "Kenneth Taylor",
+      "position": "Central Midfield"
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/234.png",
+        "name": "Feyenoord Rotterdam"
+      },
+      "dateOfBirth": "Oct 4, 2003",
+      "foot": "right",
+      "height": "1,89m",
+      "id": "601495",
+      "injured": false,
+      "marketValue": "€1.50m",
+      "name": "Luciano Valente",
+      "position": "Central Midfield"
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/148.png",
+        "name": "Tottenham Hotspur"
+      },
+      "dateOfBirth": "Apr 21, 2003",
+      "foot": "right",
+      "height": "1,79m",
+      "id": "566931",
+      "injured": true,
+      "marketValue": "€80.00m",
+      "name": "Xavi Simons",
+      "position": "Attacking Midfield"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/989.png",
+        "name": "AFC Bournemouth"
+      },
+      "dateOfBirth": "May 5, 1999",
+      "foot": "both",
+      "height": "1,72m",
+      "id": "330659",
+      "injured": false,
+      "marketValue": "€30.00m",
+      "name": "Justin Kluivert",
+      "overall_score": 79,
+      "position": "Attacking Midfield",
+      "potential": 80
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/234.png",
+        "name": "Feyenoord Rotterdam"
+      },
+      "dateOfBirth": "Nov 12, 2001",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "593519",
+      "injured": false,
+      "marketValue": "€10.00m",
+      "name": "Sem Steijn",
+      "position": "Attacking Midfield"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/800.png",
+        "name": "Atalanta BC"
+      },
+      "dateOfBirth": "Mar 29, 1991",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "133179",
+      "injured": false,
+      "marketValue": "€3.50m",
+      "name": "Marten de Roon",
+      "overall_score": 81,
+      "position": "Defensive Midfield",
+      "potential": 81
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/383.png",
+        "name": "PSV Eindhoven"
+      },
+      "dateOfBirth": "Dec 22, 1997",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "372267",
+      "injured": false,
+      "marketValue": "€15.00m",
+      "name": "Guus Til",
+      "overall_score": 77,
+      "position": "Attacking Midfield",
+      "potential": 77
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/31.png",
+        "name": "Liverpool FC"
+      },
+      "dateOfBirth": "May 7, 1999",
+      "foot": "right",
+      "height": "1,93m",
+      "id": "434675",
+      "injured": false,
+      "marketValue": "€65.00m",
+      "name": "Cody Gakpo",
+      "overall_score": 83,
+      "position": "Left Winger",
+      "potential": 83
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/141.png",
+        "name": "Galatasaray"
+      },
+      "dateOfBirth": "Jun 17, 1999",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "339332",
+      "injured": false,
+      "marketValue": "€22.00m",
+      "name": "Noa Lang",
+      "overall_score": 79,
+      "position": "Left Winger",
+      "potential": 80
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/199.png",
+        "name": "Sport Club Corinthians Paulista"
+      },
+      "dateOfBirth": "Feb 13, 1994",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "167850",
+      "injured": false,
+      "marketValue": "€7.00m",
+      "name": "Memphis Depay",
+      "overall_score": 80,
+      "position": "Second Striker",
+      "potential": 80
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/289.png",
+        "name": "Sunderland AFC"
+      },
+      "dateOfBirth": "Feb 1, 2002",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "473169",
+      "injured": false,
+      "marketValue": "€25.00m",
+      "name": "Brian Brobbey",
+      "overall_score": 77,
+      "position": "Centre-Forward",
+      "potential": 83
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/12.png",
+        "name": "AS Roma"
+      },
+      "dateOfBirth": "Jan 19, 1999",
+      "foot": "right",
+      "height": "1,76m",
+      "id": "326029",
+      "injured": false,
+      "marketValue": "€35.00m",
+      "name": "Donyell Malen",
+      "overall_score": 80,
+      "position": "Centre-Forward",
+      "potential": 80
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/667.png",
+        "name": "RC Strasbourg Alsace"
+      },
+      "dateOfBirth": "Feb 3, 2003",
+      "foot": "right",
+      "height": "1,96m",
+      "id": "559328",
+      "injured": true,
+      "marketValue": "€15.00m",
+      "name": "Emmanuel Emegha",
+      "position": "Centre-Forward"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/610.png",
+        "name": "Ajax Amsterdam"
+      },
+      "dateOfBirth": "Aug 7, 1992",
+      "foot": "right",
+      "height": "1,97m",
+      "id": "228645",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "Wout Weghorst",
+      "overall_score": 77,
+      "position": "Centre-Forward",
+      "potential": 77
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/379.png",
+        "name": "West Ham United"
+      },
+      "dateOfBirth": "Oct 30, 2001",
+      "foot": "right",
+      "height": "1,74m",
+      "id": "474701",
+      "injured": false,
+      "marketValue": "€30.00m",
+      "name": "Crysencio Summerville",
+      "overall_score": 78,
+      "position": "Left Winger",
+      "potential": 83
+    }
+  ],
+  "stadiumName": null,
+  "stadiumSeats": null,
+  "transfermarktId": "3379"
+}

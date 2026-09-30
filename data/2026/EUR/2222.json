@@ -1,0 +1,402 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/2222.png",
+  "name": "CS Chenois",
+  "players": [
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 24, 2001",
+      "foot": "right",
+      "height": "1,67m",
+      "id": "41016",
+      "marketValue": "€30k",
+      "name": "Enith Salón",
+      "nationality": [
+        "Spain"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 11, 1998",
+      "foot": "right",
+      "height": "1,79m",
+      "id": "30596",
+      "marketValue": "€45k",
+      "name": "Jacintha Weimar",
+      "nationality": [
+        "Netherlands"
+      ],
+      "number": "13",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 6, 2003",
+      "foot": "right",
+      "height": "1,65m",
+      "id": "48598",
+      "marketValue": "€30k",
+      "name": "Manon Le Page",
+      "nationality": [
+        "France"
+      ],
+      "number": "30",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2029",
+      "dateOfBirth": "Dec 30, 2010",
+      "foot": "",
+      "height": "",
+      "id": "116862",
+      "marketValue": "€20k",
+      "name": "Abby Blanco Acevedo",
+      "nationality": [
+        "Switzerland"
+      ],
+      "number": "32",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Dec 24, 1999",
+      "foot": "",
+      "height": "",
+      "id": "35282",
+      "marketValue": "€35k",
+      "name": "Daïna Bourma",
+      "nationality": [
+        "France"
+      ],
+      "number": "3",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 22, 1999",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "51378",
+      "marketValue": "€55k",
+      "name": "Laia Ballesté",
+      "nationality": [
+        "Switzerland"
+      ],
+      "number": "14",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 22, 2007",
+      "foot": "",
+      "height": "",
+      "id": "105046",
+      "marketValue": "€30k",
+      "name": "Léa Magali Sergeant-Huet",
+      "nationality": [
+        "Switzerland"
+      ],
+      "number": "16",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jun 18, 2007",
+      "foot": "",
+      "height": "",
+      "id": "72670",
+      "marketValue": "€40k",
+      "name": "Chiara Wallin",
+      "nationality": [
+        "Switzerland"
+      ],
+      "number": "20",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 17, 2000",
+      "foot": "right",
+      "height": "1,67m",
+      "id": "42614",
+      "marketValue": "€45k",
+      "name": "Amanda Chaney",
+      "nationality": [
+        "France"
+      ],
+      "number": "22",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "May 4, 2006",
+      "foot": "",
+      "height": "",
+      "id": "85657",
+      "marketValue": "€60k",
+      "name": "Amina Muratović",
+      "nationality": [
+        "Switzerland"
+      ],
+      "number": "23",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 24, 1996",
+      "foot": "left",
+      "height": "1,64m",
+      "id": "20187",
+      "marketValue": "€55k",
+      "name": "Joana Marchão",
+      "nationality": [
+        "Portugal"
+      ],
+      "number": "24",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 9, 1996",
+      "foot": "right",
+      "height": "1,71m",
+      "id": "17982",
+      "marketValue": "€50k",
+      "name": "Noémie Carage",
+      "nationality": [
+        "France"
+      ],
+      "number": "28",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 3, 2009",
+      "foot": "",
+      "height": "",
+      "id": "121733",
+      "marketValue": "€20k",
+      "name": "Emma Paola Petzoldt",
+      "nationality": [
+        "Italy"
+      ],
+      "number": "35",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 2, 1997",
+      "foot": "right",
+      "height": "",
+      "id": "41275",
+      "marketValue": "€50k",
+      "name": "Bénédicte Simon",
+      "nationality": [
+        "Ghana"
+      ],
+      "number": "78",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 25, 2002",
+      "foot": "right",
+      "height": "1,63m",
+      "id": "35182",
+      "marketValue": "€150k",
+      "name": "Paola Hernández",
+      "nationality": [
+        "Spain"
+      ],
+      "number": "6",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "May 29, 1995",
+      "foot": "right",
+      "height": "1,66m",
+      "id": "6460",
+      "marketValue": "€30k",
+      "name": "Ghoutia Karchouni",
+      "nationality": [
+        "Algeria"
+      ],
+      "number": "10",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 16, 2000",
+      "foot": "left",
+      "height": "1,60m",
+      "id": "33591",
+      "marketValue": "€40k",
+      "name": "Mickäella Cardia",
+      "nationality": [
+        "France"
+      ],
+      "number": "12",
+      "position": "Left Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jan 27, 1991",
+      "foot": "",
+      "height": "",
+      "id": "3313",
+      "marketValue": "€20k",
+      "name": "Paula Serrano",
+      "nationality": [
+        "Spain"
+      ],
+      "number": "19",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 27, 1996",
+      "foot": "",
+      "height": "",
+      "id": "15185",
+      "marketValue": "€25k",
+      "name": "Laura Strik",
+      "nationality": [
+        "Netherlands"
+      ],
+      "number": "21",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 16, 2009",
+      "foot": "",
+      "height": "",
+      "id": "116873",
+      "marketValue": "€25k",
+      "name": "Camila Mingard",
+      "nationality": [
+        "Switzerland"
+      ],
+      "number": "37",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 25, 1992",
+      "foot": "",
+      "height": "1,78m",
+      "id": "7927",
+      "marketValue": "€25k",
+      "name": "Stefanie da Eira",
+      "nationality": [
+        "Switzerland"
+      ],
+      "number": "64",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jan 20, 1995",
+      "foot": "right",
+      "height": "1,62m",
+      "id": "12261",
+      "marketValue": "€50k",
+      "name": "Élodie Nakkach",
+      "nationality": [
+        "Morocco"
+      ],
+      "number": "66",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 4, 1993",
+      "foot": "left",
+      "height": "1,70m",
+      "id": "3899",
+      "marketValue": "€50k",
+      "name": "Nataša Andonova",
+      "nationality": [
+        "Macedonia"
+      ],
+      "number": "7",
+      "position": "Second Striker"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Feb 20, 2002",
+      "foot": "left",
+      "height": "1,58m",
+      "id": "40414",
+      "marketValue": "€60k",
+      "name": "Asun Martínez",
+      "nationality": [
+        "Spain"
+      ],
+      "number": "8",
+      "position": "Left Winger"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Mar 12, 1998",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "22197",
+      "marketValue": "€60k",
+      "name": "Gloria Marinelli",
+      "nationality": [
+        "Italy"
+      ],
+      "number": "9",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Sep 28, 2004",
+      "foot": "right",
+      "height": "",
+      "id": "47383",
+      "marketValue": "€70k",
+      "name": "Magdalena Sobal",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "11",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Nov 25, 2009",
+      "foot": "",
+      "height": "",
+      "id": "116874",
+      "marketValue": "€25k",
+      "name": "Garance Nein",
+      "nationality": [
+        "Switzerland"
+      ],
+      "number": "17",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 27, 1995",
+      "foot": "right",
+      "height": "1,62m",
+      "id": "10183",
+      "marketValue": "€95k",
+      "name": "Meriame Terchoun",
+      "nationality": [
+        "Switzerland"
+      ],
+      "number": "25",
+      "position": "Left Winger"
+    }
+  ],
+  "stadiumName": "Stade des Trois-Chênes",
+  "stadiumSeats": "8000",
+  "transfermarktId": "2222",
+  "country": "CH"
+}

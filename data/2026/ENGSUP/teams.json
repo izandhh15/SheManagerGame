@@ -1,0 +1,15 @@
+{
+  "id": "ENGSUP",
+  "name": "Women's Community Shield",
+  "seasonID": "2026",
+  "clubs": [
+    {
+      "id": "36",
+      "name": "Arsenal FC"
+    },
+    {
+      "id": "87",
+      "name": "Chelsea LFC"
+    }
+  ]
+}

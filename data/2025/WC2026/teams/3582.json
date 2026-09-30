@@ -1,0 +1,373 @@
+{
+  "image": "https://assets.virtuafc.com/crests/3582.png",
+  "name": "Iran",
+  "players": [
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6079.png",
+        "name": "Persepolis FC"
+      },
+      "dateOfBirth": "Apr 6, 1995",
+      "foot": "right",
+      "height": "1,94m",
+      "id": "343044",
+      "injured": false,
+      "marketValue": "€700k",
+      "name": "Payam Niazmand",
+      "position": "Goalkeeper"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/12935.png",
+        "name": "Tractor FC"
+      },
+      "dateOfBirth": "Sep 21, 1992",
+      "foot": "right",
+      "height": "1,94m",
+      "id": "229081",
+      "injured": false,
+      "marketValue": "€650k",
+      "name": "Alireza Beiranvand",
+      "position": "Goalkeeper"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/4947.png",
+        "name": "Sepahan FC"
+      },
+      "dateOfBirth": "Jun 30, 1992",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "132561",
+      "injured": false,
+      "marketValue": "€500k",
+      "name": "Seyed Hossein Hosseini",
+      "position": "Goalkeeper"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6079.png",
+        "name": "Persepolis FC"
+      },
+      "dateOfBirth": "Mar 23, 1994",
+      "foot": "right",
+      "height": "1,88m",
+      "id": "249400",
+      "injured": false,
+      "marketValue": "€1.60m",
+      "name": "Hossein Kanaani",
+      "position": "Centre-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/17499.png",
+        "name": "Malavan Bandar Anzali"
+      },
+      "dateOfBirth": "Oct 26, 2003",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "1080301",
+      "injured": false,
+      "marketValue": "€1.00m",
+      "name": "Danial Eiri",
+      "position": "Centre-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6076.png",
+        "name": "Foolad FC"
+      },
+      "dateOfBirth": "Feb 7, 1996",
+      "foot": "left",
+      "height": "1,82m",
+      "id": "527092",
+      "injured": false,
+      "marketValue": "€550k",
+      "name": "Ali Nemati",
+      "position": "Centre-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/12935.png",
+        "name": "Tractor FC"
+      },
+      "dateOfBirth": "May 14, 1989",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "213715",
+      "injured": false,
+      "marketValue": "€100k",
+      "name": "Shoja Khalilzadeh",
+      "position": "Centre-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6079.png",
+        "name": "Persepolis FC"
+      },
+      "dateOfBirth": "Sep 29, 1993",
+      "foot": "left",
+      "height": "1,78m",
+      "id": "333355",
+      "injured": false,
+      "marketValue": "€900k",
+      "name": "Milad Mohammadi",
+      "position": "Left-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/4947.png",
+        "name": "Sepahan FC"
+      },
+      "dateOfBirth": "Feb 25, 1990",
+      "foot": "left",
+      "height": "1,78m",
+      "id": "77547",
+      "injured": false,
+      "marketValue": "€250k",
+      "name": "Ehsan Hajsafi",
+      "position": "Left-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/4947.png",
+        "name": "Sepahan FC"
+      },
+      "dateOfBirth": "Apr 22, 2002",
+      "foot": "right",
+      "height": "1,81m",
+      "id": "932724",
+      "injured": false,
+      "marketValue": "€1.50m",
+      "name": "Arya Yousefi",
+      "position": "Right-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1076.png",
+        "name": "Esteghlal FC"
+      },
+      "dateOfBirth": "Dec 26, 1998",
+      "foot": "right",
+      "height": "1,76m",
+      "id": "697155",
+      "injured": false,
+      "marketValue": "€800k",
+      "name": "Saleh Hardani",
+      "position": "Right-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6076.png",
+        "name": "Foolad FC"
+      },
+      "dateOfBirth": "Mar 21, 1990",
+      "foot": "right",
+      "height": "1,84m",
+      "id": "188312",
+      "injured": false,
+      "marketValue": "€250k",
+      "name": "Ramin Rezaeian",
+      "position": "Right-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/60529.png",
+        "name": "Shabab Al-Ahli Club"
+      },
+      "dateOfBirth": "Oct 1, 1996",
+      "foot": "right",
+      "height": "1,89m",
+      "id": "249271",
+      "injured": false,
+      "marketValue": "€1.80m",
+      "name": "Saeed Ezatolahi",
+      "position": "Defensive Midfield"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/161.png",
+        "name": "Al-Wahda FC"
+      },
+      "dateOfBirth": "May 21, 2001",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "856087",
+      "injured": false,
+      "marketValue": "€1.20m",
+      "name": "Mohammad Ghorbani",
+      "position": "Defensive Midfield"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1076.png",
+        "name": "Esteghlal FC"
+      },
+      "dateOfBirth": "Jul 24, 1993",
+      "foot": "right",
+      "height": "1,94m",
+      "id": "273879",
+      "injured": false,
+      "marketValue": "€450k",
+      "name": "Roozbeh Cheshmi",
+      "position": "Defensive Midfield"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1076.png",
+        "name": "Esteghlal FC"
+      },
+      "dateOfBirth": "Apr 11, 2006",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "1051591",
+      "injured": false,
+      "marketValue": "€1.20m",
+      "name": "Amirmohammad Razzaghinia",
+      "position": "Central Midfield"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/38040.png",
+        "name": "Kalba FC"
+      },
+      "dateOfBirth": "Sep 6, 1993",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "204294",
+      "injured": false,
+      "marketValue": "€1.20m",
+      "name": "Saman Ghoddos",
+      "position": "Attacking Midfield"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/5432.png",
+        "name": "Al-Nasr SC (UAE)"
+      },
+      "dateOfBirth": "Dec 5, 1998",
+      "foot": "right",
+      "height": "1,66m",
+      "id": "478192",
+      "injured": false,
+      "marketValue": "€4.50m",
+      "name": "Mehdi Ghayedi",
+      "position": "Left Winger"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1083.png",
+        "name": "FC Rostov"
+      },
+      "dateOfBirth": "Dec 20, 1998",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "603149",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "Mohammad Mohebi",
+      "position": "Left Winger"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/12935.png",
+        "name": "Tractor FC"
+      },
+      "dateOfBirth": "Sep 10, 1994",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "283833",
+      "injured": false,
+      "marketValue": "€1.20m",
+      "name": "Mehdi Torabi",
+      "position": "Left Winger"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/9010.png",
+        "name": "FCV Dender EH"
+      },
+      "dateOfBirth": "Aug 11, 1993",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "213268",
+      "injured": true,
+      "marketValue": "€600k",
+      "name": "Alireza Jahanbakhsh",
+      "position": "Right Winger"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/683.png",
+        "name": "Olympiacos Piraeus"
+      },
+      "dateOfBirth": "Jul 18, 1992",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "307058",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "Mehdi Taremi",
+      "position": "Centre-Forward"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/12935.png",
+        "name": "Tractor FC"
+      },
+      "dateOfBirth": "Oct 30, 2000",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "542380",
+      "injured": false,
+      "marketValue": "€2.20m",
+      "name": "Amirhossein Hosseinzadeh",
+      "position": "Centre-Forward"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/3057.png",
+        "name": "Standard Liège"
+      },
+      "dateOfBirth": "Jan 9, 1997",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "249303",
+      "injured": false,
+      "marketValue": "€2.00m",
+      "name": "Dennis Eckert Ayensa",
+      "position": "Centre-Forward"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6079.png",
+        "name": "Persepolis FC"
+      },
+      "dateOfBirth": "Nov 11, 1995",
+      "foot": "both",
+      "height": "1,81m",
+      "id": "249360",
+      "injured": false,
+      "marketValue": "€1.70m",
+      "name": "Ali Alipour",
+      "position": "Centre-Forward"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/38040.png",
+        "name": "Kalba FC"
+      },
+      "dateOfBirth": "Dec 21, 1994",
+      "foot": "left",
+      "height": "1,93m",
+      "id": "357125",
+      "injured": false,
+      "marketValue": "€800k",
+      "name": "Shahriar Moghanlou",
+      "position": "Centre-Forward"
+    }
+  ],
+  "stadiumName": null,
+  "stadiumSeats": null,
+  "transfermarktId": "3582"
+}

@@ -1,0 +1,608 @@
+<?php
+
+namespace Tests\Feature;
+
+use App\Models\Competition;
+use App\Models\CompetitionEntry;
+use App\Models\Game;
+use App\Models\GameStanding;
+use App\Models\SimulatedSeason;
+use App\Models\Team;
+use App\Models\User;
+use App\Modules\Season\DTOs\SeasonTransitionData;
+use App\Modules\Season\Processors\DomesticCupQualificationProcessor;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
+
+class DomesticCupQualificationTest extends TestCase
+{
+    use RefreshDatabase;
+
+    private Game $game;
+
+    /** @var Team[][] keyed by competition id, ordered by position (0-indexed) */
+    private array $teamsByCompetition = [];
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        // Existing tests below verify rule-level semantics (auto_qualify +
+        // top_per_group + reserve cascade) in isolation. The new
+        // `target_size` invariant runs as an outer layer on top of those
+        // rules; tests for it live in the dedicated section at the bottom
+        // of this file and set target_size explicitly. To keep the rule-
+        // semantics tests stable, suppress target_size by default here.
+        config(['countries.ES.cup_qualification.ESPCUP.target_size' => null]);
+
+        Competition::factory()->league()->create(['id' => 'ESP1', 'country' => 'ES', 'tier' => 1]);
+        Competition::factory()->league()->create([
+            'id' => 'ESP2', 'country' => 'ES', 'tier' => 2, 'handler_type' => 'league_with_playoff',
+        ]);
+        Competition::factory()->league()->create(['id' => 'ESP3A', 'country' => 'ES', 'tier' => 3]);
+        Competition::factory()->league()->create(['id' => 'ESP3B', 'country' => 'ES', 'tier' => 3]);
+        Competition::factory()->league()->create(['id' => 'ESP3C', 'country' => 'ES', 'tier' => 3]);
+        Competition::factory()->knockoutCup()->create(['id' => 'ESPCUP', 'country' => 'ES']);
+
+        $user = User::factory()->create();
+        $userTeam = Team::factory()->create(['country' => 'ES']);
+        $this->game = Game::factory()->create([
+            'user_id' => $user->id,
+            'team_id' => $userTeam->id,
+            'competition_id' => 'ESP1',
+            'season' => '2025',
+        ]);
+
+        $this->createLeague('ESP1', 16, $userTeam);
+        $this->createLeague('ESP2', 14);
+        $this->createLeague('ESP3A', 14);
+        $this->createLeague('ESP3B', 14);
+        $this->createLeague('ESP3C', 14);
+
+        // Every save the processor rebuilds already holds a cup field,
+        // copied from its season's data when the game was created; a save
+        // with none predates the cup and is deliberately left alone. Seed
+        // the champion's entry so these rule-level tests describe a live
+        // cup — it qualifies through tier 1 anyway, so no count moves.
+        CompetitionEntry::create([
+            'game_id' => $this->game->id,
+            'competition_id' => 'ESPCUP',
+            'team_id' => $this->teamsByCompetition['ESP1'][0]->id,
+            'entry_round' => 1,
+        ]);
+    }
+
+    public function test_base_case_qualifies_all_tier_1_plus_top_8_per_group(): void
+    {
+        $this->runProcessor();
+
+        $entries = $this->cupEntries();
+
+        // 16 (all of tier 1) + 8 (top of tier 2) + 8 per Segunda Federación
+        // group = 48, the cup's target_size.
+        $this->assertCount(16 + 8 + 8 + 8 + 8, $entries);
+
+        foreach ($this->teamsByCompetition['ESP1'] as $team) {
+            $this->assertContains($team->id, $entries, "ESP1 team {$team->id} should qualify");
+        }
+        foreach (array_slice($this->teamsByCompetition['ESP2'], 0, 8) as $team) {
+            $this->assertContains($team->id, $entries, "Top-8 ESP2 team {$team->id} should qualify");
+        }
+        foreach (array_slice($this->teamsByCompetition['ESP2'], 8) as $team) {
+            $this->assertNotContains($team->id, $entries, "Non-top-8 ESP2 team {$team->id} should not qualify");
+        }
+        foreach (['ESP3A', 'ESP3B', 'ESP3C'] as $group) {
+            foreach (array_slice($this->teamsByCompetition[$group], 0, 8) as $team) {
+                $this->assertContains($team->id, $entries, "Top-8 {$group} team {$team->id} should qualify");
+            }
+            foreach (array_slice($this->teamsByCompetition[$group], 8) as $team) {
+                $this->assertNotContains($team->id, $entries, "Non-top-8 {$group} team {$team->id} should not qualify");
+            }
+        }
+    }
+
+    public function test_reserve_team_in_top_8_is_skipped_and_next_non_reserve_qualifies(): void
+    {
+        // Make position 3 in ESP3A a reserve of an ESP1 team — it must be
+        // skipped and position 9 bumped up into the top 8.
+        $parent = $this->teamsByCompetition['ESP1'][0];
+        $this->teamsByCompetition['ESP3A'][2]->update(['parent_team_id' => $parent->id]);
+
+        $this->runProcessor();
+
+        $entries = $this->cupEntries();
+        $esp3a = $this->teamsByCompetition['ESP3A'];
+
+        $this->assertContains($esp3a[0]->id, $entries, 'pos 1 qualifies');
+        $this->assertContains($esp3a[1]->id, $entries, 'pos 2 qualifies');
+        $this->assertNotContains($esp3a[2]->id, $entries, 'reserve at pos 3 skipped');
+        foreach ([3, 4, 5, 6, 7] as $idx) {
+            $this->assertContains($esp3a[$idx]->id, $entries, 'pos ' . ($idx + 1) . ' qualifies');
+        }
+        $this->assertContains($esp3a[8]->id, $entries, 'pos 9 bumped into top 8');
+        $this->assertNotContains($esp3a[9]->id, $entries, 'pos 10 does not qualify');
+
+        $esp3aQualifiers = array_values(array_filter(
+            $entries,
+            fn (string $id) => in_array($id, array_map(fn (Team $t) => $t->id, $esp3a), true),
+        ));
+        $this->assertCount(8, $esp3aQualifiers, 'ESP3A still contributes exactly 8 qualifiers');
+    }
+
+    public function test_reserves_in_auto_qualify_tier_are_skipped_without_cascade(): void
+    {
+        // Three reserves in ESP1 — they're simply skipped, shrinking the
+        // rule output to 45. Without target_size set the cup just gets
+        // smaller; the target_size top-up (covered separately below) is
+        // what restores the cup to its full size. Their parents are lone
+        // teams with no league entry at all.
+        $this->teamsByCompetition['ESP1'][5]->update(['parent_team_id' => Team::factory()->create(['country' => 'ES'])->id]);
+        $this->teamsByCompetition['ESP1'][10]->update(['parent_team_id' => Team::factory()->create(['country' => 'ES'])->id]);
+        $this->teamsByCompetition['ESP1'][15]->update(['parent_team_id' => Team::factory()->create(['country' => 'ES'])->id]);
+
+        $this->runProcessor();
+
+        $entries = $this->cupEntries();
+        $this->assertCount(45, $entries, '13 ESP1 (3 reserves skipped) + 8 ESP2 + 8+8+8 ESP3 = 45');
+
+        // The three reserves themselves never qualify
+        $this->assertNotContains($this->teamsByCompetition['ESP1'][5]->id, $entries);
+        $this->assertNotContains($this->teamsByCompetition['ESP1'][10]->id, $entries);
+        $this->assertNotContains($this->teamsByCompetition['ESP1'][15]->id, $entries);
+    }
+
+    public function test_lower_tier_seed_teams_without_any_playable_tier_entry_are_preserved(): void
+    {
+        // Lower-division "flavour" teams: they sit in ESPCUP but aren't
+        // registered in ESP1/2/3 at all. They should survive the rebuild.
+        $regional1 = Team::factory()->create(['country' => 'ES', 'name' => 'CD Numancia']);
+        $regional2 = Team::factory()->create(['country' => 'ES', 'name' => 'Real Jaén CF']);
+
+        foreach ([$regional1, $regional2] as $team) {
+            CompetitionEntry::create([
+                'game_id' => $this->game->id,
+                'competition_id' => 'ESPCUP',
+                'team_id' => $team->id,
+                'entry_round' => 1,
+            ]);
+        }
+
+        $this->runProcessor();
+
+        $entries = $this->cupEntries();
+
+        $this->assertContains($regional1->id, $entries, 'Lower-tier seed team preserved');
+        $this->assertContains($regional2->id, $entries, 'Lower-tier seed team preserved');
+        $this->assertCount(48 + 2, $entries, 'Qualifiers + preserved seed teams');
+    }
+
+    public function test_reserve_team_previously_in_copa_is_removed_on_rebuild(): void
+    {
+        $parent = $this->teamsByCompetition['ESP1'][0];
+        $strayReserve = Team::factory()->create([
+            'country' => 'ES',
+            'parent_team_id' => $parent->id,
+        ]);
+
+        CompetitionEntry::create([
+            'game_id' => $this->game->id,
+            'competition_id' => 'ESPCUP',
+            'team_id' => $strayReserve->id,
+            'entry_round' => 1,
+        ]);
+
+        $this->runProcessor();
+
+        $this->assertNotContains($strayReserve->id, $this->cupEntries());
+    }
+
+    public function test_falls_back_to_simulated_season_when_standings_are_empty(): void
+    {
+        // Mirror a non-player group where the season was simulated: drop
+        // standings for ESP3B and register results in SimulatedSeason.
+        GameStanding::where('game_id', $this->game->id)
+            ->where('competition_id', 'ESP3B')
+            ->delete();
+
+        SimulatedSeason::create([
+            'game_id' => $this->game->id,
+            'season' => '2025',
+            'competition_id' => 'ESP3B',
+            'results' => array_map(fn (Team $t) => $t->id, $this->teamsByCompetition['ESP3B']),
+        ]);
+
+        $this->runProcessor();
+
+        $entries = $this->cupEntries();
+
+        foreach (array_slice($this->teamsByCompetition['ESP3B'], 0, 8) as $team) {
+            $this->assertContains($team->id, $entries, 'Simulated top-8 ESP3B team qualifies');
+        }
+        foreach (array_slice($this->teamsByCompetition['ESP3B'], 8) as $team) {
+            $this->assertNotContains($team->id, $entries, 'Simulated non-top-8 does not qualify');
+        }
+    }
+
+    // ---------------------------------------------------------------------
+    // target_size invariant — fills the cup back to a fixed size after the
+    // rule pass so it doesn't permanently shrink each season. Walks the
+    // top_per_group competitions sequentially (ESP2, then ESP3A, ESP3B,
+    // ESP3C), skipping reserves and teams already qualified.
+    // ---------------------------------------------------------------------
+
+    public function test_target_size_fills_remaining_slots_from_lower_groups(): void
+    {
+        // Rule produces 48 qualifiers (16+8+8+8+8). target_size=70 → need 22
+        // more, walking ESP2 first (positions 9-14: 6 teams), then ESP3A
+        // (6), ESP3B (6) and finally ESP3C (4: positions 9-12).
+        config(['countries.ES.cup_qualification.ESPCUP.target_size' => 70]);
+
+        $this->runProcessor();
+
+        $entries = $this->cupEntries();
+        $this->assertCount(70, $entries);
+
+        $esp2Ids = array_map(fn (Team $t) => $t->id, $this->teamsByCompetition['ESP2']);
+        $esp3aIds = array_map(fn (Team $t) => $t->id, $this->teamsByCompetition['ESP3A']);
+        $esp3bIds = array_map(fn (Team $t) => $t->id, $this->teamsByCompetition['ESP3B']);
+        $esp3cIds = array_map(fn (Team $t) => $t->id, $this->teamsByCompetition['ESP3C']);
+
+        $this->assertSame(14, count(array_intersect($entries, $esp2Ids)), 'ESP2 fully drained first');
+        $this->assertSame(14, count(array_intersect($entries, $esp3aIds)), 'ESP3A fully drained second');
+        $this->assertSame(14, count(array_intersect($entries, $esp3bIds)), 'ESP3B fully drained third');
+        $this->assertSame(12, count(array_intersect($entries, $esp3cIds)), 'ESP3C contributes its top 12');
+    }
+
+    public function test_target_size_skips_reserves_during_fill(): void
+    {
+        // ESP3A pos 9 marked reserve. The fill phase must skip it: with
+        // target_size=56 the 8 extra slots come from ESP2 pos 9-14 (6 teams)
+        // plus ESP3A pos 10 and 11.
+        $parent = $this->teamsByCompetition['ESP1'][0];
+        $this->teamsByCompetition['ESP3A'][8]->update(['parent_team_id' => $parent->id]);
+
+        config(['countries.ES.cup_qualification.ESPCUP.target_size' => 56]);
+
+        $this->runProcessor();
+
+        $entries = $this->cupEntries();
+        $this->assertCount(56, $entries);
+        $this->assertNotContains($this->teamsByCompetition['ESP3A'][8]->id, $entries, 'reserve never qualifies');
+        $this->assertContains($this->teamsByCompetition['ESP3A'][9]->id, $entries, 'pos 10 picked instead');
+        $this->assertContains($this->teamsByCompetition['ESP3A'][10]->id, $entries, 'pos 11 picked too');
+    }
+
+    public function test_target_size_counts_regional_seed_teams(): void
+    {
+        // 10 regional teams already in the cup → fill phase needs 8 fewer
+        // teams from ESP3 to reach target_size.
+        $regional = collect(range(1, 10))->map(
+            fn (int $i) => Team::factory()->create(['country' => 'ES', 'name' => "Regional {$i}"])
+        );
+        foreach ($regional as $team) {
+            CompetitionEntry::create([
+                'game_id' => $this->game->id,
+                'competition_id' => 'ESPCUP',
+                'team_id' => $team->id,
+                'entry_round' => 1,
+            ]);
+        }
+
+        config(['countries.ES.cup_qualification.ESPCUP.target_size' => 70]);
+
+        $this->runProcessor();
+
+        $entries = $this->cupEntries();
+        $this->assertCount(70, $entries);
+        foreach ($regional as $team) {
+            $this->assertContains($team->id, $entries, 'regional team preserved');
+        }
+    }
+
+    public function test_target_size_unreachable_throws_loudly(): void
+    {
+        // target_size larger than the entire eligible pool — must throw
+        // rather than write a partial cup.
+        config(['countries.ES.cup_qualification.ESPCUP.target_size' => 1000]);
+
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessageMatches('/ESPCUP.*target_size 1000 unreachable/i');
+
+        $this->runProcessor();
+    }
+
+    public function test_target_size_below_rule_output_keeps_full_field(): void
+    {
+        // Rule already produces 48. target_size of 30 doesn't trim — the
+        // fill phase just doesn't run. Documented behaviour: target_size
+        // is a floor, not a ceiling.
+        config(['countries.ES.cup_qualification.ESPCUP.target_size' => 30]);
+
+        $this->runProcessor();
+
+        $this->assertCount(48, $this->cupEntries());
+    }
+
+    public function test_supercup_qualifier_outside_top_8_is_force_included(): void
+    {
+        // Reproduces the OddCupDrawPoolException scenario from production:
+        // a tier-3 cup finalist qualifies for the supercup by winning /
+        // runner-up of the cup, but lives outside its group's top 8. Without
+        // 3b it never enters the rebuilt cup, the entry_round bump silently
+        // misses it, and round 1 ends up odd.
+        Competition::factory()->knockoutCup()->create(['id' => 'ESPSUP', 'country' => 'ES']);
+
+        // 4 supercup qualifiers: 2 ESP1 leaders (always in step 1) plus the
+        // two cup finalists from outside the top-8 of their groups.
+        $supercupQualifiers = [
+            $this->teamsByCompetition['ESP1'][0]->id,
+            $this->teamsByCompetition['ESP1'][1]->id,
+            $this->teamsByCompetition['ESP3A'][11]->id, // pos 12, outside the top 8
+            $this->teamsByCompetition['ESP3B'][9]->id,  // pos 10, outside the top 8
+        ];
+        foreach ($supercupQualifiers as $teamId) {
+            CompetitionEntry::create([
+                'game_id' => $this->game->id,
+                'competition_id' => 'ESPSUP',
+                'team_id' => $teamId,
+                'entry_round' => 1,
+            ]);
+        }
+
+        // Step 3b force-includes the two cup finalists regardless of where
+        // step 4's fill would reach with target=70.
+        config(['countries.ES.cup_qualification.ESPCUP.target_size' => 70]);
+
+        $this->runProcessor();
+
+        $entries = $this->cupEntries();
+        foreach ($supercupQualifiers as $teamId) {
+            $this->assertContains($teamId, $entries, "supercup team {$teamId} must be in cup");
+        }
+        $this->assertCount(70, $entries, 'cup field still hits target_size');
+    }
+
+    public function test_target_size_with_supercup_bump_yields_even_round_1(): void
+    {
+        // The whole point of the invariant: round 1 must be even after the
+        // supercup teams are bumped to the cup_entry_round (4). The rule
+        // produces exactly the 48-team field; bumping 4 of them leaves 44
+        // in round 1 — an even pool the draw can pair.
+        config(['countries.ES.cup_qualification.ESPCUP.target_size' => 48]);
+
+        $this->runProcessor();
+        $this->assertCount(48, $this->cupEntries());
+
+        // Simulate the 4-team supercup bump to the cup_entry_round.
+        CompetitionEntry::where('game_id', $this->game->id)
+            ->where('competition_id', 'ESPCUP')
+            ->whereIn('team_id', array_slice($this->cupEntries(), 0, 4))
+            ->update(['entry_round' => 4]);
+
+        $round1 = CompetitionEntry::where('game_id', $this->game->id)
+            ->where('competition_id', 'ESPCUP')
+            ->where('entry_round', 1)
+            ->count();
+
+        $this->assertSame(44, $round1);
+        $this->assertSame(0, $round1 % 2, 'round 1 must be even');
+    }
+
+    // ---------------------------------------------------------------------
+    // Entry rounds — tier qualifiers are written at round 1; ghost teams
+    // keep whatever round their data file gave them.
+    // ---------------------------------------------------------------------
+
+    public function test_ghost_teams_keep_their_seeded_entry_round(): void
+    {
+        $earlyGhost = Team::factory()->create(['country' => 'ES', 'name' => 'CD Numancia']);
+        $lateGhost = Team::factory()->create(['country' => 'ES', 'name' => 'Real Jaén CF']);
+        foreach ([[$earlyGhost, 1], [$lateGhost, 2]] as [$team, $round]) {
+            CompetitionEntry::create([
+                'game_id' => $this->game->id,
+                'competition_id' => 'ESPCUP',
+                'team_id' => $team->id,
+                'entry_round' => $round,
+            ]);
+        }
+
+        $this->runProcessor();
+
+        $rounds = CompetitionEntry::where('game_id', $this->game->id)
+            ->where('competition_id', 'ESPCUP')
+            ->pluck('entry_round', 'team_id')
+            ->map(fn ($round) => (int) $round)
+            ->all();
+
+        foreach ($this->teamsByCompetition['ESP1'] as $team) {
+            $this->assertSame(1, $rounds[$team->id], 'tier qualifiers join at round 1');
+        }
+        $this->assertSame(1, $rounds[$earlyGhost->id]);
+        $this->assertSame(2, $rounds[$lateGhost->id], 'a ghost keeps its seeded entry round');
+    }
+
+    // =========================================
+    // A one-tier country (England): no top_per_group, no target_size
+    // =========================================
+
+    public function test_single_tier_country_rebuilds_its_cup_from_tier_1_plus_ghosts(): void
+    {
+        // England's cups arrive with the 2026 data, so the config gate hides
+        // them from any earlier season.
+        config(['season.current' => '2026']);
+
+        Competition::factory()->league()->create(['id' => 'ENG1', 'country' => 'EN', 'tier' => 1]);
+        Competition::factory()->knockoutCup()->create(['id' => 'ENGCUP', 'country' => 'EN']);
+
+        // 14 Women's Super League clubs, and 50 ghosts already in the cup
+        // from the data file — the shape SeedReferenceData produces.
+        $premierLeague = [];
+        for ($i = 0; $i < 14; $i++) {
+            $team = Team::factory()->create(['country' => 'EN']);
+            $premierLeague[] = $team;
+            CompetitionEntry::create([
+                'game_id' => $this->game->id,
+                'competition_id' => 'ENG1',
+                'team_id' => $team->id,
+                'entry_round' => 1,
+            ]);
+        }
+
+        for ($i = 0; $i < 50; $i++) {
+            CompetitionEntry::create([
+                'game_id' => $this->game->id,
+                'competition_id' => 'ENGCUP',
+                'team_id' => Team::factory()->create(['country' => 'EN'])->id,
+                'entry_round' => 1,
+            ]);
+        }
+
+        $this->runProcessor();
+
+        $entries = CompetitionEntry::where('game_id', $this->game->id)
+            ->where('competition_id', 'ENGCUP')
+            ->pluck('team_id')
+            ->all();
+
+        // England declares no target_size: with no second tier there is
+        // nothing to backfill from, so the field is exactly the 14 league
+        // clubs plus the preserved ghosts — and it halves cleanly.
+        $this->assertCount(64, $entries);
+        foreach ($premierLeague as $team) {
+            $this->assertContains($team->id, $entries);
+        }
+    }
+
+    public function test_a_cup_declared_in_config_but_not_seeded_is_skipped(): void
+    {
+        // England's cups arrive with the 2026 data, so the config gate hides
+        // them from any earlier season.
+        config(['season.current' => '2026']);
+
+        // ENG1 exists (it sits in every country's transfer pool) but the cup
+        // competition row does not, so the rebuild must not attempt an insert
+        // that the competition_entries foreign key would reject.
+        Competition::factory()->league()->create(['id' => 'ENG1', 'country' => 'EN', 'tier' => 1]);
+        CompetitionEntry::create([
+            'game_id' => $this->game->id,
+            'competition_id' => 'ENG1',
+            'team_id' => Team::factory()->create(['country' => 'EN'])->id,
+            'entry_round' => 1,
+        ]);
+
+        $this->runProcessor();
+
+        $this->assertSame(
+            0,
+            CompetitionEntry::where('game_id', $this->game->id)
+                ->where('competition_id', 'ENGCUP')
+                ->count(),
+        );
+    }
+
+    /**
+     * A cup can place a whole league at one round and hand its best
+     * finishers a bye to a later one — Serie A joins the Coppa at the first
+     * round proper, its top eight at the round of 16. It has to be settled
+     * here, at the close, because by the time entry rounds are assigned at
+     * setup the table this reads has already rolled over.
+     */
+    public function test_an_entry_rounds_rule_places_a_league_and_its_bye_holders(): void
+    {
+        config(['countries.ES.cup_qualification.ESPCUP.entry_rounds' => [
+            'league' => 'ESP1',
+            'default' => 2,
+            'byes' => ['positions' => [1, 2, 3], 'round' => 3],
+        ]]);
+
+        $this->runProcessor();
+
+        $rounds = CompetitionEntry::where('game_id', $this->game->id)
+            ->where('competition_id', 'ESPCUP')
+            ->pluck('entry_round', 'team_id')
+            ->all();
+
+        foreach (array_slice($this->teamsByCompetition['ESP1'], 0, 3) as $team) {
+            $this->assertSame(3, (int) $rounds[$team->id], "ESP1 top-3 team {$team->id} should get the bye");
+        }
+        foreach (array_slice($this->teamsByCompetition['ESP1'], 3) as $team) {
+            $this->assertSame(2, (int) $rounds[$team->id], "ESP1 team {$team->id} outside the top 3 takes the league's default round");
+        }
+        // Only the top 8 of ESP2 qualify at all — the rest have no cup row
+        // (reading their entry round would be an "Undefined array key").
+        foreach (array_slice($this->teamsByCompetition['ESP2'], 0, 8) as $team) {
+            $this->assertSame(1, (int) $rounds[$team->id], 'a league the rule does not name is unaffected');
+        }
+        foreach (array_slice($this->teamsByCompetition['ESP2'], 8) as $team) {
+            $this->assertArrayNotHasKey($team->id, $rounds, "ESP2 team {$team->id} outside the top 8 does not qualify");
+        }
+    }
+
+    public function test_without_an_entry_rounds_rule_every_qualifier_enters_at_round_one(): void
+    {
+        $this->runProcessor();
+
+        $this->assertSame(
+            [1],
+            CompetitionEntry::where('game_id', $this->game->id)
+                ->where('competition_id', 'ESPCUP')
+                ->distinct()
+                ->pluck('entry_round')
+                ->all(),
+        );
+    }
+
+    private function runProcessor(): void
+    {
+        app(DomesticCupQualificationProcessor::class)->process(
+            $this->game,
+            new SeasonTransitionData(oldSeason: '2025', newSeason: '2026', competitionId: 'ESP1'),
+        );
+    }
+
+    /**
+     * @return string[]
+     */
+    private function cupEntries(): array
+    {
+        return CompetitionEntry::where('game_id', $this->game->id)
+            ->where('competition_id', 'ESPCUP')
+            ->pluck('team_id')
+            ->all();
+    }
+
+    private function createLeague(string $competitionId, int $count, ?Team $firstTeam = null): void
+    {
+        $teams = [];
+        for ($i = 0; $i < $count; $i++) {
+            $team = ($i === 0 && $firstTeam)
+                ? $firstTeam
+                : Team::factory()->create(['country' => 'ES']);
+
+            CompetitionEntry::create([
+                'game_id' => $this->game->id,
+                'competition_id' => $competitionId,
+                'team_id' => $team->id,
+                'entry_round' => 1,
+            ]);
+
+            GameStanding::create([
+                'game_id' => $this->game->id,
+                'competition_id' => $competitionId,
+                'team_id' => $team->id,
+                'position' => $i + 1,
+                'played' => 38,
+                'won' => max(0, 20 - $i),
+                'drawn' => 5,
+                'lost' => max(0, $i - 5),
+                'goals_for' => max(10, 60 - $i * 2),
+                'goals_against' => 20 + $i,
+                'points' => max(0, (20 - $i) * 3 + 5),
+            ]);
+
+            $teams[] = $team;
+        }
+
+        $this->teamsByCompetition[$competitionId] = $teams;
+    }
+}

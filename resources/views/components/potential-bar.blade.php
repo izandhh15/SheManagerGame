@@ -1,0 +1,83 @@
+@props(['currentAbility', 'potentialLow' => null, 'potentialHigh' => null, 'projection' => null, 'size' => 'md'])
+
+@php
+    $max = 99;
+    $currentPct = min(100, ($currentAbility / $max) * 100);
+    $potLowPct = $potentialLow ? min(100, ($potentialLow / $max) * 100) : 0;
+    $potHighPct = $potentialHigh ? min(100, ($potentialHigh / $max) * 100) : 0;
+    $projectedAbility = $projection !== null ? $currentAbility + $projection : null;
+    $projectedPct = $projectedAbility ? min(100, max(0, ($projectedAbility / $max) * 100)) : null;
+
+    // Apply the design-system rating utility (resources/views/design-system/
+    // sections/badges.blade.php) so the bar fill and the leading number stay
+    // colour-aligned with every other rating surface in the app.
+    $fillColor = match(true) {
+        $currentAbility >= 80 => 'rating-elite',
+        $currentAbility >= 70 => 'rating-good',
+        $currentAbility >= 60 => 'rating-average',
+        $currentAbility >= 50 => 'rating-below',
+        default => 'rating-poor',
+    };
+
+    $barHeight = match($size) {
+        'sm' => 'h-1',
+        default => 'h-1.5',
+    };
+    $containerMin = match($size) {
+        'sm' => 'min-w-[100px]',
+        default => 'min-w-[140px]',
+    };
+    $numberClass = match($size) {
+        'sm' => 'text-xs font-bold w-5',
+        default => 'text-sm font-bold w-6',
+    };
+    $ceilingClass = match($size) {
+        'sm' => 'text-[10px] w-4',
+        default => 'text-xs w-5',
+    };
+    $gapClass = match($size) {
+        'sm' => 'gap-1.5',
+        default => 'gap-2',
+    };
+    $dotSize = match($size) {
+        'sm' => 'w-1 h-1',
+        default => 'w-1.5 h-1.5',
+    };
+@endphp
+
+<div class="flex items-center {{ $gapClass }} {{ $containerMin }}">
+    {{-- Current ability number --}}
+    @php
+        $numberColor = match(true) {
+            $currentAbility >= 80 => 'text-accent-green',
+            $currentAbility >= 70 => 'text-lime-400',
+            $currentAbility >= 60 => 'text-accent-gold',
+            $currentAbility >= 50 => 'text-accent-orange',
+            default => 'text-accent-red',
+        };
+    @endphp
+    <span class="{{ $numberClass }} {{ $numberColor }} text-right shrink-0">{{ $currentAbility }}</span>
+
+    {{-- Bar --}}
+    <div class="relative w-full {{ $barHeight }} bg-surface-600 rounded-full overflow-hidden grow">
+        {{-- Potential range highlight --}}
+        @if($potentialLow && $potentialHigh)
+        <div class="absolute h-full bg-accent-blue/20 rounded-full" style="left: {{ $potLowPct }}%; width: {{ $potHighPct - $potLowPct }}%"></div>
+        @endif
+
+        {{-- Current ability fill --}}
+        <div class="absolute h-full {{ $fillColor }} rounded-full" style="width: {{ $currentPct }}%"></div>
+
+        {{-- Projection marker --}}
+        @if($projectedPct !== null && $projection != 0)
+        <div class="absolute top-1/2 -translate-y-1/2 {{ $dotSize }} rounded-full border border-surface-800 shadow-xs {{ $projection > 0 ? 'bg-accent-green' : 'bg-accent-red' }}" style="left: {{ $projectedPct }}%"></div>
+        @endif
+    </div>
+
+    {{-- Potential ceiling --}}
+    @if($potentialHigh)
+    <span class="{{ $ceilingClass }} text-accent-blue font-medium shrink-0">{{ $potentialHigh }}</span>
+    @else
+    <span class="{{ $ceilingClass }} text-text-faint shrink-0">?</span>
+    @endif
+</div>

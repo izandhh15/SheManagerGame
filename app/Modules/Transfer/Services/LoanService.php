@@ -1,0 +1,695 @@
+<?php
+
+namespace App\Modules\Transfer\Services;
+
+use App\Models\ClubProfile;
+use App\Models\Competition;
+use App\Models\FinancialTransaction;
+use App\Models\Game;
+use App\Models\GamePlayer;
+use App\Models\GameTransfer;
+use App\Models\Loan;
+use App\Models\ShortlistedPlayer;
+use App\Models\Team;
+use App\Models\TeamReputation;
+use App\Models\TransferListing;
+use App\Models\TransferOffer;
+use App\Modules\Squad\Services\SquadMinimumService;
+use App\Modules\Squad\Services\SquadNumberService;
+use App\Modules\Transfer\Enums\TransferWindowType;
+use App\Modules\Transfer\Exceptions\SquadMinimumException;
+use Carbon\Carbon;
+use Illuminate\Support\Collection;
+
+class LoanService
+{
+    private const SEARCH_EXPIRY_DAYS = 21;
+    private const MATCH_PROBABILITY = 50; // % chance per matchday
+
+    public function __construct(
+        private readonly DispositionService $dispositionService,
+        private readonly SquadNumberService $squadNumberService,
+        private readonly AIExclusionList $exclusionList,
+        private readonly SquadMinimumService $squadMinimumService,
+    ) {}
+
+    /**
+     * Start a loan search for a player.
+     *
+     * @throws SquadMinimumException when listing this player would mean the
+     *         squad could fall below its composition minimum if the resulting
+     *         loan offer is accepted.
+     */
+    public function startLoanSearch(Game $game, GamePlayer $player): void
+    {
+        $breach = $this->squadMinimumService->validateRemoval($game, $player, $player->team_id);
+        if ($breach !== null) {
+            throw new SquadMinimumException($breach);
+        }
+
+        TransferListing::updateOrCreate(
+            ['game_player_id' => $player->id],
+            [
+                'game_id' => $game->id,
+                'team_id' => $player->team_id,
+                'status' => TransferListing::STATUS_LOAN_SEARCH,
+                'listed_at' => $game->current_date,
+            ],
+        );
+    }
+
+    /**
+     * Cancel an active loan search for a player and expire any pending loan
+     * offers that were tabled while the search was open.
+     */
+    public function cancelLoanSearch(GamePlayer $player): void
+    {
+        TransferListing::where('game_player_id', $player->id)->delete();
+        $this->expirePendingLoanOutOffers($player->game, $player->id);
+    }
+
+    /**
+     * Process all active loan searches each matchday.
+     * Returns arrays of found (new offers received) and expired results.
+     */
+    public function processLoanSearches(Game $game): array
+    {
+        $searching = GamePlayer::with(['transferListing'])
+            ->where('game_id', $game->id)
+            ->where('team_id', $game->team_id)
+            ->whereHas('transferListing', fn ($q) => $q->where('status', TransferListing::STATUS_LOAN_SEARCH))
+            ->get();
+
+        $found = [];
+        $expired = [];
+
+        // Pre-load players that already have pending loan-out offers so we don't
+        // generate a second batch while the user is still deciding on the first.
+        $playersWithPendingOffers = TransferOffer::where('game_id', $game->id)
+            ->ofType(TransferOffer::TYPE_LOAN_OUT)
+            ->outgoing()
+            ->pending()
+            ->whereIn('game_player_id', $searching->pluck('id'))
+            ->pluck('game_player_id')
+            ->unique()
+            ->flip();
+
+        foreach ($searching as $player) {
+            // Only one offer is live at a time per player. If the user hasn't
+            // decided yet, skip the probability roll. If the whole search has
+            // timed out while an offer sat pending, clear both.
+            if ($playersWithPendingOffers->has($player->id)) {
+                if ($this->isSearchExpired($player, $game->current_date)) {
+                    TransferListing::where('game_player_id', $player->id)->delete();
+                    $this->expirePendingLoanOutOffers($game, $player->id);
+                    $expired[] = ['player' => $player];
+                }
+                continue;
+            }
+
+            // Roll probability
+            if (rand(1, 100) <= self::MATCH_PROBABILITY) {
+                $destination = $this->findBestDestination($game, $player);
+
+                if ($destination) {
+                    // Offers live for the full search window from the moment
+                    // they arrive so the user always has time to respond, even
+                    // if the underlying listing is already a few matchdays old.
+                    $expiresAt = $game->current_date->copy()->addDays(self::SEARCH_EXPIRY_DAYS);
+
+                    $offer = TransferOffer::create([
+                        'game_id' => $game->id,
+                        'game_player_id' => $player->id,
+                        'offering_team_id' => $destination->id,
+                        'selling_team_id' => $game->team_id,
+                        'offer_type' => TransferOffer::TYPE_LOAN_OUT,
+                        'direction' => TransferOffer::DIRECTION_OUTGOING,
+                        'transfer_fee' => 0,
+                        'status' => TransferOffer::STATUS_PENDING,
+                        'expires_at' => $expiresAt,
+                        'game_date' => $game->current_date,
+                    ]);
+
+                    $found[] = [
+                        'player' => $player,
+                        'destination' => $destination,
+                        'offer' => $offer,
+                        'windowOpen' => $game->isTransferWindowOpen(),
+                    ];
+                    continue;
+                }
+            }
+
+            // Check if search has expired
+            if ($this->isSearchExpired($player, $game->current_date)) {
+                TransferListing::where('game_player_id', $player->id)->delete();
+
+                $expired[] = ['player' => $player];
+            }
+        }
+
+        return ['found' => $found, 'expired' => $expired];
+    }
+
+    /**
+     * Pick a single loan destination via weighted random from the top
+     * candidates, or null if no team clears the minimum score threshold.
+     */
+    private function findBestDestination(Game $game, GamePlayer $player): ?Team
+    {
+        $teams = Team::transferMarketEligible()
+            ->with(['clubProfile', 'competitions'])
+            ->whereHas('competitions', function ($q) {
+                $q->where('scope', Competition::SCOPE_DOMESTIC)
+                    ->where('type', 'league');
+            })
+            ->where('id', '!=', $game->team_id)
+            ->get()
+            // Exclude AI teams configured to rely exclusively on their youth academy
+            ->reject(fn (Team $team) => $this->exclusionList->contains($team->id))
+            ->values();
+
+        if ($teams->isEmpty()) {
+            return null;
+        }
+
+        // Pre-load position group counts for all candidate teams in one query
+        $teamIds = $teams->pluck('id')->toArray();
+        $positionCounts = $this->getPositionCountsByTeam($game, $teamIds);
+
+        // Batch-load all team reputations in one query
+        $teamReputations = TeamReputation::resolveLevels($game->id, $teamIds);
+
+        // Score each team
+        $scored = $teams->map(function (Team $team) use ($game, $player, $positionCounts, $teamReputations) {
+            return [
+                'team' => $team,
+                'score' => $this->scoreLoanDestination($game, $player, $team, $positionCounts, $teamReputations),
+            ];
+        })
+        ->filter(fn ($item) => $item['score'] >= 20)
+        ->sortByDesc('score')
+        ->take(5)
+        ->values();
+
+        if ($scored->isEmpty()) {
+            return null;
+        }
+
+        // Weighted random from top candidates
+        $totalWeight = $scored->sum('score');
+        $roll = rand(1, $totalWeight);
+        $cumulative = 0;
+
+        foreach ($scored as $item) {
+            $cumulative += $item['score'];
+            if ($roll <= $cumulative) {
+                return $item['team'];
+            }
+        }
+
+        return $scored->first()['team'];
+    }
+
+    /**
+     * Score a potential loan destination (0-100).
+     *
+     * @param  array<string, array<string, int>>  $positionCounts  Pre-loaded position counts by team
+     * @param  Collection  $teamReputations  Pre-loaded team_id => reputation_level map
+     */
+    private function scoreLoanDestination(Game $game, GamePlayer $player, Team $team, array $positionCounts, Collection $teamReputations): int
+    {
+        $score = 0;
+
+        // Reputation match (0-40 pts)
+        $score += $this->scoreReputation($player, $team, $teamReputations);
+
+        // Position need (0-30 pts)
+        $score += $this->scorePositionNeed($player, $team, $positionCounts);
+
+        // League tier (0-20 pts)
+        $score += $this->scoreLeagueTier($player, $team, $teamReputations);
+
+        // Random variety (0-10 pts)
+        $score += rand(0, 10);
+
+        return $score;
+    }
+
+    /**
+     * Score reputation match (0-40 pts).
+     */
+    private function scoreReputation(GamePlayer $player, Team $team, Collection $teamReputations): int
+    {
+        $expectedReputation = $this->getExpectedReputation($player);
+        $teamReputation = $teamReputations->get($team->id, ClubProfile::REPUTATION_LOCAL);
+
+        $expectedIndex = ClubProfile::getReputationTierIndex($expectedReputation);
+        $teamIndex = ClubProfile::getReputationTierIndex($teamReputation);
+
+        $distance = abs($expectedIndex - $teamIndex);
+
+        return match ($distance) {
+            0 => 40,
+            1 => 30,
+            2 => 15,
+            default => 5,
+        };
+    }
+
+    /**
+     * Map player ability to expected reputation tier.
+     */
+    private function getExpectedReputation(GamePlayer $player): string
+    {
+        $avgAbility = $player->overall_score;
+
+        if ($avgAbility >= 82) {
+            return ClubProfile::REPUTATION_ELITE;
+        }
+        if ($avgAbility >= 76) {
+            return ClubProfile::REPUTATION_CONTINENTAL;
+        }
+        if ($avgAbility >= 68) {
+            return ClubProfile::REPUTATION_ESTABLISHED;
+        }
+        if ($avgAbility >= 60) {
+            return ClubProfile::REPUTATION_MODEST;
+        }
+
+        return ClubProfile::REPUTATION_LOCAL;
+    }
+
+    /**
+     * Score position need (0-30 pts).
+     *
+     * @param  array<string, array<string, int>>  $positionCounts  Pre-loaded position counts by team
+     */
+    private function scorePositionNeed(GamePlayer $player, Team $team, array $positionCounts = []): int
+    {
+        $positionGroup = $player->position_group;
+        $count = $positionCounts[$team->id][$positionGroup] ?? 0;
+
+        return match (true) {
+            $count <= 1 => 30,
+            $count === 2 => 20,
+            $count === 3 => 10,
+            default => 0,
+        };
+    }
+
+    /**
+     * Pre-load position group counts for multiple teams in a single query.
+     *
+     * @return array<string, array<string, int>>  [teamId => [positionGroup => count]]
+     */
+    private function getPositionCountsByTeam(Game $game, array $teamIds): array
+    {
+        $players = GamePlayer::where('game_id', $game->id)
+            ->whereIn('team_id', $teamIds)
+            ->get(['id', 'team_id', 'position']);
+
+        $counts = [];
+        foreach ($players as $player) {
+            $group = $player->position_group;
+            $counts[$player->team_id][$group] = ($counts[$player->team_id][$group] ?? 0) + 1;
+        }
+
+        return $counts;
+    }
+
+    /**
+     * Score league tier preference (0-20 pts).
+     * Uses team reputation level instead of hardcoded competition IDs.
+     */
+    private function scoreLeagueTier(GamePlayer $player, Team $team, Collection $teamReputations): int
+    {
+        $reputation = $teamReputations->get($team->id, ClubProfile::REPUTATION_LOCAL);
+        $devStatus = $player->developmentStatus($player->game->current_date);
+        $avgAbility = $player->overall_score;
+
+        $isSmallClub = in_array($reputation, [
+            ClubProfile::REPUTATION_MODEST,
+            ClubProfile::REPUTATION_LOCAL,
+        ]);
+
+        // Growing/low-ability players benefit more from smaller clubs
+        if ($devStatus === 'growing' || $avgAbility < 65) {
+            return $isSmallClub ? 20 : 10;
+        }
+
+        // Peak/high-ability players benefit more from bigger clubs
+        if ($devStatus === 'peak' || $avgAbility >= 75) {
+            return $isSmallClub ? 5 : 20;
+        }
+
+        // Middle ground
+        return $isSmallClub ? 12 : 15;
+    }
+
+    /**
+     * Expire any pending loan-out offers for a player whose listing was just
+     * cleared (either by timeout or cancellation). Keeps the offer table in
+     * sync with the listing state.
+     */
+    private function expirePendingLoanOutOffers(Game $game, string $gamePlayerId): void
+    {
+        TransferOffer::transitionAll(
+            TransferOffer::where('game_id', $game->id)
+                ->where('game_player_id', $gamePlayerId)
+                ->ofType(TransferOffer::TYPE_LOAN_OUT)
+                ->outgoing()
+                ->pending(),
+            TransferOffer::STATUS_EXPIRED,
+            $game->current_date,
+        );
+    }
+
+    /**
+     * Check if a loan search has expired.
+     */
+    private function isSearchExpired(GamePlayer $player, Carbon $currentDate): bool
+    {
+        $listing = $player->transferListing;
+
+        if (!$listing?->listed_at) {
+            return true;
+        }
+
+        return $listing->listed_at->diffInDays($currentDate) >= self::SEARCH_EXPIRY_DAYS;
+    }
+
+    /**
+     * Complete all active loans (return players to parent teams).
+     * Also clears any active loan searches.
+     * Called at season end.
+     */
+    public function returnAllLoans(Game $game): Collection
+    {
+        $activeLoans = Loan::with(['gamePlayer', 'parentTeam', 'loanTeam'])
+            ->where('game_id', $game->id)
+            ->where('status', Loan::STATUS_ACTIVE)
+            ->get();
+
+        foreach ($activeLoans as $loan) {
+            $this->returnLoan($loan);
+        }
+
+        // Clear any active loan searches
+        TransferListing::where('game_id', $game->id)
+            ->where('status', TransferListing::STATUS_LOAN_SEARCH)
+            ->delete();
+
+        return $activeLoans;
+    }
+
+    /**
+     * Return a single loan - player goes back to parent team.
+     */
+    public function returnLoan(Loan $loan): void
+    {
+        $gamePlayer = $loan->gamePlayer;
+        $isUserTeam = $loan->parent_team_id === $gamePlayer->game->team_id;
+        $gamePlayer->update([
+            'team_id' => $loan->parent_team_id,
+            'number' => $isUserTeam
+                ? $this->squadNumberService->assignNumberForNewPlayer($gamePlayer->game, $gamePlayer)
+                : null,
+        ]);
+
+        $loan->update([
+            'status' => Loan::STATUS_COMPLETED,
+        ]);
+    }
+
+    /**
+     * Create a pending loan-in request (user-initiated).
+     */
+    public function requestLoanIn(Game $game, GamePlayer $player): TransferOffer
+    {
+        return $this->createLoanInOffer($game, $player);
+    }
+
+    /**
+     * Open a sync-negotiated loan-in (the user is in the chat with the
+     * lending club right now). Same offer as requestLoanIn() plus the
+     * negotiation markers, so completeSyncLoan() can park it as agreed.
+     */
+    public function openLoanNegotiation(Game $game, GamePlayer $player, float $disposition): TransferOffer
+    {
+        return $this->createLoanInOffer($game, $player, [
+            'negotiation_round' => 1,
+            'disposition' => $disposition,
+        ]);
+    }
+
+    private function createLoanInOffer(Game $game, GamePlayer $player, array $extra = []): TransferOffer
+    {
+        if ($player->team_id === null) {
+            throw new \InvalidArgumentException('Cannot loan a free agent — no parent team.');
+        }
+
+        return TransferOffer::create([
+            'game_id' => $game->id,
+            'game_player_id' => $player->id,
+            'offering_team_id' => $game->team_id,
+            'selling_team_id' => $player->team_id,
+            'offer_type' => TransferOffer::TYPE_LOAN_IN,
+            'direction' => TransferOffer::DIRECTION_INCOMING,
+            'transfer_fee' => 0,
+            // The borrowing club pays the loaned-in player's full wage (no
+            // subsidy), so stamp it on the offer for the salary-cap accounting.
+            'offered_wage' => $player->annual_wage,
+            'status' => TransferOffer::STATUS_PENDING,
+            'expires_at' => $game->current_date->addDays(30),
+            'game_date' => $game->current_date,
+        ] + $extra);
+    }
+
+    /**
+     * Get active loans for a game (both in and out).
+     */
+    public function getActiveLoans(Game $game): array
+    {
+        $allLoans = Loan::with(['gamePlayer', 'parentTeam', 'loanTeam'])
+            ->where('game_id', $game->id)
+            ->where('status', Loan::STATUS_ACTIVE)
+            ->get();
+
+        $loansIn = $allLoans->filter(fn ($loan) => $loan->loan_team_id === $game->team_id);
+        $loansOut = $allLoans->filter(fn ($loan) => $loan->parent_team_id === $game->team_id);
+
+        return [
+            'in' => $loansIn,
+            'out' => $loansOut,
+        ];
+    }
+
+    /**
+     * Resolve pending incoming loan requests after the next matchday.
+     * Called each matchday; evaluates user loan requests that haven't been resolved yet.
+     */
+    public function resolveIncomingLoanRequests(Game $game, ScoutingService $scoutingService): Collection
+    {
+        $pendingLoans = TransferOffer::with(['gamePlayer.team'])
+            ->where('game_id', $game->id)
+            ->incoming()
+            ->ofType(TransferOffer::TYPE_LOAN_IN)
+            ->pending()
+            ->whereNull('resolved_at')
+            ->get();
+
+        $resolvedOffers = collect();
+
+        foreach ($pendingLoans as $offer) {
+            $evaluation = $scoutingService->evaluateLoanRequest($offer->gamePlayer, $game);
+
+            if ($evaluation['result'] === 'accepted') {
+                // Park as agreed; the loan completes via
+                // CompleteAgreedTransfersOnMatchPlayed (next match) or
+                // CompleteAgreedTransfersOnWindowOpen (next window).
+                $offer->transitionTo(TransferOffer::STATUS_AGREED, $game->current_date);
+                $resolvedOffers->push([
+                    'offer' => $offer->fresh(),
+                    'result' => 'accepted',
+                    'completed' => false,
+                ]);
+            } else {
+                $offer->transitionTo(TransferOffer::STATUS_REJECTED, $game->current_date);
+
+                $resolvedOffers->push([
+                    'offer' => $offer->fresh(),
+                    'result' => 'rejected',
+                    'completed' => false,
+                ]);
+            }
+        }
+
+        return $resolvedOffers;
+    }
+
+    /**
+     * Complete a loan-in (player joins user's team on loan).
+     */
+    public function completeLoanIn(TransferOffer $offer, Game $game): void
+    {
+        $player = $offer->gamePlayer;
+        $parentTeamId = $offer->selling_team_id ?? $player->team_id;
+
+        if ($parentTeamId === null) {
+            $offer->transitionTo(TransferOffer::STATUS_REJECTED, $game->current_date);
+            return;
+        }
+
+        $effectiveStart = $game->getLoanEffectiveStartDate();
+        $returnDate = $game->getSeasonEndDateFor($effectiveStart);
+
+        Loan::create([
+            'game_id' => $game->id,
+            'game_player_id' => $player->id,
+            'parent_team_id' => $parentTeamId,
+            'loan_team_id' => $game->team_id,
+            'started_at' => $effectiveStart,
+            'return_at' => $returnDate,
+            'status' => Loan::STATUS_ACTIVE,
+        ]);
+
+        $player->update([
+            'team_id' => $game->team_id,
+            'number' => $this->squadNumberService->assignNumberForNewPlayer($game, $player),
+        ]);
+
+        GameTransfer::record(
+            gameId: $game->id,
+            gamePlayerId: $player->id,
+            fromTeamId: $parentTeamId,
+            toTeamId: $game->team_id,
+            transferFee: 0,
+            type: GameTransfer::TYPE_LOAN,
+            season: $game->season,
+            window: TransferWindowType::currentValue($game->current_date),
+        );
+
+        $offer->transitionTo(TransferOffer::STATUS_COMPLETED, $game->current_date);
+
+        // Record the loan salary as a financial transaction
+        $parentTeam = Team::find($parentTeamId);
+        FinancialTransaction::recordExpense(
+            gameId: $game->id,
+            category: FinancialTransaction::CATEGORY_LOAN,
+            amount: $player->annual_wage,
+            description: __('finances.tx_loan_in', [
+                'player' => $player->name ?? $player->id,
+                'team' => $parentTeam->name ?? '',
+                'team_de' => $parentTeam?->nameWithDe() ?? '',
+            ]),
+            transactionDate: $game->current_date,
+            relatedPlayerId: $player->id,
+        );
+
+        // Remove from shortlist to free up scouting slot
+        ShortlistedPlayer::removeForPlayer($game->id, $player->id);
+    }
+
+    /**
+     * Complete a loan-out (user's player goes to AI team).
+     */
+    public function completeLoanOut(TransferOffer $offer, Game $game): void
+    {
+        $player = $offer->gamePlayer;
+        $destinationTeamId = $offer->offering_team_id;
+        $effectiveStart = $game->getLoanEffectiveStartDate();
+        $returnDate = $game->getSeasonEndDateFor($effectiveStart);
+
+        Loan::create([
+            'game_id' => $game->id,
+            'game_player_id' => $player->id,
+            'parent_team_id' => $game->team_id,
+            'loan_team_id' => $destinationTeamId,
+            'started_at' => $effectiveStart,
+            'return_at' => $returnDate,
+            'status' => Loan::STATUS_ACTIVE,
+        ]);
+
+        TransferListing::where('game_player_id', $player->id)->delete();
+        $player->update([
+            'team_id' => $destinationTeamId,
+            'number' => null,
+        ]);
+
+        GameTransfer::record(
+            gameId: $game->id,
+            gamePlayerId: $player->id,
+            fromTeamId: $game->team_id,
+            toTeamId: $destinationTeamId,
+            transferFee: 0,
+            type: GameTransfer::TYPE_LOAN,
+            season: $game->season,
+            window: TransferWindowType::currentValue($game->current_date),
+        );
+
+        $offer->transitionTo(TransferOffer::STATUS_COMPLETED, $game->current_date);
+    }
+
+    /**
+     * Complete a sync-negotiated loan. Always parks as agreed so the player
+     * joins from the next matchday (see CompleteAgreedTransfersOnMatchPlayed)
+     * rather than being immediately available for the current matchday.
+     *
+     * @return array{result: string, offer: TransferOffer}
+     */
+    public function completeSyncLoan(TransferOffer $offer, Game $game): array
+    {
+        $offer->transitionTo(TransferOffer::STATUS_AGREED, $game->current_date);
+        return ['result' => 'accepted', 'offer' => $offer->fresh()];
+    }
+
+    /**
+     * Get mood indicator for loan disposition.
+     *
+     * @return array{label: string, color: string}
+     */
+    public function getLoanMoodIndicator(float $disposition): array
+    {
+        return $this->dispositionService->moodIndicator($disposition, 'loan');
+    }
+
+    /**
+     * Accept a pending loan-out offer: parks it as agreed so the player
+     * leaves only after the next match has been played (open window) or
+     * when the next window opens (closed window). Sibling pending offers
+     * for the same player are auto-rejected.
+     */
+    public function acceptLoanOffer(TransferOffer $offer, Game $game): void
+    {
+        // Squad-composition guard: this is the binding moment — once accepted
+        // (or marked agreed), the player is committed to leaving on loan. Block
+        // here so the resulting move can't shrink the squad below minimums,
+        // even if the loan listing itself was OK at the time it was created.
+        $player = $offer->gamePlayer;
+        if ($player !== null) {
+            $breach = $this->squadMinimumService->validateRemoval($game, $player, $player->team_id);
+            if ($breach !== null) {
+                throw new SquadMinimumException($breach);
+            }
+        }
+
+        // Reject sibling offers for the same player
+        TransferOffer::transitionAll(
+            TransferOffer::where('game_id', $game->id)
+                ->where('game_player_id', $offer->game_player_id)
+                ->ofType(TransferOffer::TYPE_LOAN_OUT)
+                ->outgoing()
+                ->pending()
+                ->where('id', '!=', $offer->id),
+            TransferOffer::STATUS_REJECTED,
+            $game->current_date,
+        );
+
+        // TransferService::completeIncomingTransfers() (invoked via the
+        // match-played or window-open listener) finalises the move.
+        $offer->transitionTo(TransferOffer::STATUS_AGREED, $game->current_date);
+        TransferListing::where('game_player_id', $offer->game_player_id)->delete();
+    }
+
+}

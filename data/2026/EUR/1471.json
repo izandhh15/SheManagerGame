@@ -1,0 +1,332 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/1471.png",
+  "name": "SKN St. Pölten Frauen",
+  "players": [
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 20, 2008",
+      "foot": "",
+      "height": "",
+      "id": "75234",
+      "marketValue": "€20k",
+      "name": "Linna Hermsmeier",
+      "nationality": [
+        "Germany"
+      ],
+      "number": "12",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Nov 8, 1996",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "10448",
+      "marketValue": "€50k",
+      "name": "Carina Schlüter",
+      "nationality": [
+        "Germany"
+      ],
+      "number": "33",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Feb 5, 1993",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "7548",
+      "marketValue": "€15k",
+      "name": "Leonarda Balog",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 25, 2006",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "63687",
+      "marketValue": "€40k",
+      "name": "Tea Vračević",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": "5",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 6, 2000",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "26264",
+      "marketValue": "€40k",
+      "name": "Lisa Ebert",
+      "nationality": [
+        "Germany"
+      ],
+      "number": "6",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 11, 2000",
+      "foot": "right",
+      "height": "1,58m",
+      "id": "53170",
+      "marketValue": "€45k",
+      "name": "Izabela Križaj",
+      "nationality": [
+        "Slovenia"
+      ],
+      "number": "21",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jan 11, 1999",
+      "foot": "left",
+      "height": "1,69m",
+      "id": "19886",
+      "marketValue": "€50k",
+      "name": "Jennifer Klein",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "22",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 7, 2009",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "106358",
+      "marketValue": "€20k",
+      "name": "Lara Vadász",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "26",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 25, 1994",
+      "foot": "left",
+      "height": "1,61m",
+      "id": "6974",
+      "marketValue": "€15k",
+      "name": "Julia Tabotta",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "30",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 4, 2000",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "32474",
+      "marketValue": "€30k",
+      "name": "Diana Lemešová",
+      "nationality": [
+        "Slovakia"
+      ],
+      "number": "77",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 3, 1998",
+      "foot": "",
+      "height": "1,78m",
+      "id": "30814",
+      "marketValue": "€35k",
+      "name": "Victoria Laino",
+      "nationality": [
+        "Switzerland"
+      ],
+      "number": "8",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 19, 2005",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "53425",
+      "marketValue": "€40k",
+      "name": "Magdalena Rukavina",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "11",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 5, 1999",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "27473",
+      "marketValue": "€30k",
+      "name": "Annalena Wucher",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "15",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 3, 2003",
+      "foot": "",
+      "height": "",
+      "id": "48017",
+      "marketValue": "€35k",
+      "name": "Fanni Nagy",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "16",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 16, 2007",
+      "foot": "",
+      "height": "",
+      "id": "81562",
+      "marketValue": "€20k",
+      "name": "Ana Grdiša",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": "17",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 11, 1998",
+      "foot": "right",
+      "height": "1,71m",
+      "id": "41147",
+      "marketValue": "€40k",
+      "name": "Ľudmila Maťavková",
+      "nationality": [
+        "Slovakia"
+      ],
+      "number": "19",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 31, 2000",
+      "foot": "right",
+      "height": "1,67m",
+      "id": "31147",
+      "marketValue": "€15k",
+      "name": "Sara Makovec",
+      "nationality": [
+        "Slovenia"
+      ],
+      "number": "24",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 21, 2005",
+      "foot": "right",
+      "height": "1,68m",
+      "id": "53965",
+      "marketValue": "€25k",
+      "name": "Isabel Aistleitner",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "9",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 29, 2006",
+      "foot": "right",
+      "height": "1,67m",
+      "id": "70935",
+      "marketValue": "€60k",
+      "name": "Alma Aagaard",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "10",
+      "position": "Right Winger"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 14, 2009",
+      "foot": "",
+      "height": "",
+      "id": "103800",
+      "marketValue": "€15k",
+      "name": "Alba Szuchy",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "14",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 9, 2002",
+      "foot": "both",
+      "height": "1,66m",
+      "id": "31828",
+      "marketValue": "€30k",
+      "name": "Amelie Woelki",
+      "nationality": [
+        "Germany"
+      ],
+      "number": "18",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 25, 2008",
+      "foot": "right",
+      "height": "1,50m",
+      "id": "77080",
+      "marketValue": "€15k",
+      "name": "Emma Scheuher",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "20",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 23, 1991",
+      "foot": "",
+      "height": "1,69m",
+      "id": "1993",
+      "marketValue": "€20k",
+      "name": "Fanny Vágó",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "23",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "NV Arena",
+  "stadiumSeats": "8000",
+  "transfermarktId": "1471",
+  "country": "AT"
+}

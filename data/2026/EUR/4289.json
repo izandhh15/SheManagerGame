@@ -1,0 +1,416 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/4289.png",
+  "name": "Lyn Oslo",
+  "players": [
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Jul 29, 1992",
+      "foot": "right",
+      "height": "1,76m",
+      "id": "8365",
+      "marketValue": "€20k",
+      "name": "Kirvil Odden Sundsfjord",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Jan 17, 2008",
+      "foot": "both",
+      "height": "1,65m",
+      "id": "85422",
+      "marketValue": "",
+      "name": "Maria Kroken",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "12",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 24, 1996",
+      "foot": "",
+      "height": "1,70m",
+      "id": "19893",
+      "marketValue": "",
+      "name": "Oda Bogstad",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "37",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 11, 2009",
+      "foot": "",
+      "height": "",
+      "id": "119171",
+      "marketValue": "",
+      "name": "Helene Schanke-Jørgensen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "40",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 21, 2010",
+      "foot": "",
+      "height": "",
+      "id": "119514",
+      "marketValue": "",
+      "name": "Tine Strand Nilsen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "99",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Dec 31, 2029",
+      "dateOfBirth": "Mar 6, 2007",
+      "foot": "",
+      "height": "",
+      "id": "80845",
+      "marketValue": "",
+      "name": "Ina Andreassen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "2",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Jan 25, 2004",
+      "foot": "both",
+      "height": "1,76m",
+      "id": "58831",
+      "marketValue": "",
+      "name": "Maria Fink",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "3",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Jan 28, 2004",
+      "foot": "",
+      "height": "",
+      "id": "60956",
+      "marketValue": "",
+      "name": "Vilde Aasprang",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 25, 2005",
+      "foot": "",
+      "height": "",
+      "id": "96555",
+      "marketValue": "",
+      "name": "Tiril Røkke",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "6",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Dec 13, 2003",
+      "foot": "",
+      "height": "",
+      "id": "51671",
+      "marketValue": "",
+      "name": "Tuva Hodne",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "19",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 16, 2007",
+      "foot": "",
+      "height": "",
+      "id": "97075",
+      "marketValue": "",
+      "name": "Stine Kummernes",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "25",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Feb 8, 2001",
+      "foot": "right",
+      "height": "",
+      "id": "33483",
+      "marketValue": "",
+      "name": "Cornelia Fladberg",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "8",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 3, 2006",
+      "foot": "",
+      "height": "",
+      "id": "100431",
+      "marketValue": "",
+      "name": "Malene Eide Fredø",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "14",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 8, 2010",
+      "foot": "",
+      "height": "",
+      "id": "110847",
+      "marketValue": "",
+      "name": "Josefine Willumsen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "15",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "Sep 18, 2006",
+      "foot": "right",
+      "height": "1,66m",
+      "id": "60957",
+      "marketValue": "",
+      "name": "Solveig Slemmen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "18",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Mar 22, 2002",
+      "foot": "",
+      "height": "",
+      "id": "61126",
+      "marketValue": "",
+      "name": "Mathea Berget",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "20",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2030",
+      "dateOfBirth": "Mar 27, 2007",
+      "foot": "",
+      "height": "",
+      "id": "108938",
+      "marketValue": "",
+      "name": "Tuva Lindvik",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "21",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 30, 2004",
+      "foot": "",
+      "height": "",
+      "id": "52338",
+      "marketValue": "",
+      "name": "Ida Habbestad",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "22",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Aug 31, 2000",
+      "foot": "",
+      "height": "",
+      "id": "34724",
+      "marketValue": "",
+      "name": "Kristin Holmen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "23",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 3, 2007",
+      "foot": "both",
+      "height": "",
+      "id": "73454",
+      "marketValue": "",
+      "name": "Malin Dalsgård",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "24",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 15, 2009",
+      "foot": "",
+      "height": "",
+      "id": "119172",
+      "marketValue": "",
+      "name": "Elise Hovland",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "26",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2030",
+      "dateOfBirth": "Feb 25, 2008",
+      "foot": "",
+      "height": "",
+      "id": "108622",
+      "marketValue": "",
+      "name": "Mille Prestegaard",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "32",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 23, 2005",
+      "foot": "",
+      "height": "",
+      "id": "90671",
+      "marketValue": "",
+      "name": "Silje Djurhuus",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "39",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 31, 2004",
+      "foot": "both",
+      "height": "1,74m",
+      "id": "61003",
+      "marketValue": "",
+      "name": "Ina Birkelund",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "9",
+      "position": "Striker"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Mar 21, 2009",
+      "foot": "right",
+      "height": "",
+      "id": "93626",
+      "marketValue": "",
+      "name": "Maia Melgård",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "11",
+      "position": "Striker"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Dec 30, 2006",
+      "foot": "",
+      "height": "",
+      "id": "71980",
+      "marketValue": "",
+      "name": "Kajsa Pettersen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "16",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2029",
+      "dateOfBirth": "Apr 27, 2003",
+      "foot": "",
+      "height": "",
+      "id": "66286",
+      "marketValue": "",
+      "name": "Thea Mikkelsen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "17",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2029",
+      "dateOfBirth": "Jan 21, 2010",
+      "foot": "",
+      "height": "",
+      "id": "105958",
+      "marketValue": "",
+      "name": "Mathilde Aasdokken",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "27",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 17, 2010",
+      "foot": "",
+      "height": "",
+      "id": "118567",
+      "marketValue": "",
+      "name": "Sara Vorkinn Nielsen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "29",
+      "position": "Centre-Forward"
+    }
+  ],
+  "stadiumName": "Kringsjå kunstgress",
+  "stadiumSeats": "2000",
+  "transfermarktId": "4289",
+  "country": "NO"
+}

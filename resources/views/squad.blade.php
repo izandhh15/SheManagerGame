@@ -1,0 +1,550 @@
+@php
+    /** @var App\Models\Game $game */
+    /** @var \Illuminate\Support\Collection $allPlayers */
+    /** @var \Illuminate\Support\Collection $squadPlayers */
+    /** @var \Illuminate\Support\Collection $goalkeepers */
+    /** @var \Illuminate\Support\Collection $defenders */
+    /** @var \Illuminate\Support\Collection $midfielders */
+    /** @var \Illuminate\Support\Collection $forwards */
+    $isCareerMode = $game->isCareerMode();
+@endphp
+
+<x-app-layout>
+    <x-slot name="header">
+        <x-game-header :game="$game" :next-match="$game->next_match"></x-game-header>
+    </x-slot>
+
+    <div x-data="squadOverview()">
+        <div class="max-w-7xl mx-auto px-4 pb-8">
+
+            {{-- Sub-navigation --}}
+            @if($isCareerMode)
+                @php
+                    $secondaryItem = $game->isFilial()
+                        ? ['href' => route('game.squad.reserve', $game->id), 'label' => __('squad.reserve_team'), 'active' => false]
+                        : ['href' => route('game.squad.academy', $game->id), 'label' => __('squad.academy'), 'active' => false];
+                    $squadNavItems = [
+                        ['href' => route('game.squad', $game->id), 'label' => __('squad.first_team'), 'active' => true],
+                        ['href' => route('game.squad.planner', $game->id), 'label' => __('planner.planner'), 'active' => false],
+                        $secondaryItem,
+                        ['href' => route('game.squad.registration', $game->id), 'label' => __('squad.registration'), 'active' => false],
+                    ];
+                @endphp
+                <x-section-nav :items="$squadNavItems" />
+            @endif
+
+            {{-- Flash Messages --}}
+            <x-flash-message type="success" :message="session('success')" class="mt-4" />
+            <x-flash-message type="error" :message="session('error')" class="mt-4" />
+
+            {{-- ===== Squad Header (tournament only — career mode uses the section nav as the title) ===== --}}
+            @if(! $isCareerMode)
+            <div class="mt-6">
+                <h2 class="font-heading text-2xl lg:text-3xl font-bold uppercase tracking-wide text-text-primary">{{ __('squad.squad') }}</h2>
+            </div>
+            @endif
+
+            {{-- ===== Summary Cards ===== --}}
+            <div class="flex gap-2.5 overflow-x-auto scrollbar-hide {{ $isCareerMode ? 'mt-6' : 'mt-4' }} pb-1">
+                <x-summary-card :label="__('squad.squad_size')" :value="$squadSize" />
+                <x-summary-card :label="__('squad.avg_age')" :value="$avgAge" />
+                <x-summary-card :label="__('squad.fitness_full')" :value="$avgFitness . '%'" x-data x-tooltip.raw="{{ __('squad.tooltip_fitness') }}" :value-class="$avgFitness >= 85 ? 'text-accent-green' : ($avgFitness >= 70 ? 'text-text-primary' : 'text-amber-500')" />
+                <x-summary-card :label="__('squad.morale_full')" :value="$avgMorale" x-data x-tooltip.raw="{{ __('squad.tooltip_morale') }}" :value-class="$avgMorale >= 80 ? 'text-accent-green' : ($avgMorale >= 65 ? 'text-text-primary' : 'text-amber-500')" />
+                <x-summary-card :label="__('squad.avg_ovr')" :value="$avgOverall" x-data x-tooltip.raw="{{ __('squad.tooltip_avg_overall') }}" :value-class="$avgOverall >= 75 ? 'text-accent-green' : ($avgOverall >= 65 ? 'text-text-primary' : 'text-amber-500')" />
+                @if($isCareerMode)
+                <div class="md:ml-auto flex gap-2.5 shrink-0">
+                    <x-summary-card :label="__('squad.squad_value')" :value="\App\Support\Money::format($squadValue)" class="min-w-[130px]" />
+                    <x-summary-card :label="__('squad.wage_bill')" :value="\App\Support\Money::format($wageBill)" class="min-w-[130px]" />
+                </div>
+                @endif
+            </div>
+
+            {{-- ===== Filters Bar ===== --}}
+            <div class="mt-4 flex flex-col sm:flex-row sm:items-center gap-3">
+                {{-- Position filter pills --}}
+                <div class="flex items-center gap-1.5 overflow-x-auto scrollbar-hide">
+                    <x-pill-button size="sm" @click="posFilter = 'all'" x-bind:class="posFilter === 'all' ? 'bg-accent-blue text-white' : 'bg-surface-700 text-text-secondary hover:text-text-body'" class="pos-filter">{{ __('squad.all') }}</x-pill-button>
+                    <x-pill-button size="sm" @click="posFilter = 'Goalkeeper'" x-bind:class="posFilter === 'Goalkeeper' ? 'bg-accent-blue text-white' : 'bg-surface-700 text-text-secondary hover:text-text-body'" class="pos-filter">{{ __('squad.goalkeepers_short') }} <span class="text-text-faint ml-0.5">{{ $goalkeepers->count() }}</span></x-pill-button>
+                    <x-pill-button size="sm" @click="posFilter = 'Defender'" x-bind:class="posFilter === 'Defender' ? 'bg-accent-blue text-white' : 'bg-surface-700 text-text-secondary hover:text-text-body'" class="pos-filter">{{ __('squad.defenders_short') }} <span class="text-text-faint ml-0.5">{{ $defenders->count() }}</span></x-pill-button>
+                    <x-pill-button size="sm" @click="posFilter = 'Midfielder'" x-bind:class="posFilter === 'Midfielder' ? 'bg-accent-blue text-white' : 'bg-surface-700 text-text-secondary hover:text-text-body'" class="pos-filter">{{ __('squad.midfielders_short') }} <span class="text-text-faint ml-0.5">{{ $midfielders->count() }}</span></x-pill-button>
+                    <x-pill-button size="sm" @click="posFilter = 'Forward'" x-bind:class="posFilter === 'Forward' ? 'bg-accent-blue text-white' : 'bg-surface-700 text-text-secondary hover:text-text-body'" class="pos-filter">{{ __('squad.forwards_short') }} <span class="text-text-faint ml-0.5">{{ $forwards->count() }}</span></x-pill-button>
+                </div>
+
+                {{-- Right side: availability filter + view mode + clear --}}
+                <div class="flex items-center gap-2 sm:ml-auto overflow-x-auto scrollbar-hide">
+                    {{-- Availability filter --}}
+                    <div class="flex items-center gap-1 shrink-0">
+                        <x-pill-button size="xs" @click="availFilter = availFilter === 'available' ? 'all' : 'available'" x-bind:class="availFilter === 'available' ? 'bg-accent-green/20 text-accent-green border-accent-green/30' : 'bg-surface-700 text-text-secondary hover:text-text-body border-border-default'" class="rounded-sm border">{{ __('squad.available') }}</x-pill-button>
+                        <x-pill-button size="xs" @click="availFilter = availFilter === 'unavailable' ? 'all' : 'unavailable'" x-bind:class="availFilter === 'unavailable' ? 'bg-accent-red/20 text-accent-red border-accent-red/30' : 'bg-surface-700 text-text-secondary hover:text-text-body border-border-default'" class="rounded-sm border">{{ __('squad.unavailable') }}</x-pill-button>
+                    </div>
+
+                    {{-- View Mode Toggle --}}
+                    <div class="flex items-center gap-0.5 bg-surface-700 rounded-lg p-0.5 shrink-0">
+                        <x-pill-button size="xs" @click="viewMode = 'tactical'" x-bind:class="viewMode === 'tactical' ? 'bg-surface-800 shadow-xs text-text-primary' : 'text-text-muted hover:text-text-body'" class="rounded-md">
+                            {{ __('squad.tactical') }}
+                        </x-pill-button>
+                        @if($isCareerMode)
+                        <x-pill-button size="xs" @click="viewMode = 'planning'" x-bind:class="viewMode === 'planning' ? 'bg-surface-800 shadow-xs text-text-primary' : 'text-text-muted hover:text-text-body'" class="rounded-md">
+                            {{ __('squad.planning') }}
+                        </x-pill-button>
+                        @endif
+                        <x-pill-button size="xs" @click="viewMode = 'stats'" x-bind:class="viewMode === 'stats' ? 'bg-surface-800 shadow-xs text-text-primary' : 'text-text-muted hover:text-text-body'" class="rounded-md">
+                            {{ __('squad.stats') }}
+                        </x-pill-button>
+                    </div>
+
+                    {{-- Clear filters --}}
+                    <x-ghost-button color="slate" size="xs" x-show="activeFilterCount() > 0" @click="clearFilters()" class="shrink-0 underline underline-offset-2">
+                        {{ __('squad.clear_filters') }}
+                    </x-ghost-button>
+
+                    {{-- Desktop: Squad Analysis toggle --}}
+                    <x-ghost-button color="slate" size="xs" @click="sidebarOpen = !sidebarOpen" class="hidden xl:inline-flex shrink-0 gap-1.5 border border-border-strong">
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                        {{ __('squad.squad_analysis') }}
+                    </x-ghost-button>
+                </div>
+            </div>
+
+            {{-- ===== Mobile sort strip (lg:hidden — desktop sorts via the table header) =====
+                 Columns must stay in sync with the desktop header above (search "sort-header"). --}}
+            <div class="lg:hidden mt-3 flex items-center gap-1.5 overflow-x-auto scrollbar-hide">
+                <span class="shrink-0 text-[10px] uppercase tracking-widest font-semibold text-text-muted">{{ __('transfers.sort_by') }}</span>
+                <x-squad.sort-pill col="number">#</x-squad.sort-pill>
+                <x-squad.sort-pill col="name">{{ __('squad.player') }}</x-squad.sort-pill>
+                <x-squad.sort-pill col="pos">{{ __('squad.pos') }}</x-squad.sort-pill>
+                <x-squad.sort-pill col="age">{{ __('app.age') }}</x-squad.sort-pill>
+                <x-squad.sort-pill col="ovr">{{ __('squad.overall') }}</x-squad.sort-pill>
+
+                {{-- Tactical --}}
+                <template x-if="viewMode === 'tactical'">
+                    <span class="contents">
+                        <x-squad.sort-pill col="fitness">{{ __('squad.fitness_full') }}</x-squad.sort-pill>
+                        <x-squad.sort-pill col="morale">{{ __('squad.morale_full') }}</x-squad.sort-pill>
+                        @if($isCareerMode)
+                        <x-squad.sort-pill col="value">{{ $squadUsesClauses ? __('transfers.clause_short') : __('app.value') }}</x-squad.sort-pill>
+                        <x-squad.sort-pill col="wage">{{ __('app.wage') }}</x-squad.sort-pill>
+                        <x-squad.sort-pill col="contract">{{ __('app.contract') }}</x-squad.sort-pill>
+                        @endif
+                    </span>
+                </template>
+
+                {{-- Planning (career only) --}}
+                @if($isCareerMode)
+                <template x-if="viewMode === 'planning'">
+                    <span class="contents">
+                        <x-squad.sort-pill col="potential">{{ __('squad.potential') }}</x-squad.sort-pill>
+                        <x-squad.sort-pill col="value">{{ $squadUsesClauses ? __('transfers.clause_short') : __('app.value') }}</x-squad.sort-pill>
+                        <x-squad.sort-pill col="wage">{{ __('app.wage') }}</x-squad.sort-pill>
+                        <x-squad.sort-pill col="contract">{{ __('app.contract') }}</x-squad.sort-pill>
+                    </span>
+                </template>
+                @endif
+
+                {{-- Stats --}}
+                <template x-if="viewMode === 'stats'">
+                    <span class="contents">
+                        <x-squad.sort-pill col="apps">{{ __('squad.apps') }}</x-squad.sort-pill>
+                        <x-squad.sort-pill col="goals">{{ __('squad.goals') }}</x-squad.sort-pill>
+                        <x-squad.sort-pill col="assists">{{ __('squad.assists') }}</x-squad.sort-pill>
+                        <x-squad.sort-pill col="mvp">{{ __('squad.mvp') }}</x-squad.sort-pill>
+                        <x-squad.sort-pill col="clean">{{ __('squad.clean_sheets') }}</x-squad.sort-pill>
+                        <x-squad.sort-pill col="gpg">{{ __('squad.goals_per_game') }}</x-squad.sort-pill>
+                        <x-squad.sort-pill col="own">{{ __('squad.own_goals') }}</x-squad.sort-pill>
+                        <x-squad.sort-pill col="cards">{{ __('squad.cards') }}</x-squad.sort-pill>
+                    </span>
+                </template>
+            </div>
+
+            {{-- ===== MAIN CONTENT: Player List + Sidebar ===== --}}
+            <div class="mt-4 flex gap-6">
+                {{-- LEFT: Player List --}}
+                <div class="flex-1 min-w-0">
+                    <div class="bg-surface-800 border border-border-default rounded-xl overflow-hidden">
+
+                        {{-- Desktop table header. Columns must stay in sync with the mobile sort strip above. --}}
+                        <div class="hidden lg:block">
+                            <div class="grid items-center px-4 py-2 bg-surface-700/30 border-b border-border-default text-[10px] text-text-muted uppercase tracking-widest font-semibold"
+                                 :class="{
+                                    @if($isCareerMode)
+                                    'grid-cols-[36px_248px_76px_52px_52px_80px_64px_84px_80px_80px_1fr] gap-1.5': viewMode === 'tactical',
+                                    @else
+                                    'grid-cols-[36px_248px_76px_52px_52px_80px_64px_1fr] gap-1.5': viewMode === 'tactical',
+                                    @endif
+                                    'grid-cols-[36px_248px_76px_52px_52px_112px_84px_80px_80px_1fr] gap-1.5': viewMode === 'planning',
+                                    'grid-cols-[36px_248px_76px_52px_52px_48px_44px_44px_40px_44px_48px_44px_72px_1fr] gap-1.5': viewMode === 'stats',
+                                 }">
+                                <x-squad.sort-header col="number">#</x-squad.sort-header>
+                                <x-squad.sort-header col="name" align="left">{{ __('squad.player') }}</x-squad.sort-header>
+                                <x-squad.sort-header col="pos" align="left">{{ __('squad.pos') }}</x-squad.sort-header>
+                                <x-squad.sort-header col="age">{{ __('app.age') }}</x-squad.sort-header>
+                                <x-squad.sort-header col="ovr">{{ __('transfers.explore_overall') }}</x-squad.sort-header>
+
+                                {{-- Tactical headers --}}
+                                <template x-if="viewMode === 'tactical'">
+                                    <x-squad.sort-header col="fitness">{{ __('squad.fitness_full') }}</x-squad.sort-header>
+                                </template>
+                                <template x-if="viewMode === 'tactical'">
+                                    <x-squad.sort-header col="morale">{{ __('squad.morale_full') }}</x-squad.sort-header>
+                                </template>
+                                @if($isCareerMode)
+                                <template x-if="viewMode === 'tactical'">
+                                    <x-squad.sort-header col="value" align="right">{{ $squadUsesClauses ? __('transfers.clause_short') : __('app.value') }}</x-squad.sort-header>
+                                </template>
+                                <template x-if="viewMode === 'tactical'">
+                                    <x-squad.sort-header col="wage" align="right">{{ __('app.wage') }}</x-squad.sort-header>
+                                </template>
+                                <template x-if="viewMode === 'tactical'">
+                                    <x-squad.sort-header col="contract">{{ __('app.contract') }}</x-squad.sort-header>
+                                </template>
+                                @endif
+
+                                {{-- Planning headers --}}
+                                @if($isCareerMode)
+                                <template x-if="viewMode === 'planning'">
+                                    <x-squad.sort-header col="potential">{{ __('squad.potential') }}</x-squad.sort-header>
+                                </template>
+                                <template x-if="viewMode === 'planning'">
+                                    <x-squad.sort-header col="value" align="right">{{ $squadUsesClauses ? __('transfers.clause_short') : __('app.value') }}</x-squad.sort-header>
+                                </template>
+                                <template x-if="viewMode === 'planning'">
+                                    <x-squad.sort-header col="wage" align="right">{{ __('app.wage') }}</x-squad.sort-header>
+                                </template>
+                                <template x-if="viewMode === 'planning'">
+                                    <x-squad.sort-header col="contract">{{ __('app.contract') }}</x-squad.sort-header>
+                                </template>
+                                @endif
+
+                                {{-- Stats headers --}}
+                                <template x-if="viewMode === 'stats'">
+                                    <x-squad.sort-header col="apps" x-data x-tooltip.raw="{{ __('squad.legend_apps') }}">{{ __('squad.apps') }}</x-squad.sort-header>
+                                </template>
+                                <template x-if="viewMode === 'stats'">
+                                    <x-squad.sort-header col="goals" x-data x-tooltip.raw="{{ __('squad.legend_goals') }}">{{ __('squad.goals') }}</x-squad.sort-header>
+                                </template>
+                                <template x-if="viewMode === 'stats'">
+                                    <x-squad.sort-header col="assists" x-data x-tooltip.raw="{{ __('squad.legend_assists') }}">{{ __('squad.assists') }}</x-squad.sort-header>
+                                </template>
+                                <template x-if="viewMode === 'stats'">
+                                    <x-squad.sort-header col="mvp" label-class="text-accent-gold" x-data x-tooltip.raw="{{ __('squad.legend_mvp') }}">{{ __('squad.mvp') }}</x-squad.sort-header>
+                                </template>
+                                <template x-if="viewMode === 'stats'">
+                                    <x-squad.sort-header col="clean" x-data x-tooltip.raw="{{ __('squad.clean_sheets_full') }}">{{ __('squad.clean_sheets') }}</x-squad.sort-header>
+                                </template>
+                                <template x-if="viewMode === 'stats'">
+                                    <x-squad.sort-header col="gpg" x-data x-tooltip.raw="{{ __('squad.legend_goals') }} / {{ __('squad.legend_apps') }}">{{ __('squad.goals_per_game') }}</x-squad.sort-header>
+                                </template>
+                                <template x-if="viewMode === 'stats'">
+                                    <x-squad.sort-header col="own" x-data x-tooltip.raw="{{ __('squad.legend_own_goals') }}">{{ __('squad.own_goals') }}</x-squad.sort-header>
+                                </template>
+                                <template x-if="viewMode === 'stats'">
+                                    <x-squad.sort-header col="cards">{{ __('squad.cards') }}</x-squad.sort-header>
+                                </template>
+
+                            </div>
+                        </div>
+
+                        {{-- Player rows. Flex column so client-side sorting can reorder rows via CSS `order`. --}}
+                        <div x-ref="rows" class="flex flex-col">
+                            @foreach($squadPlayers as $gp)
+                            @php
+                                $isUnavailable = $gp->is_unavailable;
+                                $unavailReason = $gp->unavailability_reason;
+                                $groupKey = $gp->position_group;
+                                // Sort key: canonical position order (GK → defenders → midfielders →
+                                // forwards, with specific positions ordered within each line). The stable
+                                // client-side sort keeps the default rating-desc order among players who
+                                // share the same position.
+                                $posOrder = \App\Support\PositionMapper::positionSortOrder($gp->position);
+                                $mvpCount = $mvpCounts[$gp->id] ?? 0;
+
+                                $statusKey = 'none';
+                                if ($isCareerMode) {
+                                    if ($gp->isContractExpiring($seasonEndDate)) $statusKey = 'expiring';
+                                    elseif ($gp->isTransferListed()) $statusKey = 'listed';
+                                    elseif ($gp->isLoanedIn($game->team_id)) $statusKey = 'on_loan';
+                                    elseif ($gp->isRetiring()) $statusKey = 'retiring';
+                                }
+                            @endphp
+
+                            <div x-show="isVisible('{{ $groupKey }}', {{ $isUnavailable ? 'false' : 'true' }}, '{{ $statusKey }}')"
+                                 class="player-row border-b border-border-default {{ $isUnavailable ? 'opacity-60' : '' }}"
+                                 data-sort-name="{{ \Illuminate\Support\Str::lower($gp->name) }}"
+                                 data-sort-number="{{ $gp->number ?? 999 }}"
+                                 data-sort-pos="{{ $posOrder }}"
+                                 data-sort-age="{{ $gp->age($game->current_date) }}"
+                                 data-sort-ovr="{{ $gp->effective_rating }}"
+                                 data-sort-fitness="{{ $gp->fitness }}"
+                                 data-sort-morale="{{ $gp->morale }}"
+                                 data-sort-value="{{ $gp->market_value_cents }}"
+                                 data-sort-wage="{{ $gp->annual_wage }}"
+                                 data-sort-contract="{{ $gp->contract_expiry_year ?? 0 }}"
+                                 data-sort-potential="{{ $gp->potential_high }}"
+                                 data-sort-apps="{{ $gp->appearances }}"
+                                 data-sort-goals="{{ $gp->goals }}"
+                                 data-sort-assists="{{ $gp->assists }}"
+                                 data-sort-mvp="{{ $mvpCount }}"
+                                 data-sort-clean="{{ $gp->clean_sheets }}"
+                                 data-sort-gpg="{{ $gp->goals_per_game }}"
+                                 data-sort-own="{{ $gp->own_goals }}"
+                                 data-sort-cards="{{ $gp->yellow_cards + $gp->red_cards }}">
+
+                                    {{-- ===== MOBILE ROW ===== --}}
+                                    <div class="lg:hidden px-4 py-3 cursor-pointer" @click="$dispatch('show-player-detail', '{{ route('game.player.detail', [$game->id, $gp->id]) }}')">
+                                        <div class="flex items-center gap-2.5">
+                                            {{-- Squad number --}}
+                                            <span class="w-6 text-center font-heading tabular-nums text-sm text-text-muted shrink-0">{{ $gp->number }}</span>
+
+                                            {{-- Name + details --}}
+                                            <div class="flex-1 min-w-0">
+                                                <div class="flex items-center gap-1.5">
+                                                    <span class="text-sm font-medium text-text-primary truncate">{{ $gp->name }}</span>
+                                                    @include('partials.squad.player-status-icon', ['gp' => $gp, 'game' => $game, 'seasonEndDate' => $seasonEndDate, 'playerFlags' => $playerFlags ?? []])
+                                                    <x-player-unavailable-icon :player="$gp" :reason="$unavailReason" />
+                                                </div>
+                                                <div class="flex items-center gap-2 mt-0.5">
+                                                    <div class="flex items-center gap-0.5 shrink-0">
+                                                        @foreach($gp->positions as $pos)
+                                                            <x-position-badge :position="$pos" size="sm" />
+                                                        @endforeach
+                                                    </div>
+
+                                                    {{-- Tactical: fitness + morale --}}
+                                                    <template x-if="viewMode === 'tactical'">
+                                                        <div class="flex items-center gap-2 min-w-0">
+                                                            <div class="flex items-center gap-1 shrink-0">
+                                                                <div class="w-8 h-1 rounded-full bg-surface-600 overflow-hidden">
+                                                                    <div class="h-full rounded-full fitness-bar @if($gp->fitness >= 80) bg-accent-green @elseif($gp->fitness >= 60) bg-accent-gold @elseif($gp->fitness >= 40) bg-accent-orange @else bg-accent-red @endif" style="width: {{ $gp->fitness }}%"></div>
+                                                                </div>
+                                                                <span class="text-[8px] text-text-secondary">{{ $gp->fitness }}%</span>
+                                                            </div>
+                                                            <x-morale-indicator :value="$gp->morale" class="shrink-0" />
+                                                        </div>
+                                                    </template>
+
+                                                    @if($isCareerMode)
+                                                    {{-- Planning: age + contract year --}}
+                                                    <template x-if="viewMode === 'planning'">
+                                                        <div class="flex items-center gap-2 min-w-0 grow text-[10px]">
+                                                            <span class="tabular-nums shrink-0"><span class="text-text-faint">{{ __('app.age') }}:</span> <span class="text-text-muted">{{ $gp->age($game->current_date) }}</span></span>
+                                                            @if($gp->contract_expiry_year)
+                                                                <span class="tabular-nums shrink-0"><span class="text-text-faint">{{ __('app.contract') }}:</span> <span class="@if($gp->isContractExpiring($seasonEndDate)) text-accent-red font-medium @else text-text-muted @endif">{{ $gp->contract_expiry_year }}</span></span>
+                                                            @endif
+                                                        </div>
+                                                    </template>
+                                                    @endif
+
+                                                    {{-- Stats: apps + goals + assists --}}
+                                                    <template x-if="viewMode === 'stats'">
+                                                        <div class="flex items-center gap-2 text-[10px] shrink-0">
+                                                            <span class="tabular-nums text-text-secondary"><span class="text-text-faint">{{ __('squad.apps') }}</span> {{ $gp->appearances }}</span>
+                                                            <span class="tabular-nums text-text-secondary"><span class="text-text-faint">{{ __('squad.goals') }}</span> {{ $gp->goals }}</span>
+                                                            <span class="tabular-nums text-text-secondary"><span class="text-text-faint">{{ __('squad.assists') }}</span> {{ $gp->assists }}</span>
+                                                        </div>
+                                                    </template>
+                                                </div>
+                                            </div>
+
+                                            @if($gp->club_crest_url ?? null)
+                                                <img src="{{ $gp->club_crest_url }}" alt="" title="{{ $gp->club_name }}" class="w-4 h-4 shrink-0 object-contain">
+                                            @endif
+
+                                            {{-- Rating badge --}}
+                                            <x-rating-badge :value="$gp->effective_rating" size="sm" class="shrink-0" />
+                                        </div>
+
+                                    </div>
+
+                                    {{-- ===== DESKTOP ROW ===== --}}
+                                    <div class="hidden lg:grid items-center px-4 py-2.5 cursor-pointer"
+                                         @click="$dispatch('show-player-detail', '{{ route('game.player.detail', [$game->id, $gp->id]) }}')"
+                                         :class="{
+                                            @if($isCareerMode)
+                                            'grid-cols-[36px_248px_76px_52px_52px_80px_64px_84px_80px_80px_1fr] gap-1.5': viewMode === 'tactical',
+                                            @else
+                                            'grid-cols-[36px_248px_76px_52px_52px_80px_64px_1fr] gap-1.5': viewMode === 'tactical',
+                                            @endif
+                                            'grid-cols-[36px_248px_76px_52px_52px_112px_84px_80px_80px_1fr] gap-1.5': viewMode === 'planning',
+                                            'grid-cols-[36px_248px_76px_52px_52px_48px_44px_44px_40px_44px_48px_44px_72px_1fr] gap-1.5': viewMode === 'stats',
+                                         }">
+
+                                        {{-- Squad number --}}
+                                        <span class="text-center font-heading tabular-nums text-sm text-text-muted">{{ $gp->number }}</span>
+
+                                        {{-- Player: name + nationality --}}
+                                        <div class="flex items-center gap-2.5 min-w-0">
+                                            <div class="min-w-0">
+                                                <div class="flex items-center gap-2">
+                                                    <span class="text-sm font-medium text-text-primary truncate">{{ $gp->name }}</span>
+                                                    @include('partials.squad.player-status-icon', ['gp' => $gp, 'game' => $game, 'seasonEndDate' => $seasonEndDate, 'playerFlags' => $playerFlags ?? []])
+                                                    <x-player-unavailable-icon :player="$gp" :reason="$unavailReason" />
+                                                </div>
+                                                @if($gp->nationality_flag)
+                                                <div class="flex items-center gap-1 mt-0.5">
+                                                    <img src="{{ Storage::disk('assets')->url('flags/' . $gp->nationality_flag['code'] . '.svg') }}" class="w-4 h-3 rounded-xs shadow-xs" title="{{ $gp->nationality_flag['name'] }}">
+                                                </div>
+                                                @endif
+                                            </div>
+                                            @if(!empty($gp->club_name) || !empty($gp->club_crest_url))
+                                                <div class="ml-auto flex items-center gap-1.5 min-w-0 text-xs text-text-muted" title="{{ $gp->club_name }}">
+                                                    @if($gp->club_crest_url)
+                                                        <img src="{{ $gp->club_crest_url }}" alt="" class="w-4 h-4 shrink-0 object-contain">
+                                                    @endif
+                                                    @if($gp->club_name)
+                                                        <span class="truncate max-w-[140px]">{{ $gp->club_name }}</span>
+                                                    @endif
+                                                </div>
+                                            @endif
+                                        </div>
+
+                                        {{-- Position badges --}}
+                                        <div class="flex items-center justify-start gap-0.5">
+                                            @foreach($gp->positions as $pos)
+                                                <x-position-badge :position="$pos" size="sm" />
+                                            @endforeach
+                                        </div>
+
+                                        {{-- Age --}}
+                                        <span class="text-xs text-text-secondary text-center tabular-nums">{{ $gp->age($game->current_date) }}</span>
+
+                                        {{-- Rating badge --}}
+                                        <div class="flex justify-center">
+                                            <x-rating-badge :value="$gp->effective_rating" size="sm" />
+                                        </div>
+
+                                        {{-- === Tactical columns === --}}
+                                        <template x-if="viewMode === 'tactical'">
+                                            <x-fitness-bar :value="$gp->fitness" size="sm" class="justify-center" />
+                                        </template>
+                                        <template x-if="viewMode === 'tactical'">
+                                            <x-morale-indicator :value="$gp->morale" :show-label="false" class="justify-center" />
+                                        </template>
+                                        @if($isCareerMode)
+                                        <template x-if="viewMode === 'tactical'">
+                                            <span class="text-xs text-text-body text-right tabular-nums">{{ $gp->marketReferenceValue($game) }}</span>
+                                        </template>
+                                        <template x-if="viewMode === 'tactical'">
+                                            <span class="text-xs text-text-muted text-right tabular-nums">{{ $gp->formatted_wage }}</span>
+                                        </template>
+                                        <template x-if="viewMode === 'tactical'">
+                                            <span class="text-[11px] text-center tabular-nums @if($gp->isContractExpiring($seasonEndDate)) text-accent-red font-medium @else text-text-muted @endif">{{ $gp->contract_expiry_year }}</span>
+                                        </template>
+                                        @endif
+
+                                        {{-- === Planning columns (career only) === --}}
+                                        @if($isCareerMode)
+                                        <template x-if="viewMode === 'planning'">
+                                            <div class="flex items-center gap-1 justify-center">
+                                                <x-potential-bar
+                                                    :current-ability="$gp->overall_score"
+                                                    :potential-low="$gp->potential_low"
+                                                    :potential-high="$gp->potential_high"
+                                                    :projection="$gp->projection"
+                                                    size="sm"
+                                                />
+                                            </div>
+                                        </template>
+                                        <template x-if="viewMode === 'planning'">
+                                            <span class="text-xs text-text-body text-right tabular-nums">{{ $gp->marketReferenceValue($game) }}</span>
+                                        </template>
+                                        <template x-if="viewMode === 'planning'">
+                                            <span class="text-xs text-text-muted text-right tabular-nums">{{ $gp->formatted_wage }}</span>
+                                        </template>
+                                        <template x-if="viewMode === 'planning'">
+                                            <span class="text-[11px] text-center tabular-nums @if($gp->isContractExpiring($seasonEndDate)) text-accent-red font-medium @else text-text-muted @endif">
+                                                {{ $gp->contract_expiry_year ?? '' }}
+                                            </span>
+                                        </template>
+                                        @endif
+
+                                        {{-- === Stats columns === --}}
+                                        <template x-if="viewMode === 'stats'">
+                                            <span class="text-xs text-text-secondary text-center tabular-nums">{{ $gp->appearances }}</span>
+                                        </template>
+                                        <template x-if="viewMode === 'stats'">
+                                            <span class="text-xs font-medium text-center tabular-nums">{{ $gp->goals }}</span>
+                                        </template>
+                                        <template x-if="viewMode === 'stats'">
+                                            <span class="text-xs text-text-secondary text-center tabular-nums">{{ $gp->assists }}</span>
+                                        </template>
+                                        <template x-if="viewMode === 'stats'">
+                                            <span class="text-xs text-center tabular-nums {{ $mvpCount > 0 ? 'font-medium text-accent-gold' : 'text-text-muted' }}">{{ $mvpCount }}</span>
+                                        </template>
+                                        <template x-if="viewMode === 'stats'">
+                                            <span class="text-xs text-text-secondary text-center tabular-nums">{{ $gp->clean_sheets }}</span>
+                                        </template>
+                                        <template x-if="viewMode === 'stats'">
+                                            <span class="text-xs text-text-secondary text-center tabular-nums">{{ $gp->appearances > 0 ? number_format($gp->goals / $gp->appearances, 2) : '-' }}</span>
+                                        </template>
+                                        <template x-if="viewMode === 'stats'">
+                                            <span class="text-xs text-text-secondary text-center tabular-nums">{{ $gp->own_goals }}</span>
+                                        </template>
+                                        <template x-if="viewMode === 'stats'">
+                                            <div class="flex items-center gap-1.5 justify-center">
+                                                <span class="inline-flex items-center gap-0.5">
+                                                    <span class="w-2 h-3 bg-yellow-400 rounded-xs"></span>
+                                                    <span class="text-[11px] tabular-nums text-text-secondary">{{ $gp->yellow_cards }}</span>
+                                                </span>
+                                                <span class="inline-flex items-center gap-0.5">
+                                                    <span class="w-2 h-3 bg-accent-red rounded-xs"></span>
+                                                    <span class="text-[11px] tabular-nums text-text-secondary">{{ $gp->red_cards }}</span>
+                                                </span>
+                                            </div>
+                                        </template>
+
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+
+                    </div>{{-- end player list container --}}
+                </div>
+
+                {{-- RIGHT: Squad Analysis Sidebar (desktop only) --}}
+                <div x-show="sidebarOpen" x-transition.opacity.duration.150ms class="hidden xl:block w-72 shrink-0">
+                    @include('partials.squad.sidebar', [
+                        'game' => $game,
+                        'isCareerMode' => $isCareerMode,
+                        'depthChart' => $depthChart,
+                        'expiringThisSeason' => $expiringThisSeason,
+                        'highEarners' => $highEarners,
+                        'alerts' => $alerts,
+                        'youngCount' => $youngCount,
+                        'primeCount' => $primeCount,
+                        'veteranCount' => $veteranCount,
+                        'squadSize' => $squadSize,
+                    ])
+                </div>
+            </div>
+
+            {{-- Mobile Squad Analysis (collapsible) --}}
+            <div class="xl:hidden mt-6" x-data="{ mobileAnalysisOpen: false }">
+                <x-ghost-button color="slate" @click="mobileAnalysisOpen = !mobileAnalysisOpen" class="w-full justify-between py-3 px-4 bg-surface-700/50 rounded-lg border border-border-default">
+                    <span class="flex items-center gap-2">
+                        <svg class="w-4 h-4 text-text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                        {{ __('squad.squad_analysis') }}
+                    </span>
+                    <svg :class="mobileAnalysisOpen && 'rotate-180'" class="w-4 h-4 text-text-secondary transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </x-ghost-button>
+                <div x-show="mobileAnalysisOpen" x-transition.opacity.duration.150ms class="mt-2">
+                    @include('partials.squad.sidebar', [
+                        'game' => $game,
+                        'isCareerMode' => $isCareerMode,
+                        'depthChart' => $depthChart,
+                        'expiringThisSeason' => $expiringThisSeason,
+                        'highEarners' => $highEarners,
+                        'alerts' => $alerts,
+                        'youngCount' => $youngCount,
+                        'primeCount' => $primeCount,
+                        'veteranCount' => $veteranCount,
+                        'squadSize' => $squadSize,
+                    ])
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <x-player-detail-modal />
+    <x-negotiation-chat-modal />
+</x-app-layout>

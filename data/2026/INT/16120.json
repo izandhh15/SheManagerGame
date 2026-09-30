@@ -1,0 +1,388 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/16120.png",
+  "name": "Vancouver Rise FC",
+  "players": [
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Feb 22, 2000",
+      "foot": "",
+      "height": "1,80m",
+      "id": "101767",
+      "marketValue": "",
+      "name": "Morgan McAslan",
+      "nationality": [
+        "Canada"
+      ],
+      "number": "13",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "May 20, 2005",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "78405",
+      "marketValue": "",
+      "name": "Jessica Wulf",
+      "nationality": [
+        "Japan"
+      ],
+      "number": "31",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Jan 31, 1990",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "6446",
+      "marketValue": "€20k",
+      "name": "Shannon Woeller",
+      "nationality": [
+        "Canada"
+      ],
+      "number": "2",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Oct 30, 1999",
+      "foot": "",
+      "height": "1,73m",
+      "id": "70513",
+      "marketValue": "",
+      "name": "Jess Cowart",
+      "nationality": [
+        "Philippines"
+      ],
+      "number": "3",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Jan 4, 1997",
+      "foot": "",
+      "height": "1,65m",
+      "id": "21832",
+      "marketValue": "€40k",
+      "name": "Sura Yekka",
+      "nationality": [
+        "Canada"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 4, 2001",
+      "foot": "right",
+      "height": "",
+      "id": "53162",
+      "marketValue": "",
+      "name": "Tori Tumeth",
+      "nationality": [
+        "Australia"
+      ],
+      "number": "6",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Aug 1, 2003",
+      "foot": "",
+      "height": "",
+      "id": "106633",
+      "marketValue": "",
+      "name": "Jaylyn Wright",
+      "nationality": [
+        "Canada"
+      ],
+      "number": "12",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Aug 30, 2001",
+      "foot": "left",
+      "height": "1,75m",
+      "id": "33888",
+      "marketValue": "",
+      "name": "Ariel Young",
+      "nationality": [
+        "Canada"
+      ],
+      "number": "15",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Sep 20, 1997",
+      "foot": "right",
+      "height": "1,68m",
+      "id": "48396",
+      "marketValue": "",
+      "name": "Yuka Okamoto",
+      "nationality": [
+        "Japan"
+      ],
+      "number": "18",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 6, 1998",
+      "foot": "both",
+      "height": "1,78m",
+      "id": "38822",
+      "marketValue": "€45k",
+      "name": "Chantelle Swaby",
+      "nationality": [
+        "Jamaica"
+      ],
+      "number": "21",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 13, 2000",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "44668",
+      "marketValue": "",
+      "name": "Kaela Hansen",
+      "nationality": [
+        "Philippines"
+      ],
+      "number": "25",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 1, 2009",
+      "foot": "",
+      "height": "",
+      "id": "102874",
+      "marketValue": "",
+      "name": "Racquel Partovi",
+      "nationality": [
+        "Canada"
+      ],
+      "number": "33",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 27, 2009",
+      "foot": "",
+      "height": "1,78m",
+      "id": "111475",
+      "marketValue": "",
+      "name": "Myla Ewasiuk",
+      "nationality": [
+        "Canada"
+      ],
+      "number": "45",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Aug 11, 1995",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "18194",
+      "marketValue": "€50k",
+      "name": "Quinn",
+      "nationality": [
+        "Canada"
+      ],
+      "number": "5",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Oct 26, 1990",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "24620",
+      "marketValue": "€15k",
+      "name": "Nikki Stanton",
+      "nationality": [
+        "United States"
+      ],
+      "number": "7",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "May 11, 2002",
+      "foot": "right",
+      "height": "1,62m",
+      "id": "37750",
+      "marketValue": "",
+      "name": "Camila Reyes",
+      "nationality": [
+        "Colombia"
+      ],
+      "number": "10",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Apr 23, 2001",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "101425",
+      "marketValue": "",
+      "name": "Anna Bout",
+      "nationality": [
+        "Canada"
+      ],
+      "number": "14",
+      "position": "Left Winger"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Jun 30, 1999",
+      "foot": "",
+      "height": "1,73m",
+      "id": "43996",
+      "marketValue": "",
+      "name": "Kennedy Faulknor",
+      "nationality": [
+        "Canada"
+      ],
+      "number": "16",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Mar 25, 2003",
+      "foot": "",
+      "height": "1,70m",
+      "id": "68862",
+      "marketValue": "€50k",
+      "name": "Mia Pante",
+      "nationality": [
+        "Canada"
+      ],
+      "number": "22",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Feb 24, 2002",
+      "foot": "",
+      "height": "",
+      "id": "46397",
+      "marketValue": "",
+      "name": "Josie Longhurst",
+      "nationality": [
+        "Wales"
+      ],
+      "number": "24",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Mar 4, 2003",
+      "foot": "",
+      "height": "",
+      "id": "106998",
+      "marketValue": "",
+      "name": "Anaïs Oularbi",
+      "nationality": [
+        "Algeria"
+      ],
+      "number": "26",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 27, 1996",
+      "foot": "right",
+      "height": "1,68m",
+      "id": "35510",
+      "marketValue": "€40k",
+      "name": "Alex Lamontagne",
+      "nationality": [
+        "Canada"
+      ],
+      "number": "8",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Apr 20, 2001",
+      "foot": "left",
+      "height": "1,79m",
+      "id": "33882",
+      "marketValue": "€25k",
+      "name": "Jessica De Filippo",
+      "nationality": [
+        "Canada"
+      ],
+      "number": "11",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Jan 1, 2004",
+      "foot": "",
+      "height": "1,68m",
+      "id": "98064",
+      "marketValue": "",
+      "name": "Audrey François",
+      "nationality": [
+        "Canada"
+      ],
+      "number": "17",
+      "position": "Striker"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Jan 24, 2007",
+      "foot": "",
+      "height": "1,67m",
+      "id": "99513",
+      "marketValue": "",
+      "name": "Maithé López",
+      "nationality": [
+        "Colombia"
+      ],
+      "number": "23",
+      "position": "Striker"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Aug 8, 2006",
+      "foot": "",
+      "height": "1,65m",
+      "id": "73155",
+      "marketValue": "",
+      "name": "Jaime Perrault",
+      "nationality": [
+        "Canada"
+      ],
+      "number": "28",
+      "position": "Striker"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Oct 18, 2001",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "51156",
+      "marketValue": "€23k",
+      "name": "Latifah Abdu",
+      "nationality": [
+        "Canada"
+      ],
+      "number": "99",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Swangard Stadium",
+  "stadiumSeats": "4500",
+  "transfermarktId": "16120",
+  "country": "CA"
+}

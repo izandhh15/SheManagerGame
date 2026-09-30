@@ -1,0 +1,287 @@
+<?php
+
+return [
+    'atmosphere_shot_on_target' => [
+        'Shot by :player (:team)! The keeper holds on',
+        ':player (:team) tries from distance. Good save',
+        'Effort from :player (:team) forces the goalkeeper into action',
+        ':team had a chance! :player\'s shot is saved by the keeper',
+        ':player (:team) fires at goal, but the keeper was well positioned',
+        'What a strike from :player (:team)! Great save from the goalkeeper',
+    ],
+    'atmosphere_shot_off_target' => [
+        'Close! :player\'s shot drifts just wide (:team)',
+        ':player (:team) lets fly but it goes over the bar',
+        ':player (:team) shoots from range... just off target',
+        'Effort from :player (:team) sails wide of the post',
+        ':player (:team) tries to pick out the corner but can\'t find the target',
+        'Nearly! :player (:team) comes close but the ball goes wide',
+    ],
+    'atmosphere_foul' => [
+        'Foul by :player (:team), the referee has no hesitation',
+        ':player (:team) brings down a :opponent player on the break',
+        ':player (:team) goes in late and gives away a free kick',
+        ':player (:team) clips the heels of the attacker, free kick',
+        'The referee blows for a foul by :player (:team)',
+        ':player (:team) fouls in attack, turnover',
+    ],
+    'contextual_draw_open' => [
+        'Even contest at :venue, neither side able to break the deadlock',
+        'No clear dominant team so far between :home and :away',
+        'Balanced game at :venue with chances at both ends',
+        'Still goalless at :venue, both teams feeling each other out',
+        'Honours even so far, with :home and :away cancelling each other out',
+    ],
+    'contextual_draw_with_goals' => [
+        'An open and entertaining affair at :venue, goals at both ends',
+        'The draw is a fair reflection of what we\'ve seen so far',
+        'Level on the scoreboard and in terms of play between :home and :away',
+        'End-to-end stuff at :venue, both defences being tested',
+        'Great entertainment for the fans at :venue, goals shared between the sides',
+    ],
+    'contextual_home_leading' => [
+        ':home in control of the match and the scoreboard at :venue',
+        'Clear dominance from :home, who are running the show',
+        'Good performance from :home who have the lead',
+        ':home looking comfortable with the advantage at :venue',
+    ],
+    // Variants with home-field connotation — only used when home advantage applies
+    'contextual_home_leading_home_only' => [
+        'The home side doing everything right so far, :home deservedly ahead',
+    ],
+    'contextual_away_leading' => [
+        ':away are having a great game at :venue',
+        'It\'s getting difficult for :home, who trail on the scoreboard',
+    ],
+    // Variants with home-field connotation — only used when home advantage applies
+    'contextual_away_leading_home_only' => [
+        ':away have stunned :home at their own ground',
+        ':away silencing the home crowd with a strong display at :venue',
+        'Impressive stuff from :away, who lead away from home',
+    ],
+    'contextual_home_dominant' => [
+        ':home pressing with intensity, piling on the pressure',
+        ':home pushing hard for a goal, wave after wave of attacks',
+        'All :home in these minutes, constant pressure on the opposition goal',
+        ':home camped in the opposition half, relentless in their attacking',
+    ],
+    // Variants with home-field connotation — only used when home advantage applies
+    'contextual_home_dominant_home_only' => [
+        'The visitors can barely get out of their own half, :home turning the screw',
+    ],
+    'contextual_away_dominant' => [
+        ':away pressing high, making it difficult for :home to build from the back',
+        ':away look dangerous on every counter-attack',
+        ':away carrying the momentum in these minutes',
+        ':away dictating the tempo, :home struggling to find any rhythm',
+        'Complete control from :away who are dominating possession and territory',
+    ],
+    'contextual_tight_game' => [
+        'A tight affair in midfield, very few clear-cut chances',
+        'Lots of intensity but little quality, the ball not reaching either box with any real threat',
+        'A scrappy game at :venue, more fight than football',
+        'Neither side willing to commit forward, a cagey encounter at :venue',
+        'Cautious play from both teams, the midfield battle is fierce but chances are scarce',
+    ],
+    'contextual_end_losing' => [
+        'The minutes are ticking away for :trailing, it\'s looking very difficult now',
+        'Time working against :trailing, searching for a goal with more heart than head',
+        ':trailing throwing everything forward but the deficit looks too much',
+        'Running out of ideas and time, :trailing face a mountain to climb',
+        'Desperation creeping in for :trailing as the clock winds down',
+    ],
+    'contextual_end_losing_by_one' => [
+        'Time is running out for :trailing who desperately need an equaliser',
+        ':trailing pushing hard for the equaliser in the closing minutes',
+        'Can :trailing find the late goal they need? Time is not on their side',
+        ':trailing knocking on the door but the equaliser just won\'t come',
+        'All-out attack from :trailing, one goal could change everything',
+    ],
+    'contextual_end_winning' => [
+        ':leading seeing out the final minutes comfortably',
+        ':leading managing the closing stages of the match with confidence',
+        'It\'s starting to smell like victory for :leading at :venue',
+        ':leading winding down the clock, keeping the ball well',
+        'Job nearly done for :leading, who have been the better side',
+    ],
+    'contextual_end_draw' => [
+        'Final minutes and a share of the points, barring a late twist',
+        'The match at :venue drawing to a close with the scores level',
+        'A draw at :venue that neither side seems entirely happy with',
+        'Heading for a stalemate at :venue, neither side able to find a winner',
+        'One point apiece it seems, the clock ticking down at :venue',
+    ],
+    'contextual_end_draw_knockout' => [
+        'Normal time winding down at :venue with the tie still wide open',
+        'Still level at :venue, extra time is looming',
+        'Neither side can find the decisive goal, this is heading to extra time',
+        'The clock runs down at :venue and the deadlock keeps the tie alive',
+        'One last push to avoid extra time, neither side wants to prolong this',
+    ],
+    'contextual_second_half_start' => [
+        'Second half underway at :venue with the score :score',
+        'Back to action at :venue. :score at the break',
+        'The teams are back out for the second half at :venue. :score the score',
+        'We\'re back underway at :venue, :score at half-time',
+        'Second forty-five minutes begins at :venue with the score :score',
+    ],
+    'contextual_away_fans' => [
+        'The travelling :away fans making themselves heard at :venue',
+        'Great support from the :away faithful who made the trip to :venue',
+        'You can hear the :away supporters singing loud and proud at :venue',
+        'The away end at :venue in fine voice, the :away fans right behind their team',
+        'Brilliant atmosphere from the :away travelling support today',
+    ],
+    'contextual_home_fans' => [
+        ':venue erupts, the :home fans pushing their team forward',
+        'The :venue crowd fully behind their team right now',
+        'What an atmosphere at :venue, the :home supporters are electric',
+        'The stands are rocking at :venue, the fans willing :home on',
+        'Deafening noise from the :home faithful, the crowd is the twelfth man today',
+    ],
+    // Goal prefix — prepended to each goal narrative for emphasis
+    'goal_prefix' => [
+        'GOAL for :team!',
+        'GOAL! :team strike!',
+        'GOOOOOAL for :team!',
+        'WHAT A GOAL from :team!',
+        ':team score!',
+        ':team find the net!',
+        'GOOOAL!! :team!',
+        'A goal for :team!',
+        'IT\'S IN! :team!',
+        'WHAT A STRIKE from :team!',
+    ],
+    'goal_assisted' => [
+        'Cross into the box and :player rises unmarked to head home',
+        ':player (:team) receives on the penalty spot, controls and finishes with class',
+        'Through ball for :player, one on one with the keeper and makes no mistake',
+        'Brilliant team move from :team! :player applies the finishing touch',
+        'Towering header from :player at the far post. The keeper had no chance',
+        'Pinpoint cross from the wing and :player (:team) heads home unchallenged',
+        'Devastating counter-attack from :team. :player finishes coolly past the onrushing keeper',
+        ':player (:team) connects with a spectacular volley that flies in',
+        'Neat one-two on the edge of the box and :player taps it in from close range',
+        ':player (:team) anticipates the defence and finishes first time into the corner',
+        'Great assist and :player just has to tap it in. Clinical finish',
+        'Smart movement from :player who receives in space and chips the keeper',
+        ':player gets ahead of the defender and slots it in at the near post',
+        'Ball into the danger zone and :player is there to poke it home',
+    ],
+    'goal_solo' => [
+        'What a goal from :player! Cuts past the keeper and finishes with the right foot',
+        ':player (:team) takes on the defender, shifts it and fires into the top corner',
+        'A thunderbolt from :player (:team) from outside the box! What a strike',
+        ':player (:team) pounces on the rebound and smashes it into the net',
+        'Solo run from :player who beats two defenders and slots it across goal',
+        'What a goal from :player! A curling effort from the edge of the box into the top corner',
+        ':player capitalises on a defensive error and fires past the keeper',
+        'Long-range effort from :player that takes a deflection and wrong-foots the keeper',
+        'Free kick from :player that clears the wall and nestles in by the post',
+        ':player cuts inside the box, finds the gap and shoots across goal. Goal!',
+        ':player (:team) strikes it first time from the edge of the box. Get in!',
+        'Turnover in midfield and :player wastes no time, firing across the keeper',
+        ':player (:team) produces a moment of individual brilliance from the edge of the box',
+    ],
+
+    // Tactical narratives — generated based on user/opponent tactical setups
+    'tactical_high_press_working' => [
+        ':user pressing with ferocious intensity, suffocating :opp\'s build-up play',
+        'The high press from :el_user is winning the ball back in dangerous areas',
+        ':user are pressing relentlessly — :opp can barely get out of their own half',
+    ],
+    'tactical_high_press_fading' => [
+        'The intensity of :el_user\'s pressing is starting to drop. Legs are getting heavy',
+        ':user can\'t sustain that early pressing intensity — :opp finding more space now',
+        'You can see the fatigue setting in. :user\'s press is losing its bite',
+    ],
+    'tactical_high_press_exhausted' => [
+        ':user look exhausted. The high press has taken its toll in the final stretch',
+        'The tank is running empty for :user — that aggressive pressing is catching up with them',
+        ':opp sensing the tiredness in :el_user\'s legs and pushing forward with confidence',
+    ],
+    'tactical_opp_press_fading' => [
+        ':opp\'s high press is losing steam — :user should find more room to play now',
+        'The pressing from :el_opp isn\'t what it was earlier. Spaces are opening up',
+    ],
+    'tactical_opp_exhausted' => [
+        ':opp look leggy after pressing so hard. :user can exploit the tired legs',
+        'The high press has drained :el_opp — you can see they\'re running on fumes',
+    ],
+    'tactical_low_block_wall' => [
+        ':user sitting compact and deep, making it very difficult for :opp to find space',
+        'A disciplined defensive wall from :el_user. :opp struggling to break through',
+        ':user defending in numbers, denying :opp any clear sight of goal',
+    ],
+    'tactical_low_block_fresh' => [
+        ':user\'s conservative approach is paying off — the players still look fresh and sharp',
+        'Energy levels still high for :user thanks to the disciplined defensive setup',
+    ],
+    'tactical_possession_control' => [
+        ':user controlling the tempo, patiently moving the ball and waiting for openings',
+        'Dominant possession from :el_user — :opp chasing shadows at this point',
+        ':user keeping the ball well, dictating the rhythm of the match',
+    ],
+    'tactical_possession_frustrated' => [
+        ':user dominating the ball but struggling to find a way past :el_opp\'s deep block',
+        'Lots of possession for :user but :opp\'s low block is frustrating every attack',
+    ],
+    'tactical_counter_waiting' => [
+        ':user sitting deep, waiting for the moment to spring on the counter',
+        ':user happy to concede territory — looking to strike on the break',
+        'Patient defending from :el_user, ready to pounce when the opportunity comes',
+    ],
+    'tactical_counter_exploiting' => [
+        ':user exploiting the space behind :el_opp\'s high line with devastating counter-attacks',
+        ':opp\'s aggressive approach is leaving gaps — :user hitting them on the break',
+    ],
+    'tactical_direct_play' => [
+        ':user bypassing the midfield with long balls forward, keeping :opp on the back foot',
+        'Direct approach from :el_user — no messing about, straight to the forwards',
+    ],
+    'tactical_direct_bypassing_press' => [
+        ':user\'s direct play is going right over :el_opp\'s high press — long balls finding their targets',
+        'The press from :el_opp is being bypassed by :el_user\'s direct long balls',
+    ],
+    'goal_penalty' => [
+        'Penalty! :player (:team) steps up and sends the keeper the wrong way. Cool as you like',
+        ':player (:team) places the ball on the spot, runs up and fires it into the corner. No chance for the keeper',
+        'Penalty to :team. :player sends it straight down the middle as the keeper dives away',
+        ':player (:team) takes responsibility from twelve yards and makes no mistake. Ice cold',
+        'Penalty goal! :player (:team) waits for the keeper to commit and slots it the other side',
+        ':player (:team) steps up to the spot and hammers it into the top corner. Unstoppable',
+    ],
+    // Tactical goal flavoring
+    'goal_counter_attack' => [
+        'Lightning counter-attack! :player finishes after a devastating break by :team',
+        'Clinical on the break! :player converts after :team spring forward at pace',
+        'Counter-attack goal! :team break with speed and :player is there to finish',
+    ],
+    'goal_possession' => [
+        ':team work the ball patiently before :player finds the opening. Textbook possession play',
+        'Patient build-up from :team and :player picks the perfect moment to strike',
+        'Beautiful passing move from :team — :player applies the finishing touch',
+    ],
+    'goal_direct' => [
+        'Long ball forward and :player is there to convert for :team!',
+        ':team go direct and it pays off — :player latches onto the ball and finishes',
+        'Route one football! The long ball finds :player who makes no mistake',
+    ],
+
+    // Added-time announcement. The client picks the singular or plural
+    // variant based on the minute count (:minutes) to avoid "1 minutes".
+    'stoppage_announcement_singular' => [
+        'The referee adds :minutes minute',
+        'Fourth official signals :minutes minute of added time',
+        ':minutes minute added on',
+        'Just :minutes minute of stoppage time',
+    ],
+    'stoppage_announcement_plural' => [
+        'The referee adds :minutes minutes',
+        'Fourth official signals :minutes minutes of stoppage time',
+        ':minutes minutes added on',
+        'Added time: :minutes minutes',
+        ':minutes more minutes to play',
+        ':minutes minutes of stoppage! Still time for drama',
+    ],
+];

@@ -1,0 +1,472 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/4332.png",
+  "name": "FC Slovan Liberec",
+  "players": [
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 21, 2009",
+      "foot": "",
+      "height": "",
+      "id": "105675",
+      "marketValue": "",
+      "name": "Michaela Sluková",
+      "nationality": [
+        "Slovakia"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 17, 2004",
+      "foot": "",
+      "height": "",
+      "id": "97422",
+      "marketValue": "",
+      "name": "Eliška Pelcová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "16",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 21, 2007",
+      "foot": "",
+      "height": "",
+      "id": "101647",
+      "marketValue": "",
+      "name": "Alexandra Kroupová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "22",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 13, 1981",
+      "foot": "",
+      "height": "",
+      "id": "31650",
+      "marketValue": "",
+      "name": "Ivana Pižlová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "77",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 20, 2009",
+      "foot": "",
+      "height": "",
+      "id": "117009",
+      "marketValue": "",
+      "name": "Barbora Šubrtová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "2",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 29, 2002",
+      "foot": "",
+      "height": "",
+      "id": "73837",
+      "marketValue": "",
+      "name": "Kateřina Marcinková",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "3",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 30, 1999",
+      "foot": "",
+      "height": "1,72m",
+      "id": "54179",
+      "marketValue": "",
+      "name": "Marie Bohatová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 1, 2004",
+      "foot": "",
+      "height": "",
+      "id": "72378",
+      "marketValue": "",
+      "name": "Denisa Tenkrátová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "6",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 9, 1994",
+      "foot": "",
+      "height": "1,67m",
+      "id": "21749",
+      "marketValue": "",
+      "name": "Aneta Dědinová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "9",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 20, 1993",
+      "foot": "",
+      "height": "1,72m",
+      "id": "27581",
+      "marketValue": "",
+      "name": "Kristína Košíková",
+      "nationality": [
+        "Slovakia"
+      ],
+      "number": "13",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 14, 2009",
+      "foot": "",
+      "height": "",
+      "id": "114112",
+      "marketValue": "",
+      "name": "Rozalie Stránská",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "20",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 17, 2007",
+      "foot": "",
+      "height": "",
+      "id": "99627",
+      "marketValue": "",
+      "name": "Natálie Rollová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "27",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 18, 2005",
+      "foot": "",
+      "height": "",
+      "id": "62507",
+      "marketValue": "",
+      "name": "Aneta Svobodová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "28",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 21, 2009",
+      "foot": "left",
+      "height": "1,66m",
+      "id": "104606",
+      "marketValue": "",
+      "name": "Diana Šafářová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "29",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 8, 2004",
+      "foot": "",
+      "height": "1,54m",
+      "id": "47443",
+      "marketValue": "",
+      "name": "Tereza Černá",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "7",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 24, 2009",
+      "foot": "",
+      "height": "",
+      "id": "122948",
+      "marketValue": "",
+      "name": "Denisa Černá",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": 5,
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 29, 2002",
+      "foot": "",
+      "height": "1,61m",
+      "id": "44281",
+      "marketValue": "",
+      "name": "Aneta Buryánová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "8",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 3, 2001",
+      "foot": "",
+      "height": "",
+      "id": "40191",
+      "marketValue": "",
+      "name": "Michaela Harvilová",
+      "nationality": [
+        "Slovakia"
+      ],
+      "number": "11",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 25, 2000",
+      "foot": "right",
+      "height": "1,67m",
+      "id": "40002",
+      "marketValue": "",
+      "name": "Nela Krejčířová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "12",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 26, 2005",
+      "foot": "",
+      "height": "",
+      "id": "71147",
+      "marketValue": "",
+      "name": "Michaela Ferencová",
+      "nationality": [
+        "Slovakia"
+      ],
+      "number": "14",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 9, 2006",
+      "foot": "",
+      "height": "",
+      "id": "63439",
+      "marketValue": "",
+      "name": "Kateřina Vithová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "15",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 27, 2005",
+      "foot": "",
+      "height": "",
+      "id": "61800",
+      "marketValue": "",
+      "name": "Aneta Surová",
+      "nationality": [
+        "Slovakia"
+      ],
+      "number": "17",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 18, 2006",
+      "foot": "",
+      "height": "",
+      "id": "73127",
+      "marketValue": "",
+      "name": "Radka Jakubů",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "19",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 20, 2005",
+      "foot": "",
+      "height": "",
+      "id": "63438",
+      "marketValue": "",
+      "name": "Šarlota Truxová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "21",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 23, 2007",
+      "foot": "",
+      "height": "",
+      "id": "92861",
+      "marketValue": "",
+      "name": "Lucia Rumančíková",
+      "nationality": [
+        "Slovakia"
+      ],
+      "number": "23",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 25, 1998",
+      "foot": "right",
+      "height": "1,74m",
+      "id": "33137",
+      "marketValue": "",
+      "name": "Denisa Skálová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "25",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 6, 2010",
+      "foot": "",
+      "height": "",
+      "id": "122952",
+      "marketValue": "",
+      "name": "Eva Pšeničková",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "42",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 15, 2010",
+      "foot": "",
+      "height": "",
+      "id": "122949",
+      "marketValue": "",
+      "name": "Tereza Chládková",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "44",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 19, 2004",
+      "foot": "",
+      "height": "",
+      "id": "46992",
+      "marketValue": "",
+      "name": "Sofia Anna Škerdová",
+      "nationality": [
+        "Slovakia"
+      ],
+      "number": "10",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 25, 2004",
+      "foot": "",
+      "height": "",
+      "id": "61374",
+      "marketValue": "",
+      "name": "Radka Hlouchová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "18",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 1, 2002",
+      "foot": "",
+      "height": "",
+      "id": "44290",
+      "marketValue": "",
+      "name": "Anna Šubrtová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "32",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 29, 2009",
+      "foot": "",
+      "height": "",
+      "id": "122953",
+      "marketValue": "",
+      "name": "Barbora Sedláková",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "41",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 6, 2010",
+      "foot": "",
+      "height": "",
+      "id": "122951",
+      "marketValue": "",
+      "name": "Dorotka Mikolandová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "43",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "U Nisy",
+  "stadiumSeats": "9900",
+  "transfermarktId": "4332",
+  "country": "CZ"
+}

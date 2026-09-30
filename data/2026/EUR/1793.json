@@ -1,0 +1,374 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/1793.png",
+  "name": "Celtic Ladies",
+  "players": [
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Feb 16, 2006",
+      "foot": "",
+      "height": "",
+      "id": "62895",
+      "marketValue": "",
+      "name": "Lisa Rodgers",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "19",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Nov 3, 1989",
+      "foot": "",
+      "height": "1,68m",
+      "id": "19331",
+      "marketValue": "",
+      "name": "Adelaide Gay",
+      "nationality": [
+        "United States"
+      ],
+      "number": "33",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Oct 28, 1994",
+      "foot": "",
+      "height": "1,75m",
+      "id": "10764",
+      "marketValue": "",
+      "name": "Claire Walsh",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "2",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Jan 5, 2006",
+      "foot": "",
+      "height": "",
+      "id": "64986",
+      "marketValue": "",
+      "name": "Amy Richardson",
+      "nationality": [
+        "Wales"
+      ],
+      "number": "3",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Sep 4, 1993",
+      "foot": "right",
+      "height": "",
+      "id": "10070",
+      "marketValue": "",
+      "name": "Chloé Craig",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "6",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jun 10, 1994",
+      "foot": "",
+      "height": "",
+      "id": "11257",
+      "marketValue": "",
+      "name": "Kelly Clark",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "15",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 19, 2007",
+      "foot": "",
+      "height": "",
+      "id": "89123",
+      "marketValue": "",
+      "name": "Abi Tobin",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "16",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Nov 2, 2001",
+      "foot": "",
+      "height": "1,70m",
+      "id": "57260",
+      "marketValue": "",
+      "name": "Hannah Luke",
+      "nationality": [
+        "England"
+      ],
+      "number": "18",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 24, 2003",
+      "foot": "",
+      "height": "",
+      "id": "47149",
+      "marketValue": "",
+      "name": "Fi Morgan",
+      "nationality": [
+        "Northern Ireland"
+      ],
+      "number": "20",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Aug 28, 2004",
+      "foot": "",
+      "height": "",
+      "id": "47133",
+      "marketValue": "",
+      "name": "Addie Handley",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "21",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Sep 28, 1999",
+      "foot": "",
+      "height": "1,56m",
+      "id": "47856",
+      "marketValue": "",
+      "name": "Lauren Doran-Barr",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "22",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 10, 2010",
+      "foot": "",
+      "height": "",
+      "id": "115498",
+      "marketValue": "",
+      "name": "Freya McIndoe",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "35",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 17, 2003",
+      "foot": "",
+      "height": "",
+      "id": "70307",
+      "marketValue": "",
+      "name": "Poppy Lawson",
+      "nationality": [
+        "England"
+      ],
+      "number": "44",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "May 16, 1992",
+      "foot": "",
+      "height": "1,55m",
+      "id": "6661",
+      "marketValue": "€20k",
+      "name": "Lisa Robertson",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "4",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Sep 14, 1989",
+      "foot": "",
+      "height": "",
+      "id": "2591",
+      "marketValue": "",
+      "name": "Natalie Ross",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "5",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Apr 28, 2005",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "63544",
+      "marketValue": "",
+      "name": "Evie Rabjohn",
+      "nationality": [
+        "England"
+      ],
+      "number": "10",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Dec 7, 1999",
+      "foot": "",
+      "height": "",
+      "id": "41104",
+      "marketValue": "",
+      "name": "Shannon McGregor",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "14",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Mar 9, 2002",
+      "foot": "right",
+      "height": "1,56m",
+      "id": "37768",
+      "marketValue": "",
+      "name": "Momo Nakao",
+      "nationality": [
+        "Japan"
+      ],
+      "number": "25",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Feb 15, 2005",
+      "foot": "",
+      "height": "",
+      "id": "78358",
+      "marketValue": "",
+      "name": "Clare Goldie",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "41",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Jun 25, 2004",
+      "foot": "left",
+      "height": "",
+      "id": "57003",
+      "marketValue": "",
+      "name": "Maria McAneny",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "73",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 21, 1995",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "24029",
+      "marketValue": "€25k",
+      "name": "Chloë Arthur",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "77",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Dec 15, 1998",
+      "foot": "",
+      "height": "",
+      "id": "32621",
+      "marketValue": "",
+      "name": "Amy Gallacher",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "7",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Jul 29, 2004",
+      "foot": "",
+      "height": "",
+      "id": "66002",
+      "marketValue": "",
+      "name": "Hannah Jordan",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "8",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "May 14, 2007",
+      "foot": "",
+      "height": "1,79m",
+      "id": "85578",
+      "marketValue": "",
+      "name": "Izzy Fisher",
+      "nationality": [
+        "England"
+      ],
+      "number": "9",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Sep 2, 2002",
+      "foot": "",
+      "height": "1,63m",
+      "id": "32415",
+      "marketValue": "",
+      "name": "Casey Howe",
+      "nationality": [
+        "Northern Ireland"
+      ],
+      "number": "11",
+      "position": "Right Winger"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Feb 12, 2001",
+      "foot": "",
+      "height": "1,63m",
+      "id": "82363",
+      "marketValue": "",
+      "name": "Morgan Cross",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "17",
+      "position": "Centre-Forward"
+    }
+  ],
+  "stadiumName": "New Douglas Park",
+  "stadiumSeats": "6018",
+  "transfermarktId": "1793",
+  "country": "GB-SCT"
+}

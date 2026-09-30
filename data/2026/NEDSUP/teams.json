@@ -1,0 +1,15 @@
+{
+  "id": "NEDSUP",
+  "name": "Johan Cruijff Schaal Vrouwen",
+  "seasonID": "2026",
+  "clubs": [
+    {
+      "id": "4566",
+      "name": "Ajax Amsterdam"
+    },
+    {
+      "id": "4585",
+      "name": "FCE/PSV"
+    }
+  ]
+}

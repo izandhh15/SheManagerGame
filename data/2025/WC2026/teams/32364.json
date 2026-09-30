@@ -1,0 +1,425 @@
+{
+  "image": "https://assets.virtuafc.com/crests/32364.png",
+  "name": "Curaçao",
+  "players": [
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/42814.png",
+        "name": "Miami FC"
+      },
+      "dateOfBirth": "Feb 6, 1989",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "79294",
+      "injured": false,
+      "marketValue": "€150k",
+      "name": "Eloy Room",
+      "overall_score": 66,
+      "position": "Goalkeeper",
+      "potential": 66
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1426.png",
+        "name": "VVV-Venlo"
+      },
+      "dateOfBirth": "Jul 6, 1999",
+      "foot": "right",
+      "height": "1,88m",
+      "id": "390814",
+      "injured": false,
+      "marketValue": "€50k",
+      "name": "Trevor Doornbusch",
+      "overall_score": 63,
+      "position": "Goalkeeper",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1434.png",
+        "name": "SC Telstar"
+      },
+      "dateOfBirth": "May 15, 2002",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "663961",
+      "injured": false,
+      "marketValue": "€25k",
+      "name": "Tyrick Bodak",
+      "overall_score": 60,
+      "position": "Goalkeeper",
+      "potential": 68
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/383.png",
+        "name": "PSV Eindhoven"
+      },
+      "dateOfBirth": "Mar 5, 1999",
+      "foot": "left",
+      "height": "1,85m",
+      "id": "339337",
+      "injured": false,
+      "marketValue": "€4.00m",
+      "name": "Armando Obispo",
+      "overall_score": 74,
+      "position": "Centre-Back",
+      "potential": 77
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2293.png",
+        "name": "Konyaspor"
+      },
+      "dateOfBirth": "Oct 12, 1996",
+      "foot": "right",
+      "height": "1,84m",
+      "id": "216443",
+      "injured": false,
+      "marketValue": "€1.50m",
+      "name": "Riechedly Bazoer",
+      "overall_score": 71,
+      "position": "Centre-Back",
+      "potential": 72
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/467.png",
+        "name": "NEC Nijmegen"
+      },
+      "dateOfBirth": "May 16, 2003",
+      "foot": "left",
+      "height": "1,88m",
+      "id": "708989",
+      "injured": false,
+      "marketValue": "€1.00m",
+      "name": "Deveron Fonville",
+      "overall_score": 65,
+      "position": "Centre-Back",
+      "potential": 72
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/40039.png",
+        "name": "Abha Club"
+      },
+      "dateOfBirth": "Dec 23, 1993",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "328455",
+      "injured": false,
+      "marketValue": "€400k",
+      "name": "Juriën Gaari",
+      "overall_score": 65,
+      "position": "Centre-Back",
+      "potential": 65
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/235.png",
+        "name": "RKC Waalwijk"
+      },
+      "dateOfBirth": "Jun 9, 1998",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "401029",
+      "injured": false,
+      "marketValue": "€375k",
+      "name": "Roshon van Eijma",
+      "overall_score": 65,
+      "position": "Centre-Back",
+      "potential": 66
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1269.png",
+        "name": "PEC Zwolle"
+      },
+      "dateOfBirth": "Aug 23, 1998",
+      "foot": "right",
+      "height": "1,81m",
+      "id": "315211",
+      "injured": false,
+      "marketValue": "€800k",
+      "name": "Sherel Floranus",
+      "overall_score": 65,
+      "position": "Left-Back",
+      "potential": 66
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/468.png",
+        "name": "Sparta Rotterdam"
+      },
+      "dateOfBirth": "Aug 19, 2001",
+      "foot": "right",
+      "height": "1,74m",
+      "id": "412937",
+      "injured": false,
+      "marketValue": "€1.50m",
+      "name": "Shurandy Sambo",
+      "overall_score": 67,
+      "position": "Right-Back",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/3205.png",
+        "name": "Kayserispor"
+      },
+      "dateOfBirth": "Mar 20, 1994",
+      "foot": "right",
+      "height": "1,81m",
+      "id": "207006",
+      "injured": false,
+      "marketValue": "€1.00m",
+      "name": "Joshua Brenet",
+      "overall_score": 68,
+      "position": "Right-Back",
+      "potential": 68
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/260.png",
+        "name": "FC Zürich"
+      },
+      "dateOfBirth": "Feb 3, 2004",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "626764",
+      "injured": false,
+      "marketValue": "€700k",
+      "name": "Livano Comenencia",
+      "overall_score": 62,
+      "position": "Right-Back",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/404.png",
+        "name": "FC Den Bosch"
+      },
+      "dateOfBirth": "Nov 11, 1999",
+      "foot": "right",
+      "height": "1,74m",
+      "id": "433933",
+      "injured": false,
+      "marketValue": "€400k",
+      "name": "Kevin Felida",
+      "overall_score": 64,
+      "position": "Defensive Midfield",
+      "potential": 69
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/235.png",
+        "name": "RKC Waalwijk"
+      },
+      "dateOfBirth": "Aug 19, 1999",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "393241",
+      "injured": false,
+      "marketValue": "€350k",
+      "name": "Godfried Roemeratoe",
+      "overall_score": 65,
+      "position": "Defensive Midfield",
+      "potential": 69
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/724.png",
+        "name": "FC Volendam"
+      },
+      "dateOfBirth": "Aug 7, 1997",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "348863",
+      "injured": false,
+      "marketValue": "€2.20m",
+      "name": "Juninho Bacuna",
+      "overall_score": 69,
+      "position": "Central Midfield",
+      "potential": 69
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/74664.png",
+        "name": "Igdir FK"
+      },
+      "dateOfBirth": "Aug 21, 1991",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "126014",
+      "injured": false,
+      "marketValue": "€250k",
+      "name": "Leandro Bacuna",
+      "overall_score": 67,
+      "position": "Central Midfield",
+      "potential": 67
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1434.png",
+        "name": "SC Telstar"
+      },
+      "dateOfBirth": "Sep 11, 2002",
+      "foot": "right",
+      "height": "1,82m",
+      "id": "708005",
+      "injured": false,
+      "marketValue": "€750k",
+      "name": "Tyrese Noslin",
+      "overall_score": 66,
+      "position": "Right Midfield",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/350.png",
+        "name": "Sheffield United"
+      },
+      "dateOfBirth": "Dec 4, 1999",
+      "foot": "left",
+      "height": "1,85m",
+      "id": "344830",
+      "injured": false,
+      "marketValue": "€4.50m",
+      "name": "Tahith Chong",
+      "overall_score": 70,
+      "position": "Attacking Midfield",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/28643.png",
+        "name": "SK Beveren"
+      },
+      "dateOfBirth": "Apr 10, 2000",
+      "foot": "right",
+      "height": "1,81m",
+      "id": "538958",
+      "injured": false,
+      "marketValue": "€1.00m",
+      "name": "Jearl Margaritha",
+      "overall_score": 67,
+      "position": "Left Winger",
+      "potential": 67
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/30120.png",
+        "name": "AE Kifisia"
+      },
+      "dateOfBirth": "Mar 29, 2002",
+      "foot": "right",
+      "height": "1,84m",
+      "id": "594273",
+      "injured": false,
+      "marketValue": "€800k",
+      "name": "Jeremy Antonisse",
+      "overall_score": 65,
+      "position": "Left Winger",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1064.png",
+        "name": "Maccabi Haifa"
+      },
+      "dateOfBirth": "Sep 29, 1994",
+      "foot": "right",
+      "height": "1,74m",
+      "id": "374889",
+      "injured": false,
+      "marketValue": "€650k",
+      "name": "Kenji Gorré",
+      "overall_score": 69,
+      "position": "Left Winger",
+      "potential": 69
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/641.png",
+        "name": "Middlesbrough FC"
+      },
+      "dateOfBirth": "May 18, 2002",
+      "foot": "right",
+      "height": "1,76m",
+      "id": "485582",
+      "injured": false,
+      "marketValue": "€4.00m",
+      "name": "Sontje Hansen",
+      "overall_score": 69,
+      "position": "Right Winger",
+      "potential": 75
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1194.png",
+        "name": "Rotherham United"
+      },
+      "dateOfBirth": "Sep 4, 2003",
+      "foot": "left",
+      "height": "1,80m",
+      "id": "572519",
+      "injured": false,
+      "marketValue": "€700k",
+      "name": "Ar'jany Martha",
+      "overall_score": 64,
+      "position": "Right Winger",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/724.png",
+        "name": "FC Volendam"
+      },
+      "dateOfBirth": "Sep 19, 1992",
+      "foot": "left",
+      "height": "1,81m",
+      "id": "232219",
+      "injured": false,
+      "marketValue": "€300k",
+      "name": "Brandley Kuwas",
+      "overall_score": 67,
+      "position": "Right Winger",
+      "potential": 67
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/42814.png",
+        "name": "Miami FC"
+      },
+      "dateOfBirth": "Nov 7, 1993",
+      "foot": "right",
+      "height": "1,93m",
+      "id": "166240",
+      "injured": false,
+      "marketValue": "€200k",
+      "name": "Jürgen Locadia",
+      "overall_score": 69,
+      "position": "Centre-Forward",
+      "potential": 69
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/15838.png",
+        "name": "Terengganu FC"
+      },
+      "dateOfBirth": "Jun 9, 1996",
+      "foot": "right",
+      "height": "1,89m",
+      "id": "240752",
+      "injured": false,
+      "marketValue": "€175k",
+      "name": "Gervane Kastaneer",
+      "overall_score": 64,
+      "position": "Centre-Forward",
+      "potential": 66
+    }
+  ],
+  "stadiumName": null,
+  "stadiumSeats": null,
+  "transfermarktId": "32364"
+}

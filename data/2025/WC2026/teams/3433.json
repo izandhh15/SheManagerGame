@@ -1,0 +1,425 @@
+{
+  "image": "https://assets.virtuafc.com/crests/3433.png",
+  "name": "Australia",
+  "players": [
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/3368.png",
+        "name": "Levante UD"
+      },
+      "dateOfBirth": "Apr 8, 1992",
+      "foot": "right",
+      "height": "1,84m",
+      "id": "128969",
+      "injured": false,
+      "marketValue": "€2.00m",
+      "name": "Mathew Ryan",
+      "overall_score": 79,
+      "position": "Goalkeeper",
+      "potential": 79
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/25580.png",
+        "name": "Melbourne City FC"
+      },
+      "dateOfBirth": "Aug 6, 2003",
+      "foot": "left",
+      "height": "1,90m",
+      "id": "983578",
+      "injured": false,
+      "marketValue": "€1.00m",
+      "name": "Patrick Beach",
+      "overall_score": 66,
+      "position": "Goalkeeper",
+      "potential": 78
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/5724.png",
+        "name": "Randers FC"
+      },
+      "dateOfBirth": "Jan 6, 1995",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "181921",
+      "injured": false,
+      "marketValue": "€500k",
+      "name": "Paul Izzo",
+      "overall_score": 72,
+      "position": "Goalkeeper",
+      "potential": 72
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/130.png",
+        "name": "Parma Calcio 1913"
+      },
+      "dateOfBirth": "Oct 10, 2003",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "867137",
+      "injured": false,
+      "marketValue": "€12.00m",
+      "name": "Alessandro Circati",
+      "overall_score": 72,
+      "position": "Centre-Back",
+      "potential": 80
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1003.png",
+        "name": "Leicester City"
+      },
+      "dateOfBirth": "Oct 22, 1998",
+      "foot": "right",
+      "height": "1,98m",
+      "id": "298091",
+      "injured": false,
+      "marketValue": "€3.50m",
+      "name": "Harry Souttar",
+      "overall_score": 72,
+      "position": "Centre-Back",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2288.png",
+        "name": "Swansea City"
+      },
+      "dateOfBirth": "Oct 21, 1995",
+      "foot": "left",
+      "height": "1,94m",
+      "id": "255788",
+      "injured": false,
+      "marketValue": "€1.50m",
+      "name": "Cameron Burgess",
+      "overall_score": 73,
+      "position": "Centre-Back",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1247.png",
+        "name": "Colorado Rapids"
+      },
+      "dateOfBirth": "Sep 5, 2007",
+      "foot": "right",
+      "height": "1,93m",
+      "id": "1279984",
+      "injured": false,
+      "marketValue": "€1.50m",
+      "name": "Lucas Herrington",
+      "overall_score": 60,
+      "position": "Centre-Back",
+      "potential": 82
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2784.png",
+        "name": "APOEL Nicosia"
+      },
+      "dateOfBirth": "Apr 28, 1994",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "187353",
+      "injured": false,
+      "marketValue": "€500k",
+      "name": "Milos Degenek",
+      "overall_score": 68,
+      "position": "Centre-Back",
+      "potential": 68
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/234.png",
+        "name": "Feyenoord Rotterdam"
+      },
+      "dateOfBirth": "Oct 29, 2002",
+      "foot": "left",
+      "height": "1,80m",
+      "id": "855731",
+      "injured": false,
+      "marketValue": "€12.00m",
+      "name": "Jordan Bos",
+      "overall_score": 74,
+      "position": "Left-Back",
+      "potential": 82
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/25580.png",
+        "name": "Melbourne City FC"
+      },
+      "dateOfBirth": "Dec 16, 1990",
+      "foot": "left",
+      "height": "1,70m",
+      "id": "136834",
+      "injured": false,
+      "marketValue": "€250k",
+      "name": "Aziz Behich",
+      "overall_score": 67,
+      "position": "Left-Back",
+      "potential": 67
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/316.png",
+        "name": "Grazer AK 1902"
+      },
+      "dateOfBirth": "Jul 30, 2001",
+      "foot": "both",
+      "height": "1,77m",
+      "id": "545810",
+      "injured": false,
+      "marketValue": "€600k",
+      "name": "Jacob Italiano",
+      "overall_score": 66,
+      "position": "Right-Back",
+      "potential": 71
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/8344.png",
+        "name": "Albirex Niigata"
+      },
+      "dateOfBirth": "May 10, 1993",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "185175",
+      "injured": false,
+      "marketValue": "€400k",
+      "name": "Jason Geria",
+      "overall_score": 66,
+      "position": "Right-Back",
+      "potential": 66
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/40058.png",
+        "name": "New York City FC"
+      },
+      "dateOfBirth": "Jul 4, 1998",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "385918",
+      "injured": false,
+      "marketValue": "€3.00m",
+      "name": "Aiden O'Neill",
+      "overall_score": 70,
+      "position": "Defensive Midfield",
+      "potential": 70
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/8054.png",
+        "name": "Sydney FC"
+      },
+      "dateOfBirth": "Jan 24, 2005",
+      "foot": "left",
+      "height": "1,86m",
+      "id": "1064377",
+      "injured": false,
+      "marketValue": "€1.20m",
+      "name": "Paul Okon-Engstler",
+      "overall_score": 60,
+      "position": "Defensive Midfield",
+      "potential": 75
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/40058.png",
+        "name": "New York City FC"
+      },
+      "dateOfBirth": "May 18, 2001",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "691326",
+      "injured": false,
+      "marketValue": "€1.00m",
+      "name": "Kai Trewin",
+      "overall_score": 69,
+      "position": "Defensive Midfield",
+      "potential": 76
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/43.png",
+        "name": "Heart of Midlothian FC"
+      },
+      "dateOfBirth": "Jun 7, 1998",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "399162",
+      "injured": false,
+      "marketValue": "€2.00m",
+      "name": "Cammy Devlin",
+      "overall_score": 74,
+      "position": "Central Midfield",
+      "potential": 77
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/35.png",
+        "name": "FC St. Pauli"
+      },
+      "dateOfBirth": "Nov 5, 1999",
+      "foot": "left",
+      "height": "1,83m",
+      "id": "522223",
+      "injured": false,
+      "marketValue": "€1.50m",
+      "name": "Connor Metcalfe",
+      "overall_score": 69,
+      "position": "Central Midfield",
+      "potential": 71
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/35.png",
+        "name": "FC St. Pauli"
+      },
+      "dateOfBirth": "Mar 7, 1993",
+      "foot": "right",
+      "height": "1,89m",
+      "id": "192557",
+      "injured": false,
+      "marketValue": "€1.00m",
+      "name": "Jackson Irvine",
+      "overall_score": 74,
+      "position": "Central Midfield",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1304.png",
+        "name": "Heracles Almelo"
+      },
+      "dateOfBirth": "Jul 5, 1996",
+      "foot": "left",
+      "height": "1,80m",
+      "id": "265625",
+      "injured": false,
+      "marketValue": "€600k",
+      "name": "Ajdin Hrustic",
+      "overall_score": 68,
+      "position": "Central Midfield",
+      "potential": 68
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6574.png",
+        "name": "US Sassuolo"
+      },
+      "dateOfBirth": "Nov 15, 2003",
+      "foot": "left",
+      "height": "1,87m",
+      "id": "746891",
+      "injured": false,
+      "marketValue": "€10.00m",
+      "name": "Cristian Volpato",
+      "overall_score": 70,
+      "position": "Attacking Midfield",
+      "potential": 78
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/7006.png",
+        "name": "Melbourne Victory"
+      },
+      "dateOfBirth": "May 7, 2001",
+      "foot": "right",
+      "height": "1,81m",
+      "id": "888140",
+      "injured": false,
+      "marketValue": "€650k",
+      "name": "Nishan Velupillay",
+      "overall_score": 65,
+      "position": "Left Winger",
+      "potential": 68
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2502.png",
+        "name": "CD Castellón"
+      },
+      "dateOfBirth": "Sep 15, 1995",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "255729",
+      "injured": false,
+      "marketValue": "€400k",
+      "name": "Awer Mabil",
+      "overall_score": 68,
+      "position": "Left Winger",
+      "potential": 68
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/25580.png",
+        "name": "Melbourne City FC"
+      },
+      "dateOfBirth": "Feb 4, 1991",
+      "foot": "right",
+      "height": "1,81m",
+      "id": "126214",
+      "injured": false,
+      "marketValue": "€300k",
+      "name": "Mathew Leckie",
+      "overall_score": 70,
+      "position": "Left Winger",
+      "potential": 70
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1010.png",
+        "name": "Watford FC"
+      },
+      "dateOfBirth": "Feb 9, 2006",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "956920",
+      "injured": false,
+      "marketValue": "€8.00m",
+      "name": "Nestory Irankunda",
+      "overall_score": 69,
+      "position": "Right Winger",
+      "potential": 84
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1123.png",
+        "name": "Norwich City"
+      },
+      "dateOfBirth": "Mar 26, 2004",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "742770",
+      "injured": false,
+      "marketValue": "€8.00m",
+      "name": "Mohamed Touré",
+      "overall_score": 69,
+      "position": "Centre-Forward",
+      "potential": 76
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/23568.png",
+        "name": "Machida Zelvia"
+      },
+      "dateOfBirth": "Nov 28, 2000",
+      "foot": "right",
+      "height": "1,97m",
+      "id": "849429",
+      "injured": false,
+      "marketValue": "€250k",
+      "name": "Tete Yengi",
+      "overall_score": 59,
+      "position": "Centre-Forward",
+      "potential": 64
+    }
+  ],
+  "stadiumName": null,
+  "stadiumSeats": null,
+  "transfermarktId": "3433"
+}

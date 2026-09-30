@@ -1,0 +1,332 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/2260.png",
+  "name": "SK Sturm Graz",
+  "players": [
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 26, 1998",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "30034",
+      "marketValue": "€30k",
+      "name": "Sarah-Lisa Dübel",
+      "nationality": [
+        "Germany"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Nov 14, 1997",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "16479",
+      "marketValue": "€25k",
+      "name": "Vanessa Gritzner",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "21",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Jul 9, 1999",
+      "foot": "left",
+      "height": "1,68m",
+      "id": "41737",
+      "marketValue": "€30k",
+      "name": "Merel Bormans",
+      "nationality": [
+        "Netherlands"
+      ],
+      "number": "3",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 19, 2006",
+      "foot": "",
+      "height": "",
+      "id": "73129",
+      "marketValue": "€20k",
+      "name": "Lucie Krejčová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 30, 2009",
+      "foot": "left",
+      "height": "",
+      "id": "104516",
+      "marketValue": "",
+      "name": "Nina Wippel",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "5",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 29, 2007",
+      "foot": "",
+      "height": "",
+      "id": "86229",
+      "marketValue": "€15k",
+      "name": "Johanna Riedler",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "9",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jan 27, 2001",
+      "foot": "left",
+      "height": "1,67m",
+      "id": "36445",
+      "marketValue": "€50k",
+      "name": "Stefanie Großgasteiger",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "19",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jan 1, 2001",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "29498",
+      "marketValue": "€40k",
+      "name": "Laura Riesenbeck",
+      "nationality": [
+        "Germany"
+      ],
+      "number": "25",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "May 12, 2006",
+      "foot": "left",
+      "height": "1,66m",
+      "id": "60685",
+      "marketValue": "€30k",
+      "name": "Leonie Tragl",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "26",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 24, 2003",
+      "foot": "",
+      "height": "",
+      "id": "65943",
+      "marketValue": "€20k",
+      "name": "Julia Wattilete",
+      "nationality": [
+        "Netherlands"
+      ],
+      "number": "29",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Mar 18, 2004",
+      "foot": "right",
+      "height": "1,63m",
+      "id": "42967",
+      "marketValue": "€30k",
+      "name": "Julia Keutz",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "8",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 15, 2011",
+      "foot": "right",
+      "height": "",
+      "id": "119006",
+      "marketValue": "",
+      "name": "Leonie Bidner",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "11",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jan 8, 2002",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "36740",
+      "marketValue": "€30k",
+      "name": "Ružica Krajinović",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": 2,
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 29, 2010",
+      "foot": "",
+      "height": "",
+      "id": "118633",
+      "marketValue": "",
+      "name": "Katja Weber",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "14",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Aug 9, 1996",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "10882",
+      "marketValue": "€30k",
+      "name": "Sophie Maierhofer",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "15",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 10, 1996",
+      "foot": "left",
+      "height": "1,62m",
+      "id": "28905",
+      "marketValue": "€30k",
+      "name": "Sara Pavlović",
+      "nationality": [
+        "Serbia"
+      ],
+      "number": "16",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 16, 2007",
+      "foot": "right",
+      "height": "1,71m",
+      "id": "70303",
+      "marketValue": "€55k",
+      "name": "Lena Breznik",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "17",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 23, 2010",
+      "foot": "right",
+      "height": "",
+      "id": "119086",
+      "marketValue": "",
+      "name": "Emma Kaiser",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "18",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 27, 2006",
+      "foot": "right",
+      "height": "1,68m",
+      "id": "73241",
+      "marketValue": "€40k",
+      "name": "Marie Spieß",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "28",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 15, 2000",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "40156",
+      "marketValue": "€60k",
+      "name": "Brigitta Pulins",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "7",
+      "position": "Right Winger"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Sep 14, 1999",
+      "foot": "right",
+      "height": "1,74m",
+      "id": "24794",
+      "marketValue": "€35k",
+      "name": "Laura Krumböck",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "10",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 18, 1998",
+      "foot": "right",
+      "height": "1,68m",
+      "id": "35317",
+      "marketValue": "€45k",
+      "name": "Zala Kuštrin",
+      "nationality": [
+        "Slovenia"
+      ],
+      "number": "23",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 14, 1992",
+      "foot": "left",
+      "height": "1,81m",
+      "id": "8681",
+      "marketValue": "€30k",
+      "name": "Lilla Sipos",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "77",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Messendorf Trainingszentrum",
+  "stadiumSeats": "0",
+  "transfermarktId": "2260",
+  "country": "AT"
+}

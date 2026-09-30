@@ -1,0 +1,57 @@
+{
+  "id": "PORCUP",
+  "name": "Taça de Portugal Feminina",
+  "seasonID": "2026",
+  "clubs": [
+    {
+      "id": "5157",
+      "name": "C.S. Marítimo",
+      "entryRound": 1
+    },
+    {
+      "id": "8656",
+      "name": "Rio Ave FC",
+      "entryRound": 1
+    },
+    {
+      "id": "9601",
+      "name": "Vitória Sport Clube Guimarães",
+      "entryRound": 1
+    },
+    {
+      "id": "5355",
+      "name": "Valadares Gaia Futebol Clube",
+      "entryRound": 1
+    },
+    {
+      "id": "6182",
+      "name": "Sporting Clube de Braga Feminino",
+      "entryRound": 2
+    },
+    {
+      "id": "8655",
+      "name": "Racing Power Football Club",
+      "entryRound": 2
+    },
+    {
+      "id": "8257",
+      "name": "SC Uniao Torreense",
+      "entryRound": 2
+    },
+    {
+      "id": "15718",
+      "name": "FC Porto",
+      "entryRound": 2
+    },
+    {
+      "id": "6224",
+      "name": "Sporting Clube de Portugal",
+      "entryRound": 2
+    },
+    {
+      "id": "6534",
+      "name": "SL Benfica",
+      "entryRound": 2
+    }
+  ]
+}

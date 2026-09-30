@@ -1,0 +1,97 @@
+<?php
+
+namespace App\Modules\Season\Services;
+
+use App\Modules\Competition\Services\CountryConfig;
+use App\Modules\Lineup\Enums\Formation;
+use App\Modules\Season\Jobs\SetupNewGame;
+use App\Models\Competition;
+use App\Models\CompetitionTeam;
+use App\Models\Game;
+use App\Models\GameStadium;
+use App\Models\GameTactics;
+use App\Models\Team;
+use Ramsey\Uuid\Uuid;
+
+class GameCreationService
+{
+    public function create(string $userId, string $teamId, string $gameMode = 'career'): Game
+    {
+        $gameId = Uuid::uuid4()->toString();
+
+        // Find competition for the selected team (prefer primary league, then any)
+        // Scoped to each competition's current season: an unscoped lookup can
+        // match a row from a previous season and start the career in the club's
+        // old division. $competitionTeam->season below also seeds base_season,
+        // which pins the save to a data/{season}/ folder for its whole life, so
+        // a stale row here is not something a later rollover corrects.
+        $competitionTeam = CompetitionTeam::forCurrentSeason()->where('team_id', $teamId)
+            ->whereHas('competition', fn($q) => $q->where('role', Competition::ROLE_LEAGUE)->where('tier', 1))
+            ->first()
+            ?? CompetitionTeam::forCurrentSeason()->where('team_id', $teamId)
+                ->whereHas('competition', fn($q) => $q->where('role', Competition::ROLE_PRIMARY))
+                ->first()
+            ?? CompetitionTeam::forCurrentSeason()->where('team_id', $teamId)->first();
+
+        $team = Team::with('reserveTeam')->find($teamId);
+
+        // Resolve competition ID: use competition_team lookup, fall back to
+        // tier 1 of the team's country from config
+        $competitionId = $competitionTeam?->competition_id;
+        if (!$competitionId) {
+            $countryConfig = app(CountryConfig::class);
+            $competitionId = $countryConfig->competitionForTier($team->country ?? 'ES', 1);
+        }
+        $season = $competitionTeam->season ?? config('season.current');
+
+        // Resolve reserve team (filial) for managers of parent clubs.
+        // The user's club becomes filial if it has a reserve team and isn't itself one.
+        $reserveTeamId = $team->parent_team_id === null ? $team->reserveTeam?->id : null;
+
+        // Create game record (setup not yet complete)
+        // current_date and season_goal are set by processors during SetupNewGame
+        $game = Game::create([
+            'id' => $gameId,
+            'user_id' => $userId,
+            'game_mode' => $gameMode,
+            'country' => $team->country ?? 'ES',
+            'team_id' => $teamId,
+            'reserve_team_id' => $reserveTeamId,
+            'competition_id' => $competitionId,
+            'season' => $season,
+            'base_season' => $season,
+            'current_date' => null,
+            'season_goal' => null,
+            'setup_completed_at' => null,
+            'squad_registration_enabled' => true,
+            'release_clauses_enabled' => true,
+        ]);
+
+        // Create default tactical settings
+        GameTactics::create(['game_id' => $gameId, 'default_formation' => Formation::F_4_3_3->value]);
+
+        // Snapshot the user team's stadium capacity. Team.stadium_seats is
+        // immutable per-game; this row becomes the per-game source of truth
+        // for capacity once the user starts upgrading. Skipped for tournament
+        // mode, which has no stadium upgrade flow.
+        if ($gameMode !== Game::MODE_TOURNAMENT) {
+            GameStadium::create([
+                'game_id' => $gameId,
+                'team_id' => $teamId,
+                'base_capacity' => $team->stadium_seats,
+                'base_uefa_level' => $team->uefa_stadium_category,
+            ]);
+        }
+
+        // Dispatch heavy initialization to a queued job
+        SetupNewGame::dispatch(
+            gameId: $gameId,
+            teamId: $teamId,
+            competitionId: $competitionId,
+            season: $season,
+            gameMode: $gameMode,
+        );
+
+        return $game;
+    }
+}

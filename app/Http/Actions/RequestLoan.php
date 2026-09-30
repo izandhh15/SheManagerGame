@@ -1,0 +1,116 @@
+<?php
+
+namespace App\Http\Actions;
+
+use App\Modules\Finance\Services\SalaryCapService;
+use App\Modules\ReserveTeam\Services\ReserveTeamService;
+use App\Modules\Transfer\Exceptions\SquadMinimumException;
+use App\Modules\Transfer\Services\LoanService;
+use App\Models\Game;
+use App\Models\GamePlayer;
+use Illuminate\Http\Request;
+
+class RequestLoan
+{
+    public function __construct(
+        private readonly LoanService $loanService,
+        private readonly ReserveTeamService $reserveTeamService,
+        private readonly SalaryCapService $salaryCapService,
+    ) {}
+
+    public function __invoke(Request $request, string $gameId, string $playerId)
+    {
+        $game = Game::with(['team', 'finances'])->findOrFail($gameId);
+        $player = GamePlayer::where('game_id', $gameId)->with(['team'])->findOrFail($playerId);
+
+        // Determine if this is loan-in (from scouting) or loan-out (from squad).
+        // Reserve-team players also belong to the user's club, so loan-out applies.
+        $isLoanOut = $player->team_id === $game->team_id
+            || ($game->reserve_team_id !== null && $player->team_id === $game->reserve_team_id);
+
+        if ($isLoanOut) {
+            return $this->handleLoanOut($game, $player);
+        }
+
+        return $this->handleLoanIn($game, $player);
+    }
+
+    private function handleLoanIn(Game $game, GamePlayer $player)
+    {
+        // Defence in depth: a player the user already owns (e.g. loaned-out
+        // from the first team but currently sitting on a third club's roster)
+        // should never enter the loan-in flow.
+        if ($player->isUserOwned($game)) {
+            return redirect()->back()
+                ->with('error', __('transfers.cannot_target_own_player'));
+        }
+
+        // Can't loan a free agent — no parent team to return to
+        if ($player->team_id === null) {
+            return redirect()->back()
+                ->with('error', __('messages.cannot_loan_free_agent'));
+        }
+
+        // Salary cap: the borrowing club pays a loaned-in player's full wage
+        // (there is no loan subsidy), so it counts in full against the cap.
+        if (! $this->salaryCapService->canCommitWage($game, (int) $player->annual_wage)) {
+            return redirect()->back()
+                ->with('error', $this->salaryCapService->blockMessage($game, $player->name, (int) $player->annual_wage));
+        }
+
+        $this->loanService->requestLoanIn($game, $player);
+
+        return redirect()->back()
+            ->with('success', __('messages.loan_request_submitted', ['player' => $player->name]));
+    }
+
+    private function handleLoanOut(Game $game, GamePlayer $player)
+    {
+        // A reserve call-up loaned out to a third club is treated as a
+        // permanent promotion: close the call-up loan now so the loan-out
+        // proceeds from a clean first-team state. Listing the player is a
+        // clear commitment to keep them on the first-team roster.
+        if ($player->isCalledUpFromReserve($game)) {
+            $this->reserveTeamService->permanentlyPromoteCalledUpPlayer($player, $game);
+        }
+
+        // Check player isn't already on loan
+        if ($player->isOnLoan()) {
+            return redirect()->back()
+                ->with('error', __('messages.already_on_loan', ['player' => $player->name]));
+        }
+
+        // Check player isn't already searching for a loan
+        if ($player->hasActiveLoanSearch()) {
+            return redirect()->back()
+                ->with('error', __('messages.loan_search_active', ['player' => $player->name]));
+        }
+
+        // Check player isn't already listed for sale
+        if ($player->isTransferListed()) {
+            return redirect()->back()
+                ->with('error', __('messages.already_on_loan', ['player' => $player->name]));
+        }
+
+        try {
+            $this->loanService->startLoanSearch($game, $player);
+        } catch (SquadMinimumException $e) {
+            return redirect()->back()->with('error', $this->formatBreachMessage($e));
+        }
+
+        return redirect()->back()
+            ->with('success', __('messages.loan_search_started', ['player' => $player->name]));
+    }
+
+    private function formatBreachMessage(SquadMinimumException $e): string
+    {
+        if ($e->type() === 'too_small') {
+            return __('messages.list_for_loan_squad_too_small', ['min' => $e->min()]);
+        }
+
+        return __('messages.list_for_loan_position_minimum', [
+            'group' => __('squad.' . strtolower($e->group()) . 's'),
+            'min'   => $e->min(),
+        ]);
+    }
+}

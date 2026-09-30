@@ -1,0 +1,414 @@
+@php
+/** @var App\Models\Game $game */
+/** @var App\Models\GameFinances $finances */
+/** @var App\Models\GameInvestment|null $investment */
+/** @var int $initialTransferBudget */
+/** @var int $salesRevenue */
+/** @var int $purchaseSpending */
+/** @var int $infrastructureSpending */
+/** @var bool $hasTransferActivity */
+/** @var App\Models\BudgetLoan|null $activeLoan */
+/** @var bool $canRequestLoan */
+/** @var int $maxLoanAmount */
+@endphp
+
+<x-app-layout>
+    <x-slot name="header">
+        <x-game-header :game="$game" :next-match="$game->next_match"></x-game-header>
+    </x-slot>
+
+    <div class="max-w-7xl mx-auto px-4 pb-8">
+
+        {{-- Club hub title + subnav --}}
+        <div class="mt-6 mb-4">
+            <h2 class="font-heading text-2xl lg:text-3xl font-bold uppercase tracking-wide text-text-primary">{{ __('club.hub_title') }}</h2>
+        </div>
+        <x-club-section-nav :game="$game" active="finances" />
+
+        @if($finances)
+        <div class="mt-6"></div>
+
+        {{-- Post-season results banner --}}
+        @if($finances->actual_total_revenue > 0)
+        <div class="bg-surface-800 border border-border-default rounded-xl p-4 md:p-5 mb-6">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div class="flex flex-wrap items-center gap-4 md:gap-6">
+                    <div>
+                        <div class="text-[10px] text-text-muted uppercase tracking-widest">{{ __('finances.projected_revenue') }}</div>
+                        <div class="font-heading text-lg font-bold text-text-body">{{ $finances->formatted_projected_total_revenue }}</div>
+                    </div>
+                    <svg class="w-4 h-4 text-text-faint hidden md:block" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                    <div>
+                        <div class="text-[10px] text-text-muted uppercase tracking-widest">{{ __('finances.actual_revenue') }}</div>
+                        <div class="font-heading text-lg font-bold text-text-body">{{ $finances->formatted_actual_total_revenue }}</div>
+                    </div>
+                    <svg class="w-4 h-4 text-text-faint hidden md:block" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" /></svg>
+                    <div>
+                        <div class="text-[10px] text-text-muted uppercase tracking-widest">{{ __('finances.variance') }}</div>
+                        <div class="font-heading text-lg font-bold {{ $finances->variance >= 0 ? 'text-accent-green' : 'text-accent-red' }}">{{ $finances->formatted_variance }}</div>
+                    </div>
+                </div>
+                <div class="md:text-right">
+                    <div class="text-[10px] text-text-muted uppercase tracking-widest">{{ __('finances.actual_surplus') }}</div>
+                    <div class="font-heading text-2xl font-bold text-text-primary">{{ $finances->formatted_actual_surplus }}</div>
+                </div>
+            </div>
+        </div>
+        @endif
+
+        {{-- KPI Cards: asset (squad value) → constraint (salary cap) → spending power (transfer budget).
+             Equal-height grid so the cards share one shape; the cap card consolidates the wage
+             bill and wage/revenue ratio that used to be separate, duplicate cards. --}}
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+            <x-summary-card :label="__('finances.squad_value')" :value="\App\Support\Money::format($squadValue)" :caption="__('finances.squad_size', ['count' => $squadSize])" />
+            <x-summary-card :label="__('finances.salary_cap')" :tooltip="__('finances.tooltip_salary_cap', ['percent' => $salaryCapRatioPercent])">
+                <x-salary-cap-meter :bill="$salaryCapBill" :cap="$salaryCap" :status="$salaryCapStatus" :room="$salaryCapRoom" />
+                @if($tradingAllowanceRoom > 0)
+                    <p class="text-[11px] text-accent-green mt-1">{{ __('finances.salary_cap_includes_trading', ['amount' => \App\Support\Money::format($tradingAllowanceRoom)]) }}</p>
+                @endif
+            </x-summary-card>
+            @if($investment)
+            <x-summary-card :label="__('finances.transfer_budget')" :value="$investment->formatted_transfer_budget" value-class="text-accent-blue" :caption="__('finances.initial_budget_caption', ['amount' => \App\Support\Money::format($initialTransferBudget)])" />
+            @endif
+        </div>
+
+        {{-- 2-Column Layout --}}
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+
+            {{-- LEFT COLUMN (2/3) --}}
+            <div class="lg:col-span-2 space-y-6">
+
+                {{-- Budget Flow / Budget Not Set --}}
+                @if($investment)
+                <x-section-card :title="__('finances.budget_flow')" :badge="__('finances.season_budget', ['season' => $game->formatted_season])">
+                    <div class="px-5 py-4 space-y-0 text-sm">
+                        {{-- Revenue line items --}}
+                        @php
+                            $revenueLines = [
+                                ['label' => __('finances.tv_rights'), 'tooltip' => __('finances.tooltip_tv_rights'), 'value' => $finances->formatted_projected_tv_revenue, 'show' => true],
+                                ['label' => __('finances.commercial'), 'tooltip' => __('finances.tooltip_commercial'), 'value' => $finances->formatted_projected_commercial_revenue, 'show' => true],
+                                ['label' => __('finances.naming_rights'), 'tooltip' => __('finances.tooltip_naming_rights'), 'value' => $finances->formatted_projected_naming_rights_revenue, 'show' => $finances->projected_naming_rights_revenue > 0],
+                                ['label' => __('finances.matchday'), 'tooltip' => __('finances.tooltip_matchday'), 'value' => $finances->formatted_projected_matchday_revenue, 'show' => true],
+                                ['label' => __('finances.solidarity_funds'), 'tooltip' => __('finances.tooltip_solidarity_funds'), 'value' => $finances->formatted_projected_solidarity_funds_revenue, 'show' => $finances->projected_solidarity_funds_revenue > 0],
+                                ['label' => __('finances.public_subsidy'), 'tooltip' => __('finances.tooltip_public_subsidy'), 'value' => $finances->formatted_projected_subsidy_revenue, 'show' => $finances->projected_subsidy_revenue > 0],
+                            ];
+                        @endphp
+                        @foreach($revenueLines as $line)
+                            @if($line['show'])
+                            <div class="flex items-center justify-between py-2">
+                                <span class="text-text-muted pl-5 flex items-center gap-1.5">{{ $line['label'] }} <x-info-icon :tooltip="$line['tooltip']" /></span>
+                                <span class="text-accent-green font-medium">+{{ $line['value'] }}</span>
+                            </div>
+                            @endif
+                        @endforeach
+                        <div class="border-t border-border-default pt-2 mt-1">
+                            <div class="flex items-center justify-between py-1">
+                                <span class="font-semibold text-text-body pl-5">{{ __('finances.total_revenue') }}</span>
+                                <span class="font-semibold text-accent-green">+{{ $finances->formatted_projected_total_revenue }}</span>
+                            </div>
+                        </div>
+
+                        {{-- Deductions --}}
+                        @php
+                            $deductionLines = [
+                                ['label' => __('finances.projected_wages'), 'tooltip' => __('finances.tooltip_wages'), 'value' => $finances->formatted_projected_wages, 'show' => true],
+                                ['label' => __('finances.operating_expenses'), 'tooltip' => __('finances.tooltip_operating_expenses'), 'value' => $finances->formatted_projected_operating_expenses, 'show' => true],
+                                ['label' => __('finances.taxes'), 'tooltip' => __('finances.tooltip_taxes'), 'value' => \App\Support\Money::format($finances->projected_taxes), 'show' => $finances->projected_taxes > 0],
+                            ];
+                        @endphp
+                        @foreach($deductionLines as $line)
+                            @if($line['show'])
+                            <div class="flex items-center justify-between py-2">
+                                <span class="text-text-muted pl-5 flex items-center gap-1.5">{{ $line['label'] }} <x-info-icon :tooltip="$line['tooltip']" /></span>
+                                <span class="text-accent-red font-medium">-{{ $line['value'] }}</span>
+                            </div>
+                            @endif
+                        @endforeach
+
+                        {{-- Surplus line --}}
+                        <div class="border-t border-border-default pt-2 mt-1">
+                            <div class="flex items-center justify-between py-1">
+                                <span class="font-semibold text-text-body pl-5 flex items-center gap-1.5">{{ __('finances.projected_surplus') }} <x-info-icon :tooltip="__('finances.tooltip_surplus')" /></span>
+                                <span class="font-semibold text-text-body">{{ $finances->formatted_projected_surplus }}</span>
+                            </div>
+                        </div>
+
+                        {{-- Carried debt --}}
+                        @if($finances->carried_debt > 0)
+                        <div class="flex items-center justify-between py-2">
+                            <span class="text-text-muted pl-5 flex items-center gap-1.5">{{ __('finances.carried_debt') }} <x-info-icon :tooltip="__('finances.tooltip_carried_debt')" /></span>
+                            <span class="text-accent-red font-medium">-{{ $finances->formatted_carried_debt }}</span>
+                        </div>
+                        @endif
+
+                        {{-- Carried surplus --}}
+                        @if($finances->carried_surplus > 0)
+                        <div class="flex items-center justify-between py-2">
+                            <span class="text-text-muted pl-5 flex items-center gap-1.5">{{ __('finances.carried_surplus') }} <x-info-icon :tooltip="__('finances.tooltip_carried_surplus')" /></span>
+                            <span class="text-accent-green font-medium">+{{ $finances->formatted_carried_surplus }}</span>
+                        </div>
+                        @endif
+
+                        {{-- Loan repayment from previous season --}}
+                        @if($finances->previous_loan_repayment > 0)
+                        <div class="flex items-center justify-between py-2">
+                            <span class="text-text-muted pl-5 flex items-center gap-1.5">{{ __('finances.loan_repayment_deduction') }} <x-info-icon :tooltip="__('finances.tooltip_loan_repayment_deduction')" /></span>
+                            <span class="text-accent-red font-medium">-{{ $finances->formatted_previous_loan_repayment }}</span>
+                        </div>
+                        @endif
+
+                        {{-- Stadium loan debt service --}}
+                        @if($finances->projected_stadium_debt_service > 0)
+                        <div class="flex items-center justify-between py-2">
+                            <span class="text-text-muted pl-5 flex items-center gap-1.5">{{ __('finances.stadium_debt_service') }} <x-info-icon :tooltip="__('finances.tooltip_stadium_debt_service')" /></span>
+                            <span class="text-accent-red font-medium">-{{ $finances->formatted_projected_stadium_debt_service }}</span>
+                        </div>
+                        @endif
+
+                        {{-- Infrastructure deduction --}}
+                        <div class="flex items-center justify-between py-2">
+                            <span class="text-text-muted pl-5 flex items-center gap-1.5">{{ __('finances.infrastructure_investment') }} <x-info-icon :tooltip="__('finances.tooltip_infrastructure')" /></span>
+                            <span class="text-accent-red font-medium">-{{ \App\Support\Money::format($investment->total_infrastructure - $infrastructureSpending) }}</span>
+                        </div>
+
+                        @if($hasTransferActivity)
+                        {{-- Season Allocation line --}}
+                        <div class="border-t-2 border-border-strong pt-2 mt-1">
+                            <div class="flex items-center justify-between py-1">
+                                <span class="font-semibold text-text-body flex items-center gap-1.5">= {{ __('finances.season_allocation') }}</span>
+                                <span class="font-semibold text-text-body">{{ \App\Support\Money::format($initialTransferBudget) }}</span>
+                            </div>
+                        </div>
+
+                        {{-- Transfer Activity section --}}
+                        <div class="mt-3 pt-3 border-t border-dashed border-border-strong">
+                            <div class="flex items-center gap-1.5 mb-2">
+                                <span class="text-[10px] font-semibold text-text-muted uppercase tracking-widest">{{ __('finances.transfer_activity') }}</span>
+                            </div>
+                            @if($salesRevenue > 0)
+                            <div class="flex items-center justify-between py-1.5">
+                                <span class="text-text-muted pl-5">{{ __('finances.player_sales') }}</span>
+                                <span class="text-accent-green font-medium">+{{ \App\Support\Money::format($salesRevenue) }}</span>
+                            </div>
+                            @endif
+                            @if($purchaseSpending > 0)
+                            <div class="flex items-center justify-between py-1.5">
+                                <span class="text-text-muted pl-5">{{ __('finances.player_purchases') }}</span>
+                                <span class="text-accent-red font-medium">-{{ \App\Support\Money::format($purchaseSpending) }}</span>
+                            </div>
+                            @endif
+                            @if($infrastructureSpending > 0)
+                            <div class="flex items-center justify-between py-1.5">
+                                <span class="text-text-muted pl-5">{{ __('finances.infrastructure_upgrades') }}</span>
+                                <span class="text-accent-red font-medium">-{{ \App\Support\Money::format($infrastructureSpending) }}</span>
+                            </div>
+                            @endif
+                            @if($activeLoan)
+                            <div class="flex items-center justify-between py-1.5">
+                                <span class="text-text-muted pl-5 flex items-center gap-1.5">{{ __('finances.budget_loan') }} <x-info-icon :tooltip="__('finances.tooltip_loan_activity')" /></span>
+                                <span class="text-accent-green font-medium">+{{ $activeLoan->formatted_amount }}</span>
+                            </div>
+                            @endif
+                        </div>
+
+                        {{-- Final: Current Transfer Budget --}}
+                        <div class="border-t-2 border-border-strong pt-2 mt-1">
+                            <div class="flex items-center justify-between py-1">
+                                <span class="font-heading font-semibold text-lg text-text-primary flex items-center gap-1.5">= {{ __('finances.current_transfer_budget') }} <x-info-icon :tooltip="__('finances.tooltip_transfer_budget')" class="text-text-muted" /></span>
+                                <span class="font-heading font-bold text-lg text-text-primary">{{ $investment->formatted_transfer_budget }}</span>
+                            </div>
+                        </div>
+                        @else
+                        {{-- No transfer activity: simple Transfer Budget line --}}
+                        <div class="border-t-2 border-border-strong pt-2 mt-1">
+                            <div class="flex items-center justify-between py-1">
+                                <span class="font-heading font-semibold text-lg text-text-primary flex items-center gap-1.5">= {{ __('finances.transfer_budget') }} <x-info-icon :tooltip="__('finances.tooltip_transfer_budget')" class="text-text-muted" /></span>
+                                <span class="font-heading font-bold text-lg text-text-primary">{{ $investment->formatted_transfer_budget }}</span>
+                            </div>
+                        </div>
+                        @endif
+                    </div>
+                </x-section-card>
+                @else
+                {{-- Budget not allocated --}}
+                <div class="bg-surface-800 border-2 border-dashed border-accent-gold/30 rounded-xl text-center py-8 px-6">
+                    <div class="text-sm text-accent-gold font-medium mb-2">{{ __('finances.budget_not_set') }}</div>
+                    <div class="font-heading text-3xl font-bold text-text-primary mb-1">{{ $finances->formatted_available_surplus }}</div>
+                    <div class="text-sm text-text-muted mb-4">{{ __('finances.surplus_to_allocate') }}</div>
+                    <x-primary-button-link :href="route('game.club.investment', $game->id)" class="gap-2">
+                        {{ __('finances.setup_season_budget') }} &rarr;
+                    </x-primary-button-link>
+                </div>
+                @endif
+
+                {{-- Transaction History --}}
+                <x-section-card :title="__('finances.transaction_history')" x-data="{ filter: 'all' }">
+                    @if($transactions->isNotEmpty())
+                    <x-slot name="badge">
+                        <div class="flex items-center gap-4 text-xs">
+                            <span class="text-accent-green font-medium">+{{ \App\Support\Money::format($totalIncome) }} {{ __('finances.income') }}</span>
+                            <span class="text-accent-red font-medium">-{{ \App\Support\Money::format($totalExpenses) }} {{ __('finances.expenses') }}</span>
+                        </div>
+                    </x-slot>
+                    @endif
+
+                    @if($transactions->isNotEmpty())
+                    {{-- Filter tabs --}}
+                    <div class="px-5 pt-3 flex gap-2 border-b border-border-default">
+                        <x-tab-button size="xs" @click="filter = 'all'" class="rounded-t"
+                                x-bind:class="filter === 'all' ? 'border-accent-blue text-accent-blue' : 'border-transparent text-text-muted hover:text-text-body'">
+                            {{ __('finances.filter_all') }}
+                        </x-tab-button>
+                        <x-tab-button size="xs" @click="filter = 'income'" class="rounded-t"
+                                x-bind:class="filter === 'income' ? 'border-accent-blue text-accent-blue' : 'border-transparent text-text-muted hover:text-text-body'">
+                            {{ __('finances.filter_income') }}
+                        </x-tab-button>
+                        <x-tab-button size="xs" @click="filter = 'expense'" class="rounded-t"
+                                x-bind:class="filter === 'expense' ? 'border-accent-blue text-accent-blue' : 'border-transparent text-text-muted hover:text-text-body'">
+                            {{ __('finances.filter_expenses') }}
+                        </x-tab-button>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="text-left text-[10px] text-text-muted uppercase tracking-widest border-b border-border-default">
+                                    <th class="px-5 py-2.5 font-semibold">{{ __('finances.date') }}</th>
+                                    <th class="py-2.5 font-semibold">{{ __('finances.type') }}</th>
+                                    <th class="py-2.5 font-semibold hidden md:table-cell">{{ __('finances.description') }}</th>
+                                    <th class="py-2.5 pr-5 font-semibold text-right">{{ __('finances.amount') }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($transactions as $transaction)
+                                <tr class="border-b border-border-default"
+                                    x-show="filter === 'all' || filter === '{{ $transaction->type }}'"
+                                    x-transition>
+                                    <td class="px-5 py-2.5 text-text-muted whitespace-nowrap">{{ $transaction->transaction_date->locale(app()->getLocale())->translatedFormat('d M') }}</td>
+                                    <td class="py-2.5">
+                                        <span class="px-2 py-0.5 text-[10px] font-semibold rounded-full {{ $transaction->isIncome() ? 'bg-accent-green/10 text-accent-green' : 'bg-accent-red/10 text-accent-red' }}">
+                                            {{ $transaction->category_label }}
+                                        </span>
+                                    </td>
+                                    <td class="py-2.5 text-text-secondary hidden md:table-cell">{{ $transaction->description }}</td>
+                                    <td class="py-2.5 pr-5 text-right text-base font-heading font-semibold {{ $transaction->amount == 0 ? 'text-text-muted' : ($transaction->isIncome() ? 'text-accent-green' : 'text-accent-red') }}">
+                                        @if($transaction->amount == 0)
+                                            {{ __('finances.free') }}
+                                        @else
+                                            {{ $transaction->signed_amount }}
+                                        @endif
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    @else
+                    <div class="p-8 text-center">
+                        <p class="text-text-muted">{{ __('finances.no_transactions') }}</p>
+                        <p class="text-sm text-text-faint mt-1">{{ __('finances.transactions_hint') }}</p>
+                    </div>
+                    @endif
+                </x-section-card>
+            </div>
+
+            {{-- RIGHT COLUMN (1/3) --}}
+            <div class="space-y-6">
+
+                {{-- Budget Loan --}}
+                @if($investment)
+                <x-section-card :title="__('finances.budget_loan')">
+                    <div class="p-4">
+                        @if($activeLoan)
+                            {{-- Active loan display --}}
+                            <div class="space-y-3">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <span class="inline-flex items-center px-2 py-0.5 text-[10px] font-bold rounded-full bg-accent-gold/10 text-accent-gold uppercase tracking-wider">{{ __('finances.loan_active') }}</span>
+                                </div>
+                                <div class="flex items-center justify-between py-1.5">
+                                    <span class="text-sm text-text-muted">{{ __('finances.loan_principal') }}</span>
+                                    <span class="text-sm font-semibold text-accent-green">+{{ $activeLoan->formatted_amount }}</span>
+                                </div>
+                                <div class="flex items-center justify-between py-1.5">
+                                    <span class="text-sm text-text-muted">{{ __('finances.loan_interest') }}</span>
+                                    <span class="text-sm font-medium text-accent-red">{{ $activeLoan->formatted_interest_amount }}</span>
+                                </div>
+                                <div class="border-t border-border-default pt-2">
+                                    <div class="flex items-center justify-between py-1">
+                                        <span class="text-sm font-semibold text-text-body">{{ __('finances.loan_repayment') }}</span>
+                                        <span class="text-sm font-bold text-text-primary">{{ $activeLoan->formatted_repayment_amount }}</span>
+                                    </div>
+                                </div>
+                                <p class="text-[10px] text-text-faint mt-2">{{ __('finances.loan_repayment_hint') }}</p>
+                            </div>
+                        @elseif($canRequestLoan && $maxLoanAmount > 0)
+                            {{-- Request loan form --}}
+                            @php
+                                $loanMin = config('finances.loan.minimum', 50_000_000) / 100;
+                                $loanMax = $maxLoanAmount / 100;
+                                $loanInterestRate = config('finances.loan.interest_rate', 1500);
+                            @endphp
+                            <div x-data="loanRequestForm({ loanMax: @js($loanMax), interestRate: @js($loanInterestRate) })">
+                                <p class="text-sm text-text-secondary mb-3">{{ __('finances.loan_description') }}</p>
+                                <div class="flex items-center justify-between mb-3">
+                                    <span class="text-[10px] text-text-muted uppercase tracking-widest flex items-center gap-1">{{ __('finances.loan_max_available') }} <x-info-icon :tooltip="__('finances.tooltip_loan_max')" /></span>
+                                    <span class="font-heading text-lg font-bold text-text-primary">{{ \App\Support\Money::format($maxLoanAmount) }}</span>
+                                </div>
+
+                                <template x-if="!showForm">
+                                    <x-ghost-button color="amber" size="xs" @click="showForm = true" class="w-full justify-center gap-1.5 font-semibold py-2">
+                                        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+                                        {{ __('finances.loan_request_button') }}
+                                    </x-ghost-button>
+                                </template>
+
+                                <div x-show="showForm" x-cloak class="space-y-3">
+                                    <form method="POST" action="{{ route('game.budget-loan', $game->id) }}">
+                                        @csrf
+                                        <div class="space-y-3">
+                                            <div>
+                                                <label class="text-[10px] text-text-muted uppercase tracking-widest block mb-1">{{ __('finances.loan_amount_label') }}</label>
+                                                <x-money-input name="amount" :value="$loanMax" :min="$loanMin" :max="$loanMax" size="sm" x-model.number="amount" />
+                                            </div>
+                                            <div class="bg-surface-700/30 rounded-lg p-3 space-y-1.5">
+                                                <div class="flex items-center justify-between text-[11px]">
+                                                    <span class="text-text-muted">{{ __('finances.loan_interest_rate') }}</span>
+                                                    <span class="text-text-secondary font-medium" x-text="interestPercent"></span>
+                                                </div>
+                                                <div class="flex items-center justify-between text-[11px]">
+                                                    <span class="text-text-muted">{{ __('finances.loan_total_repayment') }}</span>
+                                                    <span class="text-accent-red font-semibold" x-text="repaymentTotal"></span>
+                                                </div>
+                                            </div>
+                                            <p class="text-[10px] text-accent-gold">{{ __('finances.loan_warning') }}</p>
+                                            <div class="flex gap-2">
+                                                <x-primary-button color="amber" size="xs" class="flex-1 justify-center">
+                                                    {{ __('finances.loan_confirm') }}
+                                                </x-primary-button>
+                                                <x-ghost-button color="slate" size="xs" @click="showForm = false" type="button" class="flex-1 justify-center">
+                                                    {{ __('finances.loan_cancel') }}
+                                                </x-ghost-button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        @else
+                            {{-- Loan not available --}}
+                            <p class="text-sm text-text-muted">{{ __('finances.loan_not_available_desc') }}</p>
+                        @endif
+                    </div>
+                </x-section-card>
+                @endif
+
+            </div>
+        </div>
+
+        @else
+        <div class="mt-12 text-center py-12 text-text-muted">
+            <p>{{ __('finances.no_financial_data') }}</p>
+        </div>
+        @endif
+
+    </div>
+</x-app-layout>

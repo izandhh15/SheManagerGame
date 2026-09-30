@@ -1,0 +1,332 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/154.png",
+  "name": "Glasgow City LFC",
+  "players": [
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jun 20, 1999",
+      "foot": "",
+      "height": "",
+      "id": "31651",
+      "marketValue": "",
+      "name": "Erin Clachers",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "25",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "Sep 23, 1991",
+      "foot": "",
+      "height": "1,69m",
+      "id": "8957",
+      "marketValue": "",
+      "name": "Lee Gibson",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "29",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2029",
+      "dateOfBirth": "Jun 28, 2003",
+      "foot": "right",
+      "height": "1,71m",
+      "id": "38741",
+      "marketValue": "",
+      "name": "Yana Kotyk",
+      "nationality": [
+        "Ukraine"
+      ],
+      "number": "2",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "Mar 7, 2000",
+      "foot": "",
+      "height": "",
+      "id": "40811",
+      "marketValue": "",
+      "name": "Amy Muir",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "3",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Jul 7, 2000",
+      "foot": "",
+      "height": "1,78m",
+      "id": "88657",
+      "marketValue": "",
+      "name": "Jesi Rossman",
+      "nationality": [
+        "United States"
+      ],
+      "number": "16",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "May 21, 1992",
+      "foot": "right",
+      "height": "1,66m",
+      "id": "6635",
+      "marketValue": "€35k",
+      "name": "Lisa Evans",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "17",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Sep 4, 1993",
+      "foot": "",
+      "height": "",
+      "id": "23912",
+      "marketValue": "",
+      "name": "Emma Brownlie",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "24",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "Jun 4, 1990",
+      "foot": "",
+      "height": "1,70m",
+      "id": "10127",
+      "marketValue": "",
+      "name": "Hayley Lauder",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "4",
+      "position": "Left Winger"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Mar 9, 2003",
+      "foot": "",
+      "height": "",
+      "id": "47501",
+      "marketValue": "",
+      "name": "Erín McLaughlin",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "6",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Jun 30, 2029",
+      "dateOfBirth": "Dec 14, 2006",
+      "foot": "",
+      "height": "",
+      "id": "74069",
+      "marketValue": "",
+      "name": "Ruby Seaby",
+      "nationality": [
+        "England"
+      ],
+      "number": "8",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jul 1, 1998",
+      "foot": "right",
+      "height": "1,63m",
+      "id": "30877",
+      "marketValue": "€25k",
+      "name": "Linda Motlhalo",
+      "nationality": [
+        "South Africa"
+      ],
+      "number": "10",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "Nov 27, 1997",
+      "foot": "",
+      "height": "1,62m",
+      "id": "22127",
+      "marketValue": "",
+      "name": "Amy Anderson",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "14",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 12, 1997",
+      "foot": "right",
+      "height": "1,63m",
+      "id": "54266",
+      "marketValue": "€10k",
+      "name": "Yuuka Kurosaki",
+      "nationality": [
+        "Japan"
+      ],
+      "number": "20",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Jun 30, 2029",
+      "dateOfBirth": "May 2, 2004",
+      "foot": "right",
+      "height": "",
+      "id": "64631",
+      "marketValue": "",
+      "name": "Tia Primmer",
+      "nationality": [
+        "England"
+      ],
+      "number": "22",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Oct 5, 2000",
+      "foot": "",
+      "height": "1,63m",
+      "id": "66350",
+      "marketValue": "€55k",
+      "name": "Emily Gray",
+      "nationality": [
+        "United States"
+      ],
+      "number": "23",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Jun 30, 2029",
+      "dateOfBirth": "Jun 13, 2005",
+      "foot": "",
+      "height": "",
+      "id": "72349",
+      "marketValue": "€10k",
+      "name": "Leah Lane",
+      "nationality": [
+        "England"
+      ],
+      "number": "",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2029",
+      "dateOfBirth": "Apr 7, 2006",
+      "foot": "",
+      "height": "",
+      "id": "78126",
+      "marketValue": "",
+      "name": "Lisa Forrest",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "7",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "Dec 7, 1997",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "22139",
+      "marketValue": "€25k",
+      "name": "Abi Harrison",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "9",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Aug 22, 2002",
+      "foot": "",
+      "height": "1,63m",
+      "id": "38586",
+      "marketValue": "€25k",
+      "name": "Emily Whelan",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "11",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 5, 2002",
+      "foot": "",
+      "height": "1,70m",
+      "id": "40269",
+      "marketValue": "",
+      "name": "Kelly Brady",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "18",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Jun 30, 2029",
+      "dateOfBirth": "Jul 8, 2000",
+      "foot": "",
+      "height": "1,65m",
+      "id": "39892",
+      "marketValue": "",
+      "name": "Nicole Kozlova",
+      "nationality": [
+        "Ukraine"
+      ],
+      "number": "19",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Sep 20, 2004",
+      "foot": "",
+      "height": "1,63m",
+      "id": "46735",
+      "marketValue": "",
+      "name": "Sofia Määttä",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "21",
+      "position": "Left Midfield"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Jan 28, 2007",
+      "foot": "",
+      "height": "",
+      "id": "78127",
+      "marketValue": "",
+      "name": "Sophia Martin",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "30",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Petershill Park",
+  "stadiumSeats": "1000",
+  "transfermarktId": "154",
+  "country": "GB-SCT"
+}

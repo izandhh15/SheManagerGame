@@ -1,0 +1,3555 @@
+{
+  "id": "NED1",
+  "name": "Eredivisie Vrouwen",
+  "seasonID": "2026",
+  "clubs": [
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/4566.png",
+      "name": "Ajax Amsterdam",
+      "stadiumName": "De Toekomst",
+      "stadiumSeats": 5000,
+      "transfermarktId": "4566",
+      "players": [
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Feb 6, 2007",
+          "foot": "",
+          "height": "",
+          "id": "73857",
+          "marketValue": "€25k",
+          "name": "Danae van der Vliet",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 7, 2006",
+          "foot": "",
+          "height": "",
+          "id": "96766",
+          "marketValue": "€20k",
+          "name": "Suus van der Weide",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "22",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 2, 2005",
+          "foot": "right",
+          "height": "1,81m",
+          "id": "56447",
+          "marketValue": "€60k",
+          "name": "Femke Liefting",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "28",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 3, 2010",
+          "foot": "",
+          "height": "",
+          "id": "109819",
+          "marketValue": "€30k",
+          "name": "Julia van Rijsewijk",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "31",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 2, 2002",
+          "foot": "",
+          "height": "",
+          "id": "84428",
+          "marketValue": "€50k",
+          "name": "Amber Visscher",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "2",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 11, 1999",
+          "foot": "",
+          "height": "",
+          "id": "38515",
+          "marketValue": "€55k",
+          "name": "Daniëlle Noordermeer",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Feb 17, 2001",
+          "foot": "right",
+          "height": "1,74m",
+          "id": "39903",
+          "marketValue": "€100k",
+          "name": "Sari Kees",
+          "nationality": [
+            "Belgium"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jun 13, 2001",
+          "foot": "",
+          "height": "",
+          "id": "34075",
+          "marketValue": "€40k",
+          "name": "Anna Knol",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Aug 7, 2003",
+          "foot": "left",
+          "height": "1,57m",
+          "id": "42282",
+          "marketValue": "€60k",
+          "name": "Ella Touon",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "15",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jul 2, 2004",
+          "foot": "",
+          "height": "1,74m",
+          "id": "55348",
+          "marketValue": "€30k",
+          "name": "Louise van Oosten",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "18",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 18, 2005",
+          "foot": "",
+          "height": "",
+          "id": "62805",
+          "marketValue": "€70k",
+          "name": "Daliyah de Klonia",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "24",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jul 29, 1998",
+          "foot": "",
+          "height": "1,66m",
+          "id": "27862",
+          "marketValue": "€90k",
+          "name": "Nadine Noordam",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "6",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 29, 1990",
+          "foot": "right",
+          "height": "1,66m",
+          "id": "1838",
+          "marketValue": "€30k",
+          "name": "Sherida Spitse",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Apr 18, 2006",
+          "foot": "",
+          "height": "",
+          "id": "74018",
+          "marketValue": "€45k",
+          "name": "Jade van Hensbergen",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "12",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Feb 25, 2003",
+          "foot": "",
+          "height": "",
+          "id": "61777",
+          "marketValue": "€60k",
+          "name": "Sophie te Brake",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "16",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 13, 2006",
+          "foot": "",
+          "height": "",
+          "id": "74013",
+          "marketValue": "€85k",
+          "name": "Mirte van Koppen",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "19",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Sep 21, 2004",
+          "foot": "",
+          "height": "",
+          "id": "58115",
+          "marketValue": "€15k",
+          "name": "Isa Colin",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "20",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jul 27, 2005",
+          "foot": "",
+          "height": "1,65m",
+          "id": "62813",
+          "marketValue": "€25k",
+          "name": "Kealyn Thomas",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "21",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Feb 8, 1998",
+          "foot": "",
+          "height": "",
+          "id": "29982",
+          "marketValue": "€20k",
+          "name": "Nurija van Schoonhoven",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "27",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 20, 2008",
+          "foot": "",
+          "height": "",
+          "id": "104615",
+          "marketValue": "€30k",
+          "name": "Vera Sweers",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "29",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 31, 2010",
+          "foot": "",
+          "height": "",
+          "id": "109817",
+          "marketValue": "€50k",
+          "name": "Elisa van Dijk",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "30",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 27, 2009",
+          "foot": "",
+          "height": "",
+          "id": "109784",
+          "marketValue": "",
+          "name": "Jade Otterman",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "32",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 29, 2008",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "86954",
+          "marketValue": "€85k",
+          "name": "Ranneke Derks",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "7",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Aug 31, 1996",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "29922",
+          "marketValue": "€90k",
+          "name": "Katja Snoeijs",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 7, 2000",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "34030",
+          "marketValue": "€50k",
+          "name": "Joëlle Smits",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "10",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Nov 13, 2006",
+          "foot": "",
+          "height": "1,75m",
+          "id": "77702",
+          "marketValue": "€110k",
+          "name": "Bo van Egmond",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "11",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 28, 2008",
+          "foot": "right",
+          "height": "1,75m",
+          "id": "86950",
+          "marketValue": "€40k",
+          "name": "Lina Touzani",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "25",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 30, 2006",
+          "foot": "",
+          "height": "",
+          "id": "81788",
+          "marketValue": "€40k",
+          "name": "Xanne Kip",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "26",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2010",
+          "foot": "",
+          "height": "",
+          "id": "109803",
+          "marketValue": "",
+          "name": "Kyara Deitelzweig Senior",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "35",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/4585.png",
+      "name": "FCE/PSV",
+      "stadiumName": "Sportcomplex de Herdgang",
+      "stadiumSeats": 2500,
+      "transfermarktId": "4585",
+      "players": [
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "May 26, 1995",
+          "foot": "left",
+          "height": "1,76m",
+          "id": "20696",
+          "marketValue": "€65k",
+          "name": "Nicky Evrard",
+          "nationality": [
+            "Belgium"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Jul 23, 2002",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "38417",
+          "marketValue": "€15k",
+          "name": "Lisan Alkemade",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "16",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 9, 2007",
+          "foot": "",
+          "height": "",
+          "id": "117161",
+          "marketValue": "€15k",
+          "name": "Kim Akkermans",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "31",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 15, 1996",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "27089",
+          "marketValue": "€45k",
+          "name": "Sara Thrige",
+          "nationality": [
+            "Denmark"
+          ],
+          "number": "2",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 4, 2001",
+          "foot": "",
+          "height": "",
+          "id": "35139",
+          "marketValue": "€50k",
+          "name": "Gwyneth Hendriks",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Aug 24, 2005",
+          "foot": "",
+          "height": "",
+          "id": "62806",
+          "marketValue": "€55k",
+          "name": "Maud Rutgers",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 21, 1997",
+          "foot": "",
+          "height": "",
+          "id": "33697",
+          "marketValue": "€60k",
+          "name": "Melanie Bross",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 9, 1999",
+          "foot": "right",
+          "height": "1,76m",
+          "id": "33793",
+          "marketValue": "€45k",
+          "name": "Aniek Nouwen",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "14",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 11, 2006",
+          "foot": "",
+          "height": "",
+          "id": "74014",
+          "marketValue": "€40k",
+          "name": "Anissa Chibani",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "23",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 25, 2005",
+          "foot": "",
+          "height": "1,70m",
+          "id": "63442",
+          "marketValue": "€45k",
+          "name": "Emma Frijns",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "25",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 24, 2009",
+          "foot": "",
+          "height": "",
+          "id": "109786",
+          "marketValue": "€15k",
+          "name": "Ayesha Selderbeek",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "37",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 20, 2009",
+          "foot": "",
+          "height": "",
+          "id": "109794",
+          "marketValue": "",
+          "name": "Maxime Hoogeveen",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "40",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 6, 2009",
+          "foot": "",
+          "height": "",
+          "id": "109814",
+          "marketValue": "€15k",
+          "name": "Benthe Schippers",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "43",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 31, 2008",
+          "foot": "",
+          "height": "",
+          "id": "86959",
+          "marketValue": "",
+          "name": "Lieke van Ierland",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "48",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 2, 2005",
+          "foot": "",
+          "height": "1,66m",
+          "id": "62811",
+          "marketValue": "€55k",
+          "name": "Robine Lacroix",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "6",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "May 21, 1997",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "21037",
+          "marketValue": "€45k",
+          "name": "Sisca Folkertsma",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Dec 16, 2001",
+          "foot": "",
+          "height": "",
+          "id": "40048",
+          "marketValue": "€100k",
+          "name": "Chimera Ripa",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "10",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Aug 1, 1999",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "24843",
+          "marketValue": "€90k",
+          "name": "Julia Hickelsberger",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "11",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 12, 1988",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "13654",
+          "marketValue": "€30k",
+          "name": "Janice Cayman",
+          "nationality": [
+            "Belgium"
+          ],
+          "number": "19",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Dec 3, 2000",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "42422",
+          "marketValue": "€15k",
+          "name": "Josefine Funch",
+          "nationality": [
+            "Denmark"
+          ],
+          "number": "24",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2030",
+          "dateOfBirth": "Jan 22, 2008",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "86949",
+          "marketValue": "€65k",
+          "name": "Rosalie Renfurm",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "30",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 5, 2010",
+          "foot": "",
+          "height": "",
+          "id": "109806",
+          "marketValue": "€15k",
+          "name": "Elise Fischer",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "46",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 2, 2003",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "70723",
+          "marketValue": "€45k",
+          "name": "Princess Marfo",
+          "nationality": [
+            "Ghana"
+          ],
+          "number": "7",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Nov 21, 1999",
+          "foot": "right",
+          "height": "1,80m",
+          "id": "35781",
+          "marketValue": "€50k",
+          "name": "Fenna Kalma",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 27, 2005",
+          "foot": "right",
+          "height": "1,74m",
+          "id": "58035",
+          "marketValue": "€150k",
+          "name": "Lore Jacobs",
+          "nationality": [
+            "Belgium"
+          ],
+          "number": "17",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Feb 14, 2002",
+          "foot": "right",
+          "height": "1,74m",
+          "id": "50264",
+          "marketValue": "€125k",
+          "name": "Liz Rijsbergen",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "18",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Nov 24, 2008",
+          "foot": "",
+          "height": "1,69m",
+          "id": "99804",
+          "marketValue": "€85k",
+          "name": "Aymee Altena",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "20",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 2, 1992",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "1998",
+          "marketValue": "€30k",
+          "name": "Shanice van de Sanden",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "21",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 14, 2008",
+          "foot": "",
+          "height": "",
+          "id": "105214",
+          "marketValue": "€15k",
+          "name": "Lotus Meekelenkamp",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "47",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/126.png",
+      "name": "FC Twente",
+      "stadiumName": "Sportpark Schreurserve",
+      "stadiumSeats": 2000,
+      "transfermarktId": "126",
+      "players": [
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Oct 7, 1996",
+          "foot": "",
+          "height": "1,69m",
+          "id": "17132",
+          "marketValue": "€35k",
+          "name": "Diede Lemey",
+          "nationality": [
+            "Belgium"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Dec 6, 2004",
+          "foot": "",
+          "height": "",
+          "id": "58886",
+          "marketValue": "€15k",
+          "name": "Fiene Bussman",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "16",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 20, 2008",
+          "foot": "",
+          "height": "1,72m",
+          "id": "87594",
+          "marketValue": "€15k",
+          "name": "Tess Doeschot",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "22",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Oct 3, 2000",
+          "foot": "",
+          "height": "",
+          "id": "29984",
+          "marketValue": "€15k",
+          "name": "Moon Esteves",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "26",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Feb 7, 2003",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "47246",
+          "marketValue": "€45k",
+          "name": "Fenna Meijer",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jul 13, 2005",
+          "foot": "",
+          "height": "",
+          "id": "67612",
+          "marketValue": "€45k",
+          "name": "Karlijn Woons",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Mar 31, 2007",
+          "foot": "",
+          "height": "",
+          "id": "74035",
+          "marketValue": "€15k",
+          "name": "Juul Oudenampsen",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 3, 2000",
+          "foot": "",
+          "height": "",
+          "id": "38394",
+          "marketValue": "€40k",
+          "name": "Leonie Carpay",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "12",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 9, 2007",
+          "foot": "",
+          "height": "",
+          "id": "105903",
+          "marketValue": "€35k",
+          "name": "Jette Wiefferink",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "15",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 10, 2008",
+          "foot": "",
+          "height": "",
+          "id": "120696",
+          "marketValue": "€15k",
+          "name": "Cornelia Los",
+          "nationality": [
+            "Australia"
+          ],
+          "number": "17",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Feb 2, 2008",
+          "foot": "",
+          "height": "",
+          "id": "104613",
+          "marketValue": "€20k",
+          "name": "Maud Koster",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "21",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "May 15, 2002",
+          "foot": "",
+          "height": "",
+          "id": "58111",
+          "marketValue": "€30k",
+          "name": "Camie Mol",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "25",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 25, 2001",
+          "foot": "",
+          "height": "",
+          "id": "42520",
+          "marketValue": "€30k",
+          "name": "Imre van der Vegt",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "2",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Nov 17, 2003",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "59345",
+          "marketValue": "€50k",
+          "name": "Lynn Groenewegen",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "6",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 25, 2001",
+          "foot": "",
+          "height": "",
+          "id": "35153",
+          "marketValue": "€60k",
+          "name": "Danique van Ginkel",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "8",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 22, 1997",
+          "foot": "right",
+          "height": "1,75m",
+          "id": "20273",
+          "marketValue": "€325k",
+          "name": "Jill Roord",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "10",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Feb 22, 2009",
+          "foot": "",
+          "height": "1,75m",
+          "id": "107602",
+          "marketValue": "€45k",
+          "name": "Anne Gelevert",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "20",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 17, 1996",
+          "foot": "both",
+          "height": "1,70m",
+          "id": "21784",
+          "marketValue": "€20k",
+          "name": "Inessa Naberman",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "23",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 19, 1993",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "4715",
+          "marketValue": "€25k",
+          "name": "Marthe Munsterman",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "24",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 19, 2007",
+          "foot": "",
+          "height": "",
+          "id": "115420",
+          "marketValue": "€15k",
+          "name": "Ava Bijvank",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "28",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 23, 2008",
+          "foot": "",
+          "height": "",
+          "id": "121692",
+          "marketValue": "€15k",
+          "name": "Sanne van Koningsveld",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "38",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 19, 2001",
+          "foot": "right",
+          "height": "",
+          "id": "40050",
+          "marketValue": "€175k",
+          "name": "Jaimy Ravensbergen",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "9",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 8, 2002",
+          "foot": "right",
+          "height": "",
+          "id": "35146",
+          "marketValue": "€75k",
+          "name": "Nikita Tromp",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "11",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 13, 2006",
+          "foot": "",
+          "height": "1,80m",
+          "id": "76669",
+          "marketValue": "€75k",
+          "name": "Eva Oude Elberink",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "14",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 21, 2007",
+          "foot": "",
+          "height": "",
+          "id": "74034",
+          "marketValue": "€50k",
+          "name": "Rose Ivens",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "29",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 20, 1993",
+          "foot": "",
+          "height": "1,75m",
+          "id": "14539",
+          "marketValue": "€35k",
+          "name": "Ella van Kerkhoven",
+          "nationality": [
+            "Belgium"
+          ],
+          "number": "33",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "May 2, 2008",
+          "foot": "",
+          "height": "",
+          "id": "115418",
+          "marketValue": "€30k",
+          "name": "Senna Brand",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "40",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/7951.png",
+      "name": "Feyenoord Rotterdam",
+      "stadiumName": "Sportcomplex Varkenoord 1",
+      "stadiumSeats": 1400,
+      "transfermarktId": "7951",
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 22, 2002",
+          "foot": "",
+          "height": "1,70m",
+          "id": "35128",
+          "marketValue": "€35k",
+          "name": "Claire Dinkla",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 11, 2007",
+          "foot": "",
+          "height": "",
+          "id": "91620",
+          "marketValue": "€20k",
+          "name": "Liz Oosting",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "18",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Jul 20, 2003",
+          "foot": "",
+          "height": "",
+          "id": "55171",
+          "marketValue": "€35k",
+          "name": "Oliwia Szymczak",
+          "nationality": [
+            "Poland"
+          ],
+          "number": "22",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 24, 2004",
+          "foot": "",
+          "height": "",
+          "id": "62801",
+          "marketValue": "€45k",
+          "name": "Joni Paliama",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 15, 2003",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "57676",
+          "marketValue": "€45k",
+          "name": "Akari Takeshige",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 29, 2005",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "73108",
+          "marketValue": "€45k",
+          "name": "Mia Schmid",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Aug 23, 2003",
+          "foot": "",
+          "height": "1,68m",
+          "id": "110414",
+          "marketValue": "€50k",
+          "name": "Avani Brandt",
+          "nationality": [
+            "United States"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 10, 2009",
+          "foot": "",
+          "height": "",
+          "id": "109793",
+          "marketValue": "€45k",
+          "name": "Tatum Haverhoek",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "8",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Sep 17, 2004",
+          "foot": "left",
+          "height": "1,58m",
+          "id": "56790",
+          "marketValue": "€50k",
+          "name": "Rio Sasaki",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "16",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 26, 2004",
+          "foot": "",
+          "height": "",
+          "id": "100890",
+          "marketValue": "€30k",
+          "name": "Sanne de Paus",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "26",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 21, 1999",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "35775",
+          "marketValue": "€30k",
+          "name": "Eva van Deursen",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "6",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Oct 8, 2002",
+          "foot": "right",
+          "height": "1,61m",
+          "id": "44027",
+          "marketValue": "€50k",
+          "name": "Kokona Iwasaki",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "7",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 6, 2001",
+          "foot": "right",
+          "height": "",
+          "id": "35149",
+          "marketValue": "€65k",
+          "name": "Kirsten van de Westeringh",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "10",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 29, 2005",
+          "foot": "right",
+          "height": "",
+          "id": "54877",
+          "marketValue": "€40k",
+          "name": "Sterre Kroezen",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "20",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 3, 2003",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "47240",
+          "marketValue": "€50k",
+          "name": "Tess van Bentem",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "21",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jun 29, 2007",
+          "foot": "right",
+          "height": "1,78m",
+          "id": "87497",
+          "marketValue": "€100k",
+          "name": "Casey Phair",
+          "nationality": [
+            "Korea, South"
+          ],
+          "number": "12",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 21, 2004",
+          "foot": "both",
+          "height": "1,73m",
+          "id": "67300",
+          "marketValue": "€75k",
+          "name": "Tori DellaPeruta",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "9",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 28, 2006",
+          "foot": "",
+          "height": "",
+          "id": "74015",
+          "marketValue": "€50k",
+          "name": "Ilayah Dostmohamed",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "11",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 2, 1997",
+          "foot": "right",
+          "height": "",
+          "id": "20581",
+          "marketValue": "€50k",
+          "name": "Esmee de Graaf",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "14",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 7, 2005",
+          "foot": "",
+          "height": "1,64m",
+          "id": "90595",
+          "marketValue": "€40k",
+          "name": "Noëlle van der Sluijs",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "17",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 9, 2004",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "64873",
+          "marketValue": "€40k",
+          "name": "Fleur Stoit",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "19",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 25, 2007",
+          "foot": "",
+          "height": "",
+          "id": "123896",
+          "marketValue": "",
+          "name": "Nassira Akachar",
+          "nationality": [
+            "Morocco"
+          ],
+          "number": "24",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 22, 2002",
+          "foot": "",
+          "height": "",
+          "id": "62526",
+          "marketValue": "€75k",
+          "name": "Romeé van de Lavoir",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "25",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 29, 2003",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "40370",
+          "marketValue": "€35k",
+          "name": "Zera Hulswit",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "28",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/577.png",
+      "name": "FC Zwolle",
+      "stadiumName": "Sportpark de Vegtlust",
+      "stadiumSeats": 1000,
+      "transfermarktId": "577",
+      "players": [
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "May 11, 2007",
+          "foot": "",
+          "height": "",
+          "id": "73852",
+          "marketValue": "€25k",
+          "name": "Noa Tissingh",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 17, 2003",
+          "foot": "",
+          "height": "",
+          "id": "122112",
+          "marketValue": "€25k",
+          "name": "Lotte van Hoof",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "16",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 28, 1999",
+          "foot": "",
+          "height": "",
+          "id": "41020",
+          "marketValue": "€30k",
+          "name": "Inge Tijink",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "22",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 29, 2010",
+          "foot": "",
+          "height": "",
+          "id": "124570",
+          "marketValue": "",
+          "name": "Tessa van der Sande",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "36",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 30, 2001",
+          "foot": "",
+          "height": "",
+          "id": "86595",
+          "marketValue": "€35k",
+          "name": "Jasmijn Dijsselhof",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 21, 2005",
+          "foot": "",
+          "height": "",
+          "id": "100074",
+          "marketValue": "€30k",
+          "name": "Mare Westerink",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Nov 13, 2003",
+          "foot": "",
+          "height": "",
+          "id": "47245",
+          "marketValue": "€45k",
+          "name": "Mayke Lindner",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 16, 2005",
+          "foot": "",
+          "height": "",
+          "id": "62807",
+          "marketValue": "€25k",
+          "name": "Melissa Schilder",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Apr 17, 2000",
+          "foot": "",
+          "height": "",
+          "id": "38395",
+          "marketValue": "€25k",
+          "name": "Kely Pruim",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "6",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 16, 2004",
+          "foot": "",
+          "height": "",
+          "id": "64187",
+          "marketValue": "€50k",
+          "name": "Jill van den Ende",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "15",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Aug 23, 2006",
+          "foot": "",
+          "height": "1,70m",
+          "id": "78557",
+          "marketValue": "€70k",
+          "name": "Inske Weiman",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "23",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 11, 2007",
+          "foot": "",
+          "height": "",
+          "id": "96987",
+          "marketValue": "€35k",
+          "name": "Lieve-Lot Burgers",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "24",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 15, 2003",
+          "foot": "",
+          "height": "",
+          "id": "43005",
+          "marketValue": "€20k",
+          "name": "Jill Diekman",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 24, 2006",
+          "foot": "",
+          "height": "",
+          "id": "79399",
+          "marketValue": "€85k",
+          "name": "Sophie van Vugt",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "10",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 10, 2002",
+          "foot": "",
+          "height": "",
+          "id": "50388",
+          "marketValue": "€90k",
+          "name": "Judith Roosjen",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "14",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 20, 2001",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "37763",
+          "marketValue": "€70k",
+          "name": "Chihiro Ishida",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "18",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Oct 24, 2007",
+          "foot": "",
+          "height": "",
+          "id": "74037",
+          "marketValue": "€40k",
+          "name": "Maureen van Drogen",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "21",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 26, 2007",
+          "foot": "",
+          "height": "",
+          "id": "123525",
+          "marketValue": "",
+          "name": "Bo Deelman",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "30",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 30, 2009",
+          "foot": "",
+          "height": "",
+          "id": "118732",
+          "marketValue": "€20k",
+          "name": "Louise Hulscher",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "37",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 29, 2007",
+          "foot": "",
+          "height": "1,75m",
+          "id": "83322",
+          "marketValue": "€55k",
+          "name": "Zoë Zuidberg",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "7",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 3, 2005",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "108902",
+          "marketValue": "€55k",
+          "name": "Persis Oteng",
+          "nationality": [
+            "Ghana"
+          ],
+          "number": "9",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 23, 2004",
+          "foot": "",
+          "height": "",
+          "id": "55509",
+          "marketValue": "€70k",
+          "name": "Ilvy Zijp",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "11",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 4, 2005",
+          "foot": "",
+          "height": "",
+          "id": "63441",
+          "marketValue": "€100k",
+          "name": "Hanna Huizenga",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "13",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 16, 2006",
+          "foot": "",
+          "height": "",
+          "id": "72608",
+          "marketValue": "€35k",
+          "name": "Aniek Janssen",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "17",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 28, 2008",
+          "foot": "",
+          "height": "",
+          "id": "104617",
+          "marketValue": "",
+          "name": "Sanne Moraal",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "35",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/52.png",
+      "name": "AZ Alkmaar",
+      "stadiumName": "AFAS Trainingscomplex",
+      "stadiumSeats": 2383,
+      "transfermarktId": "52",
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 25, 2006",
+          "foot": "",
+          "height": "1,80m",
+          "id": "77700",
+          "marketValue": "€35k",
+          "name": "Netty Booms",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 10, 2006",
+          "foot": "",
+          "height": "1,81m",
+          "id": "83404",
+          "marketValue": "€40k",
+          "name": "Febe Copier",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "13",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 14, 2010",
+          "foot": "",
+          "height": "",
+          "id": "118099",
+          "marketValue": "",
+          "name": "Anouk Visser",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "28",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 26, 2003",
+          "foot": "",
+          "height": "",
+          "id": "45217",
+          "marketValue": "€30k",
+          "name": "Ginia Caprino",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 21, 2005",
+          "foot": "",
+          "height": "1,71m",
+          "id": "70571",
+          "marketValue": "€35k",
+          "name": "Djoeke de Ridder",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 26, 1998",
+          "foot": "",
+          "height": "",
+          "id": "38273",
+          "marketValue": "€30k",
+          "name": "Amber Verspaget",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Sep 29, 1999",
+          "foot": "left",
+          "height": "1,59m",
+          "id": "31198",
+          "marketValue": "",
+          "name": "Zoë Van Eynde",
+          "nationality": [
+            "Belgium"
+          ],
+          "number": "14",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 19, 2006",
+          "foot": "",
+          "height": "",
+          "id": "90569",
+          "marketValue": "€45k",
+          "name": "Pleun Groot",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "15",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 9, 2004",
+          "foot": "",
+          "height": "",
+          "id": "55507",
+          "marketValue": "€45k",
+          "name": "Maudy Stoop",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "23",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 2, 2007",
+          "foot": "",
+          "height": "",
+          "id": "113442",
+          "marketValue": "€35k",
+          "name": "Esme de Vries",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "24",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Apr 4, 2009",
+          "foot": "",
+          "height": "",
+          "id": "109810",
+          "marketValue": "€20k",
+          "name": "Senna Oosterhof",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "26",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 2, 2002",
+          "foot": "",
+          "height": "",
+          "id": "40385",
+          "marketValue": "€40k",
+          "name": "Manique de Vette",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Dec 30, 1992",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "2727",
+          "marketValue": "€70k",
+          "name": "Desiree van Lunteren",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "10",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 20, 2006",
+          "foot": "",
+          "height": "",
+          "id": "90570",
+          "marketValue": "€40k",
+          "name": "Mirte Van Bentum",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "20",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 22, 2006",
+          "foot": "",
+          "height": "",
+          "id": "77703",
+          "marketValue": "€60k",
+          "name": "Jasmijn van Uden",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "21",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 16, 2008",
+          "foot": "",
+          "height": "",
+          "id": "106749",
+          "marketValue": "€25k",
+          "name": "Amy de Visser",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "29",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 8, 2009",
+          "foot": "",
+          "height": "",
+          "id": "109788",
+          "marketValue": "",
+          "name": "Jet Snoek",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "5",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 30, 2004",
+          "foot": "",
+          "height": "1,78m",
+          "id": "64479",
+          "marketValue": "€75k",
+          "name": "Jet van Beijeren",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "6",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 28, 1997",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "29811",
+          "marketValue": "€35k",
+          "name": "Sabrine Ellouzi",
+          "nationality": [
+            "Tunisia"
+          ],
+          "number": "7",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Aug 8, 2009",
+          "foot": "",
+          "height": "",
+          "id": "109823",
+          "marketValue": "€45k",
+          "name": "Donna Vos",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "11",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "May 2, 2009",
+          "foot": "",
+          "height": "1,73m",
+          "id": "108887",
+          "marketValue": "€40k",
+          "name": "Ayah Eloualidi",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "12",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 4, 2009",
+          "foot": "",
+          "height": "1,63m",
+          "id": "113438",
+          "marketValue": "",
+          "name": "Amana Lakradi",
+          "nationality": [
+            "Morocco"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 15, 2007",
+          "foot": "",
+          "height": "",
+          "id": "96768",
+          "marketValue": "€45k",
+          "name": "Angel Harting",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "16",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 31, 2000",
+          "foot": "",
+          "height": "",
+          "id": "33572",
+          "marketValue": "€35k",
+          "name": "Shanique Dessing",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "18",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 10, 1993",
+          "foot": "",
+          "height": "1,72m",
+          "id": "2699",
+          "marketValue": "€35k",
+          "name": "Eshly Bakker",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "25",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 15, 2007",
+          "foot": "",
+          "height": "",
+          "id": "97176",
+          "marketValue": "€15k",
+          "name": "Nikita Harting",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "17",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/128.png",
+      "name": "FC Utrecht",
+      "stadiumName": "Sportcomplex Zoudenbalch",
+      "stadiumSeats": 450,
+      "transfermarktId": "128",
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 11, 2001",
+          "foot": "",
+          "height": "",
+          "id": "39895",
+          "marketValue": "€65k",
+          "name": "Femke Bastiaen",
+          "nationality": [
+            "Belgium"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "May 3, 2006",
+          "foot": "",
+          "height": "",
+          "id": "96118",
+          "marketValue": "€20k",
+          "name": "Loïs de Heus",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "24",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 24, 1996",
+          "foot": "",
+          "height": "",
+          "id": "73849",
+          "marketValue": "€30k",
+          "name": "Felice Hermans",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Oct 8, 2006",
+          "foot": "left",
+          "height": "",
+          "id": "96779",
+          "marketValue": "€15k",
+          "name": "Carmen Werkhoven",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "5",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jul 31, 2007",
+          "foot": "",
+          "height": "",
+          "id": "114366",
+          "marketValue": "€35k",
+          "name": "Lynn Vos",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "11",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 20, 2007",
+          "foot": "left",
+          "height": "1,61m",
+          "id": "96986",
+          "marketValue": "€50k",
+          "name": "Esra Neter",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "12",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 2, 2005",
+          "foot": "",
+          "height": "",
+          "id": "99821",
+          "marketValue": "€35k",
+          "name": "Kiki Heshof",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "16",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 10, 2006",
+          "foot": "",
+          "height": "",
+          "id": "74011",
+          "marketValue": "€35k",
+          "name": "Merle Touw",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "22",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 1, 2007",
+          "foot": "",
+          "height": "",
+          "id": "122099",
+          "marketValue": "€25k",
+          "name": "Michaela Netto",
+          "nationality": [
+            "Aruba"
+          ],
+          "number": "23",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 8, 2008",
+          "foot": "right",
+          "height": "1,66m",
+          "id": "86952",
+          "marketValue": "€55k",
+          "name": "Aline Weerelts",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "33",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 5, 1991",
+          "foot": "right",
+          "height": "1,62m",
+          "id": "12701",
+          "marketValue": "€35k",
+          "name": "Chinatsu Kira",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "6",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 18, 1997",
+          "foot": "",
+          "height": "",
+          "id": "84427",
+          "marketValue": "€30k",
+          "name": "Moisa Verkuijl",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "May 31, 2004",
+          "foot": "",
+          "height": "1,63m",
+          "id": "57162",
+          "marketValue": "€40k",
+          "name": "Ziva Henry",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "14",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 11, 2007",
+          "foot": "",
+          "height": "",
+          "id": "83320",
+          "marketValue": "€15k",
+          "name": "Roza Vijlbrief",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "18",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 4, 2007",
+          "foot": "both",
+          "height": "1,57m",
+          "id": "74025",
+          "marketValue": "€20k",
+          "name": "Melek Hader",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "34",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 11, 2001",
+          "foot": "",
+          "height": "",
+          "id": "92527",
+          "marketValue": "€40k",
+          "name": "Sam de Jong",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "7",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 2, 2008",
+          "foot": "right",
+          "height": "1,62m",
+          "id": "104616",
+          "marketValue": "€60k",
+          "name": "Rochelity Dap",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "9",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 24, 2009",
+          "foot": "",
+          "height": "1,71m",
+          "id": "110138",
+          "marketValue": "€70k",
+          "name": "Claudia Scheunemann",
+          "nationality": [
+            "Indonesia"
+          ],
+          "number": "13",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 25, 2006",
+          "foot": "",
+          "height": "",
+          "id": "109592",
+          "marketValue": "€30k",
+          "name": "Ina Booms",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "19",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Jun 24, 2002",
+          "foot": "",
+          "height": "",
+          "id": "38397",
+          "marketValue": "€40k",
+          "name": "Lotje de Keijzer",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "20",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/26.png",
+      "name": "ADO Den Haag",
+      "stadiumName": "Bingoal Stadion",
+      "stadiumSeats": 15000,
+      "transfermarktId": "26",
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 4, 2006",
+          "foot": "",
+          "height": "",
+          "id": "74006",
+          "marketValue": "€35k",
+          "name": "Brenda Badenhop",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 19, 2026",
+          "foot": "",
+          "height": "",
+          "id": "120883",
+          "marketValue": "€15k",
+          "name": "Babette Buijs",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "16",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 20, 2006",
+          "foot": "",
+          "height": "",
+          "id": "73633",
+          "marketValue": "€40k",
+          "name": "Pia Bosmans",
+          "nationality": [
+            "Belgium"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 11, 2004",
+          "foot": "",
+          "height": "",
+          "id": "121952",
+          "marketValue": "€30k",
+          "name": "Annick van Boxtel",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 30, 2005",
+          "foot": "",
+          "height": "",
+          "id": "62808",
+          "marketValue": "€30k",
+          "name": "Deau den Turk",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 15, 2005",
+          "foot": "",
+          "height": "",
+          "id": "81326",
+          "marketValue": "€35k",
+          "name": "Robin Blom",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "5",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 14, 2003",
+          "foot": "",
+          "height": "1,75m",
+          "id": "56181",
+          "marketValue": "€45k",
+          "name": "Senna Koeleman",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "17",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 23, 2004",
+          "foot": "",
+          "height": "",
+          "id": "73334",
+          "marketValue": "€30k",
+          "name": "June Burgers",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "21",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 31, 2008",
+          "foot": "",
+          "height": "",
+          "id": "96128",
+          "marketValue": "€45k",
+          "name": "Nienke Mulder",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "6",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 22, 2005",
+          "foot": "",
+          "height": "",
+          "id": "62809",
+          "marketValue": "€40k",
+          "name": "Quinty Dupon",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "9",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 6, 2000",
+          "foot": "",
+          "height": "",
+          "id": "33831",
+          "marketValue": "€55k",
+          "name": "Nikki IJzerman",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "19",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Aug 21, 2007",
+          "foot": "",
+          "height": "",
+          "id": "115419",
+          "marketValue": "€45k",
+          "name": "Isa van Schaik",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "50",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 27, 2004",
+          "foot": "",
+          "height": "",
+          "id": "83872",
+          "marketValue": "€45k",
+          "name": "Anne van Egmond",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "7",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "May 18, 2007",
+          "foot": "",
+          "height": "",
+          "id": "74023",
+          "marketValue": "€45k",
+          "name": "Victoria Boerboom",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "10",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 24, 2005",
+          "foot": "",
+          "height": "1,53m",
+          "id": "90568",
+          "marketValue": "€35k",
+          "name": "Romaissa Boukakar",
+          "nationality": [
+            "Morocco"
+          ],
+          "number": "11",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 29, 2000",
+          "foot": "",
+          "height": "",
+          "id": "100256",
+          "marketValue": "€30k",
+          "name": "Ilse van Walsem",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "15",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 12, 2003",
+          "foot": "",
+          "height": "",
+          "id": "47236",
+          "marketValue": "€40k",
+          "name": "Elisha Kruize",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "8",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Dec 31, 2000",
+          "foot": "",
+          "height": "",
+          "id": "84408",
+          "marketValue": "€40k",
+          "name": "Tami Groenendijk",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "18",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 19, 2006",
+          "foot": "",
+          "height": "",
+          "id": "120884",
+          "marketValue": "€20k",
+          "name": "Sienna In ’t Veld",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "22",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 12, 2007",
+          "foot": "",
+          "height": "",
+          "id": "103745",
+          "marketValue": "€80k",
+          "name": "Floortje Bol",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "35",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/15297.png",
+      "name": "De Graafschap",
+      "stadiumName": "Sportpark Dichteren",
+      "stadiumSeats": 2150,
+      "transfermarktId": "15297",
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 28, 2005",
+          "foot": "",
+          "height": "",
+          "id": "50306",
+          "marketValue": "€20k",
+          "name": "Kiki Vissers",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 24, 2006",
+          "foot": "",
+          "height": "",
+          "id": "82959",
+          "marketValue": "€20k",
+          "name": "Hester Lensink",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "18",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 21, 2003",
+          "foot": "",
+          "height": "",
+          "id": "43083",
+          "marketValue": "€35k",
+          "name": "Dionne van der Wal",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "32",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 3, 2008",
+          "foot": "",
+          "height": "1,72m",
+          "id": "100227",
+          "marketValue": "€40k",
+          "name": "Inge Bolder",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 8, 2001",
+          "foot": "",
+          "height": "",
+          "id": "59267",
+          "marketValue": "€30k",
+          "name": "Rachel Kleine",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 12, 2000",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "42874",
+          "marketValue": "€35k",
+          "name": "Naomi Piqué",
+          "nationality": [
+            "Suriname"
+          ],
+          "number": "12",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 14, 2004",
+          "foot": "",
+          "height": "",
+          "id": "64872",
+          "marketValue": "€45k",
+          "name": "Lena Mahieu",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "15",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 24, 2001",
+          "foot": "",
+          "height": "",
+          "id": "96942",
+          "marketValue": "€30k",
+          "name": "Rosa van Wershoven",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "24",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 14, 1995",
+          "foot": "",
+          "height": "",
+          "id": "87208",
+          "marketValue": "€35k",
+          "name": "Gera op den Kelder",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "25",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 16, 2006",
+          "foot": "",
+          "height": "",
+          "id": "99829",
+          "marketValue": "€15k",
+          "name": "Bibi van Engen",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "6",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 14, 2008",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "100228",
+          "marketValue": "€45k",
+          "name": "Kee Hubert",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 22, 2010",
+          "foot": "",
+          "height": "",
+          "id": "109822",
+          "marketValue": "",
+          "name": "Mikki Veens",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "14",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 6, 2005",
+          "foot": "",
+          "height": "",
+          "id": "97266",
+          "marketValue": "€25k",
+          "name": "Tabitha Heijnsdijk",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "16",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 7, 2007",
+          "foot": "",
+          "height": "",
+          "id": "99895",
+          "marketValue": "€30k",
+          "name": "Anne Tijink",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "17",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 19, 2007",
+          "foot": "",
+          "height": "",
+          "id": "74024",
+          "marketValue": "€30k",
+          "name": "Marilyn Brummel",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "19",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 14, 2002",
+          "foot": "",
+          "height": "",
+          "id": "99827",
+          "marketValue": "€20k",
+          "name": "Kim Joosten",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "34",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 18, 2007",
+          "foot": "",
+          "height": "",
+          "id": "120237",
+          "marketValue": "€25k",
+          "name": "Sterre Visser",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "7",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 8, 2005",
+          "foot": "",
+          "height": "1,75m",
+          "id": "100052",
+          "marketValue": "€35k",
+          "name": "Sam Roddenhof",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "9",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 3, 2000",
+          "foot": "",
+          "height": "1,60m",
+          "id": "42522",
+          "marketValue": "€50k",
+          "name": "Samya Hassani",
+          "nationality": [
+            "Morocco"
+          ],
+          "number": "10",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 5, 2003",
+          "foot": "",
+          "height": "",
+          "id": "73911",
+          "marketValue": "€35k",
+          "name": "Dewi Snippe",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "11",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 3, 2007",
+          "foot": "",
+          "height": "",
+          "id": "100229",
+          "marketValue": "€20k",
+          "name": "Noni-Rose Joseph",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "4",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 7, 2005",
+          "foot": "",
+          "height": "1,76m",
+          "id": "55920",
+          "marketValue": "€60k",
+          "name": "Fieke Kroese",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "20",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 28, 1999",
+          "foot": "",
+          "height": "",
+          "id": "31209",
+          "marketValue": "€60k",
+          "name": "Bente Jansen",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "21",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 6, 2004",
+          "foot": "",
+          "height": "",
+          "id": "91987",
+          "marketValue": "€25k",
+          "name": "Ted Rooijendijk",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "22",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/294.png",
+      "name": "SC Heerenveen",
+      "stadiumName": "Skoatterwâld",
+      "stadiumSeats": 500,
+      "transfermarktId": "294",
+      "players": [
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Dec 4, 2001",
+          "foot": "right",
+          "height": "",
+          "id": "62454",
+          "marketValue": "€40k",
+          "name": "Jasmijn Resink",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 14, 2001",
+          "foot": "",
+          "height": "1,63m",
+          "id": "42014",
+          "marketValue": "€35k",
+          "name": "Anouk van der Klooster",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "12",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 4, 2005",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "61824",
+          "marketValue": "€25k",
+          "name": "Gloria Slišković",
+          "nationality": [
+            "Bosnia-Herzegovina"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Jul 30, 2005",
+          "foot": "",
+          "height": "",
+          "id": "90034",
+          "marketValue": "€30k",
+          "name": "Indy Appelman",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 5, 2004",
+          "foot": "",
+          "height": "1,72m",
+          "id": "61826",
+          "marketValue": "€25k",
+          "name": "Eef Smits",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 22, 2005",
+          "foot": "",
+          "height": "",
+          "id": "68556",
+          "marketValue": "€40k",
+          "name": "Elize van Vilsteren",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "14",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 11, 2006",
+          "foot": "",
+          "height": "",
+          "id": "96765",
+          "marketValue": "€30k",
+          "name": "Helena Macleane",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "15",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Aug 16, 2006",
+          "foot": "",
+          "height": "",
+          "id": "92464",
+          "marketValue": "€25k",
+          "name": "Marjolein Smit",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "16",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 18, 2001",
+          "foot": "",
+          "height": "",
+          "id": "112339",
+          "marketValue": "€25k",
+          "name": "Lisanne Venema",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "24",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 26, 2003",
+          "foot": "",
+          "height": "",
+          "id": "40386",
+          "marketValue": "€35k",
+          "name": "Emmeke Henschen",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "13",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Sep 26, 2003",
+          "foot": "",
+          "height": "",
+          "id": "47247",
+          "marketValue": "€35k",
+          "name": "Ana Nassette",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "5",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 5, 2004",
+          "foot": "",
+          "height": "1,64m",
+          "id": "55519",
+          "marketValue": "€50k",
+          "name": "Nayomi Buikema",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "6",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Aug 2, 2007",
+          "foot": "",
+          "height": "",
+          "id": "83318",
+          "marketValue": "€40k",
+          "name": "Hester Algra",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "7",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 8, 2005",
+          "foot": "",
+          "height": "",
+          "id": "78308",
+          "marketValue": "€35k",
+          "name": "Roos de Haas",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 29, 2003",
+          "foot": "",
+          "height": "",
+          "id": "45219",
+          "marketValue": "€30k",
+          "name": "Elfi Maass",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "10",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 8, 2007",
+          "foot": "",
+          "height": "1,66m",
+          "id": "74039",
+          "marketValue": "",
+          "name": "Greta Hünten",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "19",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 5, 2006",
+          "foot": "",
+          "height": "",
+          "id": "84079",
+          "marketValue": "€25k",
+          "name": "Bente Vermeer",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "21",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Feb 8, 2003",
+          "foot": "",
+          "height": "",
+          "id": "56180",
+          "marketValue": "€25k",
+          "name": "Janneke Verheijen",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "22",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 22, 2010",
+          "foot": "",
+          "height": "",
+          "id": "109808",
+          "marketValue": "",
+          "name": "Lisa Klooster",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "38",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 27, 2008",
+          "foot": "",
+          "height": "",
+          "id": "118730",
+          "marketValue": "€15k",
+          "name": "Freya de Groot",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "43",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 8, 2004",
+          "foot": "",
+          "height": "",
+          "id": "83871",
+          "marketValue": "€50k",
+          "name": "Brigitte Franken",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 26, 2003",
+          "foot": "",
+          "height": "",
+          "id": "90571",
+          "marketValue": "€30k",
+          "name": "Veerle van Spijk",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "11",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jun 14, 2010",
+          "foot": "",
+          "height": "",
+          "id": "118308",
+          "marketValue": "€60k",
+          "name": "Floorke de Boer",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "17",
+          "position": "Striker"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,356 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/3563.png",
+  "name": "Uzbekistan",
+  "players": [
+    {
+      "contract": "Sep 3, 2020",
+      "dateOfBirth": "Mar 20, 2001",
+      "foot": "right",
+      "height": "1,82m",
+      "id": "527866",
+      "marketValue": "€1.50m",
+      "name": "Abduvokhid Nematov",
+      "number": "12",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Oct 16, 2018",
+      "dateOfBirth": "Jan 4, 1991",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "311958",
+      "marketValue": "€600k",
+      "name": "Utkir Yusupov",
+      "number": "16",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "May 19, 2018",
+      "dateOfBirth": "Jun 23, 1995",
+      "foot": "right",
+      "height": "1,92m",
+      "id": "312690",
+      "marketValue": "€350k",
+      "name": "Botirali Ergashev",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 11, 2023",
+      "dateOfBirth": "Feb 29, 2004",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "763079",
+      "marketValue": "€12.00m",
+      "name": "Abdukodir Khusanov",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Sep 3, 2020",
+      "dateOfBirth": "Apr 4, 1999",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "581429",
+      "marketValue": "€1.70m",
+      "name": "Khusniddin Alikulov",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jan 23, 2017",
+      "dateOfBirth": "Jul 7, 1996",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "288883",
+      "marketValue": "€700k",
+      "name": "Rustam Ashurmatov",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Feb 23, 2020",
+      "dateOfBirth": "Nov 30, 1992",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "493725",
+      "marketValue": "€650k",
+      "name": "Umar Eshmurodov",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 25, 2023",
+      "dateOfBirth": "Jan 22, 1996",
+      "foot": "right",
+      "id": "500288",
+      "marketValue": "€600k",
+      "name": "Golib Gaybullaev",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 25, 2023",
+      "dateOfBirth": "Jul 6, 2001",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "883732",
+      "marketValue": "€600k",
+      "name": "Mukhammadkodir Khamraliev",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Nov 20, 2022",
+      "dateOfBirth": "Dec 28, 2002",
+      "foot": "left",
+      "id": "712357",
+      "marketValue": "€500k",
+      "name": "Alibek Davronov",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jan 27, 2022",
+      "dateOfBirth": "Jul 23, 1998",
+      "foot": "left",
+      "height": "1,83m",
+      "id": "608537",
+      "marketValue": "€1.20m",
+      "name": "Sherzod Nasrullaev",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "Sep 3, 2020",
+      "dateOfBirth": "Feb 14, 2001",
+      "foot": "left",
+      "height": "1,70m",
+      "id": "704545",
+      "marketValue": "€900k",
+      "name": "Ibrokhimkhalil Yuldoshev",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "Jun 7, 2019",
+      "dateOfBirth": "Apr 19, 1997",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "492558",
+      "marketValue": "€800k",
+      "name": "Khozhiakbar Alizhonov",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Jan 18, 2024",
+      "dateOfBirth": "Apr 28, 2003",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "989049",
+      "marketValue": "€500k",
+      "name": "Zafarmurod Abdirakhmatov",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Nov 14, 2017",
+      "dateOfBirth": "Feb 13, 1996",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "288915",
+      "marketValue": "€1.20m",
+      "name": "Odildzhon Khamrobekov",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Sep 5, 2021",
+      "dateOfBirth": "Sep 1, 1997",
+      "foot": "right",
+      "height": "1,81m",
+      "id": "570272",
+      "marketValue": "€750k",
+      "name": "Abdulla Abdullaev",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Mar 25, 2025",
+      "dateOfBirth": "Jul 20, 2002",
+      "foot": "right",
+      "height": "1,79m",
+      "id": "743864",
+      "marketValue": "€600k",
+      "name": "Abdurauf Buriev",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Aug 25, 2017",
+      "dateOfBirth": "Feb 22, 1998",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "431911",
+      "marketValue": "€2.80m",
+      "name": "Aziz Ganiev",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Feb 14, 2016",
+      "dateOfBirth": "Jun 22, 1996",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "294525",
+      "marketValue": "€1.80m",
+      "name": "Otabek Shukurov",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Sep 3, 2020",
+      "dateOfBirth": "Apr 2, 1999",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "562022",
+      "marketValue": "€1.30m",
+      "name": "Akmal Mozgovoy",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "May 19, 2018",
+      "dateOfBirth": "Oct 1, 1994",
+      "foot": "left",
+      "height": "1,73m",
+      "id": "493593",
+      "marketValue": "€1.00m",
+      "name": "Azizbek Turgunboev",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Nov 9, 2019",
+      "dateOfBirth": "Jan 8, 1998",
+      "foot": "right",
+      "height": "1,76m",
+      "id": "500289",
+      "marketValue": "€700k",
+      "name": "Abrorbek Ismoilov",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Sep 6, 2013",
+      "dateOfBirth": "Oct 16, 1993",
+      "foot": "left",
+      "height": "1,71m",
+      "id": "260857",
+      "marketValue": "€900k",
+      "name": "Jamshid Iskanderov",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Dec 25, 2023",
+      "dateOfBirth": "Jul 22, 2002",
+      "foot": "right",
+      "height": "1,74m",
+      "id": "704546",
+      "marketValue": "€750k",
+      "name": "Diyor Kholmatov",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Jun 2, 2019",
+      "dateOfBirth": "Dec 19, 2000",
+      "foot": "right",
+      "height": "1,81m",
+      "id": "492556",
+      "marketValue": "€2.50m",
+      "name": "Oston Urunov",
+      "position": "Left Winger"
+    },
+    {
+      "contract": "Jul 24, 2016",
+      "dateOfBirth": "Sep 1, 1993",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "274536",
+      "marketValue": "€1.80m",
+      "name": "Jaloliddin Masharipov",
+      "position": "Left Winger"
+    },
+    {
+      "contract": "Sep 3, 2020",
+      "dateOfBirth": "May 29, 2001",
+      "foot": "both",
+      "height": "1,73m",
+      "id": "630015",
+      "marketValue": "€1.50m",
+      "name": "Khozhimat Erkinov",
+      "position": "Left Winger"
+    },
+    {
+      "contract": "Jun 11, 2023",
+      "dateOfBirth": "Oct 3, 2003",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "754037",
+      "marketValue": "€8.00m",
+      "name": "Abbosbek Fayzullaev",
+      "position": "Right Winger"
+    },
+    {
+      "contract": "Jun 7, 2016",
+      "dateOfBirth": "Jul 24, 1996",
+      "foot": "both",
+      "height": "1,80m",
+      "id": "294502",
+      "marketValue": "€750k",
+      "name": "Dostonbek Khamdamov",
+      "position": "Right Winger"
+    },
+    {
+      "contract": "Sep 2, 2025",
+      "dateOfBirth": "Jul 15, 2001",
+      "height": "1,80m",
+      "id": "630017",
+      "marketValue": "€450k",
+      "name": "Alisher Odilov",
+      "position": "Right Winger"
+    },
+    {
+      "dateOfBirth": "Oct 21, 1994",
+      "foot": "right",
+      "id": "744137",
+      "marketValue": "€400k",
+      "name": "Anvar Khozhimirzaev",
+      "position": "Second Striker"
+    },
+    {
+      "contract": "Sep 3, 2015",
+      "dateOfBirth": "Jun 29, 1995",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "358166",
+      "marketValue": "€4.00m",
+      "name": "Eldor Shomurodov",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Sep 10, 2013",
+      "dateOfBirth": "Apr 30, 1993",
+      "foot": "left",
+      "height": "1,86m",
+      "id": "185372",
+      "marketValue": "€800k",
+      "name": "Igor Sergeev",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Jun 8, 2018",
+      "dateOfBirth": "Apr 23, 1997",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "431912",
+      "marketValue": "€800k",
+      "name": "Bobur Abdikholikov",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Oct 9, 2021",
+      "dateOfBirth": "Feb 6, 2002",
+      "foot": "left",
+      "height": "1,80m",
+      "id": "704549",
+      "marketValue": "€400k",
+      "name": "Khusayin Norchaev",
+      "position": "Centre-Forward"
+    }
+  ],
+  "stadiumName": null,
+  "stadiumSeats": null,
+  "transfermarktId": "3563"
+}

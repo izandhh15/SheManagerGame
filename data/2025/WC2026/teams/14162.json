@@ -1,0 +1,400 @@
+{
+  "image": "https://assets.virtuafc.com/crests/14162.png",
+  "name": "Qatar",
+  "players": [
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/656.png",
+        "name": "Al-Sadd SC"
+      },
+      "dateOfBirth": "Feb 14, 1998",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "560423",
+      "injured": false,
+      "marketValue": "€700k",
+      "name": "Meshaal Barsham",
+      "position": "Goalkeeper"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/26091.png",
+        "name": "Al-Duhail SC"
+      },
+      "dateOfBirth": "Apr 24, 1999",
+      "foot": "right",
+      "height": "1,88m",
+      "id": "632912",
+      "injured": false,
+      "marketValue": "€400k",
+      "name": "Salah Zakaria",
+      "position": "Goalkeeper"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/3229.png",
+        "name": "Al-Rayyan SC"
+      },
+      "dateOfBirth": "Feb 5, 2000",
+      "foot": "left",
+      "height": "1,91m",
+      "id": "669629",
+      "injured": false,
+      "marketValue": "€400k",
+      "name": "Mahmoud Abunada",
+      "position": "Goalkeeper"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/34694.png",
+        "name": "Al-Shahania SC"
+      },
+      "dateOfBirth": "Apr 18, 2000",
+      "foot": "left",
+      "height": "1,83m",
+      "id": "589101",
+      "injured": false,
+      "marketValue": "€350k",
+      "name": "Shehab Ellethy",
+      "position": "Goalkeeper"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/13509.png",
+        "name": "Al-Wakrah SC"
+      },
+      "dateOfBirth": "Jul 3, 1990",
+      "foot": "left",
+      "height": "1,84m",
+      "id": "83983",
+      "injured": false,
+      "marketValue": "€350k",
+      "name": "Lucas Mendes",
+      "position": "Centre-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1230.png",
+        "name": "Al-Arabi SC"
+      },
+      "dateOfBirth": "Aug 15, 2003",
+      "foot": "right",
+      "height": "1,84m",
+      "id": "943150",
+      "injured": false,
+      "marketValue": "€250k",
+      "name": "Al-Hashmi Al-Hussain",
+      "position": "Centre-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/656.png",
+        "name": "Al-Sadd SC"
+      },
+      "dateOfBirth": "Jul 9, 1990",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "222669",
+      "injured": false,
+      "marketValue": "€200k",
+      "name": "Boualem Khoukhi",
+      "position": "Centre-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1230.png",
+        "name": "Al-Arabi SC"
+      },
+      "dateOfBirth": "Dec 22, 1997",
+      "foot": "right",
+      "height": "1,88m",
+      "id": "1264176",
+      "injured": false,
+      "marketValue": "€200k",
+      "name": "Issa Laye",
+      "position": "Centre-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/656.png",
+        "name": "Al-Sadd SC"
+      },
+      "dateOfBirth": "Aug 6, 1990",
+      "foot": "right",
+      "height": "1,82m",
+      "id": "228727",
+      "injured": false,
+      "marketValue": "€150k",
+      "name": "Pedro Miguel",
+      "position": "Centre-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/4542.png",
+        "name": "Cultural Leonesa"
+      },
+      "dateOfBirth": "Aug 25, 1999",
+      "foot": "left",
+      "height": "1,88m",
+      "id": "556713",
+      "injured": false,
+      "marketValue": "€500k",
+      "name": "Homam Al-Amin",
+      "position": "Left-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/26091.png",
+        "name": "Al-Duhail SC"
+      },
+      "dateOfBirth": "Apr 7, 1996",
+      "foot": "left",
+      "height": "1,75m",
+      "id": "336665",
+      "injured": false,
+      "marketValue": "€300k",
+      "name": "Sultan Al-Brake",
+      "position": "Left-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6297.png",
+        "name": "Al-Gharafa SC"
+      },
+      "dateOfBirth": "Mar 26, 2006",
+      "foot": "left",
+      "id": "1143852",
+      "injured": false,
+      "marketValue": "€200k",
+      "name": "Rayyan Ahmed Al-Ali",
+      "position": "Left-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6297.png",
+        "name": "Al-Gharafa SC"
+      },
+      "dateOfBirth": "Mar 11, 2005",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "1054631",
+      "injured": false,
+      "marketValue": "€375k",
+      "name": "Ayoub Al-Oui",
+      "position": "Right-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/3229.png",
+        "name": "Al-Rayyan SC"
+      },
+      "dateOfBirth": "Feb 20, 2002",
+      "foot": "right",
+      "height": "1,88m",
+      "id": "735813",
+      "injured": false,
+      "marketValue": "€500k",
+      "name": "Jassem Gaber",
+      "position": "Defensive Midfield"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/10775.png",
+        "name": "Al-Shamal SC"
+      },
+      "dateOfBirth": "Oct 30, 2003",
+      "foot": "right",
+      "height": "1,89m",
+      "id": "822935",
+      "injured": false,
+      "marketValue": "€500k",
+      "name": "Mohamed Al-Mannai",
+      "position": "Defensive Midfield"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/13509.png",
+        "name": "Al-Wakrah SC"
+      },
+      "dateOfBirth": "Oct 22, 1996",
+      "foot": "right",
+      "height": "1,68m",
+      "id": "336667",
+      "injured": false,
+      "marketValue": "€350k",
+      "name": "Assim Madibo",
+      "position": "Defensive Midfield"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1230.png",
+        "name": "Al-Arabi SC"
+      },
+      "dateOfBirth": "Jan 25, 1993",
+      "foot": "right",
+      "height": "1,71m",
+      "id": "251183",
+      "injured": false,
+      "marketValue": "€250k",
+      "name": "Ahmed Fathi",
+      "position": "Defensive Midfield"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/26091.png",
+        "name": "Al-Duhail SC"
+      },
+      "dateOfBirth": "Sep 16, 1990",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "222385",
+      "injured": false,
+      "marketValue": "€175k",
+      "name": "Karim Boudiaf",
+      "position": "Defensive Midfield"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/3229.png",
+        "name": "Al-Rayyan SC"
+      },
+      "dateOfBirth": "Oct 28, 1990",
+      "foot": "left",
+      "height": "1,83m",
+      "id": "113915",
+      "injured": false,
+      "marketValue": "€250k",
+      "name": "Abdulaziz Hatim",
+      "position": "Central Midfield"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/656.png",
+        "name": "Al-Sadd SC"
+      },
+      "dateOfBirth": "Dec 11, 1990",
+      "foot": "right",
+      "height": "1,74m",
+      "id": "86286",
+      "injured": false,
+      "marketValue": "€300k",
+      "name": "Hasan Al-Haydos",
+      "position": "Attacking Midfield"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/656.png",
+        "name": "Al-Sadd SC"
+      },
+      "dateOfBirth": "Nov 18, 1996",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "336646",
+      "injured": false,
+      "marketValue": "€8.00m",
+      "name": "Akram Afif",
+      "position": "Left Winger"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/26091.png",
+        "name": "Al-Duhail SC"
+      },
+      "dateOfBirth": "Aug 19, 1994",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "237846",
+      "injured": false,
+      "marketValue": "€1.80m",
+      "name": "Edmílson Junior",
+      "position": "Left Winger"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/13509.png",
+        "name": "Al-Wakrah SC"
+      },
+      "dateOfBirth": "Aug 6, 1999",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "589099",
+      "injured": false,
+      "marketValue": "€275k",
+      "name": "Yusuf Abdurisag",
+      "position": "Left Winger"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/26091.png",
+        "name": "Al-Duhail SC"
+      },
+      "dateOfBirth": "Jun 16, 2006",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "1143849",
+      "injured": false,
+      "marketValue": "€200k",
+      "name": "Tahsin Mohammed Jamshid",
+      "position": "Left Winger"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6297.png",
+        "name": "Al-Gharafa SC"
+      },
+      "dateOfBirth": "Sep 22, 2000",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "670659",
+      "injured": false,
+      "marketValue": "€500k",
+      "name": "Ahmed Al-Ganehi",
+      "position": "Right Winger"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/26091.png",
+        "name": "Al-Duhail SC"
+      },
+      "dateOfBirth": "Aug 19, 1996",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "345095",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "Almoez Ali",
+      "position": "Centre-Forward"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/3229.png",
+        "name": "Al-Rayyan SC"
+      },
+      "dateOfBirth": "Jan 31, 1993",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "187987",
+      "injured": false,
+      "marketValue": "€300k",
+      "name": "Ahmed Alaaeldin",
+      "position": "Centre-Forward"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6297.png",
+        "name": "Al-Gharafa SC"
+      },
+      "dateOfBirth": "Dec 20, 1993",
+      "foot": "right",
+      "height": "1,94m",
+      "id": "266935",
+      "injured": false,
+      "marketValue": "€200k",
+      "name": "Mohammed Muntari",
+      "position": "Centre-Forward"
+    }
+  ],
+  "stadiumName": null,
+  "stadiumSeats": null,
+  "transfermarktId": "14162"
+}

@@ -1,0 +1,425 @@
+{
+  "image": "https://assets.virtuafc.com/crests/3446.png",
+  "name": "Bosnia-Herzegovina",
+  "players": [
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/35.png",
+        "name": "FC St. Pauli"
+      },
+      "dateOfBirth": "Dec 2, 1995",
+      "foot": "right",
+      "height": "1,93m",
+      "id": "248454",
+      "injured": false,
+      "marketValue": "€4.50m",
+      "name": "Nikola Vasilj",
+      "overall_score": 75,
+      "position": "Goalkeeper",
+      "potential": 75
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/144.png",
+        "name": "HNK Rijeka"
+      },
+      "dateOfBirth": "Aug 16, 1998",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "495320",
+      "injured": false,
+      "marketValue": "€2.00m",
+      "name": "Martin Zlomislic",
+      "overall_score": 72,
+      "position": "Goalkeeper",
+      "potential": 75
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2362.png",
+        "name": "Slaven Belupo Koprivnica"
+      },
+      "dateOfBirth": "Mar 12, 1996",
+      "foot": "right",
+      "height": "1,89m",
+      "id": "188881",
+      "injured": false,
+      "marketValue": "€400k",
+      "name": "Osman Hadzikic",
+      "overall_score": 67,
+      "position": "Goalkeeper",
+      "potential": 67
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6574.png",
+        "name": "US Sassuolo"
+      },
+      "dateOfBirth": "Feb 28, 2003",
+      "foot": "left",
+      "height": "1,92m",
+      "id": "679423",
+      "injured": false,
+      "marketValue": "€20.00m",
+      "name": "Tarik Muharemović",
+      "overall_score": 74,
+      "position": "Centre-Back",
+      "potential": 80
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/800.png",
+        "name": "Atalanta BC"
+      },
+      "dateOfBirth": "Jun 20, 1993",
+      "foot": "left",
+      "height": "1,83m",
+      "id": "94005",
+      "injured": false,
+      "marketValue": "€6.00m",
+      "name": "Sead Kolasinac",
+      "overall_score": 78,
+      "position": "Centre-Back",
+      "potential": 78
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/826.png",
+        "name": "RC Lens"
+      },
+      "dateOfBirth": "Jul 17, 2006",
+      "foot": "right",
+      "height": "1,92m",
+      "id": "819566",
+      "injured": false,
+      "marketValue": "€4.00m",
+      "name": "Nidal Celik",
+      "overall_score": 66,
+      "position": "Centre-Back",
+      "potential": 79
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/144.png",
+        "name": "HNK Rijeka"
+      },
+      "dateOfBirth": "Sep 5, 1997",
+      "foot": "left",
+      "height": "2,01m",
+      "id": "384568",
+      "injured": false,
+      "marketValue": "€2.80m",
+      "name": "Stjepan Radeljic",
+      "overall_score": 71,
+      "position": "Centre-Back",
+      "potential": 72
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/33.png",
+        "name": "FC Schalke 04"
+      },
+      "dateOfBirth": "Oct 10, 1996",
+      "foot": "right",
+      "height": "1,94m",
+      "id": "422051",
+      "injured": false,
+      "marketValue": "€1.80m",
+      "name": "Nikola Katic",
+      "overall_score": 72,
+      "position": "Centre-Back",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1038.png",
+        "name": "UC Sampdoria"
+      },
+      "dateOfBirth": "Jul 9, 1998",
+      "foot": "right",
+      "height": "1,91m",
+      "id": "322065",
+      "injured": false,
+      "marketValue": "€1.30m",
+      "name": "Dennis Hadzikadunic",
+      "overall_score": 69,
+      "position": "Centre-Back",
+      "potential": 71
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2832.png",
+        "name": "Gaziantep FK"
+      },
+      "dateOfBirth": "Apr 15, 1998",
+      "foot": "left",
+      "height": "1,89m",
+      "id": "380919",
+      "injured": false,
+      "marketValue": "€1.20m",
+      "name": "Nihad Mujakic",
+      "overall_score": 67,
+      "position": "Centre-Back",
+      "potential": 69
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/294.png",
+        "name": "SL Benfica"
+      },
+      "dateOfBirth": "Aug 18, 2002",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "519184",
+      "injured": false,
+      "marketValue": "€15.00m",
+      "name": "Amar Dedić",
+      "overall_score": 76,
+      "position": "Right-Back",
+      "potential": 82
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/3008.png",
+        "name": "Hull City"
+      },
+      "dateOfBirth": "Mar 8, 1997",
+      "foot": "right",
+      "height": "1,81m",
+      "id": "293213",
+      "injured": false,
+      "marketValue": "€4.20m",
+      "name": "Amir Hadziahmetovic",
+      "overall_score": 71,
+      "position": "Defensive Midfield",
+      "potential": 71
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/45457.png",
+        "name": "Pafos FC"
+      },
+      "dateOfBirth": "Oct 9, 1996",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "226097",
+      "injured": false,
+      "marketValue": "€1.80m",
+      "name": "Ivan Sunjic",
+      "overall_score": 69,
+      "position": "Defensive Midfield",
+      "potential": 69
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/48.png",
+        "name": "Karlsruher SC"
+      },
+      "dateOfBirth": "May 22, 1998",
+      "foot": "left",
+      "height": "1,81m",
+      "id": "251295",
+      "injured": false,
+      "marketValue": "€1.20m",
+      "name": "Dzenis Burnic",
+      "overall_score": 69,
+      "position": "Defensive Midfield",
+      "potential": 69
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/206.png",
+        "name": "Bröndby IF"
+      },
+      "dateOfBirth": "Mar 3, 2003",
+      "foot": "right",
+      "height": "1,91m",
+      "id": "787907",
+      "injured": false,
+      "marketValue": "€4.50m",
+      "name": "Benjamin Tahirović",
+      "overall_score": 69,
+      "position": "Central Midfield",
+      "potential": 77
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/452.png",
+        "name": "BSC Young Boys"
+      },
+      "dateOfBirth": "Apr 6, 2002",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "651269",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "Armin Gigovic",
+      "overall_score": 71,
+      "position": "Central Midfield",
+      "potential": 78
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/22220.png",
+        "name": "FC Astana"
+      },
+      "dateOfBirth": "Apr 30, 2002",
+      "foot": "left",
+      "height": "1,78m",
+      "id": "620560",
+      "injured": false,
+      "marketValue": "€1.20m",
+      "name": "Ivan Basic",
+      "overall_score": 69,
+      "position": "Central Midfield",
+      "potential": 75
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/941.png",
+        "name": "FC Viktoria Plzen"
+      },
+      "dateOfBirth": "Jan 20, 2001",
+      "foot": "right",
+      "height": "1,76m",
+      "id": "638990",
+      "injured": false,
+      "marketValue": "€4.50m",
+      "name": "Amar Memić",
+      "overall_score": 72,
+      "position": "Right Midfield",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/697.png",
+        "name": "FC Slovan Liberec"
+      },
+      "dateOfBirth": "Mar 14, 2005",
+      "foot": "right",
+      "height": "1,82m",
+      "id": "803049",
+      "injured": false,
+      "marketValue": "€5.00m",
+      "name": "Ermin Mahmic",
+      "overall_score": 69,
+      "position": "Attacking Midfield",
+      "potential": 81
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/409.png",
+        "name": "Red Bull Salzburg"
+      },
+      "dateOfBirth": "Sep 21, 2007",
+      "foot": "both",
+      "height": "1,86m",
+      "id": "929994",
+      "injured": false,
+      "marketValue": "€15.00m",
+      "name": "Kerim Alajbegovic",
+      "overall_score": 68,
+      "position": "Left Winger",
+      "potential": 83
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/383.png",
+        "name": "PSV Eindhoven"
+      },
+      "dateOfBirth": "Mar 10, 2005",
+      "foot": "left",
+      "height": "1,75m",
+      "id": "925862",
+      "injured": false,
+      "marketValue": "€5.00m",
+      "name": "Esmir Bajraktarevic",
+      "overall_score": 72,
+      "position": "Right Winger",
+      "potential": 84
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/79.png",
+        "name": "VfB Stuttgart"
+      },
+      "dateOfBirth": "Mar 25, 1998",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "335457",
+      "injured": false,
+      "marketValue": "€22.00m",
+      "name": "Ermedin Demirovic",
+      "overall_score": 79,
+      "position": "Centre-Forward",
+      "potential": 79
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/18.png",
+        "name": "Borussia Mönchengladbach"
+      },
+      "dateOfBirth": "Jun 20, 1994",
+      "foot": "right",
+      "height": "1,96m",
+      "id": "203123",
+      "injured": false,
+      "marketValue": "€3.00m",
+      "name": "Haris Tabakovic",
+      "overall_score": 75,
+      "position": "Centre-Forward",
+      "potential": 75
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6429.png",
+        "name": "FC Universitatea Cluj"
+      },
+      "dateOfBirth": "Nov 28, 1998",
+      "foot": "left",
+      "height": "1,90m",
+      "id": "457738",
+      "injured": false,
+      "marketValue": "€1.50m",
+      "name": "Jovo Lukić",
+      "overall_score": 68,
+      "position": "Centre-Forward",
+      "potential": 69
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2300.png",
+        "name": "Jagiellonia Bialystok"
+      },
+      "dateOfBirth": "Jan 31, 2004",
+      "foot": "right",
+      "height": "1,89m",
+      "id": "710969",
+      "injured": false,
+      "marketValue": "€1.50m",
+      "name": "Samed Bazdar",
+      "overall_score": 67,
+      "position": "Centre-Forward",
+      "potential": 78
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/33.png",
+        "name": "FC Schalke 04"
+      },
+      "dateOfBirth": "Mar 17, 1986",
+      "foot": "right",
+      "height": "1,93m",
+      "id": "28396",
+      "injured": false,
+      "marketValue": "€1.50m",
+      "name": "Edin Dzeko",
+      "overall_score": 78,
+      "position": "Centre-Forward",
+      "potential": 78
+    }
+  ],
+  "stadiumName": null,
+  "stadiumSeats": null,
+  "transfermarktId": "3446"
+}

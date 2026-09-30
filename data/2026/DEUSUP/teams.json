@@ -1,0 +1,15 @@
+{
+  "id": "DEUSUP",
+  "name": "DFB-Supercup Frauen",
+  "seasonID": "2026",
+  "clubs": [
+    {
+      "id": "57",
+      "name": "Bayern München"
+    },
+    {
+      "id": "407",
+      "name": "VfL Wolfsburg"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "id": "DEUCUP",
+  "name": "DFB-Pokal Frauen",
+  "seasonID": "2026",
+  "clubs": [
+    {
+      "id": "10785",
+      "name": "1. FSV Mainz 05",
+      "entryRound": 1
+    },
+    {
+      "id": "7384",
+      "name": "VfB Stuttgart 1893",
+      "entryRound": 1
+    },
+    {
+      "id": "292",
+      "name": "SC Freiburg",
+      "entryRound": 1
+    },
+    {
+      "id": "163",
+      "name": "Hamburger SV",
+      "entryRound": 1
+    },
+    {
+      "id": "421",
+      "name": "Werder Bremen",
+      "entryRound": 1
+    },
+    {
+      "id": "5",
+      "name": "1. FC Köln",
+      "entryRound": 1
+    },
+    {
+      "id": "6053",
+      "name": "Rasenballsport Leipzig",
+      "entryRound": 1
+    },
+    {
+      "id": "8",
+      "name": "1. FC Nuremberg",
+      "entryRound": 1
+    },
+    {
+      "id": "18",
+      "name": "1899 Hoffenheim",
+      "entryRound": 1
+    },
+    {
+      "id": "11",
+      "name": "1. FC Union Berlin",
+      "entryRound": 1
+    },
+    {
+      "id": "56",
+      "name": "Bayer Leverkusen",
+      "entryRound": 1
+    },
+    {
+      "id": "104",
+      "name": "Eintracht Frankfurt",
+      "entryRound": 1
+    },
+    {
+      "id": "407",
+      "name": "VfL Wolfsburg",
+      "entryRound": 2
+    },
+    {
+      "id": "57",
+      "name": "Bayern München",
+      "entryRound": 2
+    }
+  ]
+}

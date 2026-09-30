@@ -1,0 +1,4017 @@
+{
+  "id": "POR1",
+  "name": "Liga BPI",
+  "seasonID": "2026",
+  "clubs": [
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/5157.png",
+      "name": "C.S. Marítimo",
+      "stadiumName": "Campo Do Adelino Rodrigues",
+      "stadiumSeats": 3000,
+      "transfermarktId": "5157",
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 17, 2007",
+          "foot": "",
+          "height": "",
+          "id": "82349",
+          "marketValue": "",
+          "name": "Carolina Rodrigues",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 9, 2003",
+          "foot": "",
+          "height": "",
+          "id": "123839",
+          "marketValue": "",
+          "name": "Laia Font",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "24",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 28, 1995",
+          "foot": "",
+          "height": "1,70m",
+          "id": "51330",
+          "marketValue": "",
+          "name": "Jenna Holtz",
+          "nationality": [
+            "United States"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 27, 2002",
+          "foot": "",
+          "height": "1,75m",
+          "id": "116311",
+          "marketValue": "",
+          "name": "Schuyler Riese",
+          "nationality": [
+            "United States"
+          ],
+          "number": "8",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 6, 2006",
+          "foot": "",
+          "height": "",
+          "id": "123843",
+          "marketValue": "",
+          "name": "Maria Nascimento",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "13",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 27, 2004",
+          "foot": "",
+          "height": "",
+          "id": "81572",
+          "marketValue": "",
+          "name": "Diana Freitas",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "15",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 24, 2007",
+          "foot": "",
+          "height": "",
+          "id": "123840",
+          "marketValue": "",
+          "name": "Samanta Freitas",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "25",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 12, 2002",
+          "foot": "",
+          "height": "1,73m",
+          "id": "110727",
+          "marketValue": "",
+          "name": "Mia Foster",
+          "nationality": [
+            "United States"
+          ],
+          "number": "3",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 10, 2002",
+          "foot": "",
+          "height": "1,75m",
+          "id": "110010",
+          "marketValue": "",
+          "name": "Jessie Hunt",
+          "nationality": [
+            "United States"
+          ],
+          "number": "5",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 31, 2006",
+          "foot": "",
+          "height": "",
+          "id": "90734",
+          "marketValue": "",
+          "name": "Carolina Nunes",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "6",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 17, 2006",
+          "foot": "",
+          "height": "",
+          "id": "103335",
+          "marketValue": "",
+          "name": "Leah de Oliveira",
+          "nationality": [
+            "Australia"
+          ],
+          "number": "7",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 23, 1998",
+          "foot": "",
+          "height": "1,70m",
+          "id": "39218",
+          "marketValue": "",
+          "name": "Rita Coutinho",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "10",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 14, 2002",
+          "foot": "",
+          "height": "",
+          "id": "43250",
+          "marketValue": "",
+          "name": "Catarina Abreu",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "14",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 30, 2005",
+          "foot": "",
+          "height": "",
+          "id": "112786",
+          "marketValue": "",
+          "name": "Ana Silva",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "17",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 24, 2007",
+          "foot": "",
+          "height": "",
+          "id": "123841",
+          "marketValue": "",
+          "name": "Simone Freitas",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "22",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 8, 2001",
+          "foot": "",
+          "height": "1,64m",
+          "id": "43232",
+          "marketValue": "",
+          "name": "Diana Gonçalves",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "23",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 28, 2007",
+          "foot": "",
+          "height": "",
+          "id": "124500",
+          "marketValue": "",
+          "name": "Débora Jesus",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "28",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 14, 2007",
+          "foot": "",
+          "height": "",
+          "id": "96763",
+          "marketValue": "",
+          "name": "Bruninha",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "4",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 7, 2004",
+          "foot": "",
+          "height": "",
+          "id": "43496",
+          "marketValue": "",
+          "name": "Sara Ferreira",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "11",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 24, 1995",
+          "foot": "",
+          "height": "1,66m",
+          "id": "43231",
+          "marketValue": "",
+          "name": "Érica Costa",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "12",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 25, 2006",
+          "foot": "",
+          "height": "",
+          "id": "123842",
+          "marketValue": "",
+          "name": "Sulamyta Moreira",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "20",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 27, 2006",
+          "foot": "",
+          "height": "1,69m",
+          "id": "61022",
+          "marketValue": "",
+          "name": "Érica Silva",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "21",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/5355.png",
+      "name": "Valadares Gaia Futebol Clube",
+      "stadiumName": "Estádio Municipal Dr. Jorge Sampaio",
+      "stadiumSeats": 8272,
+      "transfermarktId": "5355",
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 16, 2007",
+          "foot": "",
+          "height": "",
+          "id": "79719",
+          "marketValue": "",
+          "name": "Inês Agra",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 31, 2005",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "64904",
+          "marketValue": "",
+          "name": "Catarina Potra",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "12",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "May 18, 1998",
+          "foot": "",
+          "height": "1,75m",
+          "id": "52123",
+          "marketValue": "",
+          "name": "Erin Seppi",
+          "nationality": [
+            "United States"
+          ],
+          "number": "31",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 1, 1995",
+          "foot": "",
+          "height": "",
+          "id": "44071",
+          "marketValue": "",
+          "name": "Arlén Hernández",
+          "nationality": [
+            "Panama"
+          ],
+          "number": "6",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 1, 1997",
+          "foot": "both",
+          "height": "1,56m",
+          "id": "22205",
+          "marketValue": "",
+          "name": "Sara Monteiro",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "2",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 3, 2005",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "67305",
+          "marketValue": "",
+          "name": "Joana Silva",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "3",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 5, 2006",
+          "foot": "",
+          "height": "",
+          "id": "78167",
+          "marketValue": "€25k",
+          "name": "Marie Mulot",
+          "nationality": [
+            "France"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 24, 2004",
+          "foot": "",
+          "height": "1,78m",
+          "id": "51275",
+          "marketValue": "",
+          "name": "Ana Cruz",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 14, 2005",
+          "foot": "right",
+          "height": "",
+          "id": "64623",
+          "marketValue": "",
+          "name": "Carolina Ferreira",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "7",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 5, 2007",
+          "foot": "left",
+          "height": "1,62m",
+          "id": "85161",
+          "marketValue": "",
+          "name": "Matilde Sousa",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "15",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 27, 2002",
+          "foot": "",
+          "height": "1,63m",
+          "id": "52646",
+          "marketValue": "",
+          "name": "Margaux Chauvet",
+          "nationality": [
+            "Australia"
+          ],
+          "number": "16",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 3, 2006",
+          "foot": "",
+          "height": "",
+          "id": "124636",
+          "marketValue": "",
+          "name": "Nivea Oliveira",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "43",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 7, 2008",
+          "foot": "",
+          "height": "",
+          "id": "103418",
+          "marketValue": "",
+          "name": "Constança Maia",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "71",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 3, 2007",
+          "foot": "",
+          "height": "1,65m",
+          "id": "81790",
+          "marketValue": "",
+          "name": "Joana Valente",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "9",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 17, 2006",
+          "foot": "",
+          "height": "",
+          "id": "56573",
+          "marketValue": "",
+          "name": "Charlotte Schmit",
+          "nationality": [
+            "Luxembourg"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 13, 2006",
+          "foot": "",
+          "height": "",
+          "id": "90699",
+          "marketValue": "€25k",
+          "name": "Gesa Marashi",
+          "nationality": [
+            "England"
+          ],
+          "number": "14",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 12, 1996",
+          "foot": "right",
+          "height": "1,75m",
+          "id": "30582",
+          "marketValue": "",
+          "name": "Vanessa Marques",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "17",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 17, 2007",
+          "foot": "",
+          "height": "",
+          "id": "85169",
+          "marketValue": "",
+          "name": "Mélanie Florentino",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "19",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 30, 2007",
+          "foot": "",
+          "height": "1,60m",
+          "id": "85174",
+          "marketValue": "",
+          "name": "Maria Cruz",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "20",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 5, 2008",
+          "foot": "",
+          "height": "",
+          "id": "117151",
+          "marketValue": "",
+          "name": "Marcie O’Meara",
+          "nationality": [
+            "England"
+          ],
+          "number": "23",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 17, 2007",
+          "foot": "right",
+          "height": "1,58m",
+          "id": "67062",
+          "marketValue": "",
+          "name": "Matilde Nave",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "27",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 18, 2004",
+          "foot": "right",
+          "height": "",
+          "id": "92407",
+          "marketValue": "",
+          "name": "Inês Silva",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "77",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 6, 2004",
+          "foot": "right",
+          "height": "",
+          "id": "47254",
+          "marketValue": "",
+          "name": "Érica Ventura",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "88",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 11, 1993",
+          "foot": "",
+          "height": "",
+          "id": "23517",
+          "marketValue": "",
+          "name": "Cristina Ferreira",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "10",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 20, 2002",
+          "foot": "",
+          "height": "",
+          "id": "76330",
+          "marketValue": "€25k",
+          "name": "Marta Gestera",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "11",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 27, 1994",
+          "foot": "right",
+          "height": "1,64m",
+          "id": "39014",
+          "marketValue": "",
+          "name": "Evy Pereira",
+          "nationality": [
+            "Cape Verde"
+          ],
+          "number": "13",
+          "position": "Right Winger"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/6182.png",
+      "name": "Sporting Clube de Braga Feminino",
+      "stadiumName": "Estádio Amélia Morais",
+      "stadiumSeats": 2500,
+      "transfermarktId": "6182",
+      "players": [
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 20, 2008",
+          "foot": "",
+          "height": "1,80m",
+          "id": "97089",
+          "marketValue": "",
+          "name": "Ana Ristovski",
+          "nationality": [
+            "Croatia"
+          ],
+          "number": "3",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 25, 2006",
+          "foot": "",
+          "height": "1,66m",
+          "id": "75429",
+          "marketValue": "",
+          "name": "Nair Pina",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "4",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 8, 2000",
+          "foot": "",
+          "height": "1,67m",
+          "id": "43367",
+          "marketValue": "",
+          "name": "Aline Lima",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 21, 1997",
+          "foot": "right",
+          "height": "1,80m",
+          "id": "40164",
+          "marketValue": "€45k",
+          "name": "Samantha Leshnak Murphy",
+          "nationality": [
+            "United States"
+          ],
+          "number": "11",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 20, 2006",
+          "foot": "",
+          "height": "1,70m",
+          "id": "83496",
+          "marketValue": "",
+          "name": "Sofia Machado",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "12",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 11, 2001",
+          "foot": "",
+          "height": "1,65m",
+          "id": "51165",
+          "marketValue": "",
+          "name": "Beatriz Barbosa",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "15",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "May 12, 2003",
+          "foot": "",
+          "height": "",
+          "id": "40303",
+          "marketValue": "",
+          "name": "Maria Miller",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 23, 1998",
+          "foot": "",
+          "height": "1,70m",
+          "id": "53863",
+          "marketValue": "",
+          "name": "Leah Lewis",
+          "nationality": [
+            "United States"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 13, 2005",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "63487",
+          "marketValue": "",
+          "name": "Margarida Pinto",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "6",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 16, 2003",
+          "foot": "",
+          "height": "",
+          "id": "113550",
+          "marketValue": "",
+          "name": "Kassidy Banks",
+          "nationality": [
+            "United States"
+          ],
+          "number": "17",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jul 12, 2003",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "35730",
+          "marketValue": "€50k",
+          "name": "Emilia Hirche",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "16",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Apr 29, 2003",
+          "foot": "left",
+          "height": "1,59m",
+          "id": "40302",
+          "marketValue": "",
+          "name": "Alícia Correia",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "19",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 7, 2003",
+          "foot": "",
+          "height": "",
+          "id": "110337",
+          "marketValue": "",
+          "name": "Ashley Moon",
+          "nationality": [
+            "United States"
+          ],
+          "number": "21",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Apr 21, 2003",
+          "foot": "",
+          "height": "1,65m",
+          "id": "40309",
+          "marketValue": "",
+          "name": "Maria Alagoa",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 17, 1999",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "41071",
+          "marketValue": "",
+          "name": "Inês Maia",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "20",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 29, 1998",
+          "foot": "",
+          "height": "",
+          "id": "50350",
+          "marketValue": "",
+          "name": "Ana Rute",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "23",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 18, 2000",
+          "foot": "right",
+          "height": "1,58m",
+          "id": "51272",
+          "marketValue": "",
+          "name": "Cristiana Vieira",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "25",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 31, 2004",
+          "foot": "both",
+          "height": "1,62m",
+          "id": "84586",
+          "marketValue": "",
+          "name": "Irina Soba",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "71",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2030",
+          "dateOfBirth": "Nov 29, 2004",
+          "foot": "",
+          "height": "",
+          "id": "77693",
+          "marketValue": "",
+          "name": "Nádia Bravo",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "86",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 7, 2007",
+          "foot": "",
+          "height": "1,61m",
+          "id": "67061",
+          "marketValue": "",
+          "name": "Rita Melo",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "87",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 24, 2006",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "64619",
+          "marketValue": "",
+          "name": "Ana Rita Cunha",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "88",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 24, 2008",
+          "foot": "",
+          "height": "1,74m",
+          "id": "81620",
+          "marketValue": "",
+          "name": "Luana Bessa",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "18",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 8, 2005",
+          "foot": "",
+          "height": "1,68m",
+          "id": "72871",
+          "marketValue": "",
+          "name": "Maribel Flores",
+          "nationality": [
+            "Mexico"
+          ],
+          "number": "7",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Dec 4, 2000",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "57381",
+          "marketValue": "",
+          "name": "Malu Schmidt",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 24, 2004",
+          "foot": "",
+          "height": "",
+          "id": "89869",
+          "marketValue": "",
+          "name": "Lidiane",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "10",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "May 12, 2000",
+          "foot": "",
+          "height": "",
+          "id": "54611",
+          "marketValue": "",
+          "name": "Melany Fortes",
+          "nationality": [
+            "Cape Verde"
+          ],
+          "number": "13",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 17, 2001",
+          "foot": "",
+          "height": "1,78m",
+          "id": "107460",
+          "marketValue": "€10k",
+          "name": "Margaret Parrett",
+          "nationality": [
+            "United States"
+          ],
+          "number": "14",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Dec 13, 2002",
+          "foot": "",
+          "height": "1,72m",
+          "id": "106629",
+          "marketValue": "",
+          "name": "McKenna Martinez",
+          "nationality": [
+            "United States"
+          ],
+          "number": "22",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Aug 6, 2002",
+          "foot": "",
+          "height": "1,66m",
+          "id": "40299",
+          "marketValue": "",
+          "name": "Marta Ferreira",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "38",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 10, 2008",
+          "foot": "",
+          "height": "1,67m",
+          "id": "81624",
+          "marketValue": "",
+          "name": "Francisca Castro",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "42",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jun 27, 2001",
+          "foot": "",
+          "height": "1,60m",
+          "id": "53572",
+          "marketValue": "",
+          "name": "Inês Gonçalves",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "57",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/6224.png",
+      "name": "Sporting Clube de Portugal",
+      "stadiumName": "CGD Stadium Aurélio Pereira",
+      "stadiumSeats": 3000,
+      "transfermarktId": "6224",
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 22, 2006",
+          "foot": "right",
+          "height": "",
+          "id": "66883",
+          "marketValue": "",
+          "name": "Carolina Alves",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 15, 2007",
+          "foot": "right",
+          "height": "1,77m",
+          "id": "76051",
+          "marketValue": "",
+          "name": "Julia Woźniak",
+          "nationality": [
+            "Poland"
+          ],
+          "number": "33",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Nov 29, 2003",
+          "foot": "",
+          "height": "1,78m",
+          "id": "113127",
+          "marketValue": "",
+          "name": "Cassie Coster",
+          "nationality": [
+            "United States"
+          ],
+          "number": "99",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 26, 2006",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "66887",
+          "marketValue": "",
+          "name": "Érica Cancelinha",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 9, 2000",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "40111",
+          "marketValue": "€25k",
+          "name": "Georgia Eaton-Collins",
+          "nationality": [
+            "England"
+          ],
+          "number": "6",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 17, 1995",
+          "foot": "",
+          "height": "1,62m",
+          "id": "23569",
+          "marketValue": "€25k",
+          "name": "Ágata Filipa",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "16",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 10, 2002",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "47867",
+          "marketValue": "€85k",
+          "name": "Emma Ramírez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "23",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 2, 1999",
+          "foot": "right",
+          "height": "1,79m",
+          "id": "75046",
+          "marketValue": "",
+          "name": "Mackenzie Cherry",
+          "nationality": [
+            "United States"
+          ],
+          "number": "26",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 28, 1996",
+          "foot": "left",
+          "height": "1,70m",
+          "id": "43272",
+          "marketValue": "",
+          "name": "Madalena Marau",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "28",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 24, 2001",
+          "foot": "right",
+          "height": "1,82m",
+          "id": "96039",
+          "marketValue": "€20k",
+          "name": "Ashley Barron",
+          "nationality": [
+            "United States"
+          ],
+          "number": "41",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 6, 1998",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "32448",
+          "marketValue": "",
+          "name": "Tânia Rodrigues",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "77",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Oct 5, 2006",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "73148",
+          "marketValue": "",
+          "name": "Jeneva Gray",
+          "nationality": [
+            "Canada"
+          ],
+          "number": "2",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Oct 4, 2000",
+          "foot": "right",
+          "height": "1,55m",
+          "id": "39578",
+          "marketValue": "",
+          "name": "Joana Martins",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "7",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 15, 2002",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "40393",
+          "marketValue": "€70k",
+          "name": "Ruby Grant",
+          "nationality": [
+            "England"
+          ],
+          "number": "8",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 27, 1993",
+          "foot": "right",
+          "height": "1,54m",
+          "id": "15875",
+          "marketValue": "",
+          "name": "Brenda Pérez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "11",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 19, 2001",
+          "foot": "",
+          "height": "1,66m",
+          "id": "39009",
+          "marketValue": "",
+          "name": "Beatriz Cameirão",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "15",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 18, 1988",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "4597",
+          "marketValue": "",
+          "name": "Cláudia Neto",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "17",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jul 14, 1993",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "17005",
+          "marketValue": "€50k",
+          "name": "Flor Bonsegundo",
+          "nationality": [
+            "Argentina"
+          ],
+          "number": "19",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Mar 26, 2005",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "64645",
+          "marketValue": "",
+          "name": "Andreia Bravo",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "39",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 6, 2005",
+          "foot": "",
+          "height": "",
+          "id": "70906",
+          "marketValue": "",
+          "name": "Iara Gonçalves",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "66",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 11, 2001",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "40081",
+          "marketValue": "€80k",
+          "name": "Telma Encarnação",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 18, 1999",
+          "foot": "",
+          "height": "1,56m",
+          "id": "36049",
+          "marketValue": "",
+          "name": "Neuza Besugo",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "10",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 31, 2006",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "67066",
+          "marketValue": "",
+          "name": "Carolina Santiago",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "13",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 2, 1998",
+          "foot": "right",
+          "height": "1,64m",
+          "id": "38456",
+          "marketValue": "€30k",
+          "name": "Carla Armengol",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "20",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Oct 11, 2006",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "64639",
+          "marketValue": "",
+          "name": "Maísa Correia",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "42",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 2, 1997",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "51416",
+          "marketValue": "",
+          "name": "Ana Dias",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "52",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 1, 2006",
+          "foot": "right",
+          "height": "1,66m",
+          "id": "85019",
+          "marketValue": "",
+          "name": "Miri O’Donnell",
+          "nationality": [
+            "United States"
+          ],
+          "number": "78",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/6534.png",
+      "name": "SL Benfica",
+      "stadiumName": "Benfica Campus",
+      "stadiumSeats": 2721,
+      "transfermarktId": "6534",
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 2, 1998",
+          "foot": "right",
+          "height": "1,78m",
+          "id": "15178",
+          "marketValue": "€45k",
+          "name": "Lena Pauels",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 11, 2008",
+          "foot": "right",
+          "height": "1,77m",
+          "id": "81614",
+          "marketValue": "€25k",
+          "name": "Thaís Lima",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "12",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Dec 28, 2003",
+          "foot": "right",
+          "height": "1,78m",
+          "id": "76111",
+          "marketValue": "€60k",
+          "name": "Michaely Bihina",
+          "nationality": [
+            "Cameroon"
+          ],
+          "number": "46",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "May 16, 2006",
+          "foot": "",
+          "height": "1,79m",
+          "id": "61020",
+          "marketValue": "€50k",
+          "name": "Inês Meninas",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Mar 13, 2002",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "59011",
+          "marketValue": "€50k",
+          "name": "Demehin Blessing",
+          "nationality": [
+            "Nigeria"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 7, 1997",
+          "foot": "left",
+          "height": "1,67m",
+          "id": "27883",
+          "marketValue": "€45k",
+          "name": "Marit Lund",
+          "nationality": [
+            "Norway"
+          ],
+          "number": "5",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 15, 1990",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "4570",
+          "marketValue": "€20k",
+          "name": "Ana Borges",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "11",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 21, 1999",
+          "foot": "right",
+          "height": "1,66m",
+          "id": "42246",
+          "marketValue": "€55k",
+          "name": "Catarina Amado",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "19",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jul 26, 1998",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "22210",
+          "marketValue": "€65k",
+          "name": "Diana Gomes",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "22",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 13, 2006",
+          "foot": "both",
+          "height": "1,72m",
+          "id": "63419",
+          "marketValue": "€50k",
+          "name": "Tinkara Testen",
+          "nationality": [
+            "Slovenia"
+          ],
+          "number": "31",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Aug 15, 1996",
+          "foot": "right",
+          "height": "1,61m",
+          "id": "23559",
+          "marketValue": "€50k",
+          "name": "Andreia Norton",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "8",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 19, 1998",
+          "foot": "right",
+          "height": "1,78m",
+          "id": "31624",
+          "marketValue": "€150k",
+          "name": "Caroline Møller",
+          "nationality": [
+            "Denmark"
+          ],
+          "number": "10",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Nov 14, 1999",
+          "foot": "left",
+          "height": "1,77m",
+          "id": "39570",
+          "marketValue": "€60k",
+          "name": "Anna Csiki",
+          "nationality": [
+            "Hungary"
+          ],
+          "number": "14",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 16, 2006",
+          "foot": "left",
+          "height": "1,62m",
+          "id": "67688",
+          "marketValue": "€65k",
+          "name": "Ana Clara Oliveira",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "16",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 11, 1997",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "39013",
+          "marketValue": "€45k",
+          "name": "Pauleta",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "21",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Nov 20, 2008",
+          "foot": "right",
+          "height": "1,75m",
+          "id": "81631",
+          "marketValue": "€75k",
+          "name": "Carolina Tristão",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "23",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 9, 2009",
+          "foot": "",
+          "height": "",
+          "id": "94654",
+          "marketValue": "€40k",
+          "name": "Madalena Loução",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "44",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 21, 2009",
+          "foot": "",
+          "height": "1,60m",
+          "id": "81617",
+          "marketValue": "",
+          "name": "Matilde Matos",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "52",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 29, 2009",
+          "foot": "",
+          "height": "",
+          "id": "109778",
+          "marketValue": "",
+          "name": "Ariana Schafer",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "57",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 7, 2007",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "79552",
+          "marketValue": "€80k",
+          "name": "Frøya Dorsin",
+          "nationality": [
+            "Norway"
+          ],
+          "number": "7",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 26, 2000",
+          "foot": "left",
+          "height": "1,74m",
+          "id": "42248",
+          "marketValue": "€150k",
+          "name": "Nycole Raysla",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "9",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Jun 30, 2031",
+          "dateOfBirth": "Oct 22, 1997",
+          "foot": "right",
+          "height": "1,58m",
+          "id": "42245",
+          "marketValue": "€75k",
+          "name": "Lúcia Alves",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "13",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 4, 1995",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "20210",
+          "marketValue": "€45k",
+          "name": "Diana Silva",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "17",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Oct 20, 2004",
+          "foot": "right",
+          "height": "1,58m",
+          "id": "75548",
+          "marketValue": "€35k",
+          "name": "Flourish Sabastine",
+          "nationality": [
+            "Nigeria"
+          ],
+          "number": "18",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Oct 1, 2006",
+          "foot": "right",
+          "height": "1,64m",
+          "id": "61017",
+          "marketValue": "€40k",
+          "name": "Lara Martins",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "20",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Nov 6, 2007",
+          "foot": "",
+          "height": "1,75m",
+          "id": "101817",
+          "marketValue": "€35k",
+          "name": "Janet Akekoromowei",
+          "nationality": [
+            "Nigeria"
+          ],
+          "number": "24",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "May 15, 1998",
+          "foot": "",
+          "height": "1,73m",
+          "id": "43630",
+          "marketValue": "€70k",
+          "name": "Chandra Davidson",
+          "nationality": [
+            "Canada"
+          ],
+          "number": "25",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Feb 24, 2003",
+          "foot": "right",
+          "height": "1,76m",
+          "id": "71242",
+          "marketValue": "€35k",
+          "name": "Ziqin Shao",
+          "nationality": [
+            "China"
+          ],
+          "number": "26",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "May 25, 2006",
+          "foot": "",
+          "height": "1,64m",
+          "id": "80038",
+          "marketValue": "€40k",
+          "name": "Diana Costa",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "27",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jul 18, 2006",
+          "foot": "",
+          "height": "1,66m",
+          "id": "67059",
+          "marketValue": "€40k",
+          "name": "Neide Guedes",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "77",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/8257.png",
+      "name": "SC Uniao Torreense",
+      "stadiumName": "Campo Manuel Marques",
+      "stadiumSeats": 12000,
+      "transfermarktId": "8257",
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "May 15, 2004",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "58037",
+          "marketValue": "",
+          "name": "Janny",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 7, 2001",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "40083",
+          "marketValue": "",
+          "name": "Carolina Jóia",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "55",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 1, 1994",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "32230",
+          "marketValue": "€15k",
+          "name": "Rute Costa",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "66",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 24, 2005",
+          "foot": "",
+          "height": "1,72m",
+          "id": "64643",
+          "marketValue": "",
+          "name": "Bruna Ramos",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 16, 2005",
+          "foot": "",
+          "height": "",
+          "id": "84336",
+          "marketValue": "",
+          "name": "Matilde Costa",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 14, 2002",
+          "foot": "",
+          "height": "1,70m",
+          "id": "44358",
+          "marketValue": "",
+          "name": "Ella Tonkin",
+          "nationality": [
+            "Australia"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 15, 1995",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "4757",
+          "marketValue": "€100k",
+          "name": "Núria Mendoza",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "14",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 12, 2000",
+          "foot": "left",
+          "height": "1,64m",
+          "id": "43370",
+          "marketValue": "",
+          "name": "Catarina Pereira",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "16",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 12, 2004",
+          "foot": "",
+          "height": "1,73m",
+          "id": "116673",
+          "marketValue": "",
+          "name": "Layla Shell",
+          "nationality": [
+            "United States"
+          ],
+          "number": "24",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 13, 2006",
+          "foot": "right",
+          "height": "1,58m",
+          "id": "66905",
+          "marketValue": "",
+          "name": "Carolina Pimenta",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "33",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 15, 2002",
+          "foot": "",
+          "height": "1,65m",
+          "id": "40315",
+          "marketValue": "",
+          "name": "Bárbara Lopes",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "68",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 4, 2008",
+          "foot": "left",
+          "height": "1,68m",
+          "id": "104091",
+          "marketValue": "",
+          "name": "Shakirat Moshood",
+          "nationality": [
+            "Nigeria"
+          ],
+          "number": "13",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 31, 2001",
+          "foot": "",
+          "height": "1,68m",
+          "id": "88674",
+          "marketValue": "",
+          "name": "Sophie Hoban",
+          "nationality": [
+            "Australia"
+          ],
+          "number": "5",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 4, 1999",
+          "foot": "both",
+          "height": "1,63m",
+          "id": "22938",
+          "marketValue": "",
+          "name": "Daniuska Rodríguez",
+          "nationality": [
+            "Venezuela"
+          ],
+          "number": "7",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 16, 1993",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "68885",
+          "marketValue": "",
+          "name": "Rafa Rufino",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "8",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 29, 2002",
+          "foot": "",
+          "height": "1,61m",
+          "id": "46607",
+          "marketValue": "",
+          "name": "Vera Cid",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "18",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 4, 2000",
+          "foot": "right",
+          "height": "1,74m",
+          "id": "95776",
+          "marketValue": "",
+          "name": "Gerda Konst",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "21",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 4, 2001",
+          "foot": "",
+          "height": "1,70m",
+          "id": "101515",
+          "marketValue": "",
+          "name": "Kristina Lynch",
+          "nationality": [
+            "United States"
+          ],
+          "number": "15",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 26, 1997",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "22218",
+          "marketValue": "",
+          "name": "Margarida Sousa",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "25",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 7, 2002",
+          "foot": "right",
+          "height": "1,57m",
+          "id": "51444",
+          "marketValue": "",
+          "name": "Raquel Ferreira",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "77",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 16, 1999",
+          "foot": "right",
+          "height": "",
+          "id": "43273",
+          "marketValue": "",
+          "name": "Nicole Nunes",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "88",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 5, 2008",
+          "foot": "",
+          "height": "1,78m",
+          "id": "91923",
+          "marketValue": "",
+          "name": "Kiki Meva",
+          "nationality": [
+            "Cameroon"
+          ],
+          "number": "23",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Sep 9, 2003",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "106717",
+          "marketValue": "",
+          "name": "Maile Joy Hayes",
+          "nationality": [
+            "United States"
+          ],
+          "number": "6",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 11, 1999",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "54591",
+          "marketValue": "",
+          "name": "Janaina Weimer",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "9",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 14, 1993",
+          "foot": "right",
+          "height": "1,64m",
+          "id": "21913",
+          "marketValue": "€35k",
+          "name": "Bárbara Latorre",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "10",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 26, 1999",
+          "foot": "left",
+          "height": "1,58m",
+          "id": "39222",
+          "marketValue": "€15k",
+          "name": "Daniela Silva",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "11",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 22, 2003",
+          "foot": "",
+          "height": "1,75m",
+          "id": "117697",
+          "marketValue": "",
+          "name": "Mia Klammer",
+          "nationality": [
+            "United States"
+          ],
+          "number": "12",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 15, 1999",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "66355",
+          "marketValue": "",
+          "name": "Tinaya Alexander",
+          "nationality": [
+            "England"
+          ],
+          "number": "17",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 16, 2005",
+          "foot": "",
+          "height": "",
+          "id": "101389",
+          "marketValue": "",
+          "name": "Maria Guerreiro",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "19",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 1, 2006",
+          "foot": "",
+          "height": "",
+          "id": "75428",
+          "marketValue": "",
+          "name": "Matilde Fortes",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "20",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 15, 1990",
+          "foot": "",
+          "height": "1,76m",
+          "id": "88781",
+          "marketValue": "",
+          "name": "Jennie Lakip",
+          "nationality": [
+            "United States"
+          ],
+          "number": "22",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 26, 1999",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "33826",
+          "marketValue": "",
+          "name": "Jolina Amani",
+          "nationality": [
+            "Cape Verde"
+          ],
+          "number": "30",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/8655.png",
+      "name": "Racing Power Football Club",
+      "stadiumName": "Estádio Nacional do Jamor",
+      "stadiumSeats": 37593,
+      "transfermarktId": "8655",
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 26, 2002",
+          "foot": "",
+          "height": "",
+          "id": "118443",
+          "marketValue": "",
+          "name": "Taylor Rath",
+          "nationality": [
+            "United States"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 20, 1997",
+          "foot": "",
+          "height": "1,70m",
+          "id": "29812",
+          "marketValue": "",
+          "name": "Natalia Expósito",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "13",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 25, 2003",
+          "foot": "",
+          "height": "1,72m",
+          "id": "40300",
+          "marketValue": "",
+          "name": "Adriana Rocha",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "71",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 23, 2004",
+          "foot": "",
+          "height": "",
+          "id": "121437",
+          "marketValue": "",
+          "name": "Brennan Cole",
+          "nationality": [
+            "United States"
+          ],
+          "number": "11",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 18, 2007",
+          "foot": "",
+          "height": "",
+          "id": "116240",
+          "marketValue": "",
+          "name": "Joice Biguane",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "12",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 18, 2007",
+          "foot": "left",
+          "height": "",
+          "id": "85167",
+          "marketValue": "",
+          "name": "Caetana Vicente",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 20, 2001",
+          "foot": "",
+          "height": "1,75m",
+          "id": "35170",
+          "marketValue": "",
+          "name": "Alexis Legowski",
+          "nationality": [
+            "Poland"
+          ],
+          "number": "15",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "May 31, 2026",
+          "dateOfBirth": "Sep 20, 2003",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "51341",
+          "marketValue": "",
+          "name": "Ana Nogueira",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "26",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 18, 1998",
+          "foot": "",
+          "height": "",
+          "id": "42924",
+          "marketValue": "",
+          "name": "Matilda McNamara",
+          "nationality": [
+            "Australia"
+          ],
+          "number": "33",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 17, 2004",
+          "foot": "right",
+          "height": "1,61m",
+          "id": "64880",
+          "marketValue": "€10k",
+          "name": "Marta Salvador",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "79",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 12, 2006",
+          "foot": "",
+          "height": "1,66m",
+          "id": "83510",
+          "marketValue": "",
+          "name": "Ana Tomaz",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "16",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 19, 2002",
+          "foot": "",
+          "height": "1,60m",
+          "id": "106743",
+          "marketValue": "€10k",
+          "name": "Aryssa Mahrt",
+          "nationality": [
+            "United States"
+          ],
+          "number": "2",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 3, 2003",
+          "foot": "left",
+          "height": "1,63m",
+          "id": "51523",
+          "marketValue": "",
+          "name": "Joana Silva",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "3",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 8, 2005",
+          "foot": "",
+          "height": "",
+          "id": "105489",
+          "marketValue": "",
+          "name": "Leidina Semedo",
+          "nationality": [
+            "Cape Verde"
+          ],
+          "number": "4",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 28, 1995",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "18105",
+          "marketValue": "€65k",
+          "name": "Pamela González",
+          "nationality": [
+            "Uruguay"
+          ],
+          "number": "6",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 30, 1999",
+          "foot": "",
+          "height": "",
+          "id": "51274",
+          "marketValue": "",
+          "name": "Carol Rocha",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "7",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 6, 1995",
+          "foot": "",
+          "height": "1,66m",
+          "id": "28908",
+          "marketValue": "",
+          "name": "Catarina Realista",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "8",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 1, 2000",
+          "foot": "",
+          "height": "1,62m",
+          "id": "110429",
+          "marketValue": "",
+          "name": "Suzuka Yosue",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "10",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 16, 1996",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "15387",
+          "marketValue": "€35k",
+          "name": "Rieke Dieckmann",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "17",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 17, 2003",
+          "foot": "",
+          "height": "",
+          "id": "40308",
+          "marketValue": "",
+          "name": "Inês Oliveira",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "20",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 8, 2001",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "40086",
+          "marketValue": "",
+          "name": "Daniela Santos",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "22",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 3, 2003",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "62435",
+          "marketValue": "",
+          "name": "Gabi Gonçalves",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "99",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 29, 2004",
+          "foot": "",
+          "height": "",
+          "id": "117383",
+          "marketValue": "",
+          "name": "Elizabeth Worden",
+          "nationality": [
+            "United States"
+          ],
+          "number": "9",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Jun 29, 1999",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "91284",
+          "marketValue": "",
+          "name": "Meredith Haakenson",
+          "nationality": [
+            "United States"
+          ],
+          "number": "14",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 30, 2003",
+          "foot": "right",
+          "height": "1,66m",
+          "id": "75550",
+          "marketValue": "",
+          "name": "Motunrayo Ezekiel",
+          "nationality": [
+            "Nigeria"
+          ],
+          "number": "23",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 15, 1992",
+          "foot": "",
+          "height": "1,60m",
+          "id": "11576",
+          "marketValue": "",
+          "name": "Laura Luís",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "28",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/8656.png",
+      "name": "Rio Ave FC",
+      "stadiumName": "Campo de Treinos do Rio Ave",
+      "stadiumSeats": 500,
+      "transfermarktId": "8656",
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 2, 2002",
+          "foot": "",
+          "height": "",
+          "id": "108349",
+          "marketValue": "",
+          "name": "Genevieve Crenshaw",
+          "nationality": [
+            "United States"
+          ],
+          "number": "14",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 21, 2005",
+          "foot": "",
+          "height": "1,68m",
+          "id": "52645",
+          "marketValue": "",
+          "name": "Íris Esgueirão",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "99",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 9, 2006",
+          "foot": "both",
+          "height": "1,72m",
+          "id": "101512",
+          "marketValue": "",
+          "name": "Sofia Almeida",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "1",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 1, 2001",
+          "foot": "",
+          "height": "",
+          "id": "44490",
+          "marketValue": "",
+          "name": "Itaf Alkisi",
+          "nationality": [
+            "Israel"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 27, 2003",
+          "foot": "",
+          "height": "",
+          "id": "40314",
+          "marketValue": "",
+          "name": "Ana Assucena",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "15",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Apr 30, 2002",
+          "foot": "",
+          "height": "",
+          "id": "40405",
+          "marketValue": "",
+          "name": "Mariana Malva",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "18",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 30, 2001",
+          "foot": "",
+          "height": "1,59m",
+          "id": "43259",
+          "marketValue": "",
+          "name": "Inês Barge",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "27",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 15, 2006",
+          "foot": "left",
+          "height": "1,66m",
+          "id": "70229",
+          "marketValue": "",
+          "name": "Ana Filipa Ribeiro",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "55",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 1, 2003",
+          "foot": "",
+          "height": "",
+          "id": "111511",
+          "marketValue": "",
+          "name": "Rielee Fetty",
+          "nationality": [
+            "United States"
+          ],
+          "number": "2",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 4, 1997",
+          "foot": "",
+          "height": "1,61m",
+          "id": "51270",
+          "marketValue": "",
+          "name": "Bárbara Azevedo",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "5",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 2, 1999",
+          "foot": "",
+          "height": "",
+          "id": "70565",
+          "marketValue": "",
+          "name": "Madison Wolfbauer",
+          "nationality": [
+            "United States"
+          ],
+          "number": "6",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 12, 2005",
+          "foot": "",
+          "height": "",
+          "id": "101636",
+          "marketValue": "",
+          "name": "Mafalda Nunes",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 18, 1994",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "29842",
+          "marketValue": "€25k",
+          "name": "Miriam Rodríguez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "11",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Aug 13, 1992",
+          "foot": "left",
+          "height": "1,69m",
+          "id": "11581",
+          "marketValue": "",
+          "name": "Regina Pereira",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "12",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 10, 2002",
+          "foot": "",
+          "height": "",
+          "id": "55196",
+          "marketValue": "",
+          "name": "Zofia Giętkowska",
+          "nationality": [
+            "Poland"
+          ],
+          "number": "16",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Nov 21, 2002",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "58107",
+          "marketValue": "",
+          "name": "Maria Rodrigues",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "17",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 15, 2003",
+          "foot": "",
+          "height": "",
+          "id": "46436",
+          "marketValue": "€25k",
+          "name": "Noa Selimhodžić",
+          "nationality": [
+            "Israel"
+          ],
+          "number": "21",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 23, 2006",
+          "foot": "",
+          "height": "1,70m",
+          "id": "67055",
+          "marketValue": "",
+          "name": "Rita Almeida",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "23",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 31, 2000",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "51226",
+          "marketValue": "",
+          "name": "Telma Pereira",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "31",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 10, 2007",
+          "foot": "",
+          "height": "",
+          "id": "79723",
+          "marketValue": "",
+          "name": "Vitória Coelho",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "7",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Jun 29, 2000",
+          "foot": "",
+          "height": "1,68m",
+          "id": "53186",
+          "marketValue": "",
+          "name": "Beatriz Conduto",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "10",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 16, 1995",
+          "foot": "",
+          "height": "1,64m",
+          "id": "28919",
+          "marketValue": "",
+          "name": "Claudia Chiper",
+          "nationality": [
+            "Moldova"
+          ],
+          "number": "22",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 9, 2002",
+          "foot": "",
+          "height": "1,75m",
+          "id": "107152",
+          "marketValue": "",
+          "name": "Mackenzie Anthony",
+          "nationality": [
+            "United States"
+          ],
+          "number": "24",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/9601.png",
+      "name": "Vitória Sport Clube Guimarães",
+      "stadiumName": "Academica Vitória Sport Clube",
+      "stadiumSeats": 3000,
+      "transfermarktId": "9601",
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 31, 1998",
+          "foot": "",
+          "height": "1,80m",
+          "id": "28394",
+          "marketValue": "",
+          "name": "Andrea Neves",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 30, 1995",
+          "foot": "",
+          "height": "",
+          "id": "79705",
+          "marketValue": "",
+          "name": "Inês Marques",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "18",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 22, 1998",
+          "foot": "",
+          "height": "1,70m",
+          "id": "39523",
+          "marketValue": "",
+          "name": "Tiffany Sornpao",
+          "nationality": [
+            "Thailand"
+          ],
+          "number": "2",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 6, 1994",
+          "foot": "right",
+          "height": "1,61m",
+          "id": "21615",
+          "marketValue": "",
+          "name": "Bárbara Santos",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "30",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 17, 2008",
+          "foot": "",
+          "height": "1,68m",
+          "id": "107071",
+          "marketValue": "",
+          "name": "Joana Ribeiro",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 5, 2006",
+          "foot": "",
+          "height": "1,77m",
+          "id": "70905",
+          "marketValue": "",
+          "name": "Dária Kaminska",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "12",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 1, 2003",
+          "foot": "",
+          "height": "1,68m",
+          "id": "69705",
+          "marketValue": "",
+          "name": "Aidan McConnell",
+          "nationality": [
+            "United States"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 3, 2000",
+          "foot": "",
+          "height": "1,80m",
+          "id": "60037",
+          "marketValue": "",
+          "name": "Gabriela Zidoi",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "14",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 28, 1998",
+          "foot": "",
+          "height": "1,64m",
+          "id": "64516",
+          "marketValue": "",
+          "name": "Débora Maciel",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 1, 1997",
+          "foot": "left",
+          "height": "1,63m",
+          "id": "43243",
+          "marketValue": "",
+          "name": "Paula Fernandes",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "6",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 13, 1999",
+          "foot": "",
+          "height": "1,73m",
+          "id": "99174",
+          "marketValue": "€25k",
+          "name": "Madeline Gravante",
+          "nationality": [
+            "United States"
+          ],
+          "number": "13",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Aug 3, 1994",
+          "foot": "",
+          "height": "",
+          "id": "77691",
+          "marketValue": "",
+          "name": "Jaime Turrentine",
+          "nationality": [
+            "Philippines"
+          ],
+          "number": "15",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 8, 2006",
+          "foot": "",
+          "height": "",
+          "id": "66906",
+          "marketValue": "",
+          "name": "Luana Rafael",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "22",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 30, 2000",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "39015",
+          "marketValue": "",
+          "name": "Inês Queiroga",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "24",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 14, 1999",
+          "foot": "right",
+          "height": "1,64m",
+          "id": "58394",
+          "marketValue": "",
+          "name": "Samara Lino",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "21",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Sep 17, 1998",
+          "foot": "",
+          "height": "",
+          "id": "35347",
+          "marketValue": "€10k",
+          "name": "Nika Babnik",
+          "nationality": [
+            "Slovenia"
+          ],
+          "number": "8",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 28, 2004",
+          "foot": "",
+          "height": "1,60m",
+          "id": "120514",
+          "marketValue": "",
+          "name": "Lia Howard",
+          "nationality": [
+            "United States"
+          ],
+          "number": "9",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 2, 1990",
+          "foot": "",
+          "height": "1,65m",
+          "id": "43354",
+          "marketValue": "",
+          "name": "Betinha",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "10",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 3, 2004",
+          "foot": "left",
+          "height": "1,62m",
+          "id": "61024",
+          "marketValue": "€15k",
+          "name": "Matilde Silva",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "11",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 1, 2004",
+          "foot": "",
+          "height": "",
+          "id": "68187",
+          "marketValue": "",
+          "name": "Filipa Manso-Preto",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "16",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 24, 2003",
+          "foot": "",
+          "height": "1,73m",
+          "id": "121436",
+          "marketValue": "",
+          "name": "Samantha Wiehe",
+          "nationality": [
+            "United States"
+          ],
+          "number": "17",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 3, 2006",
+          "foot": "left",
+          "height": "1,65m",
+          "id": "64628",
+          "marketValue": "",
+          "name": "Mafalda Mariano",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "20",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 20, 2000",
+          "foot": "",
+          "height": "",
+          "id": "62817",
+          "marketValue": "",
+          "name": "Elene Errasti",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "77",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 24, 2006",
+          "foot": "right",
+          "height": "1,66m",
+          "id": "61018",
+          "marketValue": "",
+          "name": "Marta Gago",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "87",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 27, 2003",
+          "foot": "",
+          "height": "",
+          "id": "121434",
+          "marketValue": "",
+          "name": "Erin Bailey",
+          "nationality": [
+            "United States"
+          ],
+          "number": "7",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 11, 1996",
+          "foot": "",
+          "height": "",
+          "id": "43365",
+          "marketValue": "",
+          "name": "Maria Baleia",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "19",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 15, 1995",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "42579",
+          "marketValue": "",
+          "name": "Sara Brasil",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "23",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Oct 11, 2000",
+          "foot": "",
+          "height": "",
+          "id": "113373",
+          "marketValue": "",
+          "name": "Jennessa Groves",
+          "nationality": [
+            "United States"
+          ],
+          "number": "25",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 14, 2003",
+          "foot": "",
+          "height": "1,75m",
+          "id": "121435",
+          "marketValue": "",
+          "name": "Jordyn Wickes",
+          "nationality": [
+            "United States"
+          ],
+          "number": "32",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 21, 2002",
+          "foot": "right",
+          "height": "1,58m",
+          "id": "43302",
+          "marketValue": "",
+          "name": "Rita Dias",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "70",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Jul 2, 2003",
+          "foot": "",
+          "height": "",
+          "id": "75427",
+          "marketValue": "",
+          "name": "Maria Salgado",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "80",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/15718.png",
+      "name": "FC Porto",
+      "stadiumName": "Estádio Luís Filipe Menezes",
+      "stadiumSeats": 3800,
+      "transfermarktId": "15718",
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 10, 2002",
+          "foot": "",
+          "height": "",
+          "id": "111826",
+          "marketValue": "",
+          "name": "Cora Brendle",
+          "nationality": [
+            "United States"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 21, 2008",
+          "foot": "",
+          "height": "1,75m",
+          "id": "81615",
+          "marketValue": "",
+          "name": "Beatriz Carvalho",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "25",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 20, 1997",
+          "foot": "",
+          "height": "",
+          "id": "23504",
+          "marketValue": "",
+          "name": "Tatiana Beleza",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "28",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 28, 2000",
+          "foot": "",
+          "height": "1,70m",
+          "id": "39118",
+          "marketValue": "",
+          "name": "Bárbara Marques",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "33",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 14, 2010",
+          "foot": "",
+          "height": "",
+          "id": "115831",
+          "marketValue": "",
+          "name": "Raquel Cunha",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "99",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 28, 2000",
+          "foot": "",
+          "height": "1,80m",
+          "id": "31176",
+          "marketValue": "",
+          "name": "Vânia Duarte",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "24",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 9, 2002",
+          "foot": "",
+          "height": "",
+          "id": "62434",
+          "marketValue": "",
+          "name": "Ema Gonçalves",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 25, 2008",
+          "foot": "",
+          "height": "",
+          "id": "94645",
+          "marketValue": "",
+          "name": "Mariana Queirós",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 26, 1999",
+          "foot": "right",
+          "height": "1,77m",
+          "id": "35311",
+          "marketValue": "€30k",
+          "name": "Lana Golob",
+          "nationality": [
+            "Slovenia"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 4, 2005",
+          "foot": "",
+          "height": "",
+          "id": "110523",
+          "marketValue": "",
+          "name": "Lara Filipe",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 8, 2006",
+          "foot": "left",
+          "height": "1,60m",
+          "id": "67064",
+          "marketValue": "",
+          "name": "Alice Reto",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "26",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 27, 1995",
+          "foot": "",
+          "height": "1,73m",
+          "id": "23593",
+          "marketValue": "",
+          "name": "Mariana Azevedo",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "17",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 7, 2002",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "40298",
+          "marketValue": "€20k",
+          "name": "Sofia Silva",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "19",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 30, 2004",
+          "foot": "",
+          "height": "",
+          "id": "120088",
+          "marketValue": "",
+          "name": "Inês Nogueira",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "20",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 5, 2003",
+          "foot": "",
+          "height": "",
+          "id": "47272",
+          "marketValue": "",
+          "name": "Joana Ferreira",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "22",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 18, 2004",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "42243",
+          "marketValue": "€10k",
+          "name": "Daniela Santos",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "30",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 30, 2004",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "62990",
+          "marketValue": "€20k",
+          "name": "Letícia Almeida",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "6",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 22, 2001",
+          "foot": "",
+          "height": "1,74m",
+          "id": "103051",
+          "marketValue": "",
+          "name": "Morgan Stone",
+          "nationality": [
+            "United States"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Dec 23, 2003",
+          "foot": "",
+          "height": "1,62m",
+          "id": "40311",
+          "marketValue": "",
+          "name": "Maria Negrão",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "10",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 29, 2001",
+          "foot": "right",
+          "height": "1,62m",
+          "id": "40089",
+          "marketValue": "€30k",
+          "name": "Ana Teles",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "11",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 19, 2002",
+          "foot": "",
+          "height": "",
+          "id": "111540",
+          "marketValue": "",
+          "name": "Eliza Turner",
+          "nationality": [
+            "United States"
+          ],
+          "number": "12",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 26, 1999",
+          "foot": "",
+          "height": "1,67m",
+          "id": "28733",
+          "marketValue": "",
+          "name": "Angeline da Costa",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "14",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 10, 2007",
+          "foot": "",
+          "height": "",
+          "id": "79740",
+          "marketValue": "",
+          "name": "Matilde Vaz",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "16",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 16, 1996",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "20206",
+          "marketValue": "€75k",
+          "name": "Fátima Pinto",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "18",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 2, 2005",
+          "foot": "left",
+          "height": "1,55m",
+          "id": "64638",
+          "marketValue": "",
+          "name": "Maria Ferreira",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "7",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 23, 2001",
+          "foot": "",
+          "height": "1,75m",
+          "id": "97149",
+          "marketValue": "€65k",
+          "name": "Alex Kerr",
+          "nationality": [
+            "United States"
+          ],
+          "number": "9",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 23, 2002",
+          "foot": "",
+          "height": "",
+          "id": "112182",
+          "marketValue": "",
+          "name": "Lily Bryant",
+          "nationality": [
+            "United States"
+          ],
+          "number": "13",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 1, 1996",
+          "foot": "",
+          "height": "1,57m",
+          "id": "45521",
+          "marketValue": "",
+          "name": "Soraya França",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "15",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 28, 2008",
+          "foot": "right",
+          "height": "1,55m",
+          "id": "88038",
+          "marketValue": "€25k",
+          "name": "Lina Jamaï",
+          "nationality": [
+            "Morocco"
+          ],
+          "number": "27",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 13, 2004",
+          "foot": "",
+          "height": "",
+          "id": "68139",
+          "marketValue": "",
+          "name": "Lara Perruca",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "21",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 25, 2003",
+          "foot": "",
+          "height": "",
+          "id": "80597",
+          "marketValue": "",
+          "name": "Fatumata Sissé",
+          "nationality": [
+            "Guinea-Bissau"
+          ],
+          "number": "23",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 29, 2000",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "51271",
+          "marketValue": "",
+          "name": "Mylena Freitas",
+          "nationality": [
+            "Brazil"
+          ],
+          "number": "29",
+          "position": "Right Winger"
+        }
+      ]
+    }
+  ]
+}

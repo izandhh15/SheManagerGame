@@ -1,0 +1,58 @@
+# app.yaml — configuración de la app SheManagerGame en Wasmer Edge
+# Referencia: https://docs.wasmer.io/edge/configuration/
+# Tras el primer deploy, Wasmer escribe aquí el app_id. No commitear secretos.
+
+kind: wasmer.io/App.v0
+name: shemanager
+# ⚠️ REEMPLAZAR por el nombre de usuario/namespaces de Izan en Wasmer
+owner: izandhh15
+package: .
+
+env:
+  APP_NAME: "SheManagerGame"
+  APP_ENV: "production"
+  APP_DEBUG: "false"
+  # Temporada de datos femeninos (data/2026). Sin esto el seeder usaría 2025.
+  GAME_SEASON: "2026"
+  # ⚠️ Actualizar con el dominio real tras el primer deploy
+  APP_URL: "https://shemanager.wasmer.app"
+  # La BD gestionada inyecta DB_HOST, DB_PORT, DB_NAME, DB_USERNAME, DB_PASSWORD
+  DB_CONNECTION: "pgsql"
+  DB_SSLMODE: "prefer"
+  # En Edge el sistema de ficheros del paquete es de solo lectura:
+  # sesiones, caché y logs van a la BD / stderr, no a ficheros
+  SESSION_DRIVER: "database"
+  CACHE_STORE: "database"
+  QUEUE_CONNECTION: "database"
+  LOG_CHANNEL: "stderr"
+  VIEW_COMPILED_PATH: "/data/views"
+  # Usado por el parche de bootstrap/app.php (ver bootstrap-wasmer.patch)
+  WASMER_STORAGE_PATH: "/data/storage"
+
+locality:
+  # fr-roub1 soporta bases de datos gestionadas (cerca de España)
+  regions: [fr-roub1]
+
+capabilities:
+  database:
+    engine: postgres
+  instaboot:
+    requests:
+      - path: /
+
+volumes:
+  - name: data
+    mount: /data
+
+scaling:
+  # PHP es single-threaded: una petición por instancia
+  mode: single_concurrency
+
+# Ejemplo de cron para el scheduler de Laravel (activar cuando haga falta):
+# jobs:
+#   - name: scheduler
+#     trigger: '* * * * *'
+#     action:
+#       execute:
+#         command: php
+#         cli_args: ["artisan", "schedule:run"]

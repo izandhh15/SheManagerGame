@@ -1,0 +1,5677 @@
+{
+  "id": "DEU1",
+  "name": "Frauen-Bundesliga",
+  "seasonID": "2026",
+  "clubs": [
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/57.png",
+      "name": "Bayern München",
+      "stadiumName": "FC Bayern Campus",
+      "stadiumSeats": 2500,
+      "transfermarktId": "57",
+      "players": [
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Dec 23, 2003",
+          "foot": "both",
+          "height": "1,77m",
+          "id": "33305",
+          "marketValue": "€360k",
+          "name": "Ena Mahmutovic",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Mar 9, 2002",
+          "foot": "right",
+          "height": "1,74m",
+          "id": "53391",
+          "marketValue": "€100k",
+          "name": "Regina van Eijk",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "22",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 22, 1995",
+          "foot": "right",
+          "height": "1,75m",
+          "id": "7287",
+          "marketValue": "€35k",
+          "name": "Anna Klink",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "38",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 11, 1996",
+          "foot": "right",
+          "height": "1,74m",
+          "id": "35912",
+          "marketValue": "€200k",
+          "name": "Vanessa Gilles",
+          "nationality": [
+            "Canada"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 3, 1994",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "9525",
+          "marketValue": "€100k",
+          "name": "Stine Ballisager",
+          "nationality": [
+            "Denmark"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 27, 1995",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "17904",
+          "marketValue": "€550k",
+          "name": "Glódís Perla Viggósdóttir",
+          "nationality": [
+            "Iceland"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Sep 8, 1993",
+          "foot": "left",
+          "height": "1,73m",
+          "id": "7497",
+          "marketValue": "€250k",
+          "name": "Magdalena Eriksson",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 2, 1999",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "19254",
+          "marketValue": "€700k",
+          "name": "Giulia Gwinn",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "7",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "May 11, 2003",
+          "foot": "right",
+          "height": "1,66m",
+          "id": "53385",
+          "marketValue": "€70k",
+          "name": "Sarah Mattner",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "11",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Dec 16, 1997",
+          "foot": "left",
+          "height": "1,68m",
+          "id": "15066",
+          "marketValue": "€200k",
+          "name": "Katharina Naschenweng",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "19",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 24, 2004",
+          "foot": "left",
+          "height": "1,71m",
+          "id": "38143",
+          "marketValue": "€675k",
+          "name": "Franziska Kett",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "20",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 12, 2009",
+          "foot": "left",
+          "height": "",
+          "id": "90305",
+          "marketValue": "",
+          "name": "Laura Dafinger",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "36",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 9, 1996",
+          "foot": "",
+          "height": "1,70m",
+          "id": "16400",
+          "marketValue": "",
+          "name": "Jana Kappes",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "45",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Dec 19, 2001",
+          "foot": "both",
+          "height": "1,74m",
+          "id": "31601",
+          "marketValue": "€400k",
+          "name": "Lena Oberdorf",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "8",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 2, 1994",
+          "foot": "right",
+          "height": "1,58m",
+          "id": "7276",
+          "marketValue": "€450k",
+          "name": "Linda Dallmann",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "10",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 27, 2006",
+          "foot": "left",
+          "height": "1,74m",
+          "id": "58636",
+          "marketValue": "€400k",
+          "name": "Alara Şehitler",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "14",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Sep 5, 1997",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "51966",
+          "marketValue": "€90k",
+          "name": "Bernadette Amani",
+          "nationality": [
+            "Cote d'Ivoire"
+          ],
+          "number": "15",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "May 7, 2005",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "56791",
+          "marketValue": "€800k",
+          "name": "Momoko Tanikawa",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "18",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 19, 1993",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "7153",
+          "marketValue": "€150k",
+          "name": "Sarah Zadrazil",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "25",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Sep 25, 1997",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "15065",
+          "marketValue": "€250k",
+          "name": "Barbara Dunst",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "28",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jan 12, 2008",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "84479",
+          "marketValue": "€70k",
+          "name": "Kassandra Potsi",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "6",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 24, 1994",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "11637",
+          "marketValue": "€190k",
+          "name": "Jovana Damnjanović",
+          "nationality": [
+            "Serbia"
+          ],
+          "number": "9",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 7, 2000",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "21658",
+          "marketValue": "€1.65m",
+          "name": "Klara Bühl",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "17",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Nov 15, 1992",
+          "foot": "both",
+          "height": "1,69m",
+          "id": "4546",
+          "marketValue": "€700k",
+          "name": "Pernille Harder",
+          "nationality": [
+            "Denmark"
+          ],
+          "number": "21",
+          "position": "Second Striker"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Mar 11, 2007",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "74030",
+          "marketValue": "€75k",
+          "name": "Sophie Proost",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "23",
+          "position": "Second Striker"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Oct 5, 2000",
+          "foot": "right",
+          "height": "1,79m",
+          "id": "47634",
+          "marketValue": "€750k",
+          "name": "Edna Imade",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "29",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Apr 6, 2010",
+          "foot": "",
+          "height": "",
+          "id": "107812",
+          "marketValue": "",
+          "name": "Ella Rauscha",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "33",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/407.png",
+      "name": "VfL Wolfsburg",
+      "stadiumName": "AOK Stadion",
+      "stadiumSeats": 5200,
+      "transfermarktId": "407",
+      "players": [
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 23, 2000",
+          "foot": "right",
+          "height": "1,77m",
+          "id": "30714",
+          "marketValue": "€200k",
+          "name": "Stina Johannes",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 16, 1994",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "2315",
+          "marketValue": "€40k",
+          "name": "Martina Tufeković",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "21",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 21, 2005",
+          "foot": "right",
+          "height": "1,79m",
+          "id": "49983",
+          "marketValue": "€35k",
+          "name": "Christina Schönwetter",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "22",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jan 30, 2009",
+          "foot": "both",
+          "height": "1,70m",
+          "id": "100289",
+          "marketValue": "€10k",
+          "name": "Ylvi Eisenbeiß",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "40",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 5, 2000",
+          "foot": "both",
+          "height": "1,57m",
+          "id": "33490",
+          "marketValue": "€175k",
+          "name": "Thea Bjelde",
+          "nationality": [
+            "Norway"
+          ],
+          "number": "2",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Apr 16, 2001",
+          "foot": "",
+          "height": "1,75m",
+          "id": "35133",
+          "marketValue": "€50k",
+          "name": "Lieske Carleer",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 12, 2000",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "26562",
+          "marketValue": "€200k",
+          "name": "Sophia Kleinherne",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 10, 2003",
+          "foot": "both",
+          "height": "1,83m",
+          "id": "33274",
+          "marketValue": "€400k",
+          "name": "Camilla Küver",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "16",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Dec 22, 2003",
+          "foot": "right",
+          "height": "1,78m",
+          "id": "38128",
+          "marketValue": "€180k",
+          "name": "Julia Landenberger",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "20",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jun 25, 2004",
+          "foot": "left",
+          "height": "1,66m",
+          "id": "61269",
+          "marketValue": "€300k",
+          "name": "Lou Bogaert",
+          "nationality": [
+            "France"
+          ],
+          "number": "23",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Aug 12, 1996",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "13564",
+          "marketValue": "€90k",
+          "name": "Joelle Wedemeyer",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "24",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 26, 1999",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "21820",
+          "marketValue": "€275k",
+          "name": "Sarai Linder",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "39",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 6, 2002",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "35145",
+          "marketValue": "€250k",
+          "name": "Ella Peddemors",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "5",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 11, 1999",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "19255",
+          "marketValue": "€600k",
+          "name": "Janina Minge",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "6",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 2, 2000",
+          "foot": "right",
+          "height": "1,76m",
+          "id": "21818",
+          "marketValue": "€125k",
+          "name": "Lena Lattwein",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "8",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 25, 1991",
+          "foot": "both",
+          "height": "1,63m",
+          "id": "792",
+          "marketValue": "€50k",
+          "name": "Svenja Huth",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "10",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 23, 2004",
+          "foot": "both",
+          "height": "1,72m",
+          "id": "58893",
+          "marketValue": "€200k",
+          "name": "Smilla Vallotto",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "14",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 15, 2008",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "85852",
+          "marketValue": "€40k",
+          "name": "Weronika Araśniewicz",
+          "nationality": [
+            "Poland"
+          ],
+          "number": "15",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Sep 5, 2003",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "37208",
+          "marketValue": "€260k",
+          "name": "Katharina Piljić",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "17",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 30, 2008",
+          "foot": "both",
+          "height": "",
+          "id": "89350",
+          "marketValue": "",
+          "name": "Antonia Wagner",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "32",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Sep 20, 1998",
+          "foot": "right",
+          "height": "1,78m",
+          "id": "18478",
+          "marketValue": "€300k",
+          "name": "Giovanna Hoffmann",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "7",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Aug 8, 1998",
+          "foot": "both",
+          "height": "1,71m",
+          "id": "30537",
+          "marketValue": "€190k",
+          "name": "Lara Prašnikar",
+          "nationality": [
+            "Slovenia"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2030",
+          "dateOfBirth": "Oct 8, 2001",
+          "foot": "right",
+          "height": "1,75m",
+          "id": "39105",
+          "marketValue": "€200k",
+          "name": "Cecilie Fløe",
+          "nationality": [
+            "Denmark"
+          ],
+          "number": "13",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 6, 2005",
+          "foot": "both",
+          "height": "1,78m",
+          "id": "53366",
+          "marketValue": "€225k",
+          "name": "Mara Alber",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "18",
+          "position": "Second Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 19, 2001",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "40174",
+          "marketValue": "€350k",
+          "name": "Kessya Bussy",
+          "nationality": [
+            "France"
+          ],
+          "number": "19",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Nov 29, 2004",
+          "foot": "right",
+          "height": "1,76m",
+          "id": "37202",
+          "marketValue": "€275k",
+          "name": "Cora Zicai",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "28",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 21, 2007",
+          "foot": "both",
+          "height": "1,72m",
+          "id": "80853",
+          "marketValue": "€80k",
+          "name": "Anny Kerim-Lindland",
+          "nationality": [
+            "Norway"
+          ],
+          "number": "38",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Feb 19, 2006",
+          "foot": "both",
+          "height": "1,72m",
+          "id": "71185",
+          "marketValue": "€75k",
+          "name": "Linnea Sælen",
+          "nationality": [
+            "Norway"
+          ],
+          "number": "41",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/104.png",
+      "name": "Eintracht Frankfurt",
+      "stadiumName": "Stadion am Brentanobad",
+      "stadiumSeats": 5650,
+      "transfermarktId": "104",
+      "players": [
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jun 29, 2003",
+          "foot": "both",
+          "height": "1,75m",
+          "id": "35389",
+          "marketValue": "€140k",
+          "name": "Sophia Winkler",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 23, 2005",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "42354",
+          "marketValue": "€125k",
+          "name": "Lina Altenburg",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "12",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 22, 2007",
+          "foot": "right",
+          "height": "1,80m",
+          "id": "89418",
+          "marketValue": "€70k",
+          "name": "Janne Krumme",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "21",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Mar 2, 2010",
+          "foot": "",
+          "height": "",
+          "id": "105150",
+          "marketValue": "",
+          "name": "Katharina Jeppe",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "30",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 20, 2006",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "51141",
+          "marketValue": "",
+          "name": "Ronja Schaer",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 21, 1999",
+          "foot": "left",
+          "height": "1,65m",
+          "id": "21552",
+          "marketValue": "€130k",
+          "name": "Nina Lührßen",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "11",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 17, 1993",
+          "foot": "right",
+          "height": "1,78m",
+          "id": "3984",
+          "marketValue": "€170k",
+          "name": "Amanda Ilestedt",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "13",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 18, 2001",
+          "foot": "right",
+          "height": "1,78m",
+          "id": "38439",
+          "marketValue": "€85k",
+          "name": "Marthine Østenstad",
+          "nationality": [
+            "Norway"
+          ],
+          "number": "14",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "May 9, 2003",
+          "foot": "left",
+          "height": "1,70m",
+          "id": "45433",
+          "marketValue": "€110k",
+          "name": "Jamilla Rankin",
+          "nationality": [
+            "Australia"
+          ],
+          "number": "15",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 13, 1997",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "17429",
+          "marketValue": "€60k",
+          "name": "Pia-Sophie Wolter",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "17",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 24, 2006",
+          "foot": "right",
+          "height": "1,76m",
+          "id": "61399",
+          "marketValue": "",
+          "name": "Mina Matijević",
+          "nationality": [
+            "Serbia"
+          ],
+          "number": "19",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Nov 17, 1991",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "405",
+          "marketValue": "€75k",
+          "name": "Sara Doorsoun",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "23",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Oct 27, 2000",
+          "foot": "both",
+          "height": "1,74m",
+          "id": "19532",
+          "marketValue": "€170k",
+          "name": "Paulina Krumbiegel",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "27",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 2, 2004",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "38136",
+          "marketValue": "€65k",
+          "name": "Dilara Açikgöz",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "29",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 12, 2007",
+          "foot": "both",
+          "height": "",
+          "id": "67786",
+          "marketValue": "",
+          "name": "Helene Schäfer",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "2",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Nov 1, 2006",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "63753",
+          "marketValue": "€100k",
+          "name": "Noemi Ivelj",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "4",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "May 29, 2002",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "36990",
+          "marketValue": "€35k",
+          "name": "Sofie Lundgaard",
+          "nationality": [
+            "Denmark"
+          ],
+          "number": "6",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 30, 1999",
+          "foot": "right",
+          "height": "1,61m",
+          "id": "31638",
+          "marketValue": "€200k",
+          "name": "Erëleta Memeti",
+          "nationality": [
+            "Kosovo"
+          ],
+          "number": "7",
+          "position": "Left Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Oct 16, 2002",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "34924",
+          "marketValue": "€260k",
+          "name": "Hanna Bennison",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "8",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 11, 2002",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "40673",
+          "marketValue": "€85k",
+          "name": "Jarne Teulings",
+          "nationality": [
+            "Belgium"
+          ],
+          "number": "9",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 9, 2008",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "88050",
+          "marketValue": "",
+          "name": "Elâ Demirbaş",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "18",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 8, 2006",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "59177",
+          "marketValue": "€35k",
+          "name": "Ainhoa Alguacil",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "26",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 30, 2007",
+          "foot": "",
+          "height": "1,68m",
+          "id": "74003",
+          "marketValue": "",
+          "name": "Tessa Zimmermann",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "31",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 24, 2005",
+          "foot": "left",
+          "height": "1,67m",
+          "id": "58474",
+          "marketValue": "",
+          "name": "Carlotta Schwoerer",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "32",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 1, 1998",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "13992",
+          "marketValue": "€400k",
+          "name": "Laura Freigang",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "10",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 5, 1994",
+          "foot": "right",
+          "height": "1,62m",
+          "id": "12018",
+          "marketValue": "€160k",
+          "name": "Hayley Raso",
+          "nationality": [
+            "Australia"
+          ],
+          "number": "16",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Mar 17, 2005",
+          "foot": "right",
+          "height": "",
+          "id": "63443",
+          "marketValue": "€250k",
+          "name": "Danique Tolhoek",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "22",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2030",
+          "dateOfBirth": "Sep 27, 2006",
+          "foot": "",
+          "height": "",
+          "id": "78982",
+          "marketValue": "€35k",
+          "name": "Vivienne Lia",
+          "nationality": [
+            "England"
+          ],
+          "number": "24",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jul 24, 1997",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "27808",
+          "marketValue": "€200k",
+          "name": "Rebecka Blomqvist",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "28",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jan 13, 2003",
+          "foot": "right",
+          "height": "1,79m",
+          "id": "32481",
+          "marketValue": "€300k",
+          "name": "Larissa Mühlhaus",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "47",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/56.png",
+      "name": "Bayer Leverkusen",
+      "stadiumName": "Ulrich-Haberland-Stadion",
+      "stadiumSeats": 3200,
+      "transfermarktId": "56",
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 22, 1999",
+          "foot": "right",
+          "height": "1,78m",
+          "id": "21830",
+          "marketValue": "€40k",
+          "name": "Charlotte Voll",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 5, 2000",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "26890",
+          "marketValue": "€90k",
+          "name": "Rafaela Borggräfe",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "12",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 5, 2006",
+          "foot": "right",
+          "height": "",
+          "id": "59888",
+          "marketValue": "€30k",
+          "name": "Louisa Remien",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "35",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 15, 1999",
+          "foot": "right",
+          "height": "1,77m",
+          "id": "21205",
+          "marketValue": "€130k",
+          "name": "Selina Ostermeier",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 6, 1997",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "18936",
+          "marketValue": "€30k",
+          "name": "Melissa Friedrich",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 6, 2001",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "31066",
+          "marketValue": "€90k",
+          "name": "Claudia Wenger",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jul 9, 2002",
+          "foot": "left",
+          "height": "",
+          "id": "38413",
+          "marketValue": "€40k",
+          "name": "Justine Brandau",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "8",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Nov 19, 2006",
+          "foot": "right",
+          "height": "1,62m",
+          "id": "59893",
+          "marketValue": "€230k",
+          "name": "Estrella Merino González",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "10",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Sep 9, 2006",
+          "foot": "left",
+          "height": "1,72m",
+          "id": "50480",
+          "marketValue": "€35k",
+          "name": "Emily Wallrabenstein",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "14",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Dec 20, 1998",
+          "foot": "right",
+          "height": "1,75m",
+          "id": "32714",
+          "marketValue": "€120k",
+          "name": "Lilla Turányi",
+          "nationality": [
+            "Hungary"
+          ],
+          "number": "24",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Nov 24, 1992",
+          "foot": "left",
+          "height": "1,73m",
+          "id": "1786",
+          "marketValue": "€55k",
+          "name": "Carolin Simon",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "30",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Nov 16, 2005",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "58472",
+          "marketValue": "€100k",
+          "name": "Paulina Platner",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "6",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 12, 2003",
+          "foot": "both",
+          "height": "1,70m",
+          "id": "32864",
+          "marketValue": "€110k",
+          "name": "Natasha Kowalski",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "11",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Aug 8, 2004",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "37553",
+          "marketValue": "€250k",
+          "name": "Sofie Zdebel",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "16",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 21, 2005",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "50449",
+          "marketValue": "€300k",
+          "name": "Loreen Bender",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "19",
+          "position": "Right Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 21, 2001",
+          "foot": "left",
+          "height": "1,53m",
+          "id": "29535",
+          "marketValue": "€275k",
+          "name": "Vanessa Fudalla",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "21",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Oct 24, 2000",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "28253",
+          "marketValue": "€95k",
+          "name": "Marlene Müller",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "27",
+          "position": "Right Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Apr 2, 2003",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "42638",
+          "marketValue": "€40k",
+          "name": "Lumbardha Misini",
+          "nationality": [
+            "Kosovo"
+          ],
+          "number": "34",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Apr 21, 2008",
+          "foot": "both",
+          "height": "1,74m",
+          "id": "87336",
+          "marketValue": "€20k",
+          "name": "Sana Coşkun",
+          "nationality": [
+            "Turkey"
+          ],
+          "number": "42",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 16, 2002",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "37288",
+          "marketValue": "€225k",
+          "name": "Cornelia Kramer",
+          "nationality": [
+            "Denmark"
+          ],
+          "number": "7",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 9, 1997",
+          "foot": "right",
+          "height": "1,77m",
+          "id": "49474",
+          "marketValue": "€70k",
+          "name": "Caroline Kehrer",
+          "nationality": [
+            "Canada"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Dec 18, 2005",
+          "foot": "right",
+          "height": "1,75m",
+          "id": "55214",
+          "marketValue": "€100k",
+          "name": "Valentina Mädl",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "17",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Sep 14, 2002",
+          "foot": "right",
+          "height": "1,79m",
+          "id": "38420",
+          "marketValue": "€85k",
+          "name": "Lobke Loonen",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "18",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Dec 28, 2003",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "38130",
+          "marketValue": "€110k",
+          "name": "Maja Sternad",
+          "nationality": [
+            "Slovenia"
+          ],
+          "number": "23",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 2, 2002",
+          "foot": "",
+          "height": "",
+          "id": "35175",
+          "marketValue": "€55k",
+          "name": "Paulina Tomasiak",
+          "nationality": [
+            "Poland"
+          ],
+          "number": "28",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Apr 14, 2008",
+          "foot": "right",
+          "height": "",
+          "id": "67792",
+          "marketValue": "€50k",
+          "name": "Amy Wrigge",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "41",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/11.png",
+      "name": "1. FC Union Berlin",
+      "stadiumName": "Stadion an der alten Försterei",
+      "stadiumSeats": 22012,
+      "transfermarktId": "11",
+      "players": [
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Feb 11, 1997",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "13989",
+          "marketValue": "€80k",
+          "name": "Cara Bösl",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Mar 19, 2007",
+          "foot": "right",
+          "height": "",
+          "id": "60350",
+          "marketValue": "€40k",
+          "name": "Nelly Smolarczyk",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "12",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 21, 2003",
+          "foot": "right",
+          "height": "1,78m",
+          "id": "36417",
+          "marketValue": "€70k",
+          "name": "Nadine Böhi",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "28",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 31, 2004",
+          "foot": "right",
+          "height": "1,64m",
+          "id": "37979",
+          "marketValue": "€65k",
+          "name": "Tomke Schneider",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 23, 2001",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "33309",
+          "marketValue": "€50k",
+          "name": "Anna Aehling",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Feb 25, 2005",
+          "foot": "left",
+          "height": "1,58m",
+          "id": "53597",
+          "marketValue": "€100k",
+          "name": "Judit Pujols",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "5",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Sep 25, 1995",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "13861",
+          "marketValue": "€70k",
+          "name": "Judith Steinert",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "17",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 11, 1998",
+          "foot": "right",
+          "height": "",
+          "id": "19256",
+          "marketValue": "€90k",
+          "name": "Samantha Steuerwald",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "19",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 21, 1998",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "25868",
+          "marketValue": "€45k",
+          "name": "Anna Weiß",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "21",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Feb 19, 2010",
+          "foot": "",
+          "height": "",
+          "id": "93229",
+          "marketValue": "€55k",
+          "name": "Mariann Noack",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "22",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 13, 2006",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "54504",
+          "marketValue": "€30k",
+          "name": "Ida Heikkinen",
+          "nationality": [
+            "Finland"
+          ],
+          "number": "25",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jan 26, 2000",
+          "foot": "right",
+          "height": "1,77m",
+          "id": "29924",
+          "marketValue": "€110k",
+          "name": "Amber Tysiak",
+          "nationality": [
+            "Belgium"
+          ],
+          "number": "26",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "May 3, 2005",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "41286",
+          "marketValue": "€80k",
+          "name": "Jella Veit",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "30",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Oct 3, 2003",
+          "foot": "right",
+          "height": "1,64m",
+          "id": "43206",
+          "marketValue": "€200k",
+          "name": "Jill Janssens",
+          "nationality": [
+            "Belgium"
+          ],
+          "number": "77",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Feb 11, 2003",
+          "foot": "both",
+          "height": "1,61m",
+          "id": "38127",
+          "marketValue": "€250k",
+          "name": "Lisanne Gräwe",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "6",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 29, 1998",
+          "foot": "left",
+          "height": "1,60m",
+          "id": "18468",
+          "marketValue": "€95k",
+          "name": "Lisa Heiseler",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "7",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 25, 2004",
+          "foot": "right",
+          "height": "1,61m",
+          "id": "47324",
+          "marketValue": "€30k",
+          "name": "Korina Janež",
+          "nationality": [
+            "Slovenia"
+          ],
+          "number": "8",
+          "position": "Right Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jun 8, 2009",
+          "foot": "",
+          "height": "",
+          "id": "93235",
+          "marketValue": "€25k",
+          "name": "Leona Seifert",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "18",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 18, 1999",
+          "foot": "left",
+          "height": "1,70m",
+          "id": "21823",
+          "marketValue": "€85k",
+          "name": "Tanja Pawollek",
+          "nationality": [
+            "Poland"
+          ],
+          "number": "31",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Dec 30, 1997",
+          "foot": "right",
+          "height": "1,76m",
+          "id": "14022",
+          "marketValue": "€70k",
+          "name": "Lina Hausicke",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "32",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jan 30, 2006",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "72664",
+          "marketValue": "€100k",
+          "name": "Lia Kamber",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "41",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 10, 2002",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "32938",
+          "marketValue": "€110k",
+          "name": "Sophie Weidauer",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "9",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Sep 17, 2000",
+          "foot": "right",
+          "height": "1,66m",
+          "id": "42232",
+          "marketValue": "€150k",
+          "name": "Eileen Campbell",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "10",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 8, 1998",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "21110",
+          "marketValue": "€70k",
+          "name": "Dina Orschmann",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "11",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 1, 2003",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "42033",
+          "marketValue": "€70k",
+          "name": "Hannah Eurlings",
+          "nationality": [
+            "Belgium"
+          ],
+          "number": "14",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 5, 2004",
+          "foot": "right",
+          "height": "1,82m",
+          "id": "49043",
+          "marketValue": "€40k",
+          "name": "Nele Bauereisen",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "23",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2030",
+          "dateOfBirth": "Dec 11, 2006",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "71006",
+          "marketValue": "€150k",
+          "name": "Leela Egli",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "27",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 22, 2009",
+          "foot": "",
+          "height": "",
+          "id": "90620",
+          "marketValue": "€30k",
+          "name": "Lea Aseko",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "35",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Nov 3, 2004",
+          "foot": "left",
+          "height": "1,69m",
+          "id": "37134",
+          "marketValue": "€125k",
+          "name": "Naika Reissner",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "42",
+          "position": "Left Midfield"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/18.png",
+      "name": "1899 Hoffenheim",
+      "stadiumName": "Ensinger-Stadion",
+      "stadiumSeats": 2000,
+      "transfermarktId": "18",
+      "players": [
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 13, 2003",
+          "foot": "right",
+          "height": "1,77m",
+          "id": "37668",
+          "marketValue": "€150k",
+          "name": "Laura Dick",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Dec 28, 1999",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "31184",
+          "marketValue": "€40k",
+          "name": "Lisa Lichtfus",
+          "nationality": [
+            "Belgium"
+          ],
+          "number": "28",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "May 16, 2007",
+          "foot": "",
+          "height": "",
+          "id": "58625",
+          "marketValue": "€30k",
+          "name": "Romy Bräutigam",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "31",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 24, 2000",
+          "foot": "left",
+          "height": "1,75m",
+          "id": "29462",
+          "marketValue": "€85k",
+          "name": "Lisann Kaut",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 13, 2000",
+          "foot": "",
+          "height": "1,71m",
+          "id": "30026",
+          "marketValue": "€75k",
+          "name": "Wiëlle Douma",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "13",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 8, 2000",
+          "foot": "left",
+          "height": "1,83m",
+          "id": "35779",
+          "marketValue": "€90k",
+          "name": "Lisa Doorn",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "14",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jun 20, 2006",
+          "foot": "",
+          "height": "1,70m",
+          "id": "72609",
+          "marketValue": "€20k",
+          "name": "Ilse Kemper",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "18",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 5, 2005",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "50044",
+          "marketValue": "€200k",
+          "name": "Laura Gloning",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "20",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 25, 2005",
+          "foot": "both",
+          "height": "1,70m",
+          "id": "58542",
+          "marketValue": "€40k",
+          "name": "Sara Ritter",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "22",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Nov 4, 2001",
+          "foot": "",
+          "height": "",
+          "id": "35148",
+          "marketValue": "€55k",
+          "name": "Jonna van de Velde",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "25",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 30, 2006",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "58623",
+          "marketValue": "€25k",
+          "name": "Nadine Bitzer",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "30",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Sep 4, 2007",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "77842",
+          "marketValue": "€30k",
+          "name": "Svenja Vöhringer",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "34",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 22, 2004",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "38139",
+          "marketValue": "€170k",
+          "name": "Vanessa Diehm",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "6",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Mar 5, 2004",
+          "foot": "",
+          "height": "",
+          "id": "38330",
+          "marketValue": "€200k",
+          "name": "Valesca Ampoorter",
+          "nationality": [
+            "Belgium"
+          ],
+          "number": "10",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jul 2, 2006",
+          "foot": "right",
+          "height": "",
+          "id": "58651",
+          "marketValue": "€30k",
+          "name": "Milena Röder",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "16",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 6, 1997",
+          "foot": "right",
+          "height": "1,82m",
+          "id": "15176",
+          "marketValue": "€65k",
+          "name": "Franziska Harsch",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "17",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Aug 28, 2005",
+          "foot": "left",
+          "height": "1,64m",
+          "id": "53593",
+          "marketValue": "€50k",
+          "name": "Laia Martret",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "21",
+          "position": "Right Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 2, 2002",
+          "foot": "right",
+          "height": "1,77m",
+          "id": "31494",
+          "marketValue": "€80k",
+          "name": "Chiara Hahn",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "23",
+          "position": "Right Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 4, 2002",
+          "foot": "",
+          "height": "1,75m",
+          "id": "42012",
+          "marketValue": "€85k",
+          "name": "Féli Delacauw",
+          "nationality": [
+            "Belgium"
+          ],
+          "number": "24",
+          "position": "Left Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 20, 2005",
+          "foot": "right",
+          "height": "1,64m",
+          "id": "59538",
+          "marketValue": "€65k",
+          "name": "Janna Grimm",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "26",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 28, 2008",
+          "foot": "",
+          "height": "",
+          "id": "87879",
+          "marketValue": "",
+          "name": "Vivien Thomann",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "36",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Dec 19, 2005",
+          "foot": "",
+          "height": "1,67m",
+          "id": "63744",
+          "marketValue": "€125k",
+          "name": "Naomi Luyet",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "7",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Sep 4, 2005",
+          "foot": "",
+          "height": "1,55m",
+          "id": "58536",
+          "marketValue": "€75k",
+          "name": "Marie Steiner",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "9",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 12, 2005",
+          "foot": "both",
+          "height": "1,68m",
+          "id": "50729",
+          "marketValue": "€75k",
+          "name": "Linda Natter",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "11",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Oct 9, 2006",
+          "foot": "both",
+          "height": "1,78m",
+          "id": "60694",
+          "marketValue": "€100k",
+          "name": "Martine Fenger",
+          "nationality": [
+            "Norway"
+          ],
+          "number": "15",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 19, 2002",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "36431",
+          "marketValue": "€110k",
+          "name": "Svenja Fölmli",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "19",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jul 31, 2008",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "97078",
+          "marketValue": "€20k",
+          "name": "Denise Lueger",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "29",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/8.png",
+      "name": "1. FC Nuremberg",
+      "stadiumName": "Max-Morlock-Stadion",
+      "stadiumSeats": 50000,
+      "transfermarktId": "8",
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 2, 2002",
+          "foot": "both",
+          "height": "1,73m",
+          "id": "39483",
+          "marketValue": "€75k",
+          "name": "Lourdes Romero",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 5, 2006",
+          "foot": "",
+          "height": "1,83m",
+          "id": "58638",
+          "marketValue": "€20k",
+          "name": "Sina Tölzel",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "31",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Apr 3, 2005",
+          "foot": "right",
+          "height": "1,74m",
+          "id": "45441",
+          "marketValue": "€65k",
+          "name": "Rebecca Adamczyk",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "33",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 30, 2002",
+          "foot": "both",
+          "height": "1,84m",
+          "id": "64961",
+          "marketValue": "€175k",
+          "name": "Leia Varley",
+          "nationality": [
+            "Australia"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jul 29, 2000",
+          "foot": "",
+          "height": "1,65m",
+          "id": "39838",
+          "marketValue": "€75k",
+          "name": "Alexsandra Lobanova",
+          "nationality": [
+            "Russia"
+          ],
+          "number": "4",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 15, 2004",
+          "foot": "both",
+          "height": "1,68m",
+          "id": "38141",
+          "marketValue": "€45k",
+          "name": "Clara Fröhlich",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 31, 2003",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "37952",
+          "marketValue": "€40k",
+          "name": "Amélie Thöle",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "12",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 20, 2007",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "76931",
+          "marketValue": "€30k",
+          "name": "Marlene Lindner",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "14",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jun 23, 2006",
+          "foot": "",
+          "height": "1,65m",
+          "id": "61198",
+          "marketValue": "€25k",
+          "name": "Zuzanna Grzywińska",
+          "nationality": [
+            "Poland"
+          ],
+          "number": "16",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Apr 4, 2004",
+          "foot": "both",
+          "height": "1,72m",
+          "id": "40509",
+          "marketValue": "€20k",
+          "name": "Marie Bleil",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "17",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 12, 1999",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "20533",
+          "marketValue": "€45k",
+          "name": "Franziska Mai",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "18",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jul 14, 2007",
+          "foot": "",
+          "height": "1,62m",
+          "id": "67784",
+          "marketValue": "€30k",
+          "name": "Keira Bednorz",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "21",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 9, 2002",
+          "foot": "left",
+          "height": "1,74m",
+          "id": "31402",
+          "marketValue": "€70k",
+          "name": "Julia Pollak",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "22",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Oct 14, 2002",
+          "foot": "right",
+          "height": "1,64m",
+          "id": "59965",
+          "marketValue": "€45k",
+          "name": "Fany Proniez",
+          "nationality": [
+            "France"
+          ],
+          "number": "3",
+          "position": "Right Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jun 12, 2006",
+          "foot": "",
+          "height": "1,62m",
+          "id": "64933",
+          "marketValue": "€55k",
+          "name": "Charline Coutel",
+          "nationality": [
+            "France"
+          ],
+          "number": "6",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 8, 2001",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "29472",
+          "marketValue": "€60k",
+          "name": "Selma Ličina",
+          "nationality": [
+            "Montenegro"
+          ],
+          "number": "7",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 7, 2001",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "56264",
+          "marketValue": "€100k",
+          "name": "Laura Miller",
+          "nationality": [
+            "Luxembourg"
+          ],
+          "number": "9",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 14, 2004",
+          "foot": "both",
+          "height": "1,64m",
+          "id": "36813",
+          "marketValue": "€90k",
+          "name": "Jonna Brengel",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "10",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 2, 2003",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "47835",
+          "marketValue": "€50k",
+          "name": "Lara Meroni",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "11",
+          "position": "Left Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 28, 2001",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "29420",
+          "marketValue": "€100k",
+          "name": "Sanja Homann",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "19",
+          "position": "Left Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 18, 2004",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "73206",
+          "marketValue": "€30k",
+          "name": "Maëlle Seguin",
+          "nationality": [
+            "France"
+          ],
+          "number": "28",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 11, 2002",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "43648",
+          "marketValue": "",
+          "name": "Mafalda Barbóz",
+          "nationality": [
+            "Portugal"
+          ],
+          "number": "77",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 24, 2003",
+          "foot": "right",
+          "height": "1,80m",
+          "id": "47405",
+          "marketValue": "€125k",
+          "name": "Emőke Pápai",
+          "nationality": [
+            "Hungary"
+          ],
+          "number": "15",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 3, 2002",
+          "foot": "right",
+          "height": "1,64m",
+          "id": "40937",
+          "marketValue": "€60k",
+          "name": "Jacqueline Baumgärtel",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "20",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Feb 13, 2001",
+          "foot": "right",
+          "height": "1,61m",
+          "id": "31505",
+          "marketValue": "€200k",
+          "name": "Nastassja Lein",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "24",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 10, 2008",
+          "foot": "",
+          "height": "1,68m",
+          "id": "90327",
+          "marketValue": "€30k",
+          "name": "Hanna Deuber",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "29",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 25, 2002",
+          "foot": "right",
+          "height": "1,66m",
+          "id": "82387",
+          "marketValue": "€50k",
+          "name": "Louna Lapassouse",
+          "nationality": [
+            "France"
+          ],
+          "number": "99",
+          "position": "Left Winger"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/6053.png",
+      "name": "Rasenballsport Leipzig",
+      "stadiumName": "RB-Trainingszentrum (Cottaweg), Rasenplatz",
+      "stadiumSeats": 1000,
+      "transfermarktId": "6053",
+      "players": [
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 5, 2000",
+          "foot": "right",
+          "height": "1,79m",
+          "id": "30076",
+          "marketValue": "€110k",
+          "name": "Elvira Herzog",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 20, 2002",
+          "foot": "",
+          "height": "1,83m",
+          "id": "49460",
+          "marketValue": "€25k",
+          "name": "Sophie Lindner",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "23",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jul 8, 2009",
+          "foot": "right",
+          "height": "1,80m",
+          "id": "87822",
+          "marketValue": "€40k",
+          "name": "Mirja Kropp",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "44",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jun 2, 2007",
+          "foot": "",
+          "height": "",
+          "id": "84213",
+          "marketValue": "€50k",
+          "name": "Aude Waldbillig",
+          "nationality": [
+            "Belgium"
+          ],
+          "number": "71",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 30, 1999",
+          "foot": "right",
+          "height": "1,74m",
+          "id": "27878",
+          "marketValue": "€90k",
+          "name": "Andrea Norheim",
+          "nationality": [
+            "Norway"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Feb 27, 2001",
+          "foot": "",
+          "height": "1,65m",
+          "id": "39904",
+          "marketValue": "€55k",
+          "name": "Zenia Mertens",
+          "nationality": [
+            "Belgium"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jan 7, 2002",
+          "foot": "",
+          "height": "1,60m",
+          "id": "50087",
+          "marketValue": "€45k",
+          "name": "Jasmien Mathys",
+          "nationality": [
+            "Belgium"
+          ],
+          "number": "12",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Aug 31, 2004",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "47404",
+          "marketValue": "€40k",
+          "name": "Diána Németh",
+          "nationality": [
+            "Hungary"
+          ],
+          "number": "15",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jan 24, 2001",
+          "foot": "left",
+          "height": "",
+          "id": "50389",
+          "marketValue": "€55k",
+          "name": "Alieke Tuin",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "22",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Sep 16, 2003",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "37411",
+          "marketValue": "€75k",
+          "name": "Nikoline Dudek",
+          "nationality": [
+            "Denmark"
+          ],
+          "number": "24",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Aug 25, 2001",
+          "foot": "",
+          "height": "",
+          "id": "63118",
+          "marketValue": "€40k",
+          "name": "Linde Veefkind",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "25",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 21, 1999",
+          "foot": "right",
+          "height": "1,62m",
+          "id": "27687",
+          "marketValue": "€65k",
+          "name": "Lara Marti",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "30",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 30, 2008",
+          "foot": "both",
+          "height": "1,66m",
+          "id": "86066",
+          "marketValue": "",
+          "name": "Nele Quietzsch",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "5",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 14, 2002",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "41272",
+          "marketValue": "€80k",
+          "name": "Lou-Ann Joly",
+          "nationality": [
+            "France"
+          ],
+          "number": "6",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 31, 1993",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "1845",
+          "marketValue": "€55k",
+          "name": "Sandra Starke",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "13",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 26, 2002",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "37689",
+          "marketValue": "€110k",
+          "name": "Annabel Schasching",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "16",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Nov 16, 2001",
+          "foot": "right",
+          "height": "1,64m",
+          "id": "40157",
+          "marketValue": "€40k",
+          "name": "Sára Pusztai",
+          "nationality": [
+            "Hungary"
+          ],
+          "number": "18",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 24, 2003",
+          "foot": "right",
+          "height": "1,76m",
+          "id": "47238",
+          "marketValue": "€55k",
+          "name": "Nikée van Dijk",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "7",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 30, 2005",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "56279",
+          "marketValue": "€130k",
+          "name": "Emilía Kiær Ásgeirsdóttir",
+          "nationality": [
+            "Iceland"
+          ],
+          "number": "8",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Oct 23, 2000",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "30740",
+          "marketValue": "€160k",
+          "name": "Marleen Schimmer",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "14",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 30, 2006",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "59969",
+          "marketValue": "€200k",
+          "name": "Delice Boboy",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "17",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Sep 12, 2009",
+          "foot": "",
+          "height": "",
+          "id": "90385",
+          "marketValue": "€30k",
+          "name": "Marie Kleemann",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "19",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Apr 12, 2007",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "77569",
+          "marketValue": "€55k",
+          "name": "Emanuela Pfister",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "20",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "May 3, 1998",
+          "foot": "",
+          "height": "",
+          "id": "38557",
+          "marketValue": "€60k",
+          "name": "Therese Simonsson",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "27",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 9, 2008",
+          "foot": "",
+          "height": "",
+          "id": "90574",
+          "marketValue": "",
+          "name": "Janita Kramer",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "38",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 22, 2003",
+          "foot": "right",
+          "height": "1,76m",
+          "id": "51138",
+          "marketValue": "€35k",
+          "name": "Charlotte Hulst",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "77",
+          "position": "Right Winger"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/5.png",
+      "name": "1. FC Köln",
+      "stadiumName": "Franz-Kremer-Stadion",
+      "stadiumSeats": 5457,
+      "transfermarktId": "5",
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 4, 1992",
+          "foot": "right",
+          "height": "1,74m",
+          "id": "1703",
+          "marketValue": "€25k",
+          "name": "Lisa Schmitz",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 25, 2006",
+          "foot": "left",
+          "height": "1,70m",
+          "id": "58627",
+          "marketValue": "€30k",
+          "name": "Paula Hoppe",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "12",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 1, 1997",
+          "foot": "",
+          "height": "1,72m",
+          "id": "16531",
+          "marketValue": "€30k",
+          "name": "Inga Schuldt",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "31",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Sep 18, 2005",
+          "foot": "right",
+          "height": "1,74m",
+          "id": "58523",
+          "marketValue": "€80k",
+          "name": "Irina Fuchs",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "34",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 21, 2002",
+          "foot": "right",
+          "height": "1,77m",
+          "id": "31656",
+          "marketValue": "€20k",
+          "name": "Pauline Nelles",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "35",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 10, 2008",
+          "foot": "right",
+          "height": "1,74m",
+          "id": "67790",
+          "marketValue": "€30k",
+          "name": "Lina Száraz",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Sep 16, 2004",
+          "foot": "",
+          "height": "1,70m",
+          "id": "48471",
+          "marketValue": "€45k",
+          "name": "Sædís Rún Heiðarsdóttir",
+          "nationality": [
+            "Iceland"
+          ],
+          "number": "3",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 6, 1992",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "707",
+          "marketValue": "€125k",
+          "name": "Kathrin Hendrich",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "May 16, 2001",
+          "foot": "right",
+          "height": "1,76m",
+          "id": "31061",
+          "marketValue": "€45k",
+          "name": "Celina Degen",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 30, 2007",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "67785",
+          "marketValue": "€40k",
+          "name": "Merle Hokamp",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "13",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Dec 10, 2003",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "36907",
+          "marketValue": "€50k",
+          "name": "Carlotta Imping",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "14",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Aug 16, 2001",
+          "foot": "",
+          "height": "1,70m",
+          "id": "33028",
+          "marketValue": "€30k",
+          "name": "Amelie Bohnen",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "15",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 17, 1998",
+          "foot": "both",
+          "height": "1,67m",
+          "id": "17437",
+          "marketValue": "€55k",
+          "name": "Anna Gerhardt",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "21",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Sep 9, 1999",
+          "foot": "left",
+          "height": "1,74m",
+          "id": "30451",
+          "marketValue": "€45k",
+          "name": "Elise Stenevik",
+          "nationality": [
+            "Norway"
+          ],
+          "number": "24",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 4, 2001",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "31389",
+          "marketValue": "€60k",
+          "name": "Laura Donhauser",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "25",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 17, 1990",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "692",
+          "marketValue": "€25k",
+          "name": "Marina Hegering",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "33",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 29, 2005",
+          "foot": "",
+          "height": "1,80m",
+          "id": "42951",
+          "marketValue": "",
+          "name": "Maja Weber",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "36",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Feb 22, 2003",
+          "foot": "right",
+          "height": "1,64m",
+          "id": "39272",
+          "marketValue": "€75k",
+          "name": "Beke Sterner",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "37",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Nov 24, 2008",
+          "foot": "",
+          "height": "",
+          "id": "82364",
+          "marketValue": "€30k",
+          "name": "Jil Schäfer",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "6",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "May 13, 2001",
+          "foot": "right",
+          "height": "1,61m",
+          "id": "31483",
+          "marketValue": "€80k",
+          "name": "Laura Vogt",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "8",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 17, 1999",
+          "foot": "",
+          "height": "1,69m",
+          "id": "35447",
+          "marketValue": "€60k",
+          "name": "Weronika Zawistowska",
+          "nationality": [
+            "Poland"
+          ],
+          "number": "10",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Feb 20, 1999",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "30715",
+          "marketValue": "€70k",
+          "name": "Lydia Andrade",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "17",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jul 16, 1998",
+          "foot": "",
+          "height": "1,75m",
+          "id": "38274",
+          "marketValue": "€45k",
+          "name": "Taylor Ziemer",
+          "nationality": [
+            "United States"
+          ],
+          "number": "18",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 8, 2005",
+          "foot": "",
+          "height": "1,70m",
+          "id": "50541",
+          "marketValue": "€20k",
+          "name": "Carolin Elsen",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "20",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 5, 2007",
+          "foot": "",
+          "height": "1,72m",
+          "id": "61940",
+          "marketValue": "€35k",
+          "name": "Julia Schiffarth",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "22",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 5, 1993",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "480",
+          "marketValue": "€45k",
+          "name": "Laura Feiersinger",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "27",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 27, 2008",
+          "foot": "left",
+          "height": "1,65m",
+          "id": "83401",
+          "marketValue": "€30k",
+          "name": "Alina Kerschbaumer",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "28",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Feb 12, 2004",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "35735",
+          "marketValue": "€70k",
+          "name": "Sophie Nachtigall",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "30",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jul 8, 2000",
+          "foot": "",
+          "height": "1,70m",
+          "id": "21828",
+          "marketValue": "€50k",
+          "name": "Anna-Lena Stolze",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "7",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 10, 1996",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "7273",
+          "marketValue": "€50k",
+          "name": "Pauline Bremer",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 18, 1995",
+          "foot": "both",
+          "height": "1,68m",
+          "id": "11702",
+          "marketValue": "€120k",
+          "name": "Sandra María Jessen",
+          "nationality": [
+            "Iceland"
+          ],
+          "number": "11",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 6, 1995",
+          "foot": "right",
+          "height": "1,66m",
+          "id": "8813",
+          "marketValue": "€40k",
+          "name": "Dóra Zeller",
+          "nationality": [
+            "Hungary"
+          ],
+          "number": "19",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jun 26, 2003",
+          "foot": "right",
+          "height": "1,75m",
+          "id": "37206",
+          "marketValue": "€65k",
+          "name": "Laureta Elmazi",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "26",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 1, 2001",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "33329",
+          "marketValue": "€30k",
+          "name": "Vanessa Leimenstoll",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "29",
+          "position": "Right Winger"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/421.png",
+      "name": "Werder Bremen",
+      "stadiumName": "Platz 11",
+      "stadiumSeats": 5500,
+      "transfermarktId": "421",
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 18, 1998",
+          "foot": "right",
+          "height": "1,82m",
+          "id": "15174",
+          "marketValue": "€20k",
+          "name": "Vanessa Fischer",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 9, 2006",
+          "foot": "both",
+          "height": "1,75m",
+          "id": "62762",
+          "marketValue": "€40k",
+          "name": "Thea Farwick",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "16",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 25, 2007",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "76730",
+          "marketValue": "€30k",
+          "name": "Sinem Özdemir",
+          "nationality": [
+            "Turkey"
+          ],
+          "number": "30",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 2, 2004",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "42231",
+          "marketValue": "€75k",
+          "name": "Mariella El Sherif",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "39",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 31, 2004",
+          "foot": "both",
+          "height": "1,62m",
+          "id": "40379",
+          "marketValue": "€75k",
+          "name": "Chiara D’Angelo",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "2",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 9, 2002",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "35176",
+          "marketValue": "€40k",
+          "name": "Wiktoria Zieniewicz",
+          "nationality": [
+            "Poland"
+          ],
+          "number": "3",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 2, 2003",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "36446",
+          "marketValue": "€55k",
+          "name": "Julia Magerl",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 3, 1996",
+          "foot": "right",
+          "height": "1,75m",
+          "id": "14031",
+          "marketValue": "€95k",
+          "name": "Michelle Ulbrich",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 27, 2001",
+          "foot": "right",
+          "height": "1,59m",
+          "id": "28722",
+          "marketValue": "€65k",
+          "name": "Michelle Weiß",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "15",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 16, 2007",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "67789",
+          "marketValue": "€70k",
+          "name": "Felicia Sträßer",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "19",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "May 9, 1999",
+          "foot": "both",
+          "height": "1,64m",
+          "id": "21827",
+          "marketValue": "€45k",
+          "name": "Caroline Siems",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "21",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 17, 2006",
+          "foot": "both",
+          "height": "1,68m",
+          "id": "61627",
+          "marketValue": "€45k",
+          "name": "Sarah Gutmann",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "32",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Apr 28, 2007",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "77460",
+          "marketValue": "€35k",
+          "name": "Maria Penner",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "33",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 26, 2008",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "86060",
+          "marketValue": "€30k",
+          "name": "Marie Gmeineder",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "6",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 12, 2003",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "36747",
+          "marketValue": "€125k",
+          "name": "Lilli Purtscheller",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "7",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 12, 2003",
+          "foot": "right",
+          "height": "1,66m",
+          "id": "47886",
+          "marketValue": "€60k",
+          "name": "Elena Mühlemann",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "14",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Feb 6, 1998",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "17440",
+          "marketValue": "€80k",
+          "name": "Jenny Hipp",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "23",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Aug 22, 2001",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "30506",
+          "marketValue": "€55k",
+          "name": "Juliane Wirtz",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "28",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 8, 2002",
+          "foot": "both",
+          "height": "1,68m",
+          "id": "59781",
+          "marketValue": "€20k",
+          "name": "Mei Shimada",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "8",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Sep 15, 1993",
+          "foot": "right",
+          "height": "1,77m",
+          "id": "20641",
+          "marketValue": "€75k",
+          "name": "Medina Dešić",
+          "nationality": [
+            "Montenegro"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 3, 2003",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "32921",
+          "marketValue": "€90k",
+          "name": "Tuana Mahmoud",
+          "nationality": [
+            "Turkey"
+          ],
+          "number": "10",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 24, 2002",
+          "foot": "both",
+          "height": "1,71m",
+          "id": "32901",
+          "marketValue": "€80k",
+          "name": "Isabella Jaron",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "11",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 7, 2003",
+          "foot": "right",
+          "height": "1,64m",
+          "id": "42036",
+          "marketValue": "€45k",
+          "name": "Luna Vanzeir",
+          "nationality": [
+            "Belgium"
+          ],
+          "number": "13",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Feb 5, 1994",
+          "foot": "right",
+          "height": "1,75m",
+          "id": "1476",
+          "marketValue": "€35k",
+          "name": "Lena Petermann",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "20",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 31, 2004",
+          "foot": "left",
+          "height": "1,63m",
+          "id": "42752",
+          "marketValue": "€30k",
+          "name": "Sarah Ernst",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "26",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 27, 1998",
+          "foot": "both",
+          "height": "1,64m",
+          "id": "23420",
+          "marketValue": "€60k",
+          "name": "Elena Dhont",
+          "nationality": [
+            "Belgium"
+          ],
+          "number": "31",
+          "position": "Right Winger"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/163.png",
+      "name": "Hamburger SV",
+      "stadiumName": "Volksparkstadion",
+      "stadiumSeats": 57000,
+      "transfermarktId": "163",
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 18, 2000",
+          "foot": "right",
+          "height": "1,66m",
+          "id": "27409",
+          "marketValue": "€10k",
+          "name": "Laura Sieger",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 25, 1997",
+          "foot": "right",
+          "height": "1,82m",
+          "id": "39538",
+          "marketValue": "€80k",
+          "name": "Kinga Szemik",
+          "nationality": [
+            "Poland"
+          ],
+          "number": "12",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 18, 2005",
+          "foot": "left",
+          "height": "1,76m",
+          "id": "50187",
+          "marketValue": "€50k",
+          "name": "Larissa Haidner",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "33",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 16, 1999",
+          "foot": "both",
+          "height": "",
+          "id": "31350",
+          "marketValue": "€25k",
+          "name": "Jule Baum",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "36",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 21, 2000",
+          "foot": "right",
+          "height": "1,66m",
+          "id": "41271",
+          "marketValue": "€50k",
+          "name": "Magou Doucouré",
+          "nationality": [
+            "France"
+          ],
+          "number": "2",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 28, 2002",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "44503",
+          "marketValue": "€25k",
+          "name": "Nigar Mirzaliyeva",
+          "nationality": [
+            "Azerbaijan"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 5, 2000",
+          "foot": "",
+          "height": "",
+          "id": "38517",
+          "marketValue": "€40k",
+          "name": "Celainy Obispo",
+          "nationality": [
+            "Curacao"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 18, 2005",
+          "foot": "",
+          "height": "1,72m",
+          "id": "49864",
+          "marketValue": "€40k",
+          "name": "Annaleen Böhler",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "6",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 3, 2005",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "48502",
+          "marketValue": "€150k",
+          "name": "Svea Stoldt",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "8",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 20, 1997",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "23654",
+          "marketValue": "€50k",
+          "name": "Sylwia Matysik",
+          "nationality": [
+            "Poland"
+          ],
+          "number": "14",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 18, 2009",
+          "foot": "right",
+          "height": "",
+          "id": "91168",
+          "marketValue": "",
+          "name": "Lena Martens",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "18",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 21, 2000",
+          "foot": "left",
+          "height": "1,74m",
+          "id": "35956",
+          "marketValue": "€35k",
+          "name": "Jaqueline Dönges",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "21",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 17, 2001",
+          "foot": "right",
+          "height": "1,74m",
+          "id": "29640",
+          "marketValue": "€45k",
+          "name": "Nina Räcke",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "39",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 4, 1998",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "24772",
+          "marketValue": "€15k",
+          "name": "Carla Morich",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "10",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 25, 2002",
+          "foot": "right",
+          "height": "1,64m",
+          "id": "46618",
+          "marketValue": "€25k",
+          "name": "Leïla Peneau",
+          "nationality": [
+            "France"
+          ],
+          "number": "15",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 1, 2008",
+          "foot": "",
+          "height": "1,62m",
+          "id": "86132",
+          "marketValue": "€75k",
+          "name": "Jonna Wrede",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "26",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 28, 2002",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "31365",
+          "marketValue": "€50k",
+          "name": "Pauline Machtens",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "28",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jul 6, 2008",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "77192",
+          "marketValue": "€80k",
+          "name": "Leni Eggert",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "29",
+          "position": "Left Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 9, 2005",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "49861",
+          "marketValue": "€40k",
+          "name": "Paulina Bartz",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "37",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 19, 1999",
+          "foot": "",
+          "height": "1,70m",
+          "id": "30446",
+          "marketValue": "€85k",
+          "name": "Camilla Linberg",
+          "nationality": [
+            "Norway"
+          ],
+          "number": "7",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 5, 2006",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "50420",
+          "marketValue": "€35k",
+          "name": "Melina Krüger",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "9",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 28, 2000",
+          "foot": "right",
+          "height": "1,66m",
+          "id": "33532",
+          "marketValue": "€60k",
+          "name": "Melanie Brunnthaler",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "11",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 10, 2004",
+          "foot": "",
+          "height": "1,75m",
+          "id": "64907",
+          "marketValue": "€40k",
+          "name": "Andrea Švíbková",
+          "nationality": [
+            "Czech Republic"
+          ],
+          "number": "17",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 11, 1997",
+          "foot": "both",
+          "height": "1,74m",
+          "id": "17410",
+          "marketValue": "€30k",
+          "name": "Victoria Schulz",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "19",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 16, 1999",
+          "foot": "right",
+          "height": "1,83m",
+          "id": "41157",
+          "marketValue": "€60k",
+          "name": "Nikola Karczewska",
+          "nationality": [
+            "Poland"
+          ],
+          "number": "20",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 24, 2002",
+          "foot": "both",
+          "height": "1,68m",
+          "id": "34935",
+          "marketValue": "€70k",
+          "name": "Sophie Hillebrand",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "22",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 9, 1997",
+          "foot": "right",
+          "height": "1,62m",
+          "id": "16532",
+          "marketValue": "€20k",
+          "name": "Viktoria Schwalm",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "23",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 3, 2008",
+          "foot": "left",
+          "height": "1,73m",
+          "id": "95926",
+          "marketValue": "€150k",
+          "name": "Lotta Wrede",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "32",
+          "position": "Left Winger"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/292.png",
+      "name": "SC Freiburg",
+      "stadiumName": "Dreisamstadion",
+      "stadiumSeats": 24000,
+      "transfermarktId": "292",
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 14, 1992",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "136",
+          "marketValue": "€40k",
+          "name": "Laura Benkarth",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Feb 8, 2004",
+          "foot": "right",
+          "height": "1,78m",
+          "id": "58177",
+          "marketValue": "€40k",
+          "name": "Lina von Schrader",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "21",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Nov 29, 2006",
+          "foot": "left",
+          "height": "",
+          "id": "63738",
+          "marketValue": "€20k",
+          "name": "Lorena Barth",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "33",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 6, 2009",
+          "foot": "",
+          "height": "",
+          "id": "106022",
+          "marketValue": "€15k",
+          "name": "Anna Reimann",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "38",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 15, 1997",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "10241",
+          "marketValue": "€55k",
+          "name": "Lisa Karl",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "2",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 25, 2005",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "50042",
+          "marketValue": "€45k",
+          "name": "Alina Axtmann",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 3, 1997",
+          "foot": "left",
+          "height": "1,82m",
+          "id": "13766",
+          "marketValue": "€90k",
+          "name": "Julia Stierli",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 15, 2008",
+          "foot": "right",
+          "height": "1,81m",
+          "id": "86963",
+          "marketValue": "€50k",
+          "name": "Mia-Lena Maas",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "18",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "May 5, 2004",
+          "foot": "right",
+          "height": "1,57m",
+          "id": "41897",
+          "marketValue": "€80k",
+          "name": "Nia Szenk",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "19",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 12, 1991",
+          "foot": "left",
+          "height": "1,71m",
+          "id": "12141",
+          "marketValue": "€25k",
+          "name": "Jana Vojteková",
+          "nationality": [
+            "Slovakia"
+          ],
+          "number": "20",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 7, 1997",
+          "foot": "",
+          "height": "1,67m",
+          "id": "31040",
+          "marketValue": "€50k",
+          "name": "Ingibjörg Sigurðardóttir",
+          "nationality": [
+            "Iceland"
+          ],
+          "number": "24",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Sep 17, 2008",
+          "foot": "",
+          "height": "",
+          "id": "95925",
+          "marketValue": "€30k",
+          "name": "Zoe Schick",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "27",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 16, 2009",
+          "foot": "",
+          "height": "",
+          "id": "88553",
+          "marketValue": "",
+          "name": "Laura Ernst",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "31",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 19, 2007",
+          "foot": "both",
+          "height": "1,63m",
+          "id": "58629",
+          "marketValue": "€30k",
+          "name": "Emma Memminger",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "32",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jul 10, 1999",
+          "foot": "left",
+          "height": "1,70m",
+          "id": "30728",
+          "marketValue": "€50k",
+          "name": "Meret Felde",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "4",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 28, 2005",
+          "foot": "right",
+          "height": "1,58m",
+          "id": "56073",
+          "marketValue": "€75k",
+          "name": "Nicole Ojukwu",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "6",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 19, 2005",
+          "foot": "right",
+          "height": "",
+          "id": "50508",
+          "marketValue": "€65k",
+          "name": "Tessa Blumenberg",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "7",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 5, 2003",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "43215",
+          "marketValue": "€60k",
+          "name": "Alena Bienz",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "8",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 27, 2000",
+          "foot": "left",
+          "height": "1,63m",
+          "id": "60117",
+          "marketValue": "€40k",
+          "name": "Sabah Seghir",
+          "nationality": [
+            "Morocco"
+          ],
+          "number": "9",
+          "position": "Left Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 27, 2002",
+          "foot": "both",
+          "height": "1,67m",
+          "id": "31528",
+          "marketValue": "€100k",
+          "name": "Selina Vobian",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "10",
+          "position": "Left Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 29, 2007",
+          "foot": "right",
+          "height": "",
+          "id": "58633",
+          "marketValue": "€70k",
+          "name": "Maj Schneider",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "15",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "May 26, 2009",
+          "foot": "right",
+          "height": "",
+          "id": "93220",
+          "marketValue": "€20k",
+          "name": "Johanna Hebben",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "16",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 28, 2007",
+          "foot": "",
+          "height": "",
+          "id": "77040",
+          "marketValue": "€20k",
+          "name": "Weena Simmen",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "25",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jun 2, 2004",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "38137",
+          "marketValue": "€50k",
+          "name": "Ilayda Açikgöz",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "30",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 15, 2005",
+          "foot": "right",
+          "height": "",
+          "id": "59856",
+          "marketValue": "€25k",
+          "name": "Nora Scherer",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "13",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 17, 2002",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "46428",
+          "marketValue": "€50k",
+          "name": "Carina Brunold",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "14",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Aug 8, 1999",
+          "foot": "right",
+          "height": "1,62m",
+          "id": "27851",
+          "marketValue": "€50k",
+          "name": "Amira Arfaoui",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "17",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "May 4, 2001",
+          "foot": "right",
+          "height": "1,64m",
+          "id": "31062",
+          "marketValue": "€80k",
+          "name": "Lisa Kolb",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "22",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 20, 2003",
+          "foot": "right",
+          "height": "1,78m",
+          "id": "32887",
+          "marketValue": "€80k",
+          "name": "Luca Birkholz",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "23",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 22, 2007",
+          "foot": "",
+          "height": "",
+          "id": "73123",
+          "marketValue": "",
+          "name": "Borbála Vincze",
+          "nationality": [
+            "Hungary"
+          ],
+          "number": "29",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/7384.png",
+      "name": "VfB Stuttgart 1893",
+      "stadiumName": "GAZi-Stadion auf der Waldau",
+      "stadiumSeats": 11,
+      "transfermarktId": "7384",
+      "players": [
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 5, 1993",
+          "foot": "right",
+          "height": "1,75m",
+          "id": "11961",
+          "marketValue": "€70k",
+          "name": "Laura Giuliani",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jun 1, 2004",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "41891",
+          "marketValue": "€40k",
+          "name": "Kiara Beck",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "12",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 25, 2005",
+          "foot": "left",
+          "height": "1,88m",
+          "id": "41750",
+          "marketValue": "€20k",
+          "name": "Eve Boettcher",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "25",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 18, 2004",
+          "foot": "",
+          "height": "1,66m",
+          "id": "37976",
+          "marketValue": "€25k",
+          "name": "Linette Hofmann",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "May 10, 2008",
+          "foot": "left",
+          "height": "1,72m",
+          "id": "86964",
+          "marketValue": "€30k",
+          "name": "Lenelotte Müller",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 23, 2007",
+          "foot": "",
+          "height": "",
+          "id": "67787",
+          "marketValue": "€25k",
+          "name": "Katharina Schäfer",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 12, 2001",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "31408",
+          "marketValue": "€75k",
+          "name": "Greta Stegemann",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Nov 18, 1993",
+          "foot": "both",
+          "height": "1,80m",
+          "id": "2400",
+          "marketValue": "€55k",
+          "name": "Maximiliane Rall",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "8",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jan 28, 1999",
+          "foot": "both",
+          "height": "1,74m",
+          "id": "26690",
+          "marketValue": "€35k",
+          "name": "Janina Hechler",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "16",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 10, 2005",
+          "foot": "left",
+          "height": "1,72m",
+          "id": "50596",
+          "marketValue": "€110k",
+          "name": "Julia Mickenhagen",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "18",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 10, 2008",
+          "foot": "",
+          "height": "",
+          "id": "86067",
+          "marketValue": "€60k",
+          "name": "Luzie Zähringer",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "23",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 28, 2004",
+          "foot": "",
+          "height": "",
+          "id": "96506",
+          "marketValue": "€15k",
+          "name": "Katana Norman",
+          "nationality": [
+            "Philippines"
+          ],
+          "number": "24",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 11, 1994",
+          "foot": "right",
+          "height": "1,78m",
+          "id": "2385",
+          "marketValue": "€35k",
+          "name": "Tamar Dongus",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "32",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Aug 7, 2010",
+          "foot": "",
+          "height": "",
+          "id": "105149",
+          "marketValue": "€15k",
+          "name": "Svenja Hecke",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "34",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 20, 1998",
+          "foot": "left",
+          "height": "1,72m",
+          "id": "21719",
+          "marketValue": "€60k",
+          "name": "Chantal Hagel",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "6",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 2, 2005",
+          "foot": "",
+          "height": "1,68m",
+          "id": "38146",
+          "marketValue": "€50k",
+          "name": "Dafina Redzepi",
+          "nationality": [
+            "Albania"
+          ],
+          "number": "7",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 15, 2009",
+          "foot": "",
+          "height": "",
+          "id": "86058",
+          "marketValue": "€50k",
+          "name": "Muriel Dürr",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "17",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Jan 27, 1997",
+          "foot": "both",
+          "height": "1,58m",
+          "id": "39462",
+          "marketValue": "€30k",
+          "name": "Yuka Hirano",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "19",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 22, 2002",
+          "foot": "",
+          "height": "",
+          "id": "35159",
+          "marketValue": "€90k",
+          "name": "Adriana Achcińska",
+          "nationality": [
+            "Poland"
+          ],
+          "number": "22",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 18, 2006",
+          "foot": "",
+          "height": "",
+          "id": "59539",
+          "marketValue": "€30k",
+          "name": "Leonie Schetter",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "27",
+          "position": "Left Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 12, 1998",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "18489",
+          "marketValue": "€45k",
+          "name": "Reena Wichmann",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "28",
+          "position": "Right Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 11, 1994",
+          "foot": "right",
+          "height": "1,78m",
+          "id": "2384",
+          "marketValue": "€40k",
+          "name": "Fabienne Dongus",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "33",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Mar 29, 2010",
+          "foot": "",
+          "height": "",
+          "id": "115693",
+          "marketValue": "€15k",
+          "name": "Laura Carollo",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "35",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Oct 7, 1997",
+          "foot": "",
+          "height": "1,71m",
+          "id": "16882",
+          "marketValue": "€30k",
+          "name": "Julia Glaser",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "9",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 15, 2001",
+          "foot": "right",
+          "height": "1,61m",
+          "id": "37770",
+          "marketValue": "€30k",
+          "name": "Haruka Osawa",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "10",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 12, 2007",
+          "foot": "right",
+          "height": "1,77m",
+          "id": "73913",
+          "marketValue": "€100k",
+          "name": "Rosa Rückert",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "11",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Oct 4, 1995",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "9028",
+          "marketValue": "€35k",
+          "name": "Jana Beuschlein",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "20",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Feb 28, 2006",
+          "foot": "",
+          "height": "",
+          "id": "51118",
+          "marketValue": "€20k",
+          "name": "Mira Arouna",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "21",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 5, 1996",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "10271",
+          "marketValue": "€55k",
+          "name": "Nicole Billa",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "26",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 26, 2000",
+          "foot": "right",
+          "height": "1,75m",
+          "id": "30387",
+          "marketValue": "€50k",
+          "name": "Verena Wieder",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "31",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/10785.png",
+      "name": "1. FSV Mainz 05",
+      "stadiumName": "Bruchwegstadion",
+      "stadiumSeats": 7134,
+      "transfermarktId": "10785",
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 9, 1997",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "22900",
+          "marketValue": "€35k",
+          "name": "Mamiko Matsumoto",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Oct 3, 2001",
+          "foot": "",
+          "height": "",
+          "id": "29485",
+          "marketValue": "€15k",
+          "name": "Laura Pawlowski",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "12",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 7, 2005",
+          "foot": "",
+          "height": "",
+          "id": "45616",
+          "marketValue": "€20k",
+          "name": "Marisa Schön",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "33",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 13, 1997",
+          "foot": "right",
+          "height": "1,74m",
+          "id": "16302",
+          "marketValue": "€45k",
+          "name": "Marina Georgieva",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Sep 10, 2002",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "37081",
+          "marketValue": "€45k",
+          "name": "Kara Bathmann",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "4",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 18, 2002",
+          "foot": "",
+          "height": "1,70m",
+          "id": "108362",
+          "marketValue": "€20k",
+          "name": "Nicola Hauk",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "11",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 10, 2004",
+          "foot": "right",
+          "height": "",
+          "id": "39381",
+          "marketValue": "€30k",
+          "name": "Anna Donner",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "15",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 14, 2007",
+          "foot": "",
+          "height": "",
+          "id": "67793",
+          "marketValue": "€15k",
+          "name": "Marie Voth",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "17",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "May 2, 2003",
+          "foot": "left",
+          "height": "1,63m",
+          "id": "41005",
+          "marketValue": "€40k",
+          "name": "Paula Flach",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "18",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jul 7, 2000",
+          "foot": "both",
+          "height": "1,70m",
+          "id": "33730",
+          "marketValue": "€35k",
+          "name": "Sabina Jackson",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "20",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 22, 2004",
+          "foot": "",
+          "height": "",
+          "id": "72070",
+          "marketValue": "",
+          "name": "Mara Bukowski",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "24",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 15, 1997",
+          "foot": "right",
+          "height": "1,64m",
+          "id": "44308",
+          "marketValue": "€20k",
+          "name": "Suguri Hashitani",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "25",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 3, 2003",
+          "foot": "right",
+          "height": "",
+          "id": "33249",
+          "marketValue": "€15k",
+          "name": "Leonie Stöhr",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "31",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 14, 1994",
+          "foot": "right",
+          "height": "1,57m",
+          "id": "22067",
+          "marketValue": "€15k",
+          "name": "Akari Kurishima",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "6",
+          "position": "Left Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Aug 4, 2002",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "31911",
+          "marketValue": "€20k",
+          "name": "Gentiana Fetaj",
+          "nationality": [
+            "Kosovo"
+          ],
+          "number": "7",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 30, 1996",
+          "foot": "right",
+          "height": "1,56m",
+          "id": "43136",
+          "marketValue": "€30k",
+          "name": "Rio Takizawa",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "8",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 10, 1997",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "7539",
+          "marketValue": "€50k",
+          "name": "Chiara Bouziane",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "10",
+          "position": "Right Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 20, 1998",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "35825",
+          "marketValue": "€25k",
+          "name": "Yurina Imai",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "14",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 21, 2008",
+          "foot": "right",
+          "height": "",
+          "id": "86202",
+          "marketValue": "€15k",
+          "name": "Christine Kilian",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "16",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 6, 1997",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "7292",
+          "marketValue": "€40k",
+          "name": "Saskia Matheis",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "19",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 11, 2006",
+          "foot": "right",
+          "height": "",
+          "id": "74005",
+          "marketValue": "€25k",
+          "name": "Emma Junold",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "22",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Aug 23, 1998",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "16896",
+          "marketValue": "€30k",
+          "name": "Ivana Slipčević",
+          "nationality": [
+            "Croatia"
+          ],
+          "number": "23",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 2, 1999",
+          "foot": "",
+          "height": "",
+          "id": "21357",
+          "marketValue": "€25k",
+          "name": "Lara Martin",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "26",
+          "position": "Second Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Nov 2, 2005",
+          "foot": "left",
+          "height": "",
+          "id": "56959",
+          "marketValue": "€25k",
+          "name": "Maja Pageler",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "37",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 26, 2000",
+          "foot": "right",
+          "height": "1,75m",
+          "id": "29584",
+          "marketValue": "€35k",
+          "name": "Johanna Berg",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "9",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 5, 2003",
+          "foot": "",
+          "height": "",
+          "id": "121172",
+          "marketValue": "€15k",
+          "name": "Mattson Strickler",
+          "nationality": [
+            "Canada"
+          ],
+          "number": "13",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 14, 1995",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "11300",
+          "marketValue": "€20k",
+          "name": "Nadine Anstatt",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "27",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 18, 1999",
+          "foot": "",
+          "height": "1,63m",
+          "id": "51853",
+          "marketValue": "€50k",
+          "name": "Vital Kats",
+          "nationality": [
+            "Israel"
+          ],
+          "number": "30",
+          "position": "Centre-Forward"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,661 @@
+{
+  "image": "https://assets.virtuafc.com/crests/3377.png",
+  "name": "France",
+  "players": [
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/5.png",
+        "name": "AC Milan"
+      },
+      "dateOfBirth": "Jul 3, 1995",
+      "foot": "right",
+      "height": "1,91m",
+      "id": "182906",
+      "injured": false,
+      "marketValue": "€25.00m",
+      "name": "Mike Maignan",
+      "overall_score": 87,
+      "position": "Goalkeeper",
+      "potential": 88
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/583.png",
+        "name": "Paris Saint-Germain"
+      },
+      "dateOfBirth": "Nov 6, 2001",
+      "foot": "right",
+      "height": "1,89m",
+      "id": "463600",
+      "injured": false,
+      "marketValue": "€30.00m",
+      "name": "Lucas Chevalier",
+      "position": "Goalkeeper"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/273.png",
+        "name": "Stade Rennais FC"
+      },
+      "dateOfBirth": "Apr 25, 1994",
+      "foot": "left",
+      "height": "1,87m",
+      "id": "191056",
+      "injured": false,
+      "marketValue": "€8.00m",
+      "name": "Brice Samba",
+      "overall_score": 80,
+      "position": "Goalkeeper",
+      "potential": 80
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/826.png",
+        "name": "RC Lens"
+      },
+      "dateOfBirth": "Dec 2, 2004",
+      "foot": "right",
+      "height": "1,93m",
+      "id": "743515",
+      "injured": false,
+      "marketValue": "€25.00m",
+      "name": "Robin Risser",
+      "overall_score": 78,
+      "position": "Goalkeeper",
+      "potential": 85
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/11.png",
+        "name": "Arsenal FC"
+      },
+      "dateOfBirth": "Mar 24, 2001",
+      "foot": "right",
+      "height": "1,92m",
+      "id": "495666",
+      "injured": false,
+      "marketValue": "€90.00m",
+      "name": "William Saliba",
+      "overall_score": 88,
+      "position": "Centre-Back",
+      "potential": 90
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/27.png",
+        "name": "Bayern Munich"
+      },
+      "dateOfBirth": "Oct 27, 1998",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "344695",
+      "injured": false,
+      "marketValue": "€70.00m",
+      "name": "Dayot Upamecano",
+      "overall_score": 86,
+      "position": "Centre-Back",
+      "potential": 88
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/31.png",
+        "name": "Liverpool FC"
+      },
+      "dateOfBirth": "May 25, 1999",
+      "foot": "right",
+      "height": "1,94m",
+      "id": "357119",
+      "injured": false,
+      "marketValue": "€50.00m",
+      "name": "Ibrahima Konaté",
+      "overall_score": 84,
+      "position": "Centre-Back",
+      "potential": 85
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/244.png",
+        "name": "Olympique Marseille"
+      },
+      "dateOfBirth": "Mar 28, 1996",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "353366",
+      "injured": false,
+      "marketValue": "€40.00m",
+      "name": "Benjamin Pavard",
+      "position": "Centre-Back"
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/506.png",
+        "name": "Juventus FC"
+      },
+      "dateOfBirth": "Jun 5, 2000",
+      "foot": "right",
+      "height": "1,82m",
+      "id": "585949",
+      "injured": false,
+      "marketValue": "€26.00m",
+      "name": "Pierre Kalulu",
+      "position": "Centre-Back"
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/15.png",
+        "name": "Bayer 04 Leverkusen"
+      },
+      "dateOfBirth": "Apr 11, 2000",
+      "foot": "right",
+      "height": "1,91m",
+      "id": "730581",
+      "injured": false,
+      "marketValue": "€25.00m",
+      "name": "Loïc Badé",
+      "position": "Centre-Back"
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/13.png",
+        "name": "Atlético de Madrid"
+      },
+      "dateOfBirth": "Jun 17, 1995",
+      "foot": "left",
+      "height": "1,86m",
+      "id": "182904",
+      "injured": false,
+      "marketValue": "€7.50m",
+      "name": "Clément Lenglet",
+      "position": "Centre-Back"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1114.png",
+        "name": "Al-Hilal SFC"
+      },
+      "dateOfBirth": "Oct 6, 1997",
+      "foot": "left",
+      "height": "1,84m",
+      "id": "339808",
+      "injured": false,
+      "marketValue": "€28.00m",
+      "name": "Theo Hernández",
+      "overall_score": 84,
+      "position": "Left-Back",
+      "potential": 84
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/583.png",
+        "name": "Paris Saint-Germain"
+      },
+      "dateOfBirth": "Feb 14, 1996",
+      "foot": "left",
+      "height": "1,84m",
+      "id": "281963",
+      "injured": false,
+      "marketValue": "€20.00m",
+      "name": "Lucas Hernández",
+      "overall_score": 81,
+      "position": "Left-Back",
+      "potential": 81
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/405.png",
+        "name": "Aston Villa"
+      },
+      "dateOfBirth": "Jul 20, 1993",
+      "foot": "left",
+      "height": "1,78m",
+      "id": "126664",
+      "injured": false,
+      "marketValue": "€8.00m",
+      "name": "Lucas Digne",
+      "overall_score": 80,
+      "position": "Left-Back",
+      "potential": 80
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/131.png",
+        "name": "FC Barcelona"
+      },
+      "dateOfBirth": "Nov 12, 1998",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "411975",
+      "injured": false,
+      "marketValue": "€65.00m",
+      "name": "Jules Koundé",
+      "overall_score": 86,
+      "position": "Right-Back",
+      "potential": 87
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/631.png",
+        "name": "Chelsea FC"
+      },
+      "dateOfBirth": "May 19, 2003",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "620322",
+      "injured": false,
+      "marketValue": "€35.00m",
+      "name": "Malo Gusto",
+      "overall_score": 79,
+      "position": "Right-Back",
+      "potential": 84
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/417.png",
+        "name": "OGC Nice"
+      },
+      "dateOfBirth": "Sep 25, 1992",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "175639",
+      "injured": false,
+      "marketValue": "€6.00m",
+      "name": "Jonathan Clauss",
+      "position": "Right-Back"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/873.png",
+        "name": "Crystal Palace"
+      },
+      "dateOfBirth": "Apr 6, 2000",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "434224",
+      "injured": false,
+      "marketValue": "€40.00m",
+      "name": "Maxence Lacroix",
+      "overall_score": 81,
+      "position": "Centre-Back",
+      "potential": 83
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/418.png",
+        "name": "Real Madrid"
+      },
+      "dateOfBirth": "Jan 27, 2000",
+      "foot": "right",
+      "height": "1,88m",
+      "id": "413112",
+      "injured": false,
+      "marketValue": "€75.00m",
+      "name": "Aurélien Tchouaméni",
+      "overall_score": 84,
+      "position": "Defensive Midfield",
+      "potential": 87
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/36.png",
+        "name": "Fenerbahce"
+      },
+      "dateOfBirth": "Mar 29, 1991",
+      "foot": "right",
+      "height": "1,68m",
+      "id": "225083",
+      "injured": false,
+      "marketValue": "€4.00m",
+      "name": "N'Golo Kanté",
+      "overall_score": 84,
+      "position": "Defensive Midfield",
+      "potential": 84
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/418.png",
+        "name": "Real Madrid"
+      },
+      "dateOfBirth": "Nov 10, 2002",
+      "foot": "left",
+      "height": "1,82m",
+      "id": "640428",
+      "injured": false,
+      "marketValue": "€80.00m",
+      "name": "Eduardo Camavinga",
+      "position": "Central Midfield"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/583.png",
+        "name": "Paris Saint-Germain"
+      },
+      "dateOfBirth": "Mar 8, 2006",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "810092",
+      "injured": false,
+      "marketValue": "€60.00m",
+      "name": "Warren Zaïre-Emery",
+      "overall_score": 83,
+      "position": "Central Midfield",
+      "potential": 89
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/506.png",
+        "name": "Juventus FC"
+      },
+      "dateOfBirth": "Mar 26, 2001",
+      "foot": "right",
+      "height": "1,92m",
+      "id": "463618",
+      "injured": false,
+      "marketValue": "€35.00m",
+      "name": "Khéphren Thuram",
+      "position": "Central Midfield"
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/36.png",
+        "name": "Fenerbahce"
+      },
+      "dateOfBirth": "Apr 14, 1999",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "465830",
+      "injured": false,
+      "marketValue": "€32.00m",
+      "name": "Mattéo Guendouzi",
+      "position": "Central Midfield"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/12.png",
+        "name": "AS Roma"
+      },
+      "dateOfBirth": "May 17, 2001",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "624690",
+      "injured": false,
+      "marketValue": "€50.00m",
+      "name": "Manu Koné",
+      "overall_score": 80,
+      "position": "Central Midfield",
+      "potential": 84
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/5.png",
+        "name": "AC Milan"
+      },
+      "dateOfBirth": "Apr 3, 1995",
+      "foot": "left",
+      "height": "1,91m",
+      "id": "182913",
+      "injured": false,
+      "marketValue": "€20.00m",
+      "name": "Adrien Rabiot",
+      "overall_score": 85,
+      "position": "Central Midfield",
+      "potential": 85
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/281.png",
+        "name": "Manchester City"
+      },
+      "dateOfBirth": "Aug 17, 2003",
+      "foot": "both",
+      "height": "1,77m",
+      "id": "607223",
+      "injured": false,
+      "marketValue": "€65.00m",
+      "name": "Rayan Cherki",
+      "overall_score": 84,
+      "position": "Attacking Midfield",
+      "potential": 88
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/583.png",
+        "name": "Paris Saint-Germain"
+      },
+      "dateOfBirth": "Sep 2, 2002",
+      "foot": "right",
+      "height": "1,82m",
+      "id": "708265",
+      "injured": false,
+      "marketValue": "€70.00m",
+      "name": "Bradley Barcola",
+      "overall_score": 84,
+      "position": "Left Winger",
+      "potential": 88
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/18544.png",
+        "name": "Al-Nassr FC"
+      },
+      "dateOfBirth": "Jun 13, 1996",
+      "foot": "right",
+      "height": "1,81m",
+      "id": "243714",
+      "injured": false,
+      "marketValue": "€35.00m",
+      "name": "Kingsley Coman",
+      "position": "Left Winger"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/27.png",
+        "name": "Bayern Munich"
+      },
+      "dateOfBirth": "Dec 12, 2001",
+      "foot": "left",
+      "height": "1,84m",
+      "id": "566723",
+      "injured": false,
+      "marketValue": "€140.00m",
+      "name": "Michael Olise",
+      "overall_score": 89,
+      "position": "Right Winger",
+      "potential": 91
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/162.png",
+        "name": "AS Monaco"
+      },
+      "dateOfBirth": "Feb 25, 2002",
+      "foot": "left",
+      "height": "1,83m",
+      "id": "745200",
+      "injured": false,
+      "marketValue": "€50.00m",
+      "name": "Maghnes Akliouche",
+      "overall_score": 80,
+      "position": "Right Winger",
+      "potential": 86
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/583.png",
+        "name": "Paris Saint-Germain"
+      },
+      "dateOfBirth": "Jun 3, 2005",
+      "foot": "right",
+      "height": "1,81m",
+      "id": "914562",
+      "injured": false,
+      "marketValue": "€90.00m",
+      "name": "Désiré Doué",
+      "overall_score": 86,
+      "position": "Right Winger",
+      "potential": 91
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/826.png",
+        "name": "RC Lens"
+      },
+      "dateOfBirth": "Jan 26, 1993",
+      "foot": "left",
+      "height": "1,81m",
+      "id": "184892",
+      "injured": false,
+      "marketValue": "€5.00m",
+      "name": "Florian Thauvin",
+      "position": "Right Winger"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/418.png",
+        "name": "Real Madrid"
+      },
+      "dateOfBirth": "Dec 20, 1998",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "342229",
+      "injured": false,
+      "marketValue": "€200.00m",
+      "name": "Kylian Mbappé",
+      "overall_score": 91,
+      "position": "Centre-Forward",
+      "potential": 92
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/46.png",
+        "name": "Inter Milan"
+      },
+      "dateOfBirth": "Aug 6, 1997",
+      "foot": "right",
+      "height": "1,92m",
+      "id": "318528",
+      "injured": false,
+      "marketValue": "€50.00m",
+      "name": "Marcus Thuram",
+      "overall_score": 85,
+      "position": "Centre-Forward",
+      "potential": 85
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/583.png",
+        "name": "Paris Saint-Germain"
+      },
+      "dateOfBirth": "May 15, 1997",
+      "foot": "both",
+      "height": "1,78m",
+      "id": "288230",
+      "injured": false,
+      "marketValue": "€100.00m",
+      "name": "Ousmane Dembélé",
+      "overall_score": 90,
+      "position": "Centre-Forward",
+      "potential": 90
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/5.png",
+        "name": "AC Milan"
+      },
+      "dateOfBirth": "Nov 14, 1997",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "344381",
+      "injured": false,
+      "marketValue": "€50.00m",
+      "name": "Christopher Nkunku",
+      "position": "Centre-Forward"
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/31.png",
+        "name": "Liverpool FC"
+      },
+      "dateOfBirth": "Jun 20, 2002",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "709726",
+      "injured": true,
+      "marketValue": "€40.00m",
+      "name": "Hugo Ekitiké",
+      "position": "Centre-Forward"
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/148.png",
+        "name": "Tottenham Hotspur"
+      },
+      "dateOfBirth": "Dec 5, 1998",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "487969",
+      "injured": false,
+      "marketValue": "€30.00m",
+      "name": "Randal Kolo Muani",
+      "position": "Centre-Forward"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/873.png",
+        "name": "Crystal Palace"
+      },
+      "dateOfBirth": "Jun 28, 1997",
+      "foot": "right",
+      "height": "1,92m",
+      "id": "420002",
+      "injured": false,
+      "marketValue": "€35.00m",
+      "name": "Jean-Philippe Mateta",
+      "overall_score": 82,
+      "position": "Centre-Forward",
+      "potential": 82
+    }
+  ],
+  "stadiumName": null,
+  "stadiumSeats": null,
+  "transfermarktId": "3377"
+}

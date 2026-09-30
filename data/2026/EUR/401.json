@@ -1,0 +1,388 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/401.png",
+  "name": "Valur Reykjavik",
+  "players": [
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 28, 2004",
+      "foot": "",
+      "height": "",
+      "id": "58031",
+      "marketValue": "",
+      "name": "Tinna Brá Magnúsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Sep 14, 2005",
+      "foot": "",
+      "height": "",
+      "id": "58090",
+      "marketValue": "",
+      "name": "Esther Júlía Gustavsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "12",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 5, 1989",
+      "foot": "",
+      "height": "",
+      "id": "15230",
+      "marketValue": "",
+      "name": "Björk Björnsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "20",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 20, 1994",
+      "foot": "",
+      "height": "",
+      "id": "20742",
+      "marketValue": "",
+      "name": "Vera Varis",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "33",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 1, 2009",
+      "foot": "",
+      "height": "",
+      "id": "108995",
+      "marketValue": "",
+      "name": "Sigrún Ísfold Valsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "2",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 5, 2007",
+      "foot": "",
+      "height": "",
+      "id": "83523",
+      "marketValue": "",
+      "name": "Helga Rut Einarsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 24, 1998",
+      "foot": "left",
+      "height": "",
+      "id": "34389",
+      "marketValue": "",
+      "name": "Anna Rakel Pétursdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "11",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 9, 2005",
+      "foot": "",
+      "height": "",
+      "id": "58675",
+      "marketValue": "",
+      "name": "Snæfríður Eva Eiríksdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "17",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 27, 1997",
+      "foot": "",
+      "height": "",
+      "id": "34274",
+      "marketValue": "",
+      "name": "Málfríður Anna Eiríksdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "18",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 18, 1997",
+      "foot": "",
+      "height": "",
+      "id": "21741",
+      "marketValue": "",
+      "name": "Lillý Rut Hlynsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "21",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 10, 2005",
+      "foot": "",
+      "height": "",
+      "id": "58674",
+      "marketValue": "",
+      "name": "Bryndís Eiríksdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "5",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Sep 26, 2005",
+      "foot": "",
+      "height": "",
+      "id": "58217",
+      "marketValue": "",
+      "name": "Kimberley Dóra Hjálmarsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "6",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 2, 2008",
+      "foot": "",
+      "height": "",
+      "id": "85920",
+      "marketValue": "",
+      "name": "Arnfríður Auður Arnarsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "8",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 26, 2006",
+      "foot": "",
+      "height": "",
+      "id": "58384",
+      "marketValue": "",
+      "name": "Sonja Björg Sigurðardóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "9",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 28, 1995",
+      "foot": "",
+      "height": "1,71m",
+      "id": "43437",
+      "marketValue": "€35k",
+      "name": "Berglind Rós Ágústsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "10",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 11, 1999",
+      "foot": "",
+      "height": "",
+      "id": "54476",
+      "marketValue": "",
+      "name": "Nadía Atladóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "13",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "May 5, 2006",
+      "foot": "",
+      "height": "",
+      "id": "58826",
+      "marketValue": "",
+      "name": "Margrét Brynja Kristinsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "16",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Dec 31, 2029",
+      "dateOfBirth": "Jul 1, 2006",
+      "foot": "",
+      "height": "",
+      "id": "73101",
+      "marketValue": "",
+      "name": "Glódís María Gunnarsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "25",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2029",
+      "dateOfBirth": "Nov 1, 2006",
+      "foot": "",
+      "height": "",
+      "id": "73102",
+      "marketValue": "",
+      "name": "Kolbrá Una Kristinsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "28",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 16, 2010",
+      "foot": "",
+      "height": "",
+      "id": "112198",
+      "marketValue": "",
+      "name": "Lísa Ingólfsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "34",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 1, 2009",
+      "foot": "",
+      "height": "",
+      "id": "103346",
+      "marketValue": "",
+      "name": "Aníta Björk Matthíasdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "36",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 20, 2004",
+      "foot": "",
+      "height": "",
+      "id": "54284",
+      "marketValue": "",
+      "name": "Eyrún Vala Harðardóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "77",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 1, 1995",
+      "foot": "",
+      "height": "1,70m",
+      "id": "15371",
+      "marketValue": "€30k",
+      "name": "Elín Metta Jensen",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": 3,
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Sep 8, 2006",
+      "foot": "",
+      "height": "",
+      "id": "58351",
+      "marketValue": "€45k",
+      "name": "Ísabella Sara Tryggvadóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "7",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 29, 2007",
+      "foot": "",
+      "height": "",
+      "id": "73099",
+      "marketValue": "€35k",
+      "name": "Ragnheiður Þórunn Jónsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "14",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 25, 2000",
+      "foot": "",
+      "height": "",
+      "id": "58275",
+      "marketValue": "",
+      "name": "Guðrún Elísabet Björgvinsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "22",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 7, 2001",
+      "foot": "right",
+      "height": "",
+      "id": "96041",
+      "marketValue": "",
+      "name": "Emma Hawkins",
+      "nationality": [
+        "United States"
+      ],
+      "number": "23",
+      "position": "Centre-Forward"
+    }
+  ],
+  "stadiumName": "N1-völlurinn Hlíðarenda",
+  "stadiumSeats": "2465",
+  "transfermarktId": "401",
+  "country": "IS"
+}

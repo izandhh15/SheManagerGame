@@ -1,0 +1,425 @@
+{
+  "image": "https://assets.virtuafc.com/crests/3440.png",
+  "name": "Norway",
+  "players": [
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/41.png",
+        "name": "Hamburger SV"
+      },
+      "dateOfBirth": "Nov 29, 2002",
+      "foot": "right",
+      "height": "1,93m",
+      "id": "549378",
+      "injured": false,
+      "marketValue": "€3.00m",
+      "name": "Sander Tangvik",
+      "overall_score": 70,
+      "position": "Goalkeeper",
+      "potential": 79
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1010.png",
+        "name": "Watford FC"
+      },
+      "dateOfBirth": "Jul 30, 1997",
+      "foot": "left",
+      "height": "1,93m",
+      "id": "380744",
+      "injured": false,
+      "marketValue": "€1.30m",
+      "name": "Egil Selvik",
+      "overall_score": 70,
+      "position": "Goalkeeper",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/368.png",
+        "name": "Sevilla FC"
+      },
+      "dateOfBirth": "Sep 10, 1990",
+      "foot": "right",
+      "height": "1,92m",
+      "id": "73517",
+      "injured": false,
+      "marketValue": "€900k",
+      "name": "Ørjan Nyland",
+      "overall_score": 74,
+      "position": "Goalkeeper",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1148.png",
+        "name": "Brentford FC"
+      },
+      "dateOfBirth": "Apr 17, 1998",
+      "foot": "right",
+      "height": "1,98m",
+      "id": "328658",
+      "injured": false,
+      "marketValue": "€18.00m",
+      "name": "Kristoffer Ajer",
+      "overall_score": 76,
+      "position": "Centre-Back",
+      "potential": 77
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1025.png",
+        "name": "Bologna FC 1909"
+      },
+      "dateOfBirth": "Jan 12, 1999",
+      "foot": "left",
+      "height": "1,92m",
+      "id": "464469",
+      "injured": false,
+      "marketValue": "€14.00m",
+      "name": "Torbjørn Heggem",
+      "overall_score": 74,
+      "position": "Centre-Back",
+      "potential": 76
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/252.png",
+        "name": "Genoa CFC"
+      },
+      "dateOfBirth": "Nov 28, 1999",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "367284",
+      "injured": false,
+      "marketValue": "€10.00m",
+      "name": "Leo Østigård",
+      "overall_score": 75,
+      "position": "Centre-Back",
+      "potential": 80
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/239.png",
+        "name": "Viking FK"
+      },
+      "dateOfBirth": "May 8, 2003",
+      "foot": "right",
+      "height": "1,94m",
+      "id": "743088",
+      "injured": false,
+      "marketValue": "€4.00m",
+      "name": "Henrik Falchener",
+      "overall_score": 69,
+      "position": "Centre-Back",
+      "potential": 80
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/22.png",
+        "name": "Derby County"
+      },
+      "dateOfBirth": "Feb 2, 2001",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "737837",
+      "injured": false,
+      "marketValue": "€3.50m",
+      "name": "Sondre Langås",
+      "overall_score": 71,
+      "position": "Centre-Back",
+      "potential": 77
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/543.png",
+        "name": "Wolverhampton Wanderers"
+      },
+      "dateOfBirth": "Apr 23, 2002",
+      "foot": "left",
+      "height": "1,87m",
+      "id": "661427",
+      "injured": false,
+      "marketValue": "€10.00m",
+      "name": "David Møller Wolfe",
+      "overall_score": 73,
+      "position": "Left-Back",
+      "potential": 78
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/501.png",
+        "name": "FK Bodø/Glimt"
+      },
+      "dateOfBirth": "Aug 21, 1998",
+      "foot": "left",
+      "height": "1,80m",
+      "id": "364938",
+      "injured": false,
+      "marketValue": "€3.50m",
+      "name": "Fredrik Bjørkan",
+      "overall_score": 75,
+      "position": "Left-Back",
+      "potential": 76
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/16.png",
+        "name": "Borussia Dortmund"
+      },
+      "dateOfBirth": "Nov 17, 1997",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "370789",
+      "injured": false,
+      "marketValue": "€25.00m",
+      "name": "Julian Ryerson",
+      "overall_score": 80,
+      "position": "Right-Back",
+      "potential": 80
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/416.png",
+        "name": "Torino FC"
+      },
+      "dateOfBirth": "Jul 16, 2000",
+      "foot": "right",
+      "height": "1,84m",
+      "id": "583404",
+      "injured": false,
+      "marketValue": "€3.50m",
+      "name": "Marcus Pedersen",
+      "overall_score": 73,
+      "position": "Right-Back",
+      "potential": 75
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/931.png",
+        "name": "Fulham FC"
+      },
+      "dateOfBirth": "Feb 14, 1998",
+      "foot": "right",
+      "height": "1,95m",
+      "id": "333014",
+      "injured": false,
+      "marketValue": "€25.00m",
+      "name": "Sander Berge",
+      "overall_score": 79,
+      "position": "Defensive Midfield",
+      "potential": 80
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/501.png",
+        "name": "FK Bodø/Glimt"
+      },
+      "dateOfBirth": "Nov 24, 1997",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "308439",
+      "injured": false,
+      "marketValue": "€8.00m",
+      "name": "Patrick Berg",
+      "overall_score": 79,
+      "position": "Defensive Midfield",
+      "potential": 80
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/294.png",
+        "name": "SL Benfica"
+      },
+      "dateOfBirth": "Dec 10, 1995",
+      "foot": "right",
+      "height": "1,81m",
+      "id": "223367",
+      "injured": false,
+      "marketValue": "€17.00m",
+      "name": "Fredrik Aursnes",
+      "overall_score": 80,
+      "position": "Central Midfield",
+      "potential": 80
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6574.png",
+        "name": "US Sassuolo"
+      },
+      "dateOfBirth": "Mar 13, 1999",
+      "foot": "left",
+      "height": "1,89m",
+      "id": "564785",
+      "injured": false,
+      "marketValue": "€10.00m",
+      "name": "Kristian Thorstvedt",
+      "overall_score": 76,
+      "position": "Central Midfield",
+      "potential": 76
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2239.png",
+        "name": "US Cremonese"
+      },
+      "dateOfBirth": "May 5, 1996",
+      "foot": "right",
+      "height": "1,88m",
+      "id": "226524",
+      "injured": false,
+      "marketValue": "€3.00m",
+      "name": "Morten Thorsby",
+      "overall_score": 72,
+      "position": "Central Midfield",
+      "potential": 72
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/11.png",
+        "name": "Arsenal FC"
+      },
+      "dateOfBirth": "Dec 17, 1998",
+      "foot": "left",
+      "height": "1,78m",
+      "id": "316264",
+      "injured": false,
+      "marketValue": "€65.00m",
+      "name": "Martin Ødegaard",
+      "overall_score": 86,
+      "position": "Attacking Midfield",
+      "potential": 87
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/124.png",
+        "name": "Rangers FC"
+      },
+      "dateOfBirth": "May 2, 2002",
+      "foot": "right",
+      "height": "1,88m",
+      "id": "647384",
+      "injured": false,
+      "marketValue": "€2.80m",
+      "name": "Thelo Aasgaard",
+      "overall_score": 71,
+      "position": "Attacking Midfield",
+      "potential": 78
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/23826.png",
+        "name": "RB Leipzig"
+      },
+      "dateOfBirth": "Apr 17, 2005",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "894914",
+      "injured": false,
+      "marketValue": "€32.00m",
+      "name": "Antonio Nusa",
+      "overall_score": 78,
+      "position": "Left Winger",
+      "potential": 88
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/294.png",
+        "name": "SL Benfica"
+      },
+      "dateOfBirth": "Jun 1, 2004",
+      "foot": "right",
+      "height": "1,76m",
+      "id": "670103",
+      "injured": false,
+      "marketValue": "€20.00m",
+      "name": "Andreas Schjelderup",
+      "overall_score": 77,
+      "position": "Left Winger",
+      "potential": 86
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/501.png",
+        "name": "FK Bodø/Glimt"
+      },
+      "dateOfBirth": "Oct 12, 1999",
+      "foot": "right",
+      "height": "1,84m",
+      "id": "422355",
+      "injured": false,
+      "marketValue": "€12.00m",
+      "name": "Jens Petter Hauge",
+      "overall_score": 76,
+      "position": "Left Winger",
+      "potential": 77
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/931.png",
+        "name": "Fulham FC"
+      },
+      "dateOfBirth": "Jul 12, 2003",
+      "foot": "left",
+      "height": "1,75m",
+      "id": "661207",
+      "injured": false,
+      "marketValue": "€30.00m",
+      "name": "Oscar Bobb",
+      "overall_score": 76,
+      "position": "Right Winger",
+      "potential": 84
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/281.png",
+        "name": "Manchester City"
+      },
+      "dateOfBirth": "Jul 21, 2000",
+      "foot": "left",
+      "height": "1,95m",
+      "id": "418560",
+      "injured": false,
+      "marketValue": "€200.00m",
+      "name": "Erling Haaland",
+      "overall_score": 91,
+      "position": "Centre-Forward",
+      "potential": 93
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/873.png",
+        "name": "Crystal Palace"
+      },
+      "dateOfBirth": "Feb 6, 2000",
+      "foot": "right",
+      "height": "1,93m",
+      "id": "429983",
+      "injured": false,
+      "marketValue": "€45.00m",
+      "name": "Jørgen Strand Larsen",
+      "overall_score": 77,
+      "position": "Centre-Forward",
+      "potential": 80
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/13.png",
+        "name": "Atlético de Madrid"
+      },
+      "dateOfBirth": "Dec 5, 1995",
+      "foot": "left",
+      "height": "1,95m",
+      "id": "238407",
+      "injured": false,
+      "marketValue": "€20.00m",
+      "name": "Alexander Sørloth",
+      "overall_score": 83,
+      "position": "Centre-Forward",
+      "potential": 83
+    }
+  ],
+  "stadiumName": null,
+  "stadiumSeats": null,
+  "transfermarktId": "3440"
+}

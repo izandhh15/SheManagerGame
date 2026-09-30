@@ -1,0 +1,276 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/6223.png",
+  "name": "Shelbourne",
+  "players": [
+    {
+      "contract": "Nov 30, 2026",
+      "dateOfBirth": "Sep 29, 2004",
+      "foot": "",
+      "height": "1,78m",
+      "id": "117379",
+      "marketValue": "",
+      "name": "Mya Sanchez",
+      "nationality": [
+        "United States"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Nov 30, 2026",
+      "dateOfBirth": "Aug 20, 2008",
+      "foot": "",
+      "height": "",
+      "id": "94399",
+      "marketValue": "",
+      "name": "Jenna Willoughby",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "20",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Nov 30, 2026",
+      "dateOfBirth": "Aug 16, 1997",
+      "foot": "",
+      "height": "",
+      "id": "26815",
+      "marketValue": "",
+      "name": "Keeva Keenan",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "2",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Nov 30, 2026",
+      "dateOfBirth": "Apr 11, 2001",
+      "foot": "left",
+      "height": "",
+      "id": "74572",
+      "marketValue": "",
+      "name": "Leah Doyle",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "3",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "Nov 30, 2026",
+      "dateOfBirth": "Apr 11, 1989",
+      "foot": "",
+      "height": "1,65m",
+      "id": "20340",
+      "marketValue": "",
+      "name": "Pearl Slattery",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Nov 30, 2026",
+      "dateOfBirth": "Mar 29, 2005",
+      "foot": "",
+      "height": "",
+      "id": "77799",
+      "marketValue": "",
+      "name": "Nia Hannon",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "5",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Nov 30, 2026",
+      "dateOfBirth": "Mar 10, 1997",
+      "foot": "",
+      "height": "1,75m",
+      "id": "45692",
+      "marketValue": "",
+      "name": "Jess Gargan",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "15",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Jan 30, 2026",
+      "dateOfBirth": "Aug 10, 2001",
+      "foot": "right",
+      "height": "1,63m",
+      "id": "83603",
+      "marketValue": "",
+      "name": "Maggie Pierce",
+      "nationality": [
+        "United States"
+      ],
+      "number": "28",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Nov 30, 2026",
+      "dateOfBirth": "Dec 11, 1999",
+      "foot": "",
+      "height": "",
+      "id": "32636",
+      "marketValue": "",
+      "name": "Alex Kavanagh",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "6",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Jan 30, 2026",
+      "dateOfBirth": "Aug 10, 2003",
+      "foot": "",
+      "height": "",
+      "id": "47523",
+      "marketValue": "",
+      "name": "Becky Watkins",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "7",
+      "position": "Right Midfield"
+    },
+    {
+      "contract": "Nov 30, 2026",
+      "dateOfBirth": "Jul 18, 1989",
+      "foot": "",
+      "height": "",
+      "id": "20330",
+      "marketValue": "",
+      "name": "Rachel Graham",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "8",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Nov 30, 2026",
+      "dateOfBirth": "Mar 1, 2006",
+      "foot": "",
+      "height": "",
+      "id": "64056",
+      "marketValue": "",
+      "name": "Aoife Kelly",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "18",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 6, 2010",
+      "foot": "",
+      "height": "",
+      "id": "111847",
+      "marketValue": "",
+      "name": "Halle Harcourt",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "23",
+      "position": "Left Midfield"
+    },
+    {
+      "contract": "Nov 30, 2026",
+      "dateOfBirth": "Sep 11, 2001",
+      "foot": "",
+      "height": "1,63m",
+      "id": "117122",
+      "marketValue": "",
+      "name": "Olivia Damico",
+      "nationality": [
+        "United States"
+      ],
+      "number": "35",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Nov 30, 2026",
+      "dateOfBirth": "May 17, 1999",
+      "foot": "",
+      "height": "",
+      "id": "32651",
+      "marketValue": "",
+      "name": "Kate Mooney",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "9",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 23, 2003",
+      "foot": "",
+      "height": "",
+      "id": "96830",
+      "marketValue": "",
+      "name": "Bella Flocchini",
+      "nationality": [
+        "United States"
+      ],
+      "number": "11",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 12, 2005",
+      "foot": "",
+      "height": "",
+      "id": "64077",
+      "marketValue": "",
+      "name": "Katie McCarn",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "12",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 26, 2008",
+      "foot": "",
+      "height": "",
+      "id": "98092",
+      "marketValue": "",
+      "name": "Maeve Wollmer",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "14",
+      "position": "Striker"
+    },
+    {
+      "contract": "Nov 30, 2026",
+      "dateOfBirth": "Aug 13, 2002",
+      "foot": "",
+      "height": "1,78m",
+      "id": "117389",
+      "marketValue": "",
+      "name": "Brie Severns",
+      "nationality": [
+        "United States"
+      ],
+      "number": "26",
+      "position": "Centre-Forward"
+    }
+  ],
+  "stadiumName": "Tolka Park",
+  "stadiumSeats": "4400",
+  "transfermarktId": "6223",
+  "country": "IE"
+}

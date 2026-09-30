@@ -1,0 +1,210 @@
+<?php
+
+return [
+    // Inbox
+    'inbox' => 'Notifications',
+    'new' => 'new',
+    'all_caught_up' => 'You\'re all caught up',
+
+    // Department inbox tabs
+    'dept_all' => 'All',
+    'dept_sporting' => 'First team',
+    'dept_transfers' => 'Transfers',
+    'dept_scouting' => 'Scouting',
+    'dept_academy' => 'Academy',
+    'dept_board' => 'Board',
+    'dept_competition' => 'Competition',
+
+    // Critical-alert popup (blocking, must-dismiss)
+    'alert_heading' => 'Important alert',
+    'alerts_heading' => ':count important alerts',
+    'celebration_heading' => 'Congratulations!',
+    'alert_dismiss' => 'Dismiss',
+    'dismiss_all' => 'Dismiss all',
+    'alert_continue' => 'Continue',
+    'action_review_offer' => 'Review offer',
+    'action_view_competition' => 'View competition',
+    'action_view_details' => 'View details',
+
+    // Injury types
+    'injury_muscle_fatigue' => 'muscle fatigue',
+    'injury_muscle_strain' => 'muscle strain',
+    'injury_calf_strain' => 'calf strain',
+    'injury_ankle_sprain' => 'ankle sprain',
+    'injury_groin_strain' => 'groin strain',
+    'injury_hamstring_tear' => 'hamstring tear',
+    'injury_knee_contusion' => 'knee contusion',
+    'injury_metatarsal_fracture' => 'metatarsal fracture',
+    'injury_acl_tear' => 'ACL tear',
+    'injury_achilles_rupture' => 'Achilles tendon rupture',
+
+    // Player injuries
+    'player_injured_title' => ':player injured',
+    'player_injured_message' => ':player has suffered :injury :location.',
+    'player_injured_message_with_date' => ':player has suffered :injury :location. Out until :date.',
+    'injury_location_match' => 'during the match',
+    'injury_location_training' => 'during training',
+
+    // Player suspensions
+    'player_suspended_title' => ':player suspended',
+    'player_suspended_message' => ':player has been suspended for :matches match due to :reason. Will miss the next :competition match.|:player has been suspended for :matches matches due to :reason. Will miss the next :competition match.',
+    'reason_red_card' => 'a red card',
+    'reason_yellow_accumulation' => 'yellow card accumulation',
+
+    // Player recovery
+    'player_recovered_title' => ':player recovered',
+    'player_recovered_message' => ':player has recovered and is available for selection.',
+
+    // Transfer offers
+    'transfer_offer_title' => 'Purchase offer for :player',
+    'transfer_offer_message' => ':team has offered :fee for the player.',
+    'free_transfer' => 'Free Transfer',
+
+    // Transfer complete
+    'transfer_complete_incoming_title' => ':player signed',
+    'transfer_complete_incoming_message' => ':player has joined your squad :team_de for :fee.',
+    'transfer_complete_outgoing_title' => ':player sold',
+    'transfer_complete_outgoing_message' => ':player has been transferred :team_a for :fee.',
+    'transfer_failed_title' => 'Transfer fell through: :player',
+    'transfer_failed_message' => 'The agreed move for :player could not be completed and any reserved budget has been released.',
+    'pre_contract_failed_title' => 'Pre-contract fell through: :player',
+    'pre_contract_failed_message' => 'The pre-contract you agreed with :player could not be completed: he was no longer at :team at the end of the season. He does not join your squad.',
+    'loan_out_complete_title' => ':player loaned out',
+    'loan_out_complete_message' => ':player has been loaned :team_a until the end of the season.',
+
+    // Release clause triggered against the user (Phase 3)
+    'player_left_via_release_clause_title' => 'Release clause triggered: :player is leaving',
+    'player_left_via_release_clause_message' => ':player has moved :team_a after their release clause was triggered. Your club received :fee.',
+
+    // Expiring offers
+    'offer_expiring_title' => 'Offer for :player expiring soon',
+    'offer_expiring_message' => '{0}The offer :team_de for :player expires today.|{1}The offer :team_de for :player expires in :count day.|[2,*]The offer :team_de for :player expires in :count days.',
+
+    // Scout
+    'scout_complete_title' => 'Scout Report Ready',
+    'scout_complete_message' => 'Your scout has found :count players matching your search.',
+
+    // Contracts
+    'contract_expiring_title' => ':player\'s contract expiring soon',
+    'contract_expiring_message' => ':player\'s contract expires in :months months.',
+
+    // Loan returns
+    'loan_return_title' => ':player returns from loan',
+    'loan_return_message' => ':player has returned from loan :team_en.',
+
+    // Low energy
+    'low_fitness_title' => ':player has low energy',
+    'low_fitness_message' => ':player has only :fitness% energy and needs rest.',
+
+    // Loan search
+    'loan_offer_received_title' => 'Loan offer for :player',
+    'loan_offer_received_message' => ':team has offered to take the player on loan.',
+    'loan_search_failed_title' => 'Loan search failed',
+    'loan_search_failed_message' => 'No club was interested in loaning :player. The player is available again.',
+
+    // Competition advancement
+    'competition_advancement_title' => ':competition qualification',
+    'competition_advancement_message' => ':stage',
+    'competition_elimination_title' => ':competition elimination',
+    'competition_elimination_message' => ':stage',
+    'trophy_won_title' => ':competition champions!',
+
+    // Academy
+    'academy_batch_title' => 'New academy prospects',
+    'academy_batch_message' => ':count new players have arrived at the academy.',
+    'academy_overage_promoted_title' => 'Academy graduates',
+    'academy_overage_promoted_message' => ':count academy players aged 21+ have been promoted to the first team.',
+    'academy_gap_promoted_title' => 'Academy players promoted',
+    'academy_gap_promoted_message' => ':count academy players have been promoted to fill squad gaps.',
+    'reserve_overage_promoted_title' => 'Reserve graduate',
+    'reserve_overage_promoted_message' => ':player has aged out of the reserve team and joined the first team permanently.',
+    // Loan request results
+    'loan_accepted_title' => 'Loan request for :player accepted',
+    'loan_accepted' => ':team have accepted your loan request for :player.',
+    'loan_rejected_title' => 'Loan request for :player rejected',
+    'loan_rejected' => ':team have rejected your loan request for :player.',
+
+    // Tournament welcome
+    'tournament_welcome_title' => 'Welcome to the World Cup!',
+    'tournament_welcome_message' => 'The entire nation has their eyes on you. No pressure... but don\'t let them down!',
+
+    // Priority badges
+    'priority_urgent' => 'Urgent',
+    'priority_attention' => 'Attention',
+
+    // Pro-manager job offers
+    'job_offer_received_title' => ':count clubs interested in you',
+    'job_offer_post_firing_title' => 'Choose your next club (:count offers)',
+    'job_offer_received_message' => 'Check the season-end screen to accept or decline.',
+
+    // Transfer window open
+    'transfer_window_open_title' => ':window Transfer Window Open',
+    'transfer_window_open_message' => 'The transfer window is now open. Agreed transfers will join your squad immediately.',
+
+    // Transfer window closing
+    'transfer_window_closing_title' => ':window Transfer Window Closing',
+    'transfer_window_closing_message' => 'This is your last chance to sign a player. The transfer window closes after this matchday.',
+
+    // Transfer window closed (also the AI market summary — the window-close notice
+    // and the league transfer count are a single notification)
+    'ai_transfer_title' => ':window Transfer Window Closed',
+    'ai_transfer_message' => 'The transfer window is now closed. :count transfers completed across the league. Agreed transfers will complete when the next window opens.',
+    'ai_transfer_message_none' => 'The transfer window is now closed. Agreed transfers will complete when the next window opens.',
+    'ai_transfer_window_summer' => 'Summer',
+    'ai_transfer_window_winter' => 'Winter',
+
+    // Player released
+    'player_released_title' => ':player released',
+    'player_released_message' => ':player has been released from your squad. Severance paid: :severance.',
+    'player_released_message_free' => ':player has been released from your squad.',
+
+    // Emergency signings
+    'emergency_signing_title' => 'Emergency squad reinforcement',
+    'emergency_signing_message' => 'Your squad was critically low. :count free agents have been signed to ensure you can field a team: :players.',
+
+    // Match forfeit
+    'match_forfeit_title' => 'Match forfeited',
+    'match_forfeit_message' => 'Your team could not field the minimum 7 players. The match has been recorded as a 0-3 defeat.',
+
+    // Reputation changes
+    'reputation_change_title' => 'Club reputation changed',
+    'reputation_improved' => 'Your club\'s reputation has grown to :tier. Sponsors, players and fans are taking notice.',
+    'reputation_declined' => 'Your club\'s reputation has dropped to :tier. Time to rebuild and return to former glory.',
+
+    // Budget loan
+    'budget_loan_taken_title' => 'Budget loan secured',
+    'budget_loan_taken_message' => 'The club has secured a loan of :amount. Repayment of :repayment will be deducted from next season\'s budget.',
+    'budget_loan_repaid_title' => 'Budget loan repaid',
+    'budget_loan_repaid_message' => 'The budget loan has been repaid (:repayment with interest).',
+    'budget_loan_repaid_with_debt' => 'The budget loan repayment of :repayment exceeded available surplus. The shortfall has been carried as debt.',
+
+    // Stadium
+    'stadium_supplementary_committed_title' => 'Stadium expansion started',
+    'stadium_supplementary_committed_message' => ':capacity temporary seats have been ordered. Construction completes on :completion.',
+    'stadium_stand_expansion_committed_title' => 'Stand expansion approved',
+    'stadium_stand_expansion_committed_message' => 'A stand expansion of :capacity new permanent seats has been approved. The new seats go live on :completion.',
+    'stadium_rebuild_committed_title' => 'Stadium rebuild approved',
+    'stadium_rebuild_committed_message' => 'Rebuild started for a capacity of :capacity seats. The new stadium opens on :completion.',
+    'stadium_supplementary_completed_title' => 'Temporary stands ready',
+    'stadium_supplementary_completed_message' => 'The new stands are now in use. Total capacity: :capacity seats.',
+    'stadium_stand_expansion_completed_title' => 'New stand opened',
+    'stadium_stand_expansion_completed_message' => 'The expanded stand is now in use. Total capacity: :capacity seats.',
+    'stadium_rebuild_completed_title' => 'Stadium opened',
+    'stadium_rebuild_completed_message' => 'The new stadium has opened with a capacity of :capacity seats.',
+    'stadium_uefa_upgrade_committed_title' => 'UEFA upgrade approved',
+    'stadium_uefa_upgrade_committed_message' => 'Refit started to reach UEFA Category :capacity. The new category takes effect on :completion.',
+    'stadium_uefa_upgrade_completed_title' => 'New UEFA category',
+    'stadium_uefa_upgrade_completed_message' => 'Your stadium has reached UEFA Category :capacity.',
+    'stadium_loan_drawn_title' => 'Stadium loan finalised',
+    'stadium_loan_drawn_message' => 'The bank has financed the project with :amount, repayable over :years annual instalments.',
+    'stadium_loan_repaid_title' => 'Stadium loan repaid',
+    'stadium_loan_repaid_message' => 'The :amount stadium loan has been fully repaid.',
+    'commercial_window_open_title' => 'Commercial window open',
+    'commercial_window_open_message' => 'Until the first league match you can seek sponsors on the Commercial page to grow your income and lift your salary cap.',
+
+    // Squad registration
+    'squad_registration_required_title' => 'Squad registration required',
+    'squad_registration_required_message' => 'You have :count unenrolled players. Register your squad before the season begins — unenrolled players cannot be selected for matches.',
+    'unenrolled_before_window_close_title' => 'Unenrolled players — :window window closing',
+    'unenrolled_before_window_close_message' => 'You have :count unenrolled players. This is your last matchday to register them before the transfer window closes — without a squad number they cannot be selected for matches.',
+];

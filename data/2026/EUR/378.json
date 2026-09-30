@@ -1,0 +1,360 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/378.png",
+  "name": "UMF Stjarnan",
+  "players": [
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 27, 1994",
+      "foot": "",
+      "height": "",
+      "id": "40452",
+      "marketValue": "",
+      "name": "Halla Margrét Hinriksdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 20, 1999",
+      "foot": "",
+      "height": "1,75m",
+      "id": "74414",
+      "marketValue": "",
+      "name": "Bridgette Skiba",
+      "nationality": [
+        "United States"
+      ],
+      "number": "13",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 18, 2010",
+      "foot": "",
+      "height": "",
+      "id": "108624",
+      "marketValue": "",
+      "name": "Tinna María Heiðdísardóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "33",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 26, 1999",
+      "foot": "",
+      "height": "",
+      "id": "88748",
+      "marketValue": "",
+      "name": "Sydney Parker",
+      "nationality": [
+        "United States"
+      ],
+      "number": "3",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 9, 1997",
+      "foot": "",
+      "height": "",
+      "id": "43429",
+      "marketValue": "",
+      "name": "Arna Dís Arnþórsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": 2,
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Jul 18, 2004",
+      "foot": "left",
+      "height": "",
+      "id": "43425",
+      "marketValue": "",
+      "name": "Jakobína Hjörvarsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "May 20, 1998",
+      "foot": "",
+      "height": "",
+      "id": "34366",
+      "marketValue": "",
+      "name": "Ingibjörg Lúcía Ragnarsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "8",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Aug 28, 1994",
+      "foot": "",
+      "height": "",
+      "id": "14033",
+      "marketValue": "",
+      "name": "Anna María Baldursdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "10",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 12, 2010",
+      "foot": "",
+      "height": "",
+      "id": "117722",
+      "marketValue": "",
+      "name": "Rósa María Sigurðardóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "17",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 23, 1999",
+      "foot": "",
+      "height": "",
+      "id": "34128",
+      "marketValue": "",
+      "name": "María Sól Jakobsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": 5,
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Dec 7, 2005",
+      "foot": "",
+      "height": "",
+      "id": "58683",
+      "marketValue": "",
+      "name": "Telma Steindórsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "35",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 11, 2008",
+      "foot": "",
+      "height": "",
+      "id": "86168",
+      "marketValue": "",
+      "name": "Sandra Hauksdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "42",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 11, 2001",
+      "foot": "",
+      "height": "1,68m",
+      "id": "32634",
+      "marketValue": "",
+      "name": "Birna Jóhannsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "9",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 1, 2005",
+      "foot": "",
+      "height": "",
+      "id": "58326",
+      "marketValue": "",
+      "name": "Margrét Lea Gísladóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "18",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 11, 1993",
+      "foot": "",
+      "height": "1,68m",
+      "id": "19649",
+      "marketValue": "€15k",
+      "name": "Jessica Ayers",
+      "nationality": [
+        "United States"
+      ],
+      "number": "20",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 31, 1999",
+      "foot": "",
+      "height": "",
+      "id": "48459",
+      "marketValue": "",
+      "name": "Vigdís Edda Friðriksdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "22",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 6, 2001",
+      "foot": "",
+      "height": "",
+      "id": "43433",
+      "marketValue": "",
+      "name": "Gyða Kristín Gunnarsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "23",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 25, 1998",
+      "foot": "",
+      "height": "",
+      "id": "39020",
+      "marketValue": "€50k",
+      "name": "Andrea Mist Pálsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "26",
+      "position": "Right Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 11, 2009",
+      "foot": "",
+      "height": "",
+      "id": "93219",
+      "marketValue": "",
+      "name": "Erika Ýr Björnsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "28",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 5, 2003",
+      "foot": "",
+      "height": "",
+      "id": "35071",
+      "marketValue": "",
+      "name": "Jana Sól Valdimarsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "11",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 16, 2004",
+      "foot": "",
+      "height": "",
+      "id": "43434",
+      "marketValue": "",
+      "name": "Snædís María Jörundsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "14",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Jun 6, 1997",
+      "foot": "",
+      "height": "",
+      "id": "43439",
+      "marketValue": "",
+      "name": "Hulda Hrund Arnarsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "15",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 26, 2007",
+      "foot": "",
+      "height": "",
+      "id": "73095",
+      "marketValue": "",
+      "name": "Hrefna Jónsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "19",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 1, 2003",
+      "foot": "",
+      "height": "1,70m",
+      "id": "43436",
+      "marketValue": "",
+      "name": "Aníta Ýr Þorvaldsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": 6,
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 22, 1994",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "32526",
+      "marketValue": "",
+      "name": "Murielle Tiernan",
+      "nationality": [
+        "United States"
+      ],
+      "number": "29",
+      "position": "Centre-Forward"
+    }
+  ],
+  "stadiumName": "Samsungvöllurinn",
+  "stadiumSeats": "1800",
+  "transfermarktId": "378",
+  "country": "IS"
+}

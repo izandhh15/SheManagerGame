@@ -1,0 +1,374 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/1702.png",
+  "name": "Vålerenga Fotball",
+  "players": [
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Nov 20, 1994",
+      "foot": "left",
+      "height": "1,80m",
+      "id": "13929",
+      "marketValue": "€65k",
+      "name": "Tove Enblom",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Dec 31, 2029",
+      "dateOfBirth": "Mar 17, 2005",
+      "foot": "",
+      "height": "1,80m",
+      "id": "48441",
+      "marketValue": "€40k",
+      "name": "Fanney Inga Birkisdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "13",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 22, 2005",
+      "foot": "",
+      "height": "1,86m",
+      "id": "69378",
+      "marketValue": "",
+      "name": "Liva Petersson",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "31",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 17, 2010",
+      "foot": "",
+      "height": "",
+      "id": "110800",
+      "marketValue": "",
+      "name": "Selma Myra Pettersen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "40",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Nov 24, 2000",
+      "foot": "right",
+      "height": "1,79m",
+      "id": "40356",
+      "marketValue": "",
+      "name": "Sara Hørte",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "2",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Aug 28, 1998",
+      "foot": "",
+      "height": "",
+      "id": "34609",
+      "marketValue": "",
+      "name": "Iselin Sandnes Olsen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Feb 21, 2003",
+      "foot": "left",
+      "height": "1,75m",
+      "id": "47739",
+      "marketValue": "",
+      "name": "Selma Pettersen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "5",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Jan 19, 1999",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "34281",
+      "marketValue": "€35k",
+      "name": "Matilde Lundorf",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "18",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Jul 3, 2004",
+      "foot": "",
+      "height": "",
+      "id": "72974",
+      "marketValue": "",
+      "name": "Lina Klech",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "27",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Sep 14, 2002",
+      "foot": "",
+      "height": "",
+      "id": "35195",
+      "marketValue": "",
+      "name": "Arna Eiríksdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "28",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 8, 2004",
+      "foot": "",
+      "height": "",
+      "id": "53518",
+      "marketValue": "",
+      "name": "Tijan McKenna",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": "3",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Dec 6, 1999",
+      "foot": "",
+      "height": "1,75m",
+      "id": "28330",
+      "marketValue": "",
+      "name": "Noor Eckhoff",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "6",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Nov 15, 2000",
+      "foot": "both",
+      "height": "1,70m",
+      "id": "50016",
+      "marketValue": "",
+      "name": "Naina Inauen",
+      "nationality": [
+        "Switzerland"
+      ],
+      "number": "7",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Apr 3, 2000",
+      "foot": "",
+      "height": "",
+      "id": "31102",
+      "marketValue": "",
+      "name": "Linn Vickius",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "8",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Apr 23, 2003",
+      "foot": "",
+      "height": "1,75m",
+      "id": "39332",
+      "marketValue": "",
+      "name": "Hana Lowry",
+      "nationality": [
+        "Australia"
+      ],
+      "number": "10",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 24, 2001",
+      "foot": "right",
+      "height": "1,62m",
+      "id": "35064",
+      "marketValue": "€85k",
+      "name": "Katariina Kosola",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "14",
+      "position": "Left Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 19, 2007",
+      "foot": "",
+      "height": "",
+      "id": "68468",
+      "marketValue": "",
+      "name": "Aada Mäkelä",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "19",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Apr 12, 2008",
+      "foot": "right",
+      "height": "1,65m",
+      "id": "96279",
+      "marketValue": "",
+      "name": "Tomine Enger",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "22",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Jun 14, 2001",
+      "foot": "both",
+      "height": "",
+      "id": "35485",
+      "marketValue": "",
+      "name": "Eline Hegg",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "23",
+      "position": "Left Winger"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Aug 12, 1995",
+      "foot": "right",
+      "height": "1,71m",
+      "id": "18549",
+      "marketValue": "",
+      "name": "Synne Skinnes Hansen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "25",
+      "position": "Right Midfield"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Dec 19, 2004",
+      "foot": "",
+      "height": "",
+      "id": "53760",
+      "marketValue": "",
+      "name": "Stine Brekken",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "30",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Sep 28, 2007",
+      "foot": "",
+      "height": "",
+      "id": "100178",
+      "marketValue": "",
+      "name": "Linnea Nærø Wang",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "32",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Aug 27, 2008",
+      "foot": "",
+      "height": "",
+      "id": "85603",
+      "marketValue": "",
+      "name": "Marie Preus",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "11",
+      "position": "Striker"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Sep 4, 2006",
+      "foot": "both",
+      "height": "1,72m",
+      "id": "86829",
+      "marketValue": "",
+      "name": "Ronja Arnesen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "16",
+      "position": "Striker"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Mar 24, 1996",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "8869",
+      "marketValue": "€40k",
+      "name": "Karina Sævik",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "21",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 16, 2010",
+      "foot": "left",
+      "height": "",
+      "id": "118102",
+      "marketValue": "",
+      "name": "Live Kristine Balmforth",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "36",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Intility Arena",
+  "stadiumSeats": "16555",
+  "transfermarktId": "1702",
+  "country": "NO"
+}

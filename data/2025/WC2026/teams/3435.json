@@ -1,0 +1,425 @@
+{
+  "image": "https://assets.virtuafc.com/crests/3435.png",
+  "name": "Japan",
+  "players": [
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/130.png",
+        "name": "Parma Calcio 1913"
+      },
+      "dateOfBirth": "Aug 21, 2002",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "432298",
+      "injured": false,
+      "marketValue": "€20.00m",
+      "name": "Zion Suzuki",
+      "overall_score": 74,
+      "position": "Goalkeeper",
+      "potential": 80
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2697.png",
+        "name": "Sanfrecce Hiroshima"
+      },
+      "dateOfBirth": "Jul 28, 1999",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "415521",
+      "injured": false,
+      "marketValue": "€2.00m",
+      "name": "Keisuke Osako",
+      "overall_score": 69,
+      "position": "Goalkeeper",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2241.png",
+        "name": "Kashima Antlers"
+      },
+      "dateOfBirth": "Mar 3, 1999",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "683271",
+      "injured": false,
+      "marketValue": "€1.50m",
+      "name": "Tomoki Hayakawa",
+      "overall_score": 71,
+      "position": "Goalkeeper",
+      "potential": 75
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/27.png",
+        "name": "Bayern Munich"
+      },
+      "dateOfBirth": "May 12, 1999",
+      "foot": "left",
+      "height": "1,88m",
+      "id": "353892",
+      "injured": false,
+      "marketValue": "€18.00m",
+      "name": "Hiroki Ito",
+      "overall_score": 78,
+      "position": "Centre-Back",
+      "potential": 81
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/610.png",
+        "name": "Ajax Amsterdam"
+      },
+      "dateOfBirth": "Jan 27, 1997",
+      "foot": "right",
+      "height": "1,88m",
+      "id": "355816",
+      "injured": false,
+      "marketValue": "€10.00m",
+      "name": "Ko Itakura",
+      "overall_score": 76,
+      "position": "Centre-Back",
+      "potential": 77
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/234.png",
+        "name": "Feyenoord Rotterdam"
+      },
+      "dateOfBirth": "Feb 5, 1997",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "598791",
+      "injured": false,
+      "marketValue": "€10.00m",
+      "name": "Tsuyoshi Watanabe",
+      "overall_score": 77,
+      "position": "Centre-Back",
+      "potential": 77
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/190.png",
+        "name": "FC Copenhagen"
+      },
+      "dateOfBirth": "Jul 12, 2003",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "848856",
+      "injured": false,
+      "marketValue": "€2.00m",
+      "name": "Junnosuke Suzuki",
+      "overall_score": 70,
+      "position": "Centre-Back",
+      "potential": 80
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/475.png",
+        "name": "Sint-Truidense VV"
+      },
+      "dateOfBirth": "Jul 15, 1991",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "307870",
+      "injured": false,
+      "marketValue": "€800k",
+      "name": "Shogo Taniguchi",
+      "overall_score": 72,
+      "position": "Centre-Back",
+      "potential": 72
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6631.png",
+        "name": "FC Tokyo"
+      },
+      "dateOfBirth": "Sep 12, 1986",
+      "foot": "both",
+      "height": "1,70m",
+      "id": "79522",
+      "injured": false,
+      "marketValue": "€100k",
+      "name": "Yuto Nagatomo",
+      "overall_score": 68,
+      "position": "Left-Back",
+      "potential": 68
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/610.png",
+        "name": "Ajax Amsterdam"
+      },
+      "dateOfBirth": "Nov 5, 1998",
+      "foot": "right",
+      "height": "1,88m",
+      "id": "331560",
+      "injured": false,
+      "marketValue": "€8.00m",
+      "name": "Takehiro Tomiyasu",
+      "overall_score": 77,
+      "position": "Right-Back",
+      "potential": 78
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/86.png",
+        "name": "SV Werder Bremen"
+      },
+      "dateOfBirth": "Jun 28, 2000",
+      "foot": "right",
+      "height": "1,79m",
+      "id": "405385",
+      "injured": false,
+      "marketValue": "€7.50m",
+      "name": "Yukinari Sugawara",
+      "overall_score": 75,
+      "position": "Right-Back",
+      "potential": 79
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/39.png",
+        "name": "1.FSV Mainz 05"
+      },
+      "dateOfBirth": "Dec 30, 2000",
+      "foot": "right",
+      "height": "1,76m",
+      "id": "643574",
+      "injured": false,
+      "marketValue": "€25.00m",
+      "name": "Kaishu Sano",
+      "overall_score": 80,
+      "position": "Defensive Midfield",
+      "potential": 83
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/31.png",
+        "name": "Liverpool FC"
+      },
+      "dateOfBirth": "Feb 9, 1993",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "146310",
+      "injured": false,
+      "marketValue": "€5.00m",
+      "name": "Wataru Endo",
+      "overall_score": 79,
+      "position": "Defensive Midfield",
+      "potential": 79
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/738.png",
+        "name": "Le Havre AC"
+      },
+      "dateOfBirth": "Jun 7, 2000",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "405389",
+      "injured": false,
+      "marketValue": "€5.00m",
+      "name": "Ayumu Seko",
+      "overall_score": 72,
+      "position": "Defensive Midfield",
+      "potential": 77
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/399.png",
+        "name": "Leeds United"
+      },
+      "dateOfBirth": "Sep 10, 1998",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "489359",
+      "injured": false,
+      "marketValue": "€10.00m",
+      "name": "Ao Tanaka",
+      "overall_score": 76,
+      "position": "Central Midfield",
+      "potential": 78
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/873.png",
+        "name": "Crystal Palace"
+      },
+      "dateOfBirth": "Aug 5, 1996",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "356141",
+      "injured": false,
+      "marketValue": "€12.00m",
+      "name": "Daichi Kamada",
+      "overall_score": 78,
+      "position": "Attacking Midfield",
+      "potential": 78
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/371.png",
+        "name": "Celtic FC"
+      },
+      "dateOfBirth": "Oct 20, 1997",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "420931",
+      "injured": false,
+      "marketValue": "€13.00m",
+      "name": "Daizen Maeda",
+      "overall_score": 78,
+      "position": "Left Winger",
+      "potential": 78
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1421.png",
+        "name": "Stade Reims"
+      },
+      "dateOfBirth": "Jul 28, 2000",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "405397",
+      "injured": false,
+      "marketValue": "€9.00m",
+      "name": "Keito Nakamura",
+      "overall_score": 76,
+      "position": "Left Winger",
+      "potential": 79
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/681.png",
+        "name": "Real Sociedad"
+      },
+      "dateOfBirth": "Jun 4, 2001",
+      "foot": "left",
+      "height": "1,73m",
+      "id": "405398",
+      "injured": false,
+      "marketValue": "€30.00m",
+      "name": "Takefusa Kubo",
+      "overall_score": 81,
+      "position": "Right Winger",
+      "potential": 84
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/24.png",
+        "name": "Eintracht Frankfurt"
+      },
+      "dateOfBirth": "Jun 16, 1998",
+      "foot": "left",
+      "height": "1,72m",
+      "id": "358504",
+      "injured": false,
+      "marketValue": "€20.00m",
+      "name": "Ritsu Doan",
+      "overall_score": 81,
+      "position": "Right Winger",
+      "potential": 81
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1184.png",
+        "name": "KRC Genk"
+      },
+      "dateOfBirth": "Mar 9, 1993",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "348791",
+      "injured": false,
+      "marketValue": "€3.50m",
+      "name": "Junya Ito",
+      "overall_score": 76,
+      "position": "Right Winger",
+      "potential": 76
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/60.png",
+        "name": "SC Freiburg"
+      },
+      "dateOfBirth": "Oct 25, 2001",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "668606",
+      "injured": false,
+      "marketValue": "€18.00m",
+      "name": "Yuito Suzuki",
+      "overall_score": 75,
+      "position": "Second Striker",
+      "potential": 78
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/234.png",
+        "name": "Feyenoord Rotterdam"
+      },
+      "dateOfBirth": "Aug 28, 1998",
+      "foot": "right",
+      "height": "1,82m",
+      "id": "589128",
+      "injured": false,
+      "marketValue": "€15.00m",
+      "name": "Ayase Ueda",
+      "overall_score": 78,
+      "position": "Centre-Forward",
+      "potential": 79
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/475.png",
+        "name": "Sint-Truidense VV"
+      },
+      "dateOfBirth": "Jun 3, 2005",
+      "foot": "right",
+      "height": "1,91m",
+      "id": "916623",
+      "injured": false,
+      "marketValue": "€8.00m",
+      "name": "Keisuke Goto",
+      "overall_score": 64,
+      "position": "Centre-Forward",
+      "potential": 80
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/82.png",
+        "name": "VfL Wolfsburg"
+      },
+      "dateOfBirth": "Mar 26, 2005",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "1144627",
+      "injured": false,
+      "marketValue": "€8.00m",
+      "name": "Kento Shiogai",
+      "overall_score": 68,
+      "position": "Centre-Forward",
+      "potential": 82
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/467.png",
+        "name": "NEC Nijmegen"
+      },
+      "dateOfBirth": "Aug 8, 1997",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "351567",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "Koki Ogawa",
+      "overall_score": 69,
+      "position": "Centre-Forward",
+      "potential": 69
+    }
+  ],
+  "stadiumName": null,
+  "stadiumSeats": null,
+  "transfermarktId": "3435"
+}

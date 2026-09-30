@@ -1,0 +1,132 @@
+<?php
+
+namespace App\Http\Actions;
+
+use App\Modules\Lineup\Enums\DefensiveLineHeight;
+use App\Modules\Lineup\Enums\Formation;
+use App\Modules\Lineup\Enums\Mentality;
+use App\Modules\Lineup\Enums\PlayingStyle;
+use App\Modules\Lineup\Enums\PressingIntensity;
+use App\Modules\Lineup\Services\SubstitutionService;
+use App\Modules\Lineup\Services\TacticalChangeService;
+use App\Models\Game;
+use App\Models\GameMatch;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\Rule;
+
+class ProcessTacticalActions
+{
+    public function __construct(
+        private readonly TacticalChangeService $tacticalChangeService,
+        private readonly SubstitutionService $substitutionService,
+    ) {}
+
+    public function __invoke(Request $request, string $gameId, string $matchId): JsonResponse
+    {
+        $game = Game::findOrFail($gameId);
+        $match = GameMatch::with(['homeTeam', 'awayTeam', 'competition'])
+            ->where('game_id', $gameId)
+            ->findOrFail($matchId);
+
+        if ($game->pending_finalization_match_id !== $match->id) {
+            return response()->json(['error' => __('game.match_not_in_progress')], 403);
+        }
+
+        if (! $match->involvesTeam($game->team_id)) {
+            return response()->json(['error' => __('game.sub_error_not_your_match')], 422);
+        }
+
+        $validated = $request->validate([
+            'minute' => 'required|integer|min:1|max:120',
+            'is_half_time' => 'sometimes|boolean',
+            'substitutions' => 'array|max:'.SubstitutionService::MAX_ET_SUBSTITUTIONS,
+            'substitutions.*.playerOutId' => 'required|string',
+            'substitutions.*.playerInId' => 'required|string',
+            'formation' => ['nullable', 'string', Rule::enum(Formation::class)],
+            'mentality' => ['nullable', 'string', Rule::enum(Mentality::class)],
+            'playing_style' => ['nullable', 'string', Rule::enum(PlayingStyle::class)],
+            'pressing' => ['nullable', 'string', Rule::enum(PressingIntensity::class)],
+            'defensive_line' => ['nullable', 'string', Rule::enum(DefensiveLineHeight::class)],
+            'manual_slot_pins' => 'nullable|array',
+            'manual_slot_pins.*' => ['string', 'uuid'],
+            'previousSubstitutions' => 'array',
+            'previousSubstitutions.*.playerOutId' => 'required|string',
+            'previousSubstitutions.*.playerInId' => 'required|string',
+            'previousSubstitutions.*.minute' => 'required|integer',
+        ]);
+
+        $hasSubs = ! empty($validated['substitutions']);
+        $hasTactics = ! empty($validated['formation'])
+            || ! empty($validated['mentality'])
+            || ! empty($validated['playing_style'])
+            || ! empty($validated['pressing'])
+            || ! empty($validated['defensive_line'])
+            || ! empty($validated['manual_slot_pins']);
+
+        if (! $hasSubs && ! $hasTactics) {
+            return response()->json(['error' => __('game.tactical_no_changes')], 422);
+        }
+
+        $isExtraTime = $match->is_extra_time;
+
+        // Validate substitutions if present
+        if ($hasSubs) {
+            try {
+                $this->substitutionService->validateBatchSubstitution(
+                    $match,
+                    $game,
+                    $validated['substitutions'],
+                    $validated['minute'],
+                    $validated['previousSubstitutions'] ?? [],
+                    isExtraTime: $isExtraTime,
+                );
+            } catch (\InvalidArgumentException $e) {
+                return response()->json(['error' => __($e->getMessage())], 422);
+            }
+        }
+
+        try {
+            // Serialize against FinalizeMatch / ProcessCareerActions, which all take
+            // Game::lockForUpdate. Resimulation writes to game_player_match_state rows
+            // for both teams in this match, and those rows overlap with rows touched
+            // by ProcessCareerActions — concurrent bulk UPDATEs with IN-lists lock in
+            // heap-scan order and deadlock.
+            $result = DB::transaction(function () use ($match, $game, $validated, $isExtraTime) {
+                Game::where('id', $game->id)->lockForUpdate()->first();
+
+                return $this->tacticalChangeService->processLiveMatchChanges(
+                    $match,
+                    $game,
+                    $validated['minute'],
+                    $validated['previousSubstitutions'] ?? [],
+                    $validated['substitutions'] ?? [],
+                    $validated['formation'] ?? null,
+                    $validated['mentality'] ?? null,
+                    $validated['playing_style'] ?? null,
+                    $validated['pressing'] ?? null,
+                    $validated['defensive_line'] ?? null,
+                    isExtraTime: $isExtraTime,
+                    manualSlotPins: $validated['manual_slot_pins'] ?? [],
+                    isHalfTime: $validated['is_half_time'] ?? false,
+                );
+            }, attempts: 3);
+        } catch (\Throwable $e) {
+            Log::error('ProcessTacticalActions failed', [
+                'match_id' => $match->id,
+                'game_id' => $game->id,
+                'minute' => $validated['minute'],
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
+            ]);
+
+            return response()->json([
+                'error' => __('game.tactical_error_generic'),
+            ], 422);
+        }
+
+        return response()->json($result);
+    }
+}

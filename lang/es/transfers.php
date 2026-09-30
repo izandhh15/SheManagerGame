@@ -1,0 +1,476 @@
+<?php
+
+return [
+    // Page title
+    'window' => 'Ventana',
+    'window_open' => 'Ventana de :window Abierta',
+    'budget' => 'Presupuesto',
+    'budget_committed' => 'comprometidos',
+
+    // Tab labels
+    'outgoing' => 'Salidas',
+    'incoming' => 'Fichajes',
+    'scouting_tab' => 'Ojeadores',
+
+    // Window countdown
+    'window_closes_in' => 'cierra el :date',
+    'window_opens_in' => 'abre el :date',
+
+    // Wage bill
+    'wage_bill' => 'Masa Salarial',
+
+    // Section headers
+    'pre_contract_offers_received' => 'Ofertas de Precontrato Recibidas',
+    'pre_contract_offers_help' => 'Jugadoras en último año de contrato con ofertas de otros clubes',
+    'players_leaving_free' => 'Jugadoras que Se Van Libres',
+    'players_leaving_free_help' => 'Jugadoras que han firmado precontrato con otro club',
+    'expiring_contracts_section' => 'Jugadoras en Último Año de Contrato',
+    'contract_renewals_section' => 'Renovaciones de Contrato',
+    'player_wont_renew' => 'Ha superado las ambiciones del club — no firmará renovación',
+    'player_wants_raise' => 'Descontento con su sueldo',
+    'pending_renewals_section' => 'Renovaciones Pendientes',
+    'loans_out_section' => 'Cesiones Activas (Salidas)',
+    'loan_searches_section' => 'Buscando Destino de Cesión',
+    'loan_searches_help' => 'Jugadoras buscando un club para ser cedidas',
+    'loan_offers_received' => 'Ofertas de Cesión Recibidas',
+    'loan_offers_received_help' => 'Ofertas de cesión recibidas por jugadoras que has puesto en el mercado de cesiones',
+    'accept_loan_offer' => 'Aceptar',
+    // Legacy keys kept for compatibility
+    'loans' => 'Cesiones',
+    'loaned' => 'Cedida',
+
+    'loan_request' => 'Solicitud de Cesión',
+    'loan_no_fee' => 'Cesión (sin coste)',
+    'free_transfer' => 'Libre (sin contrato)',
+    'free_agent' => 'Agente Libre',
+    'sign_free_agent' => 'Fichar Agente Libre',
+    'sign' => 'Fichar',
+    'window_closed_for_signing' => 'Ventana de fichajes cerrada — no se puede fichar.',
+    'wage_exceeds_budget' => 'El salario solicitado supera tu presupuesto salarial.',
+    // Rejected bids
+    'rejected_bids' => 'Ofertas Rechazadas',
+    'bid_rejected' => 'Oferta rechazada',
+
+    // Active negotiations
+    'active_negotiations' => 'Negociaciones activas',
+    'active_negotiations_description' => 'Ofertas en curso por jugadoras que estás fichando.',
+    'withdraw_offer' => 'Retirar',
+    'offer_withdrawn' => 'Oferta retirada por :player.',
+    'resume_negotiation' => 'Negociar',
+    'confirm_withdraw' => '¿Seguro que quieres retirar esta oferta?',
+
+    // Incoming transfers
+    'incoming_transfers' => 'Fichajes Entrantes',
+    'completing_when_window' => 'se completará cuando abra la ventana de :window',
+    'joining_after_next_match' => 'se incorporará a la plantilla tras el próximo partido',
+    'leaving_after_next_match' => 'abandonará la plantilla tras el próximo partido',
+    'deal_agreed' => 'Acuerdo cerrado',
+
+    // Unsolicited offers
+    'unsolicited_offers' => 'Ofertas No Solicitadas',
+    'unsolicited_offers_help' => 'Otros clubes quieren fichar a tus jugadoras',
+
+    // Offers received
+    'offers_received' => 'Ofertas Recibidas',
+    'offers_received_help' => 'Ofertas recibidas por jugadoras que has puesto en venta',
+    'expires_in_days' => '{0}Expira hoy|{1}Expira en :count día|[2,*]Expira en :count días',
+    'from' => 'de',
+
+    // Agreed transfers
+    'agreed_transfers' => 'Fichajes Acordados',
+
+    // Listed players
+    'listed_players' => 'Jugadoras en Venta',
+    'listed_players_help' => 'Jugadoras que has puesto en el mercado de traspasos',
+    'list_more_from_squad' => 'Poner más jugadoras en venta desde Plantilla',
+    'no_offers_yet' => 'Sin ofertas aún',
+    'offers_count' => ':count oferta(s)',
+    'best' => 'Mejor',
+
+    // Recent transfers
+    'recent_sales' => 'Salidas Recientes',
+    'recent_signings' => 'Entradas Recientes',
+
+    // Scouting
+    'scout_search_desc' => 'Tus ojeadores devuelven jugadoras con alta probabilidad de fichar por tu club.<br>Para una visión más amplia del mercado, usa :explore.',
+    'position_required' => 'Posición *',
+    'select_position' => 'Seleccionar posición...',
+    'specific_positions' => 'Posiciones Específicas',
+    'position_groups' => 'Grupos de Posición (búsqueda más amplia)',
+    // Position group labels moved to lang/es/positions.php
+    'league' => 'Liga',
+    'scope' => 'Rango de búsqueda',
+    'scope_domestic' => 'Nacional',
+    'scope_international' => 'Internacional',
+    'scope_international_locked' => 'Requiere ojeadores de nivel 3 o superior.',
+    'age_range' => 'Rango de Edad',
+    'ability_range' => 'Rango de Habilidad',
+    'value_range' => 'Rango de Valor de Mercado',
+    'contract' => 'Contrato',
+    'expiring_contract' => 'Último año de contrato',
+    'start_scout_search' => 'Iniciar Búsqueda',
+
+    // Scout searching
+    'scout_searching' => 'El ojeador está buscando...',
+    'looking_for' => 'Buscando',
+    'cancel_search' => 'Cancelar Búsqueda',
+
+    // Scout results
+    'scout_results' => 'Resultados de búsqueda',
+    'all_ages' => 'Todas',
+    'no_players_found' => 'No se encontraron jugadoras con tus criterios.',
+    'ability' => 'Habilidad',
+
+    // Scouting player page
+    'market_value' => 'Valor de Mercado',
+    'contract_until' => 'Contrato hasta',
+    'submit_bid' => 'Enviar Oferta',
+    'bid_pending' => 'Oferta Pendiente',
+    'bid_awaiting_response' => 'Esperando Respuesta',
+    'counter_offer_received' => 'Contraoferta Recibida',
+    'transfer_agreed' => 'Fichaje Acordado',
+    'pre_contract_pending_badge' => 'Pre-contrato Pendiente',
+    'pre_contract_agreed_badge' => 'Fichaje Acordado',
+    'shortlist_disabled_pre_contract' => 'Ya tienes un pre-contrato con esta jugadora',
+    'already_bidding' => 'Ya tienes una oferta por esta jugadora',
+    'player_on_loan_unavailable' => 'Esta jugadora está cedida y no se puede fichar.',
+    'cannot_target_own_player' => 'Esta jugadora ya pertenece a tu club.',
+    'club_refuses_squad_minimum' => ':team no quiere vender a :player: la plantilla quedaría por debajo del mínimo en esa demarcación.',
+    'pre_contract_player_not_interested' => ':player no está interesada en fichar por un club de nuestra categoría.',
+    'negotiation_cooldown' => 'Las negociaciones con esta jugadora se rompieron recientemente. Espera a la siguiente jornada para intentarlo de nuevo.',
+    'negotiation_cooldown_short' => 'Espera a la próxima jornada',
+    'renewal_cooldown' => 'Esta jugadora rechazó tu oferta de renovación recientemente. Espera a la siguiente jornada para intentarlo de nuevo.',
+    'renewal_cooldown_short' => 'Espera a la próxima jornada',
+    'scouting_assessment' => 'Evaluación del Ojeador',
+    'financial_details' => 'Detalles Financieros',
+    'estimated_asking_price' => 'Precio de Venta Estimado',
+    'wage_demand' => 'Salario Solicitado',
+    'your_transfer_budget' => 'Tu Presupuesto de Fichajes',
+    'transfer_fee_exceeds_budget' => 'El precio de traspaso excede tu presupuesto. No puedes pujar por esta jugadora.',
+    'transfer_fee_exceeds_budget_loan_available' => 'El precio de traspaso excede tu presupuesto, pero puedes solicitar una cesión.',
+    'loan_fee_exceeds_budget' => 'Tanto el traspaso como la cesión exceden tu presupuesto.',
+    'loan_cost_salary' => 'Coste cesión (salario)',
+    'asking_price' => 'Precio pedido',
+    'request_loan' => 'Solicitar Cesión',
+    'budget_cap_warning' => 'Tu oferta está limitada por tu presupuesto de fichajes disponible.',
+    'budget_available' => 'Presupuesto disponible',
+    'request_budget_loan' => 'Solicitar préstamo presupuestario',
+    'budget_limited_hint' => 'Tu presupuesto está por debajo del precio de venta. Aún puedes negociar o solicitar un préstamo presupuestario.',
+
+    // Bid evaluation responses
+    'bid_accepted' => ':team ha aceptado tu oferta.',
+    'counter_offer_made' => ':team ha hecho una contraoferta de :amount.',
+    'bid_rejected_too_low' => ':team ha rechazado tu oferta. Estaba muy por debajo de su valoración.',
+    'loan_rejected_key_player' => ':team rechazó la solicitud de cesión. :player es una jugadora clave para ellos.',
+    'loan_accepted' => ':team ha aceptado ceder a :player a tu club.',
+    'loan_rejected_keep' => ':team ha decidido quedarse con :player por ahora.',
+    'loan_rejected_not_interested' => ':player no está interesada en ir cedida a tu club.',
+
+    // Loans page
+    'loaned_to' => 'Cedida :team_a',
+    'active_loans_in' => 'Cesiones Activas (Entradas)',
+    'loaned_from' => 'Cedida :team_de',
+    'searching_destination' => 'Buscando club...',
+    'returns' => 'Regresa',
+    'years' => ':count año|:count años',
+
+    // Pre-contract
+    'expiring_contract_hint' => 'Las jugadoras en su último año de contrato pueden ficharse gratis. Puedes hacer una oferta de precontrato a partir del 1 de enero.',
+    'offered_wage_euros' => 'Salario Ofrecido (euros/año)',
+    'submit_pre_contract' => 'Ofrecer Precontrato',
+
+    // Search history
+    'search_history' => 'Historial de Búsquedas',
+    'no_search_history' => 'Sin búsquedas anteriores.',
+    'view_results' => 'Ver',
+    'results_count' => ':count resultado(s)',
+    'delete_search' => 'Eliminar',
+    'delete_search_confirm' => '¿Eliminar esta búsqueda? Las jugadoras en tu lista de seguimiento no se perderán.',
+
+    // Shortlist
+    'shortlist' => 'Lista de Seguimiento',
+    'sort_by' => 'Ordenar',
+    'sort_name' => 'Nombre',
+    'sort_age' => 'Edad',
+    'sort_ability' => 'Habilidad',
+    'sort_price' => 'Precio',
+    'add_to_shortlist' => 'Seguir',
+    'remove_from_shortlist' => 'Dejar de seguir',
+
+    // Scouting hub board (shortlist + operations strip)
+    'ops_title' => 'Red de ojeadores',
+    'ops_scope_domestic' => 'Solo nacional',
+    'ops_scope_international' => 'Nacional + internacional',
+    'ops_expand_network' => 'Ampliar red',
+    'board_shortlist_hint' => 'Marca jugadoras con ★ en tus resultados para añadirlas a tu lista.',
+
+    // Empty states
+    'no_outgoing_activity' => 'No hay actividad de salida',
+    'no_incoming_activity' => 'Sin actividad de fichajes',
+
+    // Scout search button
+    'new_scout_search' => 'Nueva Búsqueda',
+
+    // Transfers help text
+    'transfers_help_toggle' => '¿Cómo funcionan los traspasos?',
+    'transfers_help_intro' => 'Gestiona tus traspasos salientes, contratos y cesiones. Las ofertas llegan cada jornada según las condiciones del mercado.',
+    'transfers_help_selling_title' => 'Vender jugadoras',
+    'transfers_help_selling_list' => 'Pon jugadoras en venta desde la página de Plantilla. Otros clubes harán ofertas basadas en el valor de la jugadora.',
+    'transfers_help_selling_unsolicited' => 'También puedes recibir ofertas no solicitadas por jugadoras no listadas, especialmente las de alto valor.',
+    'transfers_help_selling_accept' => 'Los traspasos aceptados se completan cuando se abre la siguiente ventana de fichajes.',
+    'transfers_help_contracts_title' => 'Contratos y Renovaciones',
+    'transfers_help_contracts_expiring' => 'Las jugadoras en su último año de contrato pueden ser fichadas gratis por otros clubes mediante precontrato a partir de enero.',
+    'transfers_help_contracts_renew' => 'Renueva a las jugadoras antes de que sea tarde. Negocia el salario y la duración directamente con el agente de la jugadora.',
+    'transfers_help_contracts_wages' => 'Vigila tu masa salarial. Salarios más altos atraen mejores jugadoras pero reducen tu presupuesto de fichajes.',
+    'transfers_help_loans_title' => 'Cesiones',
+    'transfers_help_loans_out' => 'Cede a jugadoras jóvenes o con poco protagonismo. Se desarrollarán jugando en otro club y regresarán al final de la temporada.',
+
+    // Scouting help text
+    'scouting_help_toggle' => '¿Cómo funcionan los ojeadores?',
+    'scouting_help_intro' => 'Usa tus ojeadores para encontrar jugadoras en el mercado de fichajes. Cuanto mejor sea tu infraestructura de ojeadores, mejores serán los resultados.',
+    'scouting_help_search_title' => 'Búsquedas de ojeadores',
+    'scouting_help_search_filters' => 'Configura filtros (posición, edad, habilidad, valor) y tu ojeador buscará jugadoras que coincidan.',
+    'scouting_help_search_time' => 'Cada búsqueda tarda varias jornadas en completarse. Solo puedes tener una búsqueda activa a la vez.',
+    'scouting_help_search_scope' => 'Las búsquedas nacionales encuentran jugadoras de tu liga. Las internacionales requieren nivel de ojeadores 3+.',
+    'scouting_help_shortlist_title' => 'Lista de seguimiento y ofertas',
+    'scouting_help_shortlist_star' => 'Marca con estrella a las jugadoras de los informes para añadirlos a tu lista de seguimiento y compararlos fácilmente.',
+    'scouting_help_shortlist_bid' => 'Envía una oferta desde la lista de seguimiento. El club vendedor responde en la siguiente jornada — puede aceptar, rechazar o contraofertar.',
+    'scouting_help_shortlist_loan' => 'También puedes solicitar una cesión en vez de un traspaso permanente.',
+    'scouting_help_shortlist_precontract' => 'Las jugadoras en su último año de contrato pueden ficharse gratis mediante precontrato a partir de enero.',
+
+    // Transfer activity summary
+    'transfer_activity_title' => 'Resumen Ventana de :window',
+    'transfer_activity_summer' => 'Verano',
+    'transfer_activity_winter' => 'Invierno',
+    'transfer_activity_transfers' => 'Traspasos',
+    'transfer_activity_free_agents' => 'Fichajes de Agentes Libres',
+    'transfer_activity_no_transfers' => 'Sin traspasos en esta ventana.',
+    'transfer_activity_no_free_agents' => 'Sin fichajes de agentes libres en esta ventana.',
+    'transfer_activity_player' => 'Jugadora',
+    'transfer_activity_from' => 'De',
+    'transfer_activity_to' => 'A',
+    'transfer_activity_fee' => 'Coste',
+    'transfer_activity_position' => 'Pos',
+    'transfer_activity_age' => 'Edad',
+    'transfer_activity_foreign' => 'Extranjera',
+    'transfer_activity_other_leagues' => 'Otras ligas',
+    'transfer_activity_out' => 'Salida',
+    'transfer_activity_in' => 'Entrada',
+
+    // Decline renewal
+    'reconsider_renewal' => 'Reconsiderar',
+    'declined_renewals' => 'No renovados',
+
+    // Renewal negotiation
+    'negotiate' => 'Negociar',
+    'negotiating' => 'Negociando...',
+    'player_countered' => 'La jugadora ha contraofertado',
+    'your_offer' => 'Tu oferta (euros/año)',
+    'current_wage' => 'Actual',
+    'player_demand' => 'Pide',
+    'response_next_matchday' => 'Respuesta en la próxima jornada',
+    'accept_counter' => 'Aceptar',
+    'mood_willing' => 'Dispuesta a renovar',
+    'mood_open' => 'Abierta a negociar',
+    'mood_reluctant' => 'Reticente',
+    'mood_willing_sign' => 'Dispuesta a fichar',
+    'mood_open_sign' => 'Abierta a negociar',
+    'mood_reluctant_sign' => 'Reticente',
+    'contract_duration' => 'Duración del contrato',
+
+    // Explorer
+    'explore_tab' => 'Explorar',
+    'explore_title' => 'Explorar equipos',
+    'explore_hint' => 'Explora las plantillas de otros equipos. Para información detallada de habilidades y precios, usa los :scouting.',
+    'explore_select_competition' => 'Selecciona una competición',
+    'explore_select_team' => 'Selecciona un equipo para ver su plantilla',
+    'explore_teams_count' => ':count equipos',
+    'explore_squad_title' => 'Plantilla',
+    'explore_no_teams' => 'No hay equipos disponibles.',
+    'explore_scouting_nudge' => '¿Quieres más información? Inicia una búsqueda de ojeadores.',
+    'explore_on_loan' => 'Cedida por :club',
+    'explore_loaned_out' => 'Cedida a :club',
+    'explore_contract_year' => 'Contrato',
+    'explore_mobile_teams' => 'Equipos',
+    'explore_mobile_squad' => 'Plantilla',
+    'explore_goalkeepers' => 'Porteras',
+    'explore_defenders' => 'Defensas',
+    'explore_midfielders' => 'Centrocampistas',
+    'explore_forwards' => 'Delanteras',
+    'explore_age' => 'Edad',
+    'explore_overall' => 'Media',
+    'explore_value' => 'Valor',
+    'explore_filter_all' => 'Todos',
+    'explore_search_placeholder' => 'Buscar jugadora por nombre...',
+    'explore_search_results_title' => 'Resultados de búsqueda',
+    'explore_search_no_results' => 'No se encontraron jugadoras.',
+    'explore_search_team' => 'Equipo',
+    'explore_europe' => 'Europa',
+    'explore_europe_hint' => 'Explora equipos europeos fuera de las 5 grandes ligas.',
+    'explore_international' => 'Resto del mundo',
+    'explore_international_hint' => 'Explora equipos del resto del mundo disponibles en el mercado de fichajes.',
+    'explore_pool_picker_label' => 'Ámbito',
+    'explore_search_scope_label' => 'Búsqueda',
+    'explore_window_closed_hint' => 'Ventana de fichajes cerrada',
+    'explore_make_offer' => 'Hacer oferta',
+    'explore_negotiate' => 'Negociar',
+    'explore_offer_hint' => 'Haz ofertas directas o añade jugadoras a tu lista de seguimiento. Sin informe de ojeador, negociarás a ciegas.',
+
+    // Búsqueda avanzada en Explorar
+    'explore_advanced_filters' => 'Filtros avanzados',
+    'explore_advanced_criteria_hint' => 'Escribe un nombre o ajusta los filtros para buscar en toda la base de datos de jugadoras.',
+    'explore_clear_filters' => 'Limpiar filtros',
+    'explore_search_submit' => 'Buscar',
+    'explore_min' => 'Mín',
+    'explore_max' => 'Máx',
+    'explore_value_range_millions' => 'Valor de mercado (€ millones)',
+    'explore_overall_range' => 'Media',
+    'explore_contract_expires_by' => 'Contrato expira antes de (año)',
+    'explore_nationality' => 'Nacionalidad',
+    'explore_search_showing_first' => 'mostrando los primeros :count',
+    'explore_search_refine_hint' => 'Demasiadas coincidencias — ajusta los filtros para acotar la lista.',
+    'explore_view_team' => 'Ver :team en Explorar',
+
+    // Enlaces cruzados (Explorar ↔ Ojeadores)
+    'explore_link_to_scouting' => 'ojeadores',
+    'explore_empty_scout_cta' => 'Envía a tus ojeadores a buscar este perfil',
+    'scouting_link_to_explore' => 'Explorar',
+    'scouting_empty_explore_cta' => 'Explora todo el mercado en Explorar',
+    'scouting_empty_three_pass_hint' => 'Ninguna jugadora cumple los criterios importantes: mejorar la plantilla, encajar en el presupuesto (o acercarse) y estar dispuesta a fichar. Prueba a ampliar la búsqueda.',
+    'scout_bucket_primary_title' => 'Objetivos realistas',
+    'scout_bucket_primary_description' => 'Mejoran la plantilla, entran en tu presupuesto y están dispuestos a fichar.',
+    'scout_bucket_ambitious_title' => 'Objetivos ambiciosos',
+    'scout_bucket_ambitious_description' => 'Mejoran la plantilla y quieren cambiar de aires, pero cuestan más de lo que tienes. Haz caja o negocia a la baja.',
+    'scout_bucket_persuasion_title' => 'Requieren convencimiento',
+    'scout_bucket_persuasion_description' => 'Mejoran la plantilla y entran en el presupuesto, pero todavía no están convencidos de fichar.',
+
+    // Free agent negotiation chat
+    'chat_free_agent_title' => 'Negociación con Agente Libre',
+    'chat_free_agent_demand' => 'El agente de :player pide :wage/año durante :years años.',
+    'chat_free_agent_counter' => 'El agente de :player insiste en :wage/año durante :years años.',
+    'chat_free_agent_accepted' => '¡:player ha firmado! Bienvenida al equipo.',
+    'chat_free_agent_rejected' => 'El agente de :player se ha marchado. No hay acuerdo.',
+
+    'willingness' => 'Disposición',
+    'rival_interest' => 'Otros clubes interesados',
+    'willingness_very_interested' => 'Muy interesada',
+    'willingness_open' => 'Abierta a salir',
+    'willingness_undecided' => 'Indeciso',
+    'willingness_reluctant' => 'Reticente',
+    'willingness_not_interested' => 'No interesada',
+    'intel_surface' => 'Básico',
+    'intel_report' => 'Informe',
+    'intel_deep' => 'Intel Profunda',
+
+    // Negotiation chat
+    'chat_title' => 'Negociación de contrato',
+    'chat_agent_demand' => 'El agente de :player pide :wage/año por :years años.',
+    'chat_agent_counter' => 'El agente de :player insiste en :wage/año por :years años.',
+    'chat_counter_resume' => 'El agente de :player sigue pidiendo :wage/año por :years años.',
+    'chat_agent_accepted' => ':player ha aceptado :wage/año por :years años. ¡Hecho!',
+    'chat_agent_rejected' => 'El agente de :player ha abandonado la mesa. La negociación ha fracasado.',
+    'chat_agent_not_interested' => ':player está satisfecho con su contrato actual y no quiere negociar uno nuevo por ahora.',
+    'chat_accept' => 'Aceptar',
+    'chat_reject' => 'Rechazar',
+    'chat_user_accepts' => '¡Trato!',
+    'chat_user_rejects' => 'No está en venta',
+    'chat_deal_agreed' => 'Fichaje acordado',
+    'chat_club_agreement' => 'Acuerdo entre clubes',
+    'chat_renewal_agreed' => 'Renovación acordada',
+    'chat_deal_failed' => 'Negociación fallida',
+    'chat_continue' => 'Continuar',
+    'chat_round' => 'Ronda :current/:max',
+    'year_singular' => 'año',
+    'year_plural' => 'años',
+    'chat_send_offer' => 'Enviar',
+
+    // Transfer negotiation chat
+    'chat_transfer_title' => 'Negociación de Traspaso',
+    'chat_club_demand' => ':team pide :fee por :player.',
+    'chat_club_counter' => ':team insiste en :fee.',
+    'chat_club_counter_resume' => ':team sigue pidiendo :fee.',
+    'chat_club_accepted' => '¡:team ha aceptado :fee por :player!',
+    'chat_clause_paid' => ':team no puede rechazar la cláusula. :player es tuyo por :fee — ahora negocia sus términos personales.',
+    'chat_club_rejected' => ':team ha rechazado la oferta. Las negociaciones se han roto.',
+    'chat_player_not_interested' => ':player no está interesada en fichar por tu club.',
+    'chat_your_bid' => 'Tu oferta',
+    'mood_willing_sell' => 'Dispuesto a vender',
+    'mood_open_sell' => 'Abierto a ofertas',
+    'mood_reluctant_sell' => 'Reticente a vender',
+    'negotiate' => 'Negociar',
+    'chat_terms_transition' => '¡Precio acordado! Ahora negocia las condiciones personales con la jugadora.',
+    'chat_player_demand_transfer' => 'El agente de :player pide :wage/año durante :years años.',
+    'chat_player_counter_transfer' => 'El agente de :player insiste en :wage/año durante :years años.',
+    'chat_transfer_complete' => '¡:player ha firmado! Bienvenida al equipo.',
+    'chat_transfer_complete_pending' => '¡:player ha firmado! La jugadora se incorporará al equipo en el próximo mercado de fichajes.',
+    'chat_transfer_complete_intra_window' => '¡:player ha firmado! Se incorporará a la plantilla tras el próximo partido.',
+    'chat_terms_rejected' => 'El agente de :player se ha marchado. El acuerdo se ha roto.',
+
+    // Counter-offer negotiation (user selling)
+    'counter_offer_title' => 'Contraoferta',
+    'counter_must_be_higher' => 'Tu precio debe ser superior a la oferta actual.',
+    'chat_buyer_opening' => ':team ha ofrecido :fee por :player. ¿Cuál es tu precio?',
+    'chat_buyer_counter' => ':team sube su oferta a :fee.',
+    'chat_buyer_counter_resume' => 'La última oferta de :team es :fee.',
+    'chat_buyer_accepted' => '¡:team acepta tu precio de :fee por :player!',
+    'chat_buyer_rejected' => ':team ha retirado su interés. La negociación ha fracasado.',
+    'chat_buyer_deal_complete' => '¡Venta acordada! :player se unirá :team_a por :fee.',
+    'chat_offer_rejected' => 'Has rechazado la oferta por :player. La jugadora no está en venta.',
+
+    // Pre-contract negotiation chat
+    'chat_pre_contract_title' => 'Negociación de Pre-Contrato',
+    'chat_pre_contract_demand' => 'El agente de :player pide :wage/año durante :years años para firmar un pre-contrato.',
+    'chat_pre_contract_counter' => 'El agente de :player insiste en :wage/año durante :years años.',
+    'chat_pre_contract_accepted' => '¡:player ha aceptado un pre-contrato! Se unirá a tu club en verano.',
+    'chat_pre_contract_rejected' => 'El agente de :player se ha marchado. No hay acuerdo de pre-contrato.',
+    'chat_pre_contract_deal' => 'Pre-contrato acordado',
+    'negotiate_pre_contract' => 'Pre-Contrato',
+
+    // Loan negotiation chat
+    'chat_loan_title' => 'Negociación de Cesión',
+    'chat_loan_accepted' => ':team acepta la cesión de :player. Coste: :salary/año.',
+    'chat_loan_completed' => '¡:player se ha unido en cesión hasta final de temporada!',
+    'chat_loan_agreed' => 'La cesión de :player ha sido acordada. El traspaso se completará cuando abra la ventana de fichajes.',
+    'chat_loan_rejected' => ':team ha rechazado la solicitud de cesión. Las negociaciones se han roto.',
+    'chat_loan_rejected_key_player' => ':team ha rechazado la solicitud. :player es una jugadora clave para ellos.',
+    'chat_loan_rejected_reputation' => ':player no está interesada en unirse a tu club en calidad de cedida.',
+    'chat_loan_rejected_player' => ':player no está interesada en unirse a tu club en calidad de cedida.',
+    'chat_loan_confirm' => 'Confirmar cesión',
+    'chat_loan_deal' => 'Cesión acordada',
+
+    // Chat player info strip
+    'chat_player_age' => 'Edad',
+    'chat_player_salary' => 'Salario',
+    'chat_player_value' => 'Valor',
+    'chat_player_contract' => 'Contrato',
+    'chat_player_clause' => 'Cláusula',
+
+    'mood_willing_loan' => 'Dispuesto a ceder',
+    'mood_open_loan' => 'Abierto a cesión',
+    'mood_reluctant_loan' => 'Reticente a ceder',
+
+    // Transfer market
+    'market_tab' => 'Mercado',
+    'market_closed' => 'El mercado de fichajes abre durante las ventanas de traspasos.',
+    'market_empty' => 'No hay jugadoras en el mercado actualmente.',
+    'market_bid' => 'Pujar',
+    'market_asking_price' => 'Precio de Salida',
+    'market_free' => 'Gratis',
+    'market_window_closed_notice' => 'La ventana de fichajes está cerrada. Puedes seguir negociando con los clubes — los acuerdos se incorporarán a tu equipo cuando se abra la próxima ventana.',
+
+    // Release clauses (cláusulas de rescisión)
+    'release_clause' => 'Cláusula de rescisión',
+    // Shown in place of market value on list surfaces for mandatory-clause clubs.
+    'clause_short' => 'Cláusula',
+    'market_reference_is_clause' => 'Se muestra la cláusula de rescisión, el importe con el que opera este mercado.',
+    'pay_release_clause' => 'Pagar cláusula de rescisión',
+    'clause_not_available' => 'Esta jugadora no tiene una cláusula de rescisión que puedas activar.',
+    'clause_exceeds_budget' => 'La cláusula de rescisión supera tu presupuesto de fichajes disponible.',
+    // Clause control advisory (renovaciones + fichajes entrantes): el salario que
+    // la jugadora exigirá según la cláusula elegida (golden handcuffs), la confirmación
+    // de que la oferta actual la cubre, o un aviso de vulnerabilidad si está por
+    // debajo del valor de mercado.
+    'clause_wants_wage' => 'Pedirá ~:wage/año por esta cláusula',
+    'clause_wage_covered' => 'Tu salario cubre esta cláusula',
+    'clause_below_market_value' => 'Por debajo del valor de mercado: vulnerable a fichajes rivales',
+];

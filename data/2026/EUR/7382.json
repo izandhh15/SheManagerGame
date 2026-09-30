@@ -1,0 +1,374 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/7382.png",
+  "name": "Malmö FF",
+  "players": [
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "May 26, 1996",
+      "foot": "right",
+      "height": "1,79m",
+      "id": "18814",
+      "marketValue": "€80k",
+      "name": "Zećira Mušović",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Mar 29, 2004",
+      "foot": "right",
+      "height": "1,76m",
+      "id": "106457",
+      "marketValue": "",
+      "name": "Tilde Benilsson",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "30",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "May 24, 2002",
+      "foot": "",
+      "height": "1,82m",
+      "id": "40381",
+      "marketValue": "€30k",
+      "name": "Kristin Krammer",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "31",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Apr 18, 1997",
+      "foot": "right",
+      "height": "",
+      "id": "22831",
+      "marketValue": "€45k",
+      "name": "Nathalie Hoff Persson",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "2",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Dec 31, 2029",
+      "dateOfBirth": "Sep 20, 2001",
+      "foot": "right",
+      "height": "1,68m",
+      "id": "39299",
+      "marketValue": "€125k",
+      "name": "Charlotte Grant",
+      "nationality": [
+        "Australia"
+      ],
+      "number": "3",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Oct 8, 1997",
+      "foot": "",
+      "height": "",
+      "id": "30068",
+      "marketValue": "€40k",
+      "name": "Ellen Löfqvist",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Jul 18, 2000",
+      "foot": "right",
+      "height": "1,74m",
+      "id": "29959",
+      "marketValue": "€40k",
+      "name": "Wilma Carlsson",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "5",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Dec 27, 2002",
+      "foot": "right",
+      "height": "1,64m",
+      "id": "46343",
+      "marketValue": "€70k",
+      "name": "Emma Petrović",
+      "nationality": [
+        "Serbia"
+      ],
+      "number": "13",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Jun 21, 2005",
+      "foot": "right",
+      "height": "1,74m",
+      "id": "63055",
+      "marketValue": "€55k",
+      "name": "Agnes Mårtensson",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "15",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Feb 12, 2002",
+      "foot": "left",
+      "height": "1,65m",
+      "id": "39325",
+      "marketValue": "€60k",
+      "name": "Courtney Nevin",
+      "nationality": [
+        "Australia"
+      ],
+      "number": "18",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Feb 28, 1999",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "32100",
+      "marketValue": "€45k",
+      "name": "Nellie Lilja",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "6",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Jul 15, 1990",
+      "foot": "right",
+      "height": "",
+      "id": "32104",
+      "marketValue": "€20k",
+      "name": "Mia Persson",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "8",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Dec 27, 2001",
+      "foot": "right",
+      "height": "",
+      "id": "42925",
+      "marketValue": "€75k",
+      "name": "Vesna Milivojević",
+      "nationality": [
+        "Serbia"
+      ],
+      "number": "11",
+      "position": "Left Midfield"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Jan 22, 2007",
+      "foot": "",
+      "height": "",
+      "id": "85465",
+      "marketValue": "€25k",
+      "name": "Klara Åström",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "14",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Feb 3, 2005",
+      "foot": "",
+      "height": "",
+      "id": "42759",
+      "marketValue": "€75k",
+      "name": "Karoline Olesen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "17",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Nov 30, 2001",
+      "foot": "",
+      "height": "1,73m",
+      "id": "34053",
+      "marketValue": "€45k",
+      "name": "Amy Sayer",
+      "nationality": [
+        "Australia"
+      ],
+      "number": "21",
+      "position": "Right Winger"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "May 25, 2010",
+      "foot": "",
+      "height": "",
+      "id": "108875",
+      "marketValue": "€35k",
+      "name": "Mayar Khatawi",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "25",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Apr 1, 2009",
+      "foot": "",
+      "height": "",
+      "id": "104409",
+      "marketValue": "€25k",
+      "name": "Lovisa Breland",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "26",
+      "position": "Left Winger"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 31, 2007",
+      "foot": "right",
+      "height": "1,65m",
+      "id": "82822",
+      "marketValue": "€25k",
+      "name": "Tilde Wahlgren",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "32",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 16, 2010",
+      "foot": "",
+      "height": "",
+      "id": "114200",
+      "marketValue": "",
+      "name": "Lily Berglund",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "35",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Sep 12, 2002",
+      "foot": "",
+      "height": "1,72m",
+      "id": "52686",
+      "marketValue": "€40k",
+      "name": "Stinalisa Johansson",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "7",
+      "position": "Striker"
+    },
+    {
+      "contract": "Dec 31, 2029",
+      "dateOfBirth": "Jun 12, 2000",
+      "foot": "right",
+      "height": "1,67m",
+      "id": "34289",
+      "marketValue": "€85k",
+      "name": "Hlín Eiríksdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "9",
+      "position": "Right Winger"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Sep 8, 2001",
+      "foot": "both",
+      "height": "1,70m",
+      "id": "37834",
+      "marketValue": "€140k",
+      "name": "Izzy D’Aquila",
+      "nationality": [
+        "United States"
+      ],
+      "number": "10",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Mar 25, 2005",
+      "foot": "right",
+      "height": "1,68m",
+      "id": "52893",
+      "marketValue": "€125k",
+      "name": "Tuva Skoog",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "16",
+      "position": "Right Winger"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "May 28, 1998",
+      "foot": "",
+      "height": "",
+      "id": "59695",
+      "marketValue": "€65k",
+      "name": "Larkin Russell",
+      "nationality": [
+        "United States"
+      ],
+      "number": "19",
+      "position": "Right Winger"
+    },
+    {
+      "contract": "Jun 30, 2030",
+      "dateOfBirth": "Aug 28, 2006",
+      "foot": "",
+      "height": "",
+      "id": "95191",
+      "marketValue": "€75k",
+      "name": "Älvali Lindström",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "29",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Malmö Stadion",
+  "stadiumSeats": "26500",
+  "transfermarktId": "7382",
+  "country": "SE"
+}

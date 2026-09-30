@@ -1,0 +1,360 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/5299.png",
+  "name": "First Vienna FC 1894",
+  "players": [
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 8, 2010",
+      "foot": "",
+      "height": "",
+      "id": "112109",
+      "marketValue": "",
+      "name": "Leonie Plhak",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 18, 2008",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "73575",
+      "marketValue": "€40k",
+      "name": "Vivien Grabenhofer",
+      "nationality": [
+        "Austria"
+      ],
+      "number": 2,
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 16, 2005",
+      "foot": "left",
+      "height": "1,81m",
+      "id": "58140",
+      "marketValue": "€15k",
+      "name": "Amelie Kandlhofer",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "22",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 28, 1996",
+      "foot": "",
+      "height": "1,72m",
+      "id": "13718",
+      "marketValue": "€15k",
+      "name": "Katharina Lichtenberger",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "96",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 14, 2009",
+      "foot": "",
+      "height": "1,71m",
+      "id": "103799",
+      "marketValue": "€15k",
+      "name": "Elina Schitter",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jun 17, 2004",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "51143",
+      "marketValue": "€30k",
+      "name": "Jovana Čavić",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "5",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 20, 2008",
+      "foot": "right",
+      "height": "1,65m",
+      "id": "79201",
+      "marketValue": "€25k",
+      "name": "Anna Osl",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "6",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 20, 1999",
+      "foot": "right",
+      "height": "1,71m",
+      "id": "26551",
+      "marketValue": "€35k",
+      "name": "Lena Mädl",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "14",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "May 3, 2004",
+      "foot": "",
+      "height": "1,65m",
+      "id": "45501",
+      "marketValue": "€30k",
+      "name": "Nadine Seidl",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "16",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 22, 2006",
+      "foot": "",
+      "height": "1,70m",
+      "id": "71101",
+      "marketValue": "€35k",
+      "name": "Lara Wondrejc",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "27",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 31, 2003",
+      "foot": "",
+      "height": "1,73m",
+      "id": "36814",
+      "marketValue": "€35k",
+      "name": "Leonie Gebert",
+      "nationality": [
+        "Germany"
+      ],
+      "number": "29",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 16, 1995",
+      "foot": "right",
+      "height": "1,62m",
+      "id": "4428",
+      "marketValue": "€15k",
+      "name": "Claudia Wasser",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "7",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 26, 2002",
+      "foot": "right",
+      "height": "1,68m",
+      "id": "36744",
+      "marketValue": "€25k",
+      "name": "Jana Mayer",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "8",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 22, 2006",
+      "foot": "",
+      "height": "1,65m",
+      "id": "79319",
+      "marketValue": "€25k",
+      "name": "Helena Milanovic",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "9",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 10, 2008",
+      "foot": "",
+      "height": "1,65m",
+      "id": "83400",
+      "marketValue": "€25k",
+      "name": "Emma Heiplik",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "10",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jul 8, 2006",
+      "foot": "left",
+      "height": "1,58m",
+      "id": "62649",
+      "marketValue": "€35k",
+      "name": "Lara Höcherl",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "11",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 14, 2003",
+      "foot": "right",
+      "height": "1,63m",
+      "id": "40377",
+      "marketValue": "€30k",
+      "name": "Livia Brunmair",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "18",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 2, 2005",
+      "foot": "right",
+      "height": "1,64m",
+      "id": "64406",
+      "marketValue": "€20k",
+      "name": "Antea Batarilo",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": "20",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 3, 1999",
+      "foot": "right",
+      "height": "1,64m",
+      "id": "24959",
+      "marketValue": "€30k",
+      "name": "Viktoria Hahn",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "21",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 5, 2003",
+      "foot": "",
+      "height": "1,60m",
+      "id": "40383",
+      "marketValue": "€40k",
+      "name": "Ines Sarac",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "26",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 9, 2007",
+      "foot": "right",
+      "height": "1,61m",
+      "id": "69327",
+      "marketValue": "€35k",
+      "name": "Maja Keckeis",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "28",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 3, 2005",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "50164",
+      "marketValue": "€25k",
+      "name": "Aleksandra Sergeeva",
+      "nationality": [
+        "Bulgaria"
+      ],
+      "number": "91",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 24, 2007",
+      "foot": "",
+      "height": "1,65m",
+      "id": "89077",
+      "marketValue": "€45k",
+      "name": "Lilah Havel",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "17",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Sep 10, 2006",
+      "foot": "right",
+      "height": "1,57m",
+      "id": "62648",
+      "marketValue": "€30k",
+      "name": "Hannah Fankhauser",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "19",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 27, 2001",
+      "foot": "right",
+      "height": "1,65m",
+      "id": "46455",
+      "marketValue": "€30k",
+      "name": "Karla Kurkutović",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": "23",
+      "position": "Right Winger"
+    }
+  ],
+  "stadiumName": "Naturarena Hohe Warte",
+  "stadiumSeats": "5500",
+  "transfermarktId": "5299",
+  "country": "AT"
+}

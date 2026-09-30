@@ -1,0 +1,71 @@
+<?php
+
+return [
+    // Navigation
+    'dashboard' => 'Dashboard',
+    'squad' => 'Squad',
+    'starting_xi' => 'Starting XI',
+    'scout_opponent' => 'Scout Opponent',
+    'finances' => 'Finances',
+    'club' => 'Club',
+    'transfers' => 'Transfers',
+    'calendar' => 'Calendar',
+    'competitions' => 'Competitions',
+
+    // Common actions
+    'continue' => 'Continue',
+    'confirm' => 'Confirm',
+    'cancel' => 'Cancel',
+    'accept' => 'Accept',
+    'reject' => 'Reject',
+    'remove' => 'Remove',
+    'clear' => 'Clear',
+    'details' => 'Details',
+    'back' => 'Back',
+    'view_details' => 'View details',
+
+    // Authentication
+    'account' => 'Account',
+    'log_out' => 'Log Out',
+    'edit_profile' => 'Edit profile',
+    'new_game' => 'New game',
+    'all_teams' => 'All Teams',
+    'load_game' => 'Load game',
+
+    // Common labels
+    'name' => 'Name',
+    'age' => 'Age',
+    'value' => 'Value',
+    'wage' => 'Wage',
+    'contract' => 'Contract',
+    'status' => 'Status',
+    'country' => 'Country',
+    'player' => 'Player',
+    'players' => 'players',
+
+    // Time
+    'years' => 'years',
+
+    // Window status
+    'window_closed' => 'Window Closed',
+    'summer_window' => 'Summer',
+    'winter_window' => 'Winter',
+
+    // Theme
+    'theme' => 'Theme',
+    'switch_light_mode' => 'Switch to light mode',
+    'switch_dark_mode' => 'Switch to dark mode',
+
+    // Donation
+    'donation_title' => 'Enjoying SheManagerGame?',
+    'donation_description' => 'If you like the game, consider supporting its development. Your donation helps keep SheManagerGame free and ad-free.',
+    'donation_button' => 'Support SheManagerGame',
+
+    // Common actions
+    'close' => 'Close',
+    'more' => 'More',
+    'loading' => 'Loading…',
+    'load_failed' => 'Could not load this content. Please try again.',
+    'retry' => 'Retry',
+
+];

@@ -1,0 +1,423 @@
+{
+  "image": "https://assets.virtuafc.com/crests/14161.png",
+  "name": "Haiti",
+  "players": [
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/750.png",
+        "name": "FC Sochaux-Montbéliard"
+      },
+      "dateOfBirth": "Feb 25, 2001",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "838947",
+      "injured": false,
+      "marketValue": "€500k",
+      "name": "Alexandre Pierre",
+      "overall_score": 62,
+      "position": "Goalkeeper",
+      "potential": 68
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/595.png",
+        "name": "SC Bastia"
+      },
+      "dateOfBirth": "Jan 29, 1988",
+      "foot": "right",
+      "height": "1,81m",
+      "id": "51035",
+      "injured": false,
+      "marketValue": "€150k",
+      "name": "Johny Placide",
+      "overall_score": 69,
+      "position": "Goalkeeper",
+      "potential": 69
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/45062.png",
+        "name": "FC Cosmos Koblenz"
+      },
+      "dateOfBirth": "Apr 27, 2000",
+      "foot": "left",
+      "height": "1,87m",
+      "id": "490369",
+      "injured": false,
+      "name": "Josué Duverger",
+      "overall_score": 60,
+      "position": "Goalkeeper",
+      "potential": 65
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2790.png",
+        "name": "FC Lugano"
+      },
+      "dateOfBirth": "Feb 28, 1999",
+      "foot": "left",
+      "height": "1,84m",
+      "id": "338635",
+      "injured": false,
+      "marketValue": "€2.00m",
+      "name": "Hannes Delcroix",
+      "overall_score": 70,
+      "position": "Centre-Back",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/157.png",
+        "name": "KAA Gent"
+      },
+      "dateOfBirth": "Jul 12, 1997",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "344864",
+      "injured": false,
+      "marketValue": "€2.00m",
+      "name": "Jean-Kévin Duverne",
+      "overall_score": 72,
+      "position": "Centre-Back",
+      "potential": 72
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/9855.png",
+        "name": "LDU Quito"
+      },
+      "dateOfBirth": "May 21, 1990",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "278145",
+      "injured": false,
+      "marketValue": "€300k",
+      "name": "Ricardo Adé",
+      "overall_score": 72,
+      "position": "Centre-Back",
+      "potential": 72
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/5508.png",
+        "name": "BSC Young Boys U21"
+      },
+      "dateOfBirth": "Mar 29, 2006",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "1061046",
+      "injured": false,
+      "marketValue": "€25k",
+      "name": "Keeto Thermoncy",
+      "overall_score": 57,
+      "position": "Centre-Back",
+      "potential": 70
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1159.png",
+        "name": "AS Nancy-Lorraine"
+      },
+      "dateOfBirth": "Mar 9, 1999",
+      "foot": "left",
+      "height": "1,78m",
+      "id": "804885",
+      "injured": false,
+      "marketValue": "€400k",
+      "name": "Martin Expérience",
+      "overall_score": 63,
+      "position": "Left-Back",
+      "potential": 64
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/45805.png",
+        "name": "Colorado Springs Switchbacks FC"
+      },
+      "dateOfBirth": "Oct 14, 1993",
+      "foot": "left",
+      "height": "1,75m",
+      "id": "375472",
+      "injured": false,
+      "marketValue": "€125k",
+      "name": "Duke Lacroix",
+      "overall_score": 60,
+      "position": "Left-Back",
+      "potential": 60
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1420.png",
+        "name": "Angers SCO"
+      },
+      "dateOfBirth": "Jun 28, 1996",
+      "foot": "right",
+      "height": "1,76m",
+      "id": "371686",
+      "injured": false,
+      "marketValue": "€1.80m",
+      "name": "Carlens Arcus",
+      "overall_score": 72,
+      "position": "Right-Back",
+      "potential": 72
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/3508.png",
+        "name": "Zulte Waregem"
+      },
+      "dateOfBirth": "Aug 24, 2001",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "609691",
+      "injured": false,
+      "marketValue": "€600k",
+      "name": "Wilguens Paugain",
+      "overall_score": 61,
+      "position": "Right-Back",
+      "potential": 65
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/25467.png",
+        "name": "Philadelphia Union"
+      },
+      "dateOfBirth": "May 20, 2000",
+      "foot": "right",
+      "height": "1,82m",
+      "id": "628834",
+      "injured": false,
+      "marketValue": "€3.00m",
+      "name": "Danley Jean Jacques",
+      "overall_score": 70,
+      "position": "Defensive Midfield",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6912.png",
+        "name": "FC Vizela"
+      },
+      "dateOfBirth": "Mar 9, 1998",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "552467",
+      "injured": false,
+      "marketValue": "€200k",
+      "name": "Leverton Pierre",
+      "overall_score": 64,
+      "position": "Defensive Midfield",
+      "potential": 65
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/4531.png",
+        "name": "FC Tatran Presov"
+      },
+      "dateOfBirth": "Jul 29, 2000",
+      "foot": "right",
+      "height": "1,79m",
+      "id": "988188",
+      "injured": false,
+      "marketValue": "€200k",
+      "name": "Dominique Simon",
+      "overall_score": 62,
+      "position": "Defensive Midfield",
+      "potential": 67
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/67375.png",
+        "name": "El Paso Locomotive FC"
+      },
+      "dateOfBirth": "Aug 9, 2002",
+      "foot": "right",
+      "height": "1,82m",
+      "id": "718244",
+      "injured": false,
+      "marketValue": "€125k",
+      "name": "Carl Sainté",
+      "overall_score": 60,
+      "position": "Defensive Midfield",
+      "potential": 70
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/14182.png",
+        "name": "Violette Athletic Club"
+      },
+      "dateOfBirth": "Dec 30, 2004",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "1017735",
+      "injured": false,
+      "name": "Woodensky Pierre",
+      "overall_score": 57,
+      "position": "Defensive Midfield",
+      "potential": 66
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/543.png",
+        "name": "Wolverhampton Wanderers"
+      },
+      "dateOfBirth": "Jun 27, 1998",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "450050",
+      "injured": false,
+      "marketValue": "€16.00m",
+      "name": "Jean-Ricner Bellegarde",
+      "overall_score": 75,
+      "position": "Central Midfield",
+      "potential": 76
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/11141.png",
+        "name": "Toronto FC"
+      },
+      "dateOfBirth": "Nov 25, 1996",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "354763",
+      "injured": false,
+      "marketValue": "€800k",
+      "name": "Derrick Etienne Jr.",
+      "overall_score": 65,
+      "position": "Left Winger",
+      "potential": 65
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/723.png",
+        "name": "Almere City FC"
+      },
+      "dateOfBirth": "Jul 7, 2001",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "536520",
+      "injured": false,
+      "marketValue": "€300k",
+      "name": "Ruben Providence",
+      "overall_score": 67,
+      "position": "Left Winger",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/290.png",
+        "name": "AJ Auxerre"
+      },
+      "dateOfBirth": "Sep 24, 2001",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "763182",
+      "injured": false,
+      "marketValue": "€3.50m",
+      "name": "Josué Casimir",
+      "overall_score": 71,
+      "position": "Right Winger",
+      "potential": 76
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/8816.png",
+        "name": "FC Dallas"
+      },
+      "dateOfBirth": "Feb 11, 2001",
+      "foot": "left",
+      "height": "1,78m",
+      "id": "646108",
+      "injured": false,
+      "marketValue": "€1.20m",
+      "name": "Louicius Deedson",
+      "overall_score": 64,
+      "position": "Right Winger",
+      "potential": 67
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/289.png",
+        "name": "Sunderland AFC"
+      },
+      "dateOfBirth": "Aug 27, 2000",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "494237",
+      "injured": false,
+      "marketValue": "€18.00m",
+      "name": "Wilson Isidor",
+      "overall_score": 75,
+      "position": "Centre-Forward",
+      "potential": 78
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/279.png",
+        "name": "Ferencvárosi TC"
+      },
+      "dateOfBirth": "Oct 12, 2000",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "815359",
+      "injured": false,
+      "marketValue": "€2.00m",
+      "name": "Lenny Joseph",
+      "overall_score": 68,
+      "position": "Centre-Forward",
+      "potential": 71
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/126.png",
+        "name": "Caykur Rizespor"
+      },
+      "dateOfBirth": "Mar 29, 1995",
+      "foot": "right",
+      "height": "1,94m",
+      "id": "492955",
+      "injured": false,
+      "marketValue": "€1.50m",
+      "name": "Frantzdy Pierrot",
+      "overall_score": 69,
+      "position": "Centre-Forward",
+      "potential": 69
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1076.png",
+        "name": "Esteghlal FC"
+      },
+      "dateOfBirth": "Apr 7, 1994",
+      "foot": "right",
+      "height": "1,81m",
+      "id": "345763",
+      "injured": false,
+      "marketValue": "€800k",
+      "name": "Duckens Nazon",
+      "overall_score": 68,
+      "position": "Centre-Forward",
+      "potential": 68
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6912.png",
+        "name": "FC Vizela"
+      },
+      "dateOfBirth": "Jan 30, 1999",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "342878",
+      "injured": false,
+      "marketValue": "€200k",
+      "name": "Yassin Fortuné",
+      "overall_score": 60,
+      "position": "Centre-Forward",
+      "potential": 61
+    }
+  ],
+  "stadiumName": null,
+  "stadiumSeats": null,
+  "transfermarktId": "14161"
+}

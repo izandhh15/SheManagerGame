@@ -1,0 +1,4053 @@
+{
+  "id": "ENG1",
+  "name": "Women's Super League",
+  "seasonID": "2026",
+  "clubs": [
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/36.png",
+      "name": "Arsenal FC",
+      "stadiumName": "Emirates Stadium",
+      "stadiumSeats": 60704,
+      "transfermarktId": "36",
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 6, 2000",
+          "foot": "right",
+          "height": "1,76m",
+          "id": "34025",
+          "marketValue": "€220k",
+          "name": "Daphne van Domselaar",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jul 22, 1999",
+          "foot": "left",
+          "height": "1,73m",
+          "id": "34648",
+          "marketValue": "€200k",
+          "name": "Misa Rodríguez",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "16",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 17, 2000",
+          "foot": "right",
+          "height": "1,80m",
+          "id": "29441",
+          "marketValue": "€80k",
+          "name": "Anneke Borbe",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "28",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 8, 2008",
+          "foot": "",
+          "height": "",
+          "id": "96363",
+          "marketValue": "€30k",
+          "name": "Isabella Damm",
+          "nationality": [
+            "Denmark"
+          ],
+          "number": "40",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jan 11, 1998",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "30735",
+          "marketValue": "€300k",
+          "name": "Élisa De Almeida",
+          "nationality": [
+            "France"
+          ],
+          "number": "5",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jul 5, 1998",
+          "foot": "left",
+          "height": "1,65m",
+          "id": "35745",
+          "marketValue": "€850k",
+          "name": "Emily Fox",
+          "nationality": [
+            "United States"
+          ],
+          "number": "2",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 11, 1999",
+          "foot": "right",
+          "height": "1,78m",
+          "id": "28690",
+          "marketValue": "€400k",
+          "name": "Lotte Wubben-Moy",
+          "nationality": [
+            "England"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 29, 1997",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "22175",
+          "marketValue": "€800k",
+          "name": "Leah Williamson",
+          "nationality": [
+            "England"
+          ],
+          "number": "6",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 26, 1994",
+          "foot": "left",
+          "height": "1,71m",
+          "id": "275",
+          "marketValue": "€350k",
+          "name": "Steph Catley",
+          "nationality": [
+            "Australia"
+          ],
+          "number": "7",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2030",
+          "dateOfBirth": "Jun 10, 1999",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "30423",
+          "marketValue": "€900k",
+          "name": "Ona Batlle",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "22",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 25, 1999",
+          "foot": "left",
+          "height": "1,61m",
+          "id": "30409",
+          "marketValue": "€200k",
+          "name": "Taylor Hinds",
+          "nationality": [
+            "England"
+          ],
+          "number": "24",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 25, 2006",
+          "foot": "right",
+          "height": "1,80m",
+          "id": "74064",
+          "marketValue": "€60k",
+          "name": "Katie Reid",
+          "nationality": [
+            "England"
+          ],
+          "number": "26",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 11, 2006",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "65685",
+          "marketValue": "€475k",
+          "name": "Smilla Holmberg",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "31",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 3, 2006",
+          "foot": "",
+          "height": "",
+          "id": "63553",
+          "marketValue": "€30k",
+          "name": "Maddy Earl",
+          "nationality": [
+            "England"
+          ],
+          "number": "13",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jan 3, 1999",
+          "foot": "right",
+          "height": "1,62m",
+          "id": "29343",
+          "marketValue": "€1.00m",
+          "name": "Georgia Stanway",
+          "nationality": [
+            "England"
+          ],
+          "number": "4",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 19, 1996",
+          "foot": "right",
+          "height": "1,66m",
+          "id": "20817",
+          "marketValue": "€1.10m",
+          "name": "Mariona Caldentey",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "8",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 29, 1990",
+          "foot": "right",
+          "height": "1,61m",
+          "id": "2583",
+          "marketValue": "€50k",
+          "name": "Kim Little",
+          "nationality": [
+            "Scottland"
+          ],
+          "number": "10",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 16, 1999",
+          "foot": "right",
+          "height": "1,75m",
+          "id": "28339",
+          "marketValue": "€300k",
+          "name": "Frida Maanum",
+          "nationality": [
+            "Norway"
+          ],
+          "number": "12",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2030",
+          "dateOfBirth": "Apr 21, 1999",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "26137",
+          "marketValue": "€575k",
+          "name": "Géraldine Reuteler",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "14",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Nov 26, 2006",
+          "foot": "left",
+          "height": "1,70m",
+          "id": "62184",
+          "marketValue": "€300k",
+          "name": "Lisa Baum",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "19",
+          "position": "Right Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 15, 2002",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "39199",
+          "marketValue": "€250k",
+          "name": "Kyra Cooney-Cross",
+          "nationality": [
+            "Australia"
+          ],
+          "number": "32",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Nov 11, 1994",
+          "foot": "left",
+          "height": "1,69m",
+          "id": "7059",
+          "marketValue": "€375k",
+          "name": "Caitlin Foord",
+          "nationality": [
+            "Australia"
+          ],
+          "number": "9",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Aug 5, 2004",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "43997",
+          "marketValue": "€900k",
+          "name": "Olivia Smith",
+          "nationality": [
+            "Canada"
+          ],
+          "number": "11",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 3, 2006",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "71123",
+          "marketValue": "€300k",
+          "name": "Michelle Agyemang",
+          "nationality": [
+            "England"
+          ],
+          "number": "17",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 15, 1998",
+          "foot": "both",
+          "height": "1,68m",
+          "id": "22176",
+          "marketValue": "€900k",
+          "name": "Chloe Kelly",
+          "nationality": [
+            "England"
+          ],
+          "number": "18",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 8, 1999",
+          "foot": "right",
+          "height": "1,74m",
+          "id": "30397",
+          "marketValue": "€1.80m",
+          "name": "Alessia Russo",
+          "nationality": [
+            "England"
+          ],
+          "number": "23",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Feb 5, 1996",
+          "foot": "right",
+          "height": "1,75m",
+          "id": "18812",
+          "marketValue": "€400k",
+          "name": "Stina Blackstenius",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "25",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "May 31, 2000",
+          "foot": "both",
+          "height": "1,71m",
+          "id": "26657",
+          "marketValue": "€550k",
+          "name": "Selina Cerci",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "29",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/897.png",
+      "name": "Aston Villa LFC",
+      "stadiumName": "Villa Park",
+      "stadiumSeats": 42095,
+      "transfermarktId": "897",
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 15, 2004",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "59319",
+          "marketValue": "",
+          "name": "Akane Okuma",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "23",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 6, 2007",
+          "foot": "",
+          "height": "",
+          "id": "84045",
+          "marketValue": "€25k",
+          "name": "Soffia Kelly",
+          "nationality": [
+            "Wales"
+          ],
+          "number": "40",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 13, 2008",
+          "foot": "",
+          "height": "",
+          "id": "113334",
+          "marketValue": "",
+          "name": "Lily Clark",
+          "nationality": [
+            "England"
+          ],
+          "number": "42",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 20, 1999",
+          "foot": "right",
+          "height": "1,78m",
+          "id": "30414",
+          "marketValue": "€185k",
+          "name": "Anna Patten",
+          "nationality": [
+            "Ireland"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Oct 3, 2000",
+          "foot": "right",
+          "height": "1,76m",
+          "id": "35666",
+          "marketValue": "€175k",
+          "name": "Lynn Wilms",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "14",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 18, 1998",
+          "foot": "right",
+          "height": "1,79m",
+          "id": "53207",
+          "marketValue": "€45k",
+          "name": "Lucy Parker",
+          "nationality": [
+            "England"
+          ],
+          "number": "15",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Dec 23, 1995",
+          "foot": "both",
+          "height": "1,65m",
+          "id": "10312",
+          "marketValue": "€60k",
+          "name": "Noelle Maritz",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "16",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 17, 2004",
+          "foot": "left",
+          "height": "1,65m",
+          "id": "66730",
+          "marketValue": "€65k",
+          "name": "Rofiat Imuran",
+          "nationality": [
+            "Nigeria"
+          ],
+          "number": "22",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 26, 2000",
+          "foot": "left",
+          "height": "1,69m",
+          "id": "35548",
+          "marketValue": "€100k",
+          "name": "Océane Deslandes",
+          "nationality": [
+            "France"
+          ],
+          "number": "24",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 22, 2002",
+          "foot": "right",
+          "height": "1,66m",
+          "id": "38430",
+          "marketValue": "€250k",
+          "name": "Justine Kielland",
+          "nationality": [
+            "Norway"
+          ],
+          "number": "5",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 14, 2001",
+          "foot": "both",
+          "height": "1,64m",
+          "id": "39684",
+          "marketValue": "€475k",
+          "name": "Oriane Jean-François",
+          "nationality": [
+            "France"
+          ],
+          "number": "6",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 14, 2001",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "35056",
+          "marketValue": "€170k",
+          "name": "Missy Bo Kearns",
+          "nationality": [
+            "England"
+          ],
+          "number": "7",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 23, 2001",
+          "foot": "left",
+          "height": "1,68m",
+          "id": "40105",
+          "marketValue": "€65k",
+          "name": "Jill Baijings",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "8",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 20, 2004",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "57286",
+          "marketValue": "€260k",
+          "name": "Lucia Kendall",
+          "nationality": [
+            "England"
+          ],
+          "number": "21",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 2, 2000",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "53057",
+          "marketValue": "€80k",
+          "name": "Miri Taylor",
+          "nationality": [
+            "Scottland"
+          ],
+          "number": "25",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 6, 1991",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "3137",
+          "marketValue": "€100k",
+          "name": "Rachel Daly",
+          "nationality": [
+            "England"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 13, 2004",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "44461",
+          "marketValue": "€45k",
+          "name": "Maya Hijikata",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "13",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 19, 2001",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "35137",
+          "marketValue": "€80k",
+          "name": "Chasity Grant",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "17",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 16, 2005",
+          "foot": "right",
+          "height": "1,62m",
+          "id": "79379",
+          "marketValue": "€50k",
+          "name": "Georgia Mullett",
+          "nationality": [
+            "England"
+          ],
+          "number": "18",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Nov 29, 1996",
+          "foot": "right",
+          "height": "1,82m",
+          "id": "12486",
+          "marketValue": "€100k",
+          "name": "Amalie Vangsgaard",
+          "nationality": [
+            "Denmark"
+          ],
+          "number": "20",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 15, 2006",
+          "foot": "",
+          "height": "",
+          "id": "85515",
+          "marketValue": "€50k",
+          "name": "Mia McAulay",
+          "nationality": [
+            "Scottland"
+          ],
+          "number": "27",
+          "position": "Right Winger"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/65.png",
+      "name": "Birmingham City LFC",
+      "stadiumName": "St Andrew’s",
+      "stadiumSeats": 29409,
+      "transfermarktId": "65",
+      "players": [
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Mar 21, 2000",
+          "foot": "right",
+          "height": "1,80m",
+          "id": "44468",
+          "marketValue": "€30k",
+          "name": "Lucy Thomas",
+          "nationality": [
+            "England"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Nov 29, 1996",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "14117",
+          "marketValue": "€40k",
+          "name": "Sophie Baggaley",
+          "nationality": [
+            "England"
+          ],
+          "number": "23",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 28, 1999",
+          "foot": "",
+          "height": "1,71m",
+          "id": "30419",
+          "marketValue": "€25k",
+          "name": "Katie Startup",
+          "nationality": [
+            "England"
+          ],
+          "number": "40",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 18, 1997",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "23009",
+          "marketValue": "€50k",
+          "name": "Marie Levasseur",
+          "nationality": [
+            "Canada"
+          ],
+          "number": "3",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 2, 2000",
+          "foot": "right",
+          "height": "1,75m",
+          "id": "53053",
+          "marketValue": "€30k",
+          "name": "Shannon Cooke",
+          "nationality": [
+            "England"
+          ],
+          "number": "6",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 25, 1995",
+          "foot": "left",
+          "height": "1,68m",
+          "id": "18327",
+          "marketValue": "€35k",
+          "name": "Rebecca Holloway",
+          "nationality": [
+            "Northern Ireland"
+          ],
+          "number": "15",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jul 7, 1996",
+          "foot": "right",
+          "height": "1,78m",
+          "id": "26154",
+          "marketValue": "€100k",
+          "name": "Millie Turner",
+          "nationality": [
+            "England"
+          ],
+          "number": "21",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jun 11, 1995",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "13414",
+          "marketValue": "€225k",
+          "name": "Lisa Naalsund",
+          "nationality": [
+            "Norway"
+          ],
+          "number": "8",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 19, 1998",
+          "foot": "",
+          "height": "",
+          "id": "22138",
+          "marketValue": "€45k",
+          "name": "Chelsea Cornet",
+          "nationality": [
+            "Scottland"
+          ],
+          "number": "19",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 24, 1998",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "22902",
+          "marketValue": "€60k",
+          "name": "Asato Miyagawa",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "26",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Apr 7, 1994",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "16962",
+          "marketValue": "€30k",
+          "name": "Geum-min Lee",
+          "nationality": [
+            "Korea, South"
+          ],
+          "number": "7",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Oct 26, 2002",
+          "foot": "right",
+          "height": "",
+          "id": "51567",
+          "marketValue": "€50k",
+          "name": "Lily Crosthwaite",
+          "nationality": [
+            "England"
+          ],
+          "number": "16",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Feb 17, 2004",
+          "foot": "left",
+          "height": "1,67m",
+          "id": "53389",
+          "marketValue": "€45k",
+          "name": "Océane Hurtré",
+          "nationality": [
+            "France"
+          ],
+          "number": "22",
+          "position": "Left Winger"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/932.png",
+      "name": "Brighton & Hove Albion WFC",
+      "stadiumName": "Broadfield Stadium",
+      "stadiumSeats": 6134,
+      "transfermarktId": "932",
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 8, 2000",
+          "foot": "right",
+          "height": "1,80m",
+          "id": "35771",
+          "marketValue": "€150k",
+          "name": "Chiamaka Nnadozie",
+          "nationality": [
+            "Nigeria"
+          ],
+          "number": "16",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 26, 2005",
+          "foot": "",
+          "height": "1,70m",
+          "id": "63568",
+          "marketValue": "€25k",
+          "name": "Hannah Poulter",
+          "nationality": [
+            "England"
+          ],
+          "number": "25",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 1, 2000",
+          "foot": "",
+          "height": "1,81m",
+          "id": "31277",
+          "marketValue": "€85k",
+          "name": "Melina Loeck",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "28",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 4, 2003",
+          "foot": "right",
+          "height": "1,75m",
+          "id": "44242",
+          "marketValue": "€25k",
+          "name": "Eleanor Heeps",
+          "nationality": [
+            "England"
+          ],
+          "number": "30",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 9, 2000",
+          "foot": "left",
+          "height": "1,67m",
+          "id": "38166",
+          "marketValue": "€150k",
+          "name": "Manuela Vanegas",
+          "nationality": [
+            "Colombia"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 7, 1998",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "22901",
+          "marketValue": "€95k",
+          "name": "Moeka Minami",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 23, 2003",
+          "foot": "",
+          "height": "1,80m",
+          "id": "47025",
+          "marketValue": "€120k",
+          "name": "Maelys Mpomé",
+          "nationality": [
+            "France"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 2, 1997",
+          "foot": "left",
+          "height": "1,70m",
+          "id": "22167",
+          "marketValue": "€250k",
+          "name": "Gabby George",
+          "nationality": [
+            "England"
+          ],
+          "number": "6",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 22, 1995",
+          "foot": "right",
+          "height": "1,83m",
+          "id": "26142",
+          "marketValue": "€60k",
+          "name": "Caitlin Hayes",
+          "nationality": [
+            "Ireland"
+          ],
+          "number": "18",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 9, 2000",
+          "foot": "left",
+          "height": "1,65m",
+          "id": "35661",
+          "marketValue": "€125k",
+          "name": "Marisa Olislagers",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "19",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 11, 2002",
+          "foot": "right",
+          "height": "1,78m",
+          "id": "38411",
+          "marketValue": "€35k",
+          "name": "Marit Auée",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "23",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 16, 2003",
+          "foot": "right",
+          "height": "1,76m",
+          "id": "49716",
+          "marketValue": "€40k",
+          "name": "Charlie Rule",
+          "nationality": [
+            "Australia"
+          ],
+          "number": "33",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 2, 2003",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "47022",
+          "marketValue": "€100k",
+          "name": "Maisie Symonds",
+          "nationality": [
+            "England"
+          ],
+          "number": "8",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 13, 1995",
+          "foot": "left",
+          "height": "1,62m",
+          "id": "10644",
+          "marketValue": "€70k",
+          "name": "Jelena Čanković",
+          "nationality": [
+            "Serbia"
+          ],
+          "number": "10",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 19, 1993",
+          "foot": "both",
+          "height": "1,68m",
+          "id": "9278",
+          "marketValue": "€160k",
+          "name": "Lia Wälti",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "13",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 13, 2002",
+          "foot": "both",
+          "height": "1,70m",
+          "id": "38433",
+          "marketValue": "€150k",
+          "name": "Emilie Joramo",
+          "nationality": [
+            "Norway"
+          ],
+          "number": "15",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 7, 1999",
+          "foot": "right",
+          "height": "",
+          "id": "53742",
+          "marketValue": "€25k",
+          "name": "Rebecca Rayner",
+          "nationality": [
+            "England"
+          ],
+          "number": "17",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 20, 2000",
+          "foot": "both",
+          "height": "1,65m",
+          "id": "31135",
+          "marketValue": "€55k",
+          "name": "Olaug Tvedten",
+          "nationality": [
+            "Norway"
+          ],
+          "number": "20",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 10, 2003",
+          "foot": "right",
+          "height": "1,75m",
+          "id": "54848",
+          "marketValue": "€25k",
+          "name": "Aisha Masaka",
+          "nationality": [
+            "Tanzania"
+          ],
+          "number": "7",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 25, 1998",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "53764",
+          "marketValue": "€60k",
+          "name": "Madison Haley",
+          "nationality": [
+            "United States"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 8, 1996",
+          "foot": "right",
+          "height": "1,66m",
+          "id": "23217",
+          "marketValue": "€170k",
+          "name": "Kiko Seike",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "11",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 29, 1993",
+          "foot": "both",
+          "height": "1,57m",
+          "id": "4053",
+          "marketValue": "€85k",
+          "name": "Fran Kirby",
+          "nationality": [
+            "England"
+          ],
+          "number": "14",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 4, 2003",
+          "foot": "both",
+          "height": "1,70m",
+          "id": "96040",
+          "marketValue": "€30k",
+          "name": "Olivia García",
+          "nationality": [
+            "United States"
+          ],
+          "number": "21",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 5, 2002",
+          "foot": "",
+          "height": "",
+          "id": "96900",
+          "marketValue": "€25k",
+          "name": "Sophie Peskett",
+          "nationality": [
+            "England"
+          ],
+          "number": "27",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 2, 2003",
+          "foot": "",
+          "height": "1,68m",
+          "id": "43017",
+          "marketValue": "",
+          "name": "Emily Murphy",
+          "nationality": [
+            "Ireland"
+          ],
+          "number": "35",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 22, 2004",
+          "foot": "right",
+          "height": "1,66m",
+          "id": "47389",
+          "marketValue": "€150k",
+          "name": "Nadia Krezyman",
+          "nationality": [
+            "Poland"
+          ],
+          "number": "44",
+          "position": "Right Winger"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/86.png",
+      "name": "Charlton Athletic",
+      "stadiumName": "The Valley",
+      "stadiumSeats": 27111,
+      "transfermarktId": "86",
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 10, 1996",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "44117",
+          "marketValue": "€60k",
+          "name": "Sophie Whitehouse",
+          "nationality": [
+            "Ireland"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 19, 2002",
+          "foot": "",
+          "height": "1,68m",
+          "id": "52560",
+          "marketValue": "€25k",
+          "name": "Anna Pedersen",
+          "nationality": [
+            "England"
+          ],
+          "number": "21",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Nov 6, 2001",
+          "foot": "both",
+          "height": "1,72m",
+          "id": "34838",
+          "marketValue": "€80k",
+          "name": "Anna Koivunen",
+          "nationality": [
+            "Finland"
+          ],
+          "number": "24",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 16, 1996",
+          "foot": "left",
+          "height": "1,70m",
+          "id": "37120",
+          "marketValue": "€30k",
+          "name": "Ellie Mason",
+          "nationality": [
+            "Northern Ireland"
+          ],
+          "number": "2",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 14, 2000",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "40814",
+          "marketValue": "€30k",
+          "name": "Charlotte Newsham",
+          "nationality": [
+            "Scottland"
+          ],
+          "number": "3",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 7, 2005",
+          "foot": "",
+          "height": "",
+          "id": "87219",
+          "marketValue": "",
+          "name": "Grace Johnston",
+          "nationality": [
+            "Australia"
+          ],
+          "number": "4",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 7, 2004",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "47409",
+          "marketValue": "€40k",
+          "name": "Glória Siber",
+          "nationality": [
+            "Hungary"
+          ],
+          "number": "18",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 23, 2001",
+          "foot": "right",
+          "height": "1,76m",
+          "id": "40266",
+          "marketValue": "€60k",
+          "name": "Lucia Lobato",
+          "nationality": [
+            "Ireland"
+          ],
+          "number": "23",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 26, 1993",
+          "foot": "",
+          "height": "",
+          "id": "36894",
+          "marketValue": "",
+          "name": "Leighanne Robe",
+          "nationality": [
+            "England"
+          ],
+          "number": "30",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 28, 2001",
+          "foot": "",
+          "height": "",
+          "id": "38945",
+          "marketValue": "",
+          "name": "Leah Davidson",
+          "nationality": [
+            "Australia"
+          ],
+          "number": "6",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 19, 2002",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "110513",
+          "marketValue": "€30k",
+          "name": "Gillian Kenney",
+          "nationality": [
+            "United States"
+          ],
+          "number": "10",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 29, 2000",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "37399",
+          "marketValue": "€40k",
+          "name": "Lucy Fitzgerald",
+          "nationality": [
+            "England"
+          ],
+          "number": "11",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Aug 15, 2001",
+          "foot": "",
+          "height": "1,68m",
+          "id": "34181",
+          "marketValue": "",
+          "name": "Linda Líf Boama",
+          "nationality": [
+            "Iceland"
+          ],
+          "number": "13",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 1, 1998",
+          "foot": "",
+          "height": "1,65m",
+          "id": "49071",
+          "marketValue": "€50k",
+          "name": "Katie Lockwood",
+          "nationality": [
+            "England"
+          ],
+          "number": "15",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/87.png",
+      "name": "Chelsea LFC",
+      "stadiumName": "Kingsmeadow",
+      "stadiumSeats": 4850,
+      "transfermarktId": "87",
+      "players": [
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Mar 14, 2002",
+          "foot": "right",
+          "height": "1,74m",
+          "id": "34499",
+          "marketValue": "€160k",
+          "name": "Livia Peng",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Nov 16, 2000",
+          "foot": "right",
+          "height": "1,75m",
+          "id": "34581",
+          "marketValue": "€500k",
+          "name": "Hannah Hampton",
+          "nationality": [
+            "England"
+          ],
+          "number": "24",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 10, 2010",
+          "foot": "",
+          "height": "",
+          "id": "118804",
+          "marketValue": "",
+          "name": "Victoria Rudz",
+          "nationality": [
+            "England"
+          ],
+          "number": "30",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 22, 1991",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "2592",
+          "marketValue": "€30k",
+          "name": "Rebecca Spencer",
+          "nationality": [
+            "Jamaica"
+          ],
+          "number": "38",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Apr 28, 2000",
+          "foot": "right",
+          "height": "1,64m",
+          "id": "30942",
+          "marketValue": "€550k",
+          "name": "Ellie Carpenter",
+          "nationality": [
+            "Australia"
+          ],
+          "number": "2",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jun 14, 2000",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "31755",
+          "marketValue": "€550k",
+          "name": "Naomi Girma",
+          "nationality": [
+            "United States"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 21, 2006",
+          "foot": "left",
+          "height": "1,73m",
+          "id": "72610",
+          "marketValue": "€380k",
+          "name": "Veerle Buurman",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 4, 1997",
+          "foot": "right",
+          "height": "1,74m",
+          "id": "22437",
+          "marketValue": "€500k",
+          "name": "Nathalie Björn",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "14",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Sep 21, 1995",
+          "foot": "left",
+          "height": "1,68m",
+          "id": "20344",
+          "marketValue": "€500k",
+          "name": "Katie McCabe",
+          "nationality": [
+            "Ireland"
+          ],
+          "number": "15",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2030",
+          "dateOfBirth": "Dec 17, 2007",
+          "foot": "",
+          "height": "1,68m",
+          "id": "85574",
+          "marketValue": "€75k",
+          "name": "Nelly Las",
+          "nationality": [
+            "England"
+          ],
+          "number": "17",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 28, 1991",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "4356",
+          "marketValue": "€150k",
+          "name": "Lucy Bronze",
+          "nationality": [
+            "England"
+          ],
+          "number": "22",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 5, 1995",
+          "foot": "left",
+          "height": "1,70m",
+          "id": "18166",
+          "marketValue": "€150k",
+          "name": "Kadeisha Buchanan",
+          "nationality": [
+            "Canada"
+          ],
+          "number": "26",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Dec 19, 2008",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "87629",
+          "marketValue": "€30k",
+          "name": "Chloe Sarwie",
+          "nationality": [
+            "England"
+          ],
+          "number": "42",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 22, 2001",
+          "foot": "right",
+          "height": "1,74m",
+          "id": "32078",
+          "marketValue": "€600k",
+          "name": "Sjoeke Nüsken",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "6",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 19, 1998",
+          "foot": "right",
+          "height": "1,62m",
+          "id": "22143",
+          "marketValue": "€350k",
+          "name": "Erin Cuthbert",
+          "nationality": [
+            "Scottland"
+          ],
+          "number": "8",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2030",
+          "dateOfBirth": "Nov 7, 2006",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "64974",
+          "marketValue": "€450k",
+          "name": "Giulia Dragoni",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "16",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 29, 2005",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "54876",
+          "marketValue": "€675k",
+          "name": "Wieke Kaptein",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "19",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Apr 8, 1997",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "22178",
+          "marketValue": "€550k",
+          "name": "Keira Walsh",
+          "nationality": [
+            "England"
+          ],
+          "number": "21",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Oct 31, 2007",
+          "foot": "left",
+          "height": "1,67m",
+          "id": "74059",
+          "marketValue": "€75k",
+          "name": "Lola Brown",
+          "nationality": [
+            "England"
+          ],
+          "number": "25",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2031",
+          "dateOfBirth": "Jul 28, 2004",
+          "foot": "right",
+          "height": "1,55m",
+          "id": "56786",
+          "marketValue": "€500k",
+          "name": "Manaka Matsukubo",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "29",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Aug 17, 2006",
+          "foot": "",
+          "height": "1,73m",
+          "id": "71122",
+          "marketValue": "€150k",
+          "name": "Lexi Potter",
+          "nationality": [
+            "England"
+          ],
+          "number": "32",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 23, 1999",
+          "foot": "right",
+          "height": "1,76m",
+          "id": "49036",
+          "marketValue": "€550k",
+          "name": "Mayra Ramírez",
+          "nationality": [
+            "Colombia"
+          ],
+          "number": "7",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2030",
+          "dateOfBirth": "Jun 28, 2000",
+          "foot": "left",
+          "height": "1,71m",
+          "id": "33629",
+          "marketValue": "€450k",
+          "name": "Melvine Malard",
+          "nationality": [
+            "France"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2030",
+          "dateOfBirth": "Sep 29, 2001",
+          "foot": "both",
+          "height": "1,67m",
+          "id": "33810",
+          "marketValue": "€600k",
+          "name": "Lauren James",
+          "nationality": [
+            "England"
+          ],
+          "number": "10",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Jun 30, 2030",
+          "dateOfBirth": "Feb 19, 2000",
+          "foot": "left",
+          "height": "1,56m",
+          "id": "31773",
+          "marketValue": "€525k",
+          "name": "Sandy Baltimore",
+          "nationality": [
+            "France"
+          ],
+          "number": "11",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Jun 30, 2030",
+          "dateOfBirth": "Nov 7, 2004",
+          "foot": "right",
+          "height": "1,62m",
+          "id": "69735",
+          "marketValue": "€1.00m",
+          "name": "Alyssa Thompson",
+          "nationality": [
+            "United States"
+          ],
+          "number": "12",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "May 9, 2004",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "48464",
+          "marketValue": "€550k",
+          "name": "Maika Hamano",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "23",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Jun 30, 2030",
+          "dateOfBirth": "Jul 27, 2003",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "47021",
+          "marketValue": "€600k",
+          "name": "Aggie Beever-Jones",
+          "nationality": [
+            "England"
+          ],
+          "number": "33",
+          "position": "Right Winger"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/1443.png",
+      "name": "Crystal Palace LFC",
+      "stadiumName": "VBS Community Stadium",
+      "stadiumSeats": 7032,
+      "transfermarktId": "1443",
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 17, 1992",
+          "foot": "left",
+          "height": "1,75m",
+          "id": "2586",
+          "marketValue": "€70k",
+          "name": "Pauline Peyraud-Magnin",
+          "nationality": [
+            "France"
+          ],
+          "number": "26",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "May 22, 1997",
+          "foot": "",
+          "height": "1,73m",
+          "id": "40163",
+          "marketValue": "€40k",
+          "name": "Shae Yáñez",
+          "nationality": [
+            "United States"
+          ],
+          "number": "30",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 10, 2006",
+          "foot": "",
+          "height": "",
+          "id": "115846",
+          "marketValue": "€25k",
+          "name": "Emilia Browne",
+          "nationality": [
+            "England"
+          ],
+          "number": "41",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 26, 2005",
+          "foot": "",
+          "height": "",
+          "id": "95855",
+          "marketValue": "€10k",
+          "name": "Comfort Erhabor",
+          "nationality": [
+            "Nigeria"
+          ],
+          "number": "56",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 6, 2000",
+          "foot": "both",
+          "height": "1,62m",
+          "id": "40813",
+          "marketValue": "€35k",
+          "name": "Jamie-Lee Napier",
+          "nationality": [
+            "Scottland"
+          ],
+          "number": "3",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 2, 2001",
+          "foot": "",
+          "height": "",
+          "id": "33807",
+          "marketValue": "€30k",
+          "name": "Aimee Everett",
+          "nationality": [
+            "England"
+          ],
+          "number": "6",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 7, 1999",
+          "foot": "left",
+          "height": "1,52m",
+          "id": "30746",
+          "marketValue": "€50k",
+          "name": "Ashleigh Weerden",
+          "nationality": [
+            "Suriname"
+          ],
+          "number": "11",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 19, 1999",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "66352",
+          "marketValue": "€30k",
+          "name": "Caitlin Cosme",
+          "nationality": [
+            "Puerto Rico"
+          ],
+          "number": "12",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 7, 1997",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "45443",
+          "marketValue": "€40k",
+          "name": "Hayley Nolan",
+          "nationality": [
+            "Ireland"
+          ],
+          "number": "15",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 27, 2004",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "56041",
+          "marketValue": "€25k",
+          "name": "Teyah Goldie",
+          "nationality": [
+            "England"
+          ],
+          "number": "22",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 3, 1996",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "38135",
+          "marketValue": "€50k",
+          "name": "Allyson Swaby",
+          "nationality": [
+            "Jamaica"
+          ],
+          "number": "29",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jun 1, 1996",
+          "foot": "right",
+          "height": "1,64m",
+          "id": "14118",
+          "marketValue": "€50k",
+          "name": "Molly Bartrip",
+          "nationality": [
+            "England"
+          ],
+          "number": "32",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Feb 23, 2000",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "44516",
+          "marketValue": "€50k",
+          "name": "Sierra Enge",
+          "nationality": [
+            "United States"
+          ],
+          "number": "4",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 25, 2002",
+          "foot": "",
+          "height": "",
+          "id": "46598",
+          "marketValue": "€125k",
+          "name": "My Cato",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "5",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Mar 5, 2003",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "43019",
+          "marketValue": "€85k",
+          "name": "Lexi Lloyd-Smith",
+          "nationality": [
+            "England"
+          ],
+          "number": "7",
+          "position": "Right Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 25, 1993",
+          "foot": "right",
+          "height": "1,56m",
+          "id": "7043",
+          "marketValue": "€25k",
+          "name": "Josie Green",
+          "nationality": [
+            "Wales"
+          ],
+          "number": "14",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Oct 6, 1993",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "11806",
+          "marketValue": "€90k",
+          "name": "Hayley Ladd",
+          "nationality": [
+            "Wales"
+          ],
+          "number": "16",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 29, 1992",
+          "foot": "right",
+          "height": "1,85m",
+          "id": "14521",
+          "marketValue": "€30k",
+          "name": "Justine Vanhaevermaet",
+          "nationality": [
+            "Belgium"
+          ],
+          "number": "18",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Apr 27, 2005",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "64057",
+          "marketValue": "€90k",
+          "name": "Abbie Larkin",
+          "nationality": [
+            "Ireland"
+          ],
+          "number": "19",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 24, 2004",
+          "foot": "right",
+          "height": "1,56m",
+          "id": "64509",
+          "marketValue": "€55k",
+          "name": "Fuka Tsunoda",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "25",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Mar 12, 1998",
+          "foot": "",
+          "height": "1,68m",
+          "id": "46868",
+          "marketValue": "€30k",
+          "name": "Molly Sharpe",
+          "nationality": [
+            "England"
+          ],
+          "number": "8",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 3, 1994",
+          "foot": "right",
+          "height": "1,66m",
+          "id": "9695",
+          "marketValue": "€75k",
+          "name": "Beth England",
+          "nationality": [
+            "England"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 19, 1997",
+          "foot": "",
+          "height": "1,65m",
+          "id": "22144",
+          "marketValue": "€40k",
+          "name": "Kirsty Howat",
+          "nationality": [
+            "Scottland"
+          ],
+          "number": "10",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 7, 2001",
+          "foot": "right",
+          "height": "",
+          "id": "35052",
+          "marketValue": "€75k",
+          "name": "Annabel Blanchard",
+          "nationality": [
+            "England"
+          ],
+          "number": "17",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Oct 4, 1997",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "68408",
+          "marketValue": "€25k",
+          "name": "Shanade Hopcroft",
+          "nationality": [
+            "England"
+          ],
+          "number": "24",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Oct 5, 2001",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "46877",
+          "marketValue": "",
+          "name": "Shannon O’Brien",
+          "nationality": [
+            "England"
+          ],
+          "number": "27",
+          "position": "Midfielder"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/108.png",
+      "name": "Everton LFC",
+      "stadiumName": "Goodison Park",
+      "stadiumSeats": 39414,
+      "transfermarktId": "108",
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 4, 2003",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "56778",
+          "marketValue": "€50k",
+          "name": "Rion Ishikawa",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "3",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 31, 2007",
+          "foot": "",
+          "height": "",
+          "id": "94078",
+          "marketValue": "€75k",
+          "name": "Issy Hobson",
+          "nationality": [
+            "England"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 29, 2004",
+          "foot": "",
+          "height": "",
+          "id": "50201",
+          "marketValue": "€125k",
+          "name": "Naomi Layzell",
+          "nationality": [
+            "England"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 10, 1997",
+          "foot": "left",
+          "height": "1,63m",
+          "id": "22896",
+          "marketValue": "€65k",
+          "name": "Hikaru Kitagawa",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "13",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 2, 1998",
+          "foot": "right",
+          "height": "1,75m",
+          "id": "34579",
+          "marketValue": "€60k",
+          "name": "Megan Finnigan",
+          "nationality": [
+            "England"
+          ],
+          "number": "20",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 25, 1998",
+          "foot": "left",
+          "height": "1,64m",
+          "id": "29838",
+          "marketValue": "€100k",
+          "name": "Maz Pacheco",
+          "nationality": [
+            "Philippines"
+          ],
+          "number": "33",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 9, 1996",
+          "foot": "left",
+          "height": "1,53m",
+          "id": "14411",
+          "marketValue": "€65k",
+          "name": "Yuka Momiki",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "29",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Nov 5, 2002",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "43216",
+          "marketValue": "€100k",
+          "name": "Inma Gabarro",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "10",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 11, 1999",
+          "foot": "right",
+          "height": "1,64m",
+          "id": "30407",
+          "marketValue": "€40k",
+          "name": "Hannah Cain",
+          "nationality": [
+            "Wales"
+          ],
+          "number": "11",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 6, 2003",
+          "foot": "right",
+          "height": "1,76m",
+          "id": "47040",
+          "marketValue": "",
+          "name": "Noémie Mouchon",
+          "nationality": [
+            "France"
+          ],
+          "number": "17",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 30, 2004",
+          "foot": "right",
+          "height": "1,64m",
+          "id": "40417",
+          "marketValue": "€200k",
+          "name": "Ornella Vignola",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "18",
+          "position": "Left Winger"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/215.png",
+      "name": "Liverpool LFC",
+      "stadiumName": "BrewDog Stadium",
+      "stadiumSeats": 18000,
+      "transfermarktId": "215",
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 5, 1990",
+          "foot": "right",
+          "height": "1,75m",
+          "id": "4391",
+          "marketValue": "€30k",
+          "name": "Rachael Laws",
+          "nationality": [
+            "England"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jun 27, 2004",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "54864",
+          "marketValue": "€150k",
+          "name": "Khiara Keating",
+          "nationality": [
+            "England"
+          ],
+          "number": "12",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 5, 2004",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "55617",
+          "marketValue": "€25k",
+          "name": "Faye Kirby",
+          "nationality": [
+            "England"
+          ],
+          "number": "22",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 7, 2004",
+          "foot": "right",
+          "height": "1,64m",
+          "id": "50203",
+          "marketValue": "€40k",
+          "name": "Lucy Parry",
+          "nationality": [
+            "England"
+          ],
+          "number": "2",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 5, 1998",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "35706",
+          "marketValue": "€110k",
+          "name": "Grace Fisk",
+          "nationality": [
+            "England"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 3, 2000",
+          "foot": "left",
+          "height": "1,61m",
+          "id": "33437",
+          "marketValue": "€60k",
+          "name": "Lily Woodham",
+          "nationality": [
+            "Wales"
+          ],
+          "number": "16",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Sep 29, 2001",
+          "foot": "right",
+          "height": "1,78m",
+          "id": "36110",
+          "marketValue": "€190k",
+          "name": "Jenna Clark",
+          "nationality": [
+            "Scottland"
+          ],
+          "number": "17",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 9, 2000",
+          "foot": "left",
+          "height": "1,72m",
+          "id": "33600",
+          "marketValue": "€80k",
+          "name": "Sara Agrež",
+          "nationality": [
+            "Slovenia"
+          ],
+          "number": "23",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 3, 2003",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "55949",
+          "marketValue": "€150k",
+          "name": "Alice Bergström",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "25",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 3, 2006",
+          "foot": "right",
+          "height": "",
+          "id": "74065",
+          "marketValue": "€25k",
+          "name": "Mari Ward",
+          "nationality": [
+            "England"
+          ],
+          "number": "28",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 12, 2001",
+          "foot": "left",
+          "height": "1,61m",
+          "id": "46714",
+          "marketValue": "€95k",
+          "name": "Alejandra Bernabé",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "29",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Feb 10, 1999",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "30435",
+          "marketValue": "€140k",
+          "name": "Natalia Ramos",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "6",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 9, 1999",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "22904",
+          "marketValue": "€180k",
+          "name": "Fuka Nagano",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "8",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 1, 2001",
+          "foot": "both",
+          "height": "1,62m",
+          "id": "30366",
+          "marketValue": "€320k",
+          "name": "Marie Höbinger",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "14",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 12, 1997",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "30335",
+          "marketValue": "€200k",
+          "name": "Ceri Holland",
+          "nationality": [
+            "Wales"
+          ],
+          "number": "18",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 12, 2005",
+          "foot": "",
+          "height": "",
+          "id": "62908",
+          "marketValue": "€45k",
+          "name": "Kirsty Maclean",
+          "nationality": [
+            "Scottland"
+          ],
+          "number": "19",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Apr 17, 1999",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "31653",
+          "marketValue": "€200k",
+          "name": "Samantha Kerr",
+          "nationality": [
+            "Scottland"
+          ],
+          "number": "24",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 6, 2006",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "79099",
+          "marketValue": "€35k",
+          "name": "Mao Itamura",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "26",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 6, 2007",
+          "foot": "right",
+          "height": "1,75m",
+          "id": "78983",
+          "marketValue": "€30k",
+          "name": "Zara Shaw",
+          "nationality": [
+            "England"
+          ],
+          "number": "36",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 11, 2008",
+          "foot": "",
+          "height": "",
+          "id": "98795",
+          "marketValue": "",
+          "name": "Neve McDonald",
+          "nationality": [
+            "Scottland"
+          ],
+          "number": "3",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 13, 2000",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "39336",
+          "marketValue": "€170k",
+          "name": "Cornelia Kapocs",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "7",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 7, 2001",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "31225",
+          "marketValue": "€300k",
+          "name": "Vivien Endemann",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "9",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Jun 4, 1999",
+          "foot": "right",
+          "height": "1,77m",
+          "id": "30444",
+          "marketValue": "€210k",
+          "name": "Sophie Román Haug",
+          "nationality": [
+            "Norway"
+          ],
+          "number": "10",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 31, 2001",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "34419",
+          "marketValue": "€175k",
+          "name": "Beata Olsson",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "11",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 31, 2005",
+          "foot": "right",
+          "height": "1,66m",
+          "id": "60258",
+          "marketValue": "€300k",
+          "name": "Mia Enderby",
+          "nationality": [
+            "England"
+          ],
+          "number": "13",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 29, 2001",
+          "foot": "left",
+          "height": "1,70m",
+          "id": "32744",
+          "marketValue": "€50k",
+          "name": "Anna Jøsendal",
+          "nationality": [
+            "Norway"
+          ],
+          "number": "21",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 24, 2003",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "39766",
+          "marketValue": "€70k",
+          "name": "Aurélie Csillag",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "27",
+          "position": "Centre-Forward"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/7219.png",
+      "name": "London City Lionesses",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": "7219",
+      "players": [
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 7, 1993",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "5465",
+          "marketValue": "€70k",
+          "name": "Mary Earps",
+          "nationality": [
+            "England"
+          ],
+          "number": "27",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 5, 2003",
+          "foot": "",
+          "height": "",
+          "id": "42998",
+          "marketValue": "€20k",
+          "name": "Sophie Hillyerd",
+          "nationality": [
+            "England"
+          ],
+          "number": "28",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 25, 2006",
+          "foot": "",
+          "height": "",
+          "id": "74068",
+          "marketValue": "€20k",
+          "name": "Sophia Poor",
+          "nationality": [
+            "England"
+          ],
+          "number": "35",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 31, 2005",
+          "foot": "left",
+          "height": "1,68m",
+          "id": "62617",
+          "marketValue": "€35k",
+          "name": "Isa Kardinaal",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 15, 1994",
+          "foot": "left",
+          "height": "1,73m",
+          "id": "9634",
+          "marketValue": "€80k",
+          "name": "Elena Linari",
+          "nationality": [
+            "Italy"
+          ],
+          "number": "13",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jun 13, 1995",
+          "foot": "left",
+          "height": "1,69m",
+          "id": "22100",
+          "marketValue": "€650k",
+          "name": "María León",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "44",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 26, 2003",
+          "foot": "left",
+          "height": "",
+          "id": "62520",
+          "marketValue": "€25k",
+          "name": "Corinne Henson",
+          "nationality": [
+            "United States"
+          ],
+          "number": "99",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 5, 1991",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "2900",
+          "marketValue": "€150k",
+          "name": "Daniëlle van de Donk",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "10",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Mar 21, 2006",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "63183",
+          "marketValue": "€70k",
+          "name": "Daniela Arques",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "16",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 29, 1989",
+          "foot": "right",
+          "height": "1,66m",
+          "id": "68",
+          "marketValue": "€60k",
+          "name": "Kosovare Asllani",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "9",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "May 7, 2005",
+          "foot": "",
+          "height": "",
+          "id": "63546",
+          "marketValue": "€500k",
+          "name": "Freya Godfrey",
+          "nationality": [
+            "England"
+          ],
+          "number": "14",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Apr 1, 1995",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "6473",
+          "marketValue": "€675k",
+          "name": "Kadidiatou Diani",
+          "nationality": [
+            "France"
+          ],
+          "number": "21",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jul 5, 2003",
+          "foot": "right",
+          "height": "1,69m",
+          "id": "45047",
+          "marketValue": "€200k",
+          "name": "Rosa Kafaji",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "76",
+          "position": "Second Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/990.png",
+      "name": "Manchester City LFC",
+      "stadiumName": "Joie Stadium",
+      "stadiumSeats": 7000,
+      "transfermarktId": "990",
+      "players": [
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 11, 1999",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "35719",
+          "marketValue": "€30k",
+          "name": "Eartha Cumings",
+          "nationality": [
+            "Scottland"
+          ],
+          "number": "1",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jan 31, 2027",
+          "dateOfBirth": "Mar 30, 1995",
+          "foot": "right",
+          "height": "1,85m",
+          "id": "30339",
+          "marketValue": "€80k",
+          "name": "Anna Moorhouse",
+          "nationality": [
+            "England"
+          ],
+          "number": "14",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 29, 1995",
+          "foot": "left",
+          "height": "1,70m",
+          "id": "23138",
+          "marketValue": "€70k",
+          "name": "Ayaka Yamashita",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "31",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 15, 1996",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "18031",
+          "marketValue": "€55k",
+          "name": "Risa Shimizu",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "2",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Feb 12, 2003",
+          "foot": "",
+          "height": "1,77m",
+          "id": "37711",
+          "marketValue": "€700k",
+          "name": "Jade Rose",
+          "nationality": [
+            "Canada"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 7, 1993",
+          "foot": "left",
+          "height": "1,67m",
+          "id": "3880",
+          "marketValue": "€150k",
+          "name": "Alex Greenwood",
+          "nationality": [
+            "England"
+          ],
+          "number": "5",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 13, 1999",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "23374",
+          "marketValue": "€40k",
+          "name": "Laura Wienroither",
+          "nationality": [
+            "Austria"
+          ],
+          "number": "13",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 23, 1996",
+          "foot": "both",
+          "height": "1,75m",
+          "id": "7288",
+          "marketValue": "€300k",
+          "name": "Rebecca Knaak",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "27",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Dec 2, 2004",
+          "foot": "",
+          "height": "",
+          "id": "65267",
+          "marketValue": "€30k",
+          "name": "Gracie Prior",
+          "nationality": [
+            "England"
+          ],
+          "number": "28",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2030",
+          "dateOfBirth": "Nov 1, 2003",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "38132",
+          "marketValue": "€400k",
+          "name": "Carlotta Wamser",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "37",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 25, 2006",
+          "foot": "",
+          "height": "",
+          "id": "80204",
+          "marketValue": "€25k",
+          "name": "Mayzee Davies",
+          "nationality": [
+            "Wales"
+          ],
+          "number": "53",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Mar 31, 2003",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "50200",
+          "marketValue": "€350k",
+          "name": "Grace Clinton",
+          "nationality": [
+            "England"
+          ],
+          "number": "6",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jun 19, 2000",
+          "foot": "right",
+          "height": "1,76m",
+          "id": "21821",
+          "marketValue": "€300k",
+          "name": "Sydney Lohmann",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "22",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jul 23, 2006",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "63752",
+          "marketValue": "€450k",
+          "name": "Iman Beney",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "24",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 12, 2007",
+          "foot": "",
+          "height": "",
+          "id": "107392",
+          "marketValue": "€45k",
+          "name": "Amelia Oldroyd",
+          "nationality": [
+            "Scottland"
+          ],
+          "number": "43",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 24, 2008",
+          "foot": "",
+          "height": "",
+          "id": "123936",
+          "marketValue": "",
+          "name": "Sienna Davis",
+          "nationality": [
+            "England"
+          ],
+          "number": "66",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "May 9, 1995",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "12385",
+          "marketValue": "€425k",
+          "name": "Beth Mead",
+          "nationality": [
+            "England"
+          ],
+          "number": "7",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Feb 14, 2003",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "39964",
+          "marketValue": "€450k",
+          "name": "Mary Fowler",
+          "nationality": [
+            "Australia"
+          ],
+          "number": "8",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2030",
+          "dateOfBirth": "Jan 31, 1997",
+          "foot": "both",
+          "height": "1,80m",
+          "id": "38150",
+          "marketValue": "€1.30m",
+          "name": "Khadija Shaw",
+          "nationality": [
+            "Jamaica"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jul 15, 1996",
+          "foot": "right",
+          "height": "1,75m",
+          "id": "9241",
+          "marketValue": "€425k",
+          "name": "Vivianne Miedema",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "10",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 7, 2000",
+          "foot": "left",
+          "height": "1,64m",
+          "id": "33433",
+          "marketValue": "€900k",
+          "name": "Lauren Hemp",
+          "nationality": [
+            "England"
+          ],
+          "number": "11",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Jun 30, 2030",
+          "dateOfBirth": "Jan 27, 2004",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "64103",
+          "marketValue": "€375k",
+          "name": "Aoba Fujino",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "20",
+          "position": "Right Winger"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/4458.png",
+      "name": "Manchester United",
+      "stadiumName": "Leigh Sports Village",
+      "stadiumSeats": 12000,
+      "transfermarktId": "4458",
+      "players": [
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Apr 16, 1999",
+          "foot": "right",
+          "height": "1,85m",
+          "id": "21642",
+          "marketValue": "€65k",
+          "name": "Janina Leitzig",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "25",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Oct 19, 1996",
+          "foot": "right",
+          "height": "1,85m",
+          "id": "41276",
+          "marketValue": "€350k",
+          "name": "Phallon Tullis-Joyce",
+          "nationality": [
+            "United States"
+          ],
+          "number": "91",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 23, 2003",
+          "foot": "left",
+          "height": "1,66m",
+          "id": "54553",
+          "marketValue": "€425k",
+          "name": "Anna Sandberg",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "2",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 18, 2002",
+          "foot": "right",
+          "height": "1,71m",
+          "id": "40316",
+          "marketValue": "€650k",
+          "name": "Maya Le Tissier",
+          "nationality": [
+            "England"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jul 17, 2002",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "39369",
+          "marketValue": "€120k",
+          "name": "Hanna Lundkvist",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "5",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "May 11, 2004",
+          "foot": "left",
+          "height": "1,62m",
+          "id": "46959",
+          "marketValue": "€250k",
+          "name": "Andrea Medina",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "6",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Jan 22, 2001",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "33886",
+          "marketValue": "€350k",
+          "name": "Jayde Riviere",
+          "nationality": [
+            "Canada"
+          ],
+          "number": "14",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Aug 31, 1997",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "23048",
+          "marketValue": "€150k",
+          "name": "Rebeca Bernal",
+          "nationality": [
+            "Mexico"
+          ],
+          "number": "16",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 17, 1995",
+          "foot": "both",
+          "height": "1,75m",
+          "id": "19416",
+          "marketValue": "€250k",
+          "name": "Dominique Janssen",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "17",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Oct 9, 2007",
+          "foot": "",
+          "height": "",
+          "id": "85571",
+          "marketValue": "€25k",
+          "name": "Scarlett Hill",
+          "nationality": [
+            "Wales"
+          ],
+          "number": "22",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jan 13, 2005",
+          "foot": "left",
+          "height": "",
+          "id": "63571",
+          "marketValue": "€25k",
+          "name": "Jess Simpson",
+          "nationality": [
+            "England"
+          ],
+          "number": "26",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Oct 2, 2006",
+          "foot": "",
+          "height": "1,77m",
+          "id": "74063",
+          "marketValue": "€25k",
+          "name": "Lucy Newell",
+          "nationality": [
+            "England"
+          ],
+          "number": "55",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 2, 1999",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "30420",
+          "marketValue": "€850k",
+          "name": "Ella Toone",
+          "nationality": [
+            "England"
+          ],
+          "number": "7",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Oct 21, 2001",
+          "foot": "right",
+          "height": "1,61m",
+          "id": "35057",
+          "marketValue": "€800k",
+          "name": "Jess Park",
+          "nationality": [
+            "England"
+          ],
+          "number": "8",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 23, 2003",
+          "foot": "right",
+          "height": "1,75m",
+          "id": "68871",
+          "marketValue": "€300k",
+          "name": "Simi Awujo",
+          "nationality": [
+            "Canada"
+          ],
+          "number": "13",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Dec 24, 1997",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "27805",
+          "marketValue": "€400k",
+          "name": "Julia Zigiotti Olme",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "15",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Nov 28, 1999",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "35793",
+          "marketValue": "€125k",
+          "name": "Hinata Miyazawa",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "20",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 28, 2006",
+          "foot": "",
+          "height": "",
+          "id": "62909",
+          "marketValue": "€45k",
+          "name": "Emma Watson",
+          "nationality": [
+            "Scottland"
+          ],
+          "number": "21",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Mar 3, 2007",
+          "foot": "right",
+          "height": "",
+          "id": "73271",
+          "marketValue": "€70k",
+          "name": "Mared Griffiths",
+          "nationality": [
+            "Wales"
+          ],
+          "number": "36",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 20, 2008",
+          "foot": "",
+          "height": "",
+          "id": "94417",
+          "marketValue": "€25k",
+          "name": "Jessica Anderson",
+          "nationality": [
+            "England"
+          ],
+          "number": "47",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 28, 2001",
+          "foot": "both",
+          "height": "1,71m",
+          "id": "33482",
+          "marketValue": "€700k",
+          "name": "Elisabeth Terland",
+          "nationality": [
+            "Norway"
+          ],
+          "number": "10",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 24, 2001",
+          "foot": "right",
+          "height": "1,68m",
+          "id": "33477",
+          "marketValue": "€425k",
+          "name": "Celin Bizet Dønnum",
+          "nationality": [
+            "Norway"
+          ],
+          "number": "11",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 24, 1993",
+          "foot": "left",
+          "height": "1,78m",
+          "id": "7753",
+          "marketValue": "€250k",
+          "name": "Fridolina Rolfö",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "12",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Sep 1, 2004",
+          "foot": "right",
+          "height": "1,77m",
+          "id": "52659",
+          "marketValue": "€550k",
+          "name": "Ellen Wangerheim",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "19",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2030",
+          "dateOfBirth": "May 16, 2003",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "49077",
+          "marketValue": "€175k",
+          "name": "Monica Jusu Bah",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "23",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Nov 12, 1997",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "16386",
+          "marketValue": "€400k",
+          "name": "Lea Schüller",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "24",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jun 12, 2009",
+          "foot": "",
+          "height": "1,83m",
+          "id": "106811",
+          "marketValue": "€30k",
+          "name": "Layla Drury",
+          "nationality": [
+            "England"
+          ],
+          "number": "27",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/1439.png",
+      "name": "Tottenham Hotspur LFC",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": "1439",
+      "players": [
+        {
+          "contract": "",
+          "dateOfBirth": "Jan 30, 1999",
+          "foot": "right",
+          "height": "1,70m",
+          "id": "35596",
+          "marketValue": "€200k",
+          "name": "Caitlin Dijkstra",
+          "nationality": [
+            "Netherlands"
+          ],
+          "number": "4",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Aug 7, 1998",
+          "foot": "left",
+          "height": "1,68m",
+          "id": "37468",
+          "marketValue": "€200k",
+          "name": "Amanda Nildén",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "6",
+          "position": "Left-Back"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Mar 12, 1999",
+          "foot": "",
+          "height": "1,76m",
+          "id": "31903",
+          "marketValue": "€150k",
+          "name": "Clare Hunt",
+          "nationality": [
+            "Australia"
+          ],
+          "number": "15",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Dec 15, 2003",
+          "foot": "right",
+          "height": "1,67m",
+          "id": "45176",
+          "marketValue": "€300k",
+          "name": "Hanna Wijk",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "22",
+          "position": "Right-Back"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Mar 25, 1998",
+          "foot": "right",
+          "height": "1,55m",
+          "id": "22158",
+          "marketValue": "€125k",
+          "name": "Maite Oroz",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "10",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Nov 10, 2004",
+          "foot": "right",
+          "height": "1,60m",
+          "id": "52669",
+          "marketValue": "€300k",
+          "name": "Matilda Nildén",
+          "nationality": [
+            "Sweden"
+          ],
+          "number": "14",
+          "position": "Attacking Midfield"
+        },
+        {
+          "contract": "Jun 30, 2026",
+          "dateOfBirth": "Aug 15, 1997",
+          "foot": "",
+          "height": "1,64m",
+          "id": "23906",
+          "marketValue": "€90k",
+          "name": "Olga Ahtinen",
+          "nationality": [
+            "Finland"
+          ],
+          "number": "20",
+          "position": "Central Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "May 29, 1998",
+          "foot": "right",
+          "height": "1,72m",
+          "id": "34748",
+          "marketValue": "€175k",
+          "name": "Eveliina Summanen",
+          "nationality": [
+            "Finland"
+          ],
+          "number": "25",
+          "position": "Defensive Midfield"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 27, 2001",
+          "foot": "left",
+          "height": "1,70m",
+          "id": "39716",
+          "marketValue": "€250k",
+          "name": "Julie Blakstad",
+          "nationality": [
+            "Norway"
+          ],
+          "number": "41",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Sep 24, 2000",
+          "foot": "right",
+          "height": "1,65m",
+          "id": "37522",
+          "marketValue": "€180k",
+          "name": "Jessica Naz",
+          "nationality": [
+            "England"
+          ],
+          "number": "7",
+          "position": "Right Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jun 18, 2004",
+          "foot": "right",
+          "height": "1,76m",
+          "id": "47783",
+          "marketValue": "€450k",
+          "name": "Cathinka Tandberg",
+          "nationality": [
+            "Norway"
+          ],
+          "number": "9",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Apr 17, 1998",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "29821",
+          "marketValue": "€80k",
+          "name": "Kirsty Hanson",
+          "nationality": [
+            "Scottland"
+          ],
+          "number": "16",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Jul 4, 2001",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "31819",
+          "marketValue": "€400k",
+          "name": "Shekiera Martinez",
+          "nationality": [
+            "Germany"
+          ],
+          "number": "19",
+          "position": "Striker"
+        },
+        {
+          "contract": "",
+          "dateOfBirth": "Aug 10, 2008",
+          "foot": "",
+          "height": "",
+          "id": "102784",
+          "marketValue": "",
+          "name": "Jhanaie Pierre",
+          "nationality": [
+            "England"
+          ],
+          "number": "37",
+          "position": "Striker"
+        }
+      ]
+    },
+    {
+      "image": "https://tmssl.akamaized.net/images/wappen/big/1059.png",
+      "name": "West Ham United LFC",
+      "stadiumName": "",
+      "stadiumSeats": 0,
+      "transfermarktId": "1059",
+      "players": [
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Nov 12, 1994",
+          "foot": "right",
+          "height": "1,74m",
+          "id": "12362",
+          "marketValue": "€30k",
+          "name": "Megan Walsh",
+          "nationality": [
+            "Ireland"
+          ],
+          "number": "25",
+          "position": "Goalkeeper"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Oct 17, 1990",
+          "foot": "right",
+          "height": "1,73m",
+          "id": "5939",
+          "marketValue": "€50k",
+          "name": "Saki Kumagai",
+          "nationality": [
+            "Japan"
+          ],
+          "number": "8",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Mar 22, 2008",
+          "foot": "",
+          "height": "1,75m",
+          "id": "85579",
+          "marketValue": "€30k",
+          "name": "Niamh Peacock",
+          "nationality": [
+            "England"
+          ],
+          "number": "26",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Feb 5, 1997",
+          "foot": "left",
+          "height": "1,65m",
+          "id": "22110",
+          "marketValue": "€115k",
+          "name": "Estelle Cascarino",
+          "nationality": [
+            "France"
+          ],
+          "number": "28",
+          "position": "Centre-Back"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Jan 5, 1999",
+          "foot": "left",
+          "height": "1,78m",
+          "id": "29900",
+          "marketValue": "€200k",
+          "name": "Kelly Gago",
+          "nationality": [
+            "France"
+          ],
+          "number": "11",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2029",
+          "dateOfBirth": "Dec 18, 2007",
+          "foot": "",
+          "height": "",
+          "id": "116563",
+          "marketValue": "€25k",
+          "name": "Sienna Wareing",
+          "nationality": [
+            "England"
+          ],
+          "number": "19",
+          "position": "Striker"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Nov 20, 1993",
+          "foot": "right",
+          "height": "1,63m",
+          "id": "5807",
+          "marketValue": "€50k",
+          "name": "Viviane Asseyi",
+          "nationality": [
+            "France"
+          ],
+          "number": "20",
+          "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "May 11, 2000",
+          "foot": "right",
+          "height": "1,59m",
+          "id": "46891",
+          "marketValue": "€50k",
+          "name": "Ffion Morgan",
+          "nationality": [
+            "Wales"
+          ],
+          "number": "23",
+          "position": "Left Winger"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Apr 11, 2006",
+          "foot": "",
+          "height": "",
+          "id": "63754",
+          "marketValue": "€85k",
+          "name": "Leila Wandeler",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "27",
+          "position": "Midfielder"
+        },
+        {
+          "contract": "Jun 30, 2027",
+          "dateOfBirth": "Jun 2, 2000",
+          "foot": "both",
+          "height": "1,68m",
+          "id": "30831",
+          "marketValue": "€70k",
+          "name": "Seraina Piubel",
+          "nationality": [
+            "Switzerland"
+          ],
+          "number": "77",
+          "position": "Midfielder"
+        }
+      ]
+    }
+  ]
+}

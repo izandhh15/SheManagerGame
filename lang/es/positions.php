@@ -1,0 +1,59 @@
+<?php
+
+return [
+    // Player position display names (13 canonical positions)
+    'goalkeeper' => 'Portera',
+    'centre_back' => 'Central',
+    'left_back' => 'Lateral Izquierda',
+    'right_back' => 'Lateral Derecha',
+    'defensive_midfield' => 'Mediocentro Defensiva',
+    'central_midfield' => 'Centrocampista',
+    'attacking_midfield' => 'Mediapunta',
+    'left_midfield' => 'Media Izquierda',
+    'right_midfield' => 'Media Derecha',
+    'left_winger' => 'Extrema Izquierda',
+    'right_winger' => 'Extrema Derecha',
+    'centre_forward' => 'Delantera Centro',
+    'second_striker' => 'Segunda Delantera',
+
+    // Player position abbreviations
+    'goalkeeper_abbr' => 'PO',
+    'centre_back_abbr' => 'CT',
+    'left_back_abbr' => 'LI',
+    'right_back_abbr' => 'LD',
+    'defensive_midfield_abbr' => 'MCD',
+    'central_midfield_abbr' => 'MC',
+    'attacking_midfield_abbr' => 'MP',
+    'left_midfield_abbr' => 'MI',
+    'right_midfield_abbr' => 'MD',
+    'left_winger_abbr' => 'EI',
+    'right_winger_abbr' => 'ED',
+    'centre_forward_abbr' => 'DC',
+    'second_striker_abbr' => 'SD',
+
+    // Labels with abbreviation (for scouting dropdown)
+    'goalkeeper_label' => 'Portera (PO)',
+    'centre_back_label' => 'Central (CT)',
+    'left_back_label' => 'Lateral Izquierda (LI)',
+    'right_back_label' => 'Lateral Derecha (LD)',
+    'defensive_midfield_label' => 'Mediocentro Defensiva (MCD)',
+    'central_midfield_label' => 'Centrocampista (MC)',
+    'attacking_midfield_label' => 'Mediapunta (MP)',
+    'left_midfield_label' => 'Media Izquierda (MI)',
+    'right_midfield_label' => 'Media Derecha (MD)',
+    'left_winger_label' => 'Extrema Izquierda (EI)',
+    'right_winger_label' => 'Extrema Derecha (ED)',
+    'centre_forward_label' => 'Delantera Centro (DC)',
+    'second_striker_label' => 'Segunda Delantera (SD)',
+
+    // Position group abbreviations (squad footer badges)
+    'group_goalkeeper_abbr' => 'PO',
+    'group_defender_abbr' => 'DF',
+    'group_midfielder_abbr' => 'MD',
+    'group_forward_abbr' => 'DL',
+
+    // Scout filter groups
+    'any_defender' => 'Cualquier Defensa (CT, LI, LD)',
+    'any_midfielder' => 'Cualquier Centrocampista (MCD, MC, MP, MI, MD)',
+    'any_forward' => 'Cualquier Delantera (EI, ED, DC, SD)',
+];

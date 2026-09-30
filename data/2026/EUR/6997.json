@@ -1,0 +1,346 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/6997.png",
+  "name": "Czarni Sosnowiec",
+  "players": [
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Oct 10, 1994",
+      "foot": "",
+      "height": "1,73m",
+      "id": "30485",
+      "marketValue": "",
+      "name": "Anna Palińska",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 31, 2008",
+      "foot": "",
+      "height": "",
+      "id": "110897",
+      "marketValue": "",
+      "name": "Faustyna Korzekwa",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "22",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Jun 12, 2006",
+      "foot": "",
+      "height": "",
+      "id": "83060",
+      "marketValue": "",
+      "name": "Zuzanna Lozio",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "75",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 9, 2007",
+      "foot": "",
+      "height": "1,72m",
+      "id": "80404",
+      "marketValue": "",
+      "name": "Oliwia Łapińska",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "2",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 11, 2009",
+      "foot": "",
+      "height": "",
+      "id": "103894",
+      "marketValue": "",
+      "name": "Zofia Świtała",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "20",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 25, 2009",
+      "foot": "",
+      "height": "",
+      "id": "109005",
+      "marketValue": "",
+      "name": "Lena Saja",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "25",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 21, 1999",
+      "foot": "",
+      "height": "",
+      "id": "55120",
+      "marketValue": "",
+      "name": "Daria Kurzawa",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "27",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 22, 2007",
+      "foot": "",
+      "height": "1,74m",
+      "id": "83714",
+      "marketValue": "",
+      "name": "Emilia Sobierajska",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "28",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 27, 2007",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "84037",
+      "marketValue": "",
+      "name": "Iga Witkowska",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "66",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Apr 5, 2002",
+      "foot": "",
+      "height": "1,66m",
+      "id": "35161",
+      "marketValue": "",
+      "name": "Zofia Buszewska",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "70",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Aug 8, 1989",
+      "foot": "left",
+      "height": "",
+      "id": "10538",
+      "marketValue": "",
+      "name": "Natalia Chudzik",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "8",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Nov 26, 2004",
+      "foot": "",
+      "height": "",
+      "id": "68611",
+      "marketValue": "",
+      "name": "Patrycja Sarapata",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "9",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 10, 2001",
+      "foot": "",
+      "height": "",
+      "id": "39916",
+      "marketValue": "",
+      "name": "Weronika Wójcik",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "10",
+      "position": "Right Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 23, 2004",
+      "foot": "",
+      "height": "",
+      "id": "55075",
+      "marketValue": "",
+      "name": "Luiza Kozielska",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "11",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "May 30, 2009",
+      "foot": "both",
+      "height": "1,74m",
+      "id": "99868",
+      "marketValue": "",
+      "name": "Zofia Burzan",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "14",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 6, 1995",
+      "foot": "right",
+      "height": "",
+      "id": "30323",
+      "marketValue": "",
+      "name": "Nikol Kaletka",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "17",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 27, 2010",
+      "foot": "",
+      "height": "",
+      "id": "99869",
+      "marketValue": "",
+      "name": "Nicola Gałuszka",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "21",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Nov 8, 2007",
+      "foot": "right",
+      "height": "1,65m",
+      "id": "101018",
+      "marketValue": "",
+      "name": "Oliwia Zgoda",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "23",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Mar 5, 2004",
+      "foot": "",
+      "height": "",
+      "id": "64698",
+      "marketValue": "",
+      "name": "Oliwia Katowicz",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "84",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 16, 2007",
+      "foot": "",
+      "height": "1,67m",
+      "id": "75378",
+      "marketValue": "",
+      "name": "Anna Krakowiak",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "86",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 19, 1999",
+      "foot": "left",
+      "height": "1,67m",
+      "id": "55248",
+      "marketValue": "",
+      "name": "Klaudia Miłek",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "7",
+      "position": "Right Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Sep 17, 2003",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "87716",
+      "marketValue": "",
+      "name": "Wiktoria Kaczmarek",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "13",
+      "position": "Right Winger"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 21, 2000",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "40044",
+      "marketValue": "",
+      "name": "Karlīna Miksone",
+      "nationality": [
+        "Latvia"
+      ],
+      "number": "19",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Mar 23, 2003",
+      "foot": "",
+      "height": "",
+      "id": "76209",
+      "marketValue": "",
+      "name": "Amelia Chmura",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "99",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Stadion im. Jana Ciszewskiego",
+  "stadiumSeats": "700",
+  "transfermarktId": "6997",
+  "country": "PL"
+}

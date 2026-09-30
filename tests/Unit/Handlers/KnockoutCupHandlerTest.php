@@ -1,0 +1,269 @@
+<?php
+
+namespace Tests\Unit\Handlers;
+
+use App\Modules\Competition\Services\NeutralVenueResolver;
+use App\Modules\Match\Handlers\KnockoutCupHandler;
+use App\Modules\Match\Services\CupTieResolver;
+use App\Modules\Squad\Services\EligibilityService;
+use App\Models\Competition;
+use App\Models\CupTie;
+use App\Models\Game;
+use App\Models\GameMatch;
+use App\Models\Team;
+use App\Models\User;
+use Carbon\Carbon;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Mockery;
+use Tests\TestCase;
+
+class KnockoutCupHandlerTest extends TestCase
+{
+    use RefreshDatabase;
+
+    private KnockoutCupHandler $handler;
+    private Game $game;
+    private Competition $cupCompetition;
+    private Team $team1;
+    private Team $team2;
+    private $cupTieResolverMock;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->cupTieResolverMock = Mockery::mock(CupTieResolver::class);
+
+        $this->handler = new KnockoutCupHandler(
+            $this->cupTieResolverMock,
+            new EligibilityService(),
+            new NeutralVenueResolver(),
+        );
+
+        $user = User::factory()->create();
+        $this->team1 = Team::factory()->create();
+        $this->team2 = Team::factory()->create();
+
+        $this->cupCompetition = Competition::factory()->knockoutCup()->create([
+            'id' => 'ESPCUP',
+            'name' => 'Copa del Rey',
+            'season' => '2025',
+        ]);
+
+        Competition::factory()->league()->create(['id' => 'ESP1', 'name' => 'LaLiga']);
+
+        $this->game = Game::factory()->create([
+            'user_id' => $user->id,
+            'team_id' => $this->team1->id,
+            'competition_id' => 'ESP1',
+            'season' => '2024',
+        ]);
+    }
+
+    protected function tearDown(): void
+    {
+        Mockery::close();
+        parent::tearDown();
+    }
+
+    public function test_get_type_returns_knockout_cup(): void
+    {
+        $this->assertEquals('knockout_cup', $this->handler->getType());
+    }
+
+    public function test_get_match_batch_returns_cup_matches_from_same_date(): void
+    {
+        // Create cup tie
+        $cupTie1 = CupTie::factory()->create([
+            'game_id' => $this->game->id,
+            'competition_id' => $this->cupCompetition->id,
+            'round_number' => 1,
+        ]);
+
+        $cupTie2 = CupTie::factory()->create([
+            'game_id' => $this->game->id,
+            'competition_id' => $this->cupCompetition->id,
+            'round_number' => 1,
+        ]);
+
+        // Create cup matches on same date
+        $match1 = GameMatch::factory()->create([
+            'game_id' => $this->game->id,
+            'competition_id' => $this->cupCompetition->id,
+            'scheduled_date' => Carbon::parse('2024-11-01'),
+            'cup_tie_id' => $cupTie1->id,
+        ]);
+
+        $match2 = GameMatch::factory()->create([
+            'game_id' => $this->game->id,
+            'competition_id' => $this->cupCompetition->id,
+            'scheduled_date' => Carbon::parse('2024-11-01'),
+            'cup_tie_id' => $cupTie2->id,
+        ]);
+
+        // Match on different date (should not be included)
+        GameMatch::factory()->create([
+            'game_id' => $this->game->id,
+            'competition_id' => $this->cupCompetition->id,
+            'scheduled_date' => Carbon::parse('2024-11-08'),
+            'cup_tie_id' => CupTie::factory()->create([
+                'game_id' => $this->game->id,
+                'competition_id' => $this->cupCompetition->id,
+            ])->id,
+        ]);
+
+        $batch = $this->handler->getMatchBatch($this->game->id, $match1);
+
+        $this->assertCount(2, $batch);
+        $this->assertTrue($batch->contains('id', $match1->id));
+        $this->assertTrue($batch->contains('id', $match2->id));
+    }
+
+    public function test_get_match_batch_excludes_league_matches(): void
+    {
+        $leagueCompetition = Competition::find('ESP1');
+
+        $cupTie = CupTie::factory()->create([
+            'game_id' => $this->game->id,
+            'competition_id' => $this->cupCompetition->id,
+        ]);
+
+        $cupMatch = GameMatch::factory()->create([
+            'game_id' => $this->game->id,
+            'competition_id' => $this->cupCompetition->id,
+            'scheduled_date' => Carbon::parse('2024-11-01'),
+            'cup_tie_id' => $cupTie->id,
+        ]);
+
+        // League match on same date (should be excluded)
+        GameMatch::factory()->create([
+            'game_id' => $this->game->id,
+            'competition_id' => $leagueCompetition->id,
+            'scheduled_date' => Carbon::parse('2024-11-01'),
+            'cup_tie_id' => null,
+        ]);
+
+        $batch = $this->handler->getMatchBatch($this->game->id, $cupMatch);
+
+        $this->assertCount(1, $batch);
+        $this->assertEquals($cupMatch->id, $batch->first()->id);
+    }
+
+    public function test_before_matches_is_noop(): void
+    {
+        // beforeMatches is a no-op — draws are handled by ConductNextCupRoundDraw listener
+        $this->handler->beforeMatches($this->game, '2024-11-01');
+
+        $this->assertTrue(true);
+    }
+
+    public function test_after_matches_resolves_cup_ties(): void
+    {
+        $cupTie = CupTie::factory()->create([
+            'game_id' => $this->game->id,
+            'competition_id' => $this->cupCompetition->id,
+            'home_team_id' => $this->team1->id,
+            'away_team_id' => $this->team2->id,
+            'completed' => false,
+        ]);
+
+        $cupMatch = GameMatch::factory()->create([
+            'game_id' => $this->game->id,
+            'competition_id' => $this->cupCompetition->id,
+            'cup_tie_id' => $cupTie->id,
+            'home_team_id' => $this->team1->id,
+            'away_team_id' => $this->team2->id,
+            'played' => true,
+            'home_score' => 2,
+            'away_score' => 1,
+        ]);
+
+        $cupTie->update(['first_leg_match_id' => $cupMatch->id]);
+
+        // Mock the resolver returning null (tie not yet resolved)
+        // This avoids the completeCupTie call which requires aggregate setup
+        $this->cupTieResolverMock
+            ->shouldReceive('resolve')
+            ->once()
+            ->andReturn(null);
+
+        $matches = collect([$cupMatch]);
+        $allPlayers = collect();
+
+        $this->handler->afterMatches($this->game, $matches, $allPlayers);
+
+        // Verify the resolver was called
+        $this->assertTrue(true);
+    }
+
+    public function test_after_matches_skips_completed_ties(): void
+    {
+        $cupTie = CupTie::factory()->create([
+            'game_id' => $this->game->id,
+            'competition_id' => $this->cupCompetition->id,
+            'home_team_id' => $this->team1->id,
+            'away_team_id' => $this->team2->id,
+            'completed' => true, // Already completed
+            'winner_id' => $this->team1->id,
+        ]);
+
+        $cupMatch = GameMatch::factory()->create([
+            'game_id' => $this->game->id,
+            'competition_id' => $this->cupCompetition->id,
+            'cup_tie_id' => $cupTie->id,
+            'played' => true,
+        ]);
+
+        // Resolver should NOT be called for completed ties
+        $this->cupTieResolverMock
+            ->shouldNotReceive('resolve');
+
+        $matches = collect([$cupMatch]);
+        $allPlayers = collect();
+
+        $this->handler->afterMatches($this->game, $matches, $allPlayers);
+
+        $this->assertTrue(true);
+    }
+
+    public function test_get_redirect_route_returns_cup_results(): void
+    {
+        $cupTie = CupTie::factory()->create([
+            'game_id' => $this->game->id,
+            'competition_id' => $this->cupCompetition->id,
+            'round_number' => 1,
+        ]);
+
+        $cupMatch = GameMatch::factory()->create([
+            'game_id' => $this->game->id,
+            'competition_id' => $this->cupCompetition->id,
+            'cup_tie_id' => $cupTie->id,
+            'round_number' => 1,
+        ]);
+
+        $route = $this->handler->getRedirectRoute($this->game, collect([$cupMatch]), 14);
+
+        $this->assertStringContainsString('/game/', $route);
+        $this->assertStringContainsString('/results/ESPCUP/1', $route);
+    }
+
+    public function test_get_redirect_route_uses_match_competition_and_round(): void
+    {
+        $cupTie = CupTie::factory()->create([
+            'game_id' => $this->game->id,
+            'competition_id' => $this->cupCompetition->id,
+            'round_number' => 3,
+        ]);
+
+        $cupMatch = GameMatch::factory()->create([
+            'game_id' => $this->game->id,
+            'competition_id' => $this->cupCompetition->id,
+            'cup_tie_id' => $cupTie->id,
+            'round_number' => 3,
+        ]);
+
+        $route = $this->handler->getRedirectRoute($this->game, collect([$cupMatch]), 1);
+
+        $this->assertStringContainsString('/results/ESPCUP/3', $route);
+    }
+}

@@ -1,0 +1,422 @@
+{
+  "image": "https://assets.virtuafc.com/crests/3505.png",
+  "name": "United States",
+  "players": [
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/626.png",
+        "name": "New England Revolution"
+      },
+      "dateOfBirth": "Jun 24, 1994",
+      "foot": "right",
+      "height": "1,91m",
+      "id": "425306",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "Matt Turner",
+      "overall_score": 74,
+      "position": "Goalkeeper",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/432.png",
+        "name": "Chicago Fire FC"
+      },
+      "dateOfBirth": "Mar 3, 2004",
+      "height": "1,90m",
+      "id": "765504",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "Chris Brady",
+      "overall_score": 69,
+      "position": "Goalkeeper",
+      "potential": 80
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/40058.png",
+        "name": "New York City FC"
+      },
+      "dateOfBirth": "Sep 2, 1998",
+      "height": "1,93m",
+      "id": "500309",
+      "injured": false,
+      "marketValue": "€2.00m",
+      "name": "Matt Freese",
+      "overall_score": 71,
+      "position": "Goalkeeper",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/873.png",
+        "name": "Crystal Palace"
+      },
+      "dateOfBirth": "Mar 28, 2000",
+      "foot": "right",
+      "height": "1,88m",
+      "id": "578539",
+      "injured": false,
+      "marketValue": "€25.00m",
+      "name": "Chris Richards",
+      "overall_score": 79,
+      "position": "Centre-Back",
+      "potential": 81
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/371.png",
+        "name": "Celtic FC"
+      },
+      "dateOfBirth": "Aug 12, 1998",
+      "foot": "left",
+      "height": "1,90m",
+      "id": "389253",
+      "injured": false,
+      "marketValue": "€6.00m",
+      "name": "Auston Trusty",
+      "overall_score": 74,
+      "position": "Centre-Back",
+      "potential": 77
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/415.png",
+        "name": "FC Toulouse"
+      },
+      "dateOfBirth": "Feb 25, 1999",
+      "foot": "right",
+      "height": "1,84m",
+      "id": "429259",
+      "injured": false,
+      "marketValue": "€6.00m",
+      "name": "Mark McKenzie",
+      "overall_score": 74,
+      "position": "Centre-Back",
+      "potential": 77
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/51772.png",
+        "name": "FC Cincinnati"
+      },
+      "dateOfBirth": "Mar 14, 1997",
+      "foot": "right",
+      "height": "1,88m",
+      "id": "468022",
+      "injured": false,
+      "marketValue": "€3.50m",
+      "name": "Miles Robinson",
+      "overall_score": 73,
+      "position": "Centre-Back",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/78435.png",
+        "name": "Charlotte FC"
+      },
+      "dateOfBirth": "Oct 5, 1987",
+      "foot": "left",
+      "height": "1,86m",
+      "id": "145466",
+      "injured": false,
+      "marketValue": "€200k",
+      "name": "Tim Ream",
+      "overall_score": 72,
+      "position": "Centre-Back",
+      "potential": 72
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/931.png",
+        "name": "Fulham FC"
+      },
+      "dateOfBirth": "Aug 8, 1997",
+      "foot": "left",
+      "height": "1,83m",
+      "id": "349701",
+      "injured": false,
+      "marketValue": "€25.00m",
+      "name": "Antonee Robinson",
+      "overall_score": 81,
+      "position": "Left-Back",
+      "potential": 81
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/383.png",
+        "name": "PSV Eindhoven"
+      },
+      "dateOfBirth": "Nov 3, 2000",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "361104",
+      "injured": false,
+      "marketValue": "€18.00m",
+      "name": "Sergiño Dest",
+      "overall_score": 79,
+      "position": "Right-Back",
+      "potential": 83
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/18.png",
+        "name": "Borussia Mönchengladbach"
+      },
+      "dateOfBirth": "Dec 31, 2002",
+      "foot": "right",
+      "height": "1,84m",
+      "id": "504153",
+      "injured": false,
+      "marketValue": "€7.00m",
+      "name": "Joe Scally",
+      "overall_score": 75,
+      "position": "Right-Back",
+      "potential": 78
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1050.png",
+        "name": "Villarreal CF"
+      },
+      "dateOfBirth": "Aug 9, 2004",
+      "height": "1,88m",
+      "id": "985806",
+      "injured": false,
+      "marketValue": "€3.50m",
+      "name": "Alex Freeman",
+      "overall_score": 73,
+      "position": "Right-Back",
+      "potential": 81
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/989.png",
+        "name": "AFC Bournemouth"
+      },
+      "dateOfBirth": "Feb 14, 1999",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "332705",
+      "injured": false,
+      "marketValue": "€25.00m",
+      "name": "Tyler Adams",
+      "overall_score": 79,
+      "position": "Defensive Midfield",
+      "potential": 81
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/506.png",
+        "name": "Juventus FC"
+      },
+      "dateOfBirth": "Aug 28, 1998",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "332697",
+      "injured": false,
+      "marketValue": "€30.00m",
+      "name": "Weston McKennie",
+      "overall_score": 79,
+      "position": "Central Midfield",
+      "potential": 79
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6321.png",
+        "name": "Vancouver Whitecaps FC"
+      },
+      "dateOfBirth": "May 10, 2001",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "734761",
+      "injured": false,
+      "marketValue": "€5.00m",
+      "name": "Sebastian Berhalter",
+      "overall_score": 70,
+      "position": "Central Midfield",
+      "potential": 75
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/9636.png",
+        "name": "Seattle Sounders FC"
+      },
+      "dateOfBirth": "Jun 3, 1995",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "354792",
+      "injured": false,
+      "marketValue": "€3.50m",
+      "name": "Cristian Roldán",
+      "overall_score": 75,
+      "position": "Central Midfield",
+      "potential": 75
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/244.png",
+        "name": "Olympique Marseille"
+      },
+      "dateOfBirth": "Feb 22, 2000",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "370846",
+      "injured": false,
+      "marketValue": "€20.00m",
+      "name": "Timothy Weah",
+      "overall_score": 77,
+      "position": "Right Midfield",
+      "potential": 78
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/15.png",
+        "name": "Bayer 04 Leverkusen"
+      },
+      "dateOfBirth": "May 28, 2002",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "467437",
+      "injured": false,
+      "marketValue": "€30.00m",
+      "name": "Malik Tillman",
+      "overall_score": 79,
+      "position": "Attacking Midfield",
+      "potential": 84
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/399.png",
+        "name": "Leeds United"
+      },
+      "dateOfBirth": "Oct 22, 2000",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "393323",
+      "injured": false,
+      "marketValue": "€18.00m",
+      "name": "Brenden Aaronson",
+      "overall_score": 76,
+      "position": "Attacking Midfield",
+      "potential": 79
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/18.png",
+        "name": "Borussia Mönchengladbach"
+      },
+      "dateOfBirth": "Nov 13, 2002",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "504215",
+      "injured": false,
+      "marketValue": "€4.00m",
+      "name": "Giovanni Reyna",
+      "overall_score": 73,
+      "position": "Attacking Midfield",
+      "potential": 78
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/813.png",
+        "name": "Columbus Crew"
+      },
+      "dateOfBirth": "Apr 19, 2001",
+      "foot": "left",
+      "height": "1,85m",
+      "id": "993063",
+      "injured": false,
+      "marketValue": "€4.50m",
+      "name": "Max Arfsten",
+      "overall_score": 72,
+      "position": "Left Winger",
+      "potential": 75
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/5.png",
+        "name": "AC Milan"
+      },
+      "dateOfBirth": "Sep 18, 1998",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "315779",
+      "injured": false,
+      "marketValue": "€50.00m",
+      "name": "Christian Pulisic",
+      "overall_score": 85,
+      "position": "Right Winger",
+      "potential": 85
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/3631.png",
+        "name": "CF América"
+      },
+      "dateOfBirth": "Feb 7, 1998",
+      "foot": "left",
+      "height": "1,67m",
+      "id": "351505",
+      "injured": false,
+      "marketValue": "€10.00m",
+      "name": "Álex Zendejas",
+      "overall_score": 77,
+      "position": "Right Winger",
+      "potential": 77
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/162.png",
+        "name": "AS Monaco"
+      },
+      "dateOfBirth": "Jul 3, 2001",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "503770",
+      "injured": false,
+      "marketValue": "€30.00m",
+      "name": "Folarin Balogun",
+      "overall_score": 79,
+      "position": "Centre-Forward",
+      "potential": 83
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/383.png",
+        "name": "PSV Eindhoven"
+      },
+      "dateOfBirth": "Jan 9, 2003",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "627207",
+      "injured": false,
+      "marketValue": "€25.00m",
+      "name": "Ricardo Pepi",
+      "overall_score": 76,
+      "position": "Centre-Forward",
+      "potential": 84
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/990.png",
+        "name": "Coventry City"
+      },
+      "dateOfBirth": "Mar 27, 1998",
+      "foot": "right",
+      "height": "1,91m",
+      "id": "315291",
+      "injured": false,
+      "marketValue": "€14.00m",
+      "name": "Haji Wright",
+      "overall_score": 74,
+      "position": "Centre-Forward",
+      "potential": 74
+    }
+  ],
+  "stadiumName": null,
+  "stadiumSeats": null,
+  "transfermarktId": "3505"
+}

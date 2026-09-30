@@ -1,0 +1,422 @@
+{
+  "image": "https://assets.virtuafc.com/crests/3614.png",
+  "name": "Algeria",
+  "players": [
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/16795.png",
+        "name": "Granada CF"
+      },
+      "dateOfBirth": "May 13, 1998",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "283489",
+      "injured": false,
+      "marketValue": "€1.00m",
+      "name": "Luca Zidane",
+      "overall_score": 68,
+      "position": "Goalkeeper",
+      "potential": 71
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6772.png",
+        "name": "USM Alger"
+      },
+      "dateOfBirth": "Oct 11, 1994",
+      "height": "1,90m",
+      "id": "437982",
+      "injured": false,
+      "marketValue": "€850k",
+      "name": "Oussama Benbout",
+      "overall_score": 65,
+      "position": "Goalkeeper",
+      "potential": 65
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/5507.png",
+        "name": "FC Stade Nyonnais"
+      },
+      "dateOfBirth": "Feb 19, 2000",
+      "foot": "right",
+      "height": "1,94m",
+      "id": "534398",
+      "injured": false,
+      "marketValue": "€250k",
+      "name": "Melvin Mastil",
+      "overall_score": 61,
+      "position": "Goalkeeper",
+      "potential": 65
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/16.png",
+        "name": "Borussia Dortmund"
+      },
+      "dateOfBirth": "Apr 16, 1995",
+      "foot": "left",
+      "height": "1,87m",
+      "id": "284732",
+      "injured": false,
+      "marketValue": "€7.00m",
+      "name": "Ramy Bensebaini",
+      "overall_score": 79,
+      "position": "Centre-Back",
+      "potential": 79
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/10004.png",
+        "name": "Paris FC"
+      },
+      "dateOfBirth": "Feb 6, 1999",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "668167",
+      "injured": false,
+      "marketValue": "€3.00m",
+      "name": "Samir Chergui",
+      "overall_score": 70,
+      "position": "Centre-Back",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/13366.png",
+        "name": "JS Kabylie"
+      },
+      "dateOfBirth": "Mar 20, 1999",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "625142",
+      "injured": false,
+      "marketValue": "€1.50m",
+      "name": "Zineddine Belaid",
+      "overall_score": 68,
+      "position": "Centre-Back",
+      "potential": 71
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/3342.png",
+        "name": "Esperance Tunis"
+      },
+      "dateOfBirth": "Jan 22, 2000",
+      "foot": "right",
+      "height": "1,91m",
+      "id": "592396",
+      "injured": false,
+      "marketValue": "€1.30m",
+      "name": "Mohamed Amine Tougai",
+      "overall_score": 68,
+      "position": "Centre-Back",
+      "potential": 75
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1082.png",
+        "name": "LOSC Lille"
+      },
+      "dateOfBirth": "Oct 22, 1991",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "80293",
+      "injured": false,
+      "marketValue": "€1.00m",
+      "name": "Aïssa Mandi",
+      "overall_score": 77,
+      "position": "Centre-Back",
+      "potential": 77
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6772.png",
+        "name": "USM Alger"
+      },
+      "dateOfBirth": "Jun 15, 1999",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "949929",
+      "injured": false,
+      "marketValue": "€1.00m",
+      "name": "Achref Abada",
+      "overall_score": 65,
+      "position": "Centre-Back",
+      "potential": 68
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/281.png",
+        "name": "Manchester City"
+      },
+      "dateOfBirth": "Jun 6, 2001",
+      "foot": "left",
+      "height": "1,80m",
+      "id": "578391",
+      "injured": false,
+      "marketValue": "€40.00m",
+      "name": "Rayan Aït-Nouri",
+      "overall_score": 81,
+      "position": "Left-Back",
+      "potential": 85
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/452.png",
+        "name": "BSC Young Boys"
+      },
+      "dateOfBirth": "Mar 26, 2003",
+      "foot": "left",
+      "height": "1,85m",
+      "id": "750903",
+      "injured": false,
+      "marketValue": "€8.00m",
+      "name": "Jaouen Hadjam",
+      "overall_score": 69,
+      "position": "Left-Back",
+      "potential": 77
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/276.png",
+        "name": "Hellas Verona"
+      },
+      "dateOfBirth": "Jun 7, 2002",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "864306",
+      "injured": false,
+      "marketValue": "€7.00m",
+      "name": "Rafik Belghali",
+      "overall_score": 70,
+      "position": "Right-Back",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/317.png",
+        "name": "FC Twente Enschede"
+      },
+      "dateOfBirth": "May 26, 1998",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "416660",
+      "injured": false,
+      "marketValue": "€6.50m",
+      "name": "Ramiz Zerrouki",
+      "overall_score": 73,
+      "position": "Defensive Midfield",
+      "potential": 76
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1082.png",
+        "name": "LOSC Lille"
+      },
+      "dateOfBirth": "Nov 24, 1994",
+      "foot": "left",
+      "height": "1,87m",
+      "id": "245537",
+      "injured": false,
+      "marketValue": "€5.00m",
+      "name": "Nabil Bentaleb",
+      "overall_score": 77,
+      "position": "Defensive Midfield",
+      "potential": 77
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/417.png",
+        "name": "OGC Nice"
+      },
+      "dateOfBirth": "Sep 23, 1999",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "560593",
+      "injured": false,
+      "marketValue": "€12.00m",
+      "name": "Hicham Boudaoui",
+      "overall_score": 76,
+      "position": "Central Midfield",
+      "potential": 79
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/172.png",
+        "name": "Royal Charleroi SC"
+      },
+      "dateOfBirth": "Jul 26, 2003",
+      "height": "1,70m",
+      "id": "748445",
+      "injured": false,
+      "marketValue": "€7.00m",
+      "name": "Yassine Titraoui",
+      "overall_score": 69,
+      "position": "Central Midfield",
+      "potential": 79
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/15.png",
+        "name": "Bayer 04 Leverkusen"
+      },
+      "dateOfBirth": "Nov 24, 2005",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "905011",
+      "injured": false,
+      "marketValue": "€45.00m",
+      "name": "Ibrahim Maza",
+      "overall_score": 79,
+      "position": "Attacking Midfield",
+      "potential": 87
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/24.png",
+        "name": "Eintracht Frankfurt"
+      },
+      "dateOfBirth": "Nov 28, 2002",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "855015",
+      "injured": false,
+      "marketValue": "€15.00m",
+      "name": "Farès Chaïbi",
+      "overall_score": 76,
+      "position": "Attacking Midfield",
+      "potential": 81
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/8023.png",
+        "name": "Al-Ittihad Club"
+      },
+      "dateOfBirth": "Jun 30, 1998",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "395693",
+      "injured": false,
+      "marketValue": "€8.00m",
+      "name": "Houssem Aouar",
+      "overall_score": 77,
+      "position": "Attacking Midfield",
+      "potential": 78
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/26091.png",
+        "name": "Al-Duhail SC"
+      },
+      "dateOfBirth": "May 2, 2003",
+      "foot": "right",
+      "id": "748443",
+      "injured": false,
+      "marketValue": "€3.00m",
+      "name": "Adil Boulbina",
+      "overall_score": 66,
+      "position": "Left Winger",
+      "potential": 69
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/234.png",
+        "name": "Feyenoord Rotterdam"
+      },
+      "dateOfBirth": "Feb 11, 2002",
+      "foot": "left",
+      "height": "1,76m",
+      "id": "917911",
+      "injured": false,
+      "marketValue": "€23.00m",
+      "name": "Anis Hadj Moussa",
+      "overall_score": 76,
+      "position": "Right Winger",
+      "potential": 82
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/18487.png",
+        "name": "Al-Ahli SFC"
+      },
+      "dateOfBirth": "Feb 21, 1991",
+      "foot": "left",
+      "height": "1,79m",
+      "id": "171424",
+      "injured": false,
+      "marketValue": "€7.00m",
+      "name": "Riyad Mahrez",
+      "overall_score": 84,
+      "position": "Right Winger",
+      "potential": 84
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/8970.png",
+        "name": "Frosinone Calcio"
+      },
+      "dateOfBirth": "Sep 6, 2002",
+      "foot": "left",
+      "height": "1,83m",
+      "id": "888738",
+      "injured": false,
+      "marketValue": "€5.50m",
+      "name": "Farès Ghedjemis",
+      "overall_score": 70,
+      "position": "Right Winger",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/244.png",
+        "name": "Olympique Marseille"
+      },
+      "dateOfBirth": "Feb 16, 2000",
+      "foot": "right",
+      "height": "1,81m",
+      "id": "418659",
+      "injured": false,
+      "marketValue": "€28.00m",
+      "name": "Amine Gouiri",
+      "overall_score": 79,
+      "position": "Centre-Forward",
+      "potential": 82
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/82.png",
+        "name": "VfL Wolfsburg"
+      },
+      "dateOfBirth": "May 9, 2000",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "746910",
+      "injured": false,
+      "marketValue": "€20.00m",
+      "name": "Mohamed Amoura",
+      "overall_score": 80,
+      "position": "Centre-Forward",
+      "potential": 83
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6055.png",
+        "name": "ETO FC"
+      },
+      "dateOfBirth": "Apr 17, 2000",
+      "foot": "left",
+      "height": "1,90m",
+      "id": "840254",
+      "injured": false,
+      "marketValue": "€1.20m",
+      "name": "Nadhir Benbouali",
+      "overall_score": 66,
+      "position": "Centre-Forward",
+      "potential": 69
+    }
+  ],
+  "stadiumName": null,
+  "stadiumSeats": null,
+  "transfermarktId": "3614"
+}

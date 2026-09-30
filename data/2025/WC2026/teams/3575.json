@@ -1,0 +1,425 @@
+{
+  "image": "https://assets.virtuafc.com/crests/3575.png",
+  "name": "Morocco",
+  "players": [
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1114.png",
+        "name": "Al-Hilal SFC"
+      },
+      "dateOfBirth": "Apr 5, 1991",
+      "foot": "left",
+      "height": "1,95m",
+      "id": "207834",
+      "injured": false,
+      "marketValue": "€3.50m",
+      "name": "Yassine Bounou",
+      "overall_score": 82,
+      "position": "Goalkeeper",
+      "potential": 82
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/9099.png",
+        "name": "AS FAR Rabat"
+      },
+      "dateOfBirth": "Apr 5, 1996",
+      "foot": "right",
+      "height": "1,92m",
+      "id": "238997",
+      "injured": false,
+      "marketValue": "€800k",
+      "name": "Ahmed Reda Tagnaouti",
+      "overall_score": 70,
+      "position": "Goalkeeper",
+      "potential": 70
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/37176.png",
+        "name": "Renaissance de Berkane"
+      },
+      "dateOfBirth": "May 10, 1989",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "97925",
+      "injured": false,
+      "marketValue": "€700k",
+      "name": "Munir El Kajoui",
+      "overall_score": 72,
+      "position": "Goalkeeper",
+      "potential": 72
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/244.png",
+        "name": "Olympique Marseille"
+      },
+      "dateOfBirth": "Mar 30, 1996",
+      "foot": "left",
+      "height": "1,90m",
+      "id": "361914",
+      "injured": false,
+      "marketValue": "€20.00m",
+      "name": "Nayef Aguerd",
+      "overall_score": 81,
+      "position": "Centre-Back",
+      "potential": 81
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/873.png",
+        "name": "Crystal Palace"
+      },
+      "dateOfBirth": "Jun 17, 2003",
+      "foot": "left",
+      "height": "1,87m",
+      "id": "689637",
+      "injured": false,
+      "marketValue": "€12.00m",
+      "name": "Chadi Riad",
+      "overall_score": 72,
+      "position": "Centre-Back",
+      "potential": 81
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/931.png",
+        "name": "Fulham FC"
+      },
+      "dateOfBirth": "Jan 9, 1997",
+      "foot": "right",
+      "height": "1,94m",
+      "id": "272622",
+      "injured": false,
+      "marketValue": "€10.00m",
+      "name": "Issa Diop",
+      "overall_score": 76,
+      "position": "Centre-Back",
+      "potential": 77
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/354.png",
+        "name": "KV Mechelen"
+      },
+      "dateOfBirth": "Mar 5, 2003",
+      "foot": "right",
+      "height": "1,91m",
+      "id": "913660",
+      "injured": false,
+      "marketValue": "€3.00m",
+      "name": "Redouane Halhal",
+      "overall_score": 66,
+      "position": "Centre-Back",
+      "potential": 76
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/383.png",
+        "name": "PSV Eindhoven"
+      },
+      "dateOfBirth": "Jan 18, 2002",
+      "foot": "left",
+      "height": "1,81m",
+      "id": "485584",
+      "injured": false,
+      "marketValue": "€12.00m",
+      "name": "Anass Salah-Eddine",
+      "overall_score": 75,
+      "position": "Left-Back",
+      "potential": 81
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/7.png",
+        "name": "Al Ahly FC"
+      },
+      "dateOfBirth": "Sep 20, 1998",
+      "foot": "left",
+      "height": "1,83m",
+      "id": "518804",
+      "injured": false,
+      "marketValue": "€1.20m",
+      "name": "Youssef Belammari",
+      "overall_score": 66,
+      "position": "Left-Back",
+      "potential": 67
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/583.png",
+        "name": "Paris Saint-Germain"
+      },
+      "dateOfBirth": "Nov 4, 1998",
+      "foot": "right",
+      "height": "1,81m",
+      "id": "398073",
+      "injured": false,
+      "marketValue": "€80.00m",
+      "name": "Achraf Hakimi",
+      "overall_score": 89,
+      "position": "Right-Back",
+      "potential": 90
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/985.png",
+        "name": "Manchester United"
+      },
+      "dateOfBirth": "Nov 14, 1997",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "340456",
+      "injured": false,
+      "marketValue": "€20.00m",
+      "name": "Noussair Mazraoui",
+      "overall_score": 80,
+      "position": "Right-Back",
+      "potential": 80
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1184.png",
+        "name": "KRC Genk"
+      },
+      "dateOfBirth": "Dec 31, 2001",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "820474",
+      "injured": false,
+      "marketValue": "€15.00m",
+      "name": "Zakaria El Ouahdi",
+      "overall_score": 78,
+      "position": "Right-Back",
+      "potential": 85
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/150.png",
+        "name": "Real Betis Balompié"
+      },
+      "dateOfBirth": "Aug 21, 1996",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "287579",
+      "injured": false,
+      "marketValue": "€12.00m",
+      "name": "Sofyan Amrabat",
+      "overall_score": 79,
+      "position": "Defensive Midfield",
+      "potential": 79
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1082.png",
+        "name": "LOSC Lille"
+      },
+      "dateOfBirth": "Oct 2, 2007",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "1097139",
+      "injured": false,
+      "marketValue": "€50.00m",
+      "name": "Ayyoub Bouaddi",
+      "overall_score": 78,
+      "position": "Central Midfield",
+      "potential": 86
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/12.png",
+        "name": "AS Roma"
+      },
+      "dateOfBirth": "Jul 2, 2001",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "901019",
+      "injured": false,
+      "marketValue": "€20.00m",
+      "name": "Neil El Aynaoui",
+      "overall_score": 76,
+      "position": "Central Midfield",
+      "potential": 81
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/667.png",
+        "name": "RC Strasbourg Alsace"
+      },
+      "dateOfBirth": "Oct 6, 2005",
+      "foot": "left",
+      "height": "1,86m",
+      "id": "1130514",
+      "injured": false,
+      "marketValue": "€18.00m",
+      "name": "Samir El Mourabet",
+      "overall_score": 73,
+      "position": "Central Midfield",
+      "potential": 82
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/12321.png",
+        "name": "Girona FC"
+      },
+      "dateOfBirth": "Apr 19, 2000",
+      "foot": "right",
+      "height": "1,82m",
+      "id": "593482",
+      "injured": false,
+      "marketValue": "€10.00m",
+      "name": "Azzedine Ounahi",
+      "overall_score": 79,
+      "position": "Central Midfield",
+      "potential": 82
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/79.png",
+        "name": "VfB Stuttgart"
+      },
+      "dateOfBirth": "May 10, 2004",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "654982",
+      "injured": false,
+      "marketValue": "€35.00m",
+      "name": "Bilal El Khannouss",
+      "overall_score": 78,
+      "position": "Attacking Midfield",
+      "potential": 84
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/383.png",
+        "name": "PSV Eindhoven"
+      },
+      "dateOfBirth": "Jan 28, 2001",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "702869",
+      "injured": false,
+      "marketValue": "€32.00m",
+      "name": "Ismael Saibari",
+      "overall_score": 80,
+      "position": "Attacking Midfield",
+      "potential": 85
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/150.png",
+        "name": "Real Betis Balompié"
+      },
+      "dateOfBirth": "Dec 17, 2001",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "724520",
+      "injured": false,
+      "marketValue": "€30.00m",
+      "name": "Abde Ezzalzouli",
+      "overall_score": 80,
+      "position": "Left Winger",
+      "potential": 84
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2150.png",
+        "name": "Al-Ain FC"
+      },
+      "dateOfBirth": "Jun 2, 1996",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "598506",
+      "injured": false,
+      "marketValue": "€6.00m",
+      "name": "Soufiane Rahimi",
+      "overall_score": 77,
+      "position": "Left Winger",
+      "potential": 77
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/418.png",
+        "name": "Real Madrid"
+      },
+      "dateOfBirth": "Aug 3, 1999",
+      "foot": "both",
+      "height": "1,70m",
+      "id": "314678",
+      "injured": false,
+      "marketValue": "€35.00m",
+      "name": "Brahim Díaz",
+      "overall_score": 81,
+      "position": "Right Winger",
+      "potential": 82
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/289.png",
+        "name": "Sunderland AFC"
+      },
+      "dateOfBirth": "May 9, 2005",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "743384",
+      "injured": false,
+      "marketValue": "€25.00m",
+      "name": "Chemsdine Talbi",
+      "overall_score": 76,
+      "position": "Right Winger",
+      "potential": 86
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/24.png",
+        "name": "Eintracht Frankfurt"
+      },
+      "dateOfBirth": "Nov 30, 2004",
+      "foot": "left",
+      "height": "1,79m",
+      "id": "799993",
+      "injured": false,
+      "marketValue": "€10.00m",
+      "name": "Ayoube Amaimouni-Echghouyab",
+      "overall_score": 70,
+      "position": "Right Winger",
+      "potential": 83
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/667.png",
+        "name": "RC Strasbourg Alsace"
+      },
+      "dateOfBirth": "Nov 22, 2005",
+      "foot": "left",
+      "height": "1,72m",
+      "id": "1151929",
+      "injured": false,
+      "marketValue": "€10.00m",
+      "name": "Gessime Yassine",
+      "overall_score": 70,
+      "position": "Right Winger",
+      "potential": 83
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/683.png",
+        "name": "Olympiacos Piraeus"
+      },
+      "dateOfBirth": "Jun 25, 1993",
+      "foot": "left",
+      "height": "1,82m",
+      "id": "521127",
+      "injured": false,
+      "marketValue": "€5.00m",
+      "name": "Ayoub El Kaabi",
+      "overall_score": 80,
+      "position": "Centre-Forward",
+      "potential": 80
+    }
+  ],
+  "stadiumName": null,
+  "stadiumSeats": null,
+  "transfermarktId": "3575"
+}

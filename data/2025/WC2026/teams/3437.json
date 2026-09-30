@@ -1,0 +1,940 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/3437.png",
+  "name": "Argentina",
+  "players": [
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/405.png",
+        "name": "Aston Villa"
+      },
+      "dateOfBirth": "Sep 2, 1992",
+      "foot": "right",
+      "height": "1,95m",
+      "id": "111873",
+      "injured": false,
+      "marketValue": "€15.00m",
+      "name": "Emiliano Martínez",
+      "overall_score": 85,
+      "position": "Goalkeeper",
+      "potential": 85
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/244.png",
+        "name": "Olympique Marseille"
+      },
+      "dateOfBirth": "May 20, 1992",
+      "foot": "right",
+      "height": "1,89m",
+      "id": "229604",
+      "injured": false,
+      "marketValue": "€8.00m",
+      "name": "Gerónimo Rulli",
+      "overall_score": 81,
+      "position": "Goalkeeper",
+      "potential": 81
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/13.png",
+        "name": "Atlético de Madrid"
+      },
+      "dateOfBirth": "May 6, 1994",
+      "foot": "right",
+      "height": "1,91m",
+      "id": "242359",
+      "injured": false,
+      "marketValue": "€3.00m",
+      "name": "Juan Musso",
+      "overall_score": 80,
+      "position": "Goalkeeper",
+      "potential": 80
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/873.png",
+        "name": "Crystal Palace"
+      },
+      "dateOfBirth": "Jan 19, 1993",
+      "foot": "right",
+      "height": "1,91m",
+      "id": "296802",
+      "injured": false,
+      "marketValue": "€12.00m",
+      "name": "Walter Benítez",
+      "overall_score": 78,
+      "position": "Goalkeeper",
+      "potential": 78
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1444.png",
+        "name": "Racing Club"
+      },
+      "dateOfBirth": "Apr 9, 1997",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "435001",
+      "injured": false,
+      "marketValue": "€2.20m",
+      "name": "Facundo Cambeses",
+      "overall_score": 76,
+      "position": "Goalkeeper",
+      "potential": 78
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/209.png",
+        "name": "CA River Plate"
+      },
+      "dateOfBirth": "Oct 4, 2004",
+      "foot": "left",
+      "height": "1,90m",
+      "id": "1138089",
+      "injured": false,
+      "marketValue": "€1.50m",
+      "name": "Santiago Beltrán",
+      "overall_score": 66,
+      "position": "Goalkeeper",
+      "potential": 76
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/294.png",
+        "name": "SL Benfica"
+      },
+      "dateOfBirth": "Feb 12, 1988",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "54781",
+      "injured": false,
+      "marketValue": "€1.00m",
+      "name": "Nicolás Otamendi",
+      "overall_score": 80,
+      "position": "Centre-Back",
+      "potential": 80
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1041.png",
+        "name": "Olympique Lyon"
+      },
+      "dateOfBirth": "Aug 31, 1992",
+      "foot": "left",
+      "height": "1,71m",
+      "id": "131225",
+      "injured": false,
+      "marketValue": "€5.00m",
+      "name": "Nicolás Tagliafico",
+      "overall_score": 78,
+      "position": "Left-Back",
+      "potential": 78
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/209.png",
+        "name": "CA River Plate"
+      },
+      "dateOfBirth": "Oct 28, 1991",
+      "foot": "left",
+      "height": "1,72m",
+      "id": "60410",
+      "injured": false,
+      "marketValue": "€1.20m",
+      "name": "Marcos Acuña",
+      "overall_score": 76,
+      "position": "Left-Back",
+      "potential": 76
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/13.png",
+        "name": "Atlético de Madrid"
+      },
+      "dateOfBirth": "Apr 6, 1998",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "424042",
+      "injured": false,
+      "marketValue": "€15.00m",
+      "name": "Nahuel Molina",
+      "overall_score": 77,
+      "position": "Right-Back",
+      "potential": 77
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/148.png",
+        "name": "Tottenham Hotspur"
+      },
+      "dateOfBirth": "Apr 27, 1998",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "355915",
+      "injured": false,
+      "marketValue": "€50.00m",
+      "name": "Cristian Romero",
+      "overall_score": 82,
+      "position": "Centre-Back",
+      "potential": 84
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/209.png",
+        "name": "CA River Plate"
+      },
+      "dateOfBirth": "Jun 27, 1991",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "113133",
+      "injured": false,
+      "marketValue": "€2.70m",
+      "name": "Germán Pezzella",
+      "overall_score": 73,
+      "position": "Centre-Back",
+      "potential": 73
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/209.png",
+        "name": "CA River Plate"
+      },
+      "dateOfBirth": "Jan 1, 1997",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "402733",
+      "injured": false,
+      "marketValue": "€5.00m",
+      "name": "Gonzalo Montiel",
+      "overall_score": 76,
+      "position": "Right-Back",
+      "potential": 76
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/985.png",
+        "name": "Manchester United"
+      },
+      "dateOfBirth": "Jan 18, 1998",
+      "foot": "left",
+      "height": "1,75m",
+      "id": "480762",
+      "injured": false,
+      "marketValue": "€35.00m",
+      "name": "Lisandro Martínez",
+      "overall_score": 81,
+      "position": "Centre-Back",
+      "potential": 82
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/209.png",
+        "name": "CA River Plate"
+      },
+      "dateOfBirth": "May 10, 1996",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "373373",
+      "injured": false,
+      "marketValue": "€4.50m",
+      "name": "Lucas Martínez Quarta",
+      "overall_score": 75,
+      "position": "Centre-Back",
+      "potential": 75
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/244.png",
+        "name": "Olympique Marseille"
+      },
+      "dateOfBirth": "Jan 26, 1999",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "575998",
+      "injured": false,
+      "marketValue": "€20.00m",
+      "name": "Leonardo Balerdi",
+      "overall_score": 80,
+      "position": "Centre-Back",
+      "potential": 83
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/244.png",
+        "name": "Olympique Marseille"
+      },
+      "dateOfBirth": "May 28, 1999",
+      "foot": "left",
+      "height": "1,84m",
+      "id": "474800",
+      "injured": false,
+      "marketValue": "€25.00m",
+      "name": "Facundo Medina",
+      "overall_score": 79,
+      "position": "Centre-Back",
+      "potential": 83
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/989.png",
+        "name": "AFC Bournemouth"
+      },
+      "dateOfBirth": "May 10, 1997",
+      "foot": "left",
+      "height": "1,84m",
+      "id": "469781",
+      "injured": false,
+      "marketValue": "€22.00m",
+      "name": "Marcos Senesi",
+      "overall_score": 81,
+      "position": "Centre-Back",
+      "potential": 81
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1023.png",
+        "name": "SE Palmeiras"
+      },
+      "dateOfBirth": "Jan 16, 2004",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "849582",
+      "injured": false,
+      "marketValue": "€10.00m",
+      "name": "Agustín Giay",
+      "position": "Right-Back"
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/3948.png",
+        "name": "Union Saint-Gilloise"
+      },
+      "dateOfBirth": "Nov 7, 1997",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "428920",
+      "injured": false,
+      "marketValue": "€6.00m",
+      "name": "Kevin Mac Allister",
+      "overall_score": 78,
+      "position": "Centre-Back",
+      "potential": 78
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1444.png",
+        "name": "Racing Club"
+      },
+      "dateOfBirth": "Jun 22, 1997",
+      "foot": "left",
+      "height": "1,73m",
+      "id": "471639",
+      "injured": false,
+      "marketValue": "€4.00m",
+      "name": "Gabriel Rojas",
+      "overall_score": 77,
+      "position": "Left-Back",
+      "potential": 77
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/41.png",
+        "name": "Hamburger SV"
+      },
+      "dateOfBirth": "Sep 14, 1998",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "649672",
+      "injured": false,
+      "marketValue": "€4.00m",
+      "name": "Nicolás Capaldo",
+      "overall_score": 73,
+      "position": "Central Midfield",
+      "potential": 74
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/189.png",
+        "name": "CA Boca Juniors"
+      },
+      "dateOfBirth": "Mar 10, 2004",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "1019744",
+      "injured": false,
+      "marketValue": "€6.00m",
+      "name": "Lautaro Di Lollo",
+      "overall_score": 75,
+      "position": "Centre-Back",
+      "potential": 80
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/3709.png",
+        "name": "Getafe CF"
+      },
+      "dateOfBirth": "Dec 15, 1999",
+      "foot": "left",
+      "height": "1,92m",
+      "id": "741142",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "Zaid Romero",
+      "overall_score": 74,
+      "position": "Centre-Back",
+      "potential": 77
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/69261.png",
+        "name": "Inter Miami CF"
+      },
+      "dateOfBirth": "May 24, 1994",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "255901",
+      "injured": false,
+      "marketValue": "€15.00m",
+      "name": "Rodrigo De Paul",
+      "overall_score": 83,
+      "position": "Central Midfield",
+      "potential": 83
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/189.png",
+        "name": "CA Boca Juniors"
+      },
+      "dateOfBirth": "Jun 29, 1994",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "166237",
+      "injured": false,
+      "marketValue": "€5.00m",
+      "name": "Leandro Paredes",
+      "overall_score": 81,
+      "position": "Defensive Midfield",
+      "potential": 81
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/150.png",
+        "name": "Real Betis Balompié"
+      },
+      "dateOfBirth": "Apr 9, 1996",
+      "foot": "left",
+      "height": "1,77m",
+      "id": "348795",
+      "injured": false,
+      "marketValue": "€20.00m",
+      "name": "Giovani Lo Celso",
+      "overall_score": 81,
+      "position": "Attacking Midfield",
+      "potential": 81
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/31.png",
+        "name": "Liverpool FC"
+      },
+      "dateOfBirth": "Dec 24, 1998",
+      "foot": "right",
+      "height": "1,76m",
+      "id": "534033",
+      "injured": false,
+      "marketValue": "€80.00m",
+      "name": "Alexis Mac Allister",
+      "overall_score": 85,
+      "position": "Central Midfield",
+      "potential": 86
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/631.png",
+        "name": "Chelsea FC"
+      },
+      "dateOfBirth": "Jan 17, 2001",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "648195",
+      "injured": false,
+      "marketValue": "€90.00m",
+      "name": "Enzo Fernández",
+      "overall_score": 85,
+      "position": "Central Midfield",
+      "potential": 88
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/15.png",
+        "name": "Bayer 04 Leverkusen"
+      },
+      "dateOfBirth": "Oct 5, 1998",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "401578",
+      "injured": false,
+      "marketValue": "€30.00m",
+      "name": "Exequiel Palacios",
+      "overall_score": 83,
+      "position": "Central Midfield",
+      "potential": 83
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1049.png",
+        "name": "Valencia CF"
+      },
+      "dateOfBirth": "Apr 12, 1994",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "342385",
+      "injured": false,
+      "marketValue": "€5.00m",
+      "name": "Guido Rodríguez",
+      "overall_score": 76,
+      "position": "Defensive Midfield",
+      "potential": 76
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/13.png",
+        "name": "Atlético de Madrid"
+      },
+      "dateOfBirth": "Apr 26, 2001",
+      "foot": "right",
+      "height": "1,71m",
+      "id": "576028",
+      "injured": false,
+      "marketValue": "€20.00m",
+      "name": "Thiago Almada",
+      "overall_score": 78,
+      "position": "Left Winger",
+      "potential": 83
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/148.png",
+        "name": "Tottenham Hotspur"
+      },
+      "dateOfBirth": "Jun 28, 1998",
+      "foot": "right",
+      "height": "1,79m",
+      "id": "497291",
+      "injured": false,
+      "marketValue": "€16.00m",
+      "name": "Nicolás Domínguez",
+      "overall_score": 78,
+      "position": "Central Midfield",
+      "potential": 79
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/13.png",
+        "name": "Atlético de Madrid"
+      },
+      "dateOfBirth": "Dec 18, 2002",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "742201",
+      "injured": false,
+      "marketValue": "€40.00m",
+      "name": "Giuliano Simeone",
+      "overall_score": 82,
+      "position": "Right Winger",
+      "potential": 86
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1047.png",
+        "name": "Como 1907"
+      },
+      "dateOfBirth": "Sep 8, 2004",
+      "foot": "left",
+      "height": "1,86m",
+      "id": "948294",
+      "injured": false,
+      "marketValue": "€65.00m",
+      "name": "Nico Paz",
+      "overall_score": 82,
+      "position": "Attacking Midfield",
+      "potential": 89
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/667.png",
+        "name": "RC Strasbourg Alsace"
+      },
+      "dateOfBirth": "Jul 23, 2004",
+      "foot": "left",
+      "height": "1,70m",
+      "id": "849410",
+      "injured": false,
+      "marketValue": "€35.00m",
+      "name": "Valentín Barco",
+      "overall_score": 78,
+      "position": "Central Midfield",
+      "potential": 84
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/405.png",
+        "name": "Aston Villa"
+      },
+      "dateOfBirth": "Dec 25, 1996",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "321247",
+      "injured": false,
+      "marketValue": "€18.00m",
+      "name": "Emiliano Buendía",
+      "overall_score": 78,
+      "position": "Attacking Midfield",
+      "potential": 78
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1047.png",
+        "name": "Como 1907"
+      },
+      "dateOfBirth": "Jan 7, 2003",
+      "foot": "left",
+      "height": "1,77m",
+      "id": "668547",
+      "injured": false,
+      "marketValue": "€30.00m",
+      "name": "Máximo Perrone",
+      "overall_score": 76,
+      "position": "Defensive Midfield",
+      "potential": 84
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/209.png",
+        "name": "CA River Plate"
+      },
+      "dateOfBirth": "May 13, 1999",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "642758",
+      "injured": false,
+      "marketValue": "€11.00m",
+      "name": "Aníbal Moreno",
+      "overall_score": 77,
+      "position": "Defensive Midfield",
+      "potential": 77
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/189.png",
+        "name": "CA Boca Juniors"
+      },
+      "dateOfBirth": "Jun 16, 2005",
+      "foot": "right",
+      "height": "1,66m",
+      "id": "1236677",
+      "injured": false,
+      "marketValue": "€7.00m",
+      "name": "Milton Delgado",
+      "overall_score": 73,
+      "position": "Defensive Midfield",
+      "potential": 82
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/15.png",
+        "name": "Bayer 04 Leverkusen"
+      },
+      "dateOfBirth": "Jul 25, 2002",
+      "foot": "left",
+      "height": "1,78m",
+      "id": "664708",
+      "injured": false,
+      "marketValue": "€25.00m",
+      "name": "Equi Fernández",
+      "overall_score": 76,
+      "position": "Defensive Midfield",
+      "potential": 84
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/720.png",
+        "name": "FC Porto"
+      },
+      "dateOfBirth": "Jul 4, 2001",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "756990",
+      "injured": false,
+      "marketValue": "€35.00m",
+      "name": "Alan Varela",
+      "overall_score": 80,
+      "position": "Defensive Midfield",
+      "potential": 85
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/69261.png",
+        "name": "Inter Miami CF"
+      },
+      "dateOfBirth": "Jun 24, 1987",
+      "foot": "left",
+      "height": "1,70m",
+      "id": "28003",
+      "injured": false,
+      "marketValue": "€15.00m",
+      "name": "Lionel Messi",
+      "overall_score": 86,
+      "position": "Right Winger",
+      "potential": 86
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/46.png",
+        "name": "Inter Milan"
+      },
+      "dateOfBirth": "Aug 22, 1997",
+      "foot": "right",
+      "height": "1,74m",
+      "id": "406625",
+      "injured": false,
+      "marketValue": "€100.00m",
+      "name": "Lautaro Martínez",
+      "overall_score": 88,
+      "position": "Centre-Forward",
+      "potential": 88
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/13.png",
+        "name": "Atlético de Madrid"
+      },
+      "dateOfBirth": "Jan 31, 2000",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "576024",
+      "injured": false,
+      "marketValue": "€90.00m",
+      "name": "Julián Alvarez",
+      "overall_score": 86,
+      "position": "Centre-Forward",
+      "potential": 89
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/13.png",
+        "name": "Atlético de Madrid"
+      },
+      "dateOfBirth": "Apr 6, 1998",
+      "foot": "left",
+      "height": "1,80m",
+      "id": "486031",
+      "injured": false,
+      "marketValue": "€24.00m",
+      "name": "Nico González",
+      "overall_score": 79,
+      "position": "Left Winger",
+      "potential": 79
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/631.png",
+        "name": "Chelsea FC"
+      },
+      "dateOfBirth": "Jul 1, 2004",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "811779",
+      "injured": false,
+      "marketValue": "€45.00m",
+      "name": "Alejandro Garnacho",
+      "overall_score": 78,
+      "position": "Left Winger",
+      "potential": 84
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/418.png",
+        "name": "Real Madrid"
+      },
+      "dateOfBirth": "Aug 14, 2007",
+      "foot": "left",
+      "height": "1,78m",
+      "id": "1057316",
+      "injured": false,
+      "marketValue": "€45.00m",
+      "name": "Franco Mastantuono",
+      "overall_score": 77,
+      "position": "Right Winger",
+      "potential": 87
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1023.png",
+        "name": "SE Palmeiras"
+      },
+      "dateOfBirth": "Dec 6, 2000",
+      "foot": "left",
+      "height": "1,90m",
+      "id": "844797",
+      "injured": false,
+      "marketValue": "€22.00m",
+      "name": "José Manuel López",
+      "position": "Centre-Forward"
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/294.png",
+        "name": "SL Benfica"
+      },
+      "dateOfBirth": "Jan 31, 2006",
+      "foot": "right",
+      "height": "1,66m",
+      "id": "1000674",
+      "injured": false,
+      "marketValue": "€12.00m",
+      "name": "Gianluca Prestianni",
+      "overall_score": 73,
+      "position": "Right Winger",
+      "potential": 85
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/189.png",
+        "name": "CA Boca Juniors"
+      },
+      "dateOfBirth": "May 9, 2007",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "1322355",
+      "injured": false,
+      "marketValue": "€800k",
+      "name": "Tomás Aranda",
+      "overall_score": 65,
+      "position": "Attacking Midfield",
+      "potential": 79
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1025.png",
+        "name": "Bologna FC 1909"
+      },
+      "dateOfBirth": "Sep 18, 2004",
+      "foot": "right",
+      "height": "1,79m",
+      "id": "849520",
+      "injured": false,
+      "marketValue": "€25.00m",
+      "name": "Santiago Castro",
+      "overall_score": 77,
+      "position": "Centre-Forward",
+      "potential": 84
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/12321.png",
+        "name": "Girona FC"
+      },
+      "dateOfBirth": "Jan 2, 2006",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "994536",
+      "injured": false,
+      "marketValue": "€15.00m",
+      "name": "Claudio Echeverri",
+      "overall_score": 73,
+      "position": "Attacking Midfield",
+      "potential": 85
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/130.png",
+        "name": "Parma Calcio 1913"
+      },
+      "dateOfBirth": "Oct 22, 2001",
+      "foot": "left",
+      "height": "1,92m",
+      "id": "856530",
+      "injured": false,
+      "marketValue": "€10.00m",
+      "name": "Mateo Pellegrino",
+      "overall_score": 69,
+      "position": "Centre-Forward",
+      "potential": 75
+    },
+    {
+      "calledUp": false,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/130.png",
+        "name": "Parma Calcio 1913"
+      },
+      "dateOfBirth": "Apr 15, 2003",
+      "foot": "left",
+      "height": "1,82m",
+      "id": "668951",
+      "injured": false,
+      "marketValue": "€35.00m",
+      "name": "Matías Soulé",
+      "overall_score": 79,
+      "position": "Right Winger",
+      "potential": 85
+    }
+  ],
+  "stadiumName": null,
+  "stadiumSeats": null,
+  "transfermarktId": "3437"
+}

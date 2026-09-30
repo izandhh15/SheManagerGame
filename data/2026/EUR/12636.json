@@ -1,0 +1,346 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/12636.png",
+  "name": "Red Bull Salzburg",
+  "players": [
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 27, 2004",
+      "foot": "",
+      "height": "1,75m",
+      "id": "50275",
+      "marketValue": "€20k",
+      "name": "Valerie Guha",
+      "nationality": [
+        "Germany"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 20, 2007",
+      "foot": "",
+      "height": "1,62m",
+      "id": "68518",
+      "marketValue": "€15k",
+      "name": "Annika Bräunlinger",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "21",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 4, 1997",
+      "foot": "",
+      "height": "1,63m",
+      "id": "16009",
+      "marketValue": "€25k",
+      "name": "Michaela Fischer",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "24",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Dec 9, 2008",
+      "foot": "",
+      "height": "",
+      "id": "83112",
+      "marketValue": "€25k",
+      "name": "Valentina Akrap",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 7, 2005",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "41349",
+      "marketValue": "€30k",
+      "name": "Laura Spinn",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "6",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jul 21, 2007",
+      "foot": "right",
+      "height": "",
+      "id": "79317",
+      "marketValue": "€35k",
+      "name": "Valentina Illinger",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "11",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 1, 2009",
+      "foot": "",
+      "height": "",
+      "id": "108110",
+      "marketValue": "€15k",
+      "name": "Sandra Rausch",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "13",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Aug 2, 2001",
+      "foot": "",
+      "height": "1,73m",
+      "id": "33561",
+      "marketValue": "€30k",
+      "name": "Sophia Schirmbrand",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "20",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 20, 2000",
+      "foot": "",
+      "height": "1,79m",
+      "id": "41900",
+      "marketValue": "€25k",
+      "name": "Aldina Hamzić",
+      "nationality": [
+        "Bosnia-Herzegovina"
+      ],
+      "number": "77",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Sep 6, 2006",
+      "foot": "",
+      "height": "",
+      "id": "71099",
+      "marketValue": "€30k",
+      "name": "Theresa D’Angelo",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "2",
+      "position": "Right Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 10, 2009",
+      "foot": "right",
+      "height": "",
+      "id": "93227",
+      "marketValue": "€20k",
+      "name": "Valentina Lutz",
+      "nationality": [
+        "Germany"
+      ],
+      "number": "5",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Mar 27, 2007",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "71100",
+      "marketValue": "€50k",
+      "name": "Greta Spinn",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "8",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 26, 2008",
+      "foot": "",
+      "height": "",
+      "id": "86190",
+      "marketValue": "€30k",
+      "name": "Alessia Pamminger",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "10",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 25, 2008",
+      "foot": "right",
+      "height": "",
+      "id": "87534",
+      "marketValue": "€30k",
+      "name": "Sara Grabovac",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "14",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Mar 28, 2005",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "49973",
+      "marketValue": "€30k",
+      "name": "Christina Gierzinger",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "16",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 6, 2001",
+      "foot": "right",
+      "height": "1,62m",
+      "id": "34966",
+      "marketValue": "€25k",
+      "name": "Maria Plattner",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "18",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 21, 2011",
+      "foot": "",
+      "height": "",
+      "id": "117132",
+      "marketValue": "€15k",
+      "name": "Ajlina Berisha",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "23",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Dec 3, 2003",
+      "foot": "",
+      "height": "1,60m",
+      "id": "76367",
+      "marketValue": "€15k",
+      "name": "Laura Talwieser",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "27",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 23, 2008",
+      "foot": "",
+      "height": "",
+      "id": "87535",
+      "marketValue": "€25k",
+      "name": "Julia Grünwald",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "38",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 21, 2001",
+      "foot": "",
+      "height": "",
+      "id": "36301",
+      "marketValue": "€15k",
+      "name": "Magdalena Schwarz",
+      "nationality": [
+        "Germany"
+      ],
+      "number": "7",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 13, 2010",
+      "foot": "",
+      "height": "",
+      "id": "107924",
+      "marketValue": "€15k",
+      "name": "Maya Lampl",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "12",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jan 3, 2002",
+      "foot": "right",
+      "height": "1,76m",
+      "id": "33568",
+      "marketValue": "€30k",
+      "name": "Katja Wienerroither",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "17",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 10, 2000",
+      "foot": "right",
+      "height": "1,66m",
+      "id": "28806",
+      "marketValue": "€35k",
+      "name": "Lena Triendl",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "19",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Oct 5, 2002",
+      "foot": "",
+      "height": "1,74m",
+      "id": "41901",
+      "marketValue": "€25k",
+      "name": "Emelie Kobler",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "22",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Akademie Liefering",
+  "stadiumSeats": "0",
+  "transfermarktId": "12636",
+  "country": "AT"
+}

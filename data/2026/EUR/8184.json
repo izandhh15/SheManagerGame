@@ -1,0 +1,402 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/8184.png",
+  "name": "AGF Kvindefodbold",
+  "players": [
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Nov 16, 2004",
+      "foot": "",
+      "height": "",
+      "id": "42295",
+      "marketValue": "",
+      "name": "Marie Gade",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "May 17, 2006",
+      "foot": "",
+      "height": "",
+      "id": "62602",
+      "marketValue": "",
+      "name": "Maya Dybro",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "28",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 30, 2007",
+      "foot": "",
+      "height": "",
+      "id": "112804",
+      "marketValue": "",
+      "name": "Johanne Lyngsø",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "30",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 19, 2009",
+      "foot": "",
+      "height": "",
+      "id": "111324",
+      "marketValue": "",
+      "name": "Cecilie Harsløf",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "5",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 27, 2009",
+      "foot": "",
+      "height": "",
+      "id": "113558",
+      "marketValue": "",
+      "name": "Caroline Ahle",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "12",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 3, 2008",
+      "foot": "",
+      "height": "",
+      "id": "96379",
+      "marketValue": "",
+      "name": "Sophia Parkegaard",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "14",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 18, 1996",
+      "foot": "",
+      "height": "1,77m",
+      "id": "35274",
+      "marketValue": "",
+      "name": "Laura Guldbjerg Pedersen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "18",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 7, 2006",
+      "foot": "",
+      "height": "",
+      "id": "72656",
+      "marketValue": "",
+      "name": "Johanne Krøger",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "20",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 7, 2006",
+      "foot": "",
+      "height": "",
+      "id": "77972",
+      "marketValue": "",
+      "name": "Karla Nørgaard",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "23",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 29, 2010",
+      "foot": "",
+      "height": "",
+      "id": "117992",
+      "marketValue": "",
+      "name": "Alba Øhlenschlæger Jakobsen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": 2,
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 6, 2005",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "61780",
+      "marketValue": "",
+      "name": "Carla Schulz",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": 3,
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 10, 2006",
+      "foot": "",
+      "height": "",
+      "id": "72646",
+      "marketValue": "",
+      "name": "Milla Ahrenholt",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "4",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 19, 2004",
+      "foot": "",
+      "height": "",
+      "id": "42291",
+      "marketValue": "",
+      "name": "Julie Poulsen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "6",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 14, 2000",
+      "foot": "right",
+      "height": "1,68m",
+      "id": "35477",
+      "marketValue": "€25k",
+      "name": "Cecilie Johansen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "7",
+      "position": "Right Midfield"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Apr 1, 2008",
+      "foot": "",
+      "height": "",
+      "id": "96378",
+      "marketValue": "",
+      "name": "Sofie Lundberg",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "8",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 28, 2003",
+      "foot": "",
+      "height": "",
+      "id": "37403",
+      "marketValue": "",
+      "name": "Line Aarhus",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "11",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 16, 2006",
+      "foot": "",
+      "height": "",
+      "id": "84198",
+      "marketValue": "",
+      "name": "Clara Littrup",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": 13,
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 11, 2001",
+      "foot": "",
+      "height": "1,68m",
+      "id": "36727",
+      "marketValue": "",
+      "name": "Ea Rasmussen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "17",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "Aug 9, 1999",
+      "foot": "",
+      "height": "",
+      "id": "90006",
+      "marketValue": "",
+      "name": "Sofie Jørgensen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "19",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "May 26, 1999",
+      "foot": "right",
+      "height": "1,67m",
+      "id": "33139",
+      "marketValue": "",
+      "name": "Lærke Tingleff",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": 15,
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Jun 30, 2029",
+      "dateOfBirth": "Jun 9, 2007",
+      "foot": "",
+      "height": "",
+      "id": "87243",
+      "marketValue": "",
+      "name": "Silke Lynge",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "24",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 6, 2009",
+      "foot": "",
+      "height": "",
+      "id": "124436",
+      "marketValue": "",
+      "name": "Thea Foss",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": 21,
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 3, 2010",
+      "foot": "",
+      "height": "",
+      "id": "114562",
+      "marketValue": "",
+      "name": "Dagmar Willemoes Jørgensen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "29",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 24, 2008",
+      "foot": "",
+      "height": "",
+      "id": "122157",
+      "marketValue": "",
+      "name": "Cecilie Nøhr",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": 22,
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Aug 28, 1999",
+      "foot": "",
+      "height": "",
+      "id": "35475",
+      "marketValue": "€28k",
+      "name": "Signe Andersen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "9",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Nov 2, 2002",
+      "foot": "",
+      "height": "",
+      "id": "39644",
+      "marketValue": "",
+      "name": "Mathilde Braithwaite",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "10",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Jan 7, 2006",
+      "foot": "",
+      "height": "",
+      "id": "72653",
+      "marketValue": "",
+      "name": "Mie Lerche",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "16",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 17, 2010",
+      "foot": "",
+      "height": "",
+      "id": "117987",
+      "marketValue": "",
+      "name": "Amalie Klausen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "31",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Ceres Park Vejlby",
+  "stadiumSeats": "5000",
+  "transfermarktId": "8184",
+  "country": "DK"
+}

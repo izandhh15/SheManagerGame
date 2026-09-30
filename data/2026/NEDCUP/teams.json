@@ -1,0 +1,57 @@
+{
+  "id": "NEDCUP",
+  "name": "KNVB Beker Vrouwen",
+  "seasonID": "2026",
+  "clubs": [
+    {
+      "id": "294",
+      "name": "SC Heerenveen",
+      "entryRound": 1
+    },
+    {
+      "id": "128",
+      "name": "FC Utrecht",
+      "entryRound": 1
+    },
+    {
+      "id": "15297",
+      "name": "De Graafschap",
+      "entryRound": 1
+    },
+    {
+      "id": "26",
+      "name": "ADO Den Haag",
+      "entryRound": 1
+    },
+    {
+      "id": "52",
+      "name": "AZ Alkmaar",
+      "entryRound": 2
+    },
+    {
+      "id": "577",
+      "name": "FC Zwolle",
+      "entryRound": 2
+    },
+    {
+      "id": "7951",
+      "name": "Feyenoord Rotterdam",
+      "entryRound": 2
+    },
+    {
+      "id": "126",
+      "name": "FC Twente",
+      "entryRound": 2
+    },
+    {
+      "id": "4585",
+      "name": "FCE/PSV",
+      "entryRound": 2
+    },
+    {
+      "id": "4566",
+      "name": "Ajax Amsterdam",
+      "entryRound": 2
+    }
+  ]
+}

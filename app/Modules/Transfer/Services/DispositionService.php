@@ -1,0 +1,1295 @@
+<?php
+
+namespace App\Modules\Transfer\Services;
+
+use App\Models\ClubProfile;
+use App\Models\Game;
+use App\Models\GamePlayer;
+use App\Models\Team;
+use App\Models\TeamReputation;
+use App\Models\TransferOffer;
+use App\Modules\Player\PlayerAge;
+use App\Modules\Player\Services\PlayerTierService;
+use App\Modules\Transfer\Enums\NegotiationScenario;
+use Carbon\Carbon;
+use Illuminate\Support\Collection;
+
+class DispositionService
+{
+    // =========================================
+    // CONSTANTS
+    // =========================================
+
+    /**
+     * Acceptance probability modifiers based on reputation gap (source - offering).
+     * Gap ≤ 0 means moving up or lateral → no penalty.
+     */
+    private const REPUTATION_GAP_MODIFIERS = [
+        0 => 1.00,
+        1 => 0.85,
+        2 => 0.65,
+        3 => 0.40,
+        4 => 0.20,
+        5 => 0.10,
+    ];
+
+    /**
+     * Minimum team reputation required for a free agent to accept, based on player tier.
+     * Higher-tier free agents demand higher-reputation clubs.
+     */
+    private const MIN_REPUTATION_BY_PLAYER_TIER = [
+        5 => ClubProfile::REPUTATION_CONTINENTAL,  // €50M+ World Class → need continental+
+        4 => ClubProfile::REPUTATION_ESTABLISHED,   // €20M+ Excellent → need established+
+        3 => ClubProfile::REPUTATION_MODEST,         // €5M+ Good → need modest+
+        2 => ClubProfile::REPUTATION_LOCAL,           // €1M+ Average → any team
+        1 => ClubProfile::REPUTATION_LOCAL,           // <€1M Developing → any team
+    ];
+
+    /** Default modifier for gaps of 5+. */
+    private const REPUTATION_GAP_MAX_MODIFIER = 0.02;
+
+    private const AMBITION_PENALTY_PER_TIER_GAP = 0.12;
+
+    /**
+     * Lower bounds of each transfer-willingness band on the 0-100 score (see
+     * {@see playerTransferWillingness}). These are the single source of truth
+     * for where one willingness label ends and the next begins, so anything
+     * that buckets candidates by willingness (e.g. ScoutingService's
+     * realistic/persuasion split) can pin its cut-points to the same lines and
+     * never drift out of sync with the label shown in the dossier.
+     */
+    public const WILLINGNESS_VERY_INTERESTED_MIN = 80;
+    public const WILLINGNESS_OPEN_MIN = 60;
+    public const WILLINGNESS_UNDECIDED_MIN = 40;
+    public const WILLINGNESS_RELUCTANT_MIN = 20;
+
+    /**
+     * Minimum years remaining on a contract before a content player shows
+     * reluctance to renegotiate. Players with fewer years left always engage.
+     */
+    public const RENEWAL_LONG_CONTRACT_YEARS = 3;
+
+    /**
+     * Morale threshold above which a player on a long contract is considered
+     * content enough to decline renegotiation talks. Below this, the player
+     * will always entertain talks (wage bump opportunity).
+     */
+    public const RENEWAL_CONTENT_MORALE_THRESHOLD = 60;
+
+    /**
+     * Fraction of peer-median wage at which a player starts to feel underpaid.
+     * Below this threshold, they push for renewal and demand the peer median.
+     */
+    public const WAGE_GAP_RATIO = 0.60;
+
+    /**
+     * Minimum reputation-tier gap (player-tier floor minus team reputation)
+     * required to flag a stature gap. A gap of 1 is normal stretch; only a
+     * 2-tier gap indicates the player has materially outgrown the club.
+     *
+     * Homegrown players (academy or filial) are exempt from this check — they
+     * stay loyal to the club that developed them (see `isHomegrown`).
+     */
+    public const STATURE_GAP_MIN_REPUTATION_GAP = 2;
+
+    /**
+     * Per date-advance chance (percent) that a wage-gapped player notices
+     * and becomes "salary-unhappy." The roll fires from `GameDateAdvanced`,
+     * which is dispatched on every user-played match finalization — so a
+     * week with league + cup + European fixtures rolls 2–4× while a quiet
+     * week rolls once. Until the dice land on them, wage-gapped players
+     * stay quietly underpaid; once flagged, the status sticks until the
+     * gap is closed.
+     */
+    public const WAGE_GAP_TRIGGER_CHANCE_PERCENT = 5;
+
+    /** Monthly morale loss for unaddressed wage-gap players. */
+    public const WAGE_GAP_MORALE_DRIP = 5;
+    /** Floor below which the wage-gap drip stops applying. */
+    public const WAGE_GAP_MORALE_FLOOR = 60;
+    /** Morale boost when a renewal actually closes the wage gap. */
+    public const WAGE_GAP_RENEWAL_BOOST = 10;
+    public const MAX_MORALE = 100;
+
+    // =========================================
+    // PLAYER IMPORTANCE
+    // =========================================
+
+    /**
+     * Calculate player importance within their team (0.0 to 1.0).
+     *
+     * @param GamePlayer $player
+     * @param Collection|null $teammates Pre-loaded teammates to avoid repeated queries
+     */
+    public function playerImportance(GamePlayer $player, ?Collection $teammates = null): float
+    {
+        // Free agents have no team context — return neutral importance
+        if ($player->team_id === null) {
+            return 0.0;
+        }
+
+        if ($teammates === null) {
+            $teammates = GamePlayer::where('game_id', $player->game_id)
+                ->where('team_id', $player->team_id)
+                ->get();
+        }
+
+        if ($teammates->isEmpty()) {
+            return 0.5;
+        }
+
+        // Rank by overall ability
+        $sorted = $teammates->sortByDesc(fn ($p) => $p->overall_score)->values();
+
+        $rank = $sorted->search(fn ($p) => $p->id === $player->id);
+
+        if ($rank === false) {
+            return 0.5;
+        }
+
+        // Convert rank to 0.0-1.0 scale (0 = worst, 1 = best)
+        $total = $sorted->count();
+
+        return 1.0 - ($rank / max($total - 1, 1));
+    }
+
+    // =========================================
+    // REPUTATION MODIFIER
+    // =========================================
+
+    /**
+     * Calculate the acceptance probability modifier based on reputation gap.
+     * Compares the player's current team reputation to the bidding team's reputation.
+     *
+     * @return float Modifier between 0.02 and 1.0
+     */
+    public function reputationModifier(Team $biddingTeam, GamePlayer $player): float
+    {
+        // Free agents have no current team context — no penalty
+        if ($player->team_id === null) {
+            return 1.0;
+        }
+
+        $gameId = $player->game_id;
+        $sourceReputation = $gameId && $player->team_id
+            ? TeamReputation::resolveLevel($gameId, $player->team_id)
+            : ($player->team?->clubProfile?->reputation_level ?? ClubProfile::REPUTATION_LOCAL);
+        $offeringReputation = $gameId
+            ? TeamReputation::resolveLevel($gameId, $biddingTeam->id)
+            : ($biddingTeam->clubProfile?->reputation_level ?? ClubProfile::REPUTATION_LOCAL);
+
+        $sourceIndex = ClubProfile::getReputationTierIndex($sourceReputation);
+        $offeringIndex = ClubProfile::getReputationTierIndex($offeringReputation);
+
+        $gap = $sourceIndex - $offeringIndex;
+
+        if ($gap <= 0) {
+            return 1.0; // Moving up or lateral
+        }
+
+        return self::REPUTATION_GAP_MODIFIERS[$gap] ?? self::REPUTATION_GAP_MAX_MODIFIER;
+    }
+
+    // =========================================
+    // UNIFIED NEGOTIATION DISPOSITION
+    // =========================================
+
+    /**
+     * Calculate a player's disposition for any negotiation scenario.
+     *
+     * Disposition (0.10-0.95) represents how willing a player is to accept
+     * a lower wage. Higher = more flexible. All scenarios share the same
+     * factor-based algorithm with scenario-driven weights.
+     *
+     * @param GamePlayer $player The player being negotiated with
+     * @param NegotiationScenario $scenario The type of negotiation
+     * @param Game|null $buyingClubGame The buying club's game (null for renewals)
+     * @param int $round Current negotiation round (1-3)
+     */
+    public function calculateNegotiationDisposition(
+        GamePlayer $player,
+        NegotiationScenario $scenario,
+        ?Game $buyingClubGame = null,
+        int $round = 1,
+    ): float {
+        $disposition = $scenario->baseDisposition();
+        $age = $player->age($player->game->current_date);
+        $isRenewal = $scenario === NegotiationScenario::RENEWAL;
+
+        // ── Morale ──
+        $disposition += $this->moraleFactor($player->morale, $isRenewal);
+
+        // ── Appearances (renewal only: reward loyalty / penalize bench warming) ──
+        if ($isRenewal) {
+            $disposition += $this->appearancesFactor($player);
+        }
+
+        // ── Homegrown loyalty (renewal only: academy/filial players are more
+        // willing to accept a below-demand offer to stay) ──
+        $disposition += $this->homegrownFactor($player, $isRenewal);
+
+        // ── Age ──
+        $disposition += $this->ageFactor($age, $isRenewal);
+
+        // ── Round penalty (all scenarios) ──
+        $disposition += $this->roundPenalty($round);
+
+        // ── Pre-contract pressure (renewal only: expiring players are harder to renew) ──
+        if ($isRenewal) {
+            $disposition += $this->preContractPressureFactor($player);
+        }
+
+        // ── Reputation step bonus (transfer/free-agent: moving up/down matters) ──
+        if (in_array($scenario, [NegotiationScenario::TRANSFER, NegotiationScenario::FREE_AGENT])
+            && $buyingClubGame?->team_id && $player->team_id) {
+            $disposition += $this->reputationStepBonus($player, $buyingClubGame);
+        }
+
+        // ── Ambition: top-tier players resist joining clubs below their level ──
+        $targetTeamId = $isRenewal ? $player->team_id : $buyingClubGame?->team_id;
+        if ($targetTeamId) {
+            $disposition += $this->ambitionPenalty($player, $targetTeamId, $isRenewal);
+        }
+
+        // ── Pre-contract: reputation modifier applied multiplicatively ──
+        if ($scenario === NegotiationScenario::PRE_CONTRACT && $buyingClubGame?->team) {
+            $disposition *= $this->reputationModifier($buyingClubGame->team, $player);
+        }
+
+        return max(0.10, min(0.95, $disposition));
+    }
+
+    /**
+     * Decide whether a player is willing to sit down for contract renewal talks at all.
+     *
+     * A player whose stature has outgrown the club will not sign a new deal at any
+     * wage or length — their only path is to run down the current contract and
+     * leave on a transfer (or free). A salary-unhappy player (i.e. their dice
+     * have landed) will always listen because a renewal is their route to fair
+     * wages. Otherwise standard gates apply: freshly-signed, content players
+     * with lots of contract left decline.
+     */
+    public function isWillingToNegotiateRenewal(GamePlayer $player): bool
+    {
+        if ($this->hasStatureGap($player)) {
+            return false;
+        }
+
+        if (!$player->contract_until) {
+            return true;
+        }
+
+        $yearsRemaining = $player->game->current_date->diffInYears($player->contract_until);
+
+        if ($yearsRemaining < self::RENEWAL_LONG_CONTRACT_YEARS) {
+            return true;
+        }
+
+        if ($player->morale < self::RENEWAL_CONTENT_MORALE_THRESHOLD) {
+            return true;
+        }
+
+        return $this->isSalaryUnhappy($player);
+    }
+
+    // ── Disposition factor helpers ──
+
+    private function moraleFactor(int $morale, bool $isRenewal): float
+    {
+        if ($morale >= ($isRenewal ? 80 : 70)) {
+            return $isRenewal ? 0.15 : 0.10;
+        }
+        if ($isRenewal && $morale >= 60) {
+            return 0.08;
+        }
+        if ($morale < 40) {
+            return $isRenewal ? -0.10 : -0.05;
+        }
+
+        return 0.0;
+    }
+
+    private function appearancesFactor(GamePlayer $player): float
+    {
+        $appearances = $player->season_appearances ?? $player->appearances ?? 0;
+
+        if ($appearances >= 25) {
+            return 0.10;
+        }
+        if ($appearances >= 15) {
+            return 0.05;
+        }
+        if ($appearances < 10) {
+            return -0.10;
+        }
+
+        return 0.0;
+    }
+
+    /**
+     * Homegrown loyalty bonus: academy/filial-developed players are more willing
+     * to accept a below-demand renewal offer to stay at the club that raised
+     * them. Renewal-scoped — it must never help a rival poach the user's own
+     * academy product, and only the user's players are ever homegrown.
+     */
+    private function homegrownFactor(GamePlayer $player, bool $isRenewal): float
+    {
+        if (!$isRenewal || !$player->isHomegrown()) {
+            return 0.0;
+        }
+
+        return (float) config('finances.homegrown.disposition_bonus', 0.10);
+    }
+
+    private function ageFactor(int $age, bool $isRenewal): float
+    {
+        if ($age >= PlayerAge::PRIME_END) {
+            return $isRenewal ? 0.12 : 0.10;
+        }
+        if ($isRenewal && $age >= PlayerAge::primePhaseAge(0.5)) {
+            return 0.05;
+        }
+        if ($age <= PlayerAge::YOUNG_END) {
+            return $isRenewal ? -0.08 : -0.05;
+        }
+
+        return 0.0;
+    }
+
+    private function roundPenalty(int $round): float
+    {
+        if ($round >= 3) {
+            return -0.10;
+        }
+        if ($round === 2) {
+            return -0.05;
+        }
+
+        return 0.0;
+    }
+
+    private function preContractPressureFactor(GamePlayer $player): float
+    {
+        $month = $player->game->current_date->month;
+
+        if ($month < 1 || $month > 5) {
+            return 0.0;
+        }
+
+        if ($player->relationLoaded('transferOffers')) {
+            $hasPreContractOffer = $player->transferOffers->contains(
+                fn (TransferOffer $offer) => $offer->isPreContract() && $offer->isPending(),
+            );
+        } else {
+            $hasPreContractOffer = $player->transferOffers()->preContract()->pending()->exists();
+        }
+
+        return $hasPreContractOffer ? -0.15 : -0.08;
+    }
+
+    private function reputationStepBonus(GamePlayer $player, Game $buyingClubGame): float
+    {
+        $gameId = $player->game_id;
+        $sourceIndex = ClubProfile::getReputationTierIndex(
+            TeamReputation::resolveLevel($gameId, $player->team_id)
+        );
+        $offeringIndex = ClubProfile::getReputationTierIndex(
+            TeamReputation::resolveLevel($gameId, $buyingClubGame->team_id)
+        );
+        $gap = $offeringIndex - $sourceIndex;
+
+        return match (true) {
+            $gap >= 2 => 0.15,
+            $gap === 1 => 0.10,
+            $gap === 0 => 0.05,
+            $gap === -1 => -0.05,
+            default => -0.15,
+        };
+    }
+
+    private function ambitionPenalty(GamePlayer $player, string $targetTeamId, bool $isRenewal): float
+    {
+        $reputationLevel = TeamReputation::resolveLevel($player->game_id, $targetTeamId);
+        $clubReputationIndex = ClubProfile::getReputationTierIndex($reputationLevel);
+        $playerTierIndex = ($player->tier ?? 1) - 1;
+
+        $tierGap = $playerTierIndex - $clubReputationIndex;
+
+        if ($tierGap <= 0) {
+            return 0.0;
+        }
+
+        $penaltyPerTier = $isRenewal ? self::AMBITION_PENALTY_PER_TIER_GAP : 0.15;
+
+        return -$tierGap * $penaltyPerTier;
+    }
+
+    // =========================================
+    // CONTRACT LEVERAGE
+    // =========================================
+
+    /**
+     * How much leverage a club still has to refuse bids for a player (0.0-1.0).
+     *
+     * A club can only hold out for a premium while it has the leverage to say
+     * no. As the contract runs down that leverage decays — at the expiring end
+     * there is none left, because a buyer can simply wait and sign the player
+     * free next window.
+     *
+     * Shared by both sides of the market so they stay symmetric: the asking
+     * price an AI club quotes the user, and the price an AI club will pay for
+     * one of the user's own players.
+     */
+    public function contractLeverage(GamePlayer $player, Carbon $currentDate): float
+    {
+        if (! $player->contract_until) {
+            return 0.0;
+        }
+
+        $yearsLeft = $currentDate->diffInYears($player->contract_until);
+
+        // Keys are inclusive lower bounds in years; match high-to-low so the
+        // longest band a contract qualifies for wins.
+        $curve = config('finances.contract_leverage.years_curve', []);
+        krsort($curve);
+
+        foreach ($curve as $minYears => $leverage) {
+            if ($yearsLeft >= $minYears) {
+                return (float) $leverage;
+            }
+        }
+
+        return 0.0; // Expiring
+    }
+
+    /**
+     * How much of its remaining leverage a club keeps once the player's own
+     * appetite for the move is accounted for (0.0-1.0, multiplies leverage).
+     *
+     * A player who has made clear he wants to go burns his club's negotiating
+     * position: the buyer knows the dressing room is already lost. Keyed on the
+     * willingness LABEL rather than a parallel scale of its own, so the price a
+     * club quotes can never disagree with the mood the dossier displays.
+     *
+     * Returns the neutral default when there is no buying club in context —
+     * keenness is relative to who is asking.
+     *
+     * @param float|null $importance Pre-computed importance, to save the
+     *                               teammates query in list loops.
+     */
+    public function keennessFactor(GamePlayer $player, ?Game $buyingClubGame, ?float $importance = null): float
+    {
+        $factors = config('finances.contract_leverage.keenness_factor', []);
+        $default = (float) ($factors['default'] ?? 1.0);
+
+        if (! $buyingClubGame?->team || ! $player->team_id) {
+            return $default;
+        }
+
+        $label = $this->playerTransferWillingness($player, $buyingClubGame, $importance)['label'];
+
+        return (float) ($factors[$label] ?? $default);
+    }
+
+    /**
+     * Buy-side discount on what an AI club will pay for a player (0.0-1.0).
+     *
+     * Deliberately NOT the leverage curve. Leverage scales an importance
+     * PREMIUM, where its 0.30 band for a one-to-two-year contract just means
+     * "no premium left"; used as a price multiplier the same 0.30 would knock a
+     * quarter off the fee two full seasons early, which is not how a buyer
+     * behaves — it cannot wait out a two-year deal without losing a season of
+     * the player. So the buy-side discount is concentrated where the leverage
+     * genuinely collapses: the final year, when waiting really is an
+     * alternative to paying.
+     *
+     * The seller's floor decays gradually by contrast, because it is a floor —
+     * the computed asking price usually sits above it, so a gradual decay only
+     * changes the outcome where the club was being made to hold out for a
+     * premium it can no longer justify.
+     */
+    public function expiringBidFactor(GamePlayer $player, Carbon $currentDate): float
+    {
+        $expiringFactor = (float) config('finances.contract_leverage.ai_bid_factor_expiring', 0.65);
+
+        if (! $player->contract_until) {
+            return $expiringFactor;
+        }
+
+        return $currentDate->diffInYears($player->contract_until) >= 1.0 ? 1.0 : $expiringFactor;
+    }
+
+    /**
+     * Map leverage onto a price multiplier, interpolating linearly between the
+     * zero-leverage floor and the full-leverage floor.
+     *
+     * Used for both the seller's asking-price floor and the buyer's bid
+     * discount, so a contract running down moves both sides by the same curve.
+     */
+    public function contractPriceFactor(float $leverage, float $expiringFloor, float $fullLeverageFloor = 1.0): float
+    {
+        $leverage = max(0.0, min(1.0, $leverage));
+
+        return $expiringFloor + $leverage * ($fullLeverageFloor - $expiringFloor);
+    }
+
+    // =========================================
+    // CLUB DISPOSITION (WILLINGNESS TO SELL)
+    // =========================================
+
+    /**
+     * Calculate selling club's disposition (willingness to sell).
+     * Higher = more willing.
+     */
+    public function clubSellDisposition(GamePlayer $player): float
+    {
+        $disposition = 0.50;
+
+        // Player importance (key players are harder to buy)
+        $importance = $this->playerImportance($player);
+        if ($importance >= 0.85) {
+            $disposition -= 0.20;
+        } elseif ($importance >= 0.60) {
+            $disposition -= 0.10;
+        } elseif ($importance <= 0.30) {
+            $disposition += 0.10;
+        }
+
+        // Contract length (longer = more reluctant)
+        if ($player->contract_until) {
+            $yearsLeft = $player->game->current_date->diffInYears($player->contract_until);
+            if ($yearsLeft >= 4) {
+                $disposition -= 0.10;
+            } elseif ($yearsLeft <= 1) {
+                $disposition += 0.15;
+            }
+        } else {
+            $disposition += 0.20; // No contract = very willing
+        }
+
+        // Transfer listed = very willing
+        if ($player->isTransferListed()) {
+            $disposition += 0.20;
+        }
+
+        // Age (older = more willing to sell)
+        $age = $player->age($player->game->current_date);
+        if ($age >= PlayerAge::PRIME_END) {
+            $disposition += 0.10;
+        } elseif ($age < PlayerAge::YOUNG_END) {
+            $disposition -= 0.05;
+        }
+
+        return max(0.10, min(0.95, $disposition));
+    }
+
+    // =========================================
+    // PLAYER TRANSFER WILLINGNESS (0-100 SCORE)
+    // =========================================
+
+    /**
+     * Calculate a player's willingness to transfer (0-100 score mapped to label).
+     *
+     * @return array{score: int, label: string}
+     */
+    public function playerTransferWillingness(GamePlayer $player, Game $game, ?float $importance = null): array
+    {
+        $importance ??= $this->playerImportance($player);
+
+        // Base willingness: low importance players are more willing
+        $score = (int) ((1.0 - $importance) * 50);
+
+        // Contract length factor: fewer years left = more willing
+        if ($player->contract_until) {
+            $yearsLeft = max(0, $game->current_date->diffInYears($player->contract_until));
+            if ($yearsLeft <= 1) {
+                $score += 30;
+            } elseif ($yearsLeft <= 2) {
+                $score += 15;
+            }
+        } else {
+            $score += 25; // No contract = very willing
+        }
+
+        // Age factor: older players at lower-rep clubs more open
+        $age = $player->age($game->current_date);
+        if ($age >= PlayerAge::PRIME_END) {
+            $score += 10;
+        } elseif ($age < PlayerAge::YOUNG_END) {
+            $score += 5; // Young players seeking opportunities
+        }
+
+        // Reputation gap: penalize moving down, reward moving up
+        $reputationModifier = $this->reputationModifier($game->team, $player);
+        if ($reputationModifier < 1.0) {
+            // Moving down: scale the score down proportionally to the reputation gap
+            $score = (int) ($score * $reputationModifier);
+        } elseif ($player->team_id) {
+            // Moving up: bonus based on how many tiers above the buying club is
+            $sourceReputation = TeamReputation::resolveLevel($player->game_id, $player->team_id);
+            $offeringReputation = TeamReputation::resolveLevel($player->game_id, $game->team_id);
+            $sourceIndex = ClubProfile::getReputationTierIndex($sourceReputation);
+            $offeringIndex = ClubProfile::getReputationTierIndex($offeringReputation);
+            $upwardGap = $offeringIndex - $sourceIndex;
+
+            if ($upwardGap >= 3) {
+                $score += 30; // Dream move (e.g. local → elite)
+            } elseif ($upwardGap === 2) {
+                $score += 20; // Big step up
+            } elseif ($upwardGap === 1) {
+                $score += 10; // Step up
+            }
+        }
+
+        // Deterministic: willingness is a pure function of the player's situation
+        // (importance, contract, age, reputation gap). It's both shown in the
+        // dossier and used to bucket scout results, so it must be stable across
+        // renders and identical between the bucketing pass and the displayed label.
+        $score = min(100, max(0, $score));
+
+        $label = match (true) {
+            $score >= self::WILLINGNESS_VERY_INTERESTED_MIN => 'very_interested',
+            $score >= self::WILLINGNESS_OPEN_MIN => 'open',
+            $score >= self::WILLINGNESS_UNDECIDED_MIN => 'undecided',
+            $score >= self::WILLINGNESS_RELUCTANT_MIN => 'reluctant',
+            default => 'not_interested',
+        };
+
+        return ['score' => $score, 'label' => $label];
+    }
+
+    // =========================================
+    // FREE AGENT WILLINGNESS
+    // =========================================
+
+    /**
+     * Check whether a free agent is willing to sign for a given team,
+     * based on the player's tier vs the team's reputation.
+     */
+    public function canSignFreeAgent(GamePlayer $player, string $gameId, string $teamId): bool
+    {
+        return $this->freeAgentWillingnessLevel($player, $gameId, $teamId) === 'willing';
+    }
+
+    /**
+     * Check whether a player is willing to accept a pre-contract offer from a team,
+     * based on the player's tier vs the bidding team's reputation.
+     *
+     * Uses the same tier-vs-reputation floor as free-agent signings: an expiring
+     * player moving on a free transfer is close enough to a free agent that the
+     * same ambition gate applies. Prevents e.g. a tier-5 star from accepting a
+     * pre-contract with a Segunda-level club regardless of wage offered.
+     */
+    public function canSignPreContract(GamePlayer $player, string $gameId, string $teamId): bool
+    {
+        return $this->meetsTierReputationFloor($player, $gameId, $teamId);
+    }
+
+    /**
+     * Determine a free agent's willingness to sign for a team.
+     *
+     * @return string 'willing' (will sign), 'reluctant' (1 tier below minimum), or 'unwilling' (2+ below)
+     */
+    public function freeAgentWillingnessLevel(GamePlayer $player, string $gameId, string $teamId): string
+    {
+        $gap = $this->tierReputationGap($player, $gameId, $teamId);
+
+        if ($gap <= 0) {
+            return 'willing';
+        }
+
+        if ($gap === 1) {
+            return 'reluctant';
+        }
+
+        return 'unwilling';
+    }
+
+    /**
+     * Whether the team's reputation meets the minimum required by the player's tier.
+     */
+    private function meetsTierReputationFloor(GamePlayer $player, string $gameId, string $teamId): bool
+    {
+        return $this->tierReputationGap($player, $gameId, $teamId) <= 0;
+    }
+
+    /**
+     * How far the team's reputation sits below the player-tier minimum.
+     * Positive = team is below the floor; 0 or negative = team meets or exceeds it.
+     */
+    private function tierReputationGap(GamePlayer $player, string $gameId, string $teamId): int
+    {
+        $playerTier = $player->tier ?? PlayerTierService::tierFromMarketValue($player->market_value_cents);
+        $minReputation = self::MIN_REPUTATION_BY_PLAYER_TIER[$playerTier] ?? ClubProfile::REPUTATION_LOCAL;
+
+        $teamReputation = TeamReputation::resolveLevel($gameId, $teamId);
+
+        $teamIndex = ClubProfile::getReputationTierIndex($teamReputation);
+        $minIndex = ClubProfile::getReputationTierIndex($minReputation);
+
+        return $minIndex - $teamIndex;
+    }
+
+    // =========================================
+    // LOAN EVALUATION
+    // =========================================
+
+    /**
+     * Evaluate a loan request from the user.
+     *
+     * @return array{result: string, message: string}
+     */
+    public function evaluateLoanRequest(GamePlayer $player, ?Game $game = null): array
+    {
+        // Reputation gate: player may refuse to join a lower-reputation club
+        if ($game) {
+            $reputationModifier = $this->reputationModifier($game->team, $player);
+            if ($reputationModifier < 1.0 && rand(1, 100) > (int) ($reputationModifier * 100)) {
+                return [
+                    'result' => 'rejected',
+                    'message' => __('transfers.loan_rejected_not_interested', ['player' => $player->name]),
+                ];
+            }
+        }
+
+        $importance = $this->playerImportance($player);
+
+        // If the club has already publicly signalled willingness to part with the player
+        // (listed for sale or actively loan-searched), skip the importance-based rejection
+        // gates. Rejecting as "key player" would contradict the club's own market stance —
+        // see clubSellDisposition() which already applies the same signal to sell willingness.
+        if ($player->isTransferListed() || $player->hasActiveLoanSearch()) {
+            return [
+                'result' => 'accepted',
+                'message' => __('transfers.loan_accepted', ['team' => $player->team?->name, 'player' => $player->name]),
+            ];
+        }
+
+        // Reserve teams (filiales) exist to develop players, and a step up to a
+        // senior club is exactly the development opportunity they want. Relax
+        // the importance gates when the source is a reserve team moving up.
+        $keyPlayerThreshold = $this->loanImportanceKeyPlayerThreshold($player, $game);
+        $sharedDecisionThreshold = $this->loanImportanceSharedDecisionThreshold($player, $game);
+
+        if ($importance > $keyPlayerThreshold) {
+            return [
+                'result' => 'rejected',
+                'message' => __('transfers.loan_rejected_key_player', ['team' => $player->team?->name, 'player' => $player->name]),
+            ];
+        }
+
+        if ($importance > $sharedDecisionThreshold) {
+            // 50% chance
+            if (rand(0, 1) === 1) {
+                return [
+                    'result' => 'accepted',
+                    'message' => __('transfers.loan_accepted', ['team' => $player->team?->name, 'player' => $player->name]),
+                ];
+            }
+
+            return [
+                'result' => 'rejected',
+                'message' => __('transfers.loan_rejected_keep', ['team' => $player->team?->name, 'player' => $player->name]),
+            ];
+        }
+
+        return [
+            'result' => 'accepted',
+            'message' => __('transfers.loan_accepted', ['team' => $player->team?->name, 'player' => $player->name]),
+        ];
+    }
+
+    /**
+     * Deterministic loan request evaluation for sync negotiation.
+     * Returns result, asking loan fee, mood, and rejection reason.
+     *
+     * @return array{result: string, disposition: float, rejection_reason: ?string}
+     */
+    public function evaluateLoanRequestSync(GamePlayer $player, Game $game): array
+    {
+        // Gate 1: Reputation — club won't negotiate with low-rep teams
+        $reputationModifier = $this->reputationModifier($game->team, $player);
+        if ($reputationModifier < 0.50) {
+            return [
+                'result' => 'rejected',
+                'disposition' => 0.10,
+                'rejection_reason' => 'reputation',
+            ];
+        }
+
+        $importance = $this->playerImportance($player);
+
+        // If the club has publicly signalled willingness to part with the player
+        // (listed for sale or actively loan-searched), bypass the "key player" gate —
+        // rejecting on importance grounds would contradict the club's own market stance.
+        $publicMarketSignal = $player->isTransferListed() || $player->hasActiveLoanSearch();
+
+        // Gate 1: Key player — club refuses to loan. Threshold is relaxed when
+        // the source is a reserve team moving up (development opportunity).
+        $keyPlayerThreshold = $this->loanImportanceKeyPlayerThreshold($player, $game);
+        if (! $publicMarketSignal && $importance > $keyPlayerThreshold) {
+            return [
+                'result' => 'rejected',
+                'disposition' => 0.15,
+                'rejection_reason' => 'key_player',
+            ];
+        }
+
+        // Calculate disposition for mood indicator
+        $disposition = 0.50;
+        $disposition += (1.0 - $importance) * 0.30;
+        $disposition += ($reputationModifier - 0.50) * 0.20;
+        $disposition = max(0.10, min(0.95, $disposition));
+
+        // Gate 2: Player willingness — player may not want to join
+        $willingness = $this->playerTransferWillingness($player, $game, $importance);
+        if (in_array($willingness['label'], ['not_interested', 'reluctant'])) {
+            return [
+                'result' => 'rejected',
+                'disposition' => $disposition,
+                'rejection_reason' => 'player_refused',
+            ];
+        }
+
+        return [
+            'result' => 'accepted',
+            'disposition' => $disposition,
+            'rejection_reason' => null,
+        ];
+    }
+
+    /**
+     * "Key player" importance cut-off for a loan request. Default 0.70, but a
+     * reserve team (filial) sending a player up to a higher-reputation senior
+     * club is doing development work — relax the gate so the top of a feeder
+     * squad isn't treated like an irreplaceable first-team starter.
+     */
+    private function loanImportanceKeyPlayerThreshold(GamePlayer $player, ?Game $game): float
+    {
+        $upwardGap = $this->reserveTeamUpwardReputationGap($player, $game);
+
+        return match (true) {
+            $upwardGap >= 2 => 1.01, // bypass: development move up two+ tiers
+            $upwardGap === 1 => 0.90, // only truly irreplaceable players refused
+            default => 0.70,
+        };
+    }
+
+    /**
+     * "Shared decision" (50/50 roll) cut-off for a loan request. Mirrors the
+     * key-player threshold relaxation for reserve teams moving up: a two-tier
+     * jump bypasses the coin-flip entirely, a one-tier jump nudges it up.
+     */
+    private function loanImportanceSharedDecisionThreshold(GamePlayer $player, ?Game $game): float
+    {
+        $upwardGap = $this->reserveTeamUpwardReputationGap($player, $game);
+
+        return match (true) {
+            $upwardGap >= 2 => 1.01,
+            $upwardGap === 1 => 0.60,
+            default => 0.40,
+        };
+    }
+
+    /**
+     * Tier gap from a reserve team to the requesting (senior) club. Returns 0
+     * for non-reserve sources or when no game context is available, so the
+     * default thresholds apply. Positive = requesting club is more reputable.
+     */
+    private function reserveTeamUpwardReputationGap(GamePlayer $player, ?Game $game): int
+    {
+        if (!$game || !$game->team_id || !$player->team_id) {
+            return 0;
+        }
+
+        if ($player->team?->parent_team_id === null) {
+            return 0;
+        }
+
+        $sourceIndex = ClubProfile::getReputationTierIndex(
+            TeamReputation::resolveLevel($player->game_id, $player->team_id)
+        );
+        $offeringIndex = ClubProfile::getReputationTierIndex(
+            TeamReputation::resolveLevel($player->game_id, $game->team_id)
+        );
+
+        return $offeringIndex - $sourceIndex;
+    }
+
+    // =========================================
+    // PRE-CONTRACT OFFER EVALUATION
+    // =========================================
+
+    /**
+     * Evaluate whether a player accepts a pre-contract offer based on offered wage vs demand,
+     * reputation gap, and player ambition.
+     *
+     * @return array{accepted: bool, message: string}
+     */
+    public function evaluatePreContractOffer(GamePlayer $player, int $offeredWage, int $wageDemand, Team $biddingTeam): array
+    {
+        if ($offeredWage >= $wageDemand) {
+            $baseChance = 65;
+        } elseif ($offeredWage >= (int) ($wageDemand * 0.85)) {
+            $baseChance = 25;
+        } else {
+            return [
+                'accepted' => false,
+                'message' => __('messages.pre_contract_rejected', ['player' => $player->name]),
+            ];
+        }
+
+        // Apply reputation modifier
+        $reputationModifier = $this->reputationModifier($biddingTeam, $player);
+
+        // Apply ambition modifier: top-tier players resist joining clubs below their level
+        $gameId = $player->game_id;
+        $clubReputationIndex = ClubProfile::getReputationTierIndex(
+            TeamReputation::resolveLevel($gameId, $biddingTeam->id)
+        );
+        $playerTierIndex = ($player->tier ?? 1) - 1; // normalize to 0-4
+        $tierGap = $playerTierIndex - $clubReputationIndex;
+        $ambitionModifier = $tierGap > 0
+            ? max(0.10, 1.0 - $tierGap * 0.25)
+            : 1.0;
+
+        $finalChance = (int) ($baseChance * $reputationModifier * $ambitionModifier);
+
+        $accepted = rand(1, 100) <= $finalChance;
+
+        if ($accepted) {
+            return [
+                'accepted' => true,
+                'message' => __('messages.pre_contract_accepted', ['player' => $player->name]),
+            ];
+        }
+
+        return [
+            'accepted' => false,
+            'message' => __('messages.pre_contract_rejected', ['player' => $player->name]),
+        ];
+    }
+
+    // =========================================
+    // STATURE GAP & WAGE GAP
+    // =========================================
+
+    /**
+     * True when the player's tier requires a higher-reputation club than the
+     * one they currently belong to. Such a player has outgrown the club: no
+     * wage or contract length can retain them — their next move is upward.
+     *
+     * Pass an explicit $teamId to evaluate against a prospective signing club
+     * (defaults to the player's current team for renewal checks).
+     */
+    public function hasStatureGap(GamePlayer $player, ?string $teamId = null): bool
+    {
+        $teamId ??= $player->team_id;
+
+        if (!$teamId || !$player->game_id) {
+            return false;
+        }
+
+        // On-loan players are physically at a different club than their
+        // owner. Stature is relative to the owner's reputation, not the
+        // loan destination — skip the check and let the renewal proceed.
+        if ($player->isOnLoan()) {
+            return false;
+        }
+
+        // Homegrown players stay loyal to the club that developed them,
+        // even when their stature has outgrown its reputation.
+        if ($player->isHomegrown()) {
+            return false;
+        }
+
+        return $this->tierReputationGap($player, $player->game_id, $teamId) >= self::STATURE_GAP_MIN_REPUTATION_GAP;
+    }
+
+    /**
+     * True when the player has *announced* salary unhappiness — i.e. the
+     * stochastic roll has flipped `salary_unhappy_since`. This is purely a
+     * flag read; for the underlying "is materially underpaid vs same-tier
+     * peers" check use `hasWageGapAgainst()` with a peer median. Callers
+     * that gate on a player having voiced their grievance (renewal
+     * willingness, morale drip, "wants raise" indicator) want this method;
+     * callers that gate on the underlying eligibility (the per-tick roll,
+     * peer-median demand pricing) want the *Against variant.
+     */
+    public function isSalaryUnhappy(GamePlayer $player): bool
+    {
+        return $player->salary_unhappy_since !== null;
+    }
+
+    /**
+     * Median annual wage of squad peers of similar *current* ability
+     * (overall_score within ±band), excluding the player. Returns 0 if there
+     * are no comparable teammates.
+     *
+     * Grouping by ability rather than market-value tier is what stops a
+     * benchwarmer or developing youngster from being priced against the
+     * squad's stars: he only competes with squadmates who are as good as he
+     * is today.
+     */
+    public function peerMedianWage(GamePlayer $player): int
+    {
+        if (!$player->team_id) {
+            return 0;
+        }
+
+        $band = (int) config('finances.wage_peer_ability_band', 5);
+
+        $wages = GamePlayer::where('game_id', $player->game_id)
+            ->where('team_id', $player->team_id)
+            ->whereBetween('overall_score', [$player->overall_score - $band, $player->overall_score + $band])
+            ->where('id', '!=', $player->id)
+            ->where('annual_wage', '>', 0)
+            ->pluck('annual_wage')
+            ->sort()
+            ->values();
+
+        return $this->median($wages);
+    }
+
+    /**
+     * In-memory equivalent of peerMedianWage() for an already-loaded squad:
+     * median annual wage of squadmates whose overall_score is within ±band of
+     * the player's (excluding self, excluding zero wages). Lets batch callers
+     * (the per-matchday unhappiness roll, the squad-page renewal loop) avoid a
+     * per-player query.
+     *
+     * @param Collection<int, GamePlayer> $squad
+     */
+    public function abilityPeerMedian(GamePlayer $player, Collection $squad): int
+    {
+        $band = (int) config('finances.wage_peer_ability_band', 5);
+
+        $wages = $squad
+            ->filter(fn (GamePlayer $p) => $p->id !== $player->id
+                && $p->annual_wage > 0
+                && abs($p->overall_score - $player->overall_score) <= $band)
+            ->pluck('annual_wage')
+            ->sort()
+            ->values();
+
+        return $this->median($wages);
+    }
+
+    /**
+     * Median of an ascending-sorted, reindexed numeric collection. Returns 0
+     * when empty.
+     *
+     * @param Collection<int, int> $sortedWages
+     */
+    private function median(Collection $sortedWages): int
+    {
+        if ($sortedWages->isEmpty()) {
+            return 0;
+        }
+
+        $count = $sortedWages->count();
+        if ($count % 2 === 1) {
+            return (int) $sortedWages[intdiv($count, 2)];
+        }
+
+        return (int) (($sortedWages[$count / 2 - 1] + $sortedWages[$count / 2]) / 2);
+    }
+
+    /**
+     * Apply the monthly morale drip for wage-gap players. Pure action: the
+     * caller decides when to invoke (typically the month-boundary listener).
+     * Returns the number of players affected.
+     */
+    public function applyWageGapMoraleDrip(Game $game): int
+    {
+        // Only players who have actually been flagged by the per-matchday roll
+        // get the drip — quietly underpaid players whose dice haven't landed
+        // are not yet "unhappy" and don't lose morale.
+        $squad = GamePlayer::with(['matchState', 'activeLoan'])
+            ->joinMatchState()
+            ->where('game_players.game_id', $game->id)
+            ->where('game_players.team_id', $game->team_id)
+            ->whereNotNull('game_players.salary_unhappy_since')
+            ->whereMatchStat('morale', '>', self::WAGE_GAP_MORALE_FLOOR)
+            ->get();
+
+        $affected = 0;
+        foreach ($squad as $player) {
+            $player->matchState->update([
+                'morale' => max(self::WAGE_GAP_MORALE_FLOOR, $player->morale - self::WAGE_GAP_MORALE_DRIP),
+            ]);
+            $affected++;
+        }
+
+        return $affected;
+    }
+
+    /**
+     * Per-matchday salary-unhappiness roll for the user's first team.
+     *
+     * For every wage-gapped player on the squad that is not yet flagged, roll
+     * `WAGE_GAP_TRIGGER_CHANCE_PERCENT` to flip `salary_unhappy_since` to the
+     * current in-game date. For every already-flagged player whose gap has
+     * since closed (manager raised wage, renewal agreed), clear the flag.
+     *
+     * @return array{flagged: int, cleared: int}
+     */
+    public function rollSalaryUnhappiness(Game $game): array
+    {
+        if (!$game->team_id) {
+            return ['flagged' => 0, 'cleared' => 0];
+        }
+
+        // careerRecord is eager-loaded so the homegrown check below stays a flag
+        // read rather than a per-player query.
+        $squad = GamePlayer::with(['activeLoan', 'careerRecord'])
+            ->where('game_id', $game->id)
+            ->where('team_id', $game->team_id)
+            ->get();
+
+        $flagged = 0;
+        $cleared = 0;
+
+        foreach ($squad as $player) {
+            // Homegrown players (academy/filial) stay loyal — they don't get
+            // wage-gap unhappy. Treating them as ineligible also clears any flag
+            // raised before they became homegrown via the branch below.
+            $isEligible = !$player->isHomegrown()
+                && $this->hasWageGapAgainst($player, $this->abilityPeerMedian($player, $squad));
+            $isFlagged = $player->salary_unhappy_since !== null;
+
+            if ($isFlagged && !$isEligible) {
+                $player->update(['salary_unhappy_since' => null]);
+                $cleared++;
+                continue;
+            }
+
+            if (!$isFlagged && $isEligible && random_int(1, 100) <= self::WAGE_GAP_TRIGGER_CHANCE_PERCENT) {
+                $player->update(['salary_unhappy_since' => $game->current_date]);
+                $flagged++;
+            }
+        }
+
+        return ['flagged' => $flagged, 'cleared' => $cleared];
+    }
+
+    /**
+     * Per-player flag map for a game's squad. Used by the squad and renewal
+     * views to render the "won't renew" / "wants raise" indicators without
+     * recomputing the checks for every row.
+     *
+     * @return Collection<string, array{stature_gap: bool, wage_gap: bool}>
+     */
+    public function buildSquadFlags(Game $game, ?Collection $squad = null): Collection
+    {
+        $squad ??= GamePlayer::with(['activeLoan', 'careerRecord'])
+            ->where('game_id', $game->id)
+            ->where('team_id', $game->team_id)
+            ->get();
+
+        // Resolve once: stature is evaluated against the current team for every
+        // player in the squad, so the per-player tierReputationGap call would
+        // re-resolve the same team reputation N times otherwise.
+        $teamReputation = $game->team_id
+            ? TeamReputation::resolveLevel($game->id, $game->team_id)
+            : null;
+        $teamIndex = $teamReputation ? ClubProfile::getReputationTierIndex($teamReputation) : null;
+
+        return $squad->mapWithKeys(fn (GamePlayer $p) => [
+            $p->id => [
+                'stature_gap' => $teamIndex !== null && $this->hasStatureGapAgainst($p, $teamIndex),
+                // Stored flag, not live eligibility — only players whose
+                // per-matchday roll has landed get the squad-page indicator.
+                'wage_gap' => $p->salary_unhappy_since !== null,
+            ],
+        ]);
+    }
+
+    /**
+     * Underlying wage-gap eligibility check: is this player materially
+     * underpaid vs similar-ability squad peers? Drives both the per-tick
+     * salary-unhappiness roll and renewal pricing (the peer-median pull on
+     * the demand). The peer median excludes the player's own wage.
+     *
+     * For "has the player *announced* their unhappiness?", use
+     * `isSalaryUnhappy()` instead — that reads the stochastic flag.
+     */
+    public function hasWageGapAgainst(GamePlayer $player, int $peerMedian): bool
+    {
+        if (!$player->team_id || $peerMedian <= 0 || $player->isOnLoan()) {
+            return false;
+        }
+        $effectiveWage = $player->pending_annual_wage ?: $player->annual_wage;
+        if ($effectiveWage <= 0) {
+            return false;
+        }
+        return $effectiveWage < (int) ($peerMedian * self::WAGE_GAP_RATIO);
+    }
+
+    /**
+     * Stature-gap check against a precomputed team reputation tier index.
+     * Mirrors hasStatureGap without re-resolving team reputation per call.
+     */
+    private function hasStatureGapAgainst(GamePlayer $player, int $teamIndex): bool
+    {
+        if (!$player->team_id || $player->isOnLoan()) {
+            return false;
+        }
+        if ($player->isHomegrown()) {
+            return false;
+        }
+        $playerTier = $player->tier ?? PlayerTierService::tierFromMarketValue($player->market_value_cents);
+        $minReputation = self::MIN_REPUTATION_BY_PLAYER_TIER[$playerTier] ?? ClubProfile::REPUTATION_LOCAL;
+        $minIndex = ClubProfile::getReputationTierIndex($minReputation);
+        return ($minIndex - $teamIndex) >= self::STATURE_GAP_MIN_REPUTATION_GAP;
+    }
+
+    // =========================================
+    // MOOD INDICATORS
+    // =========================================
+
+    /**
+     * Get mood indicator for a disposition score.
+     *
+     * Unified method replacing duplicated mood indicators across services.
+     * All contexts use the same 0.65/0.40 thresholds.
+     *
+     * @param string $context One of: 'renewal', 'transfer_sell', 'transfer_sign', 'loan'
+     * @return array{label: string, color: string}
+     */
+    public function moodIndicator(float $disposition, string $context = 'renewal'): array
+    {
+        $keys = match ($context) {
+            'transfer_sell' => ['transfers.mood_willing_sell', 'transfers.mood_open_sell', 'transfers.mood_reluctant_sell'],
+            'transfer_sign' => ['transfers.mood_willing_sign', 'transfers.mood_open_sign', 'transfers.mood_reluctant_sign'],
+            'loan' => ['transfers.mood_willing_loan', 'transfers.mood_open_loan', 'transfers.mood_reluctant_loan'],
+            default => ['transfers.mood_willing', 'transfers.mood_open', 'transfers.mood_reluctant'],
+        };
+
+        if ($disposition >= 0.65) {
+            return ['label' => __($keys[0]), 'color' => 'green'];
+        }
+        if ($disposition >= 0.40) {
+            return ['label' => __($keys[1]), 'color' => 'amber'];
+        }
+
+        return ['label' => __($keys[2]), 'color' => 'red'];
+    }
+
+    /**
+     * Build the mood indicator from the player transfer willingness score.
+     * Maps the 5-level willingness labels to the 3-level mood indicator format.
+     *
+     * @return array{label: string, color: string}
+     */
+    public function willingnessMoodIndicator(GamePlayer $player, Game $game): array
+    {
+        $willingness = $this->playerTransferWillingness($player, $game);
+
+        return match ($willingness['label']) {
+            'very_interested', 'open' => ['label' => __('transfers.mood_willing_sign'), 'color' => 'green'],
+            'undecided' => ['label' => __('transfers.mood_open_sign'), 'color' => 'amber'],
+            default => ['label' => __('transfers.mood_reluctant_sign'), 'color' => 'red'],
+        };
+    }
+}

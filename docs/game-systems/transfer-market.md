@@ -1,0 +1,155 @@
+# Transfer Market System
+
+How players are bought, sold, loaned, released, and contracted.
+
+## Components
+
+The transfer market has six interconnected parts:
+
+1. **Scouting** — Search for players from other clubs
+2. **Buying** — Bid on scouted players with counter-offer negotiation
+3. **Selling** — List players and receive AI offers
+4. **Loans** — Bidirectional loan system (in and out)
+5. **Contracts** — Renewals, pre-contracts, and free transfers
+6. **Player Release** — Unilateral contract termination by the club
+
+## Scouting
+
+Scouting tier (from budget allocation) determines geographic scope, search speed, number of results, and ability estimation accuracy. Higher tiers unlock international searches and reduce the fuzz on reported abilities. Search duration depends on scope breadth and tier. See `ScoutingService`.
+
+## Buying
+
+When bidding on a player, the selling club calculates an **asking price** based on market value, the player's importance to their team, contract length, age, and how keen the player is on the move. Bids are evaluated relative to the asking price — key players require higher bids. Responses are: accept, counter-offer (midpoint of bid and asking price), or reject. See `ScoutingService::evaluateBid()`.
+
+### Contract leverage
+
+A club can only hold out for a premium while it has the **leverage** to refuse bids, and that leverage decays as a contract runs down — at the expiring end a buyer can simply wait and sign the player free. A player who is keen on the move (the willingness label already shown in his dossier) burns what leverage is left, so the deepest discounts need both a short contract and a willing player.
+
+Leverage does two things to the asking price: it scales back the importance premium, and it lowers the **price floor** that stops a club giving a player away. That floor decays rather than sitting flat — otherwise it clamped every key player at market value regardless of contract situation, discarding the discount for exactly the players it matters most for. At full leverage a key player still floors at market value and a squad player at 0.75×; at zero leverage they slide to the configured expiring floors.
+
+The **buy side** moves too, so the user feels the same pressure from the other direction: an AI club opens lower for one of their final-year players and won't be pushed up to full market value for him in counter-negotiation. Two deliberate differences from the sell side. It keys on contract length only — an AI club has no `Game` of its own, so there is no reputation step to measure the player's appetite for that specific move against. And it bites in the final year only, rather than grading across the leverage curve: a buyer's discount is a blunt multiplier on the whole fee, and a club cannot wait out a two-year contract without losing a season of the player. The seller's floor can decay gradually because it is only a floor — the computed asking price usually sits above it.
+
+Tuning lives in `config/finances.php` under `contract_leverage`. Shared helpers are on `DispositionService` (`contractLeverage`, `keennessFactor`, `contractPriceFactor`).
+
+Transfers complete immediately if the window is open, otherwise they're marked "agreed" and complete at the next window (summer or winter).
+
+## Selling
+
+- **Listed players** receive offers each matchday (max 3 pending). Offers arrive year-round: 40% chance per matchday during transfer windows, 15% outside windows. Offers accepted outside a window are deferred (`agreed`) and complete when the next window opens.
+- **Unsolicited offers** target the team's best players with a small daily chance.
+- Both offer types apply age-based adjustments and randomized pricing around market value.
+
+Buyer selection is weighted: younger players attract stronger teams, older players attract weaker teams. Max bid is capped at a percentage of the buyer's squad value. See `TransferService`.
+
+## Loans
+
+**Loan out**: Each matchday has a chance of finding a destination. Destinations are scored by reputation match, position need, league tier, and randomness. Search expires after a configured number of days. Players return at season end.
+
+**Loan in**: Via scouting, request a loan for a scouted player. The selling club evaluates and may accept.
+
+See `LoanService` for destination scoring logic.
+
+## Contracts
+
+### Wages
+
+Annual wages are calculated from market value (tiered percentage) × age modifier × random variance, with a league minimum floor. Young players get discounted "rookie" contracts; veterans command an increasing legacy premium. See `ContractService::calculateAnnualWage()`.
+
+### Renewals
+
+Multi-round negotiation. The player's **disposition** (flexibility) is influenced by morale, appearances, age, negotiation round, whether they have pending pre-contract offers, and **ambition** (tier gap between player and team reputation — high-tier players at low-reputation clubs are progressively harder to retain). Disposition determines how far below their demand they'll accept (max ~17% discount). Offering more/fewer contract years also adjusts the effective offer.
+
+Players will not accept wages below their current salary (**salary floor**), except veterans (33+) with high morale who value stability over money. See `ContractService`.
+
+### Pre-Contracts
+
+From the winter window onward, AI clubs can approach players with expiring contracts. These are free transfers (no fee) that complete at season end.
+
+Pre-contract negotiations use a **low disposition base** (0.40) because players running out of contract have maximum leverage and are selective about their next club. The disposition is further reduced by an **ambition penalty**: top-tier players (based on market value tier) resist joining clubs whose reputation is below their tier (-0.15 per tier gap). This makes it progressively harder for lower-reputation clubs to sign world-class free agents. The wage negotiation uses a tight **flexibility ratio** (0.15), meaning players accept very little discount below their demand.
+
+The async evaluation path (AI-initiated offers) uses a 65% base acceptance chance when meeting the full wage demand, modified multiplicatively by both the reputation gap and the ambition gap.
+
+## Player Release
+
+The user can unilaterally terminate a player's contract at any time during the season (no transfer window required). The player becomes a free agent and may be signed by AI teams when the next transfer window closes.
+
+### Severance
+
+The club pays **50% of remaining contract wages** as severance. For example, a player earning €2M/year with 2 years left costs €2M in severance. The payment is recorded as a `FinancialTransaction` (category: `severance`).
+
+### Eligibility
+
+A release is blocked when:
+- The player is on loan (in or out)
+- The player has an agreed transfer or pre-contract
+- The squad would drop below **20 players** (matching AI constraints)
+- The position group would drop below its minimum (**2 GK, 5 DEF, 5 MID, 3 FWD**)
+
+### Released player fate
+
+Released players enter the **free agent pool** (`team_id = null`). They can be signed by AI teams via `AITransferMarketService` at the next window close, identical to how expired-contract free agents work.
+
+See `ContractService::releasePlayer()`.
+
+## Transfer Windows
+
+- **Summer**: Matchday 0 (season start)
+- **Winter**: Configured matchday (typically matchday 19)
+- Agreed transfers complete at the next open window
+
+## AI Transfer Market
+
+When a transfer window closes, `AITransferMarketService` simulates AI-to-AI transfer activity in two phases:
+
+### Phase 1: Free Agent Signings
+
+Free agents (players without a team) are matched to AI teams based on position need and ability fit. Teams within 20 ability points of the player and below 26 squad size are eligible.
+
+### Phase 2: AI-to-AI Transfers
+
+Each AI team gets a transfer activity budget (1–5 moves in summer, 1–3 in winter). Transfers are split into two types based on club reputation:
+
+**Squad Clearing** (~65% of transfers): Teams sell surplus/backup players to clubs of **equal or lower reputation**. Candidates are scored by position group surplus, below-average ability, and age. This represents teams trimming their squad of players they don't need.
+
+**Talent Upgrading** (~35% of transfers): Teams sell quality players to clubs of **equal or higher reputation**. Candidates must be at or above the team average ability, with prime-age players (22–28) most attractive. This represents realistic upward mobility — good players moving to bigger clubs.
+
+Both types respect:
+- Position group minimums (2 GK, 5 DEF, 5 MID, 3 FWD) — teams won't sell below these
+- Squad size floor of 20 — teams won't sell if their squad is too thin
+- Squad size cap of 26 for buyers
+- Per-team transfer budget caps (both buys and sells counted)
+
+When no domestic buyer is found, there's a 50% chance of a foreign departure (player leaves the game). The user's team is excluded from all AI-to-AI activity.
+
+See `AITransferMarketService` for the full algorithm.
+
+## Locked Players
+
+Some deals hold a player at his current club until they complete: an **agreed pre-contract** (either direction) and a **paid release clause** (fee agreed or agreed). Both only complete if the player is still where the deal found him — `TransferCompletionService` re-asserts the selling club before moving anyone — so any other code path that relocates him (contract expiry freeing him to the pool, AI-to-AI churn, squad trimming) silently kills a signing the user has already committed wages or a fee to.
+
+The definition lives in one place, `TransferOffer::locksPlayer()` (with `TransferOffer::lockedPlayerIds()` for bulk processors), and every path that moves players for a reason other than completing their own deal consults it. If a locked player is nevertheless found moved at completion, the deal still fails gracefully for the user but a `LockedPlayerMovedException` is reported — and thrown under test — so the offending path is visible.
+
+Offer state more generally is expressed through the scopes on `TransferOffer` (`incoming()`, `departingFrom()`, `agreedPreContract()`, `committed()`, …), and status is only ever changed through `TransferOffer::transitionTo()` (one row) or `transitionAll()` (a sweep), which check the move against the transition table — pending → fee agreed / agreed / rejected / expired, fee agreed → agreed / rejected / expired, agreed → completed / rejected / expired, and nothing leaves a terminal state — and stamp `resolved_at`. `TransferOfferQueryVocabularyTest` fails the build if a raw `offer_type` / `direction` / `triggered_release_clause` predicate, or a status written through `update()`, appears outside the model.
+
+A player with any committed deal (`GamePlayer::hasCommittedDeal()`) cannot be moved between a filial's first team and reserve until it completes, and the outgoing completion queries cover both squads (`departingFrom(Game::userTeamIds())`), so a reserve player's deal completes from the reserve.
+
+## Season-End Processing
+
+Four processors handle transfer-related transitions:
+
+| Processor | What it does |
+|-----------|-------------|
+| `LoanReturnProcessor` | Returns loaned players |
+| `ContractExpirationProcessor` | Releases expired contracts (user), auto-renews (AI) |
+| `PreContractTransferProcessor` | Completes agreed free transfers |
+| `ContractRenewalProcessor` | Applies pending wage changes |
+
+## Key Files
+
+| File | Purpose |
+|------|---------|
+| `app/Modules/Transfer/Services/TransferService.php` | Offer generation, pricing, buyer selection |
+| `app/Modules/Transfer/Services/ScoutingService.php` | Search, bid evaluation, asking price |
+| `app/Modules/Transfer/Services/ContractService.php` | Wages, renewal negotiation, player release |
+| `app/Modules/Transfer/Services/LoanService.php` | Loan destination scoring, search |
+| `app/Modules/Transfer/Services/AITransferMarketService.php` | AI-to-AI transfer market (window close) |

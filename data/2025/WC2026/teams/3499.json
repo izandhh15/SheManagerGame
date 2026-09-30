@@ -1,0 +1,455 @@
+{
+  "image": "https://assets.virtuafc.com/crests/3499.png",
+  "name": "Senegal",
+  "players": [
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/417.png",
+        "name": "OGC Nice"
+      },
+      "dateOfBirth": "Nov 16, 1999",
+      "foot": "right",
+      "height": "1,88m",
+      "id": "448632",
+      "injured": false,
+      "marketValue": "€7.00m",
+      "name": "Yehvann Diouf",
+      "overall_score": 77,
+      "position": "Goalkeeper",
+      "potential": 82
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/18487.png",
+        "name": "Al-Ahli SFC"
+      },
+      "dateOfBirth": "Mar 1, 1992",
+      "foot": "right",
+      "height": "1,94m",
+      "id": "442531",
+      "injured": false,
+      "marketValue": "€4.50m",
+      "name": "Edouard Mendy",
+      "overall_score": 81,
+      "position": "Goalkeeper",
+      "potential": 81
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/738.png",
+        "name": "Le Havre AC"
+      },
+      "dateOfBirth": "Jun 22, 1993",
+      "foot": "right",
+      "height": "1,97m",
+      "id": "164904",
+      "injured": false,
+      "marketValue": "€1.00m",
+      "name": "Mory Diaw",
+      "overall_score": 72,
+      "position": "Goalkeeper",
+      "potential": 72
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/631.png",
+        "name": "Chelsea FC"
+      },
+      "dateOfBirth": "Aug 29, 2005",
+      "foot": "right",
+      "height": "1,94m",
+      "id": "910905",
+      "injured": false,
+      "marketValue": "€25.00m",
+      "name": "Mamadou Sarr",
+      "overall_score": 77,
+      "position": "Centre-Back",
+      "potential": 84
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1041.png",
+        "name": "Olympique Lyon"
+      },
+      "dateOfBirth": "Mar 8, 1996",
+      "foot": "left",
+      "height": "1,90m",
+      "id": "291200",
+      "injured": false,
+      "marketValue": "€18.00m",
+      "name": "Moussa Niakhaté",
+      "overall_score": 80,
+      "position": "Centre-Back",
+      "potential": 80
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/10004.png",
+        "name": "Paris FC"
+      },
+      "dateOfBirth": "Mar 8, 2000",
+      "foot": "right",
+      "height": "1,92m",
+      "id": "649026",
+      "injured": false,
+      "marketValue": "€6.00m",
+      "name": "Moustapha Mbow",
+      "overall_score": 73,
+      "position": "Centre-Back",
+      "potential": 76
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/417.png",
+        "name": "OGC Nice"
+      },
+      "dateOfBirth": "May 27, 2004",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "891998",
+      "injured": false,
+      "marketValue": "€6.00m",
+      "name": "Antoine Mendy",
+      "overall_score": 72,
+      "position": "Centre-Back",
+      "potential": 81
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1114.png",
+        "name": "Al-Hilal SFC"
+      },
+      "dateOfBirth": "Jun 20, 1991",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "93128",
+      "injured": true,
+      "marketValue": "€5.00m",
+      "name": "Kalidou Koulibaly",
+      "overall_score": 82,
+      "position": "Centre-Back",
+      "potential": 82
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1064.png",
+        "name": "Maccabi Haifa"
+      },
+      "dateOfBirth": "Jun 4, 1992",
+      "foot": "right",
+      "height": "1,91m",
+      "id": "265383",
+      "injured": false,
+      "marketValue": "€500k",
+      "name": "Abdoulaye Seck",
+      "position": "Centre-Back"
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/379.png",
+        "name": "West Ham United"
+      },
+      "dateOfBirth": "Dec 28, 2004",
+      "foot": "left",
+      "height": "1,83m",
+      "id": "1111589",
+      "injured": false,
+      "marketValue": "€28.00m",
+      "name": "El Hadji Malick Diouf",
+      "overall_score": 78,
+      "position": "Left-Back",
+      "potential": 84
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/141.png",
+        "name": "Galatasaray"
+      },
+      "dateOfBirth": "Aug 17, 1999",
+      "foot": "left",
+      "height": "1,84m",
+      "id": "375137",
+      "injured": false,
+      "marketValue": "€8.00m",
+      "name": "Ismail Jakobs",
+      "overall_score": 75,
+      "position": "Left-Back",
+      "potential": 78
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/58.png",
+        "name": "RSC Anderlecht"
+      },
+      "dateOfBirth": "Jan 18, 2003",
+      "foot": "right",
+      "height": "1,74m",
+      "id": "570781",
+      "injured": false,
+      "marketValue": "€4.00m",
+      "name": "Ilay Camara",
+      "overall_score": 69,
+      "position": "Right-Back",
+      "potential": 78
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/29.png",
+        "name": "Everton FC"
+      },
+      "dateOfBirth": "Sep 26, 1989",
+      "foot": "right",
+      "height": "1,74m",
+      "id": "126665",
+      "injured": false,
+      "marketValue": "€1.00m",
+      "name": "Idrissa Gueye",
+      "overall_score": 79,
+      "position": "Defensive Midfield",
+      "potential": 79
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1050.png",
+        "name": "Villarreal CF"
+      },
+      "dateOfBirth": "Jan 24, 1999",
+      "foot": "left",
+      "height": "1,89m",
+      "id": "485963",
+      "injured": false,
+      "marketValue": "€40.00m",
+      "name": "Pape Gueye",
+      "overall_score": 80,
+      "position": "Central Midfield",
+      "potential": 81
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/162.png",
+        "name": "AS Monaco"
+      },
+      "dateOfBirth": "Jan 1, 2004",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "918969",
+      "injured": false,
+      "marketValue": "€35.00m",
+      "name": "Lamine Camara",
+      "overall_score": 79,
+      "position": "Central Midfield",
+      "potential": 85
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/148.png",
+        "name": "Tottenham Hotspur"
+      },
+      "dateOfBirth": "Sep 14, 2002",
+      "foot": "right",
+      "height": "1,84m",
+      "id": "568693",
+      "injured": false,
+      "marketValue": "€32.00m",
+      "name": "Pape Matar Sarr",
+      "overall_score": 80,
+      "position": "Central Midfield",
+      "potential": 85
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/289.png",
+        "name": "Sunderland AFC"
+      },
+      "dateOfBirth": "Jan 3, 2004",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "876631",
+      "injured": false,
+      "marketValue": "€32.00m",
+      "name": "Habib Diarra",
+      "overall_score": 77,
+      "position": "Central Midfield",
+      "potential": 83
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/367.png",
+        "name": "Rayo Vallecano"
+      },
+      "dateOfBirth": "Mar 16, 1994",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "525578",
+      "injured": false,
+      "marketValue": "€2.00m",
+      "name": "Pathé Ciss",
+      "overall_score": 77,
+      "position": "Central Midfield",
+      "potential": 77
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/27.png",
+        "name": "Bayern Munich"
+      },
+      "dateOfBirth": "Dec 31, 2007",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "1497653",
+      "injured": false,
+      "marketValue": "€300k",
+      "name": "Bara Sapoko Ndiaye",
+      "overall_score": 61,
+      "position": "Central Midfield",
+      "potential": 81
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/162.png",
+        "name": "AS Monaco"
+      },
+      "dateOfBirth": "Feb 25, 1999",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "490426",
+      "injured": false,
+      "marketValue": "€6.00m",
+      "name": "Krépin Diatta",
+      "overall_score": 74,
+      "position": "Right Midfield",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1047.png",
+        "name": "Como 1907"
+      },
+      "dateOfBirth": "Sep 7, 2005",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "1061282",
+      "injured": false,
+      "marketValue": "€30.00m",
+      "name": "Assane Diao",
+      "overall_score": 76,
+      "position": "Left Winger",
+      "potential": 87
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/18544.png",
+        "name": "Al-Nassr FC"
+      },
+      "dateOfBirth": "Apr 10, 1992",
+      "foot": "right",
+      "height": "1,74m",
+      "id": "200512",
+      "injured": false,
+      "marketValue": "€7.00m",
+      "name": "Sadio Mané",
+      "overall_score": 83,
+      "position": "Left Winger",
+      "potential": 83
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/29.png",
+        "name": "Everton FC"
+      },
+      "dateOfBirth": "Mar 6, 2000",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "623570",
+      "injured": false,
+      "marketValue": "€50.00m",
+      "name": "Iliman Ndiaye",
+      "overall_score": 82,
+      "position": "Right Winger",
+      "potential": 83
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/873.png",
+        "name": "Crystal Palace"
+      },
+      "dateOfBirth": "Feb 25, 1998",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "410225",
+      "injured": false,
+      "marketValue": "€35.00m",
+      "name": "Ismaïla Sarr",
+      "overall_score": 81,
+      "position": "Right Winger",
+      "potential": 81
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/583.png",
+        "name": "Paris Saint-Germain"
+      },
+      "dateOfBirth": "Jan 24, 2008",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "1185888",
+      "injured": false,
+      "marketValue": "€30.00m",
+      "name": "Ibrahim Mbaye",
+      "overall_score": 74,
+      "position": "Right Winger",
+      "potential": 85
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/27.png",
+        "name": "Bayern Munich"
+      },
+      "dateOfBirth": "Jun 20, 2001",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "776890",
+      "injured": false,
+      "marketValue": "€40.00m",
+      "name": "Nicolas Jackson",
+      "overall_score": 79,
+      "position": "Centre-Forward",
+      "potential": 82
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1158.png",
+        "name": "FC Lorient"
+      },
+      "dateOfBirth": "Mar 23, 2000",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "822458",
+      "injured": false,
+      "marketValue": "€6.00m",
+      "name": "Bamba Dieng",
+      "overall_score": 74,
+      "position": "Centre-Forward",
+      "potential": 77
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/152.png",
+        "name": "Samsunspor"
+      },
+      "dateOfBirth": "Jan 23, 1996",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "480705",
+      "injured": false,
+      "marketValue": "€5.00m",
+      "name": "Cherif Ndiaye",
+      "overall_score": 69,
+      "position": "Centre-Forward",
+      "potential": 69
+    }
+  ],
+  "stadiumName": null,
+  "stadiumSeats": null,
+  "transfermarktId": "3499"
+}

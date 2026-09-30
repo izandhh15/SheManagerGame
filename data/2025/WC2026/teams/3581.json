@@ -1,0 +1,603 @@
+{
+  "image": "https://assets.virtuafc.com/crests/3581.png",
+  "name": "Paraguay",
+  "players": [
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1775.png",
+        "name": "CA San Lorenzo de Almagro"
+      },
+      "dateOfBirth": "Jun 11, 2000",
+      "foot": "left",
+      "height": "1,98m",
+      "id": "643259",
+      "injured": false,
+      "marketValue": "€6.00m",
+      "name": "Orlando Gill",
+      "overall_score": 67,
+      "position": "Goalkeeper",
+      "potential": 73
+    },
+    {
+      "calledUp": false,
+      "contract": "Sep 8, 2023",
+      "dateOfBirth": "Dec 29, 1996",
+      "foot": "right",
+      "height": "1,92m",
+      "id": "378871",
+      "marketValue": "€1.50m",
+      "name": "Carlos Coronel",
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "calledUp": false,
+      "contract": "Nov 17, 2022",
+      "dateOfBirth": "Nov 2, 1994",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "532557",
+      "marketValue": "€700k",
+      "name": "Juan Espínola",
+      "position": "Goalkeeper"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1214.png",
+        "name": "Club Cerro Porteño"
+      },
+      "dateOfBirth": "Mar 29, 1988",
+      "foot": "right",
+      "height": "1,91m",
+      "id": "107318",
+      "injured": false,
+      "marketValue": "€100k",
+      "name": "Roberto Fernández",
+      "overall_score": 68,
+      "position": "Goalkeeper",
+      "potential": 68
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/629.png",
+        "name": "Olimpia Asunción"
+      },
+      "dateOfBirth": "Apr 21, 1993",
+      "foot": "right",
+      "height": "1,91m",
+      "id": "301722",
+      "injured": false,
+      "marketValue": "€500k",
+      "name": "Gastón Olveira",
+      "overall_score": 73,
+      "position": "Goalkeeper",
+      "potential": 73
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/289.png",
+        "name": "Sunderland AFC"
+      },
+      "dateOfBirth": "Dec 26, 1996",
+      "foot": "left",
+      "height": "1,88m",
+      "id": "353032",
+      "injured": false,
+      "marketValue": "€15.00m",
+      "name": "Omar Alderete",
+      "overall_score": 80,
+      "position": "Centre-Back",
+      "potential": 81
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1023.png",
+        "name": "Sociedade Esportiva Palmeiras"
+      },
+      "dateOfBirth": "May 6, 1993",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "215390",
+      "injured": false,
+      "marketValue": "€3.50m",
+      "name": "Gustavo Gómez",
+      "overall_score": 78,
+      "position": "Centre-Back",
+      "potential": 78
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/330.png",
+        "name": "Clube Atlético Mineiro"
+      },
+      "dateOfBirth": "Feb 9, 1993",
+      "foot": "left",
+      "height": "1,85m",
+      "id": "273000",
+      "injured": false,
+      "marketValue": "€1.50m",
+      "name": "Júnior Alonso",
+      "overall_score": 74,
+      "position": "Centre-Back",
+      "potential": 74
+    },
+    {
+      "calledUp": false,
+      "contract": "Nov 19, 2025",
+      "dateOfBirth": "Mar 12, 2000",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "491587",
+      "marketValue": "€2.00m",
+      "name": "Alexis Duarte",
+      "number": "5",
+      "position": "Centre-Back"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1214.png",
+        "name": "Club Cerro Porteño"
+      },
+      "dateOfBirth": "Apr 17, 1991",
+      "foot": "right",
+      "height": "1,79m",
+      "id": "389399",
+      "injured": false,
+      "marketValue": "€400k",
+      "name": "Gustavo Velázquez",
+      "overall_score": 73,
+      "position": "Centre-Back",
+      "potential": 73
+    },
+    {
+      "calledUp": false,
+      "contract": "Oct 14, 2025",
+      "dateOfBirth": "Apr 3, 2007",
+      "foot": "left",
+      "height": "1,77m",
+      "id": "1283997",
+      "marketValue": "€4.00m",
+      "name": "Diego León",
+      "number": "25",
+      "position": "Left-Back"
+    },
+    {
+      "calledUp": false,
+      "contract": "Oct 10, 2024",
+      "dateOfBirth": "Jan 16, 2001",
+      "foot": "left",
+      "height": "1,84m",
+      "id": "847023",
+      "marketValue": "€2.50m",
+      "name": "Agustín Sández",
+      "number": "6",
+      "position": "Left-Back"
+    },
+    {
+      "calledUp": false,
+      "contract": "May 28, 2016",
+      "dateOfBirth": "Feb 3, 1998",
+      "foot": "left",
+      "height": "1,78m",
+      "id": "401732",
+      "marketValue": "€1.20m",
+      "name": "Blas Riveros",
+      "number": "14",
+      "position": "Left-Back"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/121.png",
+        "name": "Dynamo Moscow"
+      },
+      "dateOfBirth": "Jun 1, 2000",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "756494",
+      "injured": false,
+      "marketValue": "€5.00m",
+      "name": "Juan José Cáceres",
+      "overall_score": 73,
+      "position": "Right-Back",
+      "potential": 78
+    },
+    {
+      "calledUp": false,
+      "contract": "Jul 2, 2017",
+      "dateOfBirth": "Jan 25, 1994",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "344676",
+      "marketValue": "€300k",
+      "name": "Alan Benítez",
+      "position": "Right-Back"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/333.png",
+        "name": "CA Lanús"
+      },
+      "dateOfBirth": "Jul 20, 1996",
+      "foot": "left",
+      "height": "1,87m",
+      "id": "402627",
+      "injured": false,
+      "marketValue": "€2.20m",
+      "name": "José Canale",
+      "overall_score": 70,
+      "position": "Centre-Back",
+      "potential": 70
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/210.png",
+        "name": "Grêmio Foot-Ball Porto Alegrense"
+      },
+      "dateOfBirth": "Aug 23, 1991",
+      "foot": "right",
+      "height": "1,89m",
+      "id": "285548",
+      "injured": false,
+      "marketValue": "€900k",
+      "name": "Fabián Balbuena",
+      "overall_score": 74,
+      "position": "Centre-Back",
+      "potential": 74
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/3938.png",
+        "name": "CA Talleres"
+      },
+      "dateOfBirth": "Jul 26, 2005",
+      "foot": "left",
+      "height": "1,78m",
+      "id": "1371519",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "Alexandro Maidana",
+      "overall_score": 62,
+      "position": "Left-Back",
+      "potential": 76
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6321.png",
+        "name": "Vancouver Whitecaps FC"
+      },
+      "dateOfBirth": "May 22, 1996",
+      "foot": "right",
+      "height": "1,66m",
+      "id": "323872",
+      "injured": false,
+      "marketValue": "€4.00m",
+      "name": "Andrés Cubas",
+      "overall_score": 74,
+      "position": "Defensive Midfield",
+      "potential": 74
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/45604.png",
+        "name": "Orlando City SC"
+      },
+      "dateOfBirth": "Jun 27, 2000",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "491596",
+      "injured": false,
+      "marketValue": "€3.50m",
+      "name": "Braian Ojeda",
+      "overall_score": 76,
+      "position": "Defensive Midfield",
+      "potential": 77
+    },
+    {
+      "calledUp": false,
+      "contract": "Nov 19, 2025",
+      "dateOfBirth": "Aug 29, 2002",
+      "foot": "right",
+      "height": "1,89m",
+      "id": "1127335",
+      "marketValue": "€350k",
+      "name": "Lucas Romero",
+      "number": "13",
+      "position": "Defensive Midfield"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1237.png",
+        "name": "Brighton & Hove Albion"
+      },
+      "dateOfBirth": "Mar 27, 2003",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "996897",
+      "injured": false,
+      "marketValue": "€25.00m",
+      "name": "Diego Gómez",
+      "overall_score": 77,
+      "position": "Central Midfield",
+      "potential": 84
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/585.png",
+        "name": "São Paulo Futebol Clube"
+      },
+      "dateOfBirth": "Jul 11, 2001",
+      "foot": "right",
+      "height": "1,81m",
+      "id": "861852",
+      "injured": false,
+      "marketValue": "€6.00m",
+      "name": "Damián Bobadilla",
+      "overall_score": 73,
+      "position": "Central Midfield",
+      "potential": 78
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/51663.png",
+        "name": "Atlanta United FC"
+      },
+      "dateOfBirth": "Feb 11, 2002",
+      "foot": "left",
+      "height": "1,75m",
+      "id": "661269",
+      "injured": false,
+      "marketValue": "€3.00m",
+      "name": "Matías Galarza",
+      "overall_score": 73,
+      "position": "Central Midfield",
+      "potential": 81
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2150.png",
+        "name": "Al-Ain FC"
+      },
+      "dateOfBirth": "Jan 11, 1995",
+      "foot": "left",
+      "height": "1,71m",
+      "id": "355817",
+      "injured": false,
+      "marketValue": "€4.50m",
+      "name": "Kaku",
+      "overall_score": 79,
+      "position": "Attacking Midfield",
+      "potential": 79
+    },
+    {
+      "calledUp": false,
+      "contract": "Sep 11, 2024",
+      "dateOfBirth": "Jan 8, 2005",
+      "foot": "left",
+      "height": "1,83m",
+      "id": "906315",
+      "marketValue": "€300k",
+      "name": "Hugo Cuenca",
+      "position": "Attacking Midfield"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/667.png",
+        "name": "RC Strasbourg Alsace"
+      },
+      "dateOfBirth": "Jan 23, 2004",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "660867",
+      "injured": false,
+      "marketValue": "€25.00m",
+      "name": "Julio Enciso",
+      "overall_score": 75,
+      "position": "Attacking Midfield",
+      "potential": 84
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1023.png",
+        "name": "Sociedade Esportiva Palmeiras"
+      },
+      "dateOfBirth": "Jun 22, 2001",
+      "foot": "left",
+      "height": "1,74m",
+      "id": "678439",
+      "injured": false,
+      "marketValue": "€15.00m",
+      "name": "Mauricio",
+      "overall_score": 76,
+      "position": "Attacking Midfield",
+      "potential": 80
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/51663.png",
+        "name": "Atlanta United FC"
+      },
+      "dateOfBirth": "Feb 10, 1994",
+      "foot": "left",
+      "height": "1,74m",
+      "id": "272999",
+      "injured": false,
+      "marketValue": "€9.00m",
+      "name": "Miguel Almirón",
+      "overall_score": 76,
+      "position": "Right Winger",
+      "potential": 76
+    },
+    {
+      "calledUp": false,
+      "contract": "Oct 10, 2025",
+      "dateOfBirth": "Jan 7, 2003",
+      "foot": "left",
+      "height": "1,77m",
+      "id": "873981",
+      "marketValue": "€4.00m",
+      "name": "Diego González",
+      "number": "11",
+      "position": "Right Winger"
+    },
+    {
+      "calledUp": false,
+      "contract": "Sep 7, 2013",
+      "dateOfBirth": "Jul 4, 1992",
+      "foot": "right",
+      "height": "1,76m",
+      "id": "262262",
+      "marketValue": "€900k",
+      "name": "Ángel Romero",
+      "number": "11",
+      "position": "Right Winger"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1023.png",
+        "name": "Sociedade Esportiva Palmeiras"
+      },
+      "dateOfBirth": "Aug 31, 1999",
+      "foot": "right",
+      "height": "1,79m",
+      "id": "745191",
+      "injured": false,
+      "marketValue": "€10.00m",
+      "name": "Ramón Sosa",
+      "overall_score": 74,
+      "position": "Second Striker",
+      "potential": 75
+    },
+    {
+      "calledUp": false,
+      "contract": "Sep 5, 2025",
+      "dateOfBirth": "Apr 25, 1996",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "567736",
+      "marketValue": "€4.00m",
+      "name": "Ronaldo Martínez",
+      "number": "21",
+      "position": "Centre-Forward"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/12179.png",
+        "name": "CS Independiente Rivadavia"
+      },
+      "dateOfBirth": "Jun 16, 1995",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "970518",
+      "injured": false,
+      "marketValue": "€3.50m",
+      "name": "Álex Arce",
+      "overall_score": 75,
+      "position": "Centre-Forward",
+      "potential": 75
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2239.png",
+        "name": "US Cremonese"
+      },
+      "dateOfBirth": "Mar 4, 1996",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "234523",
+      "injured": false,
+      "marketValue": "€1.80m",
+      "name": "Antonio Sanabria",
+      "overall_score": 75,
+      "position": "Centre-Forward",
+      "potential": 75
+    },
+    {
+      "calledUp": false,
+      "dateOfBirth": "Sep 28, 1999",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "975188",
+      "marketValue": "€1.00m",
+      "name": "Adrián Alcaraz",
+      "number": "17",
+      "position": "Centre-Forward"
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1234.png",
+        "name": "CA Independiente"
+      },
+      "dateOfBirth": "Oct 12, 1990",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "358418",
+      "injured": false,
+      "marketValue": "€750k",
+      "name": "Gabriel Ávalos",
+      "overall_score": 74,
+      "position": "Centre-Forward",
+      "potential": 74
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1020.png",
+        "name": "Portsmouth FC"
+      },
+      "dateOfBirth": "Sep 21, 2001",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "891672",
+      "injured": false,
+      "marketValue": "€1.00m",
+      "name": "Gustavo Caballero",
+      "overall_score": 67,
+      "position": "Left Winger",
+      "potential": 73
+    },
+    {
+      "calledUp": true,
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/8793.png",
+        "name": "Red Bull Bragantino"
+      },
+      "dateOfBirth": "Aug 14, 1999",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "675178",
+      "injured": false,
+      "marketValue": "€7.50m",
+      "name": "Isidro Pitta",
+      "overall_score": 74,
+      "position": "Centre-Forward",
+      "potential": 77
+    }
+  ],
+  "stadiumName": null,
+  "stadiumSeats": null,
+  "transfermarktId": "3581"
+}

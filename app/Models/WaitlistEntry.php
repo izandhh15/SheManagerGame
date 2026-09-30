@@ -1,0 +1,61 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+
+/**
+ * @property int $id
+ * @property string $name
+ * @property string $email
+ * @property bool $wants_career
+ * @property bool $wants_tournament
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property-read \App\Models\InviteCode|null $inviteCode
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|WaitlistEntry newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|WaitlistEntry newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|WaitlistEntry query()
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|WaitlistEntry whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|WaitlistEntry whereEmail($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|WaitlistEntry whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|WaitlistEntry whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|WaitlistEntry whereUpdatedAt($value)
+ * @mixin \Eloquent
+ */
+class WaitlistEntry extends Model
+{
+    protected $table = 'waitlist';
+
+    protected $fillable = ['name', 'email', 'wants_career', 'wants_tournament'];
+
+    protected function casts(): array
+    {
+        return [
+            'wants_career' => 'boolean',
+            'wants_tournament' => 'boolean',
+        ];
+    }
+
+    public function setEmailAttribute(string $value): void
+    {
+        $this->attributes['email'] = strtolower(trim($value));
+    }
+
+    public function scopeEarlyAdopter($query)
+    {
+        $cutoff = config('beta.early_adopter_cutoff');
+
+        if ($cutoff) {
+            $query->where('created_at', '<=', $cutoff);
+        }
+
+        return $query;
+    }
+
+    public function inviteCode(): HasOne
+    {
+        return $this->hasOne(InviteCode::class, 'email', 'email');
+    }
+}

@@ -1,0 +1,419 @@
+{
+  "image": "https://assets.virtuafc.com/crests/3806.png",
+  "name": "South Africa",
+  "players": [
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2557.png",
+        "name": "Orlando Pirates"
+      },
+      "dateOfBirth": "Dec 14, 1996",
+      "height": "1,81m",
+      "id": "453370",
+      "injured": false,
+      "marketValue": "€1.40m",
+      "name": "Sipho Chaine",
+      "overall_score": 71,
+      "position": "Goalkeeper",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6356.png",
+        "name": "Mamelodi Sundowns FC"
+      },
+      "dateOfBirth": "Jan 21, 1992",
+      "foot": "right",
+      "height": "1,84m",
+      "id": "175577",
+      "injured": false,
+      "marketValue": "€900k",
+      "name": "Ronwen Williams",
+      "overall_score": 76,
+      "position": "Goalkeeper",
+      "potential": 76
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/132785.png",
+        "name": "Siwelele Football Club"
+      },
+      "dateOfBirth": "Apr 2, 1994",
+      "foot": "right",
+      "height": "1,81m",
+      "id": "258304",
+      "injured": false,
+      "marketValue": "€350k",
+      "name": "Ricardo Goss",
+      "overall_score": 67,
+      "position": "Goalkeeper",
+      "potential": 67
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/432.png",
+        "name": "Chicago Fire FC"
+      },
+      "dateOfBirth": "Sep 19, 2005",
+      "foot": "left",
+      "height": "1,77m",
+      "id": "1378320",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "Mbekezeli Mbokazi",
+      "overall_score": 72,
+      "position": "Centre-Back",
+      "potential": 82
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/25467.png",
+        "name": "Philadelphia Union"
+      },
+      "dateOfBirth": "Apr 30, 2004",
+      "foot": "right",
+      "height": "1,88m",
+      "id": "1069801",
+      "injured": false,
+      "marketValue": "€2.00m",
+      "name": "Olwethu Makhanya",
+      "overall_score": 65,
+      "position": "Centre-Back",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/42.png",
+        "name": "Hannover 96"
+      },
+      "dateOfBirth": "Feb 20, 2004",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "1107265",
+      "injured": false,
+      "marketValue": "€2.00m",
+      "name": "Ime Okon",
+      "overall_score": 68,
+      "position": "Centre-Back",
+      "potential": 75
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2557.png",
+        "name": "Orlando Pirates"
+      },
+      "dateOfBirth": "Sep 22, 1995",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "399068",
+      "injured": false,
+      "marketValue": "€1.60m",
+      "name": "Nkosinathi Sibisi",
+      "overall_score": 69,
+      "position": "Centre-Back",
+      "potential": 69
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6356.png",
+        "name": "Mamelodi Sundowns FC"
+      },
+      "dateOfBirth": "Feb 5, 2004",
+      "foot": "right",
+      "id": "1283140",
+      "injured": false,
+      "marketValue": "€800k",
+      "name": "Khulumani Ndamane",
+      "overall_score": 60,
+      "position": "Centre-Back",
+      "potential": 70
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/687.png",
+        "name": "Molde FK"
+      },
+      "dateOfBirth": "Mar 15, 2004",
+      "foot": "left",
+      "height": "1,81m",
+      "id": "1175086",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "Samukele Kabini",
+      "overall_score": 65,
+      "position": "Left-Back",
+      "potential": 76
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6356.png",
+        "name": "Mamelodi Sundowns FC"
+      },
+      "dateOfBirth": "Jul 22, 1995",
+      "foot": "left",
+      "height": "1,67m",
+      "id": "353432",
+      "injured": false,
+      "marketValue": "€1.80m",
+      "name": "Aubrey Modiba",
+      "overall_score": 71,
+      "position": "Left-Back",
+      "potential": 71
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/568.png",
+        "name": "Kaizer Chiefs"
+      },
+      "dateOfBirth": "Jan 30, 2001",
+      "foot": "left",
+      "height": "1,83m",
+      "id": "555209",
+      "injured": false,
+      "marketValue": "€650k",
+      "name": "Bradley Cross",
+      "overall_score": 63,
+      "position": "Left-Back",
+      "potential": 70
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6356.png",
+        "name": "Mamelodi Sundowns FC"
+      },
+      "dateOfBirth": "Apr 26, 1995",
+      "foot": "right",
+      "height": "1,81m",
+      "id": "450806",
+      "injured": false,
+      "marketValue": "€1.20m",
+      "name": "Khuliso Mudau",
+      "overall_score": 71,
+      "position": "Right-Back",
+      "potential": 71
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/21202.png",
+        "name": "Polokwane City FC"
+      },
+      "dateOfBirth": "Jan 14, 1999",
+      "foot": "right",
+      "id": "1109254",
+      "injured": false,
+      "marketValue": "€900k",
+      "name": "Thabang Matuludi",
+      "overall_score": 63,
+      "position": "Right-Back",
+      "potential": 64
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2557.png",
+        "name": "Orlando Pirates"
+      },
+      "dateOfBirth": "Jul 21, 2002",
+      "foot": "right",
+      "id": "994370",
+      "injured": false,
+      "marketValue": "€850k",
+      "name": "Kamogelo Sebelebele",
+      "overall_score": 67,
+      "position": "Right-Back",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6356.png",
+        "name": "Mamelodi Sundowns FC"
+      },
+      "dateOfBirth": "Jan 24, 1997",
+      "foot": "right",
+      "height": "1,76m",
+      "id": "436372",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "Teboho Mokoena",
+      "overall_score": 72,
+      "position": "Defensive Midfield",
+      "potential": 72
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2557.png",
+        "name": "Orlando Pirates"
+      },
+      "dateOfBirth": "Mar 6, 2000",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "735697",
+      "injured": false,
+      "marketValue": "€1.60m",
+      "name": "Thalente Mbatha",
+      "overall_score": 60,
+      "position": "Central Midfield",
+      "potential": 63
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6356.png",
+        "name": "Mamelodi Sundowns FC"
+      },
+      "dateOfBirth": "May 5, 2001",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "804472",
+      "injured": false,
+      "marketValue": "€1.40m",
+      "name": "Jayden Adams",
+      "overall_score": 69,
+      "position": "Central Midfield",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/7179.png",
+        "name": "CD Tondela"
+      },
+      "dateOfBirth": "Mar 3, 1999",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "401736",
+      "injured": false,
+      "marketValue": "€600k",
+      "name": "Yaya Sithole",
+      "overall_score": 66,
+      "position": "Central Midfield",
+      "potential": 69
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6356.png",
+        "name": "Mamelodi Sundowns FC"
+      },
+      "dateOfBirth": "Aug 3, 1989",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "176578",
+      "injured": false,
+      "marketValue": "€300k",
+      "name": "Themba Zwane",
+      "overall_score": 73,
+      "position": "Attacking Midfield",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2557.png",
+        "name": "Orlando Pirates"
+      },
+      "dateOfBirth": "Aug 25, 2001",
+      "foot": "right",
+      "height": "1,71m",
+      "id": "673381",
+      "injured": false,
+      "marketValue": "€2.00m",
+      "name": "Oswin Appollis",
+      "overall_score": 75,
+      "position": "Left Winger",
+      "potential": 80
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2557.png",
+        "name": "Orlando Pirates"
+      },
+      "dateOfBirth": "Oct 23, 2004",
+      "foot": "right",
+      "height": "1,66m",
+      "id": "1125037",
+      "injured": false,
+      "marketValue": "€2.00m",
+      "name": "Relebohile Mofokeng",
+      "overall_score": 65,
+      "position": "Left Winger",
+      "potential": 72
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2557.png",
+        "name": "Orlando Pirates"
+      },
+      "dateOfBirth": "Oct 2, 2000",
+      "id": "844485",
+      "injured": false,
+      "marketValue": "€1.00m",
+      "name": "Tshepang Moremi",
+      "overall_score": 64,
+      "position": "Left Winger",
+      "potential": 69
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/786.png",
+        "name": "AEL Limassol"
+      },
+      "dateOfBirth": "Nov 11, 2003",
+      "foot": "left",
+      "height": "1,78m",
+      "id": "983330",
+      "injured": false,
+      "marketValue": "€750k",
+      "name": "Thapelo Maseko",
+      "overall_score": 66,
+      "position": "Left Winger",
+      "potential": 76
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1132.png",
+        "name": "Burnley FC"
+      },
+      "dateOfBirth": "Sep 3, 2000",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "467623",
+      "injured": false,
+      "marketValue": "€10.00m",
+      "name": "Lyle Foster",
+      "overall_score": 73,
+      "position": "Centre-Forward",
+      "potential": 75
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6356.png",
+        "name": "Mamelodi Sundowns FC"
+      },
+      "dateOfBirth": "Dec 19, 1995",
+      "foot": "right",
+      "height": "1,76m",
+      "id": "337884",
+      "injured": false,
+      "marketValue": "€3.00m",
+      "name": "Iqraam Rayners",
+      "overall_score": 60,
+      "position": "Centre-Forward",
+      "potential": 60
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2557.png",
+        "name": "Orlando Pirates"
+      },
+      "dateOfBirth": "Jun 5, 2000",
+      "foot": "right",
+      "height": "1,88m",
+      "id": "746781",
+      "injured": false,
+      "marketValue": "€1.20m",
+      "name": "Evidence Makgopa",
+      "overall_score": 68,
+      "position": "Centre-Forward",
+      "potential": 73
+    }
+  ],
+  "stadiumName": null,
+  "stadiumSeats": null,
+  "transfermarktId": "3806"
+}

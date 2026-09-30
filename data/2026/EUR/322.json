@@ -1,0 +1,402 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/322.png",
+  "name": "Sparta Praha",
+  "players": [
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 18, 2006",
+      "foot": "",
+      "height": "",
+      "id": "63430",
+      "marketValue": "",
+      "name": "Zuzana Kožuriková",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "32",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 8, 2009",
+      "foot": "",
+      "height": "",
+      "id": "108277",
+      "marketValue": "",
+      "name": "Kristýna Rajsnerová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "33",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 4, 2008",
+      "foot": "",
+      "height": "",
+      "id": "107543",
+      "marketValue": "",
+      "name": "Nikola Harantová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "44",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 2, 2003",
+      "foot": "",
+      "height": "",
+      "id": "47444",
+      "marketValue": "",
+      "name": "Dominika Huvarová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "3",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 4, 2004",
+      "foot": "both",
+      "height": "1,73m",
+      "id": "46972",
+      "marketValue": "€15k",
+      "name": "Lainie Fuchs",
+      "nationality": [
+        "Austria"
+      ],
+      "number": "5",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Oct 17, 1993",
+      "foot": "",
+      "height": "1,70m",
+      "id": "4311",
+      "marketValue": "",
+      "name": "Eva Bartoňová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "9",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 12, 2001",
+      "foot": "both",
+      "height": "",
+      "id": "40008",
+      "marketValue": "",
+      "name": "Aneta Pochmanová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "10",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 21, 2009",
+      "foot": "",
+      "height": "",
+      "id": "104608",
+      "marketValue": "",
+      "name": "Eliška Nechutová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "15",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jan 14, 2001",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "40332",
+      "marketValue": "€10k",
+      "name": "Tori Hansen",
+      "nationality": [
+        "United States"
+      ],
+      "number": "16",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jul 30, 2004",
+      "foot": "right",
+      "height": "1,65m",
+      "id": "46991",
+      "marketValue": "",
+      "name": "Laura Retkesová",
+      "nationality": [
+        "Slovakia"
+      ],
+      "number": "19",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 22, 2008",
+      "foot": "",
+      "height": "",
+      "id": "92369",
+      "marketValue": "",
+      "name": "Klára Daníčková",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "24",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 5, 2009",
+      "foot": "",
+      "height": "",
+      "id": "104609",
+      "marketValue": "",
+      "name": "Natálie Pešková",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "27",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 1, 2009",
+      "foot": "",
+      "height": "",
+      "id": "118018",
+      "marketValue": "",
+      "name": "Natálie Čuntová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "28",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 9, 2009",
+      "foot": "",
+      "height": "",
+      "id": "114110",
+      "marketValue": "",
+      "name": "Rozárie Petráková",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "30",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 10, 1999",
+      "foot": "",
+      "height": "1,67m",
+      "id": "67825",
+      "marketValue": "€15k",
+      "name": "Hope Breslin",
+      "nationality": [
+        "United States"
+      ],
+      "number": "6",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Oct 12, 1998",
+      "foot": "",
+      "height": "1,63m",
+      "id": "31655",
+      "marketValue": "€30k",
+      "name": "Antonie Stárová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "7",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 10, 2008",
+      "foot": "",
+      "height": "",
+      "id": "92856",
+      "marketValue": "",
+      "name": "Sára Kerešová",
+      "nationality": [
+        "Slovakia"
+      ],
+      "number": "8",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jul 26, 2001",
+      "foot": "",
+      "height": "",
+      "id": "40012",
+      "marketValue": "",
+      "name": "Eliška Sonntagová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "12",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 22, 1997",
+      "foot": "",
+      "height": "1,65m",
+      "id": "39690",
+      "marketValue": "",
+      "name": "Franny Černá",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "22",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 26, 1997",
+      "foot": "both",
+      "height": "1,68m",
+      "id": "31191",
+      "marketValue": "",
+      "name": "Anna Petryk",
+      "nationality": [
+        "Ukraine"
+      ],
+      "number": "25",
+      "position": "Left Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 25, 2008",
+      "foot": "",
+      "height": "",
+      "id": "84040",
+      "marketValue": "",
+      "name": "Denisa Rancová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "26",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 21, 2009",
+      "foot": "",
+      "height": "",
+      "id": "105678",
+      "marketValue": "",
+      "name": "Ema Hankociová",
+      "nationality": [
+        "Slovakia"
+      ],
+      "number": "29",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 12, 2009",
+      "foot": "",
+      "height": "",
+      "id": "118020",
+      "marketValue": "",
+      "name": "Eliška Volhejnová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "31",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jan 26, 2002",
+      "foot": "",
+      "height": "",
+      "id": "111410",
+      "marketValue": "",
+      "name": "Hallie Bergford",
+      "nationality": [
+        "United States"
+      ],
+      "number": "4",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Feb 3, 2000",
+      "foot": "left",
+      "height": "1,72m",
+      "id": "30514",
+      "marketValue": "",
+      "name": "Michaela Khýrová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "11",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 12, 2002",
+      "foot": "",
+      "height": "",
+      "id": "44493",
+      "marketValue": "",
+      "name": "Radka Paulenová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "17",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 1, 1998",
+      "foot": "",
+      "height": "1,65m",
+      "id": "88483",
+      "marketValue": "€25k",
+      "name": "Kess Elmore",
+      "nationality": [
+        "England"
+      ],
+      "number": "18",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 12, 2002",
+      "foot": "",
+      "height": "1,63m",
+      "id": "109879",
+      "marketValue": "",
+      "name": "Ellie Ospeck",
+      "nationality": [
+        "United States"
+      ],
+      "number": "23",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "TCM Strahov",
+  "stadiumSeats": "0",
+  "transfermarktId": "322",
+  "country": "CZ"
+}

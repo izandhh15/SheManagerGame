@@ -1,0 +1,134 @@
+<?php
+
+namespace App\Http\Views;
+
+use App\Http\Actions\SaveSquadSelection;
+use App\Models\Game;
+use App\Models\GamePlayerTemplate;
+use App\Support\PositionMapper;
+
+class ShowSquadSelection
+{
+    public function __invoke(string $gameId)
+    {
+        $game = Game::with('team')->findOrFail($gameId);
+
+        // Only for tournament mode during new-season setup
+        if (!$game->isTournamentMode() || !$game->needsNewSeasonSetup()) {
+            return redirect()->route('show-game', $gameId);
+        }
+
+        // Wait for background setup to finish
+        if (!$game->isSetupComplete()) {
+            return redirect()->route('game.new-season', $gameId);
+        }
+
+        $candidates = $this->loadCandidates($game);
+
+        // If the roster has 26 or fewer players, auto-select all and skip the UI
+        $totalCandidates = array_sum(array_map('count', $candidates));
+        if ($totalCandidates <= 26) {
+            $allTmIds = [];
+            $positionByTmId = [];
+            foreach ($candidates as $group) {
+                foreach ($group as $candidate) {
+                    $allTmIds[] = $candidate['transfermarkt_id'];
+                    $positionByTmId[$candidate['transfermarkt_id']] = $candidate['position'];
+                }
+            }
+
+            SaveSquadSelection::createTournamentGamePlayers($game->id, $game->team_id, $allTmIds, $positionByTmId);
+            $game->completeNewSeasonSetup();
+
+            return redirect()->route('show-game', $game->id)
+                ->with('success', __('squad.squad_confirmed'));
+        }
+
+        return view('squad-selection', [
+            'game' => $game,
+            'candidatesByGroup' => $candidates,
+        ]);
+    }
+
+    private function loadCandidates(Game $game): array
+    {
+        $transfermarktId = $game->team->transfermarkt_id;
+        $jsonPath = base_path("data/2025/WC2026/teams/{$transfermarktId}.json");
+
+        if (!file_exists($jsonPath)) {
+            return ['goalkeepers' => [], 'defenders' => [], 'midfielders' => [], 'forwards' => []];
+        }
+
+        $data = json_decode(file_get_contents($jsonPath), true);
+        $jsonPlayers = $data['players'] ?? [];
+
+        // Look up the matching templates for biography. Templates are the
+        // canonical roster source post-Phase-3, so abilities and date_of_birth
+        // are read off them instead of the deprecated Player table. Filter
+        // by the game's national team id so we never resolve to a club
+        // template that shares the same transfermarkt_id (the same player
+        // can exist as both a club and a national-team template).
+        $tmIds = array_column($jsonPlayers, 'id');
+        $templates = GamePlayerTemplate::with('tournamentInfo')
+            ->where('team_id', $game->team_id)
+            ->whereIn('transfermarkt_id', $tmIds)
+            ->get()
+            ->keyBy('transfermarkt_id');
+
+        $groups = ['goalkeepers' => [], 'defenders' => [], 'midfielders' => [], 'forwards' => []];
+
+        foreach ($jsonPlayers as $jp) {
+            $tmId = $jp['id'] ?? null;
+            if (!$tmId) {
+                continue;
+            }
+
+            $template = $templates->get($tmId);
+            if (!$template) {
+                continue;
+            }
+
+            $position = $jp['position'] ?? 'Central Midfield';
+            $positionGroup = PositionMapper::getPositionGroup($position);
+            $positionDisplay = PositionMapper::getPositionDisplay($position);
+            $overall = (int) $template->overall_score;
+
+            $tournamentInfo = $template->tournamentInfo;
+
+            $candidate = [
+                'transfermarkt_id' => (string) $tmId,
+                'player_id' => $template->player_id,
+                'name' => $template->name,
+                'position' => $position,
+                'position_group' => $positionGroup,
+                'position_abbreviation' => $positionDisplay['abbreviation'],
+                'position_bg' => $positionDisplay['bg'],
+                'position_text' => $positionDisplay['text'],
+                'age' => $template->date_of_birth->age,
+                'height' => $jp['height'] ?? null,
+                'overall' => $overall,
+                'club_name' => $tournamentInfo?->club_name,
+                'club_crest_url' => $tournamentInfo?->club_crest_url,
+                'is_injured' => (bool) $tournamentInfo?->is_injured,
+                'is_called_up' => (bool) $tournamentInfo?->is_called_up,
+            ];
+
+            $groupKey = match ($positionGroup) {
+                'Goalkeeper' => 'goalkeepers',
+                'Defender' => 'defenders',
+                'Midfielder' => 'midfielders',
+                'Forward' => 'forwards',
+                default => 'midfielders',
+            };
+
+            $groups[$groupKey][] = $candidate;
+        }
+
+        // Sort each group by overall descending
+        foreach ($groups as &$group) {
+            usort($group, fn ($a, $b) => $b['overall'] <=> $a['overall']);
+        }
+
+        return $groups;
+    }
+}

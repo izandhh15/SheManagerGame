@@ -1,0 +1,425 @@
+{
+  "image": "https://assets.virtuafc.com/crests/3384.png",
+  "name": "Switzerland",
+  "players": [
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/16.png",
+        "name": "Borussia Dortmund"
+      },
+      "dateOfBirth": "Dec 6, 1997",
+      "foot": "right",
+      "height": "1,96m",
+      "id": "257814",
+      "injured": false,
+      "marketValue": "€40.00m",
+      "name": "Gregor Kobel",
+      "overall_score": 86,
+      "position": "Goalkeeper",
+      "potential": 89
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/452.png",
+        "name": "BSC Young Boys"
+      },
+      "dateOfBirth": "Jul 3, 2002",
+      "foot": "right",
+      "height": "1,89m",
+      "id": "500763",
+      "injured": false,
+      "marketValue": "€7.00m",
+      "name": "Marvin Keller",
+      "overall_score": 72,
+      "position": "Goalkeeper",
+      "potential": 81
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1158.png",
+        "name": "FC Lorient"
+      },
+      "dateOfBirth": "Jun 6, 1994",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "147051",
+      "injured": false,
+      "marketValue": "€3.00m",
+      "name": "Yvon Mvogo",
+      "overall_score": 76,
+      "position": "Goalkeeper",
+      "potential": 76
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/46.png",
+        "name": "Inter Milan"
+      },
+      "dateOfBirth": "Jul 19, 1995",
+      "foot": "right",
+      "height": "1,88m",
+      "id": "284730",
+      "injured": false,
+      "marketValue": "€18.00m",
+      "name": "Manuel Akanji",
+      "overall_score": 83,
+      "position": "Centre-Back",
+      "potential": 83
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/79.png",
+        "name": "VfB Stuttgart"
+      },
+      "dateOfBirth": "Jun 2, 2003",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "539798",
+      "injured": false,
+      "marketValue": "€10.00m",
+      "name": "Luca Jaquez",
+      "overall_score": 71,
+      "position": "Centre-Back",
+      "potential": 79
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/18.png",
+        "name": "Borussia Mönchengladbach"
+      },
+      "dateOfBirth": "Sep 30, 1996",
+      "foot": "right",
+      "height": "1,89m",
+      "id": "192635",
+      "injured": false,
+      "marketValue": "€8.00m",
+      "name": "Nico Elvedi",
+      "overall_score": 76,
+      "position": "Centre-Back",
+      "potential": 76
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/24.png",
+        "name": "Eintracht Frankfurt"
+      },
+      "dateOfBirth": "Jul 31, 2003",
+      "foot": "right",
+      "height": "1,94m",
+      "id": "635645",
+      "injured": false,
+      "marketValue": "€8.00m",
+      "name": "Aurèle Amenda",
+      "overall_score": 74,
+      "position": "Centre-Back",
+      "potential": 80
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1049.png",
+        "name": "Valencia CF"
+      },
+      "dateOfBirth": "Feb 4, 1998",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "298583",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "Eray Cömert",
+      "overall_score": 73,
+      "position": "Centre-Back",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/41.png",
+        "name": "Hamburger SV"
+      },
+      "dateOfBirth": "Mar 24, 1998",
+      "foot": "left",
+      "height": "1,82m",
+      "id": "298603",
+      "injured": false,
+      "marketValue": "€5.00m",
+      "name": "Miro Muheim",
+      "overall_score": 75,
+      "position": "Left-Back",
+      "potential": 75
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/150.png",
+        "name": "Real Betis Balompié"
+      },
+      "dateOfBirth": "Aug 25, 1992",
+      "foot": "left",
+      "height": "1,82m",
+      "id": "86784",
+      "injured": false,
+      "marketValue": "€1.50m",
+      "name": "Ricardo Rodríguez",
+      "overall_score": 73,
+      "position": "Left-Back",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/39.png",
+        "name": "1.FSV Mainz 05"
+      },
+      "dateOfBirth": "Mar 5, 1993",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "168989",
+      "injured": false,
+      "marketValue": "€800k",
+      "name": "Silvan Widmer",
+      "overall_score": 73,
+      "position": "Right-Back",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/5.png",
+        "name": "AC Milan"
+      },
+      "dateOfBirth": "Jul 30, 2002",
+      "foot": "left",
+      "height": "1,81m",
+      "id": "608172",
+      "injured": false,
+      "marketValue": "€30.00m",
+      "name": "Ardon Jashari",
+      "overall_score": 77,
+      "position": "Defensive Midfield",
+      "potential": 86
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/162.png",
+        "name": "AS Monaco"
+      },
+      "dateOfBirth": "Nov 20, 1996",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "334526",
+      "injured": false,
+      "marketValue": "€25.00m",
+      "name": "Denis Zakaria",
+      "overall_score": 81,
+      "position": "Defensive Midfield",
+      "potential": 81
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/289.png",
+        "name": "Sunderland AFC"
+      },
+      "dateOfBirth": "Sep 27, 1992",
+      "foot": "left",
+      "height": "1,86m",
+      "id": "111455",
+      "injured": false,
+      "marketValue": "€10.00m",
+      "name": "Granit Xhaka",
+      "overall_score": 85,
+      "position": "Defensive Midfield",
+      "potential": 85
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/60.png",
+        "name": "SC Freiburg"
+      },
+      "dateOfBirth": "Oct 14, 2005",
+      "foot": "right",
+      "height": "1,82m",
+      "id": "927353",
+      "injured": false,
+      "marketValue": "€35.00m",
+      "name": "Johan Manzambi",
+      "overall_score": 77,
+      "position": "Central Midfield",
+      "potential": 86
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/368.png",
+        "name": "Sevilla FC"
+      },
+      "dateOfBirth": "Feb 6, 1997",
+      "foot": "right",
+      "height": "1,84m",
+      "id": "212723",
+      "injured": false,
+      "marketValue": "€7.50m",
+      "name": "Djibril Sow",
+      "overall_score": 75,
+      "position": "Central Midfield",
+      "potential": 75
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/4172.png",
+        "name": "Pisa Sporting Club"
+      },
+      "dateOfBirth": "Jan 6, 1997",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "237658",
+      "injured": false,
+      "marketValue": "€4.50m",
+      "name": "Michel Aebischer",
+      "overall_score": 74,
+      "position": "Central Midfield",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1025.png",
+        "name": "Bologna FC 1909"
+      },
+      "dateOfBirth": "Apr 15, 1992",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "148252",
+      "injured": false,
+      "marketValue": "€4.00m",
+      "name": "Remo Freuler",
+      "overall_score": 82,
+      "position": "Central Midfield",
+      "potential": 82
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/167.png",
+        "name": "FC Augsburg"
+      },
+      "dateOfBirth": "Feb 16, 2002",
+      "foot": "left",
+      "height": "1,79m",
+      "id": "507341",
+      "injured": false,
+      "marketValue": "€8.00m",
+      "name": "Fabian Rieder",
+      "overall_score": 74,
+      "position": "Attacking Midfield",
+      "potential": 81
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/452.png",
+        "name": "BSC Young Boys"
+      },
+      "dateOfBirth": "Nov 11, 1993",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "250490",
+      "injured": false,
+      "marketValue": "€2.00m",
+      "name": "Christian Fassnacht",
+      "overall_score": 73,
+      "position": "Attacking Midfield",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/399.png",
+        "name": "Leeds United"
+      },
+      "dateOfBirth": "May 24, 2000",
+      "foot": "right",
+      "height": "1,85m",
+      "id": "346890",
+      "injured": false,
+      "marketValue": "€18.00m",
+      "name": "Noah Okafor",
+      "overall_score": 76,
+      "position": "Left Winger",
+      "potential": 79
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/368.png",
+        "name": "Sevilla FC"
+      },
+      "dateOfBirth": "Aug 5, 1998",
+      "foot": "right",
+      "height": "1,79m",
+      "id": "345886",
+      "injured": false,
+      "marketValue": "€12.00m",
+      "name": "Rubén Vargas",
+      "overall_score": 78,
+      "position": "Left Winger",
+      "potential": 78
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/703.png",
+        "name": "Nottingham Forest"
+      },
+      "dateOfBirth": "Oct 25, 2000",
+      "foot": "right",
+      "height": "1,84m",
+      "id": "365108",
+      "injured": false,
+      "marketValue": "€35.00m",
+      "name": "Dan Ndoye",
+      "overall_score": 77,
+      "position": "Right Winger",
+      "potential": 80
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/273.png",
+        "name": "Stade Rennais FC"
+      },
+      "dateOfBirth": "Feb 14, 1997",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "237662",
+      "injured": false,
+      "marketValue": "€12.00m",
+      "name": "Breel Embolo",
+      "overall_score": 77,
+      "position": "Centre-Forward",
+      "potential": 77
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/1132.png",
+        "name": "Burnley FC"
+      },
+      "dateOfBirth": "Dec 4, 2000",
+      "foot": "both",
+      "height": "1,85m",
+      "id": "548729",
+      "injured": false,
+      "marketValue": "€9.00m",
+      "name": "Zeki Amdouni",
+      "overall_score": 74,
+      "position": "Centre-Forward",
+      "potential": 78
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/38.png",
+        "name": "Fortuna Düsseldorf"
+      },
+      "dateOfBirth": "Dec 27, 1996",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "243856",
+      "injured": false,
+      "marketValue": "€1.80m",
+      "name": "Cedric Itten",
+      "overall_score": 70,
+      "position": "Centre-Forward",
+      "potential": 70
+    }
+  ],
+  "stadiumName": null,
+  "stadiumSeats": null,
+  "transfermarktId": "3384"
+}

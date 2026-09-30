@@ -1,0 +1,388 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/8586.png",
+  "name": "NWSL Kansas City",
+  "players": [
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Jun 9, 2000",
+      "foot": "right",
+      "height": "1,88m",
+      "id": "68569",
+      "marketValue": "€60k",
+      "name": "Marisa Jordan",
+      "nationality": [
+        "United States"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "May 6, 1997",
+      "foot": "right",
+      "height": "1,82m",
+      "id": "44821",
+      "marketValue": "€150k",
+      "name": "Lorena",
+      "nationality": [
+        "Brazil"
+      ],
+      "number": "23",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 7, 1996",
+      "foot": "",
+      "height": "",
+      "id": "78503",
+      "marketValue": "€30k",
+      "name": "Kaylin Williams-Mosier",
+      "nationality": [
+        "United States"
+      ],
+      "number": "48",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Feb 22, 2002",
+      "foot": "",
+      "height": "1,83m",
+      "id": "106013",
+      "marketValue": "€25k",
+      "name": "Clare Gagne",
+      "nationality": [
+        "United States"
+      ],
+      "number": "98",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Dec 31, 2029",
+      "dateOfBirth": "Oct 14, 2006",
+      "foot": "",
+      "height": "",
+      "id": "121568",
+      "marketValue": "€35k",
+      "name": "Maëva Nyadjou",
+      "nationality": [
+        "Cameroon"
+      ],
+      "number": 4,
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Aug 31, 2002",
+      "foot": "",
+      "height": "1,70m",
+      "id": "69708",
+      "marketValue": "€30k",
+      "name": "Laney Rouse",
+      "nationality": [
+        "United States"
+      ],
+      "number": "2",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Dec 14, 2001",
+      "foot": "right",
+      "height": "1,68m",
+      "id": "96832",
+      "marketValue": "€60k",
+      "name": "Ellie Bravo-Young",
+      "nationality": [
+        "United States"
+      ],
+      "number": "5",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Oct 20, 1995",
+      "foot": "right",
+      "height": "1,68m",
+      "id": "34719",
+      "marketValue": "€70k",
+      "name": "Elizabeth Ball",
+      "nationality": [
+        "United States"
+      ],
+      "number": "7",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Apr 11, 1997",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "38784",
+      "marketValue": "€80k",
+      "name": "Alana Cook",
+      "nationality": [
+        "United States"
+      ],
+      "number": "15",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Apr 13, 1999",
+      "foot": "left",
+      "height": "1,62m",
+      "id": "31797",
+      "marketValue": "€100k",
+      "name": "Izzy Rodriguez",
+      "nationality": [
+        "United States"
+      ],
+      "number": "18",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Jun 18, 2000",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "84607",
+      "marketValue": "€50k",
+      "name": "Gabrielle Robinson",
+      "nationality": [
+        "United States"
+      ],
+      "number": "24",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Jun 17, 1997",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "38865",
+      "marketValue": "€90k",
+      "name": "Kayla Sharples",
+      "nationality": [
+        "United States"
+      ],
+      "number": "27",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Jun 20, 2007",
+      "foot": "right",
+      "height": "1,67m",
+      "id": "74054",
+      "marketValue": "€55k",
+      "name": "Katie Scott",
+      "nationality": [
+        "United States"
+      ],
+      "number": "31",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Dec 8, 2003",
+      "foot": "",
+      "height": "1,65m",
+      "id": "115958",
+      "marketValue": "€30k",
+      "name": "Kolo Suliafu",
+      "nationality": [
+        "United States"
+      ],
+      "number": "44",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "May 17, 2002",
+      "foot": "",
+      "height": "1,63m",
+      "id": "121907",
+      "marketValue": "€35k",
+      "name": "Itala Gemelli",
+      "nationality": [
+        "United States"
+      ],
+      "number": "53",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Mar 14, 2001",
+      "foot": "right",
+      "height": "1,57m",
+      "id": "67463",
+      "marketValue": "€450k",
+      "name": "Croix Bethune",
+      "nationality": [
+        "United States"
+      ],
+      "number": "8",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Mar 18, 1993",
+      "foot": "",
+      "height": "1,55m",
+      "id": "27547",
+      "marketValue": "€70k",
+      "name": "Lo’eau LaBonta",
+      "nationality": [
+        "United States"
+      ],
+      "number": "10",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Oct 28, 1993",
+      "foot": "left",
+      "height": "1,66m",
+      "id": "13523",
+      "marketValue": "€55k",
+      "name": "Rocky Rodríguez",
+      "nationality": [
+        "Costa Rica"
+      ],
+      "number": "11",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "May 15, 1992",
+      "foot": "right",
+      "height": "1,63m",
+      "id": "13544",
+      "marketValue": "€45k",
+      "name": "Vanessa DiBernardo",
+      "nationality": [
+        "United States"
+      ],
+      "number": "16",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "Mar 14, 1997",
+      "foot": "right",
+      "height": "1,68m",
+      "id": "38851",
+      "marketValue": "€25k",
+      "name": "Bayley Feist",
+      "nationality": [
+        "United States"
+      ],
+      "number": "22",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Oct 20, 1991",
+      "foot": "right",
+      "height": "1,57m",
+      "id": "16269",
+      "marketValue": "€200k",
+      "name": "Debinha",
+      "nationality": [
+        "Brazil"
+      ],
+      "number": "99",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Jun 17, 2003",
+      "foot": "",
+      "height": "",
+      "id": "116401",
+      "marketValue": "€70k",
+      "name": "Amelia White",
+      "nationality": [
+        "United States"
+      ],
+      "number": "3",
+      "position": "Striker"
+    },
+    {
+      "contract": "Dec 31, 2029",
+      "dateOfBirth": "Sep 20, 1998",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "32512",
+      "marketValue": "€1.10m",
+      "name": "Temwa Chawinga",
+      "nationality": [
+        "Malawi"
+      ],
+      "number": "6",
+      "position": "Left Winger"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Dec 21, 1998",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "82413",
+      "marketValue": "€75k",
+      "name": "Haley Hopkins",
+      "nationality": [
+        "United States"
+      ],
+      "number": "13",
+      "position": "Left Winger"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Dec 4, 2002",
+      "foot": "right",
+      "height": "1,63m",
+      "id": "69724",
+      "marketValue": "€250k",
+      "name": "Michelle Cooper",
+      "nationality": [
+        "United States"
+      ],
+      "number": "17",
+      "position": "Right Winger"
+    },
+    {
+      "contract": "Dec 31, 2027",
+      "dateOfBirth": "Jan 24, 2007",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "103662",
+      "marketValue": "€30k",
+      "name": "Mary Long",
+      "nationality": [
+        "United States"
+      ],
+      "number": "19",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Dec 31, 2028",
+      "dateOfBirth": "Dec 29, 1999",
+      "foot": "right",
+      "height": "1,65m",
+      "id": "35748",
+      "marketValue": "€80k",
+      "name": "Penelope Hocking",
+      "nationality": [
+        "United States"
+      ],
+      "number": "55",
+      "position": "Second Striker"
+    }
+  ],
+  "stadiumName": "CPKC Stadium",
+  "stadiumSeats": "11500",
+  "transfermarktId": "8586",
+  "country": "US"
+}

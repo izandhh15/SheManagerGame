@@ -1,0 +1,402 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/14990.png",
+  "name": "FC København",
+  "players": [
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Nov 12, 2001",
+      "foot": "",
+      "height": "1,78m",
+      "id": "33057",
+      "marketValue": "",
+      "name": "Ann-Kathrin Dilfer",
+      "nationality": [
+        "Germany"
+      ],
+      "number": "21",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 2, 1999",
+      "foot": "",
+      "height": "",
+      "id": "88185",
+      "marketValue": "",
+      "name": "Jessica Williams",
+      "nationality": [
+        "South Africa"
+      ],
+      "number": "31",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 1, 2006",
+      "foot": "",
+      "height": "1,82m",
+      "id": "78720",
+      "marketValue": "",
+      "name": "Astrid Husemoen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "41",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 4, 2004",
+      "foot": "",
+      "height": "",
+      "id": "75980",
+      "marketValue": "",
+      "name": "Silja Weinell",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "2",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 23, 2001",
+      "foot": "",
+      "height": "1,76m",
+      "id": "39140",
+      "marketValue": "",
+      "name": "Olivia Bergmann",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Aug 17, 1998",
+      "foot": "left",
+      "height": "1,64m",
+      "id": "34032",
+      "marketValue": "",
+      "name": "Ally Green",
+      "nationality": [
+        "New Zealand"
+      ],
+      "number": "5",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 18, 2003",
+      "foot": "",
+      "height": "",
+      "id": "42078",
+      "marketValue": "",
+      "name": "Ida Skovbo",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "6",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 1, 1997",
+      "foot": "",
+      "height": "",
+      "id": "34212",
+      "marketValue": "",
+      "name": "Sunneva Sigurvinsdóttir",
+      "nationality": [
+        "Iceland"
+      ],
+      "number": "22",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 11, 2002",
+      "foot": "",
+      "height": "1,75m",
+      "id": "37450",
+      "marketValue": "",
+      "name": "Sofie Di Tranholm",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "23",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 11, 2001",
+      "foot": "",
+      "height": "1,78m",
+      "id": "33814",
+      "marketValue": "€40k",
+      "name": "Lucy Roberts",
+      "nationality": [
+        "England"
+      ],
+      "number": "25",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 11, 2003",
+      "foot": "",
+      "height": "1,80m",
+      "id": "39096",
+      "marketValue": "",
+      "name": "Freja Løvenfald",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "42",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 23, 2007",
+      "foot": "",
+      "height": "",
+      "id": "85429",
+      "marketValue": "",
+      "name": "Julie Børkop",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "7",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Mar 24, 2000",
+      "foot": "right",
+      "height": "1,81m",
+      "id": "28704",
+      "marketValue": "",
+      "name": "Emmaliina Tulkki",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "8",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 13, 1999",
+      "foot": "right",
+      "height": "1,63m",
+      "id": "32559",
+      "marketValue": "€70k",
+      "name": "Sarah Jankovska",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "10",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 22, 2006",
+      "foot": "",
+      "height": "",
+      "id": "107075",
+      "marketValue": "",
+      "name": "Anna Hemmingsen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "19",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 25, 2011",
+      "foot": "",
+      "height": "",
+      "id": "120485",
+      "marketValue": "",
+      "name": "Josefine Svava",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "20",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 29, 2007",
+      "foot": "",
+      "height": "",
+      "id": "85444",
+      "marketValue": "",
+      "name": "Frederikke Trolle",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "28",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 8, 2006",
+      "foot": "",
+      "height": "1,75m",
+      "id": "102804",
+      "marketValue": "",
+      "name": "Frederikke Boisen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "32",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Jan 11, 1997",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "29824",
+      "marketValue": "€15k",
+      "name": "Maria Hovmark",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "9",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Dec 27, 2006",
+      "foot": "",
+      "height": "",
+      "id": "74019",
+      "marketValue": "",
+      "name": "Emma Brandt",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "11",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 22, 2001",
+      "foot": "right",
+      "height": "1,60m",
+      "id": "32850",
+      "marketValue": "€50k",
+      "name": "Dana Leskinen",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "12",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 26, 2004",
+      "foot": "",
+      "height": "",
+      "id": "42273",
+      "marketValue": "",
+      "name": "Asii Berthelsen",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "13",
+      "position": "Right Winger"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 30, 2002",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "39116",
+      "marketValue": "",
+      "name": "Rebeka Winther",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "14",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 4, 2003",
+      "foot": "",
+      "height": "1,63m",
+      "id": "42271",
+      "marketValue": "",
+      "name": "Viktoria Wik",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "15",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 28, 2002",
+      "foot": "both",
+      "height": "1,78m",
+      "id": "38967",
+      "marketValue": "",
+      "name": "Sille Fuhlendorff",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "16",
+      "position": "Right Winger"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "May 29, 2006",
+      "foot": "",
+      "height": "",
+      "id": "72658",
+      "marketValue": "",
+      "name": "Anisa Saini",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "17",
+      "position": "Striker"
+    },
+    {
+      "contract": "Dec 31, 2026",
+      "dateOfBirth": "May 18, 2005",
+      "foot": "right",
+      "height": "1,62m",
+      "id": "58219",
+      "marketValue": "€30k",
+      "name": "Maja Johansson",
+      "nationality": [
+        "Sweden"
+      ],
+      "number": "27",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 23, 2005",
+      "foot": "right",
+      "height": "1,71m",
+      "id": "42367",
+      "marketValue": "",
+      "name": "Frederikke Benfeldt",
+      "nationality": [
+        "Denmark"
+      ],
+      "number": "29",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Vanløse Idrætspark",
+  "stadiumSeats": "10000",
+  "transfermarktId": "14990",
+  "country": "DK"
+}

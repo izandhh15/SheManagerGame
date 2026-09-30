@@ -1,0 +1,430 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/740.png",
+  "name": "Shamrock Rovers",
+  "players": [
+    {
+      "contract": "Nov 30, 2026",
+      "dateOfBirth": "May 9, 1994",
+      "foot": "",
+      "height": "1,80m",
+      "id": "56422",
+      "marketValue": "",
+      "name": "Amanda Budden",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Nov 30, 2026",
+      "dateOfBirth": "May 13, 2000",
+      "foot": "",
+      "height": "1,78m",
+      "id": "40162",
+      "marketValue": "",
+      "name": "Erica Turner",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "16",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 31, 2008",
+      "foot": "",
+      "height": "",
+      "id": "86288",
+      "marketValue": "",
+      "name": "Laura Fanning",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "22",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 18, 2010",
+      "foot": "",
+      "height": "",
+      "id": "107352",
+      "marketValue": "",
+      "name": "Sarah Doyle",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "36",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 4, 2005",
+      "foot": "",
+      "height": "",
+      "id": "83829",
+      "marketValue": "",
+      "name": "Jayne Merren",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "38",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 7, 1999",
+      "foot": "",
+      "height": "",
+      "id": "52113",
+      "marketValue": "",
+      "name": "Lauryn O’Callaghan",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "2",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Nov 30, 2026",
+      "dateOfBirth": "Jul 17, 2009",
+      "foot": "",
+      "height": "",
+      "id": "106317",
+      "marketValue": "",
+      "name": "Keelin Comiskey",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "3",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 19, 2003",
+      "foot": "",
+      "height": "",
+      "id": "47494",
+      "marketValue": "",
+      "name": "Therese Kinnevey",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "4",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Nov 30, 2026",
+      "dateOfBirth": "Jan 18, 2001",
+      "foot": "",
+      "height": "",
+      "id": "40267",
+      "marketValue": "",
+      "name": "Roisin McGovern",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "15",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 31, 2010",
+      "foot": "",
+      "height": "",
+      "id": "114004",
+      "marketValue": "",
+      "name": "Hailey Twomey",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "26",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 26, 2010",
+      "foot": "",
+      "height": "",
+      "id": "107351",
+      "marketValue": "",
+      "name": "Lara Dallaghan",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "29",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 22, 2006",
+      "foot": "",
+      "height": "",
+      "id": "84819",
+      "marketValue": "",
+      "name": "Hannah Martin",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "34",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 24, 2007",
+      "foot": "",
+      "height": "",
+      "id": "87092",
+      "marketValue": "",
+      "name": "Anna Hegarty",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": 6,
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 11, 2006",
+      "foot": "",
+      "height": "",
+      "id": "107454",
+      "marketValue": "",
+      "name": "Ciara Whyte",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": 12,
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Nov 30, 2026",
+      "dateOfBirth": "Feb 18, 2002",
+      "foot": "",
+      "height": "",
+      "id": "46703",
+      "marketValue": "",
+      "name": "Mia Dodd",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "5",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 18, 2000",
+      "foot": "",
+      "height": "",
+      "id": "40265",
+      "marketValue": "",
+      "name": "Sadhbh Doyle",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "8",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 5, 2004",
+      "foot": "left",
+      "height": "",
+      "id": "47502",
+      "marketValue": "",
+      "name": "Ellen Molloy",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "10",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Nov 30, 2026",
+      "dateOfBirth": "Oct 18, 2008",
+      "foot": "",
+      "height": "",
+      "id": "90042",
+      "marketValue": "",
+      "name": "Ella Kelly",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "11",
+      "position": "Left Midfield"
+    },
+    {
+      "contract": "Nov 30, 2026",
+      "dateOfBirth": "Sep 3, 2007",
+      "foot": "",
+      "height": "",
+      "id": "109349",
+      "marketValue": "",
+      "name": "Della Cowper-Gray",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "17",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Nov 30, 2026",
+      "dateOfBirth": "Jan 30, 2002",
+      "foot": "",
+      "height": "",
+      "id": "74573",
+      "marketValue": "",
+      "name": "Taylor White",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "20",
+      "position": "Right Midfield"
+    },
+    {
+      "contract": "Nov 30, 2026",
+      "dateOfBirth": "Sep 12, 2004",
+      "foot": "",
+      "height": "",
+      "id": "78910",
+      "marketValue": "",
+      "name": "Jaime Thompson",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "21",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Nov 30, 2026",
+      "dateOfBirth": "Apr 5, 2003",
+      "foot": "",
+      "height": "1,70m",
+      "id": "111700",
+      "marketValue": "",
+      "name": "Caitlin St. Leger",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "28",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 13, 2001",
+      "foot": "",
+      "height": "1,73m",
+      "id": "53063",
+      "marketValue": "",
+      "name": "Aisling Spillane",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "35",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 18, 2008",
+      "foot": "",
+      "height": "",
+      "id": "112740",
+      "marketValue": "",
+      "name": "Beatrice Slickaite",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "56",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Nov 30, 2026",
+      "dateOfBirth": "Jun 13, 2007",
+      "foot": "",
+      "height": "",
+      "id": "84820",
+      "marketValue": "",
+      "name": "Katie O’Reilly",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "7",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Nov 30, 2026",
+      "dateOfBirth": "Oct 23, 2003",
+      "foot": "",
+      "height": "",
+      "id": "62979",
+      "marketValue": "",
+      "name": "Emily Corbet",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "9",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Nov 30, 2026",
+      "dateOfBirth": "Aug 30, 2008",
+      "foot": "",
+      "height": "",
+      "id": "90040",
+      "marketValue": "",
+      "name": "Anna Butler",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "14",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 8, 2009",
+      "foot": "",
+      "height": "",
+      "id": "113995",
+      "marketValue": "",
+      "name": "Alice Buggle",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "24",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 22, 2009",
+      "foot": "",
+      "height": "",
+      "id": "114000",
+      "marketValue": "",
+      "name": "Kassie McLoughlin",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "25",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 5, 2010",
+      "foot": "",
+      "height": "",
+      "id": "114001",
+      "marketValue": "",
+      "name": "Ciara Milton",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "27",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "",
+  "stadiumSeats": "0",
+  "transfermarktId": "740",
+  "country": "IE"
+}

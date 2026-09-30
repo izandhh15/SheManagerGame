@@ -1,0 +1,119 @@
+<?php
+
+namespace Tests\Unit\Competition;
+
+use App\Models\Team;
+use App\Modules\Competition\Services\NeutralVenueResolver;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
+
+class NeutralVenueResolverTest extends TestCase
+{
+    use RefreshDatabase;
+
+    private NeutralVenueResolver $resolver;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->resolver = new NeutralVenueResolver();
+    }
+
+    public function test_espcup_final_is_played_at_la_cartuja(): void
+    {
+        $venue = $this->resolver->resolve('ESPCUP', 'cup.final', 'home', 'away');
+
+        $this->assertNotNull($venue);
+        $this->assertSame('La Cartuja', $venue['name']);
+        $this->assertSame(70000, $venue['capacity']);
+    }
+
+    public function test_espcup_non_final_round_has_no_neutral_venue(): void
+    {
+        $this->assertNull($this->resolver->resolve('ESPCUP', 'cup.semi_finals', 'home', 'away'));
+    }
+
+    public function test_every_spanish_supercup_game_is_played_at_the_neutral_spanish_venue(): void
+    {
+        // The women's Supercopa is a final four hosted at a neutral Spanish
+        // venue (Estadio Castalia, Castellón, for 2026) — not Saudi Arabia.
+        $expected = ['name' => 'Estadio Castalia', 'capacity' => 15500];
+
+        $this->assertSame($expected, $this->resolver->resolve('ESPSUP', 'cup.semi_finals', 'home', 'away'));
+        $this->assertSame($expected, $this->resolver->resolve('ESPSUP', 'cup.final', 'home', 'away'));
+    }
+
+    public function test_domestic_cup_venues_are_declared_in_country_config(): void
+    {
+        config(['countries.ES.domestic_cups.ESPCUP.neutral_venues' => [
+            'cup.semi_finals' => ['name' => 'Metropolitano', 'capacity' => 70460],
+        ]]);
+
+        $this->assertSame(
+            ['name' => 'Metropolitano', 'capacity' => 70460],
+            $this->resolver->resolve('ESPCUP', 'cup.semi_finals', 'home', 'away'),
+        );
+        $this->assertNull($this->resolver->resolve('ESPCUP', 'cup.final', 'home', 'away'), 'the final is no longer declared');
+    }
+
+    public function test_wildcard_venue_covers_every_round(): void
+    {
+        config(['countries.ES.domestic_cups.ESPCUP.neutral_venues' => [
+            '*' => ['name' => 'Anywhere Arena', 'capacity' => 40000],
+        ]]);
+
+        $this->assertSame('Anywhere Arena', $this->resolver->resolve('ESPCUP', 'cup.first_round', 'home', 'away')['name']);
+        $this->assertSame('Anywhere Arena', $this->resolver->resolve('ESPCUP', 'cup.final', 'home', 'away')['name']);
+    }
+
+    public function test_uefa_final_uses_a_random_neutral_club_ground_over_50k(): void
+    {
+        $home = Team::factory()->create(['stadium_seats' => 80000]);
+        $away = Team::factory()->create(['stadium_seats' => 75000]);
+        $neutral = Team::factory()->create([
+            'stadium_name' => 'San Siro',
+            'stadium_seats' => 60000,
+        ]);
+
+        foreach (['UCL', 'UEL'] as $competitionId) {
+            $venue = $this->resolver->resolve($competitionId, 'cup.final', $home->id, $away->id);
+
+            $this->assertNotNull($venue);
+            $this->assertSame('San Siro', $venue['name']);
+            $this->assertSame(60000, $venue['capacity']);
+        }
+    }
+
+    public function test_uefa_final_never_uses_a_finalists_ground(): void
+    {
+        // Only the two finalists clear the 50k bar — the resolver must still
+        // pick a neutral ground rather than one of theirs.
+        $home = Team::factory()->create(['stadium_seats' => 81000]);
+        $away = Team::factory()->create(['stadium_seats' => 80000]);
+        Team::factory()->create(['stadium_seats' => 10000]); // ineligible (too small)
+
+        $venue = $this->resolver->resolve('UCL', 'cup.final', $home->id, $away->id);
+
+        $this->assertNotNull($venue);
+        $this->assertNotSame($home->stadium_name, $venue['name']);
+        $this->assertNotSame($away->stadium_name, $venue['name']);
+    }
+
+    public function test_uefa_final_falls_back_to_a_guaranteed_venue_when_no_ground_is_eligible(): void
+    {
+        // No eligible (>=50k, non-finalist) stadium exists at all.
+        $home = Team::factory()->create(['stadium_seats' => 20000]);
+        $away = Team::factory()->create(['stadium_seats' => 18000]);
+
+        $venue = $this->resolver->resolve('UCL', 'cup.final', $home->id, $away->id);
+
+        $this->assertNotNull($venue);
+        $this->assertSame('Wembley Stadium', $venue['name']);
+        $this->assertSame(90000, $venue['capacity']);
+    }
+
+    public function test_non_neutral_competition_returns_null(): void
+    {
+        $this->assertNull($this->resolver->resolve('ESP1', 'cup.final', 'home', 'away'));
+    }
+}

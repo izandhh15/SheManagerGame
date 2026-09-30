@@ -1,0 +1,594 @@
+<?php
+
+namespace Tests\Unit;
+
+use App\Modules\Lineup\Enums\Formation;
+use App\Modules\Lineup\Services\FormationRecommender;
+use Illuminate\Support\Collection;
+use PHPUnit\Framework\TestCase;
+
+class FormationRecommenderTest extends TestCase
+{
+    private FormationRecommender $recommender;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->recommender = new FormationRecommender();
+    }
+
+    /**
+     * Build a lightweight player array. `bestXIFor` accepts both Eloquent
+     * models and plain arrays thanks to its precomputePlayers helper.
+     */
+    private function player(
+        string $id,
+        string $position,
+        int $overall = 70,
+        ?array $secondary = null,
+    ): array {
+        return [
+            'id' => $id,
+            'name' => $id,
+            'position' => $position,
+            'secondary_positions' => $secondary,
+            'overall_score' => $overall,
+        ];
+    }
+
+    /**
+     * Map the result array to [slotId => playerId|null] for easy assertions.
+     */
+    private function slotMap(array $bestXI): array
+    {
+        $map = [];
+        foreach ($bestXI as $row) {
+            $map[$row['slot']['id']] = $row['player']['id'] ?? null;
+        }
+
+        return $map;
+    }
+
+    public function test_vanilla_squad_places_all_11_players_in_natural_slots(): void
+    {
+        // 4-3-3: GK, LB, CB, CB, RB, CM, CM, CM, LW, CF, RW
+        $players = collect([
+            $this->player('gk', 'Goalkeeper'),
+            $this->player('lb', 'Left-Back'),
+            $this->player('cb1', 'Centre-Back'),
+            $this->player('cb2', 'Centre-Back'),
+            $this->player('rb', 'Right-Back'),
+            $this->player('cm1', 'Central Midfield'),
+            $this->player('cm2', 'Central Midfield'),
+            $this->player('cm3', 'Central Midfield'),
+            $this->player('lw', 'Left Winger'),
+            $this->player('cf', 'Centre-Forward'),
+            $this->player('rw', 'Right Winger'),
+        ]);
+
+        $bestXI = $this->recommender->bestXIFor(Formation::F_4_3_3, $players);
+
+        $this->assertCount(11, $bestXI);
+        foreach ($bestXI as $row) {
+            $this->assertNotNull($row['player'], "Slot {$row['slot']['label']} should be filled");
+            $this->assertSame(
+                100,
+                $row['compatibility'],
+                "Slot {$row['slot']['label']} should have natural compatibility",
+            );
+        }
+    }
+
+    public function test_swap_moves_versatile_player_to_cover_empty_wing(): void
+    {
+        // The bug scenario in a 4-3-3:
+        //
+        //   - Player A: primary LW / secondary RW, rating 80 (versatile, highest-rated LW)
+        //   - Player B: primary LW only, rating 70 (specialist, lower-rated)
+        //   - No unused player has Right Winger as primary or secondary.
+        //
+        // Naive greedy: A → LW (compat 100), RW empty, B unused.
+        // Expected: B → LW (primary), A → RW (via secondary swap).
+        $players = collect([
+            $this->player('gk', 'Goalkeeper'),
+            $this->player('lb', 'Left-Back'),
+            $this->player('cb1', 'Centre-Back'),
+            $this->player('cb2', 'Centre-Back'),
+            $this->player('rb', 'Right-Back'),
+            $this->player('cm1', 'Central Midfield'),
+            $this->player('cm2', 'Central Midfield'),
+            $this->player('cm3', 'Central Midfield'),
+            $this->player('cf', 'Centre-Forward'),
+            $this->player('lwVersatile', 'Left Winger', 80, ['Right Winger']),
+            $this->player('lwSpecialist', 'Left Winger', 70),
+        ]);
+
+        $bestXI = $this->recommender->bestXIFor(Formation::F_4_3_3, $players);
+        $map = $this->slotMap($bestXI);
+
+        // Slot ids in F_4_3_3: 8 = LW, 9 = CF, 10 = RW
+        $this->assertSame('lwSpecialist', $map[8], 'LW should go to the less versatile specialist');
+        $this->assertSame('lwVersatile', $map[10], 'Versatile LW should cover RW via secondary');
+        $this->assertSame('cf', $map[9]);
+
+        // All 11 slots filled at compatibility 100.
+        foreach ($bestXI as $row) {
+            $this->assertNotNull($row['player'], "Slot {$row['slot']['label']} should be filled");
+            $this->assertSame(100, $row['compatibility']);
+        }
+    }
+
+    public function test_swap_fills_dm_using_cb_secondary_freeing_less_versatile_cb(): void
+    {
+        // 4-1-4-1 has 2 CBs and 1 DM. Squad has no primary DM:
+        //   - cbTop (85): Centre-Back only
+        //   - cbVersatile (80): Centre-Back / secondary Defensive Midfield
+        //   - cbSpecialist (75): Centre-Back only
+        //
+        // Pass 1 fills 2 CB slots with cbTop + cbVersatile (rating DESC).
+        // DM is empty; no unused player has DM as primary/secondary.
+        // Pass 3 swaps: cbVersatile → DM, cbSpecialist → CB.
+        $players = collect([
+            $this->player('gk', 'Goalkeeper'),
+            $this->player('lb', 'Left-Back'),
+            $this->player('rb', 'Right-Back'),
+            $this->player('lw', 'Left Winger'),
+            $this->player('cm1', 'Central Midfield'),
+            $this->player('cm2', 'Central Midfield'),
+            $this->player('rw', 'Right Winger'),
+            $this->player('cf', 'Centre-Forward'),
+            $this->player('cbTop', 'Centre-Back', 85),
+            $this->player('cbVersatile', 'Centre-Back', 80, ['Defensive Midfield']),
+            $this->player('cbSpecialist', 'Centre-Back', 75),
+        ]);
+
+        $bestXI = $this->recommender->bestXIFor(Formation::F_4_1_4_1, $players);
+        $map = $this->slotMap($bestXI);
+
+        // F_4_1_4_1 slot ids: 2 = CB, 3 = CB, 5 = DM
+        $this->assertContains('cbTop', [$map[2], $map[3]]);
+        $this->assertContains('cbSpecialist', [$map[2], $map[3]]);
+        $this->assertNotContains('cbVersatile', [$map[2], $map[3]]);
+        $this->assertSame('cbVersatile', $map[5], 'DM slot should be filled by the versatile CB via swap');
+
+        foreach ($bestXI as $row) {
+            $this->assertNotNull($row['player'], "Slot {$row['slot']['label']} should be filled");
+            $this->assertSame(100, $row['compatibility']);
+        }
+    }
+
+    public function test_weighted_fallback_fills_slot_with_no_natural_fit(): void
+    {
+        // 4-3-3 with no Centre-Forward or Second Striker in the squad. The CF
+        // slot must still be filled via Pass 4 (weighted fallback) using the
+        // best available non-natural compat. Only unused candidate is an
+        // Attacking Midfield player (compat 80 for CF — non-natural good fit)
+        // — which is exactly what the fallback should pick.
+        $players = collect([
+            $this->player('gk', 'Goalkeeper'),
+            $this->player('lb', 'Left-Back'),
+            $this->player('cb1', 'Centre-Back'),
+            $this->player('cb2', 'Centre-Back'),
+            $this->player('rb', 'Right-Back'),
+            $this->player('cm1', 'Central Midfield'),
+            $this->player('cm2', 'Central Midfield'),
+            $this->player('cm3', 'Central Midfield'),
+            $this->player('lw', 'Left Winger'),
+            $this->player('rw', 'Right Winger'),
+            $this->player('am', 'Attacking Midfield'),
+        ]);
+
+        $bestXI = $this->recommender->bestXIFor(Formation::F_4_3_3, $players);
+        $map = $this->slotMap($bestXI);
+
+        // Slot 9 is the CF slot in F_4_3_3.
+        $this->assertSame('am', $map[9], 'CF should be filled via weighted fallback');
+
+        $cfRow = collect($bestXI)->firstWhere('slot.id', 9);
+        $this->assertSame(80, $cfRow['compatibility'], 'AM → CF has non-natural compat of 80');
+
+        // All 11 slots should end up filled (no gaps).
+        foreach ($bestXI as $row) {
+            $this->assertNotNull($row['player'], "Slot {$row['slot']['label']} should be filled");
+        }
+    }
+
+    public function test_secondary_fill_prefers_unused_player_over_swap(): void
+    {
+        // When the only unused candidate for an empty slot fits via a
+        // secondary position, the weighted fallback (Pass 4) must still
+        // pick him at compat 100 — we do not need to trigger a swap.
+        $players = collect([
+            $this->player('gk', 'Goalkeeper'),
+            $this->player('lb', 'Left-Back'),
+            $this->player('cb1', 'Centre-Back'),
+            $this->player('cb2', 'Centre-Back'),
+            $this->player('rb', 'Right-Back'),
+            $this->player('cm1', 'Central Midfield'),
+            $this->player('cm2', 'Central Midfield'),
+            $this->player('lw', 'Left Winger'),
+            $this->player('cf', 'Centre-Forward'),
+            // RM primary with secondary Right Winger → compat 100 for RW.
+            $this->player('extraRw', 'Right Midfield', 78, ['Right Winger']),
+            $this->player('cm3', 'Central Midfield'),
+        ]);
+
+        $bestXI = $this->recommender->bestXIFor(Formation::F_4_3_3, $players);
+        $map = $this->slotMap($bestXI);
+
+        $this->assertSame('lw', $map[8], 'LW should stay where he is');
+        $this->assertSame('cf', $map[9], 'CF should stay where he is');
+        $this->assertSame('extraRw', $map[10], 'RW should be covered by secondary-RW player');
+    }
+
+    public function test_manual_pin_forces_player_into_specified_slot(): void
+    {
+        // Mbappé (primary Centre-Forward) would naturally land at CF, but the
+        // user has explicitly pinned him to LW. Honor the pin, then fill the
+        // rest of the XI around it — Vinicius should still land somewhere
+        // sensible (CF or RW) without being pushed off the pitch.
+        $players = collect([
+            $this->player('gk', 'Goalkeeper'),
+            $this->player('lb', 'Left-Back'),
+            $this->player('cb1', 'Centre-Back'),
+            $this->player('cb2', 'Centre-Back'),
+            $this->player('rb', 'Right-Back'),
+            $this->player('cm1', 'Central Midfield'),
+            $this->player('cm2', 'Central Midfield'),
+            $this->player('cm3', 'Central Midfield'),
+            $this->player('mbappe', 'Centre-Forward', 92, ['Left Winger', 'Right Winger']),
+            $this->player('vinicius', 'Left Winger', 88, ['Centre-Forward']),
+            $this->player('rodrygo', 'Right Winger', 83, ['Left Winger', 'Centre-Forward']),
+        ]);
+
+        // Slot 8 is LW in F_4_3_3.
+        $bestXI = $this->recommender->bestXIFor(Formation::F_4_3_3, $players, [8 => 'mbappe']);
+        $map = $this->slotMap($bestXI);
+
+        $this->assertSame('mbappe', $map[8], 'Mbappé must stay pinned to LW');
+        $this->assertSame('rodrygo', $map[10], 'Rodrygo takes RW via his primary');
+        $this->assertSame('vinicius', $map[9], 'Vinicius falls back to CF via his secondary');
+
+        foreach ($bestXI as $row) {
+            $this->assertNotNull($row['player'], "Slot {$row['slot']['label']} should be filled");
+        }
+    }
+
+    public function test_manual_pin_ignores_invalid_entries(): void
+    {
+        // Invalid pins (unknown slot id, unknown player id) must be silently
+        // dropped so the rest of the XI can still be computed.
+        $players = collect([
+            $this->player('gk', 'Goalkeeper'),
+            $this->player('lb', 'Left-Back'),
+            $this->player('cb1', 'Centre-Back'),
+            $this->player('cb2', 'Centre-Back'),
+            $this->player('rb', 'Right-Back'),
+            $this->player('cm1', 'Central Midfield'),
+            $this->player('cm2', 'Central Midfield'),
+            $this->player('cm3', 'Central Midfield'),
+            $this->player('lw', 'Left Winger'),
+            $this->player('cf', 'Centre-Forward'),
+            $this->player('rw', 'Right Winger'),
+        ]);
+
+        $bestXI = $this->recommender->bestXIFor(Formation::F_4_3_3, $players, [
+            99 => 'lw',      // invalid slot id
+            8 => 'ghost',    // invalid player id
+        ]);
+
+        // Everyone should still end up in their natural slot.
+        $map = $this->slotMap($bestXI);
+        $this->assertSame('lw', $map[8]);
+        $this->assertSame('cf', $map[9]);
+        $this->assertSame('rw', $map[10]);
+    }
+
+    public function test_switching_4_3_3_to_4_4_2_with_three_forwards_keeps_all_players_on_pitch(): void
+    {
+        // Exact user-reported regression: a 4-3-3 squad with three dedicated
+        // forwards (LW, CF, RW) getting switched to 4-4-2 used to leave one
+        // forward orphaned — fillByWeighted skipped them because their primary
+        // had compat 0 for every remaining midfield slot.
+        //
+        // With the Pass 5 force-place pass, the leftover forward must end up
+        // in *some* slot (ugly but on-pitch). The user can then drag them to
+        // a sensible spot.
+        $players = collect([
+            $this->player('gk', 'Goalkeeper'),
+            $this->player('lb', 'Left-Back'),
+            $this->player('cb1', 'Centre-Back'),
+            $this->player('cb2', 'Centre-Back'),
+            $this->player('rb', 'Right-Back'),
+            $this->player('cm1', 'Central Midfield'),
+            $this->player('cm2', 'Central Midfield'),
+            $this->player('cm3', 'Central Midfield'),
+            $this->player('lw', 'Left Winger'),
+            $this->player('cf', 'Centre-Forward'),
+            $this->player('rw', 'Right Winger'),
+        ]);
+
+        $bestXI = $this->recommender->bestXIFor(Formation::F_4_4_2, $players);
+
+        // Every player id in the squad must appear in the result — no orphans.
+        $placedIds = collect($bestXI)->pluck('player.id')->filter()->values()->all();
+        sort($placedIds);
+        $expectedIds = $players->pluck('id')->sort()->values()->all();
+        $this->assertSame($expectedIds, $placedIds, 'Every selected player must be on the pitch');
+
+        // All 11 slots must have a player.
+        foreach ($bestXI as $row) {
+            $this->assertNotNull($row['player'], "Slot {$row['slot']['label']} should be filled");
+        }
+    }
+
+    public function test_force_place_pass_saves_orphan_with_zero_compat(): void
+    {
+        // Construct a squad where one player's primary scores 0 for every
+        // possible remaining slot once the other 10 are placed.
+        //
+        // 4-4-2 slots: GK, LB, CB, CB, RB, LM, CM, CM, RM, CF, CF.
+        //
+        // Squad: 1 GK, 4 defenders (2 CBs + LB + RB), 3 natural CFs (ratings
+        // 90/85/80 — top two fill both CF slots), plus 3 CMs. Leaves the 3rd
+        // CF (pure Centre-Forward, no secondaries) unable to go anywhere
+        // because CF → {LM, CM, RM} is all 0 in the compat matrix.
+        //
+        // Pass 5 must still place the orphan somewhere. Compat 0 is expected.
+        $players = collect([
+            $this->player('gk', 'Goalkeeper', 75),
+            $this->player('lb', 'Left-Back', 75),
+            $this->player('cb1', 'Centre-Back', 75),
+            $this->player('cb2', 'Centre-Back', 75),
+            $this->player('rb', 'Right-Back', 75),
+            $this->player('cm1', 'Central Midfield', 75),
+            $this->player('cm2', 'Central Midfield', 75),
+            $this->player('cm3', 'Central Midfield', 75),
+            $this->player('cfTop', 'Centre-Forward', 90),
+            $this->player('cfMid', 'Centre-Forward', 85),
+            $this->player('cfOrphan', 'Centre-Forward', 80),
+        ]);
+
+        $bestXI = $this->recommender->bestXIFor(Formation::F_4_4_2, $players);
+        $map = $this->slotMap($bestXI);
+
+        // All 11 must be placed.
+        $placedIds = array_filter(array_values($map));
+        sort($placedIds);
+        $expectedIds = $players->pluck('id')->sort()->values()->all();
+        $this->assertSame($expectedIds, $placedIds, 'Orphan CF must end up on the pitch');
+
+        // The orphan lands in some non-CF slot at compat 0.
+        $orphanRow = collect($bestXI)->first(fn ($row) => ($row['player']['id'] ?? null) === 'cfOrphan');
+        $this->assertNotNull($orphanRow);
+        $this->assertSame(0, $orphanRow['compatibility'], 'Orphan placement must honestly report compat 0');
+        $this->assertNotSame('CF', $orphanRow['slot']['label'], 'CF slots are already taken by higher-rated forwards');
+    }
+
+    public function test_improve_pass_swaps_weaker_primary_for_stronger_secondary(): void
+    {
+        // 4-3-3: 3 CM slots, 2 CB slots.
+        //
+        // Midfielders with CB secondary (84/83) can't reach a CM slot in Pass 1
+        // because three higher-rated CM-primary players (87/86/85) saturate the
+        // midfield. CB slots get the two CB-primary players (82/80). Without
+        // the improve pass, 84 and 83 end up benched even though they'd be a
+        // natural compat-100 fit in CB and outrate the occupants.
+        $players = collect([
+            $this->player('gk', 'Goalkeeper', 75),
+            $this->player('lb', 'Left-Back', 75),
+            $this->player('rb', 'Right-Back', 75),
+            $this->player('lw', 'Left Winger', 75),
+            $this->player('rw', 'Right Winger', 75),
+            $this->player('cf', 'Centre-Forward', 75),
+            $this->player('cm1', 'Central Midfield', 87),
+            $this->player('cm2', 'Central Midfield', 86),
+            $this->player('cm3', 'Central Midfield', 85),
+            $this->player('cmCb1', 'Central Midfield', 84, ['Centre-Back']),
+            $this->player('cmCb2', 'Central Midfield', 83, ['Centre-Back']),
+            $this->player('cbWeak1', 'Centre-Back', 82),
+            $this->player('cbWeak2', 'Centre-Back', 80),
+        ]);
+
+        $bestXI = $this->recommender->bestXIFor(Formation::F_4_3_3, $players);
+        $map = $this->slotMap($bestXI);
+
+        // CB slots (ids 2, 3) must go to the higher-rated secondary-CB players.
+        $this->assertContains('cmCb1', [$map[2], $map[3]]);
+        $this->assertContains('cmCb2', [$map[2], $map[3]]);
+        $this->assertNotContains('cbWeak1', [$map[2], $map[3]]);
+        $this->assertNotContains('cbWeak2', [$map[2], $map[3]]);
+
+        // All CB placements are at compatibility 100 (via secondary).
+        foreach ($bestXI as $row) {
+            if ($row['slot']['label'] === 'CB') {
+                $this->assertSame(100, $row['compatibility']);
+            }
+        }
+    }
+
+    public function test_improve_pass_never_evicts_manual_pin(): void
+    {
+        // User pins a weaker player; improve pass must not overrule that.
+        $players = collect([
+            $this->player('gk', 'Goalkeeper', 75),
+            $this->player('lb', 'Left-Back', 75),
+            $this->player('cb1', 'Centre-Back', 75),
+            $this->player('cb2', 'Centre-Back', 75),
+            $this->player('rb', 'Right-Back', 75),
+            $this->player('cm1', 'Central Midfield', 75),
+            $this->player('cm2', 'Central Midfield', 75),
+            $this->player('cm3', 'Central Midfield', 75),
+            $this->player('lwPinned', 'Left Winger', 60),
+            $this->player('cf', 'Centre-Forward', 75),
+            $this->player('rw', 'Right Winger', 75),
+            // Bench: a far better LW that improve pass would normally swap in.
+            $this->player('lwStar', 'Left Winger', 90),
+        ]);
+
+        // Slot 8 is LW in F_4_3_3.
+        $bestXI = $this->recommender->bestXIFor(Formation::F_4_3_3, $players, [8 => 'lwPinned']);
+        $map = $this->slotMap($bestXI);
+
+        $this->assertSame('lwPinned', $map[8], 'Manual pin must survive the improve pass');
+    }
+
+    public function test_getBestFormation_still_returns_a_formation_enum(): void
+    {
+        // Sanity: the legacy public method must keep working for its current
+        // call sites (AITacticsService::selectAIFormation).
+        $players = collect([
+            $this->player('gk', 'Goalkeeper'),
+            $this->player('lb', 'Left-Back'),
+            $this->player('cb1', 'Centre-Back'),
+            $this->player('cb2', 'Centre-Back'),
+            $this->player('rb', 'Right-Back'),
+            $this->player('cm1', 'Central Midfield'),
+            $this->player('cm2', 'Central Midfield'),
+            $this->player('cm3', 'Central Midfield'),
+            $this->player('lw', 'Left Winger'),
+            $this->player('cf', 'Centre-Forward'),
+            $this->player('rw', 'Right Winger'),
+        ]);
+
+        $formation = $this->recommender->getBestFormation($players);
+        $this->assertInstanceOf(Formation::class, $formation);
+    }
+
+    public function test_getBestFormation_respects_bias_when_squad_supports_it(): void
+    {
+        // Squad that fits 4-3-3 perfectly. 4-4-2 is also a clean fit because:
+        //   - The wingers cover LM and RM via primary (LB/LW/RB/RW are all
+        //     natural-fit 100 for the wide-mid slots in PositionSlotMapper).
+        //   - cm3 carries a `Second Striker` secondary, so the weighted
+        //     fallback (Pass 4) fills the spare CF slot at compat 100 once
+        //     cm1 and cm2 have taken the two CM slots.
+        // Both formations end at score 103 mechanically, so the unbiased run
+        // settles on the initial 4-3-3 candidate; a moderate 4-4-2 bias is
+        // enough to push it ahead.
+        $players = collect([
+            $this->player('gk', 'Goalkeeper'),
+            $this->player('lb', 'Left-Back'),
+            $this->player('cb1', 'Centre-Back'),
+            $this->player('cb2', 'Centre-Back'),
+            $this->player('rb', 'Right-Back'),
+            $this->player('cm1', 'Central Midfield'),
+            $this->player('cm2', 'Central Midfield'),
+            $this->player('cm3', 'Central Midfield', 70, ['Second Striker']),
+            $this->player('lw', 'Left Winger'),
+            $this->player('cf', 'Centre-Forward'),
+            $this->player('rw', 'Right Winger'),
+        ]);
+
+        $unbiased = $this->recommender->getBestFormation($players);
+        $biased = $this->recommender->getBestFormation($players, ['4-4-2' => 12]);
+
+        $this->assertSame(Formation::F_4_3_3, $unbiased, 'Sanity check — fixture should pick 4-3-3 without bias');
+        $this->assertSame(Formation::F_4_4_2, $biased, 'Bias should flip the choice when 4-4-2 is also supported');
+    }
+
+    public function test_fresh_mp_without_cm_secondary_beats_tired_mcd_with_cm_secondary(): void
+    {
+        // User-reported bug: in a 4-3-3 with 3 CM slots, the auto-lineup
+        // always parks defensive midfielders (with "Central Midfield" as a
+        // secondary) into the central slots even when fresher attacking
+        // midfielders are available. The fresh MP here doesn't have CM in
+        // his secondaries, but his weighted score (rating × compat=80 via
+        // primary) must still beat a tired MCD's (lowered rating × compat=100
+        // via secondary).
+        //
+        // Ratings here are pre-adjusted as if LineupService had already
+        // applied the fitness penalty before passing the pool to the
+        // recommender — that mirrors the autoSelectLineup path post-fix.
+        $players = collect([
+            $this->player('gk', 'Goalkeeper', 75),
+            $this->player('lb', 'Left-Back', 75),
+            $this->player('cb1', 'Centre-Back', 75),
+            $this->player('cb2', 'Centre-Back', 75),
+            $this->player('rb', 'Right-Back', 75),
+            $this->player('lw', 'Left Winger', 75),
+            $this->player('cf', 'Centre-Forward', 75),
+            $this->player('rw', 'Right Winger', 75),
+            // One natural CM at full freshness.
+            $this->player('mcFresh', 'Central Midfield', 80),
+            // Two MCDs with CM secondary, but their ratings are heavily
+            // penalised by fatigue (raw 85, effective ~60 each).
+            $this->player('mcdTired1', 'Defensive Midfield', 60, ['Central Midfield']),
+            $this->player('mcdTired2', 'Defensive Midfield', 58, ['Central Midfield']),
+            // Fresh attacking mid with NO Central Midfield secondary.
+            $this->player('mpFresh', 'Attacking Midfield', 78),
+        ]);
+
+        $bestXI = $this->recommender->bestXIFor(Formation::F_4_3_3, $players);
+        $map = $this->slotMap($bestXI);
+
+        // F_4_3_3 CM slots are ids 5, 6, 7.
+        $cmAssignments = [$map[5], $map[6], $map[7]];
+
+        $this->assertContains('mcFresh', $cmAssignments, 'Natural CM still fills a midfield slot');
+        $this->assertContains('mpFresh', $cmAssignments, 'Fresh MP must reach a CM slot ahead of a tired MCD');
+        $this->assertNotContains(
+            'mcdTired2',
+            $cmAssignments,
+            'Lower-rated tired MCD must not displace the fresh MP',
+        );
+    }
+
+    public function test_high_rated_mcd_with_cm_secondary_still_beats_lower_rated_fresh_mp(): void
+    {
+        // Counter-test: when the MCD is clearly the better player even after
+        // the compat-80-vs-100 tradeoff, the weighted formula should still
+        // prefer him. We keep this case green so the fix doesn't overshoot
+        // into "secondary positions are worthless" territory.
+        //
+        // Weighted score = (rating × 0.7) + (compat × 0.3).
+        //   mcdStar  (rating 88, compat 100 via secondary) → 61.6 + 30 = 91.6
+        //   mpAvg    (rating 78, compat 80  via primary)   → 54.6 + 24 = 78.6
+        $players = collect([
+            $this->player('gk', 'Goalkeeper', 75),
+            $this->player('lb', 'Left-Back', 75),
+            $this->player('cb1', 'Centre-Back', 75),
+            $this->player('cb2', 'Centre-Back', 75),
+            $this->player('rb', 'Right-Back', 75),
+            $this->player('lw', 'Left Winger', 75),
+            $this->player('cf', 'Centre-Forward', 75),
+            $this->player('rw', 'Right Winger', 75),
+            $this->player('mcOk', 'Central Midfield', 80),
+            $this->player('mcdStar', 'Defensive Midfield', 88, ['Central Midfield']),
+            $this->player('mpAvg', 'Attacking Midfield', 78),
+            $this->player('extraDef', 'Centre-Back', 60),
+        ]);
+
+        $bestXI = $this->recommender->bestXIFor(Formation::F_4_3_3, $players);
+        $map = $this->slotMap($bestXI);
+
+        $cmAssignments = [$map[5], $map[6], $map[7]];
+        $this->assertContains('mcOk', $cmAssignments);
+        $this->assertContains('mcdStar', $cmAssignments, 'Higher-rated MCD with CM secondary still earns the slot');
+    }
+
+    public function test_getBestFormation_overrides_bias_when_squad_cannot_support_it(): void
+    {
+        // 4-3-3 squad with three pure wingers, three pure CMs, and only
+        // one CF. 4-4-2 needs 2 CFs and zero wingers, so the recommender
+        // would force-place wingers as CFs at compat 0 — a moderate
+        // identity bias is not enough to overcome that mechanical penalty.
+        $players = collect([
+            $this->player('gk', 'Goalkeeper'),
+            $this->player('lb', 'Left-Back'),
+            $this->player('cb1', 'Centre-Back'),
+            $this->player('cb2', 'Centre-Back'),
+            $this->player('rb', 'Right-Back'),
+            $this->player('cm1', 'Central Midfield'),
+            $this->player('cm2', 'Central Midfield'),
+            $this->player('cm3', 'Central Midfield'),
+            $this->player('lw', 'Left Winger'),
+            $this->player('cf', 'Centre-Forward'),
+            $this->player('rw', 'Right Winger'),
+        ]);
+
+        $biased = $this->recommender->getBestFormation($players, ['4-4-2' => 12]);
+
+        $this->assertNotSame(Formation::F_4_4_2, $biased, 'Bias must not force a shape the squad cannot fill naturally');
+    }
+}

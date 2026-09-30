@@ -1,0 +1,425 @@
+{
+  "image": "https://assets.virtuafc.com/crests/3589.png",
+  "name": "South Korea",
+  "players": [
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6502.png",
+        "name": "Jeonbuk Hyundai Motors"
+      },
+      "dateOfBirth": "Oct 15, 1997",
+      "foot": "right",
+      "height": "1,94m",
+      "id": "508237",
+      "injured": false,
+      "marketValue": "€1.00m",
+      "name": "Bum-keun Song",
+      "overall_score": 74,
+      "position": "Goalkeeper",
+      "potential": 77
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/3535.png",
+        "name": "Ulsan HD FC"
+      },
+      "dateOfBirth": "Sep 25, 1991",
+      "foot": "right",
+      "height": "1,89m",
+      "id": "260171",
+      "injured": false,
+      "marketValue": "€650k",
+      "name": "Hyeon-woo Jo",
+      "overall_score": 74,
+      "position": "Goalkeeper",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6631.png",
+        "name": "FC Tokyo"
+      },
+      "dateOfBirth": "Sep 30, 1990",
+      "foot": "right",
+      "height": "1,89m",
+      "id": "92076",
+      "injured": false,
+      "marketValue": "€600k",
+      "name": "Seung-gyu Kim",
+      "overall_score": 73,
+      "position": "Goalkeeper",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/27.png",
+        "name": "Bayern Munich"
+      },
+      "dateOfBirth": "Nov 15, 1996",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "503482",
+      "injured": false,
+      "marketValue": "€25.00m",
+      "name": "Min-jae Kim",
+      "overall_score": 82,
+      "position": "Centre-Back",
+      "potential": 82
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/13613.png",
+        "name": "Sharjah FC"
+      },
+      "dateOfBirth": "Nov 17, 1996",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "561212",
+      "injured": false,
+      "marketValue": "€1.80m",
+      "name": "Yu-min Cho",
+      "overall_score": 70,
+      "position": "Centre-Back",
+      "potential": 71
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/865.png",
+        "name": "FC Midtjylland"
+      },
+      "dateOfBirth": "Jun 17, 2002",
+      "foot": "right",
+      "height": "1,90m",
+      "id": "706963",
+      "injured": false,
+      "marketValue": "€1.80m",
+      "name": "Han-beom Lee",
+      "overall_score": 71,
+      "position": "Centre-Back",
+      "potential": 80
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/21459.png",
+        "name": "Gangwon FC"
+      },
+      "dateOfBirth": "Jul 7, 2000",
+      "foot": "left",
+      "height": "1,85m",
+      "id": "763349",
+      "injured": false,
+      "marketValue": "€800k",
+      "name": "Gi-hyuk Lee",
+      "overall_score": 70,
+      "position": "Centre-Back",
+      "potential": 77
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2241.png",
+        "name": "Kashima Antlers"
+      },
+      "dateOfBirth": "Sep 17, 2000",
+      "foot": "left",
+      "height": "1,87m",
+      "id": "645847",
+      "injured": false,
+      "marketValue": "€700k",
+      "name": "Tae-hyeon Kim",
+      "overall_score": 66,
+      "position": "Centre-Back",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/14.png",
+        "name": "Austria Vienna"
+      },
+      "dateOfBirth": "Jul 28, 2002",
+      "foot": "left",
+      "height": "1,74m",
+      "id": "639027",
+      "injured": false,
+      "marketValue": "€1.50m",
+      "name": "Tae-seok Lee",
+      "overall_score": 69,
+      "position": "Left-Back",
+      "potential": 75
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/159.png",
+        "name": "Red Star Belgrade"
+      },
+      "dateOfBirth": "Dec 5, 1998",
+      "foot": "right",
+      "height": "1,83m",
+      "id": "639414",
+      "injured": false,
+      "marketValue": "€5.00m",
+      "name": "Young-woo Seol",
+      "overall_score": 73,
+      "position": "Right-Back",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6499.png",
+        "name": "Daejeon Hana Citizen"
+      },
+      "dateOfBirth": "Aug 1, 1995",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "524592",
+      "injured": false,
+      "marketValue": "€750k",
+      "name": "Moon-hwan Kim",
+      "overall_score": 69,
+      "position": "Right-Back",
+      "potential": 69
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/234.png",
+        "name": "Feyenoord Rotterdam"
+      },
+      "dateOfBirth": "Sep 20, 1996",
+      "foot": "both",
+      "height": "1,77m",
+      "id": "365394",
+      "injured": false,
+      "marketValue": "€8.00m",
+      "name": "In-beom Hwang",
+      "overall_score": 76,
+      "position": "Defensive Midfield",
+      "potential": 76
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/17276.png",
+        "name": "Zhejiang FC"
+      },
+      "dateOfBirth": "Oct 23, 1995",
+      "foot": "right",
+      "height": "1,86m",
+      "id": "557469",
+      "injured": false,
+      "marketValue": "€1.00m",
+      "name": "Jin-seob Park",
+      "overall_score": 74,
+      "position": "Defensive Midfield",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/18.png",
+        "name": "Borussia Mönchengladbach"
+      },
+      "dateOfBirth": "Jul 29, 2003",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "613192",
+      "injured": false,
+      "marketValue": "€6.00m",
+      "name": "Jens Castrop",
+      "overall_score": 74,
+      "position": "Central Midfield",
+      "potential": 81
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/337.png",
+        "name": "Birmingham City"
+      },
+      "dateOfBirth": "Mar 17, 1997",
+      "foot": "right",
+      "height": "1,82m",
+      "id": "282689",
+      "injured": false,
+      "marketValue": "€2.50m",
+      "name": "Seung-ho Paik",
+      "overall_score": 72,
+      "position": "Central Midfield",
+      "potential": 72
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/6502.png",
+        "name": "Jeonbuk Hyundai Motors"
+      },
+      "dateOfBirth": "Feb 24, 1997",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "365377",
+      "injured": false,
+      "marketValue": "€1.20m",
+      "name": "Jin-gyu Kim",
+      "overall_score": 73,
+      "position": "Central Midfield",
+      "potential": 73
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/583.png",
+        "name": "Paris Saint-Germain"
+      },
+      "dateOfBirth": "Feb 19, 2001",
+      "foot": "left",
+      "height": "1,73m",
+      "id": "557149",
+      "injured": false,
+      "marketValue": "€28.00m",
+      "name": "Kang-in Lee",
+      "overall_score": 80,
+      "position": "Attacking Midfield",
+      "potential": 83
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/512.png",
+        "name": "Stoke City"
+      },
+      "dateOfBirth": "Aug 21, 2003",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "912081",
+      "injured": false,
+      "marketValue": "€3.00m",
+      "name": "Jun-ho Bae",
+      "overall_score": 71,
+      "position": "Attacking Midfield",
+      "potential": 80
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/39.png",
+        "name": "1.FSV Mainz 05"
+      },
+      "dateOfBirth": "Aug 10, 1992",
+      "foot": "left",
+      "height": "1,80m",
+      "id": "314398",
+      "injured": false,
+      "marketValue": "€2.00m",
+      "name": "Jae-sung Lee",
+      "overall_score": 76,
+      "position": "Attacking Midfield",
+      "potential": 76
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/3535.png",
+        "name": "Ulsan HD FC"
+      },
+      "dateOfBirth": "Sep 20, 1997",
+      "foot": "left",
+      "height": "1,76m",
+      "id": "558086",
+      "injured": false,
+      "marketValue": "€1.60m",
+      "name": "Dong-gyeong Lee",
+      "overall_score": 75,
+      "position": "Attacking Midfield",
+      "potential": 75
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/51828.png",
+        "name": "Los Angeles FC"
+      },
+      "dateOfBirth": "Jul 8, 1992",
+      "foot": "both",
+      "height": "1,84m",
+      "id": "91845",
+      "injured": false,
+      "marketValue": "€17.00m",
+      "name": "Heung-min Son",
+      "overall_score": 84,
+      "position": "Left Winger",
+      "potential": 84
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/2288.png",
+        "name": "Swansea City"
+      },
+      "dateOfBirth": "May 9, 2002",
+      "foot": "right",
+      "height": "1,76m",
+      "id": "706968",
+      "injured": false,
+      "marketValue": "€1.40m",
+      "name": "Ji-sung Eom",
+      "overall_score": 71,
+      "position": "Left Winger",
+      "potential": 77
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/371.png",
+        "name": "Celtic FC"
+      },
+      "dateOfBirth": "May 25, 2002",
+      "foot": "right",
+      "height": "1,76m",
+      "id": "853110",
+      "injured": false,
+      "marketValue": "€5.00m",
+      "name": "Hyun-jun Yang",
+      "overall_score": 72,
+      "position": "Right Winger",
+      "potential": 78
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/114.png",
+        "name": "Besiktas JK"
+      },
+      "dateOfBirth": "Apr 12, 2001",
+      "foot": "right",
+      "height": "1,87m",
+      "id": "639246",
+      "injured": false,
+      "marketValue": "€15.00m",
+      "name": "Hyeon-gyu Oh",
+      "overall_score": 73,
+      "position": "Centre-Forward",
+      "potential": 78
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/543.png",
+        "name": "Wolverhampton Wanderers"
+      },
+      "dateOfBirth": "Jan 26, 1996",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "292246",
+      "injured": false,
+      "marketValue": "€8.00m",
+      "name": "Hee-chan Hwang",
+      "overall_score": 74,
+      "position": "Centre-Forward",
+      "potential": 74
+    },
+    {
+      "club": {
+        "image": "https://assets.virtuafc.com/crests/865.png",
+        "name": "FC Midtjylland"
+      },
+      "dateOfBirth": "Jan 25, 1998",
+      "foot": "right",
+      "height": "1,88m",
+      "id": "652537",
+      "injured": false,
+      "marketValue": "€3.00m",
+      "name": "Gue-sung Cho",
+      "overall_score": 68,
+      "position": "Centre-Forward",
+      "potential": 68
+    }
+  ],
+  "stadiumName": null,
+  "stadiumSeats": null,
+  "transfermarktId": "3589"
+}

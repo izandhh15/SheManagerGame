@@ -1,0 +1,287 @@
+<?php
+
+return [
+    'atmosphere_shot_on_target' => [
+        '¡Disparo de :player (:team)! La portera atrapa sin problemas',
+        ':player (:team) lo intenta desde fuera del área. Buena parada',
+        'Remate de :player (:team) que obliga a intervenir al guardameta',
+        '¡La tuvo :el_team! Disparo de :player que rechaza la portera',
+        ':player (:team) remata a puerta, pero la portera estaba bien colocado',
+        '¡Ojo al disparo de :player (:team)! Tremenda parada de la portera',
+    ],
+    'atmosphere_shot_off_target' => [
+        '¡Uyyy! Tiro fuera de :player (:team)',
+        ':player (:team) lo intenta pero el balón se marcha desviado',
+        'Remate alto de :player (:team), se le fue por encima del larguero',
+        ':player (:team) dispara desde la frontal... se marcha por poco',
+        'Lo intenta :player (:team) desde lejos, pero no encuentra portería',
+        '¡Casi! :player (:team) se queda cerca pero el balón se va fuera',
+    ],
+    'atmosphere_foul' => [
+        'Falta de :player (:team), el árbitro no duda en señalar',
+        ':player (:team) corta en falta una jugada prometedora :del_opponent',
+        'Derribo de :player (:team) en el centro del campo',
+        ':player (:team) llega tarde a la disputa y comete falta',
+        'El árbitro señala falta de :player (:team) tras un forcejeo',
+        'Falta de :player (:team) en ataque, cambio de posesión',
+    ],
+    'contextual_draw_open' => [
+        'Partido igualado en el :venue, ninguno de los dos equipos consigue imponerse',
+        'No tiene un dominador claro el partido entre :el_home y :el_away',
+        'Reparto de juego en el :venue, con ocasiones en ambas porterías',
+        'Empate a nada en el :venue, ambos equipos se estudian con cautela',
+        'Igualdad máxima entre :el_home y :el_away, que se anulan mutuamente',
+    ],
+    'contextual_draw_with_goals' => [
+        'Partido abierto y entretenido en el :venue, con goles en ambas porterías',
+        'Empate que se ajusta a lo visto sobre el campo, con ocasiones para ambos',
+        'Igualdad en el marcador y en el juego entre :el_home y :el_away',
+        'Ida y vuelta constante en el :venue, las dos defensas sufren',
+        'Espectáculo para los aficionados en el :venue, goles repartidos entre ambos equipos',
+    ],
+    'contextual_home_leading' => [
+        ':el_home controla el partido y el marcador en el :venue',
+        'Dominio claro :del_home, que maneja el partido a su antojo',
+        'Buen partido :del_home que tiene el marcador a favor',
+        ':el_home cómodo con la ventaja en el :venue',
+    ],
+    // Variantes con connotación de localía — solo se usan cuando hay ventaja de campo
+    'contextual_home_leading_home_only' => [
+        'Los locales hacen todo bien hasta ahora, :el_home merece ir por delante',
+    ],
+    'contextual_away_leading' => [
+        ':el_away está haciendo un gran partido en el :venue',
+        'Difícil se le pone el partido :al_home, que va por detrás en el marcador',
+    ],
+    // Variantes con connotación de localía — solo se usan cuando hay ventaja de campo
+    'contextual_away_leading_home_only' => [
+        ':el_away sorprende :al_home en su propio estadio',
+        ':el_away acallando al público del :venue con una gran actuación',
+        'Exhibición visitante, :el_away lidera el encuentro fuera de casa',
+    ],
+    'contextual_home_dominant' => [
+        ':el_home aprieta con insistencia, acumula llegadas con peligro',
+        'Presión :del_home, que busca el gol con mucha intensidad',
+        'Mucho :home en estos minutos, con llegadas constantes al área rival',
+        ':el_home asfixia :al_away en su propia área, oleadas de ataque',
+    ],
+    // Variantes con connotación de localía — solo se usan cuando hay ventaja de campo
+    'contextual_home_dominant_home_only' => [
+        'Los visitantes no pueden salir de su campo, :el_home aprieta sin descanso',
+    ],
+    'contextual_away_dominant' => [
+        'Presión adelantada :del_away, que quiere complicar la salida de balón :del_home',
+        ':el_away amenaza peligro en cada contra',
+        'Mucha intensidad :del_away que lleva el peso del juego en estos minutos',
+        ':el_away marca el ritmo del partido, :el_home no encuentra su juego',
+        'Control absoluto :del_away, que domina la posesión y el territorio',
+    ],
+    'contextual_tight_game' => [
+        'Partido muy trabado en el centro del campo, con pocas ocasiones claras',
+        'Mucha intensidad y poca claridad, el balón no llega con peligro a ninguna portería',
+        'Partido cerrado en el :venue, con más lucha que fútbol',
+        'Ninguno de los dos se atreve a dar un paso adelante, encuentro muy cauteloso en el :venue',
+        'Batalla en el centro del campo, las ocasiones brillan por su ausencia',
+    ],
+    'contextual_end_losing' => [
+        'Se agota el tiempo y este resultado no le vale :al_trailing que necesita reaccionar',
+        'Se acaban los minutos para :el_trailing, que lo tiene muy complicado',
+        ':el_trailing lo echa todo hacia adelante pero la diferencia parece insalvable',
+        'Sin ideas y sin tiempo, :el_trailing tiene una montaña por escalar',
+        'Desesperación en :el_trailing a medida que se consume el reloj',
+    ],
+    'contextual_end_losing_by_one' => [
+        'El tiempo corre en contra :del_trailing, que busca el empate con más corazón que cabeza',
+        'A :el_trailing se le escapa el empate, quedan pocos minutos en el :venue',
+        '¿Podrá :el_trailing encontrar el gol que necesita? El tiempo no está de su lado',
+        ':el_trailing golpea y golpea pero el empate no llega',
+        'Todo al ataque :del_trailing, un gol lo cambiaría todo',
+    ],
+    'contextual_end_winning' => [
+        ':el_leading controla los últimos minutos del partido sin sufrir',
+        ':el_leading gestiona con tranquilidad los últimos minutos del encuentro',
+        'Ya huele a victoria para :el_leading en el :venue',
+        ':el_leading enfría el partido, mantiene el balón con calma',
+        'Trabajo casi hecho para :el_leading, que ha sido el mejor equipo',
+    ],
+    'contextual_end_draw' => [
+        'Últimos minutos y reparto de puntos, a falta de un arreón final',
+        'Se acaba el partido en el :venue con tablas en el marcador',
+        'Empate en el :venue que a ninguno parece satisfacer del todo',
+        'Se encamina hacia las tablas en el :venue, ninguno encuentra el gol de la victoria',
+        'Un punto para cada uno parece ser el resultado final en el :venue',
+    ],
+    'contextual_end_draw_knockout' => [
+        'Se acerca el final del tiempo reglamentario en el :venue y la eliminatoria sigue abierta',
+        'Tablas en el :venue, esto huele a prórroga',
+        'Ninguno encuentra el gol decisivo, el tiempo extra está cada vez más cerca',
+        'Se agotan los minutos en el :venue con el empate que no rompe la incógnita',
+        'Último empujón para evitar la prórroga, ninguno quiere prolongar la agonía',
+    ],
+    'contextual_second_half_start' => [
+        'Comienza la segunda parte en el :venue con el marcador :score',
+        'De vuelta a la acción en el :venue. :score al descanso',
+        'Los equipos saltan de nuevo al césped en el :venue. :score el marcador',
+        'Arranca la segunda mitad en el :venue, :score al intermedio',
+        'Se reanuda el juego en el :venue con el :score en el electrónico',
+    ],
+    'contextual_away_fans' => [
+        'Los aficionados :del_away que se han desplazado hasta el :venue animan a su equipo desde la grada',
+        'Se hacen oír los seguidores :del_away en el :venue',
+        'La afición visitante :del_away no para de cantar en el :venue',
+        'Gran ambiente en la grada visitante, los seguidores :del_away empujan a los suyos',
+        'Espectacular el apoyo de la hinchada viajera :del_away hoy',
+    ],
+    'contextual_home_fans' => [
+        'El :venue ruge de emoción, la afición :del_home empuja a los suyos',
+        'El público del :venue entregado con su equipo en estos minutos',
+        'Ambientazo en el :venue, la afición :del_home está volcada',
+        'Retumba el :venue, la grada anima sin parar :al_home',
+        'La afición :del_home es la jugadora número doce hoy en el :venue',
+    ],
+    // Prefijo de goles — se antepone a cada narración de gol para darle énfasis
+    'goal_prefix' => [
+        '¡Gol :del_team!',
+        '¡GOL :del_team!',
+        '¡GOLAZO :del_team!',
+        '¡GOOOOOL :del_team!',
+        '¡GOOOL :del_team!',
+        '¡Gol :del_team!',
+        '¡Marca :el_team!',
+        '¡Anota :el_team!',
+        '¡Vaya gol :del_team!',
+        '¡Golazo :del_team!',
+    ],
+    'goal_assisted' => [
+        'Centro al área y :player aparece libre de marca para cabecear a gol',
+        ':player recibe en el punto de penalti, controla y define con clase',
+        'Pase filtrado para :player, se planta solo ante la portera y no perdona',
+        '¡Qué jugada colectiva :del_team! La finaliza :player con un toque sutil',
+        'Cabezazo inapelable de :player al segundo palo. Imposible para la portera',
+        'Centro medido desde la banda y :player remata de cabeza a placer',
+        'Contragolpe letal :del_team. :player define con frialdad ante la salida de la portera',
+        'Pared en el borde del área y :player la empuja al gol desde dentro del área pequeña',
+        ':player se anticipa a la defensa y remata de primeras al fondo de la red',
+        'Gran asistencia y :player solo tiene que empujarla. No falla',
+        'Desmarque inteligente de :player que recibe solo y pica el balón por encima de la portera',
+        ':player se adelanta a la defensa para rematar y colarla por el primer palo',
+        ':player conecta una volea espectacular que entra como un obús',
+        'Balón al corazón del área y :player remata con la puntera para marcar',
+    ],
+    'goal_solo' => [
+        '¡Golazo de :player! Recorte a la portera y con la derecha para adentro',
+        ':player encara a la defensa, se perfila y clava la bola en la escuadra',
+        '¡Zapatazo de :player desde fuera del área! Golazo',
+        ':player recoge el rechace y la manda al fondo de la red',
+        'Jugada personal de :player que se va de dos rivales y define cruzado',
+        '¡Vaya golazo de :player! Disparo con rosca desde la frontal que se cuela por la escuadra',
+        ':player aprovecha un error defensivo y bate a la portera con un disparo raso',
+        'Disparo lejano de :player que se desvía en una defensa y sorprende a la portera',
+        'Falta directa de :player que supera la barrera y se cuela junto al palo',
+        ':player recorta dentro del área, encuentra el hueco y dispara cruzado. ¡Gol!',
+        '¡La clava :player! Remate de primeras desde el borde del área',
+        'Robo de balón y :player no lo duda, define con un disparo cruzado imparable',
+        ':player se inventa un golazo individual desde la frontal',
+    ],
+
+    // Narrativas tácticas — generadas según las configuraciones tácticas
+    'tactical_high_press_working' => [
+        ':user presiona con intensidad feroz, asfixiando la salida de balón :del_opp',
+        'La presión alta :del_user está recuperando el balón en zonas peligrosas',
+        ':user presiona sin descanso — :opp apenas puede salir de su campo',
+    ],
+    'tactical_high_press_fading' => [
+        'La intensidad de la presión :del_user empieza a caer. Las piernas pesan',
+        ':user no puede mantener esa presión inicial — :opp encuentra más espacios',
+        'Se nota el cansancio. La presión :del_user pierde mordiente',
+    ],
+    'tactical_high_press_exhausted' => [
+        ':user parece agotado. La presión alta pasa factura en el tramo final',
+        'Se acaban las fuerzas para :user — esa presión agresiva les está pasando factura',
+        ':opp percibe el cansancio :del_user y se lanza al ataque con confianza',
+    ],
+    'tactical_opp_press_fading' => [
+        'La presión alta :del_opp pierde fuerza — :user debería encontrar más espacio',
+        'La presión :del_opp ya no es la de antes. Se abren los espacios',
+    ],
+    'tactical_opp_exhausted' => [
+        ':opp parece fundido tras presionar tanto. :user puede aprovechar las piernas cansadas',
+        'La presión alta ha drenado :al_opp — se nota que van con la lengua fuera',
+    ],
+    'tactical_low_block_wall' => [
+        ':user se planta compacto y profundo, complicando mucho el juego :del_opp',
+        'Un muro defensivo disciplinado :del_user. :opp no encuentra la forma de entrar',
+        ':user defiende con muchos efectivos, negando cualquier ocasión clara :al_opp',
+    ],
+    'tactical_low_block_fresh' => [
+        'El planteamiento conservador :del_user da sus frutos — las jugadoras aún se ven frescas',
+        'Niveles de energía altos para :user gracias a la disciplina defensiva',
+    ],
+    'tactical_possession_control' => [
+        ':user controla el tempo, moviendo el balón con paciencia buscando huecos',
+        'Posesión dominante :del_user — :opp persiguiendo sombras',
+        ':user maneja bien el balón, dictando el ritmo del partido',
+    ],
+    'tactical_possession_frustrated' => [
+        ':user domina la posesión pero no encuentra la forma de superar el bloque bajo :del_opp',
+        'Mucha posesión para :user pero el bloque bajo :del_opp frustra cada ataque',
+    ],
+    'tactical_counter_waiting' => [
+        ':user espera agazapado, listo para salir a la contra en cualquier momento',
+        ':user cede el territorio — busca golpear en la transición',
+        'Defensa paciente :del_user, preparado para saltar cuando surja la oportunidad',
+    ],
+    'tactical_counter_exploiting' => [
+        ':user explota el espacio detrás de la línea alta :del_opp con contraataques letales',
+        'El planteamiento agresivo :del_opp deja huecos — :user castiga a la contra',
+    ],
+    'tactical_direct_play' => [
+        ':user salta el mediocampo con balones largos, manteniendo a :opp en alerta',
+        'Juego directo :del_user — sin complicaciones, balón largo a las delanteras',
+    ],
+    'tactical_direct_bypassing_press' => [
+        'El juego directo :del_user sobrevuela la presión alta :del_opp — los balones largos encuentran su destino',
+        'La presión :del_opp queda anulada por los balones largos :del_user',
+    ],
+    'goal_penalty' => [
+        '¡Penalti! :player (:team) lanza con decisión y marca. Sin opción para la portera',
+        ':player (:team) se planta ante el balón, arranca y la clava por la escuadra. ¡Gol de penalti!',
+        'Penalti para :el_team. :player toma carrera y engaña a la portera con un disparo cruzado',
+        ':player (:team) asume la responsabilidad desde los once metros y no falla. Inapelable',
+        '¡Gol de penalti! :player (:team) la envía al centro de la portería mientras la portera se lanza',
+        'Pena máxima para :el_team. :player espera a la portera, lo ve moverse y coloca el balón al otro lado',
+    ],
+    // Sabor táctico en los goles
+    'goal_counter_attack' => [
+        '¡Contraataque letal! :player define tras una contra devastadora de :team',
+        '¡Clínico a la contra! :player convierte tras una salida veloz de :team',
+        '¡Gol de contraataque! :team sale a toda velocidad y :player define',
+    ],
+    'goal_possession' => [
+        ':team mueve el balón con paciencia hasta que :player encuentra el hueco. Posesión de manual',
+        'Elaboración paciente de :team y :player elige el momento perfecto para golpear',
+        'Jugada trenzada :del_team — :player pone el broche final',
+    ],
+    'goal_direct' => [
+        '¡Balón largo y :player está ahí para definir por :team!',
+        ':team va directo y funciona — :player controla y define',
+        '¡Juego directo puro! El balón largo encuentra a :player que no perdona',
+    ],
+
+    // Anuncio del tiempo añadido. El cliente elige la variante singular o
+    // plural según los minutos (:minutes) para evitar "1 minutos".
+    'stoppage_announcement_singular' => [
+        'El árbitro añade :minutes minuto',
+        'El cuarto árbitro indica :minutes minuto de añadido',
+        ':minutes minuto al descuento',
+        'Solo :minutes minuto de tiempo añadido',
+    ],
+    'stoppage_announcement_plural' => [
+        'El árbitro añade :minutes minutos',
+        'El cuarto árbitro indica :minutes minutos de descuento',
+        ':minutes minutos al añadido',
+        'Tiempo añadido: :minutes minutos',
+        'Se añaden :minutes minutos al final',
+        '¡:minutes minutos de descuento! Aún hay tiempo',
+    ],
+];

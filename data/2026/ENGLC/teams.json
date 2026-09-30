@@ -1,0 +1,77 @@
+{
+  "id": "ENGLC",
+  "name": "Women's League Cup",
+  "seasonID": "2026",
+  "clubs": [
+    {
+      "id": "86",
+      "name": "Charlton Athletic",
+      "entryRound": 1
+    },
+    {
+      "id": "1059",
+      "name": "West Ham United LFC",
+      "entryRound": 1
+    },
+    {
+      "id": "65",
+      "name": "Birmingham City LFC",
+      "entryRound": 1
+    },
+    {
+      "id": "108",
+      "name": "Everton LFC",
+      "entryRound": 1
+    },
+    {
+      "id": "1443",
+      "name": "Crystal Palace LFC",
+      "entryRound": 1
+    },
+    {
+      "id": "932",
+      "name": "Brighton & Hove Albion WFC",
+      "entryRound": 1
+    },
+    {
+      "id": "897",
+      "name": "Aston Villa LFC",
+      "entryRound": 1
+    },
+    {
+      "id": "7219",
+      "name": "London City Lionesses",
+      "entryRound": 1
+    },
+    {
+      "id": "1439",
+      "name": "Tottenham Hotspur LFC",
+      "entryRound": 1
+    },
+    {
+      "id": "215",
+      "name": "Liverpool LFC",
+      "entryRound": 1
+    },
+    {
+      "id": "990",
+      "name": "Manchester City LFC",
+      "entryRound": 1
+    },
+    {
+      "id": "4458",
+      "name": "Manchester United",
+      "entryRound": 1
+    },
+    {
+      "id": "87",
+      "name": "Chelsea LFC",
+      "entryRound": 2
+    },
+    {
+      "id": "36",
+      "name": "Arsenal FC",
+      "entryRound": 2
+    }
+  ]
+}

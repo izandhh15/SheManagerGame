@@ -1,0 +1,430 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/7556.png",
+  "name": "GKS Gieksa Katowice",
+  "players": [
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Mar 22, 2005",
+      "foot": "",
+      "height": "",
+      "id": "73564",
+      "marketValue": "",
+      "name": "Adéla Fraňková",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": 1,
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Apr 9, 2003",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "47379",
+      "marketValue": "",
+      "name": "Oliwia Macała",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "12",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 30, 2010",
+      "foot": "",
+      "height": "",
+      "id": "109658",
+      "marketValue": "",
+      "name": "Wiktoria Marzec",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "33",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jan 8, 2002",
+      "foot": "",
+      "height": "1,60m",
+      "id": "35168",
+      "marketValue": "",
+      "name": "Anna Konkol",
+      "nationality": [
+        "Poland"
+      ],
+      "number": 5,
+      "position": "Right-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 30, 2007",
+      "foot": "",
+      "height": "1,76m",
+      "id": "76716",
+      "marketValue": "",
+      "name": "Marina Theodoraki",
+      "nationality": [
+        "Greece"
+      ],
+      "number": "2",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "Nov 24, 1997",
+      "foot": "left",
+      "height": "1,74m",
+      "id": "23688",
+      "marketValue": "",
+      "name": "Patrycja Michalczyk",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "3",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "Dec 17, 2003",
+      "foot": "right",
+      "height": "1,74m",
+      "id": "73650",
+      "marketValue": "",
+      "name": "Katarzyna Nowak",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 14, 2006",
+      "foot": "right",
+      "height": "1,80m",
+      "id": "63584",
+      "marketValue": "",
+      "name": "Andjela Milovanović",
+      "nationality": [
+        "Serbia"
+      ],
+      "number": "6",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Aug 13, 1999",
+      "foot": "right",
+      "height": "1,67m",
+      "id": "55166",
+      "marketValue": "€30k",
+      "name": "Klaudia Słowińska",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "24",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 26, 1999",
+      "foot": "right",
+      "height": "1,81m",
+      "id": "50704",
+      "marketValue": "",
+      "name": "Marcjanna Zawadzka",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "26",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 23, 2008",
+      "foot": "right",
+      "height": "1,75m",
+      "id": "101992",
+      "marketValue": "",
+      "name": "Alicja Wojas",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "89",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2029",
+      "dateOfBirth": "Jul 12, 2007",
+      "foot": "left",
+      "height": "1,65m",
+      "id": "103998",
+      "marketValue": "",
+      "name": "Julia Przybył",
+      "nationality": [
+        "Poland"
+      ],
+      "number": 13,
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "May 14, 2002",
+      "foot": "",
+      "height": "1,76m",
+      "id": "55095",
+      "marketValue": "",
+      "name": "Dorota Hałatek",
+      "nationality": [
+        "Poland"
+      ],
+      "number": 15,
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Feb 10, 1999",
+      "foot": "",
+      "height": "",
+      "id": "30764",
+      "marketValue": "",
+      "name": "Martina Šurnovská",
+      "nationality": [
+        "Slovakia"
+      ],
+      "number": 19,
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "Oct 15, 1998",
+      "foot": "right",
+      "height": "1,64m",
+      "id": "55224",
+      "marketValue": "",
+      "name": "Aleksandra Nieciąg",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "7",
+      "position": "Right Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 1, 1999",
+      "foot": "",
+      "height": "1,72m",
+      "id": "30525",
+      "marketValue": "",
+      "name": "Kateřina Vojtková",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "8",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Oct 10, 2003",
+      "foot": "right",
+      "height": "1,56m",
+      "id": "55134",
+      "marketValue": "",
+      "name": "Oliwia Malesa",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "9",
+      "position": "Right Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Feb 27, 1999",
+      "foot": "both",
+      "height": "1,60m",
+      "id": "55243",
+      "marketValue": "",
+      "name": "Anita Turkiewicz",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "14",
+      "position": "Left Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 30, 1993",
+      "foot": "right",
+      "height": "1,63m",
+      "id": "15563",
+      "marketValue": "€30k",
+      "name": "Patrícia Hmírová",
+      "nationality": [
+        "Slovakia"
+      ],
+      "number": "17",
+      "position": "Right Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 7, 2001",
+      "foot": "right",
+      "height": "",
+      "id": "36096",
+      "marketValue": "",
+      "name": "Victoria Kaláberová",
+      "nationality": [
+        "Slovakia"
+      ],
+      "number": "21",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jun 9, 2001",
+      "foot": "right",
+      "height": "1,58m",
+      "id": "54829",
+      "marketValue": "",
+      "name": "Julia Włodarczyk",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "23",
+      "position": "Left Winger"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 9, 2005",
+      "foot": "right",
+      "height": "1,76m",
+      "id": "63558",
+      "marketValue": "",
+      "name": "Patrycja Kozarzewska",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "25",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 31, 2005",
+      "foot": "right",
+      "height": "1,64m",
+      "id": "55178",
+      "marketValue": "",
+      "name": "Aleksandra Posiewka",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "27",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 2, 2010",
+      "foot": "",
+      "height": "",
+      "id": "118671",
+      "marketValue": "",
+      "name": "Malwina Thamm",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "67",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Apr 25, 2002",
+      "foot": "right",
+      "height": "1,58m",
+      "id": "51937",
+      "marketValue": "",
+      "name": "Amelia Bińkowska",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "10",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Mar 1, 2001",
+      "foot": "right",
+      "height": "1,71m",
+      "id": "54820",
+      "marketValue": "",
+      "name": "Klaudia Maciążka",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "11",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 11, 2002",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "46602",
+      "marketValue": "",
+      "name": "Nicola Brzęczek",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "16",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Oct 18, 2005",
+      "foot": "right",
+      "height": "1,74m",
+      "id": "55244",
+      "marketValue": "",
+      "name": "Oliwia Grzegorczyk",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "18",
+      "position": "Right Winger"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Aug 20, 2007",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "101991",
+      "marketValue": "",
+      "name": "Julia Langosz",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "47",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 4, 1996",
+      "foot": "right",
+      "height": "1,77m",
+      "id": "16588",
+      "marketValue": "",
+      "name": "Dżesika Jaszek",
+      "nationality": [
+        "Poland"
+      ],
+      "number": "77",
+      "position": "Centre-Forward"
+    }
+  ],
+  "stadiumName": "Stadion GKS Katowice",
+  "stadiumSeats": "9511",
+  "transfermarktId": "7556",
+  "country": "PL"
+}

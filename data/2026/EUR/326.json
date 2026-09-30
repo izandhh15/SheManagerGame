@@ -1,0 +1,332 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/326.png",
+  "name": "Stabæk FK",
+  "players": [
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 17, 2004",
+      "foot": "right",
+      "height": "",
+      "id": "47742",
+      "marketValue": "",
+      "name": "Martine Leonards",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 22, 2004",
+      "foot": "",
+      "height": "",
+      "id": "51727",
+      "marketValue": "",
+      "name": "Emma Rønning",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "13",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 21, 2009",
+      "foot": "",
+      "height": "",
+      "id": "116907",
+      "marketValue": "",
+      "name": "Mille Viken",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "94",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 22, 2000",
+      "foot": "right",
+      "height": "",
+      "id": "39701",
+      "marketValue": "",
+      "name": "Emilie Bølviken",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "2",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 8, 2006",
+      "foot": "right",
+      "height": "",
+      "id": "99014",
+      "marketValue": "",
+      "name": "Henriette de Lange",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "3",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 4, 2008",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "84875",
+      "marketValue": "",
+      "name": "Mille Flø",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 2, 1999",
+      "foot": "right",
+      "height": "",
+      "id": "61991",
+      "marketValue": "",
+      "name": "Karen Meling",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "16",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 19, 2009",
+      "foot": "",
+      "height": "",
+      "id": "93616",
+      "marketValue": "",
+      "name": "Agnes Stølan",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "20",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 20, 2008",
+      "foot": "right",
+      "height": "1,66m",
+      "id": "96283",
+      "marketValue": "",
+      "name": "Sandra Pallesen-Nygård",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "21",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 17, 2008",
+      "foot": "right",
+      "height": "1,66m",
+      "id": "96276",
+      "marketValue": "",
+      "name": "Celia Halvorsen",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "6",
+      "position": "Right Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 8, 2006",
+      "foot": "both",
+      "height": "1,65m",
+      "id": "61099",
+      "marketValue": "",
+      "name": "Mathea Berg-Solemdal",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "7",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 31, 2005",
+      "foot": "",
+      "height": "",
+      "id": "60826",
+      "marketValue": "",
+      "name": "Nora Nøss",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "8",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 15, 2004",
+      "foot": "both",
+      "height": "",
+      "id": "64940",
+      "marketValue": "",
+      "name": "Anastasia Høgevold",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "15",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 18, 2010",
+      "foot": "",
+      "height": "",
+      "id": "108965",
+      "marketValue": "",
+      "name": "Stine Ariell Klæboe-Solemdal",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "19",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 9, 2000",
+      "foot": "right",
+      "height": "",
+      "id": "39703",
+      "marketValue": "",
+      "name": "Selma Hernes",
+      "nationality": [
+        "Norway"
+      ],
+      "number": 5,
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Dec 31, 2029",
+      "dateOfBirth": "Nov 10, 2010",
+      "foot": "right",
+      "height": "",
+      "id": "109826",
+      "marketValue": "",
+      "name": "Ragna Thorleifsson",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "24",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 20, 2006",
+      "foot": "",
+      "height": "",
+      "id": "60873",
+      "marketValue": "",
+      "name": "Anna Grindhaug",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "28",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 20, 2006",
+      "foot": "right",
+      "height": "",
+      "id": "108922",
+      "marketValue": "",
+      "name": "Elina Tapaeva",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "77",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 5, 2004",
+      "foot": "right",
+      "height": "",
+      "id": "58838",
+      "marketValue": "",
+      "name": "Guro Hammer Røn",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "9",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 5, 2005",
+      "foot": "",
+      "height": "1,65m",
+      "id": "101658",
+      "marketValue": "",
+      "name": "Da-bin Jeong",
+      "nationality": [
+        "Korea, South"
+      ],
+      "number": "10",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 9, 2009",
+      "foot": "",
+      "height": "",
+      "id": "93620",
+      "marketValue": "",
+      "name": "Mie Hoem",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "17",
+      "position": "Striker"
+    },
+    {
+      "contract": "Dec 31, 2029",
+      "dateOfBirth": "Oct 8, 2007",
+      "foot": "right",
+      "height": "",
+      "id": "85157",
+      "marketValue": "",
+      "name": "Anna Malmin",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "18",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Dec 23, 2001",
+      "foot": "right",
+      "height": "",
+      "id": "61960",
+      "marketValue": "",
+      "name": "Kristin Gumaer",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "23",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Nye Nadderud Stadion",
+  "stadiumSeats": "8000",
+  "transfermarktId": "326",
+  "country": "NO"
+}

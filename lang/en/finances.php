@@ -1,0 +1,252 @@
+<?php
+
+return [
+
+    // Page title
+    'finances' => 'Finances',
+
+    // Overview cards
+    'squad_value' => 'Squad Value',
+    'annual_wage_bill' => 'Annual Wage Bill',
+    'transfer_budget' => 'Transfer Budget',
+    'total_budget' => 'Total Budget',
+
+    // Projected revenue
+    'projected_revenue' => 'Projected Revenue',
+    'tv_rights' => 'TV Rights',
+    'matchday' => 'Matchday',
+    'commercial' => 'Commercial',
+    'naming_rights' => 'Naming rights',
+    'solidarity_funds' => 'FA/UEFA Solidarity Funds',
+    'public_subsidy' => 'Public Subsidies',
+    'total_revenue' => 'Total Revenue',
+
+    // Surplus calculation
+    'projected_wages' => 'Projected Wages',
+    'projected_surplus' => 'Projected Surplus',
+    'operating_expenses' => 'Operating Expenses',
+    'taxes' => 'Taxes & Social Charges',
+    'carried_debt' => 'Carried Debt',
+    'carried_surplus' => 'Carried Surplus',
+    'available_surplus' => 'Available Surplus',
+
+    // Season results
+    'actual_revenue' => 'Actual Revenue',
+    'actual_surplus' => 'Actual Surplus',
+    'variance' => 'Variance',
+
+    // No data
+    'no_financial_data' => 'No financial data available for this season.',
+
+    // Infrastructure investment
+    'infrastructure_investment' => 'Infrastructure Investment',
+    'total_infrastructure' => 'Total infrastructure',
+    'available_for_upgrades' => 'Available for upgrades',
+    'investment_state_preseason' => 'Pre-season — adjust freely',
+    'investment_preseason_hint' => "Set your plan freely until the season kicks off. Once it's underway you can still invest more at any time, but reductions take effect next season.",
+    'investment_state_locked' => 'Season underway',
+    'investment_locked_hint' => "You can invest more in any area at any time (paid up front). A reduction takes effect at the start of next season — it isn't refunded mid-season.",
+    'save_plan' => 'Save plan',
+    'reduce' => 'Reduce',
+    'reduce_hint' => 'Takes effect next season — no refund this season.',
+    'reduce_stage' => 'Next season',
+    'staged_next_season' => 'Next season: Tier :tier',
+    'staged_cancel' => 'Cancel',
+    'adjust_allocation' => 'Adjust Allocation',
+
+    // Tiers
+    'youth_academy' => 'Youth Academy',
+
+    'medical' => 'Medical',
+    'medical_tier_0' => 'Minimum staff - baseline recovery only',
+    'medical_tier_1' => 'Basic care - standard recovery',
+    'medical_tier_2' => 'Good facilities - 15% faster',
+    'medical_tier_3' => 'Elite staff - 30% faster, fewer injuries',
+    'medical_tier_4' => 'World class - 50% faster, prevention',
+
+    'scouting' => 'Scouting',
+    'scouting_tier_0' => 'Minimal scouting - limited pipeline',
+    'scouting_tier_1' => 'Basic network - domestic market only',
+    'scouting_tier_2' => 'Expanded network - domestic, more results and accuracy',
+    'scouting_tier_3' => 'International reach - fast and accurate searches',
+    'scouting_tier_4' => 'Global network - maximum speed, results and accuracy',
+
+    // Budget flow tooltips
+    'tooltip_tv_rights' => 'TV revenue distribution based on your final league position. The higher you finish, the larger your share.',
+    'tooltip_commercial' => 'Sponsorship and merchandising income. Depends on your stadium capacity and club reputation.',
+    'tooltip_naming_rights' => 'Income from selling your stadium name to a sponsor. A fixed annual fee for as long as the deal runs.',
+    'tooltip_matchday' => 'Ticket sales revenue. Improves with facilities investment and a good league position.',
+    'tooltip_solidarity_funds' => 'FA/UEFA solidarity funds for lower-division clubs to promote competitiveness.',
+    'tooltip_public_subsidy' => 'Public subsidy guaranteeing a minimum viable budget for infrastructure and transfers.',
+    'tooltip_wages' => 'Sum of all annual squad wages. Mid-season signings are pro-rated.',
+    'tooltip_operating_expenses' => 'Fixed club costs: non-sporting staff, administration, travel, insurance and legal expenses.',
+    'tooltip_taxes' => 'Taxes and social charges on club revenue.',
+    'tooltip_surplus' => 'Difference between revenue and expenses. This amount is split between infrastructure and transfers.',
+    'tooltip_carried_debt' => 'Deficit from last season. If actual revenue was lower than projected, the difference carries over.',
+    'tooltip_carried_surplus' => 'Surplus from last season. If actual revenue exceeded projections, the difference carries over.',
+    'tooltip_infrastructure' => 'Investment in academy, medical, scouting and facilities. Deducted before calculating transfer budget.',
+    'tooltip_transfer_budget' => 'What remains of the surplus after covering debt and infrastructure. This is your capacity to sign players.',
+
+    // Budget flow
+    'budget_flow' => 'Budget Flow',
+    'season_allocation' => 'Season Allocation',
+    'transfer_activity' => 'In-Season Activity',
+    'player_sales' => 'Player sales',
+    'player_purchases' => 'Player purchases',
+    'infrastructure_upgrades' => 'Infrastructure upgrades',
+    'current_transfer_budget' => 'Current Budget',
+    'budget_not_set' => 'Season budget not configured',
+    'surplus_to_allocate' => 'available surplus to allocate',
+
+    // Quick stats
+    'wage_revenue_ratio' => 'Wage/Revenue Ratio',
+    'salary_cap' => 'Salary Limit',
+    'wage_room' => 'Cap Room',
+    'over_cap' => 'Over Limit',
+    'over_cap_lock_notice' => 'Market locked — sell players to get back under your limit.',
+    'squad_size' => ':count players',
+    'initial_budget_caption' => 'of :amount initial',
+    'tooltip_salary_cap' => 'The most your club can commit to wages: :percent% of your projected recurring revenue. One-time cash (transfer surplus) doesn\'t raise it, but consistently selling more than you buy does (player-trading profit). Grow your income to lift the limit.',
+    'salary_cap_includes_trading' => 'Includes +:amount of cap room from recent player-sale profits.',
+    'income' => 'income',
+    'expenses' => 'expenses',
+
+    // Transaction filters
+    'filter_all' => 'All',
+    'filter_income' => 'Income',
+    'filter_expenses' => 'Expenses',
+
+    // Budget setup
+    'setup_season_budget' => 'Set Up Season Budget',
+
+    // Transaction history
+    'transaction_history' => 'Transaction History',
+    'date' => 'Date',
+    'type' => 'Type',
+    'description' => 'Description',
+    'amount' => 'Amount',
+    'no_transactions' => 'No transactions recorded yet.',
+    'transactions_hint' => 'Transfers, wages and other financial activity will appear here.',
+    'free' => 'Free',
+
+    // Budget allocation page
+    'budget_allocation' => 'Budget Allocation',
+    'season_budget' => 'Season :season Budget',
+    'tier' => 'Tier :level',
+    'tier_n' => 'Tier',
+    'confirm_budget_allocation' => 'Confirm Budget Allocation',
+    'after_debt_deduction' => 'After :amount debt deduction',
+    'includes_carried_surplus' => 'Includes :amount surplus from last season',
+
+    // Budget allocation component
+    'infrastructure' => 'Infrastructure:',
+    'transfers' => 'Transfers:',
+    'budget_locked' => 'Budget Locked',
+    'budget_locked_desc' => 'Budget allocation is fixed for the season. Changes can be made at the start of next pre-season.',
+    'remainder_after_infrastructure' => 'Remainder after infrastructure',
+    'available_remaining' => 'Available:',
+    'budget_exceeds_surplus' => 'Infrastructure investment exceeds the available surplus. Lower the tier of an area to continue.',
+    'tier_minimum_warning' => 'All infrastructure areas must meet the minimum tier required by your division.',
+
+    // Youth academy tier descriptions
+    'youth_academy_tier_0' => 'Bare-bones setup - low-potential prospects',
+    'youth_academy_tier_1' => 'Basic academy - occasional prospects',
+    'youth_academy_tier_2' => 'Good academy - regular youth pipeline',
+    'youth_academy_tier_3' => 'Elite academy - high-potential youngsters',
+    'youth_academy_tier_4' => 'World class - homegrown stars',
+
+    // Medical tier descriptions
+    'medical_tier_0' => 'Minimum staff - baseline recovery only',
+    'medical_tier_1' => 'Basic care - standard recovery',
+    'medical_tier_2' => 'Good facilities - 15% faster',
+    'medical_tier_3' => 'Elite staff - 30% faster, fewer injuries',
+    'medical_tier_4' => 'World class - 50% faster, prevention',
+
+    // Scouting tier descriptions
+    'scouting_tier_0' => 'Minimal scouting - limited pipeline',
+    'scouting_tier_1' => 'Basic network - domestic market only',
+    'scouting_tier_2' => 'Expanded network - domestic, more results and accuracy',
+    'scouting_tier_3' => 'International reach - fast and accurate searches',
+    'scouting_tier_4' => 'Global network - maximum speed, results and accuracy',
+
+    // Facilities tier descriptions
+    'facilities_tier_0' => 'Minimum upkeep - base matchday revenue',
+    'facilities_tier_1' => 'Basic upgrades - 1.0x revenue',
+    'facilities_tier_2' => 'Modern facilities - 1.15x revenue',
+    'facilities_tier_3' => 'Premium experience - 1.35x revenue',
+    'facilities_tier_4' => 'World-class stadium - 1.6x revenue',
+
+    // Reputation tiers
+    'reputation' => [
+        'elite' => 'Elite',
+        'continental' => 'Continental',
+        'established' => 'Established',
+        'modest' => 'Modest',
+        'local' => 'Local',
+    ],
+
+    // Categories
+    'category_transfer_in' => 'Sale',
+    'category_transfer_out' => 'Signing',
+    'category_wage' => 'Wages',
+    'category_tv' => 'TV Rights',
+    'category_cup_bonus' => 'Cup Bonus',
+    'category_performance_bonus' => 'Performance Bonus',
+    'category_signing_bonus' => 'Signing Bonus',
+
+    'category_loan' => 'Loan',
+    'category_severance' => 'Severance',
+    'category_infrastructure' => 'Infrastructure',
+    'category_stadium' => 'Stadium',
+    'category_agent_fee' => 'Agency fee',
+    'category_budget_loan' => 'Budget Loan',
+    'category_loan_repayment' => 'Loan Repayment',
+
+    // Infrastructure upgrades
+    'upgrade' => 'Upgrade',
+    'upgrade_cancel' => 'Cancel',
+    'upgrade_confirm' => 'Confirm',
+    'upgrade_insufficient_budget' => 'Insufficient transfer budget.',
+
+    // Transaction descriptions
+    'tx_free_transfer_out' => ':player left on free transfer to :team',
+    'tx_player_sold' => ':player sold to :team',
+    'tx_player_signed' => ':player signed from :team',
+    'tx_loan_in' => ':player loaned from :team (salary)',
+    'tx_player_released' => ':player released (severance)',
+    'tx_cup_advancement' => ':competition - :round',
+    'tx_league_phase_qualification' => ':competition - League phase qualification (:position)',
+    'tx_infrastructure_upgrade' => ':area upgraded from Tier :from to Tier :to',
+    'tx_budget_loan_received' => 'Budget loan received: :amount',
+    'tx_stadium_supplementary_payment' => 'Temporary stands (:seats seats)',
+    'tx_stadium_stand_expansion_payment' => 'Stand expansion (:seats seats)',
+    'tx_stadium_rebuild_payment' => 'Stadium rebuild (:capacity seats)',
+    'tx_stadium_uefa_upgrade_payment' => 'Upgrade to UEFA Category :level',
+    'tx_stadium_loan_instalment' => 'Stadium loan annual instalment: :amount',
+    'tx_naming_rights_search_fee' => 'Commercial agency fee (sponsor search)',
+
+    'stadium_debt_service' => 'Stadium Debt Service',
+    'tooltip_stadium_debt_service' => 'Annual instalment of the stadium-rebuild loan (principal + interest on outstanding balance). Deducted from available surplus.',
+
+    // Budget loan
+    'budget_loan' => 'Budget Loan',
+    'loan_active' => 'Active',
+    'loan_principal' => 'Loan received',
+    'loan_interest' => 'Interest (15%)',
+    'loan_repayment' => 'End-of-season repayment',
+    'loan_repayment_hint' => 'Repaid automatically at the end of the season. The repayment reduces next season\'s available surplus.',
+    'loan_description' => 'Borrow against projected revenue to boost your transfer budget. Repaid with interest at end of season.',
+    'loan_max_available' => 'Max available',
+    'tooltip_loan_max' => 'You can borrow up to 10% of your projected total revenue for the season.',
+    'tooltip_loan_activity' => 'Loan added to transfer budget. Repaid with 15% interest at the end of the season.',
+    'loan_repayment_deduction' => 'Loan Repayment',
+    'tooltip_loan_repayment_deduction' => 'Repayment of last season\'s budget loan (principal + 15% interest). Automatically deducted from this season\'s available surplus.',
+    'loan_request_button' => 'Request Loan',
+    'loan_amount_label' => 'Amount (€)',
+    'loan_interest_rate' => 'Interest rate',
+    'loan_total_repayment' => 'Total repayment',
+    'loan_warning' => 'The full repayment will be deducted from next season\'s surplus.',
+    'loan_confirm' => 'Confirm Loan',
+    'loan_cancel' => 'Cancel',
+    'loan_not_available_desc' => 'Loans can be requested during transfer windows when no other loan is active.',
+];

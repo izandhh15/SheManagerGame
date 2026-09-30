@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta name="theme-color" content="#0B1120">
+
+        <title>{{ config('app.name', 'Laravel') }}</title>
+
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+        <link rel="icon" type="image/x-icon" href="/favicon.ico">
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+        <!-- FOUC prevention: apply saved theme before paint -->
+        <script>(function(){var t=localStorage.getItem('virtua-theme');if(t==='light'){document.documentElement.classList.add('light');document.querySelector('meta[name=theme-color]')?.setAttribute('content','#ffffff');}})()</script>
+
+        <!-- Fonts (loaded via CSS @import in app.css) -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/tippy.css" />
+
+        <!-- Scripts -->
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+    </head>
+    <body class="font-sans antialiased bg-surface-900 text-text-primary">
+        <div class="min-h-screen flex flex-col">
+
+            @if(session('impersonating_from'))
+                <div class="bg-rose-500 text-white text-center text-xs py-1.5 px-4 flex items-center justify-center gap-3">
+                    <span>{{ __('admin.impersonating_banner', ['name' => auth()->user()->name, 'email' => auth()->user()->email]) }}</span>
+                    <form method="POST" action="{{ route('admin.stop-impersonation') }}" class="inline">
+                        @csrf
+                        <x-ghost-button type="submit" color="slate" class="underline font-semibold text-white hover:text-rose-100">{{ __('admin.stop_impersonating') }}</x-ghost-button>
+                    </form>
+                </div>
+            @endif
+
+            <x-beta-banner />
+
+            <!-- Page Heading -->
+            @isset($header)
+                <header>
+                    <div class="max-w-7xl mx-auto p-4 pb-0 lg:pb-4">
+                        {{ $header }}
+                    </div>
+                </header>
+            @endisset
+
+            <!-- Page Content -->
+            <main class="text-text-body flex-1 pb-24 lg:pb-0">
+                {{ $slot }}
+            </main>
+            @unless($hideFooter ?? false)
+            <footer class="hidden lg:block mt-12 bg-surface-800/40">
+                <div class="border-t border-border-default/50">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                            {{-- Logo + copyright --}}
+                            <div class="flex flex-col items-center md:items-start gap-3">
+                                <div class="-skew-x-12 bg-text-faint/15 px-3 py-0.5">
+                                    <span class="skew-x-12 inline-block text-lg font-extrabold text-text-faint tracking-tight" style="font-family: 'Barlow Semi Condensed', sans-serif;">SheManagerGame</span>
+                                </div>
+                                <p class="text-xs text-text-faint">
+                                    &copy; {{ date('Y') }} Pablo Román &middot; <a href="https://github.com/pabloroman/virtua-fc" target="_blank" class="hover:text-text-muted transition-colors">Proyecto Open Source</a> &middot; <a href="{{ route('legal') }}" class="hover:text-text-muted transition-colors">Aviso Legal</a>
+                                </p>
+                                <x-sofifa-credit />
+                            </div>
+
+                            {{-- Navigation links --}}
+                            <nav class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-text-muted">
+                                @if(auth()->user())
+                                <a href="{{ route('select-team') }}" class="hover:text-text-secondary transition-colors">{{ __('app.new_game') }}</a>
+                                <a href="{{ route('dashboard') }}" class="hover:text-text-secondary transition-colors">{{ __('app.load_game') }}</a>
+                                <a href="{{ route('leaderboard') }}" class="hover:text-text-secondary transition-colors">{{ __('leaderboard.title') }}</a>
+
+                                {{-- Account dropdown --}}
+                                <div class="relative" x-data="{ open: false }" @click.outside="open = false">
+                                    <button @click="open = !open" class="flex items-center gap-1 hover:text-text-secondary transition-colors cursor-pointer">
+                                        {{ __('app.account') }}
+                                        <svg class="w-3 h-3 transition-transform" :class="open && 'rotate-180'" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" /></svg>
+                                    </button>
+                                    <div x-show="open"
+                                        x-transition:enter="transition ease-out duration-200"
+                                        x-transition:enter-start="opacity-0 scale-95"
+                                        x-transition:enter-end="opacity-100 scale-100"
+                                        x-transition:leave="transition ease-in duration-75"
+                                        x-transition:leave-start="opacity-100 scale-100"
+                                        x-transition:leave-end="opacity-0 scale-95"
+                                        class="absolute bottom-full mb-2 right-0 w-40 rounded-lg shadow-xl origin-bottom-right z-50"
+                                        style="display: none;"
+                                        @click="open = false">
+                                        <div class="rounded-lg py-1 bg-surface-800 border border-border-strong">
+                                            <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-xs text-text-muted hover:text-text-secondary hover:bg-surface-700 transition-colors">{{ __('app.edit_profile') }}</a>
+                                            @if(auth()->user()?->is_admin)
+                                                <a href="{{ route('admin.dashboard') }}" class="block px-4 py-2 text-xs text-text-muted hover:text-text-secondary hover:bg-surface-700 transition-colors">Admin</a>
+                                            @endif
+                                            <form method="POST" action="{{ route('logout') }}">
+                                                @csrf
+                                                <button type="submit" class="w-full text-left px-4 py-2 text-xs text-text-muted hover:text-text-secondary hover:bg-surface-700 transition-colors cursor-pointer">{{ __('app.log_out') }}</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endif
+                                <x-theme-toggle />
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            @endunless
+        </div>
+        <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "cd6b25d4492f4012bfd641f2dcbaccaa"}'></script><!-- End Cloudflare Web Analytics -->
+    </body>
+</html>

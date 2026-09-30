@@ -1,0 +1,360 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/746.png",
+  "name": "Slavia Praha",
+  "players": [
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 11, 2001",
+      "foot": "",
+      "height": "",
+      "id": "40250",
+      "marketValue": "",
+      "name": "Jovana Petrović",
+      "nationality": [
+        "Serbia"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Aug 23, 2005",
+      "foot": "",
+      "height": "",
+      "id": "63428",
+      "marketValue": "",
+      "name": "Vanesa Jílková",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "27",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 23, 2008",
+      "foot": "",
+      "height": "",
+      "id": "92367",
+      "marketValue": "",
+      "name": "Gabriela Sobotková",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "32",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Sep 13, 1996",
+      "foot": "right",
+      "height": "1,78m",
+      "id": "27132",
+      "marketValue": "€35k",
+      "name": "Barbora Votíková",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "33",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Oct 3, 1998",
+      "foot": "right",
+      "height": "1,68m",
+      "id": "70925",
+      "marketValue": "€25k",
+      "name": "Belle Briede",
+      "nationality": [
+        "United States"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 29, 2002",
+      "foot": "right",
+      "height": "1,67m",
+      "id": "43656",
+      "marketValue": "",
+      "name": "Hilary Jaén",
+      "nationality": [
+        "Panama"
+      ],
+      "number": "7",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 8, 1998",
+      "foot": "",
+      "height": "",
+      "id": "31649",
+      "marketValue": "",
+      "name": "Denisa Veselá",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "12",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 19, 2003",
+      "foot": "",
+      "height": "",
+      "id": "54004",
+      "marketValue": "",
+      "name": "Lucie Jelínková",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "13",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 3, 2005",
+      "foot": "",
+      "height": "",
+      "id": "58302",
+      "marketValue": "",
+      "name": "Lucie Bendová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "14",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 13, 2008",
+      "foot": "",
+      "height": "",
+      "id": "92382",
+      "marketValue": "",
+      "name": "Zuzana Vavrlová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "18",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "May 20, 1993",
+      "foot": "",
+      "height": "1,72m",
+      "id": "12072",
+      "marketValue": "",
+      "name": "Diana Bartovičová",
+      "nationality": [
+        "Slovakia"
+      ],
+      "number": "20",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 28, 1995",
+      "foot": "right",
+      "height": "",
+      "id": "32747",
+      "marketValue": "",
+      "name": "Kateryna Korsun",
+      "nationality": [
+        "Ukraine"
+      ],
+      "number": "23",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "Jul 25, 2001",
+      "foot": "",
+      "height": "",
+      "id": "39996",
+      "marketValue": "",
+      "name": "Klára Cvrčková",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "6",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 5, 2002",
+      "foot": "",
+      "height": "",
+      "id": "54160",
+      "marketValue": "",
+      "name": "Kristýna Růžičková",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "8",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 22, 2004",
+      "foot": "",
+      "height": "",
+      "id": "47435",
+      "marketValue": "",
+      "name": "Sabina Střížová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "9",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 20, 2004",
+      "foot": "",
+      "height": "",
+      "id": "120973",
+      "marketValue": "",
+      "name": "Sierra Pennock",
+      "nationality": [
+        "United States"
+      ],
+      "number": "10",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "Jul 24, 2002",
+      "foot": "",
+      "height": "",
+      "id": "54175",
+      "marketValue": "",
+      "name": "Barbora Polcarová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "11",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "May 4, 1998",
+      "foot": "",
+      "height": "",
+      "id": "27101",
+      "marketValue": "",
+      "name": "Tereza Szewieczková",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "16",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 13, 1999",
+      "foot": "left",
+      "height": "1,68m",
+      "id": "30484",
+      "marketValue": "€80k",
+      "name": "Mária Mikolajová",
+      "nationality": [
+        "Slovakia"
+      ],
+      "number": "17",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2029",
+      "dateOfBirth": "Mar 20, 1996",
+      "foot": "",
+      "height": "1,66m",
+      "id": "22690",
+      "marketValue": "€45k",
+      "name": "Kateřina Svitková",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "21",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 21, 2007",
+      "foot": "",
+      "height": "",
+      "id": "79545",
+      "marketValue": "",
+      "name": "Lucie Kroupová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "22",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 21, 1996",
+      "foot": "",
+      "height": "1,65m",
+      "id": "18274",
+      "marketValue": "",
+      "name": "Tereza Krejčiříková",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "25",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "Jan 2, 2003",
+      "foot": "right",
+      "height": "",
+      "id": "41148",
+      "marketValue": "",
+      "name": "Tamara Morávková",
+      "nationality": [
+        "Slovakia"
+      ],
+      "number": "28",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 17, 1999",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "30510",
+      "marketValue": "€60k",
+      "name": "Kamila Dubcová",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "48",
+      "position": "Left Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 7, 1997",
+      "foot": "right",
+      "height": "",
+      "id": "32751",
+      "marketValue": "",
+      "name": "Roksolana Kravchuk",
+      "nationality": [
+        "Ukraine"
+      ],
+      "number": "29",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Horní Měcholupy",
+  "stadiumSeats": "1000",
+  "transfermarktId": "746",
+  "country": "CZ"
+}

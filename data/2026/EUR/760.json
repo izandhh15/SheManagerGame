@@ -1,0 +1,472 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/760.png",
+  "name": "Standard Liège",
+  "players": [
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Aug 25, 2006",
+      "foot": "",
+      "height": "1,75m",
+      "id": "103731",
+      "marketValue": "",
+      "name": "Élisa Gautier",
+      "nationality": [
+        "France"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 1, 2008",
+      "foot": "",
+      "height": "",
+      "id": "97151",
+      "marketValue": "",
+      "name": "Elise Bils",
+      "nationality": [
+        "Belgium"
+      ],
+      "number": "24",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 1, 2005",
+      "foot": "",
+      "height": "",
+      "id": "58311",
+      "marketValue": "",
+      "name": "Lise Musique",
+      "nationality": [
+        "Belgium"
+      ],
+      "number": "32",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 28, 2009",
+      "foot": "",
+      "height": "",
+      "id": "116283",
+      "marketValue": "",
+      "name": "Maud Deschutter",
+      "nationality": [
+        "Belgium"
+      ],
+      "number": "33",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 24, 2008",
+      "foot": "",
+      "height": "",
+      "id": "106925",
+      "marketValue": "",
+      "name": "Léna Struman",
+      "nationality": [
+        "Belgium"
+      ],
+      "number": "39",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 26, 2004",
+      "foot": "",
+      "height": "",
+      "id": "38342",
+      "marketValue": "",
+      "name": "Maude Lecoq",
+      "nationality": [
+        "Belgium"
+      ],
+      "number": 2,
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Mar 18, 2004",
+      "foot": "",
+      "height": "",
+      "id": "38340",
+      "marketValue": "",
+      "name": "Loredana Humartus",
+      "nationality": [
+        "Belgium"
+      ],
+      "number": "3",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Aug 31, 2003",
+      "foot": "",
+      "height": "1,62m",
+      "id": "50088",
+      "marketValue": "",
+      "name": "Lyndsey Van Belle",
+      "nationality": [
+        "Belgium"
+      ],
+      "number": "14",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Feb 23, 2009",
+      "foot": "",
+      "height": "",
+      "id": "114630",
+      "marketValue": "",
+      "name": "Elsa Godfroid",
+      "nationality": [
+        "Belgium"
+      ],
+      "number": "15",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jul 2, 2003",
+      "foot": "",
+      "height": "",
+      "id": "51580",
+      "marketValue": "",
+      "name": "Pam Amorij",
+      "nationality": [
+        "Belgium"
+      ],
+      "number": "19",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 22, 1996",
+      "foot": "",
+      "height": "1,61m",
+      "id": "16924",
+      "marketValue": "",
+      "name": "Lola Wajnblum",
+      "nationality": [
+        "Belgium"
+      ],
+      "number": "20",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 23, 2006",
+      "foot": "",
+      "height": "",
+      "id": "63527",
+      "marketValue": "",
+      "name": "Gvantsa Tabagari",
+      "nationality": [
+        "Belgium"
+      ],
+      "number": "23",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Oct 18, 2008",
+      "foot": "",
+      "height": "",
+      "id": "86146",
+      "marketValue": "",
+      "name": "Paola Tchidjo",
+      "nationality": [
+        "Belgium"
+      ],
+      "number": "27",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 6, 2006",
+      "foot": "",
+      "height": "",
+      "id": "78534",
+      "marketValue": "",
+      "name": "Kimberly Scohier",
+      "nationality": [
+        "Belgium"
+      ],
+      "number": "30",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 30, 1999",
+      "foot": "both",
+      "height": "1,64m",
+      "id": "29095",
+      "marketValue": "€50k",
+      "name": "Davinia Vanmechelen",
+      "nationality": [
+        "Belgium"
+      ],
+      "number": 4,
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 25, 2006",
+      "foot": "",
+      "height": "",
+      "id": "103917",
+      "marketValue": "",
+      "name": "Daimy Sleebe",
+      "nationality": [
+        "Netherlands"
+      ],
+      "number": "6",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 22, 1991",
+      "foot": "",
+      "height": "1,69m",
+      "id": "11721",
+      "marketValue": "",
+      "name": "Justine Blave",
+      "nationality": [
+        "Belgium"
+      ],
+      "number": "8",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 26, 2006",
+      "foot": "",
+      "height": "",
+      "id": "78542",
+      "marketValue": "",
+      "name": "Anisa Ademi",
+      "nationality": [
+        "Belgium"
+      ],
+      "number": "10",
+      "position": "Left Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 7, 2008",
+      "foot": "",
+      "height": "",
+      "id": "121625",
+      "marketValue": "",
+      "name": "Romy Laureyn",
+      "nationality": [
+        "Belgium"
+      ],
+      "number": "12",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Apr 16, 2008",
+      "foot": "",
+      "height": "",
+      "id": "86147",
+      "marketValue": "",
+      "name": "Emma Ernst",
+      "nationality": [
+        "Belgium"
+      ],
+      "number": "21",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Feb 7, 2008",
+      "foot": "",
+      "height": "",
+      "id": "86156",
+      "marketValue": "",
+      "name": "Gabrielle Delille",
+      "nationality": [
+        "Belgium"
+      ],
+      "number": "22",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 14, 2006",
+      "foot": "",
+      "height": "",
+      "id": "70955",
+      "marketValue": "",
+      "name": "Chloé Snaps",
+      "nationality": [
+        "Belgium"
+      ],
+      "number": "28",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 3, 2005",
+      "foot": "",
+      "height": "",
+      "id": "96826",
+      "marketValue": "",
+      "name": "Isa Warps",
+      "nationality": [
+        "Indonesia"
+      ],
+      "number": "34",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Sep 20, 2006",
+      "foot": "",
+      "height": "",
+      "id": "117770",
+      "marketValue": "",
+      "name": "Sarah Mejdoubi",
+      "nationality": [
+        "Morocco"
+      ],
+      "number": "36",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Aug 6, 2008",
+      "foot": "",
+      "height": "",
+      "id": "86149",
+      "marketValue": "",
+      "name": "Milla Pili",
+      "nationality": [
+        "Belgium"
+      ],
+      "number": "38",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 10, 2003",
+      "foot": "",
+      "height": "",
+      "id": "47068",
+      "marketValue": "",
+      "name": "Fleur Pauwels",
+      "nationality": [
+        "Belgium"
+      ],
+      "number": "77",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 13, 1999",
+      "foot": "",
+      "height": "",
+      "id": "63085",
+      "marketValue": "",
+      "name": "Aster Janssen",
+      "nationality": [
+        "Belgium"
+      ],
+      "number": "99",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Sep 7, 2003",
+      "foot": "both",
+      "height": "1,59m",
+      "id": "42543",
+      "marketValue": "",
+      "name": "Imani Prez",
+      "nationality": [
+        "Belgium"
+      ],
+      "number": "7",
+      "position": "Left Winger"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 6, 2005",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "61827",
+      "marketValue": "",
+      "name": "Anastasija Poļuhoviča",
+      "nationality": [
+        "Latvia"
+      ],
+      "number": "11",
+      "position": "Centre-Forward"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 1, 2007",
+      "foot": "",
+      "height": "",
+      "id": "117444",
+      "marketValue": "",
+      "name": "Dilajda Leka",
+      "nationality": [
+        "Albania"
+      ],
+      "number": "13",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jun 19, 2007",
+      "foot": "",
+      "height": "",
+      "id": "84219",
+      "marketValue": "",
+      "name": "Ella Van Den Brande",
+      "nationality": [
+        "Belgium"
+      ],
+      "number": "16",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Jan 20, 2003",
+      "foot": "",
+      "height": "",
+      "id": "50089",
+      "marketValue": "",
+      "name": "Emily Steijvers",
+      "nationality": [
+        "Czech Republic"
+      ],
+      "number": "17",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "May 21, 2009",
+      "foot": "",
+      "height": "",
+      "id": "114634",
+      "marketValue": "",
+      "name": "Maëline Louis",
+      "nationality": [
+        "Belgium"
+      ],
+      "number": "18",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "SL16 Football Campus - Terrain 5",
+  "stadiumSeats": "0",
+  "transfermarktId": "760",
+  "country": "BE"
+}

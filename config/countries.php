@@ -1,0 +1,931 @@
+<?php
+
+return [
+
+    /*
+    |--------------------------------------------------------------------------
+    | Football Country Configurations
+    |--------------------------------------------------------------------------
+    |
+    | Each country declares its full football ecosystem: playable league tiers,
+    | domestic cups, promotion/relegation rules, continental qualification slots,
+    | and support teams needed for transfers and continental competitions.
+    |
+    | This config is the single source of truth for country-specific setup.
+    | Processors, seeders, and game creation all read from here.
+    |
+    */
+
+    'ES' => [
+        'name' => 'España',
+
+        'tiers' => [
+            1 => [
+                'competition' => 'ESP1',
+                'teams' => 16,
+                'handler' => 'league',
+                'config_class' => \App\Modules\Competition\Configs\LaLigaConfig::class,
+            ],
+            2 => [
+                'competition' => 'ESP2',
+                'teams' => 14,
+                'handler' => 'league_with_playoff',
+                'config_class' => \App\Modules\Competition\Configs\LaLiga2Config::class,
+            ],
+            3 => [
+                'competition' => 'ESP3A',
+                'teams' => 14,
+                'handler' => 'league',
+                'config_class' => \App\Modules\Competition\Configs\PrimeraRFEFConfig::class,
+                // Segunda Federación has three parallel groups of 14 teams.
+                // ESP3A is the "primary" entry so existing call sites that
+                // expect one competition per tier continue to work; ESP3B and
+                // ESP3C are enumerated via
+                // CountryConfig::tierCompetitionIds()/siblings.
+                'siblings' => [
+                    [
+                        'competition' => 'ESP3B',
+                        'teams' => 14,
+                        'handler' => 'league',
+                        'config_class' => \App\Modules\Competition\Configs\PrimeraRFEFConfig::class,
+                    ],
+                    [
+                        'competition' => 'ESP3C',
+                        'teams' => 14,
+                        'handler' => 'league',
+                        'config_class' => \App\Modules\Competition\Configs\PrimeraRFEFConfig::class,
+                    ],
+                ],
+            ],
+        ],
+
+        // Domestic cups. Each entry is the complete description of one cup —
+        // everything the engine needs beyond the participant list and round
+        // calendar in data/<season>/<cup>/. See docs/game-systems/domestic-cups.md
+        // for the full key reference; the short version:
+        //
+        // - handler / config_class / draw_pairing: how the cup runs and pays.
+        // - short_name / abbreviation: compact labels for tight layouts.
+        // - neutral_venues: round name => venue for ties played away from
+        //   the home ground. '*' applies to every round (final-four style).
+        'domestic_cups' => [
+            'ESPCUP' => [
+                'handler' => 'knockout_cup',
+                'config_class' => \App\Modules\Competition\Configs\KnockoutCupConfig::class,
+                'draw_pairing' => \App\Modules\Competition\Services\Draw\CrossCategoryPairing::class,
+                'short_name' => 'Copa de la Reina',
+                'abbreviation' => 'Copa',
+                'neutral_venues' => [
+                    'cup.final' => ['name' => 'La Cartuja', 'capacity' => 70000],
+                ],
+            ],
+            'ESPSUP' => [
+                'handler' => 'knockout_cup',
+                'config_class' => \App\Modules\Competition\Configs\SupercupConfig::class,
+                // Not drawn: the semi-finals follow from the qualifying
+                // seeds (cup winner v league runner-up, cup runner-up v
+                // league champion).
+                'draw_pairing' => \App\Modules\Competition\Services\Draw\SeededBracketPairing::class,
+                'short_name' => 'Supercopa',
+                'abbreviation' => 'Supercopa',
+                // Final four hosted in Spain: semis and final alike. The
+                // women's Supercopa rotates its neutral Spanish venue —
+                // Estadio Castalia (Castellón de la Plana) hosted the 2026
+                // edition after two years at Butarque (Leganés).
+                'neutral_venues' => [
+                    '*' => ['name' => 'Estadio Castalia', 'capacity' => 15500],
+                ],
+            ],
+        ],
+
+        // Supercup derivation. 'teams' picks the format: 4 = final four
+        // (both cup finalists + league top two, RFEF cascade rules), 2 =
+        // champion v cup winner (league runner-up steps in on a double).
+        // The cup final is located from the cup's own schedule.json, so no
+        // round number needs repeating here. 'cup_entry_round' is the round
+        // the supercup field skips ahead to in the main cup: Spain's four
+        // supercup clubs join the Copa de la Reina at the round of 16
+        // (round 4); omit it when the supercup has no bearing on cup entry.
+        'supercup' => [
+            'competition' => 'ESPSUP',
+            'cup' => 'ESPCUP',
+            'league' => 'ESP1',
+            'teams' => 4,
+            'cup_entry_round' => 4,
+        ],
+
+        // Rules for which teams from playable tiers qualify for each domestic
+        // cup at the start of the following season. Reserve teams never
+        // qualify regardless of their finishing position.
+        //
+        // - auto_qualify_tiers: every team currently in these tiers qualifies.
+        // - top_per_group: top N teams in each competition at this tier
+        //   (including siblings — ESP3A, ESP3B and ESP3C) qualify.
+        //
+        // Copa de la Reina (48 clubs): 16 from Liga F + 8 from Primera
+        // Federación + 8 per Segunda Federación group (3 groups) = 48.
+        'cup_qualification' => [
+            'ESPCUP' => [
+                'auto_qualify_tiers' => [1],
+                'top_per_group' => [
+                    2 => 8,
+                    3 => 8,
+                ],
+                // Total cup size invariant. After auto_qualify +
+                // top_per_group + the reserve cascade, the processor tops up
+                // round-robin from the top_per_group groups until the field
+                // reaches this number.
+                'target_size' => 48,
+            ],
+        ],
+
+        'promotions' => [
+            [
+                'top_division' => 'ESP1',
+                'bottom_division' => 'ESP2',
+                'relegated_positions' => [15, 16],
+                // Slot counts (not positions) — PromotionSlotAllocator walks
+                // standings in order, skipping reserve teams whose parent club
+                // is in the top division, and assigns the first $direct_count
+                // eligible teams to direct promotion before handing the next
+                // $playoff_count to the bracket. This guarantees the two
+                // lists are disjoint even when reserves cluster at the top
+                // and shift the actual filling past the notional positions.
+                'direct_count' => 1,
+                'playoff_count' => 4,
+                'playoff_generator' => \App\Modules\Competition\Playoffs\ESP2PlayoffGenerator::class,
+            ],
+            [
+                // ESP2 ↔ Segunda Federación (ESP3A + ESP3B + ESP3C).
+                //
+                // The presence of 'playoff_source_divisions' WITHOUT
+                // 'playoff_competition'/'playoff_generator' tells
+                // CountryPromotionRelegationPlanner to use the split-format
+                // branch with direct promotion only: the champion of each of
+                // the three groups goes up, with no playoff bracket
+                // (playoff_count = 0).
+                'top_division' => 'ESP2',
+                'bottom_division' => 'ESP3A',
+                // Three group champions come up, so three must go down to
+                // keep ESP2 at 14 teams (the planner enforces exact tier
+                // sizes every season).
+                'relegated_positions' => [12, 13, 14],
+                'direct_count' => 1,
+                'playoff_count' => 0,
+                'playoff_source_divisions' => ['ESP3A', 'ESP3B', 'ESP3C'],
+            ],
+        ],
+
+        // Reserve teams that cannot be promoted to the same division as their
+        // parent. Maps child transfermarkt_id => parent transfermarkt_id,
+        // sourced from the women's data set (data-raw/*.json). Granada CF B
+        // has no entry: its parent club is absent from the collected data,
+        // and linkReserveTeams skips pairs whose parent is not seeded.
+        'reserve_teams' => [
+            5474  => 44,    // Athletic Bilbao II → Athletic Bilbao
+            7440  => 1129,  // Atlético Madrid B → Club Atlético de Madrid
+            8237  => 7499,  // CA Osasuna B → CA Osasuna
+            16819 => 16818, // CD Tenerife Femenino B → CD Tenerife Femenino
+            7192  => 552,   // Espanyol Barcelona B → Espanyol Barcelona
+            12513 => 1132,  // FC Barcelona C → F.C. Barcelona
+            4644  => 1132,  // FC Barcelona II → F.C. Barcelona
+            7189  => 1143,  // FC Valencia B → Valencia Féminas Club de Fútbol
+            7195  => 5649,  // Madrid CFF B → Madrid CFF
+            7441  => 7278,  // RC Deportivo A Coruña B → RC Deportivo A Coruña
+            8292  => 6551,  // Real Madrid B → Real Madrid
+            7889  => 1135,  // Real Sociedad San Sebastián B → Real Sociedad
+            8152  => 1133,  // SD Eibar B → SD Éibar
+            7193  => 210,   // UD Levante B → Levante UD
+        ],
+
+        // UWCL slots for Liga F's top three; the fourth qualifies for the
+        // UEFA Women's Europa Cup (internal code UEL).
+        'continental_slots' => [
+            'ESP1' => [
+                'UCL' => [1, 2, 3],
+                'UEL' => [4],
+            ],
+        ],
+
+        // The Copa de la Reina grants no European place in women's football.
+        'cup_winner_slot' => [],
+
+        'continental_competitions' => [
+            'UCL' => [
+                'config_class' => \App\Modules\Competition\Configs\ChampionsLeagueConfig::class,
+            ],
+            'UEL' => [
+                'config_class' => \App\Modules\Competition\Configs\EuropaLeagueConfig::class,
+            ],
+        ],
+
+        /*
+        |----------------------------------------------------------------------
+        | Support teams: non-playable teams needed for competition and transfers
+        |----------------------------------------------------------------------
+        |
+        | Categories (initialized in this order during game setup):
+        |   1. transfer_pool — foreign league teams for scouting/transfers/loans
+        |   2. continental   — opponents in UEFA competitions (reuse pool rosters)
+        |
+        | Domestic cup teams (ESPCUP lower-division) are linked at seeding time
+        | but don't need GamePlayer rosters — early rounds are auto-simulated.
+        */
+        'support' => [
+            'transfer_pool' => [
+                // Other top-flight leagues — full rosters from JSON, eagerly loaded at game setup
+                'ENG1' => ['role' => 'league', 'handler' => 'league', 'country' => 'EN'],
+                'DEU1' => ['role' => 'league', 'handler' => 'league', 'country' => 'DE'],
+                'FRA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'FR'],
+                'ITA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'IT'],
+                'POR1' => ['role' => 'league', 'handler' => 'league', 'country' => 'PT', 'from_season' => '2026'],
+                'NED1' => ['role' => 'league', 'handler' => 'league', 'country' => 'NL', 'from_season' => '2026'],
+                // EUR club pool — individual team files, for European clubs
+                // outside the modelled leagues
+                'EUR'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'EU'],
+                // INT club pool — non-European clubs (South America, MLS, etc.)
+                // for transfer market only; never participates in fixtures
+                'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
+            ],
+            'continental' => [
+                // Teams needed for European competitions — rosters reused from
+                // tiers + transfer_pool where possible, gaps filled from EUR pool
+                'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+            ],
+        ],
+    ],
+
+    'EN' => [
+        'name' => 'England',
+
+        'tiers' => [
+            1 => [
+                'competition' => 'ENG1',
+                'teams' => 14,
+                'handler' => 'league',
+                'config_class' => \App\Modules\Competition\Configs\PremierLeagueConfig::class,
+            ],
+        ],
+
+        // Women's FA Cup, Women's League Cup and Women's Community Shield. Each cup
+        // starts at the round the WSL joins, because only the top flight is playable:
+        // the qualifying rounds contain nobody the user can be. That also
+        // means every club enters at round 1, with each round's field
+        // halving cleanly and no entryRound needed anywhere.
+        'domestic_cups' => [
+            'ENGCUP' => [
+                'from_season' => '2026',
+                'handler' => 'knockout_cup',
+                'config_class' => \App\Modules\Competition\Configs\KnockoutCupConfig::class,
+                // No draw_pairing — an open draw is what the Women's FA Cup does.
+                // CrossCategoryPairing would make a Premier League tie
+                // impossible in the third round, since every playable club
+                // is tier 1 and every ghost tier 99.
+                'short_name' => "Women's FA Cup",
+                'abbreviation' => 'FA',
+                'neutral_venues' => [
+                    'cup.semi_finals' => ['name' => 'Wembley Stadium', 'capacity' => 90000],
+                    'cup.final' => ['name' => 'Wembley Stadium', 'capacity' => 90000],
+                ],
+            ],
+            'ENGLC' => [
+                'from_season' => '2026',
+                'handler' => 'knockout_cup',
+                // Its own table, not the shared one: the Women's League Cup pays half
+                // the Women's FA Cup at every stage, and its shorter bracket would
+                // otherwise start it partway up the generic scale.
+                'config_class' => \App\Modules\Competition\Configs\EflCupConfig::class,
+                'short_name' => "Women's League Cup",
+                'abbreviation' => 'EFL',
+                'neutral_venues' => [
+                    'cup.final' => ['name' => 'Wembley Stadium', 'capacity' => 90000],
+                ],
+            ],
+            'ENGSUP' => [
+                'from_season' => '2026',
+                'handler' => 'knockout_cup',
+                'config_class' => \App\Modules\Competition\Configs\SupercupConfig::class,
+                // Two clubs, so the pairing is never in doubt; seeding it
+                // just fixes which of them is listed first.
+                'draw_pairing' => \App\Modules\Competition\Services\Draw\SeededBracketPairing::class,
+                'short_name' => "Women's Community Shield",
+                'abbreviation' => 'Shield',
+                'neutral_venues' => [
+                    '*' => ['name' => 'Wembley Stadium', 'capacity' => 90000],
+                ],
+            ],
+        ],
+
+        // Champion v Women's FA Cup winner, the two-club shape.
+        'supercup' => [
+            'competition' => 'ENGSUP',
+            'cup' => 'ENGCUP',
+            'league' => 'ENG1',
+            'teams' => 2,
+        ],
+
+        // Only the top flight is playable, so tier 1 auto-qualifies and every
+        // other entrant is a ghost preserved from the data file. No
+        // target_size: with no second tier there is nothing to backfill from,
+        // so it could only turn a shortfall into a thrown season transition
+        // — a stuck save — rather than repair anything.
+        'cup_qualification' => [
+            'ENGCUP' => [
+                'auto_qualify_tiers' => [1],
+            ],
+            'ENGLC' => [
+                'auto_qualify_tiers' => [1],
+            ],
+        ],
+
+        'promotions' => [],
+
+        'continental_slots' => [
+            'ENG1' => [
+                'UCL' => [1, 2, 3],
+                'UEL' => [4],
+            ],
+        ],
+
+        // Women's cups grant no European place.
+        'cup_winner_slot' => [],
+
+        'continental_competitions' => [
+            'UCL' => [
+                'config_class' => \App\Modules\Competition\Configs\ChampionsLeagueConfig::class,
+            ],
+            'UEL' => [
+                'config_class' => \App\Modules\Competition\Configs\EuropaLeagueConfig::class,
+            ],
+        ],
+
+        'support' => [
+            'transfer_pool' => [
+                'ESP1' => ['role' => 'league', 'handler' => 'league', 'country' => 'ES'],
+                'DEU1' => ['role' => 'league', 'handler' => 'league', 'country' => 'DE'],
+                'FRA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'FR'],
+                'ITA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'IT'],
+                'POR1' => ['role' => 'league', 'handler' => 'league', 'country' => 'PT', 'from_season' => '2026'],
+                'NED1' => ['role' => 'league', 'handler' => 'league', 'country' => 'NL', 'from_season' => '2026'],
+                'EUR'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'EU'],
+                'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
+            ],
+            'continental' => [
+                'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+            ],
+        ],
+    ],
+
+    'DE' => [
+        'name' => 'Deutschland',
+
+        'tiers' => [
+            1 => [
+                'competition' => 'DEU1',
+                'teams' => 14,
+                'handler' => 'league',
+                'config_class' => \App\Modules\Competition\Configs\BundesligaConfig::class,
+            ],
+        ],
+
+        // DFB-Pokal Frauen and Supercup Frauen. The Pokal starts at its first round, where
+        // all 64 clubs join at once: the Frauen-Bundesliga sides and the ghosts from
+        // the divisions below plus the regional cup winners. Only the top
+        // flight is playable, so every club enters at round 1, the field
+        // halves cleanly six times and no entryRound is needed anywhere.
+        'domestic_cups' => [
+            'DEUCUP' => [
+                'from_season' => '2026',
+                'handler' => 'knockout_cup',
+                'config_class' => \App\Modules\Competition\Configs\KnockoutCupConfig::class,
+                // No draw_pairing. The real Pokal splits its first two rounds
+                // into a professional and an amateur pot, but the engine uses
+                // one pairing strategy for every round, so CrossCategoryPairing
+                // would also forbid a Bayern v Dortmund final — every playable
+                // club is tier 1 and every ghost tier 99.
+                'short_name' => 'DFB-Pokal Frauen',
+                'abbreviation' => 'Pokal',
+                'neutral_venues' => [
+                    'cup.final' => ['name' => 'Olympiastadion Berlin', 'capacity' => 74000],
+                ],
+            ],
+            'DEUSUP' => [
+                'from_season' => '2026',
+                'handler' => 'knockout_cup',
+                'config_class' => \App\Modules\Competition\Configs\SupercupConfig::class,
+                // Two clubs, so the pairing is never in doubt; seeding it
+                // just fixes which of them is listed first.
+                'draw_pairing' => \App\Modules\Competition\Services\Draw\SeededBracketPairing::class,
+                'short_name' => 'Supercup Frauen',
+                'abbreviation' => 'Supercup',
+                // No neutral_venues: the Supercup is hosted by the Pokal
+                // winner, or by the league runner-up when one club did the
+                // double.
+            ],
+        ],
+
+        // Champion v DFB-Pokal Frauen winner, the two-club shape.
+        'supercup' => [
+            'competition' => 'DEUSUP',
+            'cup' => 'DEUCUP',
+            'league' => 'DEU1',
+            'teams' => 2,
+        ],
+
+        // Only the Bundesliga is playable, so tier 1 auto-qualifies and every
+        // other entrant is a ghost preserved from the data file. No
+        // target_size: with no second playable tier there is nothing to
+        // backfill from, so it could only turn a shortfall into a thrown
+        // season transition.
+        'cup_qualification' => [
+            'DEUCUP' => [
+                'auto_qualify_tiers' => [1],
+            ],
+        ],
+
+        'promotions' => [],
+
+        'continental_slots' => [
+            'DEU1' => [
+                'UCL' => [1, 2, 3],
+                'UEL' => [4],
+            ],
+        ],
+
+        // Women's cups grant no European place.
+        'cup_winner_slot' => [],
+
+        'continental_competitions' => [
+            'UCL' => [
+                'config_class' => \App\Modules\Competition\Configs\ChampionsLeagueConfig::class,
+            ],
+            'UEL' => [
+                'config_class' => \App\Modules\Competition\Configs\EuropaLeagueConfig::class,
+            ],
+        ],
+
+        'support' => [
+            'transfer_pool' => [
+                'ESP1' => ['role' => 'league', 'handler' => 'league', 'country' => 'ES'],
+                'ENG1' => ['role' => 'league', 'handler' => 'league', 'country' => 'EN'],
+                'FRA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'FR'],
+                'ITA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'IT'],
+                'POR1' => ['role' => 'league', 'handler' => 'league', 'country' => 'PT', 'from_season' => '2026'],
+                'NED1' => ['role' => 'league', 'handler' => 'league', 'country' => 'NL', 'from_season' => '2026'],
+                'EUR'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'EU'],
+                'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
+            ],
+            'continental' => [
+                'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+            ],
+        ],
+    ],
+
+    'IT' => [
+        'name' => 'Italia',
+
+        'tiers' => [
+            1 => [
+                'competition' => 'ITA1',
+                'teams' => 12,
+                'handler' => 'league',
+                'config_class' => \App\Modules\Competition\Configs\SerieAConfig::class,
+            ],
+        ],
+
+        // Coppa Italia femminile and Supercoppa Italiana femminile. Unlike England's
+        // cups, the Coppa keeps its real shape: lower-division sides play the early
+        // rounds and the previous season's top eight Serie A Femminile clubs skip
+        // to the round of 16. That bye is what makes a 44-club field halve cleanly, so it is
+        // declared as a qualification rule rather than baked into the data.
+        'domestic_cups' => [
+            'ITACUP' => [
+                'from_season' => '2026',
+                'handler' => 'knockout_cup',
+                'config_class' => \App\Modules\Competition\Configs\KnockoutCupConfig::class,
+                // No draw_pairing — the Coppa draws its bracket openly, and
+                // CrossCategoryPairing would forbid a Serie A v Serie A tie
+                // since every playable club is tier 1 and every ghost tier 99.
+                'short_name' => 'Coppa Italia femminile',
+                'abbreviation' => 'Coppa',
+                'neutral_venues' => [
+                    'cup.final' => ['name' => 'Stadio Olimpico', 'capacity' => 70000],
+                ],
+            ],
+            'ITASUP' => [
+                'from_season' => '2026',
+                'handler' => 'knockout_cup',
+                'config_class' => \App\Modules\Competition\Configs\SupercupConfig::class,
+                // Two clubs, so the pairing is never in doubt; seeding it
+                // just fixes which of them is listed first.
+                'draw_pairing' => \App\Modules\Competition\Services\Draw\SeededBracketPairing::class,
+                'short_name' => 'Supercoppa Italiana femminile',
+                'abbreviation' => 'Supercoppa',
+                'neutral_venues' => [
+                    '*' => ['name' => 'Al-Awwal Park', 'capacity' => 25000],
+                ],
+            ],
+        ],
+
+        // Champion v Coppa Italia femminile winner, the two-club shape.
+        'supercup' => [
+            'competition' => 'ITASUP',
+            'cup' => 'ITACUP',
+            'league' => 'ITA1',
+            'teams' => 2,
+        ],
+
+        // Only Serie A Femminile is playable, so tier 1 auto-qualifies and every other
+        // entrant is a ghost preserved from the data file. No target_size:
+        // with no second playable tier there is nothing to backfill from, so
+        // it could only turn a shortfall into a thrown season transition.
+        'cup_qualification' => [
+            'ITACUP' => [
+                'auto_qualify_tiers' => [1],
+                // Serie A joins at the first round proper and the eight best
+                // of last season skip on to the round of 16. Both halves are
+                // needed: without the rule the byes would hold only for the
+                // imported season, and without `default` the other twelve
+                // would drop to the preliminary round and the field would
+                // stop halving.
+                'entry_rounds' => [
+                    'league' => 'ITA1',
+                    'default' => 2,
+                    'byes' => [
+                        'positions' => [1, 2, 3, 4, 5, 6, 7, 8],
+                        'round' => 4,
+                    ],
+                ],
+            ],
+        ],
+
+        'promotions' => [],
+
+        'continental_slots' => [
+            'ITA1' => [
+                'UCL' => [1, 2],
+                'UEL' => [3],
+            ],
+        ],
+
+        // Women's cups grant no European place.
+        'cup_winner_slot' => [],
+
+        'continental_competitions' => [
+            'UCL' => [
+                'config_class' => \App\Modules\Competition\Configs\ChampionsLeagueConfig::class,
+            ],
+            'UEL' => [
+                'config_class' => \App\Modules\Competition\Configs\EuropaLeagueConfig::class,
+            ],
+        ],
+
+        'support' => [
+            'transfer_pool' => [
+                'ESP1' => ['role' => 'league', 'handler' => 'league', 'country' => 'ES'],
+                'ENG1' => ['role' => 'league', 'handler' => 'league', 'country' => 'EN'],
+                'DEU1' => ['role' => 'league', 'handler' => 'league', 'country' => 'DE'],
+                'FRA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'FR'],
+                'POR1' => ['role' => 'league', 'handler' => 'league', 'country' => 'PT', 'from_season' => '2026'],
+                'NED1' => ['role' => 'league', 'handler' => 'league', 'country' => 'NL', 'from_season' => '2026'],
+                'EUR'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'EU'],
+                'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
+            ],
+            'continental' => [
+                'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+            ],
+        ],
+    ],
+
+    'FR' => [
+        'name' => 'France',
+
+        'tiers' => [
+            1 => [
+                'competition' => 'FRA1',
+                'teams' => 12,
+                'handler' => 'league',
+                'config_class' => \App\Modules\Competition\Configs\Ligue1Config::class,
+            ],
+        ],
+
+        // Coupe de France féminine and Trophée des Championnes. France has no league cup
+        // The Coupe starts at the round of 64, where the Première Ligue joins:
+        // everything below it is
+        // regional and amateur, so it contains nobody the user can be. Every
+        // club therefore enters at round 1 and no entryRound is needed.
+        'domestic_cups' => [
+            'FRACUP' => [
+                'from_season' => '2026',
+                'handler' => 'knockout_cup',
+                'config_class' => \App\Modules\Competition\Configs\KnockoutCupConfig::class,
+                // No draw_pairing — the Coupe's open draw is the point of it,
+                // and CrossCategoryPairing would make a Ligue 1 tie impossible
+                // with every playable club at tier 1 and every ghost at 99.
+                'short_name' => 'Coupe de France féminine',
+                'abbreviation' => 'CdF',
+                'neutral_venues' => [
+                    'cup.final' => ['name' => 'Stade de France', 'capacity' => 80000],
+                ],
+            ],
+            'FRASUP' => [
+                'from_season' => '2026',
+                'handler' => 'knockout_cup',
+                'config_class' => \App\Modules\Competition\Configs\SupercupConfig::class,
+                // Two clubs, so the pairing is never in doubt; seeding it
+                // just fixes which of them is listed first.
+                'draw_pairing' => \App\Modules\Competition\Services\Draw\SeededBracketPairing::class,
+                'short_name' => 'Trophée des Championnes',
+                'abbreviation' => 'TdC',
+                // No neutral_venues: the Trophée moves every year, often
+                // abroad and sometimes to a finalist's own ground.
+            ],
+        ],
+
+        // Champion v Coupe de France féminine winner, the two-club shape.
+        'supercup' => [
+            'competition' => 'FRASUP',
+            'cup' => 'FRACUP',
+            'league' => 'FRA1',
+            'teams' => 2,
+        ],
+
+        // Only the Première Ligue is playable, so tier 1 auto-qualifies and every other
+        // entrant is a ghost preserved from the data file. No target_size:
+        // with no second playable tier there is nothing to backfill from, so
+        // it could only turn a shortfall into a thrown season transition.
+        'cup_qualification' => [
+            'FRACUP' => [
+                'auto_qualify_tiers' => [1],
+            ],
+        ],
+
+        'promotions' => [],
+
+        'continental_slots' => [
+            'FRA1' => [
+                'UCL' => [1, 2, 3],
+                'UEL' => [4],
+            ],
+        ],
+
+        // Women's cups grant no European place.
+        'cup_winner_slot' => [],
+
+        'continental_competitions' => [
+            'UCL' => [
+                'config_class' => \App\Modules\Competition\Configs\ChampionsLeagueConfig::class,
+            ],
+            'UEL' => [
+                'config_class' => \App\Modules\Competition\Configs\EuropaLeagueConfig::class,
+            ],
+        ],
+
+        'support' => [
+            'transfer_pool' => [
+                'ESP1' => ['role' => 'league', 'handler' => 'league', 'country' => 'ES'],
+                'ENG1' => ['role' => 'league', 'handler' => 'league', 'country' => 'EN'],
+                'DEU1' => ['role' => 'league', 'handler' => 'league', 'country' => 'DE'],
+                'ITA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'IT'],
+                'POR1' => ['role' => 'league', 'handler' => 'league', 'country' => 'PT', 'from_season' => '2026'],
+                'NED1' => ['role' => 'league', 'handler' => 'league', 'country' => 'NL', 'from_season' => '2026'],
+                'EUR'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'EU'],
+                'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
+            ],
+            'continental' => [
+                'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+            ],
+        ],
+    ],
+
+    'PT' => [
+        'name' => 'Portugal',
+        // Playable from 2026 only: data/2025 has no folder for any of
+        // its competitions, and the seeder and validator demand one for
+        // every competition they find here.
+        'from_season' => '2026',
+
+        'tiers' => [
+            1 => [
+                'competition' => 'POR1',
+                'teams' => 10,
+                'handler' => 'league',
+                'config_class' => \App\Modules\Competition\Configs\PrimeiraLigaConfig::class,
+            ],
+        ],
+
+        // Taça de Portugal Feminina and Supertaça Feminina — two competitions. The Taça
+        // is trimmed to its third round, where the Liga BPI joins: 64 clubs, everything
+        // below regional or
+        // amateur, so every club enters at round 1 and no entryRound is
+        // needed.
+        'domestic_cups' => [
+            'PORCUP' => [
+                'handler' => 'knockout_cup',
+                'config_class' => \App\Modules\Competition\Configs\KnockoutCupConfig::class,
+                // No draw_pairing — the Taça's open draw is the point of it,
+                // and CrossCategoryPairing would make a Primeira Liga tie
+                // impossible with every playable club at tier 1 and every
+                // ghost at 99.
+                'short_name' => 'Taça de Portugal Feminina',
+                'abbreviation' => 'Taça',
+                'neutral_venues' => [
+                    'cup.final' => ['name' => 'Estádio Nacional', 'capacity' => 37000],
+                ],
+            ],
+            'PORSUP' => [
+                'handler' => 'knockout_cup',
+                'config_class' => \App\Modules\Competition\Configs\SupercupConfig::class,
+                // Two clubs, so the pairing is never in doubt; seeding it
+                // just fixes which of them is listed first.
+                'draw_pairing' => \App\Modules\Competition\Services\Draw\SeededBracketPairing::class,
+                'short_name' => 'Supertaça Feminina',
+                'abbreviation' => 'Supertaça',
+                'neutral_venues' => [
+                    '*' => ['name' => 'Estádio Municipal de Aveiro', 'capacity' => 30000],
+                ],
+            ],
+        ],
+
+        // Champion v Taça de Portugal Feminina winner, the two-club shape.
+        'supercup' => [
+            'competition' => 'PORSUP',
+            'cup' => 'PORCUP',
+            'league' => 'POR1',
+            'teams' => 2,
+        ],
+
+        // Only the Liga BPI is playable, so tier 1 auto-qualifies and
+        // every other entrant is a ghost preserved from the data file. No
+        // target_size: with no second playable tier there is nothing to
+        // backfill from, so it could only turn a shortfall into a thrown
+        // season transition.
+        'cup_qualification' => [
+            'PORCUP' => [
+                'auto_qualify_tiers' => [1],
+            ],
+        ],
+
+        'promotions' => [],
+
+        'continental_slots' => [
+            'POR1' => [
+                'UCL' => [1],
+                'UEL' => [2],
+            ],
+        ],
+
+        // Women's cups grant no European place.
+        'cup_winner_slot' => [],
+
+        'continental_competitions' => [
+            'UCL' => [
+                'config_class' => \App\Modules\Competition\Configs\ChampionsLeagueConfig::class,
+            ],
+            'UEL' => [
+                'config_class' => \App\Modules\Competition\Configs\EuropaLeagueConfig::class,
+            ],
+        ],
+
+        'support' => [
+            'transfer_pool' => [
+                'ESP1' => ['role' => 'league', 'handler' => 'league', 'country' => 'ES'],
+                'ENG1' => ['role' => 'league', 'handler' => 'league', 'country' => 'EN'],
+                'DEU1' => ['role' => 'league', 'handler' => 'league', 'country' => 'DE'],
+                'FRA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'FR'],
+                'ITA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'IT'],
+                'NED1' => ['role' => 'league', 'handler' => 'league', 'country' => 'NL', 'from_season' => '2026'],
+                'EUR'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'EU'],
+                'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
+            ],
+            'continental' => [
+                'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+            ],
+        ],
+    ],
+
+    'NL' => [
+        'name' => 'Países Bajos',
+        // Playable from 2026 only: data/2025 has no folder for any of
+        // its competitions, and the seeder and validator demand one for
+        // every competition they find here.
+        'from_season' => '2026',
+
+        'tiers' => [
+            1 => [
+                'competition' => 'NED1',
+                'teams' => 10,
+                'handler' => 'league',
+                'config_class' => \App\Modules\Competition\Configs\EredivisieConfig::class,
+            ],
+        ],
+
+        // KNVB Beker vrouwen and Johan Cruijff Schaal vrouwen. The Beker keeps its real
+        // shape: the six Eredivisie Vrouwen clubs playing in Europe sit out the
+        // first round, which is what makes a 58-club field halve — 52 in
+        // round one, then 26 winners plus the six for a round of 32.
+        'domestic_cups' => [
+            'NEDCUP' => [
+                'handler' => 'knockout_cup',
+                'config_class' => \App\Modules\Competition\Configs\KnockoutCupConfig::class,
+                // No draw_pairing — the Beker's open draw is the point of
+                // it, and CrossCategoryPairing would make an Eredivisie tie
+                // impossible with every playable club at tier 1 and every
+                // ghost at 99.
+                'short_name' => 'KNVB Beker vrouwen',
+                'abbreviation' => 'Beker',
+                'neutral_venues' => [
+                    'cup.final' => ['name' => 'De Kuip', 'capacity' => 47000],
+                ],
+            ],
+            'NEDSUP' => [
+                'handler' => 'knockout_cup',
+                'config_class' => \App\Modules\Competition\Configs\SupercupConfig::class,
+                // Two clubs, so the pairing is never in doubt; seeding it
+                // just fixes which of them is listed first.
+                'draw_pairing' => \App\Modules\Competition\Services\Draw\SeededBracketPairing::class,
+                'short_name' => 'Johan Cruijff Schaal vrouwen',
+                'abbreviation' => 'Schaal',
+                'neutral_venues' => [
+                    '*' => ['name' => 'Johan Cruijff ArenA', 'capacity' => 55000],
+                ],
+            ],
+        ],
+
+        // Champion v KNVB Beker vrouwen winner, the two-club shape.
+        'supercup' => [
+            'competition' => 'NEDSUP',
+            'cup' => 'NEDCUP',
+            'league' => 'NED1',
+            'teams' => 2,
+        ],
+
+        // Only the Eredivisie Vrouwen is playable, so tier 1 auto-qualifies and
+        // every other entrant is a ghost preserved from the data file. No
+        // target_size: with no second playable tier there is nothing to
+        // backfill from, so it could only turn a shortfall into a thrown
+        // season transition.
+        'cup_qualification' => [
+            'NEDCUP' => [
+                'auto_qualify_tiers' => [1],
+                // The real bye belongs to the clubs playing European
+                // football, which the league table can only approximate:
+                // the top six covers the five league places below plus a
+                // cup winner from among them most seasons. Six is what
+                // parity needs — 26 first-round winners have to meet an
+                // even field — so the rule fixes the count rather than
+                // chasing the exact clubs.
+                'entry_rounds' => [
+                    'league' => 'NED1',
+                    'default' => 1,
+                    'byes' => ['positions' => [1, 2, 3, 4, 5, 6], 'round' => 2],
+                ],
+            ],
+        ],
+
+        'promotions' => [],
+
+        'continental_slots' => [
+            'NED1' => [
+                'UCL' => [1],
+                'UEL' => [2],
+            ],
+        ],
+
+        // Women's cups grant no European place.
+        'cup_winner_slot' => [],
+
+        'continental_competitions' => [
+            'UCL' => [
+                'config_class' => \App\Modules\Competition\Configs\ChampionsLeagueConfig::class,
+            ],
+            'UEL' => [
+                'config_class' => \App\Modules\Competition\Configs\EuropaLeagueConfig::class,
+            ],
+        ],
+
+        'support' => [
+            'transfer_pool' => [
+                'ESP1' => ['role' => 'league', 'handler' => 'league', 'country' => 'ES'],
+                'ENG1' => ['role' => 'league', 'handler' => 'league', 'country' => 'EN'],
+                'DEU1' => ['role' => 'league', 'handler' => 'league', 'country' => 'DE'],
+                'FRA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'FR'],
+                'ITA1' => ['role' => 'league', 'handler' => 'league', 'country' => 'IT'],
+                'POR1' => ['role' => 'league', 'handler' => 'league', 'country' => 'PT', 'from_season' => '2026'],
+                'EUR'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'EU'],
+                'INT'  => ['role' => 'team_pool', 'handler' => 'team_pool', 'country' => 'XX'],
+            ],
+            'continental' => [
+                'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+            ],
+        ],
+    ],
+
+];

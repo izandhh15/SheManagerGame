@@ -1,0 +1,360 @@
+{
+  "image": "https://tmssl.akamaized.net/images/wappen/big/614.png",
+  "name": "Hibernian LFC",
+  "players": [
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Mar 19, 2006",
+      "foot": "",
+      "height": "1,80m",
+      "id": "89912",
+      "marketValue": "€25k",
+      "name": "Eve Annets",
+      "nationality": [
+        "England"
+      ],
+      "number": "",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Feb 28, 2001",
+      "foot": "",
+      "height": "1,73m",
+      "id": "48578",
+      "marketValue": "€10k",
+      "name": "Ariana Anastasiadis",
+      "nationality": [
+        "Greece"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jun 18, 2008",
+      "foot": "",
+      "height": "",
+      "id": "89194",
+      "marketValue": "",
+      "name": "Rowena Armitage",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "25",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jul 4, 1997",
+      "foot": "right",
+      "height": "1,58m",
+      "id": "33680",
+      "marketValue": "€30k",
+      "name": "Faye Bryson",
+      "nationality": [
+        "England"
+      ],
+      "number": "2",
+      "position": "Right-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jul 13, 2003",
+      "foot": "",
+      "height": "",
+      "id": "45274",
+      "marketValue": "",
+      "name": "Caley Gibb",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "3",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Apr 10, 1994",
+      "foot": "",
+      "height": "",
+      "id": "23307",
+      "marketValue": "",
+      "name": "Siobhan Hunter",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "4",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Nov 10, 2004",
+      "foot": "",
+      "height": "",
+      "id": "75523",
+      "marketValue": "",
+      "name": "Scarlett Herron",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "5",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Jul 4, 2004",
+      "foot": "",
+      "height": "",
+      "id": "47117",
+      "marketValue": "",
+      "name": "Jessica Broadrick",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "14",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Feb 2, 1999",
+      "foot": "",
+      "height": "",
+      "id": "31626",
+      "marketValue": "",
+      "name": "Ellis Notley",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "16",
+      "position": "Defensive Midfield"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Jun 30, 2006",
+      "foot": "",
+      "height": "",
+      "id": "63468",
+      "marketValue": "",
+      "name": "Sofie Keenan",
+      "nationality": [
+        "Northern Ireland"
+      ],
+      "number": "55",
+      "position": "Left-Back"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Apr 30, 2002",
+      "foot": "",
+      "height": "",
+      "id": "46409",
+      "marketValue": "€20k",
+      "name": "Joely Andrews",
+      "nationality": [
+        "Northern Ireland"
+      ],
+      "number": "6",
+      "position": "Central Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Feb 3, 2006",
+      "foot": "",
+      "height": "",
+      "id": "84385",
+      "marketValue": "€15k",
+      "name": "Milly Boughton",
+      "nationality": [
+        "Australia"
+      ],
+      "number": "7",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jul 12, 2006",
+      "foot": "",
+      "height": "",
+      "id": "76005",
+      "marketValue": "",
+      "name": "Jess Fitzgerald",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "8",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Sep 18, 2002",
+      "foot": "",
+      "height": "1,66m",
+      "id": "57265",
+      "marketValue": "",
+      "name": "Jasmine McQuade",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "10",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Nov 24, 2009",
+      "foot": "",
+      "height": "",
+      "id": "106731",
+      "marketValue": "",
+      "name": "Isla Taylor",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "19",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2029",
+      "dateOfBirth": "Apr 14, 2009",
+      "foot": "",
+      "height": "",
+      "id": "106730",
+      "marketValue": "",
+      "name": "Jessica Ramsay",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "20",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Dec 20, 1991",
+      "foot": "",
+      "height": "",
+      "id": "10917",
+      "marketValue": "",
+      "name": "Rachael Boyle",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "23",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Oct 31, 1994",
+      "foot": "",
+      "height": "",
+      "id": "47861",
+      "marketValue": "",
+      "name": "Linzi Taylor",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "31",
+      "position": "Centre-Back"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Aug 20, 1995",
+      "foot": "right",
+      "height": "",
+      "id": "41108",
+      "marketValue": "",
+      "name": "Kirsten Reilly",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "32",
+      "position": "Attacking Midfield"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "Mar 11, 2001",
+      "foot": "",
+      "height": "",
+      "id": "38841",
+      "marketValue": "",
+      "name": "Libby Smith",
+      "nationality": [
+        "England"
+      ],
+      "number": "9",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Apr 7, 2003",
+      "foot": "",
+      "height": "1,68m",
+      "id": "40553",
+      "marketValue": "",
+      "name": "Yuliia Khrystiuk",
+      "nationality": [
+        "Ukraine"
+      ],
+      "number": "11",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "Dec 26, 2000",
+      "foot": "right",
+      "height": "",
+      "id": "34046",
+      "marketValue": "",
+      "name": "Aoife Colvill",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "15",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Feb 17, 2005",
+      "foot": "",
+      "height": "",
+      "id": "59239",
+      "marketValue": "",
+      "name": "Tiree Burchill",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "27",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Sep 1, 2001",
+      "foot": "",
+      "height": "",
+      "id": "32653",
+      "marketValue": "",
+      "name": "Kirsty Morrison",
+      "nationality": [
+        "Scottland"
+      ],
+      "number": "29",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "Jun 25, 1991",
+      "foot": "right",
+      "height": "1,65m",
+      "id": "1788",
+      "marketValue": "€30k",
+      "name": "Kyah Simon",
+      "nationality": [
+        "Australia"
+      ],
+      "number": "71",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Meadowbank Stadium",
+  "stadiumSeats": "1280",
+  "transfermarktId": "614",
+  "country": "GB-SCT"
+}
