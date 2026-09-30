@@ -18,39 +18,27 @@ header('Content-Type: text/plain');
 try {
     switch ($action) {
         case 'fix-dup':
-            // Check the JSON file on production
-            $json = file_get_contents(base_path('data/2026/ARG1/teams.json'));
-            $data = json_decode($json, true);
-            foreach ($data['clubs'] as $club) {
-                if ($club['name'] === 'Racing Club') {
-                    foreach ($club['players'] as $p) {
-                        if (strpos($p['name'], 'Sailer') !== false) {
-                            echo "Sailer number in prod JSON: " . $p['number'] . "\n";
-                        }
-                        if (strpos($p['name'], 'Martina Daniela') !== false) {
-                            echo "Martina number in prod JSON: " . $p['number'] . "\n";
-                        }
-                    }
-                }
+            // Check BRA1/USA1/ARG1 teams
+            foreach (['BRA1', 'USA1', 'ARG1'] as $comp) {
+                $count = \DB::table('teams')
+                    ->join('competition_teams', 'teams.id', '=', 'competition_teams.team_id')
+                    ->join('competitions', 'competition_teams.competition_id', '=', 'competitions.id')
+                    ->where('competitions.id', $comp)
+                    ->count();
+                echo "$comp teams: $count\n";
             }
             break;
         case 'seed-ar':
-            // Delete only AR/BR/MX/US/CH teams and their templates
+            // Only delete templates (teams have FK constraints from games)
             $teamIds = \DB::table('teams')
                 ->whereIn('country', ['AR', 'BR', 'MX', 'US', 'CH'])
                 ->pluck('id');
             \DB::table('game_player_templates')->whereIn('team_id', $teamIds)->delete();
-            \DB::table('competition_teams')->whereIn('team_id', $teamIds)->delete();
-            \DB::table('teams')->whereIn('id', $teamIds)->delete();
-            // Delete the competitions too
-            \DB::table('competitions')->whereIn('id', ['ARG1', 'BRA1', 'MEX1', 'USA1', 'SUI1'])->delete();
+            echo "Deleted templates for AR/BR/MX/US/CH\n";
             
             $exit = $kernel->call('app:seed-reference-data', ['--country' => 'AR']);
             echo "AR seed exit: $exit\n";
-            foreach (['BR', 'MX', 'US', 'CH'] as $c) {
-                $kernel->call('app:seed-reference-data', ['--country' => $c]);
-            }
-            echo "Done\n";
+            echo $kernel->output();
             break;
         case 'seed-br':
             $exit = $kernel->call('app:seed-reference-data', ['--country' => 'BR']);
