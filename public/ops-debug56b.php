@@ -73,6 +73,20 @@ try {
         exit;
     }
 
+    if ($step === 'verify') {
+        $gameId = $_GET['game_id'] ?? '';
+        $ties = \App\Models\CupTie::where('game_id', $gameId)
+            ->where('competition_id', 'ESPCUP')
+            ->orderBy('bracket_position')
+            ->get(['bracket_position', 'home_team_id', 'away_team_id', 'completed', 'winner_id']);
+        echo "ESPCUP ties: " . $ties->count() . "\n";
+        foreach ($ties as $t) {
+            $bye = $t->home_team_id === $t->away_team_id ? ' [BYE]' : '';
+            echo "pos {$t->bracket_position}: home={$t->home_team_id} away={$t->away_team_id} completed=" . ($t->completed ? '1' : '0') . " winner={$t->winner_id}{$bye}\n";
+        }
+        exit;
+    }
+
     if ($step === 'cleanup') {
         $gameId = $_GET['game_id'] ?? '';
         $game = \App\Models\Game::find($gameId);
