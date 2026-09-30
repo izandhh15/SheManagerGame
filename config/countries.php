@@ -209,6 +209,8 @@ return [
             7889  => 1135,  // Real Sociedad San Sebastián B → Real Sociedad
             8152  => 1133,  // SD Eibar B → SD Éibar
             7193  => 210,   // UD Levante B → Levante UD
+            17107 => 17008, // FC Ona Sant Adria → FC Badalona Women
+            8421  => 4897,  // Granada CF B → Granada CF
         ],
 
         // UWCL slots for Liga F's top three; the fourth qualifies for the
