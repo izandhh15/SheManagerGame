@@ -260,7 +260,7 @@
             "Brazil"
           ],
           "number": "4",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -274,7 +274,7 @@
             "Portugal"
           ],
           "number": "11",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -288,7 +288,7 @@
             "Portugal"
           ],
           "number": "12",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -302,7 +302,7 @@
             "Brazil"
           ],
           "number": "20",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -316,7 +316,7 @@
             "Portugal"
           ],
           "number": "21",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -330,7 +330,7 @@
             "Portugal"
           ],
           "number": "9",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "",
@@ -344,7 +344,7 @@
             "Portugal"
           ],
           "number": "16",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "",
@@ -358,7 +358,7 @@
             "Portugal"
           ],
           "number": "18",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "",
@@ -429,7 +429,7 @@
             "Israel"
           ],
           "number": "30",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -443,7 +443,7 @@
             "Portugal"
           ],
           "number": "31",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -457,7 +457,7 @@
             "Portugal"
           ],
           "number": "32",
-          "position": "Striker"
+          "position": "Centre-Forward"
         }
       ]
     },
@@ -802,7 +802,7 @@
             "Portugal"
           ],
           "number": "10",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -816,7 +816,7 @@
             "Spain"
           ],
           "number": "11",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -844,7 +844,7 @@
             "United States"
           ],
           "number": "18",
-          "position": "Striker"
+          "position": "Centre-Forward"
         }
       ]
     },
@@ -1161,7 +1161,7 @@
             "Portugal"
           ],
           "number": "18",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -1175,7 +1175,7 @@
             "Mexico"
           ],
           "number": "7",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2029",
@@ -1203,7 +1203,7 @@
             "Brazil"
           ],
           "number": "10",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -1217,7 +1217,7 @@
             "Cape Verde"
           ],
           "number": "13",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -1245,7 +1245,7 @@
             "United States"
           ],
           "number": "22",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -1259,7 +1259,7 @@
             "Portugal"
           ],
           "number": "38",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -1273,7 +1273,7 @@
             "Portugal"
           ],
           "number": "42",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2029",
@@ -1287,7 +1287,7 @@
             "Portugal"
           ],
           "number": "57",
-          "position": "Striker"
+          "position": "Centre-Forward"
         }
       ]
     },
@@ -1604,7 +1604,7 @@
             "Portugal"
           ],
           "number": "10",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -1977,7 +1977,7 @@
             "Portugal"
           ],
           "number": "13",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -2019,7 +2019,7 @@
             "Portugal"
           ],
           "number": "20",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -2033,7 +2033,7 @@
             "Nigeria"
           ],
           "number": "24",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -2075,7 +2075,7 @@
             "Portugal"
           ],
           "number": "27",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -2089,7 +2089,7 @@
             "Portugal"
           ],
           "number": "77",
-          "position": "Striker"
+          "position": "Centre-Forward"
         }
       ]
     },
@@ -2406,7 +2406,7 @@
             "Cameroon"
           ],
           "number": "23",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2026",
@@ -2476,7 +2476,7 @@
             "United States"
           ],
           "number": "12",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -2490,7 +2490,7 @@
             "England"
           ],
           "number": "17",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -2504,7 +2504,7 @@
             "Portugal"
           ],
           "number": "19",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -2518,7 +2518,7 @@
             "Portugal"
           ],
           "number": "20",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -2532,7 +2532,7 @@
             "United States"
           ],
           "number": "22",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -2877,7 +2877,7 @@
             "United States"
           ],
           "number": "9",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2026",
@@ -2919,7 +2919,7 @@
             "Portugal"
           ],
           "number": "28",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -2933,7 +2933,7 @@
             "United States"
           ],
           "number": "18",
-          "position": "Striker"
+          "position": "Centre-Forward"
         }
       ]
     },
@@ -3222,7 +3222,7 @@
             "Portugal"
           ],
           "number": "7",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2026",
@@ -3236,7 +3236,7 @@
             "Portugal"
           ],
           "number": "10",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -3250,7 +3250,7 @@
             "Moldova"
           ],
           "number": "22",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -3278,7 +3278,7 @@
             "England"
           ],
           "number": "3",
-          "position": "Striker"
+          "position": "Centre-Forward"
         }
       ]
     },
@@ -3637,7 +3637,7 @@
             "United States"
           ],
           "number": "7",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -3651,7 +3651,7 @@
             "Portugal"
           ],
           "number": "19",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -3679,7 +3679,7 @@
             "United States"
           ],
           "number": "25",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -3693,7 +3693,7 @@
             "United States"
           ],
           "number": "32",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -3707,7 +3707,7 @@
             "Portugal"
           ],
           "number": "70",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2026",
@@ -3721,7 +3721,7 @@
             "Portugal"
           ],
           "number": "80",
-          "position": "Striker"
+          "position": "Centre-Forward"
         }
       ]
     },
@@ -4094,7 +4094,7 @@
             "United States"
           ],
           "number": "9",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4108,7 +4108,7 @@
             "United States"
           ],
           "number": "13",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -4122,7 +4122,7 @@
             "Brazil"
           ],
           "number": "15",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -4136,7 +4136,7 @@
             "Morocco"
           ],
           "number": "27",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4150,7 +4150,7 @@
             "Portugal"
           ],
           "number": "21",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -4164,7 +4164,7 @@
             "Guinea-Bissau"
           ],
           "number": "23",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",

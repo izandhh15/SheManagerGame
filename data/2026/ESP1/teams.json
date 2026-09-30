@@ -36,7 +36,7 @@
             "Spain"
           ],
           "number": "2",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2030",
@@ -50,7 +50,7 @@
             "Netherlands"
           ],
           "number": "3",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "",
@@ -64,7 +64,7 @@
             "Spain"
           ],
           "number": "14",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2028",
@@ -78,7 +78,7 @@
             "France"
           ],
           "number": "23",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -134,7 +134,7 @@
             "Netherlands"
           ],
           "number": "7",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -148,7 +148,7 @@
             "Denmark"
           ],
           "number": "9",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -162,7 +162,7 @@
             "Spain"
           ],
           "number": "10",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2029",
@@ -176,7 +176,7 @@
             "Netherlands"
           ],
           "number": "11",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2030",
@@ -204,7 +204,7 @@
             "Spain"
           ],
           "number": "4",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2028",
@@ -218,7 +218,7 @@
             "Spain"
           ],
           "number": "19",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -232,7 +232,7 @@
             "Denmark"
           ],
           "number": "21",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2029",
@@ -246,7 +246,7 @@
             "Sweden"
           ],
           "number": "22",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -316,7 +316,7 @@
             "Spain"
           ],
           "number": "5",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2030",
@@ -330,7 +330,7 @@
             "Sweden"
           ],
           "number": "12",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2031",
@@ -344,7 +344,7 @@
             "Colombia"
           ],
           "number": "18",
-          "position": "Striker"
+          "position": "Centre-Forward"
         }
       ]
     },
@@ -395,7 +395,7 @@
             "Spain"
           ],
           "number": "15",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "",
@@ -409,7 +409,7 @@
             "Spain"
           ],
           "number": "22",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -423,7 +423,7 @@
             "Portugal"
           ],
           "number": "24",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -479,7 +479,7 @@
             "Guatemala"
           ],
           "number": "8",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -493,7 +493,7 @@
             "The Gambia"
           ],
           "number": "9",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -507,7 +507,7 @@
             "Spain"
           ],
           "number": "4",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -521,7 +521,7 @@
             "Spain"
           ],
           "number": "5",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2028",
@@ -535,7 +535,7 @@
             "Spain"
           ],
           "number": "7",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2028",
@@ -577,7 +577,7 @@
             "Belgium"
           ],
           "number": "11",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -591,7 +591,7 @@
             "Spain"
           ],
           "number": "17",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -670,7 +670,7 @@
             "Spain"
           ],
           "number": "19",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -1099,7 +1099,7 @@
             "Spain"
           ],
           "number": "25",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -1318,7 +1318,7 @@
             "Colombia"
           ],
           "number": "3",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -1388,7 +1388,7 @@
             "Spain"
           ],
           "number": "29",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -1444,7 +1444,7 @@
             "Spain"
           ],
           "number": "11",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "",
@@ -1556,7 +1556,7 @@
             "Korea, South"
           ],
           "number": "16",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -1733,7 +1733,7 @@
             "Spain"
           ],
           "number": "23",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2028",
@@ -1803,7 +1803,7 @@
             "Serbia"
           ],
           "number": "17",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -1887,7 +1887,7 @@
             "Brazil"
           ],
           "number": "15",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -1915,7 +1915,7 @@
             "Spain"
           ],
           "number": "20",
-          "position": "Striker"
+          "position": "Centre-Forward"
         }
       ]
     },
@@ -1980,7 +1980,7 @@
             "Spain"
           ],
           "number": "2",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2030",
@@ -1994,7 +1994,7 @@
             "Netherlands"
           ],
           "number": "3",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2029",
@@ -2008,7 +2008,7 @@
             "Spain"
           ],
           "number": "5",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -2022,7 +2022,7 @@
             "Spain"
           ],
           "number": "8",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2030",
@@ -2036,7 +2036,7 @@
             "Spain"
           ],
           "number": "21",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -2050,7 +2050,7 @@
             "Netherlands"
           ],
           "number": "22",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2028",
@@ -2064,7 +2064,7 @@
             "Spain"
           ],
           "number": "23",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2029",
@@ -2078,7 +2078,7 @@
             "Spain"
           ],
           "number": "24",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "",
@@ -2092,7 +2092,7 @@
             "Spain"
           ],
           "number": "41",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -2232,7 +2232,7 @@
             "Brazil"
           ],
           "number": "7",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2029",
@@ -2246,7 +2246,7 @@
             "Spain"
           ],
           "number": "9",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -2260,7 +2260,7 @@
             "Norway"
           ],
           "number": "10",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -2274,7 +2274,7 @@
             "Poland"
           ],
           "number": "17",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -2288,7 +2288,7 @@
             "Spain"
           ],
           "number": "28",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -2302,7 +2302,7 @@
             "Morocco"
           ],
           "number": "31",
-          "position": "Striker"
+          "position": "Centre-Forward"
         }
       ]
     },
@@ -2521,7 +2521,7 @@
             "Belgium"
           ],
           "number": "7",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -2549,7 +2549,7 @@
             "Spain"
           ],
           "number": "11",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -2563,7 +2563,7 @@
             "Spain"
           ],
           "number": "17",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -2628,7 +2628,7 @@
             "Spain"
           ],
           "number": "2",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2029",
@@ -2642,7 +2642,7 @@
             "Spain"
           ],
           "number": "3",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -2656,7 +2656,7 @@
             "Spain"
           ],
           "number": "4",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2028",
@@ -2670,7 +2670,7 @@
             "Spain"
           ],
           "number": "6",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -2684,7 +2684,7 @@
             "Spain"
           ],
           "number": "21",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2029",
@@ -2698,7 +2698,7 @@
             "Spain"
           ],
           "number": "24",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -2796,7 +2796,7 @@
             "Spain"
           ],
           "number": "7",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -2810,7 +2810,7 @@
             "Spain"
           ],
           "number": "8",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -2824,7 +2824,7 @@
             "Chile"
           ],
           "number": "9",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -2838,7 +2838,7 @@
             "Spain"
           ],
           "number": "11",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2029",
@@ -2852,7 +2852,7 @@
             "United States"
           ],
           "number": "18",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -2866,7 +2866,7 @@
             "Spain"
           ],
           "number": "19",
-          "position": "Striker"
+          "position": "Centre-Forward"
         }
       ]
     },
@@ -3155,7 +3155,7 @@
             "Spain"
           ],
           "number": "11",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -3276,7 +3276,7 @@
             "Poland"
           ],
           "number": "11",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "",
@@ -3304,7 +3304,7 @@
             "Spain"
           ],
           "number": "16",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "",
@@ -3332,7 +3332,7 @@
             "Spain"
           ],
           "number": "21",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -3458,7 +3458,7 @@
             "Cameroon"
           ],
           "number": "2",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -3472,7 +3472,7 @@
             "Spain"
           ],
           "number": "7",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -3486,7 +3486,7 @@
             "Cote d'Ivoire"
           ],
           "number": "8",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -3500,7 +3500,7 @@
             "Poland"
           ],
           "number": "9",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -3528,7 +3528,7 @@
             "Spain"
           ],
           "number": "17",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -3542,7 +3542,7 @@
             "Spain"
           ],
           "number": "19",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -3607,7 +3607,7 @@
             "Spain"
           ],
           "number": "2",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2028",
@@ -3621,7 +3621,7 @@
             "Spain"
           ],
           "number": "3",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -3635,7 +3635,7 @@
             "Germany"
           ],
           "number": "4",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -3649,7 +3649,7 @@
             "Spain"
           ],
           "number": "12",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -3663,7 +3663,7 @@
             "Spain"
           ],
           "number": "20",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2028",
@@ -3677,7 +3677,7 @@
             "Spain"
           ],
           "number": "22",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2028",
@@ -3691,7 +3691,7 @@
             "Spain"
           ],
           "number": "23",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "",
@@ -3705,7 +3705,7 @@
             "Spain"
           ],
           "number": "27",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2029",
@@ -3817,7 +3817,7 @@
             "Spain"
           ],
           "number": "7",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2029",
@@ -3831,7 +3831,7 @@
             "Spain"
           ],
           "number": "8",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -3845,7 +3845,7 @@
             "Spain"
           ],
           "number": "10",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -3859,7 +3859,7 @@
             "Spain"
           ],
           "number": "11",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -3873,7 +3873,7 @@
             "Spain"
           ],
           "number": "17",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2026",
@@ -3887,7 +3887,7 @@
             "Spain"
           ],
           "number": "18",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -3901,7 +3901,7 @@
             "Spain"
           ],
           "number": "19",
-          "position": "Striker"
+          "position": "Centre-Forward"
         }
       ]
     },
@@ -4204,7 +4204,7 @@
             "Spain"
           ],
           "number": "19",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4246,7 +4246,7 @@
             "Spain"
           ],
           "number": "29",
-          "position": "Striker"
+          "position": "Centre-Forward"
         }
       ]
     },
@@ -4619,7 +4619,7 @@
             "Spain"
           ],
           "number": "34",
-          "position": "Striker"
+          "position": "Centre-Forward"
         }
       ]
     },
@@ -4670,7 +4670,7 @@
             "Spain"
           ],
           "number": "2",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4684,7 +4684,7 @@
             "Spain"
           ],
           "number": "4",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4698,7 +4698,7 @@
             "Spain"
           ],
           "number": "5",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4712,7 +4712,7 @@
             "Morocco"
           ],
           "number": "17",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4726,7 +4726,7 @@
             "Spain"
           ],
           "number": "21",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4740,7 +4740,7 @@
             "France"
           ],
           "number": "23",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4754,7 +4754,7 @@
             "Spain"
           ],
           "number": "24",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4782,7 +4782,7 @@
             "Spain"
           ],
           "number": "7",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4866,7 +4866,7 @@
             "Spain"
           ],
           "number": "20",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4894,7 +4894,7 @@
             "Spain"
           ],
           "number": "9",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4908,7 +4908,7 @@
             "Spain"
           ],
           "number": "11",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4922,7 +4922,7 @@
             "Sierra Leone"
           ],
           "number": "15",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4936,7 +4936,7 @@
             "Colombia"
           ],
           "number": "19",
-          "position": "Striker"
+          "position": "Centre-Forward"
         }
       ]
     },
@@ -5001,7 +5001,7 @@
             "Colombia"
           ],
           "number": "2",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2028",
@@ -5015,7 +5015,7 @@
             "Spain"
           ],
           "number": "3",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5029,7 +5029,7 @@
             "Spain"
           ],
           "number": "4",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2028",
@@ -5043,7 +5043,7 @@
             "Spain"
           ],
           "number": "5",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2028",
@@ -5057,7 +5057,7 @@
             "Spain"
           ],
           "number": "6",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5071,7 +5071,7 @@
             "Argentina"
           ],
           "number": "15",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5085,7 +5085,7 @@
             "Germany"
           ],
           "number": "23",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5099,7 +5099,7 @@
             "Spain"
           ],
           "number": "28",
-          "position": "Defender"
+          "position": "Centre-Back"
         },
         {
           "contract": "Jun 30, 2029",
@@ -5225,7 +5225,7 @@
             "Uruguay"
           ],
           "number": "9",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5239,7 +5239,7 @@
             "Brazil"
           ],
           "number": "10",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5253,7 +5253,7 @@
             "Spain"
           ],
           "number": "11",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -5267,7 +5267,7 @@
             "Spain"
           ],
           "number": "17",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -5281,7 +5281,7 @@
             "Spain"
           ],
           "number": "19",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -5295,7 +5295,7 @@
             "Spain"
           ],
           "number": "20",
-          "position": "Striker"
+          "position": "Centre-Forward"
         }
       ]
     }

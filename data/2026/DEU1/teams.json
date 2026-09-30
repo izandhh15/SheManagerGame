@@ -274,7 +274,7 @@
             "Germany"
           ],
           "number": "6",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -288,7 +288,7 @@
             "Serbia"
           ],
           "number": "9",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -703,7 +703,7 @@
             "Germany"
           ],
           "number": "28",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -731,7 +731,7 @@
             "Norway"
           ],
           "number": "41",
-          "position": "Striker"
+          "position": "Centre-Forward"
         }
       ]
     },
@@ -1132,7 +1132,7 @@
             "Germany"
           ],
           "number": "47",
-          "position": "Striker"
+          "position": "Centre-Forward"
         }
       ]
     },
@@ -1449,7 +1449,7 @@
             "Austria"
           ],
           "number": "17",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -1477,7 +1477,7 @@
             "Slovenia"
           ],
           "number": "23",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -1491,7 +1491,7 @@
             "Poland"
           ],
           "number": "28",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2029",
@@ -1505,7 +1505,7 @@
             "Germany"
           ],
           "number": "41",
-          "position": "Striker"
+          "position": "Centre-Forward"
         }
       ]
     },
@@ -1822,7 +1822,7 @@
             "Germany"
           ],
           "number": "9",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -1836,7 +1836,7 @@
             "Austria"
           ],
           "number": "10",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -1878,7 +1878,7 @@
             "Germany"
           ],
           "number": "23",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2030",
@@ -1892,7 +1892,7 @@
             "Switzerland"
           ],
           "number": "27",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -1920,7 +1920,7 @@
             "Germany"
           ],
           "number": "3",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -2237,7 +2237,7 @@
             "Switzerland"
           ],
           "number": "7",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2029",
@@ -2251,7 +2251,7 @@
             "Germany"
           ],
           "number": "9",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -2265,7 +2265,7 @@
             "Austria"
           ],
           "number": "11",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -2666,7 +2666,7 @@
             "Germany"
           ],
           "number": "29",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -2694,7 +2694,7 @@
             "Hungary"
           ],
           "number": "8",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -3011,7 +3011,7 @@
             "Germany"
           ],
           "number": "14",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -3025,7 +3025,7 @@
             "Germany"
           ],
           "number": "17",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2029",
@@ -3039,7 +3039,7 @@
             "Germany"
           ],
           "number": "19",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2029",
@@ -3067,7 +3067,7 @@
             "Sweden"
           ],
           "number": "27",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -4214,7 +4214,7 @@
             "Norway"
           ],
           "number": "7",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4270,7 +4270,7 @@
             "Germany"
           ],
           "number": "19",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -4298,7 +4298,7 @@
             "Austria"
           ],
           "number": "22",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -4312,7 +4312,7 @@
             "Germany"
           ],
           "number": "23",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -4685,7 +4685,7 @@
             "Germany"
           ],
           "number": "13",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -4699,7 +4699,7 @@
             "Austria"
           ],
           "number": "14",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2029",
@@ -4713,7 +4713,7 @@
             "Switzerland"
           ],
           "number": "17",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -4727,7 +4727,7 @@
             "Austria"
           ],
           "number": "22",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -4741,7 +4741,7 @@
             "Germany"
           ],
           "number": "23",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -4755,7 +4755,7 @@
             "Hungary"
           ],
           "number": "29",
-          "position": "Striker"
+          "position": "Centre-Forward"
         }
       ]
     },
@@ -5100,7 +5100,7 @@
             "Switzerland"
           ],
           "number": "9",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5128,7 +5128,7 @@
             "Germany"
           ],
           "number": "11",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2026",
@@ -5142,7 +5142,7 @@
             "Germany"
           ],
           "number": "20",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -5156,7 +5156,7 @@
             "Germany"
           ],
           "number": "21",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2028",
@@ -5184,7 +5184,7 @@
             "Germany"
           ],
           "number": "31",
-          "position": "Striker"
+          "position": "Centre-Forward"
         }
       ]
     },
@@ -5529,7 +5529,7 @@
             "Germany"
           ],
           "number": "9",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "",
@@ -5543,7 +5543,7 @@
             "Canada"
           ],
           "number": "13",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
@@ -5557,7 +5557,7 @@
             "Germany"
           ],
           "number": "27",
-          "position": "Striker"
+          "position": "Centre-Forward"
         },
         {
           "contract": "Jun 30, 2027",
