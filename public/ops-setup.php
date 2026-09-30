@@ -18,11 +18,12 @@ header('Content-Type: text/plain');
 try {
     switch ($action) {
         case 'seed-ar':
-            // Clear old ARG1 templates first (they'll be regenerated)
+            // Clear old templates for ARG1 teams (by name match)
+            $arg1Names = ['Boca Juniors', 'River Plate', 'San Lorenzo', 'Racing Club', 'Belgrano', 'Gimnasia', 'Banfield', "Newell's", 'Huracán', 'Independiente', 'San Luis FC', 'Ferro', 'SAT', 'Unión', 'Lanús', 'Talleres'];
             \DB::table('game_player_templates')
                 ->where('season', '2026')
-                ->whereIn('team_id', function($q) {
-                    $q->select('id')->from('teams')->where('competition_id', 'ARG1');
+                ->whereIn('team_id', function($q) use ($arg1Names) {
+                    $q->select('id')->from('teams')->whereIn('name', $arg1Names);
                 })->delete();
             $exit = $kernel->call('app:seed-reference-data', ['--country' => 'AR']);
             echo "AR seed exit: $exit\n";
