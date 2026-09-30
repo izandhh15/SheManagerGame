@@ -569,7 +569,11 @@ class GamePlayerTemplateService
             }
         }
         if ($dateOfBirth === null) {
-            return null;
+            // No verified DOB (common for Liga MX Femenil and other leagues
+            // where Soccerdonna lacks birth dates): use the 2000-01-01
+            // placeholder instead of dropping the player. Views that show
+            // ages must hide it (see ShowNationalSquadPicker).
+            $dateOfBirth = Carbon::parse('2000-01-01');
         }
 
         $referenceDate = Carbon::parse("{$season}-08-15");

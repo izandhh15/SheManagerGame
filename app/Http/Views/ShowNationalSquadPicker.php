@@ -82,7 +82,7 @@ final class ShowNationalSquadPicker
                 'position' => $row->position,
                 'group' => self::positionGroup($row->position ?? ''),
                 'overall' => (int) $row->overall_score,
-                'age' => ($dob && ! $isPlaceholderDob) ? now()->diffInYears($dob) : null,
+                'age' => ($dob && ! $isPlaceholderDob) ? $dob->diffInYears(now()) : null,
                 'club' => $clubByPlayerId[$row->player_id] ?? null,
             ];
         })->sortBy([

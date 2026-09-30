@@ -359,7 +359,7 @@ class ClubProfilesSeeder extends Seeder
         // =============================================
 
         // Continental (UWCL)
-        'Servette FC Chênois Féminin' => ClubProfile::REPUTATION_CONTINENTAL,
+        'Servette FC' => ClubProfile::REPUTATION_CONTINENTAL,
         'FC Zürich Frauen' => ClubProfile::REPUTATION_CONTINENTAL,
 
         // Established
@@ -835,7 +835,7 @@ class ClubProfilesSeeder extends Seeder
         'SC Cambuur Leeuwarden' => 9,   // routinely sells out the Kooi
 
         // ── Switzerland ──────────────────────────────────────────────
-        'Servette FC Chênois Féminin' => 7,
+        'Servette FC' => 7,
         'FC Zürich Frauen' => 7,
         'Grasshopper Club Zürich Frauen' => 6,
         'BSC YB Frauen' => 6,
