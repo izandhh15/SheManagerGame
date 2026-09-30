@@ -4,6 +4,7 @@ namespace App\Http\Views;
 
 use App\Models\ClubProfile;
 use App\Models\Game;
+use App\Models\GameMatch;
 use App\Models\GameStadiumProject;
 use App\Models\TeamReputation;
 use App\Modules\Finance\Services\BudgetProjectionService;

@@ -22,6 +22,7 @@ final class FifaInternationalBreaks
     {
         return match ($season) {
             '2026' => [
+                ['start' => '2026-09-01', 'end' => '2026-09-09', 'label' => 'Parón FIFA'],
                 ['start' => '2026-10-05', 'end' => '2026-10-13', 'label' => 'Parón FIFA'],
                 ['start' => '2026-11-24', 'end' => '2026-12-05', 'label' => 'Parón FIFA'],
                 ['start' => '2027-02-23', 'end' => '2027-03-06', 'label' => 'Parón FIFA'],
