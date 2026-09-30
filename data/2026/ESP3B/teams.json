@@ -3164,7 +3164,7 @@
       "players": [
         {
           "contract": "Jun 30, 2027",
-          "dateOfBirth": "Aug 7, 2004",
+          "dateOfBirth": "2004-08-07",
           "foot": "",
           "height": "",
           "id": "52613",
@@ -3178,7 +3178,7 @@
         },
         {
           "contract": "Jun 30, 2027",
-          "dateOfBirth": "Oct 10, 2005",
+          "dateOfBirth": "2005-10-10",
           "foot": "",
           "height": "",
           "id": "78601",
@@ -3192,7 +3192,7 @@
         },
         {
           "contract": "Jun 30, 2027",
-          "dateOfBirth": "Jun 6, 2003",
+          "dateOfBirth": "2003-06-06",
           "foot": "",
           "height": "",
           "id": "79559",
@@ -3206,7 +3206,7 @@
         },
         {
           "contract": "Jun 30, 2027",
-          "dateOfBirth": "Mar 23, 2007",
+          "dateOfBirth": "2007-03-23",
           "foot": "",
           "height": "",
           "id": "79833",
@@ -3220,7 +3220,7 @@
         },
         {
           "contract": "",
-          "dateOfBirth": "Sep 21, 2007",
+          "dateOfBirth": "2007-09-21",
           "foot": "",
           "height": "",
           "id": "92711",
@@ -3234,7 +3234,7 @@
         },
         {
           "contract": "",
-          "dateOfBirth": "Nov 6, 2008",
+          "dateOfBirth": "2008-11-06",
           "foot": "",
           "height": "",
           "id": "93693",
@@ -3248,7 +3248,7 @@
         },
         {
           "contract": "Jun 30, 2027",
-          "dateOfBirth": "Jan 9, 2008",
+          "dateOfBirth": "2008-01-09",
           "foot": "",
           "height": "",
           "id": "101759",
@@ -3262,21 +3262,22 @@
         },
         {
           "contract": "Jun 30, 2027",
-          "dateOfBirth": "Dec 30, 2008",
+          "dateOfBirth": "2008-12-30",
           "foot": "right",
           "height": "1,68m",
           "id": "103227",
           "marketValue": "",
           "name": "Cristina Tormo",
           "nationality": [
-            "Spain"
+            "Spain",
+            "Greece"
           ],
           "number": "14",
           "position": "Right-Back"
         },
         {
           "contract": "",
-          "dateOfBirth": "Sep 1, 2009",
+          "dateOfBirth": "2009-09-10",
           "foot": "",
           "height": "",
           "id": "104504",
@@ -3290,7 +3291,7 @@
         },
         {
           "contract": "",
-          "dateOfBirth": "Apr 14, 2010",
+          "dateOfBirth": "2010-04-14",
           "foot": "",
           "height": "",
           "id": "108036",
@@ -3304,7 +3305,7 @@
         },
         {
           "contract": "",
-          "dateOfBirth": "Jan 1, 2000",
+          "dateOfBirth": "2011-08-05",
           "foot": "",
           "height": "",
           "id": 900897,
@@ -3318,7 +3319,7 @@
         },
         {
           "contract": "",
-          "dateOfBirth": "Jan 1, 2000",
+          "dateOfBirth": "2006-07-05",
           "foot": "",
           "height": "",
           "id": 900899,
@@ -3332,7 +3333,7 @@
         },
         {
           "contract": "",
-          "dateOfBirth": "Jan 1, 2000",
+          "dateOfBirth": "2010-01-01",
           "foot": "",
           "height": "",
           "id": 900901,
@@ -3346,7 +3347,7 @@
         },
         {
           "contract": "",
-          "dateOfBirth": "Jan 1, 2000",
+          "dateOfBirth": "2010-09-24",
           "foot": "",
           "height": "",
           "id": 900902,
@@ -3360,7 +3361,7 @@
         },
         {
           "contract": "",
-          "dateOfBirth": "Jan 1, 2000",
+          "dateOfBirth": "2007-01-01",
           "foot": "",
           "height": "",
           "id": 900903,
@@ -3374,7 +3375,7 @@
         },
         {
           "contract": "",
-          "dateOfBirth": "Jan 1, 2000",
+          "dateOfBirth": "2006-03-30",
           "foot": "",
           "height": "",
           "id": 900905,
@@ -3388,7 +3389,7 @@
         },
         {
           "contract": "",
-          "dateOfBirth": "Jan 1, 2000",
+          "dateOfBirth": "2008-10-18",
           "foot": "",
           "height": "",
           "id": 900906,
@@ -3402,7 +3403,7 @@
         },
         {
           "contract": "",
-          "dateOfBirth": "Jan 1, 2000",
+          "dateOfBirth": "2009-05-20",
           "foot": "",
           "height": "",
           "id": 900907,
@@ -3416,7 +3417,7 @@
         },
         {
           "contract": "",
-          "dateOfBirth": "Jan 1, 2000",
+          "dateOfBirth": "2010-06-27",
           "foot": "",
           "height": "",
           "id": 900908,
@@ -3430,7 +3431,7 @@
         },
         {
           "contract": "",
-          "dateOfBirth": "Jan 1, 2000",
+          "dateOfBirth": "2009-03-12",
           "foot": "",
           "height": "",
           "id": 900909,
@@ -3444,7 +3445,7 @@
         },
         {
           "contract": "",
-          "dateOfBirth": "Jan 1, 2000",
+          "dateOfBirth": "2007-12-18",
           "foot": "",
           "height": "",
           "id": 900910,
