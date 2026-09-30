@@ -28,8 +28,21 @@ header('Content-Type: text/plain; charset=utf-8');
 function run(string $cmd): void
 {
     echo "\$ $cmd\n";
-    passthru("cd /app && php artisan $cmd 2>&1");
-    echo "\n---\n";
+    $code = 0;
+    passthru("cd /app && php artisan $cmd 2>&1", $code);
+    echo "\n[exit code: $code]\n---\n";
+}
+
+if ($step === 'diag') {
+    echo 'cwd: ' . getcwd() . "\n";
+    echo 'php: ' . PHP_VERSION . "\n";
+    echo '--- ls ---' . "\n";
+    passthru('ls -la 2>&1 | head -20');
+    echo '--- /app ---' . "\n";
+    passthru('ls -la /app 2>&1 | head -20');
+    echo '--- which php ---' . "\n";
+    passthru('command -v php; which php 2>&1');
+    exit;
 }
 
 switch ($step) {
