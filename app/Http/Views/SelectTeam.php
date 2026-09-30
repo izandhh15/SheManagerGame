@@ -20,7 +20,7 @@ final class SelectTeam
      * the league picker and one tab body below it, so the user picks a
      * division rather than a group.
      */
-    private const PRIMERA_RFEF_GROUPS = ['ESP3A', 'ESP3B'];
+    private const PRIMERA_RFEF_GROUPS = ['ESP3A', 'ESP3B', 'ESP3C'];
 
     private const PRIMERA_RFEF_TAB = 'ESP3';
 
@@ -40,7 +40,7 @@ final class SelectTeam
         // Tiers may declare sibling competitions (e.g. Primera RFEF's ESP3A and
         // ESP3B both live at tier 3), so the tiers list is keyed by competition
         // ID rather than tier number to keep every league selectable.
-        $countries = Cache::remember('career_mode_countries:v5', 3600, function () use ($countryConfig) {
+        $countries = Cache::remember('career_mode_countries:v6', 3600, function () use ($countryConfig) {
             $countries = [];
 
             foreach ($countryConfig->playableCountryCodes() as $code) {
@@ -169,7 +169,7 @@ final class SelectTeam
                     // combined entry in the position that group held.
                     $options[self::PRIMERA_RFEF_TAB] ??= [
                         'value' => self::PRIMERA_RFEF_TAB,
-                        'label' => __('game.primera_federacion'),
+                        'label' => __('game.segunda_federacion'),
                         'flag' => $this->flagUrl($competition->flag),
                     ];
 

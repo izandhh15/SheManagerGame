@@ -78,6 +78,9 @@
                     </div>
                     @else
                     <a href="{{ route('game.squad', $game->id) }}" class="nav-item @if(Str::startsWith(Route::currentRouteName(), 'game.squad')) active @endif whitespace-nowrap px-2 py-2 text-xs font-medium uppercase tracking-wider {{ Str::startsWith(Route::currentRouteName(), 'game.squad') ? 'text-text-primary' : 'text-text-muted hover:text-text-body' }}">{{ __('app.squad') }}</a>
+                    @if($game->team->type === 'national')
+                    <a href="{{ route('game.national-squad-picker', $game->id) }}" class="nav-item @if(Route::currentRouteName() == 'game.national-squad-picker') active @endif whitespace-nowrap px-2 py-2 text-xs font-medium uppercase tracking-wider {{ Route::currentRouteName() == 'game.national-squad-picker' ? 'text-text-primary' : 'text-text-muted hover:text-text-body' }}">{{ __('game.convocatoria') }}</a>
+                    @endif
                     @endif
                     @if($nextMatch)
                     <a href="{{ route('game.lineup', $game->id) }}" class="nav-item @if(Route::currentRouteName() == 'game.lineup') active @endif whitespace-nowrap px-2 py-2 text-xs font-medium uppercase tracking-wider {{ Route::currentRouteName() == 'game.lineup' ? 'text-text-primary' : 'text-text-muted hover:text-text-body' }}">{{ __('app.starting_xi') }}</a>
