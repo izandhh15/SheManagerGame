@@ -98,12 +98,39 @@ final class SelectTeam
             ? $jobOfferService->sampleInitialProManagerTeams()
             : collect();
 
+        // National-team mode (beta, WWCQ qualifiers): all women's national
+        // teams with seeded templates. Shown when WWCQ is seeded.
+        $ntTeams = collect();
+        $ntFeaturedTeams = collect();
+        $hasNationalMode = config('game.tournament_mode_enabled')
+            && $request->user()->canPlayTournamentMode()
+            && Competition::where('id', 'WWCQ')->exists();
+
+        if ($hasNationalMode) {
+            $locale = app()->getLocale();
+            $allNtTeams = Cache::remember("wwcq_selectable_teams:{$locale}", 600, function () {
+                return Team::worldCupEligible()
+                    ->where('is_placeholder', false)
+                    ->get()
+                    ->sortBy('name') // PHP sort: name accessor applies i18n translation
+                    ->values();
+            });
+
+            // Featured national teams shown as larger cards
+            $featuredCodes = ['ESP', 'USA', 'ENG', 'GER', 'FRA', 'JPN', 'BRA', 'NED'];
+            $ntFeaturedTeams = $allNtTeams->filter(fn ($t) => in_array($t->fifa_code, $featuredCodes))->values();
+            $ntTeams = $allNtTeams->reject(fn ($t) => in_array($t->fifa_code, $featuredCodes))->values();
+        }
+
         return view('select-team', [
             'countries' => $countries,
             'leagues' => $this->leagueOptions($countries),
             'wcTeams' => $wcTeams,
             'wcFeaturedTeams' => $wcFeaturedTeams,
             'hasTournamentMode' => $hasTournamentMode,
+            'ntTeams' => $ntTeams,
+            'ntFeaturedTeams' => $ntFeaturedTeams,
+            'hasNationalMode' => $hasNationalMode,
             'hasCareerAccess' => $hasCareerAccess,
             'proManagerTeams' => $proManagerTeams,
         ]);

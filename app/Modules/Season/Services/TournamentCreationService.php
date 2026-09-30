@@ -11,11 +11,16 @@ use Ramsey\Uuid\Uuid;
 
 class TournamentCreationService
 {
-    public function create(string $userId, string $teamId): Game
+    /**
+     * @param array<string>|null $squadPlayerIds Chosen player_ids (national-team games only)
+     */
+    public function create(string $userId, string $teamId, string $competitionId = 'WC2026', ?array $squadPlayerIds = null): Game
     {
         $gameId = Uuid::uuid4()->toString();
 
         $team = Team::findOrFail($teamId);
+
+        $isNational = $competitionId === 'WWCQ';
 
         $game = Game::create([
             'id' => $gameId,
@@ -23,13 +28,14 @@ class TournamentCreationService
             'game_mode' => Game::MODE_TOURNAMENT,
             'country' => $team->fifa_code ?? 'XXX',
             'team_id' => $teamId,
-            'competition_id' => 'WC2026',
-            'season' => '2025',
-            'base_season' => '2025',
-            'current_date' => '2026-06-11',
+            'competition_id' => $competitionId,
+            'season' => $isNational ? '2026' : '2025',
+            'base_season' => $isNational ? '2026' : '2025',
+            'current_date' => $isNational ? '2026-08-15' : '2026-06-11',
             'needs_welcome' => true,
             'needs_new_season_setup' => true,
             'setup_completed_at' => null,
+            'national_squad_player_ids' => $squadPlayerIds,
         ]);
 
         // Create default tactical settings

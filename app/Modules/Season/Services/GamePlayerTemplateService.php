@@ -141,6 +141,133 @@ class GamePlayerTemplateService
     }
 
     /**
+     * Generate pre-computed templates for ALL women's national teams (beta).
+     *
+     * Reads data/{season}/NAT.json: 198 national teams with their players.
+     * Each player gets one template per national team they are eligible for
+     * (deduplicated by player_id + team_id — the same real-world player may
+     * also have a club template, which is kept separate).
+     *
+     * National-team templates are excluded from career-mode game setup
+     * (SetupNewGame filters type='national'), so they only materialise in
+     * national-team games. Players with no club template become free agents
+     * in career mode via SetupNewGame::createFreeAgentsFromNationalTemplates.
+     *
+     * @return int Number of template rows generated
+     */
+    public function generateForNationalTeams(string $season = '2026'): int
+    {
+        $this->clearTemplatesForNationalTeams($season);
+
+        $path = base_path("data/{$season}/NAT.json");
+        if (!file_exists($path)) {
+            return 0;
+        }
+
+        $data = json_decode(file_get_contents($path), true);
+        $clubs = $data['clubs'] ?? [];
+
+        $teamIdsByFifa = Team::where('type', 'national')
+            ->whereNotNull('fifa_code')
+            ->pluck('id', 'fifa_code')
+            ->all();
+
+        $rows = [];
+        /** @var array<string, true> "$playerId|$teamId" already templated */
+        $seen = [];
+
+        foreach ($clubs as $club) {
+            $fifaCode = $club['fifa_code'] ?? null;
+            $teamId = $fifaCode ? ($teamIdsByFifa[$fifaCode] ?? null) : null;
+            if (!$teamId) {
+                continue;
+            }
+
+            foreach ($club['players'] ?? [] as $playerData) {
+                $row = $this->prepareTemplateRow($season, $teamId, null, $playerData, 0);
+                if (!$row) {
+                    continue;
+                }
+                $key = $row['player_id'] . '|' . $teamId;
+                if (isset($seen[$key])) {
+                    continue;
+                }
+                // NT templates must not carry squad numbers (the partial
+                // unique index on (season, team_id, number) is per team, but
+                // numbers here are meaningless for call-up pools).
+                $row['number'] = null;
+                $rows[] = $row;
+                $seen[$key] = true;
+            }
+        }
+
+        // Backfill: many nations (82) list no new players in NAT.json because
+        // all their internationals were already in the club datasets. Clone
+        // their club templates as NT templates so every eligible player is
+        // callable — including dual nationals (one template per NT).
+        $rows = array_merge($rows, $this->backfillNationalTemplatesFromClubs($season, $clubs, $teamIdsByFifa, $seen));
+
+        foreach (array_chunk($rows, 500) as $chunk) {
+            DB::table('game_player_templates')->insert($chunk);
+        }
+
+        return count($rows);
+    }
+
+    /**
+     * Clone club templates as national-team templates for players whose
+     * nationality matches an NT but who have no NT template yet.
+     *
+     * @param array<string, string> $teamIdsByFifa fifa_code → team UUID
+     * @param array<string, true> $seen "$playerId|$teamId" already templated (mutated)
+     * @return array<int, array<string, mixed>>
+     */
+    private function backfillNationalTemplatesFromClubs(string $season, array $clubs, array $teamIdsByFifa, array &$seen): array
+    {
+        $teamIdByName = [];
+        foreach ($clubs as $club) {
+            $teamId = $teamIdsByFifa[$club['fifa_code'] ?? ''] ?? null;
+            if ($teamId && isset($club['name'])) {
+                $teamIdByName[$club['name']] = $teamId;
+            }
+        }
+
+        if ($teamIdByName === []) {
+            return [];
+        }
+
+        $clubTemplates = DB::table('game_player_templates')
+            ->where('season', $season)
+            ->whereNotIn('team_id', function ($query) {
+                $query->select('id')->from('teams')->where('type', 'national');
+            })
+            ->get();
+
+        $rows = [];
+        foreach ($clubTemplates as $template) {
+            $nationalities = json_decode($template->nationality ?? '[]', true) ?: [];
+            foreach ($nationalities as $nationality) {
+                $ntTeamId = $teamIdByName[$nationality] ?? null;
+                if (!$ntTeamId) {
+                    continue;
+                }
+                $key = $template->player_id . '|' . $ntTeamId;
+                if (isset($seen[$key])) {
+                    continue;
+                }
+                $row = (array) $template;
+                unset($row['id']);
+                $row['team_id'] = $ntTeamId;
+                $row['number'] = null;
+                $rows[] = $row;
+                $seen[$key] = true;
+            }
+        }
+
+        return $rows;
+    }
+
+    /**
      * Upsert satellite tournament-info rows keyed by the templates we just
      * inserted. Filters by national-team team_ids because the same real-world
      * player can also have a club-team template in the same season — without

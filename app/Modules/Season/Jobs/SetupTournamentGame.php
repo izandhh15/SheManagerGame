@@ -6,6 +6,8 @@ use App\Modules\Lineup\Enums\Formation;
 use App\Modules\Lineup\Services\FormationBiasResolver;
 use App\Modules\Lineup\Services\FormationRecommender;
 use App\Modules\Notification\Services\NotificationService;
+use App\Modules\Season\Services\SeasonInitializationService;
+use App\Modules\Competition\Services\StandingsCalculator;
 use App\Models\CompetitionEntry;
 use App\Models\CompetitionTeam;
 use App\Models\Game;
@@ -53,6 +55,13 @@ class SetupTournamentGame implements ShouldQueue
             return;
         }
 
+        // Women's World Cup Qualifiers (beta): the user's group is drawn at
+        // setup time instead of coming from a fixed groups.json.
+        if ($game->competition_id === 'WWCQ') {
+            $this->handleNationalQualifiers($game, $notificationService, $formationRecommender, $formationBiasResolver);
+            return;
+        }
+
         // Load groups.json for fixture data and group assignments (cached for 1 hour)
         $groupsData = Cache::remember('wc2026_groups', 3600, function () {
             $groupsPath = base_path('data/2025/WC2026/groups.json');
@@ -96,6 +105,179 @@ class SetupTournamentGame implements ShouldQueue
             app(\App\Modules\Season\Services\ActivationTracker::class)
                 ->record($game->user_id, \App\Models\ActivationEvent::EVENT_SETUP_COMPLETED, $this->gameId, \App\Models\Game::MODE_TOURNAMENT);
         });
+    }
+
+    /**
+     * Setup for the Women's World Cup Qualifiers (beta, competition WWCQ).
+     *
+     * Draws a group of 6 (user's national team + 5 random opponents), creates
+     * competition entries, materialises players (the user's called-up squad +
+     * full AI rosters from templates), generates a 10-matchday double
+     * round-robin with the shared league fixture generator, and initialises
+     * the standings.
+     */
+    private function handleNationalQualifiers(
+        Game $game,
+        NotificationService $notificationService,
+        FormationRecommender $formationRecommender,
+        FormationBiasResolver $formationBiasResolver,
+    ): void {
+        DB::transaction(function () use ($game, $notificationService, $formationRecommender, $formationBiasResolver) {
+            // Step 1: draw the group (user + 5 opponents)
+            $groupTeamIds = $this->drawQualifierGroup($game);
+
+            // Step 2: competition entries for the 6 group teams
+            $this->createQualifierEntries($groupTeamIds);
+
+            // Step 3: game players (user's 23 + AI rosters)
+            $this->createQualifierPlayers($game, $groupTeamIds);
+
+            // Step 4: fixtures (10 matchdays, double round-robin)
+            app(SeasonInitializationService::class)
+                ->generateLeagueFixtures($this->gameId, 'WWCQ', $game->season);
+
+            // Step 5: standings
+            app(StandingsCalculator::class)
+                ->initializeStandings($this->gameId, 'WWCQ', $groupTeamIds);
+
+            // Step 6: default formation for the user's squad
+            $this->setUserTeamDefaultFormation($formationRecommender, $formationBiasResolver);
+
+            // Welcome notification
+            $teamName = Team::find($this->teamId)?->getRawOriginal('name') ?? '';
+            $notificationService->notifyTournamentWelcome($game, 'WWCQ', $teamName);
+
+            // Mark setup as complete
+            Game::where('id', $this->gameId)->update(['setup_completed_at' => now()]);
+
+            // Record activation event
+            app(\App\Modules\Season\Services\ActivationTracker::class)
+                ->record($game->user_id, \App\Models\ActivationEvent::EVENT_SETUP_COMPLETED, $this->gameId, Game::MODE_TOURNAMENT);
+        });
+    }
+
+    /**
+     * Draw 5 random opponents with a playable roster (≥18 templated players).
+     */
+    private function drawQualifierGroup(Game $game): array
+    {
+        $candidates = Team::where('type', 'national')
+            ->where('is_placeholder', false)
+            ->where('id', '!=', $this->teamId)
+            ->whereNotNull('fifa_code')
+            ->inRandomOrder()
+            ->limit(30)
+            ->pluck('id');
+
+        $withRosters = DB::table('game_player_templates')
+            ->where('season', $game->season)
+            ->whereIn('team_id', $candidates)
+            ->groupBy('team_id')
+            ->havingRaw('COUNT(*) >= 18')
+            ->pluck('team_id')
+            ->shuffle()
+            ->take(5)
+            ->all();
+
+        if (count($withRosters) < 5) {
+            $extra = Team::where('type', 'national')
+                ->where('is_placeholder', false)
+                ->where('id', '!=', $this->teamId)
+                ->whereNotNull('fifa_code')
+                ->whereNotIn('id', $withRosters)
+                ->inRandomOrder()
+                ->limit(5 - count($withRosters))
+                ->pluck('id')
+                ->all();
+            $withRosters = array_merge($withRosters, $extra);
+        }
+
+        return array_merge([$this->teamId], $withRosters);
+    }
+
+    private function createQualifierEntries(array $groupTeamIds): void
+    {
+        if (CompetitionEntry::where('game_id', $this->gameId)->exists()) {
+            return;
+        }
+
+        $rows = array_map(fn ($teamId) => [
+            'game_id' => $this->gameId,
+            'competition_id' => 'WWCQ',
+            'team_id' => $teamId,
+            'entry_round' => 1,
+        ], $groupTeamIds);
+
+        CompetitionEntry::insert($rows);
+    }
+
+    /**
+     * Materialise players from templates: the user's called-up squad for
+     * their team, full templated rosters for the 5 AI opponents.
+     */
+    private function createQualifierPlayers(Game $game, array $groupTeamIds): void
+    {
+        if (GamePlayer::where('game_id', $this->gameId)->exists()) {
+            return;
+        }
+
+        $columns = <<<'SQL'
+            INSERT INTO game_players (
+                id, game_id, player_id,
+                transfermarkt_id, sofascore_id, fc26_id, name, date_of_birth, nationality, height, foot,
+                team_id, number, position, secondary_positions,
+                market_value, market_value_cents, contract_until, annual_wage, release_clause, durability,
+                overall_score,
+                potential, potential_low, potential_high, tier
+            )
+            SELECT
+                gen_random_uuid(), ?, t.player_id,
+                t.transfermarkt_id, t.sofascore_id, t.fc26_id, t.name, t.date_of_birth, t.nationality, t.height, t.foot,
+                t.team_id, t.number, t.position, t.secondary_positions,
+                t.market_value, t.market_value_cents, t.contract_until, t.annual_wage, t.release_clause, t.durability,
+                t.overall_score,
+                t.potential, t.potential_low, t.potential_high, t.tier
+            FROM game_player_templates t
+        SQL;
+
+        $aiTeamIds = array_values(array_diff($groupTeamIds, [$this->teamId]));
+
+        if ($aiTeamIds !== []) {
+            $placeholders = implode(',', array_fill(0, count($aiTeamIds), '?'));
+            DB::insert(
+                $columns . " WHERE t.season = ? AND t.team_id IN ($placeholders) ON CONFLICT (game_id, player_id) DO NOTHING",
+                [$this->gameId, $game->season, ...$aiTeamIds]
+            );
+        }
+
+        // User's team: only the called-up players. Fall back to the full
+        // templated roster if no squad was stored (legacy games).
+        $squadPlayerIds = $game->national_squad_player_ids ?? [];
+
+        if ($squadPlayerIds !== []) {
+            $placeholders = implode(',', array_fill(0, count($squadPlayerIds), '?'));
+            DB::insert(
+                $columns . " WHERE t.season = ? AND t.team_id = ? AND t.player_id IN ($placeholders) ON CONFLICT (game_id, player_id) DO NOTHING",
+                [$this->gameId, $game->season, $this->teamId, ...$squadPlayerIds]
+            );
+        } else {
+            DB::insert(
+                $columns . ' WHERE t.season = ? AND t.team_id = ? ON CONFLICT (game_id, player_id) DO NOTHING',
+                [$this->gameId, $game->season, $this->teamId]
+            );
+        }
+
+        DB::insert(<<<'SQL'
+            INSERT INTO game_player_match_state (game_player_id, game_id, fitness, morale)
+            SELECT gp.id, gp.game_id, t.fitness, t.morale
+            FROM game_players gp
+            JOIN game_player_templates t
+              ON t.player_id = gp.player_id
+             AND t.team_id = gp.team_id
+             AND t.season = ?
+            WHERE gp.game_id = ?
+            ON CONFLICT (game_player_id) DO NOTHING
+        SQL, [$game->season, $this->gameId]);
     }
 
     private function createCompetitionEntries(): void

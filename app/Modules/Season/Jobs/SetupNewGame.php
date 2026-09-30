@@ -432,6 +432,65 @@ class SetupNewGame implements ShouldQueue, ShouldBeUnique
             WHERE gp.game_id = ?
             ON CONFLICT (game_player_id) DO NOTHING
         SQL, [$this->season, $this->gameId]);
+
+        $this->createFreeAgentsFromNationalTemplates();
+    }
+
+    /**
+     * Beta: national-team players with no club in the game become free
+     * agents (game_players with team_id = null) so they are signable in
+     * career mode instead of being invisible.
+     *
+     * A player "has a club" when a non-national template exists for the
+     * same player_id in this season. Only runs on initial setup (the
+     * caller's idempotency guard ensures this method isn't re-run).
+     */
+    private function createFreeAgentsFromNationalTemplates(): void
+    {
+        $columns = <<<'SQL'
+            INSERT INTO game_players (
+                id, game_id, player_id,
+                transfermarkt_id, sofascore_id, fc26_id, name, date_of_birth, nationality, height, foot,
+                team_id, number, position, secondary_positions,
+                market_value, market_value_cents, contract_until, annual_wage, release_clause, durability,
+                overall_score,
+                potential, potential_low, potential_high, tier
+            )
+            SELECT
+                gen_random_uuid(), ?, t.player_id,
+                t.transfermarkt_id, t.sofascore_id, t.fc26_id, t.name, t.date_of_birth, t.nationality, t.height, t.foot,
+                NULL, NULL, t.position, t.secondary_positions,
+                t.market_value, t.market_value_cents, t.contract_until, t.annual_wage, t.release_clause, t.durability,
+                t.overall_score,
+                t.potential, t.potential_low, t.potential_high, t.tier
+            FROM game_player_templates t
+            WHERE t.season = ?
+              AND t.team_id IN (SELECT id FROM teams WHERE type = 'national')
+              AND NOT EXISTS (
+                  SELECT 1 FROM game_player_templates c
+                  WHERE c.season = t.season
+                    AND c.player_id = t.player_id
+                    AND c.team_id NOT IN (SELECT id FROM teams WHERE type = 'national')
+              )
+            ON CONFLICT (game_id, player_id) DO NOTHING
+        SQL;
+
+        DB::insert($columns, [$this->gameId, $this->season]);
+
+        // Match-state satellite rows for the new free agents (the join on
+        // team_id can't match NULL, so insert explicitly).
+        DB::insert(<<<'SQL'
+            INSERT INTO game_player_match_state (game_player_id, game_id, fitness, morale)
+            SELECT gp.id, gp.game_id, t.fitness, t.morale
+            FROM game_players gp
+            JOIN game_player_templates t
+              ON t.player_id = gp.player_id
+             AND t.season = ?
+             AND t.team_id IN (SELECT id FROM teams WHERE type = 'national')
+            WHERE gp.game_id = ?
+              AND gp.team_id IS NULL
+            ON CONFLICT (game_player_id) DO NOTHING
+        SQL, [$this->season, $this->gameId]);
     }
 
     /**

@@ -52,6 +52,7 @@ use App\Http\Actions\GetAutoLineup;
 use App\Http\Actions\ProcessExtraTime;
 use App\Http\Actions\ProcessPenalties;
 use App\Http\Actions\InitGame;
+use App\Http\Actions\InitNationalGame;
 use App\Http\Actions\ListPlayerForTransfer;
 use App\Http\Actions\NegotiateCounterOffer;
 use App\Http\Actions\NegotiateFreeAgent;
@@ -93,6 +94,7 @@ use App\Http\Views\ShowPreMatchData;
 use App\Http\Controllers\ProfileController;
 use App\Http\Views\Dashboard;
 use App\Http\Views\SelectTeam;
+use App\Http\Views\ShowNationalSquadPicker;
 use App\Http\Views\ShowCalendar;
 use App\Http\Views\ShowClubCommercial;
 use App\Http\Views\ShowClubReputation;
@@ -168,6 +170,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::get('/new-game', SelectTeam::class)->name('select-team');
     Route::post('/new-game', InitGame::class)->middleware('throttle:game-creation')->name('init-game');
+
+    // National-team mode (beta): squad picker + game creation
+    Route::get('/new-game/national/{teamId}', ShowNationalSquadPicker::class)->name('national-squad-picker');
+    Route::post('/new-game/national', InitNationalGame::class)->middleware('throttle:game-creation')->name('init-national-game');
 
     Route::get('/tournament-summary/{summaryId}', ShowTournamentSummary::class)->name('tournament-summary.show');
 
