@@ -57,6 +57,20 @@ class SetupTournamentGame implements ShouldQueue
             return;
         }
 
+        // National team competition progression: if this is a new season
+        // (game has archived seasons from previous competitions), advance to
+        // the next competition in the sequence (e.g. WNL → WQUEFA).
+        // This creates the unified multi-year calendar Izan wants.
+        $hasPreviousSeason = \App\Models\SeasonArchive::where('game_id', $game->id)->exists();
+        if ($hasPreviousSeason) {
+            $nextCompetition = TournamentCreationService::nextCompetitionInSequence($game->competition_id);
+            if ($nextCompetition !== null && $nextCompetition !== $game->competition_id) {
+                $game->update(['competition_id' => $nextCompetition]);
+                // Refresh the model to use the new competition_id below.
+                $game->refresh();
+            }
+        }
+
         // Women's World Cup Qualifiers (beta): the user's group is drawn at
         // setup time instead of coming from a fixed groups.json. Each FIFA
         // confederation runs its own qualifier (WQUEFA, WQAFC, ...); WWCQ is
