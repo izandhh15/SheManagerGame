@@ -32,9 +32,9 @@
             </div>
 
             @php
-                $groupLabels = ['GK' => __('squad.goalkeepers'), 'DEF' => __('squad.defenders'), 'MID' => __('squad.midfielders'), 'FWD' => __('squad.forwards')];
-                $grouped = $players->groupBy('position');
-                $order = ['GK', 'DEF', 'MID', 'FWD'];
+                $groupLabels = ['Goalkeeper' => __('squad.goalkeepers'), 'Defender' => __('squad.defenders'), 'Midfielder' => __('squad.midfielders'), 'Forward' => __('squad.forwards')];
+                $grouped = $players->groupBy('group');
+                $order = ['Goalkeeper', 'Defender', 'Midfielder', 'Forward'];
             @endphp
 
             <form method="post" action="{{ route('init-national-game') }}" @submit="if (selected.length !== 23) $event.preventDefault()">

@@ -16,6 +16,24 @@ use Illuminate\Support\Facades\DB;
  */
 final class ShowNationalSquadPicker
 {
+    public const POSITION_GROUPS = ['Goalkeeper', 'Defender', 'Midfielder', 'Forward'];
+
+    /**
+     * Map the raw template position (e.g. 'Centre-Back') to the display
+     * group used across the game (mirrors GamePlayer::getPositionGroupAttribute).
+     */
+    public static function positionGroup(string $position): string
+    {
+        return match ($position) {
+            'Goalkeeper' => 'Goalkeeper',
+            'Centre-Back', 'Left-Back', 'Right-Back' => 'Defender',
+            'Defensive Midfield', 'Central Midfield', 'Attacking Midfield',
+            'Left Midfield', 'Right Midfield', 'Midfielder' => 'Midfielder',
+            'Left Winger', 'Right Winger', 'Centre-Forward', 'Second Striker' => 'Forward',
+            default => 'Midfielder',
+        };
+    }
+
     public function __invoke(Request $request, string $teamId)
     {
         $team = Team::where('type', 'national')
@@ -25,15 +43,6 @@ final class ShowNationalSquadPicker
         $players = DB::table('game_player_templates')
             ->where('season', '2026')
             ->where('team_id', $teamId)
-            ->orderByRaw(<<<'SQL'
-                CASE position
-                    WHEN 'GK' THEN 0
-                    WHEN 'DEF' THEN 1
-                    WHEN 'MID' THEN 2
-                    WHEN 'FWD' THEN 3
-                    ELSE 4
-                END
-            SQL)
             ->orderByDesc('overall_score')
             ->orderBy('name')
             ->get();
@@ -48,16 +57,23 @@ final class ShowNationalSquadPicker
             ->orderBy('t.player_id')
             ->pluck('teams.name', 't.player_id');
 
+        $groupOrder = array_flip(self::POSITION_GROUPS);
+
         $players = $players->map(fn ($row) => [
             'player_id' => $row->player_id,
             'name' => $row->name,
             'position' => $row->position,
+            'group' => self::positionGroup($row->position ?? ''),
             'overall' => (int) $row->overall_score,
             'age' => $row->date_of_birth
                 ? now()->diffInYears(\Carbon\Carbon::parse($row->date_of_birth))
                 : null,
             'club' => $clubByPlayerId[$row->player_id] ?? null,
-        ]);
+        ])->sortBy([
+            fn ($p) => $groupOrder[$p['group']] ?? 99,
+            fn ($p) => -$p['overall'],
+            fn ($p) => $p['name'],
+        ])->values();
 
         return view('national-squad-picker', [
             'team' => $team,
