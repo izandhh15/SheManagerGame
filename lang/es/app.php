@@ -68,4 +68,8 @@ return [
     'load_failed' => 'No se pudo cargar este contenido. Inténtalo de nuevo.',
     'retry' => 'Reintentar',
 
+    // Footer credits
+    'data_attribution_prefix' => 'Datos: ',
+    'data_attribution_suffix' => ' y clubes',
+
 ];

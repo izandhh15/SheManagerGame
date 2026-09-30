@@ -34,7 +34,7 @@
                     <h1 class="font-heading text-2xl sm:text-3xl font-bold uppercase tracking-wide text-text-primary mb-8">Aviso Legal</h1>
 
                     <div class="space-y-5 text-sm sm:text-base leading-relaxed text-text-body">
-                        <p>SheManagerGame es un proyecto de software de código abierto desarrollado por Pablo Román con fines educativos y de entretenimiento. Este proyecto no tiene ánimo de lucro y se distribuye de forma gratuita.</p>
+                        <p>SheManagerGame es un proyecto de software de código abierto desarrollado por Izan Delgado con fines educativos y de entretenimiento. Este proyecto no tiene ánimo de lucro y se distribuye de forma gratuita.</p>
 
                         <div>
                             <p class="font-semibold text-text-primary mb-2">No está afiliado, patrocinado ni respaldado por:</p>
@@ -85,9 +85,11 @@
                                 <span class="skew-x-12 inline-block text-lg font-extrabold text-text-faint tracking-tight" style="font-family: 'Barlow Semi Condensed', sans-serif;">SheManagerGame</span>
                             </div>
                             <p class="text-xs text-text-faint">
-                                &copy; {{ date('Y') }} Pablo Román &middot; <a href="https://github.com/pabloroman/virtua-fc" target="_blank" class="hover:text-text-muted transition-colors">Proyecto Open Source</a>
+                                &copy; {{ date('Y') }} Izan Delgado &middot; <a href="https://github.com/izandhh15/SheManagerGame" target="_blank" class="hover:text-text-muted transition-colors">Proyecto Open Source</a> &middot; <a href="https://instagram.com/izandhh" target="_blank" rel="noopener" class="hover:text-text-muted transition-colors">Instagram</a>
                             </p>
-                            <x-sofifa-credit />
+                            <p class="text-xs text-text-faint">
+                                {{ __('app.data_attribution_prefix') }} <a href="https://www.soccerdonna.de" target="_blank" rel="noopener" class="hover:text-text-muted transition-colors">Soccerdonna</a>{{ __('app.data_attribution_suffix') }}
+                            </p>
                             <x-theme-toggle />
                         </div>
                     </div>

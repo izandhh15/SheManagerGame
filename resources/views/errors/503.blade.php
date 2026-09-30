@@ -62,7 +62,7 @@
                                 <span class="skew-x-12 inline-block text-lg font-extrabold text-text-faint tracking-tight" style="font-family: 'Barlow Semi Condensed', sans-serif;">SheManagerGame</span>
                             </div>
                             <p class="text-xs text-text-faint">
-                                &copy; {{ date('Y') }} Pablo Rom&aacute;n &middot; <a href="https://github.com/pabloroman/virtua-fc" target="_blank" class="hover:text-text-muted transition-colors">Proyecto Open Source</a>
+                                &copy; {{ date('Y') }} Izan Delgado &middot; <a href="https://github.com/izandhh15/SheManagerGame" target="_blank" class="hover:text-text-muted transition-colors">Proyecto Open Source</a>
                             </p>
                             <x-theme-toggle />
                         </div>
