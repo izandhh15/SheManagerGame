@@ -38,14 +38,16 @@ class SquadReplenishmentProcessor implements SeasonProcessor
 {
     /**
      * Minimum total squad size for AI teams.
+     * Disabled (0): no synthetic players generated — squads use only real players.
      */
-    private const MIN_SQUAD_SIZE = 22;
+    private const MIN_SQUAD_SIZE = 0;
 
     /**
      * Youth intake: number of young players to inject per AI team per season.
+     * Disabled (0): no synthetic players generated.
      */
-    private const YOUTH_INTAKE_MIN = 2;
-    private const YOUTH_INTAKE_MAX = 3;
+    private const YOUTH_INTAKE_MIN = 0;
+    private const YOUTH_INTAKE_MAX = 0;
 
     /**
      * Maximum squad size before we skip youth intake (leave buffer for transfers).
@@ -70,13 +72,13 @@ class SquadReplenishmentProcessor implements SeasonProcessor
 
     /**
      * Minimum players required per position group.
-     * If a group is below its minimum, those positions are filled first.
+     * Disabled (all 0): no synthetic players generated — squads use only real players.
      */
     private const GROUP_MINIMUMS = [
-        'Goalkeeper' => 3,
-        'Defender' => 6,
-        'Midfielder' => 6,
-        'Forward' => 4,
+        'Goalkeeper' => 0,
+        'Defender' => 0,
+        'Midfielder' => 0,
+        'Forward' => 0,
     ];
 
     /**
