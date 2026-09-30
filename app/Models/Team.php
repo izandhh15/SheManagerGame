@@ -128,7 +128,9 @@ class Team extends Model
         $name = $this->attributes['name'] ?? '';
 
         if (($this->attributes['type'] ?? 'club') === 'national') {
-            return __("countries.{$name}") ?? $name;
+            return \Illuminate\Support\Facades\Lang::has("countries.{$name}")
+                ? __("countries.{$name}")
+                : $name;
         }
 
         return $name;
