@@ -51,7 +51,7 @@ try {
             break;
 
         case 'seed-profiles':
-            $exit = $kernel->call('db:seed', ['--class' => 'ClubProfilesSeeder']);
+            $exit = $kernel->call('db:seed', ['--class' => 'ClubProfilesSeeder', '--force' => true]);
             echo "Seed profiles exit: $exit\n";
             echo $kernel->output();
             break;
