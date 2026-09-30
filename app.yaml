@@ -28,7 +28,6 @@ env:
   SESSION_DRIVER: "database"
   CACHE_STORE: "file"
   QUEUE_CONNECTION: "sync"
-  OPS_TOKEN: "10c86dd983205cb721ecb1755fd82bbe"
   LOG_CHANNEL: "stderr"
   VIEW_COMPILED_PATH: "/data/views"
   # Usado por el parche de bootstrap/app.php (ver bootstrap-wasmer.patch)
