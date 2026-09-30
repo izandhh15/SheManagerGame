@@ -47,6 +47,21 @@ class TournamentCreationService
         'WWCQ',
     ];
 
+    /** UEFA Women's Nations League competition id. */
+    public const WNL_ID = 'WNL';
+
+    /** Every competition id accepted as a national-team competition. */
+    public const NATIONAL_TEAM_COMPETITION_IDS = [
+        'WQUEFA',
+        'WQAFC',
+        'WQCAF',
+        'WQCONC',
+        'WQCONM',
+        'WQOFC',
+        'WWCQ',
+        'WNL',
+    ];
+
     /**
      * Resolve the qualifying competition for a team's FIFA confederation.
      * Unknown or missing confederations fall back to the legacy WWCQ id,
@@ -66,7 +81,7 @@ class TournamentCreationService
 
         $team = Team::findOrFail($teamId);
 
-        $isNational = in_array($competitionId, self::WQC_IDS, true);
+        $isNational = in_array($competitionId, self::NATIONAL_TEAM_COMPETITION_IDS, true);
 
         $game = Game::create([
             'id' => $gameId,

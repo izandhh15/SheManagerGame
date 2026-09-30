@@ -216,6 +216,23 @@ class SeedNationalTeams extends Command
 
             $this->info("  Competition: {$id} ({$name}).");
         }
+
+        // UEFA Women's Nations League — real 2025 groups (League A).
+        DB::table('competitions')->updateOrInsert(
+            ['id' => 'WNL'],
+            [
+                'name' => "UEFA Women's Nations League",
+                'country' => 'IN',
+                'flag' => null,
+                'tier' => 1,
+                'type' => 'league',
+                'role' => 'league',
+                'scope' => 'continental',
+                'handler_type' => 'league',
+                'season' => self::SEASON,
+            ]
+        );
+        $this->info("  Competition: WNL (UEFA Women's Nations League).");
     }
 
     private function clearExistingData(): void

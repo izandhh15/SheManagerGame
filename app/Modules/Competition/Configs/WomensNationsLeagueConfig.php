@@ -10,10 +10,15 @@ use App\Models\Game;
 /**
  * Configuration for the UEFA Women's Nations League (WNL).
  *
- * v1 format: a drawn group of 6 with a 10-matchday double round-robin,
- * following the WorldCupQualifyingConfig pattern. The group winner lifts
- * the Nations League trophy (gold standings zone); there is no relegation
- * in v1.
+ * Real format (2025 edition): League A with 4 groups of 4 teams, double
+ * round-robin (6 matchdays). The group winner lifts the Nations League
+ * trophy (gold standings zone); there is no relegation in v1.
+ *
+ * Groups (from groups.json):
+ * - A1: Germany, Netherlands, Austria, Scotland
+ * - A2: France, Iceland, Norway, Switzerland
+ * - A3: Spain, England, Belgium, Portugal
+ * - A4: Italy, Denmark, Sweden, Wales
  *
  * Season goals: elite and continental sides are expected to win the group
  * (GOAL_TITLE); everyone else targets a top-half finish.
@@ -25,7 +30,7 @@ use App\Models\Game;
  */
 class WomensNationsLeagueConfig implements CompetitionConfig, HasSeasonGoals
 {
-    private const NUM_TEAMS = 6;
+    private const NUM_TEAMS = 4;
 
     /**
      * TV revenue by position, in cents. Champion earns €12M, double the
@@ -36,15 +41,13 @@ class WomensNationsLeagueConfig implements CompetitionConfig, HasSeasonGoals
         2 => 1000_000_000,  // €10M
         3 => 850_000_000,   // €8.5M
         4 => 750_000_000,   // €7.5M
-        5 => 650_000_000,   // €6.5M
-        6 => 600_000_000,   // €6M
     ];
 
     private const POSITION_FACTORS = [
         'top' => 1.10,        // 1st (champion)
-        'mid_high' => 1.0,    // 2nd-3rd
-        'mid_low' => 0.95,    // 4th
-        'bottom' => 0.85,     // 5th-6th
+        'mid_high' => 1.0,    // 2nd
+        'mid_low' => 0.95,    // 3rd
+        'bottom' => 0.85,     // 4th
     ];
 
     private const REPUTATION_TO_GOAL = [
@@ -70,10 +73,10 @@ class WomensNationsLeagueConfig implements CompetitionConfig, HasSeasonGoals
         if ($position === 1) {
             return self::POSITION_FACTORS['top'];
         }
-        if ($position <= 3) {
+        if ($position === 2) {
             return self::POSITION_FACTORS['mid_high'];
         }
-        if ($position === 4) {
+        if ($position === 3) {
             return self::POSITION_FACTORS['mid_low'];
         }
         return self::POSITION_FACTORS['bottom'];
@@ -88,9 +91,9 @@ class WomensNationsLeagueConfig implements CompetitionConfig, HasSeasonGoals
     {
         return match ($goal) {
             Game::GOAL_TITLE => 1,
-            Game::GOAL_TOP_HALF => 3, // finish top half
-            Game::GOAL_SURVIVAL => 5,
-            default => 3,
+            Game::GOAL_TOP_HALF => 2, // finish top half (top 2 of 4)
+            Game::GOAL_SURVIVAL => 3,
+            default => 2,
         };
     }
 

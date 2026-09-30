@@ -78,17 +78,19 @@ class ShowClubStadium
         // window is calendar-fixed at commit time, so adding the same
         // window to current_date here matches what the user will see in
         // the history once they commit.
+        // Guard against null current_date (e.g., game setup incomplete).
+        $currentDate = $game->current_date ?? now();
         $supplementaryCompletionLabel = $this->formatCompletionDate(
-            $game->current_date->copy()->addDays($this->stadiumUpgradeService->supplementaryConstructionDays())
+            $currentDate->copy()->addDays($this->stadiumUpgradeService->supplementaryConstructionDays())
         );
         $standExpansionCompletionLabel = $this->formatCompletionDate(
-            $game->current_date->copy()->addDays($this->stadiumUpgradeService->standExpansionConstructionDays())
+            $currentDate->copy()->addDays($this->stadiumUpgradeService->standExpansionConstructionDays())
         );
         $rebuildCompletionLabel = $this->formatCompletionDate(
-            $game->current_date->copy()->addDays($this->stadiumUpgradeService->rebuildConstructionDays())
+            $currentDate->copy()->addDays($this->stadiumUpgradeService->rebuildConstructionDays())
         );
         $uefaCompletionLabel = $this->formatCompletionDate(
-            $game->current_date->copy()->addDays($this->stadiumUpgradeService->uefaUpgradeConstructionDays())
+            $currentDate->copy()->addDays($this->stadiumUpgradeService->uefaUpgradeConstructionDays())
         );
 
         $supplementaryPerSeat = $this->stadiumUpgradeService->supplementaryCostPerSeat();

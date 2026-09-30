@@ -61,7 +61,8 @@ class SetupTournamentGame implements ShouldQueue
         // setup time instead of coming from a fixed groups.json. Each FIFA
         // confederation runs its own qualifier (WQUEFA, WQAFC, ...); WWCQ is
         // the legacy alias for the original single global competition.
-        if (in_array($game->competition_id, TournamentCreationService::WQC_IDS, true)) {
+        // WNL (UEFA Women's Nations League) uses the real 2025 groups.
+        if (in_array($game->competition_id, TournamentCreationService::NATIONAL_TEAM_COMPETITION_IDS, true)) {
             $this->handleNationalQualifiers($game, $notificationService, $formationRecommender, $formationBiasResolver);
             return;
         }
@@ -128,10 +129,12 @@ class SetupTournamentGame implements ShouldQueue
         FormationBiasResolver $formationBiasResolver,
     ): void {
         DB::transaction(function () use ($game, $notificationService, $formationRecommender, $formationBiasResolver) {
-            // Step 1: draw the group (user + 5 opponents)
-            $groupTeamIds = $this->drawQualifierGroup($game);
+            // Step 1: get the group (real WNL groups, or drawn for qualifiers)
+            $groupTeamIds = $game->competition_id === TournamentCreationService::WNL_ID
+                ? $this->getWNLGroup($game)
+                : $this->drawQualifierGroup($game);
 
-            // Step 2: competition entries for the 6 group teams
+            // Step 2: competition entries for the group teams
             $this->createQualifierEntries($game->competition_id, $groupTeamIds);
 
             // Step 3: game players (user's 23 + AI rosters)
@@ -159,6 +162,67 @@ class SetupTournamentGame implements ShouldQueue
             app(\App\Modules\Season\Services\ActivationTracker::class)
                 ->record($game->user_id, \App\Models\ActivationEvent::EVENT_SETUP_COMPLETED, $this->gameId, Game::MODE_TOURNAMENT);
         });
+    }
+
+    /**
+     * Get the real UEFA Women's Nations League group for the user's team.
+     *
+     * Loads data/2026/WNL/groups.json and finds which of the 4 League A
+     * groups contains the user's team (by FIFA code). Returns the 4 team
+     * IDs for that group. Falls back to a drawn group if the team isn't
+     * in League A (shouldn't happen for UEFA teams in v1).
+     */
+    private function getWNLGroup(Game $game): array
+    {
+        $groupsPath = base_path('data/2026/WNL/groups.json');
+        if (!file_exists($groupsPath)) {
+            // Fallback to drawn group if data file missing
+            return $this->drawQualifierGroup($game);
+        }
+
+        $groupsData = json_decode(file_get_contents($groupsPath), true);
+        $userFifaCode = Team::where('id', $this->teamId)->value('fifa_code');
+
+        if (!$userFifaCode) {
+            return $this->drawQualifierGroup($game);
+        }
+
+        // Find the group containing the user's team
+        $userGroup = null;
+        foreach ($groupsData['groups'] ?? [] as $groupId => $group) {
+            if (in_array($userFifaCode, $group['teams'] ?? [], true)) {
+                $userGroup = $group;
+                break;
+            }
+        }
+
+        if (!$userGroup) {
+            // Team not in League A — fall back to drawn group
+            return $this->drawQualifierGroup($game);
+        }
+
+        // Map FIFA codes to team IDs
+        $fifaCodes = $userGroup['teams'];
+        $teams = Team::where('type', 'national')
+            ->whereIn('fifa_code', $fifaCodes)
+            ->where('season', $game->season)
+            ->pluck('id', 'fifa_code')
+            ->toArray();
+
+        // Ensure we have all 4 teams, with user's team first
+        $groupTeamIds = [];
+        foreach ($fifaCodes as $code) {
+            if (isset($teams[$code])) {
+                $groupTeamIds[] = $teams[$code];
+            }
+        }
+
+        // If we couldn't find all 4, fall back to drawn group
+        if (count($groupTeamIds) !== 4) {
+            return $this->drawQualifierGroup($game);
+        }
+
+        return $groupTeamIds;
     }
 
     /**
