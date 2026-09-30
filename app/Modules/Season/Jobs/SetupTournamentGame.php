@@ -201,11 +201,11 @@ class SetupTournamentGame implements ShouldQueue
             return $this->drawQualifierGroup($game);
         }
 
-        // Map FIFA codes to team IDs
+        // Map FIFA codes to team IDs (no season filter — matches
+        // drawQualifierGroup, which doesn't scope teams by season either).
         $fifaCodes = $userGroup['teams'];
         $teams = Team::where('type', 'national')
             ->whereIn('fifa_code', $fifaCodes)
-            ->where('season', $game->season)
             ->pluck('id', 'fifa_code')
             ->toArray();
 

@@ -88,6 +88,7 @@ class Competition extends Model
         'WQCONC'  => 'Clasificación · CONCACAF',
         'WQCONM'  => 'Clasificación · CONMEBOL',
         'WQOFC'   => 'Clasificación · OFC',
+        'WNL'     => 'Nations League',
         'PRESEASON' => 'Amistoso',
         'FRIENDLY' => 'Amistoso',
     ];

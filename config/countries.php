@@ -1355,6 +1355,8 @@ return [
             'WQOFC'  => ['config_class' => \App\Modules\Competition\Configs\WorldCupQualifyingConfig::class],
             // Legacy beta id: the original single global qualifier.
             'WWCQ'   => ['config_class' => \App\Modules\Competition\Configs\WorldCupQualifyingConfig::class],
+            // UEFA Women's Nations League (real 2025 groups).
+            'WNL'    => ['config_class' => \App\Modules\Competition\Configs\WomensNationsLeagueConfig::class],
         ],
     ],
 
