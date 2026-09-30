@@ -80,6 +80,23 @@ switch ($step) {
         echo "FILE: " . basename($files[0]) . "\n";
         echo substr(file_get_contents($files[0]), -6000) . "\n---\n";
         break;
+    case 'check-nt':
+        $db = Illuminate\Support\Facades\DB::class;
+        $ntCount = $db::table('teams')->where('type', 'national')->count();
+        echo "national teams: $ntCount\n";
+        $esp = $db::table('teams')->where('type', 'national')->where('fifa_code', 'ESP')->first();
+        if (!$esp) { echo "ESP not found\n---\n"; break; }
+        echo "ESP id: {$esp->id}\n";
+        $seasons = $db::table('game_player_templates')->select('season', $db::raw('count(*) as c'))->groupBy('season')->orderBy('season')->get();
+        foreach ($seasons as $s) { echo "season '{$s->season}': {$s->c}\n"; }
+        $c = $db::table('game_player_templates')->where('team_id', $esp->id)->count();
+        echo "templates team_id=ESP id: $c\n";
+        $c2 = $db::table('game_player_templates')->where('team_id', $esp->id)->where('season', '2026')->count();
+        echo "templates ESP + season 2026: $c2\n";
+        $sample = $db::table('game_player_templates')->where('team_id', $esp->id)->limit(3)->get(['player_id','name','season']);
+        foreach ($sample as $row) { echo "  - {$row->player_id} {$row->name} season={$row->season}\n"; }
+        echo "---\n";
+        break;
     case 'debug500':
         // Simula una petición HTTP a / y muestra la excepción real
         try {
