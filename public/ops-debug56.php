@@ -45,11 +45,9 @@ try {
         echo "Creating game for team: {$team->name} ({$team->id})\n";
         
         $service = app(\App\Modules\Season\Services\GameCreationService::class);
-        $game = $service->createGame(
+        $game = $service->create(
             userId: $user->id,
             teamId: $team->id,
-            competitionId: 'ESP1',
-            season: '2026',
             gameMode: \App\Models\Game::MODE_CAREER,
         );
         
