@@ -114,16 +114,10 @@ final class ShowNationalSquadPicker
             fn ($p) => $p['name'],
         ])->values();
 
-        // Limit to top 150 per position group to avoid rendering thousands of
-        // players (e.g. Spain has 1,644). The user picks 23; the top 150 per
-        // group is more than enough and keeps the page under ~1MB.
-        // NOTE: sort explicitly DESC here — the earlier multi-key sortBy does
-        // not reliably order by overall desc, which silently kept the 150
-        // LOWEST-rated players per group (bug 01-10-2026: Pina 89, Guijarro 88
-        // etc. were cut while 65-rated players survived).
-        $players = $players->groupBy('group')->flatMap(
-            fn ($group) => $group->sortByDesc('overall')->take(150)
-        )->values();
+        // NOTE 01-10-2026: Izan asked for NO limit at all — every eligible
+        // player must be visible/filterable (previously take(150) per group,
+        // which also had a bug keeping the lowest-rated). The payload for
+        // Spain is ~1,669 players (~350KB JSON), acceptable without trimming.
 
         // Injured players can't be called up until they recover: look up
         // active injuries in every save of the user (club and national —
