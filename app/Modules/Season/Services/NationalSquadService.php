@@ -52,10 +52,15 @@ class NationalSquadService
     }
 
     /**
-     * Players the user cannot call up: injured (injury_until >= the
-     * window start) in ANY of their non-deleted saves — club and
-     * national-team games alike. A torn ACL in October keeps the
-     * player out of the January window, for example.
+     * Players the user cannot call up: injured in ANY of their
+     * non-deleted saves — club and national-team games alike. A torn
+     * ACL in October keeps the player out of the January window, for
+     * example.
+     *
+     * An injury only blocks when it is real in its own save's timeline:
+     * still active there (injury_until >= that save's current date) and
+     * that save is not living in the window's future (a 2030 injury in
+     * one save must not rule out a 2026 call-up in another).
      *
      * Keys are template player_id strings (what the picker posts),
      * values the injury return date (Y-m-d) for display.
@@ -70,6 +75,11 @@ class NationalSquadService
             ->where('g.user_id', $userId)
             ->whereNull('g.deleting_at')
             ->where('ms.injury_until', '>=', $fromDate)
+            ->where('ms.injury_until', '>=', DB::raw('g.current_date'))
+            ->where(function ($q) use ($fromDate) {
+                $q->whereNull('g.current_date')
+                    ->orWhere('g.current_date', '<=', $fromDate);
+            })
             ->groupBy('gp.player_id')
             ->select('gp.player_id', DB::raw('MAX(ms.injury_until) as injury_until'))
             ->get();
