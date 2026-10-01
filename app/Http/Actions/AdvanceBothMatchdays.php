@@ -5,6 +5,7 @@ namespace App\Http\Actions;
 use App\Models\Game;
 use App\Modules\Match\Services\MatchdayAdvanceCoordinator;
 use App\Modules\Match\Services\MatchdayService;
+use App\Modules\Season\Services\DualTurnService;
 use Illuminate\Http\Request;
 
 /**
@@ -13,12 +14,17 @@ use Illuminate\Http\Request;
  * national-team match comes first; otherwise the club match does. This
  * interleaves the two calendars like a real manager's season instead of
  * advancing both in lockstep.
+ *
+ * Strict alternation: when the partner half has the earlier pending match,
+ * it is NOT auto-simulated here — the user is bounced to the partner's
+ * save to PLAY it first (the club career stops dead during the break).
  */
 class AdvanceBothMatchdays
 {
     public function __construct(
         private readonly MatchdayAdvanceCoordinator $coordinator,
         private readonly MatchdayService $matchdayService,
+        private readonly DualTurnService $dualTurn,
     ) {}
 
     public function __invoke(Request $request, string $gameId)
@@ -51,6 +57,17 @@ class AdvanceBothMatchdays
             $this->coordinator->runSync($gameId);
 
             return redirect()->route('show-game', $gameId);
+        }
+
+        // Strict alternation: if the partner half has the earlier pending
+        // match, never auto-sim it behind the user's back — bounce them to
+        // the partner's save so they PLAY it first, then come back here.
+        if ($forced = $this->dualTurn->mustPlayPartnerFirst($game)) {
+            return redirect()->route('show-game', $forced->id)
+                ->with('dual_forced', [
+                    'team' => $forced->team->name,
+                    'from' => $game->team->name,
+                ]);
         }
 
         // Chronological interleaving: advance the half with the earlier

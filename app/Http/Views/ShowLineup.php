@@ -9,6 +9,7 @@ use App\Modules\Lineup\Enums\PlayingStyle;
 use App\Modules\Lineup\Enums\PressingIntensity;
 use App\Modules\Lineup\Services\AITacticsService;
 use App\Modules\Lineup\Services\LineupService;
+use App\Modules\Season\Services\DualTurnService;
 
 use App\Support\PitchGrid;
 use App\Support\PositionSlotMapper;
@@ -20,12 +21,25 @@ class ShowLineup
     public function __construct(
         private readonly LineupService $lineupService,
         private readonly AITacticsService $aiTactics,
+        private readonly DualTurnService $dualTurn,
     ) {}
 
     public function __invoke(string $gameId)
     {
         $context = PreMatchContext::resolve($gameId, ['team', 'tactics', 'tacticalPresets']);
         $game = $context->game;
+
+        // Dual mode: strict club ⇄ nation alternation. If the partner half
+        // has an earlier pending match, this half stops dead — the user is
+        // bounced to the partner's save to play it first.
+        if ($forced = $this->dualTurn->mustPlayPartnerFirst($game)) {
+            return redirect()->route('show-game', $forced->id)
+                ->with('dual_forced', [
+                    'team' => $forced->team->name,
+                    'from' => $game->team->name,
+                ]);
+        }
+
         $match = $context->match;
         $isHome = $context->isHome;
         $opponent = $context->opponent;

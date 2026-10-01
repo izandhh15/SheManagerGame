@@ -22,8 +22,13 @@ use Illuminate\Support\Facades\Schema;
  * HONEST LIMITATION — the two saves are fully separate simulations: each
  * has its own squad, calendar, injuries and form. An injury at the club
  * does NOT carry over to the national team (and vice versa); each calendar
- * advances on its own. The "advance both" button just steps each save one
- * matchday at a time so their calendars stay in lockstep.
+ * advances on its own.
+ *
+ * TURN ORDER IS STRICT, though: DualTurnService enforces chronological
+ * alternation — the half whose next match is dated earlier must be played
+ * first. During FIFA windows the club half freezes until the international
+ * matches are played (ShowLineup / AdvanceMatchday / AdvanceBothMatchdays
+ * bounce the user to the partner save).
  *
  * The link is ASYMMETRIC on purpose: the club game is the primary
  * (linked_game_id = null, counts against the 3-game limit) and the

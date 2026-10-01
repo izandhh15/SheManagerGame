@@ -23,10 +23,37 @@
             </x-status-banner>
         @endif
 
+        {{-- Dual-mode forced switch: this half is frozen until the partner's
+             earlier match is played (strict club ⇄ nation alternation). --}}
+        @if(!empty($dualForcedPartner))
+            <x-status-banner color="red" :title="__('game.dual_forced_title')" :description="__('game.dual_forced_blocked', ['mine' => $game->team->name, 'partner' => $dualForcedPartner->team->name])" class="mt-6">
+                <x-slot name="icon">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </x-slot>
+                <x-primary-button-link color="red" :href="route('show-game', $dualForcedPartner->id)" class="shrink-0">
+                    {{ __('game.dual_forced_cta', ['team' => $dualForcedPartner->team->name]) }}
+                </x-primary-button-link>
+            </x-status-banner>
+        @endif
+
+        {{-- Just bounced here by the forced switch: play this half first. --}}
+        @if(session('dual_forced'))
+            @php $forcedInfo = session('dual_forced'); @endphp
+            <x-status-banner color="gold" :title="__('game.dual_forced_bounced_title')" :description="__('game.dual_forced_bounced', ['team' => $forcedInfo['team'], 'from' => $forcedInfo['from']])" class="mt-6">
+                <x-slot name="icon">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                    </svg>
+                </x-slot>
+            </x-status-banner>
+        @endif
+
         {{-- Dual-mode switcher: this save is linked to another save (club ⇄
              nation). They are SEPARATE simulations — injuries, form and
-             calendars never cross over; "advance both" simply steps each save
-             forward one matchday so their calendars stay in lockstep. --}}
+             calendars never cross over — but the turn order is strict: the
+             half with the earlier match must be played first. --}}
         @php $dualPartner = $game->dualPartner(); @endphp
         @if($dualPartner)
         <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 rounded-xl border border-accent-green/30 bg-accent-green/5 px-4 py-3">

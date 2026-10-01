@@ -4,11 +4,13 @@ namespace App\Http\Actions;
 
 use App\Models\Game;
 use App\Modules\Match\Services\MatchdayAdvanceCoordinator;
+use App\Modules\Season\Services\DualTurnService;
 
 class AdvanceMatchday
 {
     public function __construct(
         private readonly MatchdayAdvanceCoordinator $coordinator,
+        private readonly DualTurnService $dualTurn,
     ) {}
 
     public function __invoke(string $gameId)
@@ -20,6 +22,17 @@ class AdvanceMatchday
         // route) to play matches.
         if ($game->isFastMode()) {
             return redirect()->route('game.fast-mode', $gameId);
+        }
+
+        // Dual mode: strict club ⇄ nation alternation. The half whose next
+        // match comes later cannot be advanced while the partner has an
+        // earlier pending match — bounce to the partner's save.
+        if ($forced = $this->dualTurn->mustPlayPartnerFirst($game)) {
+            return redirect()->route('show-game', $forced->id)
+                ->with('dual_forced', [
+                    'team' => $forced->team->name,
+                    'from' => $game->team->name,
+                ]);
         }
 
         // Run inline: with sibling matches on the AIMatchResolver fast path,

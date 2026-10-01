@@ -10,6 +10,7 @@ use App\Modules\Match\Services\MatchFinalizationService;
 use App\Modules\Match\Services\MatchNarrativeService;
 use App\Modules\Notification\Services\NotificationService;
 use App\Modules\Season\Jobs\ProcessSeasonTransition;
+use App\Modules\Season\Services\DualTurnService;
 use App\Models\CupTie;
 use App\Models\Game;
 use App\Models\GameMatch;
@@ -24,6 +25,7 @@ class ShowGame
         private readonly NotificationService $notificationService,
         private readonly CompetitionViewService $competitionViewService,
         private readonly MatchFinalizationService $finalizationService,
+        private readonly DualTurnService $dualTurn,
     ) {}
 
     public function __invoke(string $gameId)
@@ -193,6 +195,10 @@ class ShowGame
             'game' => $game,
             'nextMatch' => $nextMatch,
             'hasRemainingMatches' => $hasRemainingMatches,
+            // Dual mode: when the partner half has an earlier pending match,
+            // this half is frozen — the panel shows a "stopped dead" banner
+            // pointing at the partner instead of a playable next match.
+            'dualForcedPartner' => $this->dualTurn->mustPlayPartnerFirst($game),
             'homeStanding' => $nextMatch ? GameStanding::forTeamInCompetition($game, $nextMatch->home_team_id, $nextMatch->competition_id) : null,
             'awayStanding' => $nextMatch ? GameStanding::forTeamInCompetition($game, $nextMatch->away_team_id, $nextMatch->competition_id) : null,
             'playerForm' => $this->calendarService->getTeamForm($game->id, $game->team_id),
