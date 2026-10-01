@@ -89,25 +89,7 @@
 
 <script>
 (function () {
-    const T = @json([
-        'activity' => [
-            'home' => __('admin.live_activity_home'),
-            'playing' => __('admin.live_activity_playing'),
-            'creating' => __('admin.live_activity_creating'),
-            'entering' => __('admin.live_activity_entering'),
-            'browsing' => __('admin.live_activity_browsing'),
-        ],
-        'device' => [
-            'desktop' => __('admin.live_device_desktop'),
-            'mobile' => __('admin.live_device_mobile'),
-            'tablet' => __('admin.live_device_tablet'),
-        ],
-        'anonymous' => __('admin.live_anonymous_label'),
-        'noOne' => __('admin.live_no_one'),
-        'updatedAgo' => __('admin.live_updated_ago'),
-        'visits' => __('admin.live_visits'),
-        'uniques' => __('admin.live_uniques'),
-    ]);
+    const T = @json($i18n);
     const DATA_URL = @json(route('admin.live.data'));
     const BASE_TITLE = document.title;
 
