@@ -7,7 +7,9 @@ use App\Models\Game;
 use App\Models\GameMatch;
 use App\Models\Team;
 use App\Modules\Competition\Configs\FifaInternationalBreaks;
+use App\Modules\Notification\Services\NotificationService;
 use App\Modules\Season\Services\GamePlayerTemplateService;
+use App\Modules\Stadium\Services\NationalVenueRequestService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -17,6 +19,8 @@ class ScheduleFriendly
 {
     public function __construct(
         private readonly GamePlayerTemplateService $templateService,
+        private readonly NationalVenueRequestService $venueService,
+        private readonly NotificationService $notifications,
     ) {}
 
     public function __invoke(Request $request, string $gameId): RedirectResponse
@@ -32,8 +36,13 @@ class ScheduleFriendly
         $validated = $request->validate([
             'opponent_id' => ['required', 'string'],
             'date' => ['required', 'date'],
-            'stadium' => ['required', 'string'],
+            'venue_type' => ['required', 'in:national,club,mens,neutral'],
+            'stadium' => ['nullable', 'string'],
+            'club_team_id' => ['nullable', 'string'],
+            'mens_stadium' => ['nullable', 'string'],
         ]);
+
+        $venueType = $validated['venue_type'];
 
         // Rival can be a national team or a club (for stage friendlies).
         // Must not be the user's own team.
@@ -68,22 +77,30 @@ class ScheduleFriendly
             return redirect()->back()->with('error', __('game.friendly_window_full'));
         }
 
-        // Stadium must exist in the catalogue.
-        $stadiums = collect(json_decode(file_get_contents(base_path('data/stadiums.json')), true) ?? []);
-        $stadium = $stadiums->firstWhere('stadium', $validated['stadium']);
+        // ---- Venue organization ----
+        // national: own national stadium from the catalogue (always available).
+        // neutral: generic neutral ground (always available, smaller gate).
+        // club: request the women's club home ground (club must accept).
+        // mens: request the men's big stadium (men's club, always AI, decides).
+        $venue = $this->resolveVenue($game, $opponent, $venueType, $validated);
 
-        if (! $stadium) {
+        if ($venue === null) {
             return redirect()->back()->with('error', __('game.friendly_invalid_stadium'));
         }
 
-        // The user always plays at home for scheduling purposes; the chosen
-        // stadium (home ground or neutral venue) is stored on the match.
-        DB::transaction(function () use ($game, $season, $opponent, $validated, $stadium) {
+        $userTeam = Team::findOrFail($game->team_id);
+
+        // The user always plays at home for scheduling purposes. The match is
+        // created with a playable venue in all cases: the requested stadium
+        // when confirmed, otherwise the neutral fallback (fewer earnings).
+        // A pending club request keeps the neutral venue until answered.
+        $match = null;
+        DB::transaction(function () use ($game, $season, $opponent, $validated, $venue, &$match) {
             $this->ensureFriendlyCompetition($season);
             $this->ensureOpponentTemplates($game, $season, $opponent);
             $this->materializeRivalPlayers($game, $season, $opponent->id);
 
-            GameMatch::create([
+            $match = GameMatch::create([
                 'id' => Str::uuid()->toString(),
                 'game_id' => $game->id,
                 'competition_id' => ShowScheduleFriendly::COMPETITION_ID,
@@ -95,18 +112,222 @@ class ScheduleFriendly
                 'home_score' => null,
                 'away_score' => null,
                 'played' => false,
-                'neutral_venue_name' => $stadium['stadium'],
-                'neutral_venue_capacity' => $stadium['capacity'],
+                'neutral_venue_name' => $venue['stadium'],
+                'neutral_venue_capacity' => $venue['capacity'],
+                'venue_status' => $venue['status'],
+                'venue_request_team_id' => $venue['request_team_id'],
+                'venue_request_type' => $venue['request_type'],
+                'venue_request_excuse' => $venue['excuse_key'],
             ]);
         });
 
+        // Side effects outside the transaction: notifications.
+        $this->dispatchVenueNotifications($game, $userTeam, $opponent, $match, $venue, $validated);
+
         return redirect()
             ->route('game.schedule-friendly', $gameId)
-            ->with('success', __('game.friendly_scheduled', [
-                'opponent' => $opponent->name,
-                'date' => $validated['date'],
+            ->with('success', $venue['success_message']);
+    }
+
+    /**
+     * Resolve the requested venue.
+     *
+     * @return array{stadium: string, capacity: int, status: string, request_team_id: string|null, request_type: string|null, excuse_key: string|null, success_message: string, pending_club: bool}|null
+     */
+    private function resolveVenue(Game $game, Team $opponent, string $venueType, array $validated): ?array
+    {
+        $neutral = [
+            'stadium' => NationalVenueRequestService::NEUTRAL_VENUE_NAME,
+            'capacity' => NationalVenueRequestService::NEUTRAL_VENUE_CAPACITY,
+        ];
+
+        // 1. National stadium: catalogue lookup, always confirmed.
+        if ($venueType === 'national') {
+            $stadiums = collect(json_decode(file_get_contents(base_path('data/stadiums.json')), true) ?? []);
+            $stadium = $stadiums->firstWhere('stadium', $validated['stadium'] ?? null);
+            if (! $stadium) {
+                return null;
+            }
+
+            return [
                 'stadium' => $stadium['stadium'],
-            ]));
+                'capacity' => $stadium['capacity'],
+                'status' => 'confirmed',
+                'request_team_id' => null,
+                'request_type' => null,
+                'excuse_key' => null,
+                'pending_club' => false,
+                'success_message' => __('game.friendly_scheduled', [
+                    'opponent' => $opponent->name,
+                    'date' => $validated['date'],
+                    'stadium' => $stadium['stadium'],
+                ]),
+            ];
+        }
+
+        // 2. Neutral ground: always available, smaller gate revenue.
+        if ($venueType === 'neutral') {
+            return [
+                'stadium' => $neutral['stadium'],
+                'capacity' => $neutral['capacity'],
+                'status' => 'confirmed',
+                'request_team_id' => null,
+                'request_type' => null,
+                'excuse_key' => null,
+                'pending_club' => false,
+                'success_message' => __('game.friendly_scheduled_neutral', [
+                    'date' => $validated['date'],
+                ]),
+            ];
+        }
+
+        // 3. Women's club home ground: the club must accept.
+        if ($venueType === 'club') {
+            $clubTeam = Team::where('type', 'club')
+                ->where('is_placeholder', false)
+                ->find($validated['club_team_id'] ?? null);
+
+            if (! $clubTeam || ! $clubTeam->stadium_name) {
+                return null;
+            }
+
+            $userTeam = Team::find($game->team_id);
+
+            // The user manages this club (dual mode): they decide.
+            if ($this->venueService->userManagesClub($game, $clubTeam->id)) {
+                return [
+                    'stadium' => $neutral['stadium'],
+                    'capacity' => $neutral['capacity'],
+                    'status' => 'pending_club',
+                    'request_team_id' => $clubTeam->id,
+                    'request_type' => 'club',
+                    'excuse_key' => null,
+                    'pending_club' => true,
+                    'pending_club_name' => $clubTeam->name,
+                    'pending_stadium' => $clubTeam->stadium_name,
+                    'success_message' => __('game.friendly_venue_requested', [
+                        'stadium' => $clubTeam->stadium_name,
+                        'club' => $clubTeam->name,
+                    ]),
+                ];
+            }
+
+            // AI club decides now.
+            $decision = $this->venueService->evaluateClubRequest($clubTeam, $userTeam, $opponent);
+
+            if ($decision['accepted']) {
+                return [
+                    'stadium' => $clubTeam->stadium_name,
+                    'capacity' => (int) $clubTeam->stadium_seats,
+                    'status' => 'confirmed',
+                    'request_team_id' => $clubTeam->id,
+                    'request_type' => 'club',
+                    'excuse_key' => null,
+                    'pending_club' => false,
+                    'success_message' => __('game.friendly_venue_accepted', [
+                        'stadium' => $clubTeam->stadium_name,
+                        'club' => $clubTeam->name,
+                    ]),
+                ];
+            }
+
+            return [
+                'stadium' => $neutral['stadium'],
+                'capacity' => $neutral['capacity'],
+                'status' => 'rejected',
+                'request_team_id' => $clubTeam->id,
+                'request_type' => 'club',
+                'excuse_key' => $decision['excuse'],
+                'pending_club' => false,
+                'requested_stadium' => $clubTeam->stadium_name,
+                'success_message' => __('game.friendly_venue_rejected', [
+                    'stadium' => $clubTeam->stadium_name,
+                    'excuse' => __($decision['excuse']),
+                ]),
+            ];
+        }
+
+        // 4. Men's big stadium: the men's club (always AI) decides.
+        if ($venueType === 'mens') {
+            $mens = collect($this->venueService->mensStadiums())
+                ->firstWhere('stadium', $validated['mens_stadium'] ?? null);
+
+            if (! $mens) {
+                return null;
+            }
+
+            $userTeam = Team::find($game->team_id);
+            $decision = $this->venueService->evaluateMensRequest($mens['club'], $userTeam, $opponent);
+
+            if ($decision['accepted']) {
+                return [
+                    'stadium' => $mens['stadium'],
+                    'capacity' => $mens['capacity'],
+                    'status' => 'confirmed',
+                    'request_team_id' => null,
+                    'request_type' => 'mens',
+                    'excuse_key' => null,
+                    'pending_club' => false,
+                    'success_message' => __('game.friendly_venue_mens_accepted', [
+                        'stadium' => $mens['stadium'],
+                    ]),
+                ];
+            }
+
+            return [
+                'stadium' => $neutral['stadium'],
+                'capacity' => $neutral['capacity'],
+                'status' => 'rejected',
+                'request_team_id' => null,
+                'request_type' => 'mens',
+                'excuse_key' => $decision['excuse'],
+                'pending_club' => false,
+                'requested_stadium' => $mens['stadium'],
+                'success_message' => __('game.friendly_venue_mens_rejected', [
+                    'stadium' => $mens['stadium'],
+                    'excuse' => __($decision['excuse']),
+                ]),
+            ];
+        }
+
+        return null;
+    }
+
+    /**
+     * Notifications for venue requests: to the club game when the user
+     * must decide, or the result back in the national-team game.
+     */
+    private function dispatchVenueNotifications(Game $game, Team $userTeam, Team $opponent, GameMatch $match, array $venue, array $validated): void
+    {
+        $date = \Carbon\Carbon::parse($validated['date'])->format('d/m/Y');
+
+        // Pending: the user manages the club (dual mode) -> ask in club game.
+        if ($venue['pending_club']) {
+            $clubGame = $game->dualPartner();
+            if ($clubGame) {
+                $this->notifications->notifyStadiumRequest(
+                    $clubGame,
+                    $userTeam->name,
+                    $opponent->name,
+                    $date,
+                    $venue['pending_stadium'],
+                    $match->id,
+                    $game->id,
+                );
+            }
+            return;
+        }
+
+        // AI rejections already surface via the flash message; also leave a
+        // notification so the excuse isn't lost.
+        if ($venue['status'] === 'rejected') {
+            $this->notifications->notifyStadiumRequestResult(
+                $game,
+                false,
+                $venue['requested_stadium'] ?? '',
+                $venue['excuse_key'],
+            );
+        }
     }
 
     /**

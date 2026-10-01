@@ -48,6 +48,10 @@ use App\Support\PositionSlotMapper;
  * @property array<array-key, mixed>|null $substitutions
  * @property string|null $neutral_venue_name
  * @property int|null $neutral_venue_capacity
+ * @property string $venue_status
+ * @property string|null $venue_request_team_id
+ * @property string|null $venue_request_type
+ * @property string|null $venue_request_excuse
  * @property-read \App\Models\Team $awayTeam
  * @property-read \App\Models\GamePlayer|null $mvpPlayer
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\MatchEvent> $cardEvents
@@ -142,6 +146,10 @@ class GameMatch extends Model
         'standings_applied',
         'neutral_venue_name',
         'neutral_venue_capacity',
+        'venue_status',
+        'venue_request_team_id',
+        'venue_request_type',
+        'venue_request_excuse',
     ];
 
     protected $casts = [

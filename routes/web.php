@@ -229,6 +229,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/game/{gameId}/club/stadium/uefa-upgrade', CommitStadiumUefaUpgrade::class)->name('game.club.stadium.uefa-upgrade');
         Route::post('/game/{gameId}/club/stadium/rename', RenameStadium::class)->name('game.club.stadium.rename');
         Route::post('/game/{gameId}/club/stadium/mens-stadium', RequestMensStadium::class)->name('game.club.stadium.mens-stadium.request');
+        Route::post('/game/{gameId}/club/stadium/requests/{matchId}/respond', \App\Http\Actions\RespondStadiumRequest::class)->name('game.club.stadium.request.respond');
         Route::get('/game/{gameId}/club/commercial', ShowClubCommercial::class)->name('game.club.commercial');
         Route::post('/game/{gameId}/club/commercial/seek', SeekSponsors::class)->name('game.club.commercial.seek');
         Route::post('/game/{gameId}/club/commercial/naming-rights/accept', AcceptNamingRightsDeal::class)->name('game.club.commercial.naming-rights.accept');

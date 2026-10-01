@@ -22,7 +22,7 @@
       "capacity": 49440,
       "club": "Valencia CF",
       "stadium": "Mestalla",
-      "womens_team": "VCF Femenino"
+      "womens_team": "Valencia CF Femenino"
     },
     {
       "capacity": 53331,
@@ -70,7 +70,7 @@
       "capacity": 26354,
       "club": "Levante UD",
       "stadium": "Ciutat de València",
-      "womens_team": "UD Levante B"
+      "womens_team": "Levante UD B"
     },
     {
       "capacity": 31388,
@@ -100,7 +100,7 @@
       "capacity": 32660,
       "club": "RC Deportivo",
       "stadium": "Riazor",
-      "womens_team": "Deportivo Abanca"
+      "womens_team": "Dépor Abanca"
     },
     {
       "capacity": 29371,
@@ -118,7 +118,7 @@
       "capacity": 22824,
       "club": "CD Tenerife",
       "stadium": "Heliodoro Rodríguez López",
-      "womens_team": "Costa Adeje Tenerife"
+      "womens_team": "Costa Adeje Tenerife Egatesa"
     },
     {
       "capacity": 60704,
@@ -196,7 +196,7 @@
       "capacity": 30210,
       "club": "Bayer Leverkusen",
       "stadium": "BayArena",
-      "womens_team": "Bayer Leverkusen"
+      "womens_team": "Bayer 04 Leverkusen"
     },
     {
       "capacity": 49698,
@@ -226,7 +226,7 @@
       "capacity": 47069,
       "club": "RB Leipzig",
       "stadium": "Red Bull Arena",
-      "womens_team": "Rasenballsport Leipzig"
+      "womens_team": "RB Leipzig"
     },
     {
       "capacity": 34700,
@@ -268,19 +268,19 @@
       "capacity": 75923,
       "club": "Inter",
       "stadium": "San Siro",
-      "womens_team": "Inter Mailand"
+      "womens_team": "Inter"
     },
     {
       "capacity": 68530,
       "club": "AS Roma",
       "stadium": "Stadio Olimpico",
-      "womens_team": "AS Rom"
+      "womens_team": "AS Roma"
     },
     {
       "capacity": 75923,
       "club": "AC Milan",
       "stadium": "San Siro",
-      "womens_team": "ACF Mailand"
+      "womens_team": "AC Milan"
     },
     {
       "capacity": 68530,

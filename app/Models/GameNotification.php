@@ -357,6 +357,12 @@ class GameNotification extends Model
             return ($result === 'rejected') ? 'game.scouting' : 'game.transfers';
         }
 
+        // Stadium-request results live in the national-team game: go to the
+        // friendly scheduler where the venue status is visible.
+        if ($this->type === self::TYPE_STADIUM_REQUEST_RESULT) {
+            return 'game.schedule-friendly';
+        }
+
         $target = self::NAVIGATION_MAP[$this->type] ?? 'squad';
 
         return match ($target) {

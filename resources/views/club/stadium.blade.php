@@ -104,6 +104,50 @@
                      and in-flight projects. --}}
                 @include('club.partials.stadium-history')
 
+                {{-- National-team venue requests — the federation wants this
+                     club's stadium for a friendly (dual mode). --}}
+                @if($pendingVenueRequests->isNotEmpty())
+                <div class="bg-surface-800 border border-border-default rounded-xl p-5">
+                    <h4 class="font-heading text-lg font-bold uppercase text-text-primary mb-2">
+                        🏟️ {{ __('game.venue_requests_title') }}
+                    </h4>
+                    <p class="text-sm text-text-muted mb-4">
+                        {{ __('game.venue_requests_desc') }}
+                    </p>
+                    <div class="space-y-3">
+                        @foreach($pendingVenueRequests as $venueRequest)
+                        <div class="bg-surface-700 border border-border-default rounded-lg p-4 flex flex-col sm:flex-row sm:items-center gap-3 justify-between">
+                            <div class="text-sm">
+                                <p class="font-semibold text-text-primary">
+                                    {{ $venueRequest->homeTeam->name }} {{ __('game.versus_short') }} {{ $venueRequest->awayTeam->name }}
+                                </p>
+                                <p class="text-text-muted">
+                                    📅 {{ \Carbon\Carbon::parse($venueRequest->scheduled_date)->format('d/m/Y') }}
+                                    · {{ $venueRequest->round_name }}
+                                </p>
+                            </div>
+                            <div class="flex gap-2">
+                                <form method="POST" action="{{ route('game.club.stadium.request.respond', ['gameId' => $game->id, 'matchId' => $venueRequest->id]) }}">
+                                    @csrf
+                                    <input type="hidden" name="decision" value="accept">
+                                    <button type="submit" class="px-4 py-2 bg-green-600 hover:bg-green-500 text-white font-semibold rounded-lg text-sm">
+                                        ✅ {{ __('game.venue_request_accept') }}
+                                    </button>
+                                </form>
+                                <form method="POST" action="{{ route('game.club.stadium.request.respond', ['gameId' => $game->id, 'matchId' => $venueRequest->id]) }}">
+                                    @csrf
+                                    <input type="hidden" name="decision" value="reject">
+                                    <button type="submit" class="px-4 py-2 bg-red-600 hover:bg-red-500 text-white font-semibold rounded-lg text-sm">
+                                        ❌ {{ __('game.venue_request_reject') }}
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+                @endif
+
                 {{-- Season tickets — editable or locked. Hidden for pre-feature in-flight
                      saves where SeasonTicketDefaultsProcessor never ran, so no pricing row
                      exists and the user has no way to set prices mid-season. --}}

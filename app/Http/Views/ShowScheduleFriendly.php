@@ -6,6 +6,7 @@ use App\Models\Game;
 use App\Models\GameMatch;
 use App\Models\Team;
 use App\Modules\Competition\Configs\FifaInternationalBreaks;
+use App\Modules\Stadium\Services\NationalVenueRequestService;
 use Illuminate\Http\Request;
 
 class ShowScheduleFriendly
@@ -13,6 +14,10 @@ class ShowScheduleFriendly
     public const COMPETITION_ID = 'FRIENDLY';
 
     public const MAX_PER_WINDOW = 2;
+
+    public function __construct(
+        private readonly NationalVenueRequestService $venueService,
+    ) {}
 
     public function __invoke(Request $request, string $gameId)
     {
@@ -88,6 +93,14 @@ class ShowScheduleFriendly
             ->orderBy('scheduled_date')
             ->get();
 
+        // Venue organization: women's club home grounds (the club must
+        // accept the request) and men's big stadiums (men's club decides),
+        // grouped by country name for the venue picker.
+        $clubStadiums = $this->venueService->clubStadiums()
+            ->groupBy(fn (array $s) => $countryNames[strtoupper($s['country'] ?? '')] ?? $s['country'] ?? '?')
+            ->sortKeys();
+        $mensStadiums = collect($this->venueService->mensStadiums());
+
         return view('schedule-friendly', [
             'game' => $game,
             'userTeam' => $userTeam,
@@ -98,6 +111,10 @@ class ShowScheduleFriendly
             'defaultStadium' => $defaultStadium,
             'scheduled' => $scheduled,
             'maxPerWindow' => self::MAX_PER_WINDOW,
+            'clubStadiums' => $clubStadiums,
+            'mensStadiums' => $mensStadiums,
+            'neutralVenueName' => NationalVenueRequestService::NEUTRAL_VENUE_NAME,
+            'neutralVenueCapacity' => NationalVenueRequestService::NEUTRAL_VENUE_CAPACITY,
         ]);
     }
 

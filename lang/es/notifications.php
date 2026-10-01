@@ -211,6 +211,13 @@ return [
     'stadium_loan_drawn_message' => 'El banco ha financiado el proyecto con :amount, a devolver en :years cuotas anuales.',
     'stadium_loan_repaid_title' => 'Préstamo del estadio devuelto',
     'stadium_loan_repaid_message' => 'El préstamo de :amount ha sido devuelto en su totalidad.',
+    // Solicitudes de sede (selección ↔ club, modo dual)
+    'stadium_request_title' => '🏟️ :team quiere jugar en tu estadio',
+    'stadium_request_message' => ':team te pide ceder tu estadio para el amistoso contra :opponent el :date. Puedes aceptar o rechazar la petición desde la página del estadio.',
+    'stadium_request_accepted_title' => 'Sede confirmada: :stadium',
+    'stadium_request_accepted_message' => 'El club ha aceptado ceder :stadium. El amistoso se jugará allí.',
+    'stadium_request_rejected_title' => 'Sede rechazada: :stadium',
+    'stadium_request_rejected_message' => 'El club ha rechazado ceder :stadium. Motivo: :excuse El amistoso se jugará en campo neutral.',
     'commercial_window_open_title' => 'Ventana comercial abierta',
     'commercial_window_open_message' => 'Hasta el primer partido de liga puedes buscar patrocinadores en la página Comercial para aumentar tus ingresos y tu tope salarial.',
 

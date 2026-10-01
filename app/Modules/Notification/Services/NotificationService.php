@@ -975,6 +975,64 @@ class NotificationService
         );
     }
 
+    /**
+     * A national team asks to play a friendly at this club's stadium.
+     * Shown in the CLUB game (dual mode) so the user can accept/reject.
+     */
+    public function notifyStadiumRequest(
+        Game $clubGame,
+        string $nationalTeamName,
+        string $opponentName,
+        string $matchDate,
+        string $stadiumName,
+        string $matchId,
+        string $nationalGameId,
+    ): GameNotification {
+        return $this->create(
+            game: $clubGame,
+            type: GameNotification::TYPE_STADIUM_REQUEST,
+            title: __('notifications.stadium_request_title', ['team' => $nationalTeamName]),
+            message: __('notifications.stadium_request_message', [
+                'team' => $nationalTeamName,
+                'opponent' => $opponentName,
+                'date' => $matchDate,
+                'stadium' => $stadiumName,
+            ]),
+            priority: GameNotification::PRIORITY_WARNING,
+            metadata: [
+                'match_id' => $matchId,
+                'national_game_id' => $nationalGameId,
+            ],
+            icon: 'stadium',
+        );
+    }
+
+    /**
+     * Result of a stadium request, shown in the NATIONAL TEAM game.
+     */
+    public function notifyStadiumRequestResult(
+        Game $nationalGame,
+        bool $accepted,
+        string $stadiumName,
+        ?string $excuseKey = null,
+    ): GameNotification {
+        return $this->create(
+            game: $nationalGame,
+            type: GameNotification::TYPE_STADIUM_REQUEST_RESULT,
+            title: $accepted
+                ? __('notifications.stadium_request_accepted_title', ['stadium' => $stadiumName])
+                : __('notifications.stadium_request_rejected_title', ['stadium' => $stadiumName]),
+            message: $accepted
+                ? __('notifications.stadium_request_accepted_message', ['stadium' => $stadiumName])
+                : __('notifications.stadium_request_rejected_message', [
+                    'stadium' => $stadiumName,
+                    'excuse' => $excuseKey ? __($excuseKey) : '',
+                ]),
+            priority: $accepted ? GameNotification::PRIORITY_INFO : GameNotification::PRIORITY_WARNING,
+            icon: 'stadium',
+        );
+    }
+
     public function notifySquadRegistrationRequired(Game $game, int $unenrolledCount): GameNotification
     {
         return $this->create(

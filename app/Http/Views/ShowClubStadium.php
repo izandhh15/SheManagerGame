@@ -338,6 +338,15 @@ class ShowClubStadium
                 ->first();
         }
 
+        // Pending national-team venue requests addressed to this club
+        // (dual mode): the user decides to accept or reject.
+        $pendingVenueRequests = GameMatch::where('venue_status', 'pending_club')
+            ->where('venue_request_team_id', $game->team_id)
+            ->where('played', false)
+            ->with(['homeTeam', 'awayTeam'])
+            ->orderBy('scheduled_date')
+            ->get();
+
         return view('club.stadium', [
             'game' => $game,
             'upgrade' => $upgrade,
@@ -346,6 +355,7 @@ class ShowClubStadium
             'seasonTicketNoShowRate' => $seasonTicketNoShowRate,
             'mensStadium' => $mensStadium,
             'nextHomeMatch' => $nextHomeMatch,
+            'pendingVenueRequests' => $pendingVenueRequests,
             ...$this->stadiumSummaryService->build($game),
             ...$this->namingRightsReadService->buildIdentityPanel($game),
         ]);
