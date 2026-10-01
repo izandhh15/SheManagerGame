@@ -3,6 +3,7 @@
 namespace App\Http\Views;
 
 use App\Modules\Competition\Services\CountryConfig;
+use App\Modules\Manager\Services\AcademyCareerService;
 use App\Modules\Manager\Services\JobOfferService;
 use App\Modules\Season\Services\TournamentCreationService;
 use App\Models\Competition;
@@ -24,7 +25,7 @@ final class SelectTeam
 
     private const PRIMERA_RFEF_TAB = 'ESP3';
 
-    public function __invoke(Request $request, CountryConfig $countryConfig, JobOfferService $jobOfferService)
+    public function __invoke(Request $request, CountryConfig $countryConfig, JobOfferService $jobOfferService, AcademyCareerService $academyCareerService)
     {
         // Same limit semantics as InitGame: only primary saves count; dual-mode
         // secondaries (linked_game_id not null) don't consume a slot.
@@ -106,6 +107,13 @@ final class SelectTeam
             ? $jobOfferService->sampleInitialProManagerTeams()
             : collect();
 
+        // Academy career: clubs with filials, shown with their academy
+        // nickname (La Masía, La Fábrica...). The user picks the CLUB and
+        // starts at its lowest filial.
+        $academyClubs = $hasCareerAccess
+            ? $academyCareerService->getClubsWithAcademies()
+            : collect();
+
         // National-team mode (beta, World Cup qualifiers by confederation): all
         // women's national teams with seeded templates. Shown when any
         // qualifier competition is seeded (legacy WWCQ alias counts too).
@@ -140,6 +148,7 @@ final class SelectTeam
             'hasNationalMode' => $hasNationalMode,
             'hasCareerAccess' => $hasCareerAccess,
             'proManagerTeams' => $proManagerTeams,
+            'academyClubs' => $academyClubs,
         ]);
     }
 

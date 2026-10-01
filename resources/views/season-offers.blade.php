@@ -2,10 +2,12 @@
 /** @var App\Models\Game $game */
 /** @var \Illuminate\Support\Collection $jobOffers */
 /** @var \App\Models\ManagerJobOffer|null $pendingTeamSwitchOffer */
+/** @var \App\Models\ManagerJobOffer|null $promotionOffer */
 /** @var bool $firedAtSeasonEnd */
 /** @var string $nextSeasonLabel */
 $hasAccepted = (bool) $pendingTeamSwitchOffer;
 $hasPending = $jobOffers->isNotEmpty();
+$hasPromotion = (bool) $promotionOffer;
 @endphp
 
 <x-app-layout :hide-footer="true">
@@ -93,9 +95,40 @@ $hasPending = $jobOffers->isNotEmpty();
                         </div>
                     </div>
                 </x-section-card>
-            @elseif($hasPending)
+            @elseif($hasPending || $hasPromotion)
                 <x-section-card :title="__($firedAtSeasonEnd ? 'manager.post_firing_offers_title' : 'manager.season_offers_title')" class="mb-6">
                     <div class="p-5">
+                        {{-- Academy promotion offer (special highlight) --}}
+                        @if($hasPromotion)
+                            <div class="mb-6 p-4 rounded-xl border-2 border-accent-gold/50 bg-accent-gold/5">
+                                <div class="flex items-center gap-2 mb-3">
+                                    <svg class="w-5 h-5 text-accent-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0-3.75-3.75M17.25 21 21 17.25" />
+                                    </svg>
+                                    <h3 class="font-heading text-lg font-bold text-accent-gold uppercase tracking-wide">
+                                        {{ __('game.academy_promotion_title') }}
+                                    </h3>
+                                </div>
+                                <p class="text-sm text-text-secondary mb-4">{{ __('game.academy_promotion_desc', ['team' => $promotionOffer->team->name]) }}</p>
+                                <div class="flex flex-col sm:flex-row gap-3 items-center">
+                                    <div class="flex items-center gap-3 flex-1">
+                                        <x-team-crest :team="$promotionOffer->team" class="w-12 h-12 shrink-0" />
+                                        <div>
+                                            <div class="font-semibold text-text-primary">{{ $promotionOffer->team->name }}</div>
+                                            <div class="text-xs text-text-muted">{{ __('game.academy_promotion_subtitle') }}</div>
+                                        </div>
+                                    </div>
+                                    <form method="POST" action="{{ route('game.job-offers.accept', ['gameId' => $game->id, 'offerId' => $promotionOffer->id]) }}" x-data="{ loading: false }" @submit="loading = true">
+                                        @csrf
+                                        <x-primary-button-spin color="gold" class="px-6 py-3 font-bold">
+                                            {{ __('game.academy_promotion_accept') }}
+                                        </x-primary-button-spin>
+                                    </form>
+                                </div>
+                            </div>
+                        @endif
+
+                        @if($hasPending)
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                             @foreach($jobOffers as $offer)
                                 <x-job-offer-card
@@ -107,6 +140,7 @@ $hasPending = $jobOffers->isNotEmpty();
                                 />
                             @endforeach
                         </div>
+                        @endif
 
                         @if(!$firedAtSeasonEnd)
                             <div class="mt-6 flex justify-center">

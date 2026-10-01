@@ -33,6 +33,7 @@ class ManagerJobOffer extends Model
     public const TYPE_INITIAL = 'initial';
     public const TYPE_END_OF_SEASON = 'end_of_season';
     public const TYPE_POST_FIRING = 'post_firing';
+    public const TYPE_ACADEMY_PROMOTION = 'academy_promotion';
 
     // Statuses
     public const STATUS_PENDING = 'pending';

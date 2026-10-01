@@ -126,6 +126,7 @@ class Game extends Model
         'player_name',
         'team_id',
         'reserve_team_id',
+        'academy_career_club_id',
         'competition_id',
         'season',
         'base_season',
@@ -479,6 +480,24 @@ class Game extends Model
     public function reserveTeam(): BelongsTo
     {
         return $this->belongsTo(Team::class, 'reserve_team_id');
+    }
+
+    /**
+     * The original first-team club for an academy career (started at the
+     * lowest filial). Null for regular careers.
+     */
+    public function academyCareerClub(): BelongsTo
+    {
+        return $this->belongsTo(Team::class, 'academy_career_club_id');
+    }
+
+    /**
+     * Whether this game is an academy career (started at a filial,
+     * climbing towards the first team of the academy club).
+     */
+    public function isAcademyCareer(): bool
+    {
+        return $this->academy_career_club_id !== null;
     }
 
     /**

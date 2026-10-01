@@ -31,6 +31,7 @@ class AcceptSeasonOffer
             ->whereIn('offer_type', [
                 ManagerJobOffer::TYPE_END_OF_SEASON,
                 ManagerJobOffer::TYPE_POST_FIRING,
+                ManagerJobOffer::TYPE_ACADEMY_PROMOTION,
             ])
             ->firstOrFail();
 

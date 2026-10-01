@@ -51,100 +51,136 @@
                     </a>
                 </div>
 
-                {{-- Center: Desktop nav --}}
-                <nav class="hidden lg:flex items-center gap-0">
+                {{-- Center: Desktop nav (redesigned: icon + label, grouped dropdowns) --}}
+                <nav class="hidden lg:flex items-center gap-1">
                     @if($game->isCareerMode())
                     @php
                         $squadActive = Str::startsWith(Route::currentRouteName(), 'game.squad');
                         $squadSecondary = $game->isFilial()
-                            ? ['route' => 'game.squad.reserve', 'label' => __('squad.reserve_team')]
-                            : ['route' => 'game.squad.academy', 'label' => __('squad.academy')];
+                            ? ['route' => 'game.squad.reserve', 'label' => __('squad.reserve_team'), 'icon' => 'M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Z']
+                            : ['route' => 'game.squad.academy', 'label' => __('squad.academy'), 'icon' => 'M4.26 10.147a60.436 60.436 0 0 0-.491 6.347A48.627 48.627 0 0 1 12 20.904a48.627 48.627 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.57 50.57 0 0 0-2.658-.813A59.905 59.905 0 0 1 12 3.493a59.902 59.902 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5'];
+                        $squadItems = [
+                            ['route' => 'game.squad', 'label' => __('squad.first_team'), 'icon' => 'M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z'],
+                            ['route' => 'game.squad.planner', 'label' => __('planner.planner'), 'icon' => 'M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z'],
+                            ['route' => $squadSecondary['route'], 'label' => $squadSecondary['label'], 'icon' => $squadSecondary['icon']],
+                            ['route' => 'game.squad.registration', 'label' => __('squad.registration'), 'icon' => 'M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z'],
+                        ];
                     @endphp
                     <div class="relative" x-data="{ open: false }" @click.outside="open = false">
-                        <button type="button" @click="open = !open" class="nav-item @if($squadActive) active @endif inline-flex items-center gap-1 whitespace-nowrap px-2 py-2 text-xs font-medium uppercase tracking-wider transition-colors {{ $squadActive ? 'text-text-primary' : 'text-text-muted hover:text-text-body' }}">
+                        <button type="button" @click="open = !open" class="inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors {{ $squadActive ? 'bg-surface-700/70 text-text-primary' : 'text-text-muted hover:text-text-primary hover:bg-surface-700/40' }}">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg>
                             {{ __('app.squad') }}
-                            <svg class="w-3 h-3 transition-transform" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
+                            <svg class="w-3 h-3 opacity-60 transition-transform" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                         </button>
-                        <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="absolute left-0 z-50 mt-2 w-48 rounded-lg shadow-xl bg-surface-800 border border-border-strong" style="display: none;">
-                            <div class="py-1">
-                                <a href="{{ route('game.squad', $game->id) }}" class="block px-4 py-2 text-sm {{ Route::currentRouteName() == 'game.squad' ? 'bg-surface-700 text-text-primary font-semibold' : 'text-text-body hover:bg-surface-700 hover:text-text-primary' }}">{{ __('squad.first_team') }}</a>
-                                <a href="{{ route('game.squad.planner', $game->id) }}" class="block px-4 py-2 text-sm {{ Route::currentRouteName() == 'game.squad.planner' ? 'bg-surface-700 text-text-primary font-semibold' : 'text-text-body hover:bg-surface-700 hover:text-text-primary' }}">{{ __('planner.planner') }}</a>
-                                <a href="{{ route($squadSecondary['route'], $game->id) }}" class="block px-4 py-2 text-sm {{ Route::currentRouteName() == $squadSecondary['route'] ? 'bg-surface-700 text-text-primary font-semibold' : 'text-text-body hover:bg-surface-700 hover:text-text-primary' }}">{{ $squadSecondary['label'] }}</a>
-                                <a href="{{ route('game.squad.registration', $game->id) }}" class="block px-4 py-2 text-sm {{ Route::currentRouteName() == 'game.squad.registration' ? 'bg-surface-700 text-text-primary font-semibold' : 'text-text-body hover:bg-surface-700 hover:text-text-primary' }}">{{ __('squad.registration') }}</a>
+                        <div x-show="open" x-cloak x-transition:enter="transition ease-out duration-100" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="absolute left-0 z-50 mt-2 w-56 rounded-xl shadow-xl bg-surface-800 border border-border-strong overflow-hidden">
+                            <div class="py-1.5">
+                                @foreach($squadItems as $item)
+                                <a href="{{ route($item['route'], $game->id) }}" class="flex items-center gap-3 px-4 py-2.5 text-sm transition-colors {{ Route::currentRouteName() == $item['route'] ? 'bg-purple-600/15 text-text-primary font-semibold' : 'text-text-body hover:bg-surface-700' }}">
+                                    <svg class="w-4.5 h-4.5 w-[18px] h-[18px] shrink-0 {{ Route::currentRouteName() == $item['route'] ? 'text-purple-400' : 'text-text-muted' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="{{ $item['icon'] }}"/></svg>
+                                    {{ $item['label'] }}
+                                </a>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                     @else
-                    <a href="{{ route('game.squad', $game->id) }}" class="nav-item @if(Str::startsWith(Route::currentRouteName(), 'game.squad')) active @endif whitespace-nowrap px-2 py-2 text-xs font-medium uppercase tracking-wider {{ Str::startsWith(Route::currentRouteName(), 'game.squad') ? 'text-text-primary' : 'text-text-muted hover:text-text-body' }}">{{ __('app.squad') }}</a>
+                    <a href="{{ route('game.squad', $game->id) }}" class="inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors {{ Str::startsWith(Route::currentRouteName(), 'game.squad') ? 'bg-surface-700/70 text-text-primary' : 'text-text-muted hover:text-text-primary hover:bg-surface-700/40' }}">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg>
+                        {{ __('app.squad') }}
+                    </a>
                     @if($game->team->type === 'national')
-                    <a href="{{ route('game.national-squad-picker', $game->id) }}" class="nav-item @if(Route::currentRouteName() == 'game.national-squad-picker') active @endif whitespace-nowrap px-2 py-2 text-xs font-medium uppercase tracking-wider {{ Route::currentRouteName() == 'game.national-squad-picker' ? 'text-text-primary' : 'text-text-muted hover:text-text-body' }}">{{ __('game.convocatoria') }}</a>
+                    <a href="{{ route('game.national-squad-picker', $game->id) }}" class="inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors {{ Route::currentRouteName() == 'game.national-squad-picker' ? 'bg-surface-700/70 text-text-primary' : 'text-text-muted hover:text-text-primary hover:bg-surface-700/40' }}">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0-3.75-3.75M17.25 21 21 17.25"/></svg>
+                        {{ __('game.convocatoria') }}
+                    </a>
                     @endif
                     @endif
                     @if($nextMatch)
-                    <a href="{{ route('game.lineup', $game->id) }}" class="nav-item @if(Route::currentRouteName() == 'game.lineup') active @endif whitespace-nowrap px-2 py-2 text-xs font-medium uppercase tracking-wider {{ Route::currentRouteName() == 'game.lineup' ? 'text-text-primary' : 'text-text-muted hover:text-text-body' }}">{{ __('app.starting_xi') }}</a>
+                    <a href="{{ route('game.lineup', $game->id) }}" class="inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors {{ Route::currentRouteName() == 'game.lineup' ? 'bg-surface-700/70 text-text-primary' : 'text-text-muted hover:text-text-primary hover:bg-surface-700/40' }}">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"/></svg>
+                        {{ __('app.starting_xi') }}
+                    </a>
                     @endif
                     @if($game->isCareerMode())
                     @php
                         $clubRoutes = ['game.club', 'game.club.finances', 'game.club.investment', 'game.club.stadium', 'game.club.commercial', 'game.club.reputation'];
                         $clubActive = in_array(Route::currentRouteName(), $clubRoutes);
+                        $clubItems = [
+                            ['route' => 'game.club.finances', 'label' => __('club.nav.finances'), 'icon' => 'M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z'],
+                            ['route' => 'game.club.investment', 'label' => __('club.nav.investment'), 'icon' => 'M2.25 18 13.5 6.75a1.5 1.5 0 0 1 2.122 0l3.628 3.628a1.5 1.5 0 0 1 0 2.122L6.75 21H3v-3.75L18.75 2.25M2.25 18l3.628-3.628'],
+                            ['route' => 'game.club.stadium', 'label' => __('club.nav.stadium'), 'icon' => 'M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21'],
+                            ['route' => 'game.club.commercial', 'label' => __('club.nav.commercial'), 'icon' => 'M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z'],
+                            ['route' => 'game.club.reputation', 'label' => __('club.nav.reputation'), 'icon' => 'M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18.75 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L22.5 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z'],
+                        ];
                     @endphp
                     <div class="relative" x-data="{ open: false }" @click.outside="open = false">
-                        <button type="button" @click="open = !open" class="nav-item @if($clubActive) active @endif inline-flex items-center gap-1 whitespace-nowrap px-2 py-2 text-xs font-medium uppercase tracking-wider transition-colors {{ $clubActive ? 'text-text-primary' : 'text-text-muted hover:text-text-body' }}">
+                        <button type="button" @click="open = !open" class="inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors {{ $clubActive ? 'bg-surface-700/70 text-text-primary' : 'text-text-muted hover:text-text-primary hover:bg-surface-700/40' }}">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"/></svg>
                             {{ __('app.club') }}
-                            <svg class="w-3 h-3 transition-transform" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
+                            <svg class="w-3 h-3 opacity-60 transition-transform" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                         </button>
-                        <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="absolute left-0 z-50 mt-2 w-48 rounded-lg shadow-xl bg-surface-800 border border-border-strong" style="display: none;">
-                            <div class="py-1">
-                                <a href="{{ route('game.club.finances', $game->id) }}" class="block px-4 py-2 text-sm {{ Route::currentRouteName() == 'game.club.finances' ? 'bg-surface-700 text-text-primary font-semibold' : 'text-text-body hover:bg-surface-700 hover:text-text-primary' }}">{{ __('club.nav.finances') }}</a>
-                                <a href="{{ route('game.club.investment', $game->id) }}" class="block px-4 py-2 text-sm {{ Route::currentRouteName() == 'game.club.investment' ? 'bg-surface-700 text-text-primary font-semibold' : 'text-text-body hover:bg-surface-700 hover:text-text-primary' }}">{{ __('club.nav.investment') }}</a>
-                                <a href="{{ route('game.club.stadium', $game->id) }}" class="block px-4 py-2 text-sm {{ Route::currentRouteName() == 'game.club.stadium' ? 'bg-surface-700 text-text-primary font-semibold' : 'text-text-body hover:bg-surface-700 hover:text-text-primary' }}">{{ __('club.nav.stadium') }}</a>
-                                <a href="{{ route('game.club.commercial', $game->id) }}" class="block px-4 py-2 text-sm {{ Route::currentRouteName() == 'game.club.commercial' ? 'bg-surface-700 text-text-primary font-semibold' : 'text-text-body hover:bg-surface-700 hover:text-text-primary' }}">{{ __('club.nav.commercial') }}</a>
-                                <a href="{{ route('game.club.reputation', $game->id) }}" class="block px-4 py-2 text-sm {{ Route::currentRouteName() == 'game.club.reputation' ? 'bg-surface-700 text-text-primary font-semibold' : 'text-text-body hover:bg-surface-700 hover:text-text-primary' }}">{{ __('club.nav.reputation') }}</a>
+                        <div x-show="open" x-cloak x-transition:enter="transition ease-out duration-100" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="absolute left-0 z-50 mt-2 w-56 rounded-xl shadow-xl bg-surface-800 border border-border-strong overflow-hidden">
+                            <div class="py-1.5">
+                                @foreach($clubItems as $item)
+                                <a href="{{ route($item['route'], $game->id) }}" class="flex items-center gap-3 px-4 py-2.5 text-sm transition-colors {{ Route::currentRouteName() == $item['route'] ? 'bg-purple-600/15 text-text-primary font-semibold' : 'text-text-body hover:bg-surface-700' }}">
+                                    <svg class="w-[18px] h-[18px] shrink-0 {{ Route::currentRouteName() == $item['route'] ? 'text-purple-400' : 'text-text-muted' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="{{ $item['icon'] }}"/></svg>
+                                    {{ $item['label'] }}
+                                </a>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                     @php
                         $transfersRoutes = ['game.transfers', 'game.transfers.outgoing', 'game.scouting', 'game.scouting.results', 'game.explore', 'game.explore.teams', 'game.explore.squad', 'game.explore.pool-teams', 'game.transfers.market'];
                         $transfersActive = in_array(Route::currentRouteName(), $transfersRoutes);
+                        $transferItems = [
+                            ['route' => 'game.transfers', 'label' => __('transfers.incoming'), 'icon' => 'M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0-3.75-3.75M17.25 21 21 17.25', 'match' => ['game.transfers']],
+                            ['route' => 'game.transfers.outgoing', 'label' => __('transfers.outgoing'), 'icon' => 'M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0-3.75-3.75M17.25 21 21 17.25', 'match' => ['game.transfers.outgoing']],
+                            ['route' => 'game.scouting', 'label' => __('transfers.scouting_tab'), 'icon' => 'M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z', 'match' => ['game.scouting', 'game.scouting.results']],
+                            ['route' => 'game.explore', 'label' => __('transfers.explore_tab'), 'icon' => 'M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5a11.964 11.964 0 0 1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-2.632 0-5.152-.577-7.416-1.626m0 0A12.04 12.04 0 0 1 3 12c0-.778.099-1.533.284-2.253', 'match' => ['game.explore', 'game.explore.teams', 'game.explore.squad', 'game.explore.pool-teams']],
+                            ['route' => 'game.transfers.market', 'label' => __('transfers.market_tab'), 'icon' => 'M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72L4.318 3.44A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72m-13.5 8.615c0 .331.27.6.6.6h3.6a.6.6 0 0 0 .6-.6v-1.2a.6.6 0 0 0-.6-.6h-3.6a.6.6 0 0 0-.6.6v1.2Z', 'match' => ['game.transfers.market']],
+                        ];
                     @endphp
                     <div class="relative" x-data="{ open: false }" @click.outside="open = false">
-                        <button type="button" @click="open = !open" class="nav-item @if($transfersActive) active @endif inline-flex items-center gap-1 whitespace-nowrap px-2 py-2 text-xs font-medium uppercase tracking-wider transition-colors {{ $transfersActive ? 'text-text-primary' : 'text-text-muted hover:text-text-body' }}">
+                        <button type="button" @click="open = !open" class="inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors {{ $transfersActive ? 'bg-surface-700/70 text-text-primary' : 'text-text-muted hover:text-text-primary hover:bg-surface-700/40' }}">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/></svg>
                             {{ __('app.transfers') }}
-                            <svg class="w-3 h-3 transition-transform" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
+                            <svg class="w-3 h-3 opacity-60 transition-transform" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                         </button>
-                        <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="absolute left-0 z-50 mt-2 w-48 rounded-lg shadow-xl bg-surface-800 border border-border-strong" style="display: none;">
-                            <div class="py-1">
-                                <a href="{{ route('game.transfers', $game->id) }}" class="block px-4 py-2 text-sm {{ Route::currentRouteName() == 'game.transfers' ? 'bg-surface-700 text-text-primary font-semibold' : 'text-text-body hover:bg-surface-700 hover:text-text-primary' }}">{{ __('transfers.incoming') }}</a>
-                                <a href="{{ route('game.transfers.outgoing', $game->id) }}" class="block px-4 py-2 text-sm {{ Route::currentRouteName() == 'game.transfers.outgoing' ? 'bg-surface-700 text-text-primary font-semibold' : 'text-text-body hover:bg-surface-700 hover:text-text-primary' }}">{{ __('transfers.outgoing') }}</a>
-                                <a href="{{ route('game.scouting', $game->id) }}" class="block px-4 py-2 text-sm {{ Str::startsWith(Route::currentRouteName(), 'game.scouting') ? 'bg-surface-700 text-text-primary font-semibold' : 'text-text-body hover:bg-surface-700 hover:text-text-primary' }}">{{ __('transfers.scouting_tab') }}</a>
-                                <a href="{{ route('game.explore', $game->id) }}" class="block px-4 py-2 text-sm {{ Str::startsWith(Route::currentRouteName(), 'game.explore') ? 'bg-surface-700 text-text-primary font-semibold' : 'text-text-body hover:bg-surface-700 hover:text-text-primary' }}">{{ __('transfers.explore_tab') }}</a>
-                                <a href="{{ route('game.transfers.market', $game->id) }}" class="block px-4 py-2 text-sm {{ Route::currentRouteName() == 'game.transfers.market' ? 'bg-surface-700 text-text-primary font-semibold' : 'text-text-body hover:bg-surface-700 hover:text-text-primary' }}">{{ __('transfers.market_tab') }}</a>
+                        <div x-show="open" x-cloak x-transition:enter="transition ease-out duration-100" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="absolute left-0 z-50 mt-2 w-56 rounded-xl shadow-xl bg-surface-800 border border-border-strong overflow-hidden">
+                            <div class="py-1.5">
+                                @foreach($transferItems as $item)
+                                @php $isActive = in_array(Route::currentRouteName(), $item['match']); @endphp
+                                <a href="{{ route($item['route'], $game->id) }}" class="flex items-center gap-3 px-4 py-2.5 text-sm transition-colors {{ $isActive ? 'bg-purple-600/15 text-text-primary font-semibold' : 'text-text-body hover:bg-surface-700' }}">
+                                    <svg class="w-[18px] h-[18px] shrink-0 {{ $isActive ? 'text-purple-400' : 'text-text-muted' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="{{ $item['icon'] }}"/></svg>
+                                    {{ $item['label'] }}
+                                </a>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                     @endif
-                    <a href="{{ route('game.calendar', $game->id) }}" class="nav-item @if(Route::currentRouteName() == 'game.calendar') active @endif whitespace-nowrap px-2 py-2 text-xs font-medium uppercase tracking-wider {{ Route::currentRouteName() == 'game.calendar' ? 'text-text-primary' : 'text-text-muted hover:text-text-body' }}">{{ __('app.calendar') }}</a>
+                    <a href="{{ route('game.calendar', $game->id) }}" class="inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors {{ Route::currentRouteName() == 'game.calendar' ? 'bg-surface-700/70 text-text-primary' : 'text-text-muted hover:text-text-primary hover:bg-surface-700/40' }}">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"/></svg>
+                        {{ __('app.calendar') }}
+                    </a>
                     @if($game->isTournamentMode() && $teamCompetitions->isNotEmpty())
-                    <a href="{{ route('game.competition', [$game->id, $teamCompetitions[0]->id]) }}" class="nav-item @if(Route::currentRouteName() == 'game.competition') active @endif whitespace-nowrap px-2 py-2 text-xs font-medium uppercase tracking-wider {{ Route::currentRouteName() == 'game.competition' ? 'text-text-primary' : 'text-text-muted hover:text-text-body' }}">{{ __('game.standings') }}</a>
+                    <a href="{{ route('game.competition', [$game->id, $teamCompetitions[0]->id]) }}" class="inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors {{ Route::currentRouteName() == 'game.competition' ? 'bg-surface-700/70 text-text-primary' : 'text-text-muted hover:text-text-primary hover:bg-surface-700/40' }}">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 0 0 7.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 0 0 2.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.228a6.003 6.003 0 0 1-5.415 5.002"/></svg>
+                        {{ __('game.standings') }}
+                    </a>
                     @else
                     <div class="relative" x-data="{ open: false }" @click.outside="open = false">
-                        <button type="button" @click="open = !open" class="nav-item @if(Route::currentRouteName() == 'game.competition') active @endif inline-flex items-center gap-1 whitespace-nowrap px-2 py-2 text-xs font-medium uppercase tracking-wider transition-colors {{ Route::currentRouteName() == 'game.competition' ? 'text-text-primary' : 'text-text-muted hover:text-text-body' }}">
+                        <button type="button" @click="open = !open" class="inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors {{ Route::currentRouteName() == 'game.competition' ? 'bg-surface-700/70 text-text-primary' : 'text-text-muted hover:text-text-primary hover:bg-surface-700/40' }}">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 0 0 7.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 0 0 2.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.228a6.003 6.003 0 0 1-5.415 5.002"/></svg>
                             {{ __('app.competitions') }}
-                            <svg class="w-3 h-3 transition-transform" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                            </svg>
+                            <svg class="w-3 h-3 opacity-60 transition-transform" :class="{ 'rotate-180': open }" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
                         </button>
-                        <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="absolute left-0 z-50 mt-2 w-48 rounded-lg shadow-xl bg-surface-800 border border-border-strong" style="display: none;">
-                            <div class="py-1">
+                        <div x-show="open" x-cloak x-transition:enter="transition ease-out duration-100" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="absolute left-0 z-50 mt-2 w-60 rounded-xl shadow-xl bg-surface-800 border border-border-strong overflow-hidden">
+                            <div class="py-1.5">
                                 @foreach($teamCompetitions as $competition)
-                                <a href="{{ route('game.competition', [$game->id, $competition->id]) }}" class="flex items-center gap-2.5 px-4 py-2 text-sm text-text-body hover:bg-surface-700 hover:text-text-primary @if(request()->route('competitionId') == $competition->id) bg-surface-700 text-text-primary font-semibold @endif">
-                                    <x-competition-logo :competition="$competition" class="w-6 h-6 shrink-0" />
+                                <a href="{{ route('game.competition', [$game->id, $competition->id]) }}" class="flex items-center gap-3 px-4 py-2.5 text-sm transition-colors {{ request()->route('competitionId') == $competition->id ? 'bg-purple-600/15 text-text-primary font-semibold' : 'text-text-body hover:bg-surface-700' }}">
+                                    <x-competition-logo :competition="$competition" class="w-6 h-6 shrink-0 rounded" />
                                     <span class="truncate">{{ __($competition->name) }}</span>
                                 </a>
                                 @endforeach
@@ -153,7 +189,10 @@
                     </div>
                     @endif
                     @if($game->isProManagerMode())
-                    <a href="{{ route('game.manager.career', $game->id) }}" class="nav-item @if(Route::currentRouteName() == 'game.manager.career') active @endif whitespace-nowrap px-2 py-2 text-xs font-medium uppercase tracking-wider {{ Route::currentRouteName() == 'game.manager.career' ? 'text-text-primary' : 'text-text-muted hover:text-text-body' }}">{{ __('manager.career_title') }}</a>
+                    <a href="{{ route('game.manager.career', $game->id) }}" class="inline-flex items-center gap-1.5 whitespace-nowrap px-3 py-2 rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors {{ Route::currentRouteName() == 'game.manager.career' ? 'bg-surface-700/70 text-text-primary' : 'text-text-muted hover:text-text-primary hover:bg-surface-700/40' }}">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0"/></svg>
+                        {{ __('manager.career_title') }}
+                    </a>
                     @endif
                 </nav>
 

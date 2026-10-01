@@ -158,6 +158,8 @@ return [
     'career_mode_requires_invite' => '¡Club Manager y Pro Manager requieren invitación. Juega el Mundial gratis!',
     'tournament_mode_requires_access' => 'El modo torneo requiere acceso. Contacta con un administrador para empezar.',
     'invalid_pro_manager_team' => 'Elige uno de los clubes mostrados — Pro Manager empieza en Primera Federación.',
+    'invalid_academy_club' => 'El club de cantera seleccionado no es válido.',
+    'club_has_no_filial' => 'Este club no tiene filial disponible.',
 
     // Pre-match confirmation
     'pre_match_title' => 'Previa del Partido',

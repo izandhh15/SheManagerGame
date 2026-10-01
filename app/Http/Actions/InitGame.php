@@ -3,11 +3,13 @@
 namespace App\Http\Actions;
 
 use App\Models\ActivationEvent;
+use App\Modules\Manager\Services\AcademyCareerService;
 use App\Modules\Manager\Services\JobOfferService;
 use App\Modules\Season\Services\ActivationTracker;
 use App\Modules\Season\Services\GameCreationService;
 use App\Modules\Season\Services\TournamentCreationService;
 use App\Models\Game;
+use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Validation\Rule;
@@ -19,6 +21,7 @@ class InitGame
         private readonly TournamentCreationService $tournamentCreationService,
         private readonly ActivationTracker $activationTracker,
         private readonly JobOfferService $jobOfferService,
+        private readonly AcademyCareerService $academyCareerService,
     ) {}
 
     public function __invoke(Request $request)
@@ -36,8 +39,9 @@ class InitGame
         }
 
         $request->validate([
-            'team_id' => ['required', 'uuid'],
+            'team_id' => ['required_without:academy_club_id', 'nullable', 'uuid'],
             'game_mode' => ['sometimes', Rule::in([Game::MODE_CAREER, Game::MODE_TOURNAMENT, Game::MODE_CAREER_PRO])],
+            'academy_club_id' => ['sometimes', 'nullable', 'uuid'],
         ]);
 
         $gameMode = $request->get('game_mode', Game::MODE_CAREER);
@@ -56,19 +60,46 @@ class InitGame
                 return back()->withErrors(['game_mode' => __('messages.career_mode_requires_invite')]);
             }
 
-            // Server-side check that the submitted team is in the Local-tier
-            // Primera RFEF pool — without this, a crafted POST could start a
-            // Pro Manager career at any club, bypassing the entry-tier
-            // constraint the end-of-season ladder is built on.
-            if (! $this->jobOfferService->eligibleProManagerStartingTeamIds()->contains($request->get('team_id'))) {
-                return back()->withErrors(['team_id' => __('messages.invalid_pro_manager_team')]);
+            // Academy career: the user picks a CLUB (e.g. FC Barcelona) and
+            // starts at its lowest filial (e.g. Barça C). The club id comes
+            // in as academy_club_id; we resolve the lowest filial here.
+            $academyClubId = $request->get('academy_club_id');
+            $academyCareerClubId = null;
+            $teamId = $request->get('team_id');
+
+            if ($academyClubId) {
+                $club = Team::find($academyClubId);
+                if (!$club || $club->isReserveTeam()) {
+                    return back()->withErrors(['academy_club_id' => __('messages.invalid_academy_club')]);
+                }
+
+                $lowestFilial = $this->academyCareerService->findLowestFilial($club);
+                if (!$lowestFilial) {
+                    return back()->withErrors(['academy_club_id' => __('messages.club_has_no_filial')]);
+                }
+
+                $teamId = $lowestFilial->id;
+                $academyCareerClubId = $club->id;
+            } else {
+                // Server-side check that the submitted team is in the Local-tier
+                // Primera RFEF pool — without this, a crafted POST could start a
+                // Pro Manager career at any club, bypassing the entry-tier
+                // constraint the end-of-season ladder is built on.
+                if (! $this->jobOfferService->eligibleProManagerStartingTeamIds()->contains($teamId)) {
+                    return back()->withErrors(['team_id' => __('messages.invalid_pro_manager_team')]);
+                }
             }
 
             $game = $this->gameCreationService->create(
                 userId: (string) $request->user()->id,
-                teamId: $request->get('team_id'),
+                teamId: $teamId,
                 gameMode: Game::MODE_CAREER_PRO,
             );
+
+            // Mark as academy career if applicable
+            if ($academyCareerClubId) {
+                $game->update(['academy_career_club_id' => $academyCareerClubId]);
+            }
 
             $this->activationTracker->record($request->user()->id, ActivationEvent::EVENT_GAME_CREATED, $game->id, Game::MODE_CAREER_PRO);
 

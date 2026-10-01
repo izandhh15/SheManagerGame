@@ -224,18 +224,64 @@
                 {{-- ===================== PRO MANAGER MODE: 3 random Primera RFEF clubs ===================== --}}
                 @if($hasCareerAccess && $proManagerTeams->isNotEmpty())
                     <div x-show="mode === 'career_pro'" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
-                        <p class="text-sm text-text-secondary mb-4">{{ __('game.pro_manager_pick_intro') }}</p>
-                        <div class="grid grid-cols-2 lg:grid-cols-4 gap-2">
-                            @foreach($proManagerTeams as $team)
-                                <label class="flex items-center gap-2 md:gap-3 rounded-lg border border-border-default p-2 md:p-4 cursor-pointer transition-all
-                                               hover:bg-accent-blue/5 hover:border-accent-blue/30
-                                               has-checked:ring-2 has-checked:ring-accent-blue has-checked:border-accent-blue/30 has-checked:bg-accent-blue/5">
-                                    <x-team-crest :team="$team" class="w-7 h-7 md:w-10 md:h-10 shrink-0" />
-                                    <span class="text-xs md:text-base font-medium text-text-body truncate">{{ $team->name }}</span>
-                                    <input x-bind:required="mode === 'career_pro'" x-bind:disabled="mode !== 'career_pro'"
-                                           type="radio" name="team_id" value="{{ $team->id }}" class="hidden">
-                                </label>
-                            @endforeach
+                        <div x-data="{ proStart: 'scratch' }">
+                            {{-- Toggle: start from scratch vs academy career --}}
+                            <div class="flex gap-2 mb-4">
+                                <button type="button" @click="proStart = 'scratch'"
+                                        :class="proStart === 'scratch' ? 'bg-accent-blue/15 text-accent-blue border-accent-blue/40' : 'border-border-strong text-text-muted hover:text-text-body'"
+                                        class="px-4 py-2 rounded-lg border text-sm font-semibold transition-colors">
+                                    {{ __('game.pro_start_scratch') }}
+                                </button>
+                                <button type="button" @click="proStart = 'academy'"
+                                        :class="proStart === 'academy' ? 'bg-accent-blue/15 text-accent-blue border-accent-blue/40' : 'border-border-strong text-text-muted hover:text-text-body'"
+                                        class="px-4 py-2 rounded-lg border text-sm font-semibold transition-colors">
+                                    {{ __('game.pro_start_academy') }}
+                                </button>
+                            </div>
+
+                            {{-- Option 1: 4 random Primera RFEF teams --}}
+                            <div x-show="proStart === 'scratch'">
+                                <p class="text-sm text-text-secondary mb-4">{{ __('game.pro_manager_pick_intro') }}</p>
+                                <div class="grid grid-cols-2 lg:grid-cols-4 gap-2">
+                                    @foreach($proManagerTeams as $team)
+                                        <label class="flex items-center gap-2 md:gap-3 rounded-lg border border-border-default p-2 md:p-4 cursor-pointer transition-all
+                                                       hover:bg-accent-blue/5 hover:border-accent-blue/30
+                                                       has-checked:ring-2 has-checked:ring-accent-blue has-checked:border-accent-blue/30 has-checked:bg-accent-blue/5">
+                                            <x-team-crest :team="$team" class="w-7 h-7 md:w-10 md:h-10 shrink-0" />
+                                            <span class="text-xs md:text-base font-medium text-text-body truncate">{{ $team->name }}</span>
+                                            <input x-bind:required="mode === 'career_pro' && proStart === 'scratch'" x-bind:disabled="mode !== 'career_pro' || proStart !== 'scratch'"
+                                                   type="radio" name="team_id" value="{{ $team->id }}" class="hidden">
+                                        </label>
+                                    @endforeach
+                                </div>
+                            </div>
+
+                            {{-- Option 2: Academy career — pick a CLUB, start at its lowest filial --}}
+                            <div x-show="proStart === 'academy'" x-cloak>
+                                <p class="text-sm text-text-secondary mb-4">{{ __('game.academy_pick_intro') }}</p>
+                                @if($academyClubs->isNotEmpty())
+                                <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 max-h-[420px] overflow-y-auto pr-1">
+                                    @foreach($academyClubs as $item)
+                                        <label class="flex items-center gap-2 md:gap-3 rounded-lg border border-border-default p-2 md:p-4 cursor-pointer transition-all
+                                                       hover:bg-accent-blue/5 hover:border-accent-blue/30
+                                                       has-checked:ring-2 has-checked:ring-accent-blue has-checked:border-accent-blue/30 has-checked:bg-accent-blue/5">
+                                            <x-team-crest :team="$item['team']" class="w-7 h-7 md:w-10 md:h-10 shrink-0" />
+                                            <span class="min-w-0">
+                                                <span class="block text-xs md:text-base font-medium text-text-body truncate">{{ $item['team']->name }}</span>
+                                                @if($item['academy_nickname'])
+                                                <span class="block text-[10px] md:text-xs text-accent-blue truncate">{{ $item['academy_nickname'] }}</span>
+                                                @endif
+                                                <span class="block text-[10px] md:text-xs text-text-muted truncate">{{ __('game.academy_start_at') }}: {{ $item['lowest_filial']->name }}</span>
+                                            </span>
+                                            <input x-bind:required="mode === 'career_pro' && proStart === 'academy'" x-bind:disabled="mode !== 'career_pro' || proStart !== 'academy'"
+                                                   type="radio" name="academy_club_id" value="{{ $item['team']->id }}" class="hidden">
+                                        </label>
+                                    @endforeach
+                                </div>
+                                @else
+                                <p class="text-sm text-text-muted">{{ __('game.no_academy_clubs') }}</p>
+                                @endif
+                            </div>
                         </div>
                     </div>
                 @endif
