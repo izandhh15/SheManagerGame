@@ -6,6 +6,15 @@ if ($token !== 'TEMP_OPS_20261001_FC27') {
     exit('Not found');
 }
 
+// Catch engine-level fatals (parse errors, OOM, timeouts) that escape try/catch.
+register_shutdown_function(function () {
+    $e = error_get_last();
+    if ($e && in_array($e['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR, E_RECOVERABLE_ERROR], true)) {
+        header('Content-Type: text/plain');
+        echo "\nFATAL [{$e['type']}]: {$e['message']} in {$e['file']}:{$e['line']}\n";
+    }
+});
+
 require __DIR__ . '/../vendor/autoload.php';
 $app = require __DIR__ . '/../bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
