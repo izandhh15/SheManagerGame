@@ -39,8 +39,9 @@ if ($mode === 'health') {
     exit;
 }
 if ($mode === 'log') {
-    $log = '/data/logs/laravel.log';
-    if (!is_file($log)) { echo "SIN LOG en $log\n"; exit; }
+    $log = '/data/logs/laravel-'.date('Y-m-d').'.log';
+    if (!is_file($log)) { $log = '/data/logs/laravel.log'; }
+    if (!is_file($log)) { echo "SIN LOG\n"; exit; }
     $lines = file($log);
     echo "LOG: $log (".count($lines)." lineas)\n";
     echo "=== ULTIMAS 120 LINEAS ===\n";
