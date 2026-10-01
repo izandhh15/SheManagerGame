@@ -4,7 +4,8 @@ if (($_GET['token'] ?? '') !== 'dbg-lineup-20261001') { http_response_code(403);
 
 require __DIR__.'/../vendor/autoload.php';
 $app = require __DIR__.'/../bootstrap/app.php';
-$kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
+$kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
+$kernel->bootstrap();
 
 $gameId = $_GET['game'] ?? '2ed63cd6-68df-47c8-b439-bc59db750f1d';
 
