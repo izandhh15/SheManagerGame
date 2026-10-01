@@ -204,7 +204,16 @@ class MatchFinalizationService
             return;
         }
 
-        $game->update(['current_date' => $nextMatch->scheduled_date->toDateString()]);
+        $nextDateStr = $nextMatch->scheduled_date->toDateString();
+
+        // Skip if the date is already at (or past) the next match — prevents
+        // double-dispatching GameDateAdvanced when called twice in
+        // dispatchPostFinalizeEffects (steps 3 and 5).
+        if ($game->current_date->toDateString() === $nextDateStr) {
+            return;
+        }
+
+        $game->update(['current_date' => $nextDateStr]);
         $game->refresh();
 
         if ($nextMatch->scheduled_date->gt($previousDate)) {
