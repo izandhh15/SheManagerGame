@@ -3,8 +3,10 @@
 namespace App\Modules\Transfer\Services;
 
 use App\Models\ClubProfile;
+use App\Models\Competition;
 use App\Models\Game;
 use App\Models\GamePlayer;
+use App\Models\GameStanding;
 use App\Models\GameTransfer;
 use App\Models\Team;
 use App\Models\TeamReputation;
@@ -34,7 +36,7 @@ class AITransferMarketService
     private const CLEARING_CHANCE = 65;
 
     /** Chance of foreign departure when no domestic buyer is found */
-    private const FOREIGN_FALLBACK_CHANCE = 50;
+    private const FOREIGN_FALLBACK_CHANCE = 25;
 
     /**
      * Ideal squad depth per position group lives on SquadNeedService — the
@@ -123,6 +125,7 @@ class AITransferMarketService
             'alreadyTransferredSet' => $alreadyTransferredSet,
             'completedFinancials' => $completedFinancials,
             'reputationLevels' => $reputationLevels,
+            'teamLeagueMap' => $teamLeagueMap,
         ] = $this->loadTransferContext($game, $window);
 
         // Build budgets with monetary envelopes via the calculator
@@ -153,7 +156,7 @@ class AITransferMarketService
         $this->processAITransfers(
             $game, $window, $teamRosters, $teamAverages, $teams,
             $takenNumbers, $playerUpdates, $transferInserts,
-            $teamBudgets, $alreadyTransferredSet, $batchTeamIds
+            $teamBudgets, $alreadyTransferredSet, $batchTeamIds, $teamLeagueMap
         );
 
         $this->flushBatchedOperations($playerUpdates, $transferInserts);
@@ -177,6 +180,7 @@ class AITransferMarketService
             'windowTransfers' => $windowTransfers,
             'completedFinancials' => $completedFinancials,
             'reputationLevels' => $reputationLevels,
+            'teamLeagueMap' => $teamLeagueMap,
         ] = $this->loadTransferContext($game, $window);
 
         $playerUpdates = [];
@@ -197,7 +201,7 @@ class AITransferMarketService
         $transferCount = $this->processAITransfers(
             $game, $window, $teamRosters, $teamAverages, $teams,
             $takenNumbers, $playerUpdates, $transferInserts,
-            $teamBudgets, $alreadyTransferredSet
+            $teamBudgets, $alreadyTransferredSet, null, $teamLeagueMap
         );
 
         // Flush all batched operations
@@ -323,6 +327,7 @@ class AITransferMarketService
                 $teamAverages, $takenNumbers, $seasonYear,
                 $playerUpdates, $transferInserts, $signings, $newSeason,
                 reputationLevels: $reputationLevels,
+                teams: $teams,
             );
 
             if ($signed) {
@@ -350,6 +355,7 @@ class AITransferMarketService
                 $playerUpdates, $transferInserts, $signings, $newSeason,
                 specificAgent: $fa,
                 reputationLevels: $reputationLevels,
+                teams: $teams,
             );
 
             if ($signed) {
@@ -593,6 +599,7 @@ class AITransferMarketService
         Collection $teamBudgets,
         array $alreadyTransferredSet,
         ?Collection $teamFilter = null,
+        array $teamLeagueMap = [],
     ): int {
         // Load reputation data for all AI teams
         $teamReputations = $this->loadTeamReputations($game, $teamRosters);
@@ -659,8 +666,8 @@ class AITransferMarketService
 
             // Find a buyer based on transfer type
             $buyer = $transferType === 'clearing'
-                ? $this->findClearingBuyer($player, $sellerTeamId, $teamRosters, $teamAverages, $teamReputations, $teamBudgets, $groupCounts, $teamSizeDeltas, $game, $teams)
-                : $this->findUpgradeBuyer($player, $sellerTeamId, $teamRosters, $teamAverages, $teamReputations, $teamBudgets, $groupCounts, $teamSizeDeltas, $game, $teams);
+                ? $this->findClearingBuyer($player, $sellerTeamId, $teamRosters, $teamAverages, $teamReputations, $teamBudgets, $groupCounts, $teamSizeDeltas, $game, $teams, $teamLeagueMap)
+                : $this->findUpgradeBuyer($player, $sellerTeamId, $teamRosters, $teamAverages, $teamReputations, $teamBudgets, $groupCounts, $teamSizeDeltas, $game, $teams, $teamLeagueMap);
 
             if ($buyer) {
                 $buyerTeamId = $buyer['teamId'];
@@ -930,9 +937,10 @@ class AITransferMarketService
 
         // Elite and continental clubs don't sell core players upward — there's
         // no larger domestic buyer. They only let a star go when renewal has
-        // failed and the contract is running out.
-        // (This service uses an inverted scale: 2=elite, 3=continental.)
-        if ($importance >= 0.60 && $teamRepIndex <= 3 && $yearsLeft > 1) {
+        // failed and the contract is running out. (This service uses an
+        // inverted scale: 0=elite, 1=continental, 2=established, 3=modest,
+        // 4=local.)
+        if ($importance >= 0.60 && $teamRepIndex <= 1 && $yearsLeft > 1) {
             return null;
         }
 
@@ -1002,6 +1010,107 @@ class AITransferMarketService
     }
 
     /**
+     * Build a team_id → league info map for this game, used to make the AI
+     * transfer market prefer local moves: same league, neighbouring leagues
+     * at the same level, and adjacent tiers (e.g. Liga F shopping in
+     * Primera RFEF). Source is the game's own standings, so promotions and
+     * relegations are reflected automatically.
+     *
+     * @return array<string, array{competition_id: string, tier: ?int, country: ?string, position: ?int, top_half: bool}>
+     */
+    private function buildTeamLeagueMap(Game $game): array
+    {
+        $competitions = Competition::where('role', Competition::ROLE_LEAGUE)
+            ->where('scope', Competition::SCOPE_DOMESTIC)
+            ->get(['id', 'tier', 'country'])
+            ->keyBy('id');
+
+        if ($competitions->isEmpty()) {
+            return [];
+        }
+
+        $rows = GameStanding::where('game_id', $game->id)
+            ->whereIn('competition_id', $competitions->keys())
+            ->get(['team_id', 'competition_id', 'position']);
+
+        $leagueSizes = $rows->groupBy('competition_id')->map->count();
+
+        $map = [];
+        foreach ($rows as $row) {
+            // A team should only play in one domestic league; keep the first
+            // row if the data ever contains duplicates.
+            if (isset($map[$row->team_id])) {
+                continue;
+            }
+
+            $competition = $competitions->get($row->competition_id);
+            if (! $competition) {
+                continue;
+            }
+
+            $size = $leagueSizes->get($row->competition_id, 0);
+            $position = $row->position !== null ? (int) $row->position : null;
+
+            $map[$row->team_id] = [
+                'competition_id' => $row->competition_id,
+                'tier' => $competition->tier !== null ? (int) $competition->tier : null,
+                'country' => $competition->country,
+                'position' => $position,
+                'top_half' => $position !== null && $size > 0 && $position <= (int) ceil($size / 2),
+            ];
+        }
+
+        return $map;
+    }
+
+    /**
+     * Score how "local" a move is, so AI clubs sign the way real clubs do:
+     * mostly from their own league, then from neighbouring leagues and
+     * adjacent tiers — a Liga F club shops in Liga F or at the top of
+     * Primera RFEF, not at random across the continent.
+     */
+    private function marketProximityScore(?array $buyerLeague, ?array $sellerLeague): int
+    {
+        if ($buyerLeague === null || $sellerLeague === null) {
+            return 0;
+        }
+
+        // Same league: the most common real-world move (intra-league transfers
+        // dominate every window).
+        if ($buyerLeague['competition_id'] === $sellerLeague['competition_id']) {
+            return 14;
+        }
+
+        $buyerCountry = $buyerLeague['country'] ?? null;
+        $sellerCountry = $sellerLeague['country'] ?? null;
+        if ($buyerCountry === null || $buyerCountry !== $sellerCountry) {
+            return 0;
+        }
+
+        $buyerTier = $buyerLeague['tier'];
+        $sellerTier = $sellerLeague['tier'];
+        if ($buyerTier === null || $sellerTier === null) {
+            return 4;
+        }
+
+        $gap = abs($buyerTier - $sellerTier);
+        $score = match (true) {
+            $gap === 0 => 8,   // same level, neighbouring league (e.g. ESP3A ↔ ESP3B groups)
+            $gap === 1 => 10,  // adjacent tiers — Liga F shops in Primera RFEF and vice versa
+            $gap === 2 => 4,
+            default => 0,
+        };
+
+        // "Parte alta": a club one tier below that sits in the top half of its
+        // league is the natural hunting ground for the tier above.
+        if ($score > 0 && $sellerTier === $buyerTier + 1 && ($sellerLeague['top_half'] ?? false)) {
+            $score += 6;
+        }
+
+        return $score;
+    }
+
+    /**
      * Find a buyer for a squad clearing transfer (equal or lower reputation).
      */
     private function findClearingBuyer(
@@ -1015,8 +1124,10 @@ class AITransferMarketService
         Collection $teamSizeDeltas,
         Game $game,
         Collection $teams,
+        array $teamLeagueMap = [],
     ): ?array {
         $sellerRepIndex = $this->getReputationIndex($sellerTeamId, $teamReputations);
+        $sellerLeague = $teamLeagueMap[$sellerTeamId] ?? null;
         $posGroup = $this->getPositionGroup($player->position);
         $playerAbility = $this->getPlayerAbility($player);
         $candidates = [];
@@ -1075,6 +1186,8 @@ class AITransferMarketService
             // Reputation proximity bonus (closer = more realistic)
             $repDistance = $buyerRepIndex - $sellerRepIndex;
             $score += max(0, 8 - $repDistance * 2);
+            // Market proximity: clubs clear surplus players locally first
+            $score += $this->marketProximityScore($teamLeagueMap[$teamId] ?? null, $sellerLeague);
             $score += mt_rand(0, 5);
 
             if ($score > 0) {
@@ -1103,8 +1216,10 @@ class AITransferMarketService
         Collection $teamSizeDeltas,
         Game $game,
         Collection $teams,
+        array $teamLeagueMap = [],
     ): ?array {
         $sellerRepIndex = $this->getReputationIndex($sellerTeamId, $teamReputations);
+        $sellerLeague = $teamLeagueMap[$sellerTeamId] ?? null;
         $posGroup = $this->getPositionGroup($player->position);
         $playerAbility = $this->getPlayerAbility($player);
         $candidates = [];
@@ -1179,6 +1294,9 @@ class AITransferMarketService
             if (abs($playerAbility - $buyerAvg) <= 5) {
                 $score += 5;
             }
+            // Market proximity: a Liga F club shops in Liga F or at the top
+            // of Primera RFEF — not at random across the continent.
+            $score += $this->marketProximityScore($teamLeagueMap[$teamId] ?? null, $sellerLeague);
             $score += mt_rand(0, 5);
 
             if ($score > 0) {
@@ -1375,6 +1493,7 @@ class AITransferMarketService
         string $newSeason,
         ?GamePlayer $specificAgent = null,
         ?Collection $reputationLevels = null,
+        ?Collection $teams = null,
     ): bool {
         $currentRosterSize = $teamRosters->has($teamId) ? $teamRosters[$teamId]->count() : 0;
         if ($currentRosterSize >= self::MAX_SQUAD_SIZE) {
@@ -1430,7 +1549,10 @@ class AITransferMarketService
         }
 
         $contractYears = $bestAgent->age($game->current_date) >= 32 ? 1 : mt_rand(1, 2);
-        $newContractEnd = Carbon::createFromDate($seasonYear + $contractYears, 6, 30);
+        // +1 matches every other signing path (prepareTransfer,
+        // processFreeAgentSignings, TransferCompletionService): a deal signed
+        // for season N runs until 30 June of year N + years + 1.
+        $newContractEnd = Carbon::createFromDate($seasonYear + $contractYears + 1, 6, 30);
 
         // Price the signing into the club's wage structure, floored at the
         // default minimum (as before).
@@ -1474,7 +1596,7 @@ class AITransferMarketService
             'playerName' => $bestAgent->name ?? 'Unknown',
             'position' => $bestAgent->position,
             'teamId' => $teamId,
-            'teamName' => $team?->name ?? 'Unknown',
+            'teamName' => $teams?->get($teamId)?->name ?? 'Unknown',
         ];
 
         if (! $teamRosters->has($teamId)) {
@@ -1589,6 +1711,7 @@ class AITransferMarketService
             'windowTransfers' => $windowTransfers,
             'completedFinancials' => $completedFinancials,
             'reputationLevels' => $reputationLevels,
+            'teamLeagueMap' => $this->buildTeamLeagueMap($game),
         ];
     }
 
@@ -1630,6 +1753,7 @@ class AITransferMarketService
             'id',
             'game_id',
             'player_id',
+            'name',
             'team_id',
             'position',
             'tier',
