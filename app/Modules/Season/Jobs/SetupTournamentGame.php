@@ -463,14 +463,14 @@ class SetupTournamentGame implements ShouldQueue
         $groupsPath = base_path('data/2026/WNL/groups.json');
         if (!file_exists($groupsPath)) {
             // Fallback to drawn group if data file missing
-            return $this->drawQualifierGroup($game);
+            return $this->drawQualifierGroup($game, 4);
         }
 
         $groupsData = json_decode(file_get_contents($groupsPath), true);
         $userFifaCode = Team::where('id', $this->teamId)->value('fifa_code');
 
         if (!$userFifaCode) {
-            return $this->drawQualifierGroup($game);
+            return $this->drawQualifierGroup($game, 4);
         }
 
         // Find the group containing the user's team
@@ -484,7 +484,7 @@ class SetupTournamentGame implements ShouldQueue
 
         if (!$userGroup) {
             // Team not in League A — fall back to drawn group
-            return $this->drawQualifierGroup($game);
+            return $this->drawQualifierGroup($game, 4);
         }
 
         // Map FIFA codes to team IDs (no season filter — matches
@@ -505,23 +505,30 @@ class SetupTournamentGame implements ShouldQueue
 
         // If we couldn't find all 4, fall back to drawn group
         if (count($groupTeamIds) !== 4) {
-            return $this->drawQualifierGroup($game);
+            return $this->drawQualifierGroup($game, 4);
         }
 
         return $groupTeamIds;
     }
 
     /**
-     * Draw the qualifier group: the user's national team + 5 rivals.
+     * Draw the qualifier group: the user's national team + rivals.
      *
      * v1 format — confederation groups: rivals are drawn from the user's own
-     * FIFA confederation (same 6-team group format as before), so a UEFA side
-     * faces UEFA sides. Falls back to the legacy global draw when the
-     * confederation pool can't fill a group (too few sides with ≥18 templated
-     * players, or the user's team has no confederation set).
+     * FIFA confederation, so a UEFA side faces UEFA sides. Falls back to the
+     * legacy global draw when the confederation pool can't fill the group
+     * (too few sides with ≥18 templated players, or the user's team has no
+     * confederation set).
+     *
+     * $groupSize exists for the WNL fallback: the Nations League plays
+     * 4-team groups (6 matchdays), so a UEFA side outside the real League A
+     * groups gets a drawn group of 4 — the 6-team qualifier format needs
+     * 10 matchdays and would blow up fixture generation.
      */
-    private function drawQualifierGroup(Game $game): array
+    private function drawQualifierGroup(Game $game, int $groupSize = 6): array
     {
+        $rivalCount = $groupSize - 1;
+
         // Tolerant read: if teams.confederation doesn't exist yet (migration
         // not applied in this environment), fall back to the global draw.
         $confederation = Schema::hasColumn('teams', 'confederation')
@@ -529,23 +536,23 @@ class SetupTournamentGame implements ShouldQueue
             : null;
 
         if ($confederation !== null) {
-            $rivals = $this->drawRivals($game, $confederation);
-            if (count($rivals) === 5) {
+            $rivals = $this->drawRivals($game, $confederation, $rivalCount);
+            if (count($rivals) === $rivalCount) {
                 return array_merge([$this->teamId], $rivals);
             }
         }
 
-        return array_merge([$this->teamId], $this->drawRivals($game, null));
+        return array_merge([$this->teamId], $this->drawRivals($game, null, $rivalCount));
     }
 
     /**
-     * Draw up to 5 random opponents, preferring sides with a playable roster
-     * (≥18 templated players for the game's season).
+     * Draw up to $count random opponents, preferring sides with a playable
+     * roster (≥18 templated players for the game's season).
      *
      * @param string|null $confederation Restrict the draw to this FIFA
      *        confederation, or null for the legacy global draw.
      */
-    private function drawRivals(Game $game, ?string $confederation): array
+    private function drawRivals(Game $game, ?string $confederation, int $count = 5): array
     {
         $candidatesQuery = fn () => Team::where('type', 'national')
             ->where('is_placeholder', false)
@@ -562,14 +569,14 @@ class SetupTournamentGame implements ShouldQueue
             ->havingRaw('COUNT(*) >= 18')
             ->pluck('team_id')
             ->shuffle()
-            ->take(5)
+            ->take($count)
             ->all();
 
-        if (count($withRosters) < 5) {
+        if (count($withRosters) < $count) {
             $extra = $candidatesQuery()
                 ->whereNotIn('id', $withRosters)
                 ->inRandomOrder()
-                ->limit(5 - count($withRosters))
+                ->limit($count - count($withRosters))
                 ->pluck('id')
                 ->all();
             $withRosters = array_merge($withRosters, $extra);

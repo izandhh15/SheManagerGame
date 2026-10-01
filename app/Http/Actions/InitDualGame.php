@@ -130,6 +130,20 @@ class InitDualGame
             // transaction can't cover both creates.)
             $this->gameDeletionService->delete($clubGame);
 
+            // The national create may have persisted its Game row before the
+            // setup job threw (sync queue): remove that half too, otherwise
+            // the user ends up with an orphaned national game stuck in setup.
+            $orphan = Game::where('user_id', (string) $request->user()->id)
+                ->where('team_id', $nationalTeam->id)
+                ->where('game_mode', Game::MODE_TOURNAMENT)
+                ->whereNull('setup_completed_at')
+                ->where('created_at', '>', now()->subMinutes(15))
+                ->latest('created_at')
+                ->first();
+            if ($orphan) {
+                $this->gameDeletionService->delete($orphan);
+            }
+
             throw $e;
         }
 
