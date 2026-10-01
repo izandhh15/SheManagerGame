@@ -117,6 +117,17 @@
                                 </div>
                                 <div class="max-w-[85%] space-y-2">
                                     <div class="bg-surface-700 rounded-xl rounded-tl-sm px-3.5 py-2.5 text-sm text-text-body" x-text="msg.content.text"></div>
+                                    {{-- Rival club offer pressure card --}}
+                                    <template x-if="msg.content.rivalOffer">
+                                        <div class="rounded-lg bg-accent-gold/10 border border-accent-gold/30 px-3 py-2">
+                                            <p class="text-[10px] uppercase tracking-wider text-accent-gold font-semibold" x-text="msg.content.rivalOffer.title"></p>
+                                            <p class="text-xs text-text-body mt-0.5">
+                                                <span class="font-semibold" x-text="msg.content.rivalOffer.club"></span>
+                                                <span class="text-text-muted"> · </span>
+                                                <span x-text="msg.content.rivalOffer.detail"></span>
+                                            </p>
+                                        </div>
+                                    </template>
                                     {{-- Mood indicator --}}
                                     <template x-if="msg.content.mood">
                                         <div class="flex items-center gap-1.5 px-1">

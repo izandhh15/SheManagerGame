@@ -9,6 +9,7 @@ use App\Modules\Finance\Services\SalaryCapService;
 use App\Modules\Transfer\Enums\NegotiationScenario;
 use App\Modules\Transfer\Services\ContractService;
 use App\Modules\Transfer\Services\DispositionService;
+use App\Modules\Transfer\Services\RenewalRivalOfferService;
 use App\Support\Money;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -22,6 +23,7 @@ class NegotiateRenewal
         private readonly ContractService $contractService,
         private readonly DispositionService $dispositionService,
         private readonly SalaryCapService $salaryCapService,
+        private readonly RenewalRivalOfferService $rivalOfferService,
     ) {}
 
     public function __invoke(Request $request, string $gameId, string $playerId): JsonResponse
@@ -61,6 +63,10 @@ class NegotiateRenewal
             $disposition = $this->contractService->calculateDisposition($player, NegotiationScenario::RENEWAL, round: $existing->round);
             $mood = $this->contractService->getMoodIndicator($disposition);
 
+            // A rival may enter the picture while the player holds a counter.
+            $this->rivalOfferService->maybeEscalateRivalOffer($game, $player, $existing);
+            $existing->refresh();
+
             return response()->json(array_merge($this->contractService->releaseClausePayload($game, $player, (int) $existing->player_demand), [
                 'status' => 'ok',
                 'negotiation_status' => 'open',
@@ -68,16 +74,12 @@ class NegotiateRenewal
                 'max_rounds' => self::MAX_ROUNDS,
                 'wage_floor' => (int) ($this->contractService->getMinimumWageForTeam($game->team) / 100),
                 'messages' => [
-                    $this->agentMessage('counter', [
-                        'text' => __('transfers.chat_counter_resume', [
-                            'player' => $player->name,
-                            'wage' => Money::format($existing->counter_offer),
-                            'years' => $existing->preferred_years,
-                        ]),
+                    $this->agentMessage('counter', array_merge([
+                        'text' => $this->resumeText($player, $existing),
                         'wage' => (int) ($existing->counter_offer / 100),
                         'years' => $existing->preferred_years,
                         'mood' => $mood,
-                    ], [
+                    ], $this->rivalOfferContent($existing)), [
                         'canAccept' => true,
                         'suggestedWage' => $this->calculateMidpointInEuros($existing->user_offer, $existing->counter_offer),
                         'preferredYears' => $existing->preferred_years,
@@ -124,6 +126,10 @@ class NegotiateRenewal
         $mood = $this->contractService->getMoodIndicator($disposition);
         $wageFloorEuros = (int) ($this->contractService->getMinimumWageForTeam($game->team) / 100);
 
+        // Prepare the negotiation row now: the agent may already arrive with a
+        // rival club's offer on the table.
+        $negotiation = $this->contractService->prepareNegotiation($player);
+
         return response()->json(array_merge($this->contractService->releaseClausePayload($game, $player, (int) $demand['wage']), [
             'status' => 'ok',
             'negotiation_status' => 'open',
@@ -131,16 +137,12 @@ class NegotiateRenewal
             'max_rounds' => self::MAX_ROUNDS,
             'wage_floor' => $wageFloorEuros,
             'messages' => [
-                $this->agentMessage('demand', [
-                    'text' => __('transfers.chat_agent_demand', [
-                        'player' => $player->name,
-                        'wage' => $demand['formattedWage'],
-                        'years' => $demand['contractYears'],
-                    ]),
+                $this->agentMessage('demand', array_merge([
+                    'text' => $this->demandText($player, $demand, $negotiation),
                     'wage' => (int) ($demand['wage'] / 100),
                     'years' => $demand['contractYears'],
                     'mood' => $mood,
-                ], [
+                ], $this->rivalOfferContent($negotiation)), [
                     'canAccept' => true,
                     'suggestedWage' => (int) ($demand['wage'] / 100),
                     'preferredYears' => $demand['contractYears'],
@@ -176,6 +178,12 @@ class NegotiateRenewal
         $result = $this->contractService->negotiateSync($player, $offerWageCents, $offeredYears, $requestedClauseCents);
         $negotiation = $result['negotiation'];
 
+        // A rival may smell blood if the user keeps lowballing.
+        if ($result['result'] !== 'accepted') {
+            $this->rivalOfferService->maybeEscalateRivalOffer($game, $player, $negotiation);
+            $negotiation->refresh();
+        }
+
         return match ($result['result']) {
             'accepted' => response()->json([
                 'status' => 'ok',
@@ -200,36 +208,184 @@ class NegotiateRenewal
                 'round' => $negotiation->round,
                 'max_rounds' => self::MAX_ROUNDS,
                 'messages' => [
-                    $this->agentMessage('counter', [
-                        'text' => __('transfers.chat_agent_counter', [
-                            'player' => $player->name,
-                            'wage' => Money::format($negotiation->counter_offer),
-                            'years' => $negotiation->preferred_years,
-                        ]),
+                    $this->agentMessage('counter', array_merge([
+                        'text' => $this->counterText($player, $negotiation),
                         'wage' => (int) ($negotiation->counter_offer / 100),
                         'years' => $negotiation->preferred_years,
                         'mood' => $this->contractService->getMoodIndicator($negotiation->disposition),
-                    ], [
+                    ], $this->rivalOfferContent($negotiation)), [
                         'canAccept' => true,
                         'suggestedWage' => $this->calculateMidpointInEuros($negotiation->user_offer, $negotiation->counter_offer),
                         'preferredYears' => $negotiation->preferred_years,
                     ]),
                 ],
             ]),
-            default => response()->json([
-                'status' => 'ok',
-                'negotiation_status' => 'rejected',
-                'round' => $negotiation->round,
-                'max_rounds' => self::MAX_ROUNDS,
-                'messages' => [
-                    $this->agentMessage('rejected', [
-                        'text' => __('transfers.chat_agent_rejected', [
-                            'player' => $player->name,
-                        ]),
-                    ]),
-                ],
-            ]),
+            default => $this->rejectedResponse($game, $player, $negotiation),
         };
+    }
+
+    /**
+     * Build the rejection response. If a rival offer was on the table, the
+     * player walks straight into the rival's arms: special message plus a
+     * notification registering the rival's interest.
+     */
+    private function rejectedResponse(Game $game, GamePlayer $player, RenewalNegotiation $negotiation): JsonResponse
+    {
+        if ($negotiation->hasActiveRivalOffer()) {
+            $negotiation->loadMissing('rivalTeam');
+            $rivalName = $negotiation->rivalTeam?->name ?? __('transfers.chat_rival_offer_title');
+
+            \App\Models\GameNotification::create([
+                'game_id' => $game->id,
+                'type' => \App\Models\GameNotification::TYPE_TRANSFER_FAILED,
+                'title' => __('transfers.chat_deal_failed'),
+                'message' => __('transfers.chat_agent_rival_rejected', [
+                    'player' => $player->name,
+                    'rival' => $rivalName,
+                    'wage' => Money::format($negotiation->rival_offer_wage),
+                    'years' => $negotiation->rival_offer_years,
+                ]),
+                'icon' => 'transfer',
+                'priority' => 'high',
+                'metadata' => [
+                    'player_id' => $player->id,
+                    'rival_team_id' => $negotiation->rival_team_id,
+                    'rival_offer_wage' => $negotiation->rival_offer_wage,
+                ],
+                'game_date' => $game->current_date,
+            ]);
+
+            $text = __('transfers.chat_agent_rival_rejected', [
+                'player' => $player->name,
+                'rival' => $rivalName,
+                'wage' => Money::format($negotiation->rival_offer_wage),
+                'years' => $negotiation->rival_offer_years,
+            ]);
+        } else {
+            $text = __('transfers.chat_agent_rejected', ['player' => $player->name]);
+        }
+
+        return response()->json([
+            'status' => 'ok',
+            'negotiation_status' => 'rejected',
+            'round' => $negotiation->round,
+            'max_rounds' => self::MAX_ROUNDS,
+            'messages' => [
+                $this->agentMessage('rejected', array_merge(
+                    ['text' => $text],
+                    $this->rivalOfferContent($negotiation),
+                )),
+            ],
+        ]);
+    }
+
+    /**
+     * Demand text for the opening message, with the rival card when present.
+     */
+    private function demandText(GamePlayer $player, array $demand, RenewalNegotiation $negotiation): string
+    {
+        $text = __('transfers.chat_agent_demand', [
+            'player' => $player->name,
+            'wage' => $demand['formattedWage'],
+            'years' => $demand['contractYears'],
+        ]);
+
+        if ($negotiation->hasActiveRivalOffer()) {
+            $negotiation->loadMissing('rivalTeam');
+            $text .= ' ' . __('transfers.chat_agent_rival_offer', [
+                'rival' => $negotiation->rivalTeam?->name ?? '',
+                'player' => $player->name,
+                'wage' => Money::format($negotiation->rival_offer_wage),
+                'years' => $negotiation->rival_offer_years,
+            ]);
+        }
+
+        return $text;
+    }
+
+    /**
+     * Counter text: base counter plus patience warnings and rival pressure.
+     */
+    private function counterText(GamePlayer $player, RenewalNegotiation $negotiation): string
+    {
+        $text = __('transfers.chat_agent_counter', [
+            'player' => $player->name,
+            'wage' => Money::format($negotiation->counter_offer),
+            'years' => $negotiation->preferred_years,
+        ]);
+
+        $patience = (int) ($negotiation->agent_patience ?? 100);
+        if ($patience < 40) {
+            $text .= ' ' . __('transfers.chat_agent_patience_low');
+        } elseif ($patience < 70) {
+            $text .= ' ' . __('transfers.chat_agent_impatient');
+        }
+
+        if ($negotiation->hasActiveRivalOffer()) {
+            $negotiation->loadMissing('rivalTeam');
+            $rivalName = $negotiation->rivalTeam?->name ?? '';
+            // If the user already matched the rival wage, acknowledge it but
+            // push for a little more; otherwise apply full pressure.
+            if ((int) $negotiation->user_offer >= (int) $negotiation->rival_offer_wage) {
+                $text .= ' ' . __('transfers.chat_agent_rival_match', ['rival' => $rivalName]);
+            } else {
+                $text .= ' ' . __('transfers.chat_agent_rival_pressure', [
+                    'rival' => $rivalName,
+                    'wage' => Money::format($negotiation->rival_offer_wage),
+                ]);
+            }
+        }
+
+        return $text;
+    }
+
+    /**
+     * Resume text for a continued negotiation.
+     */
+    private function resumeText(GamePlayer $player, RenewalNegotiation $negotiation): string
+    {
+        $text = __('transfers.chat_counter_resume', [
+            'player' => $player->name,
+            'wage' => Money::format($negotiation->counter_offer),
+            'years' => $negotiation->preferred_years,
+        ]);
+
+        if ($negotiation->hasActiveRivalOffer()) {
+            $negotiation->loadMissing('rivalTeam');
+            $text .= ' ' . __('transfers.chat_agent_rival_pressure', [
+                'rival' => $negotiation->rivalTeam?->name ?? '',
+                'wage' => Money::format($negotiation->rival_offer_wage),
+            ]);
+        }
+
+        return $text;
+    }
+
+    /**
+     * Structured rival-offer data for the chat UI (renders a highlight card).
+     */
+    private function rivalOfferContent(RenewalNegotiation $negotiation): array
+    {
+        if (!$negotiation->hasActiveRivalOffer()) {
+            return [];
+        }
+
+        $negotiation->loadMissing('rivalTeam');
+
+        return [
+            'rivalOffer' => [
+                'club' => $negotiation->rivalTeam?->name ?? '',
+                'wage' => Money::format($negotiation->rival_offer_wage),
+                'wageEuros' => (int) ($negotiation->rival_offer_wage / 100),
+                'years' => $negotiation->rival_offer_years,
+                'title' => __('transfers.chat_rival_offer_title'),
+                'detail' => Money::format($negotiation->rival_offer_wage)
+                    . '/año · ' . $negotiation->rival_offer_years
+                    . ' ' . __('transfers.year_plural'),
+            ],
+            'patience' => (int) ($negotiation->agent_patience ?? 100),
+            'patienceLevel' => $negotiation->patienceLevel(),
+        ];
     }
 
     private function handleAcceptCounter(Game $game, GamePlayer $player): JsonResponse

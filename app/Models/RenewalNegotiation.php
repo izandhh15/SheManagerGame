@@ -21,8 +21,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int|null $counter_offer
  * @property int|null $contract_years
  * @property float|null $disposition
+ * @property string|null $rival_team_id
+ * @property int|null $rival_offer_wage
+ * @property int|null $rival_offer_years
+ * @property bool $rival_offer_active
+ * @property int $agent_patience
  * @property-read \App\Models\Game $game
  * @property-read \App\Models\GamePlayer $gamePlayer
+ * @property-read \App\Models\Team|null $rivalTeam
  * @property-read string $formatted_counter_offer
  * @property-read string $formatted_player_demand
  * @property-read string $formatted_user_offer
@@ -32,6 +38,9 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static \Illuminate\Database\Eloquent\Builder<static>|RenewalNegotiation whereContractYears($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|RenewalNegotiation whereCounterOffer($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|RenewalNegotiation whereDisposition($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|RenewalNegotiation whereRivalTeamId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|RenewalNegotiation whereRivalOfferActive($value)
+ * @method static \Illuminate\Database\Eloquent\Builder<static>|RenewalNegotiation whereAgentPatience($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|RenewalNegotiation whereGameId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|RenewalNegotiation whereGamePlayerId($value)
  * @method static \Illuminate\Database\Eloquent\Builder<static>|RenewalNegotiation whereId($value)
@@ -71,6 +80,11 @@ class RenewalNegotiation extends Model
         'contract_years',
         'disposition',
         'rejected_at',
+        'rival_team_id',
+        'rival_offer_wage',
+        'rival_offer_years',
+        'rival_offer_active',
+        'agent_patience',
     ];
 
     protected $casts = [
@@ -84,11 +98,40 @@ class RenewalNegotiation extends Model
         'contract_years' => 'integer',
         'disposition' => 'float',
         'rejected_at' => 'date',
+        'rival_offer_wage' => 'integer',
+        'rival_offer_years' => 'integer',
+        'rival_offer_active' => 'boolean',
+        'agent_patience' => 'integer',
     ];
 
     public function game(): BelongsTo
     {
         return $this->belongsTo(Game::class);
+    }
+
+    public function rivalTeam(): BelongsTo
+    {
+        return $this->belongsTo(Team::class, 'rival_team_id');
+    }
+
+    /**
+     * Whether a rival club's offer is actively pressuring this negotiation.
+     */
+    public function hasActiveRivalOffer(): bool
+    {
+        return $this->rival_offer_active && $this->rival_team_id !== null;
+    }
+
+    /**
+     * Patience label for the UI (the agent gets harsher as patience drops).
+     */
+    public function patienceLevel(): string
+    {
+        return match (true) {
+            $this->agent_patience >= 70 => 'high',
+            $this->agent_patience >= 40 => 'medium',
+            default => 'low',
+        };
     }
 
     public function gamePlayer(): BelongsTo
