@@ -144,7 +144,7 @@
                         </button>
                     </form>
                     <p class="text-xs text-text-faint mt-2">
-                        {{ __('game.mens_stadium_pick_label', ['opponent' => $quote['opponent'] ?? '']) }}
+                        {{ __('game.mens_stadium_pick_label', ['opponent' => $nextHomeMatch->awayTeam?->name ?? '']) }}
                     </p>
                 </div>
                 @endif

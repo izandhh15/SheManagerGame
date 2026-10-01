@@ -9,8 +9,10 @@ use Illuminate\Http\Request;
 
 /**
  * Step 1 of the men's-stadium rental: the user picks a ground from the
- * catalogue and the owner names their price. The quote is flashed to the
- * session; nothing is charged or moved until ConfirmMensStadium.
+ * catalogue and the owner names their price. The quote is stored in the
+ * session (persistent, not flashed: it must survive the quote page GET and
+ * the later confirm POST); nothing is charged or moved until
+ * ConfirmMensStadium.
  */
 class RequestMensStadium
 {
@@ -54,19 +56,20 @@ class RequestMensStadium
                 ->with('error', $this->rejectionMessage($quote, $stadium, $teamName));
         }
 
-        return redirect()->route('game.club.stadium', ['gameId' => $gameId])
-            ->with('mens_quote', [
-                'match_id' => $match->id,
-                'key' => $stadium['key'],
-                'stadium' => $stadium['stadium'],
-                'capacity' => $stadium['capacity'],
-                'price' => $quote['price'],
-                'affiliated' => $quote['affiliated'],
-                'casa_invita' => $quote['casa_invita'],
-                'importance' => $quote['importance'],
-                'owner' => $stadium['owner'] ?? $stadium['club'],
-                'opponent' => $match->awayTeam?->name ?? '',
-            ]);
+        $request->session()->put('mens_quote', [
+            'match_id' => $match->id,
+            'key' => $stadium['key'],
+            'stadium' => $stadium['stadium'],
+            'capacity' => $stadium['capacity'],
+            'price' => $quote['price'],
+            'affiliated' => $quote['affiliated'],
+            'casa_invita' => $quote['casa_invita'],
+            'importance' => $quote['importance'],
+            'owner' => $stadium['owner'] ?? $stadium['club'],
+            'opponent' => $match->awayTeam?->name ?? '',
+        ]);
+
+        return redirect()->route('game.club.stadium', ['gameId' => $gameId]);
     }
 
     /**

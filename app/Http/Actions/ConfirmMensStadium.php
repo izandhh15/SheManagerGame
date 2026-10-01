@@ -9,8 +9,9 @@ use Illuminate\Http\Request;
 
 /**
  * Step 2 of the men's-stadium rental: the user accepts the owner's price.
- * The quote flashed by RequestMensStadium is re-validated against the
- * session; the price is re-checked against the club budget before charging.
+ * The quote stored in the session by RequestMensStadium is re-validated
+ * against the posted values; the price is re-checked against the club
+ * budget before charging.
  */
 class ConfirmMensStadium
 {

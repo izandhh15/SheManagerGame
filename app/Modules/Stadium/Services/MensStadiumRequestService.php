@@ -275,7 +275,7 @@ class MensStadiumRequestService
                     gameId: $game->id,
                     category: FinancialTransaction::CATEGORY_VENUE_RENT,
                     amount: $priceCents,
-                    description: __('game.mens_stadium_rent_desc', [
+                    description: __('game.mens_stadium_rent_tx_desc', [
                         'stadium' => $stadium['stadium'],
                         'opponent' => $match->awayTeam?->name ?? '',
                     ]),

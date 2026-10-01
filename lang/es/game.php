@@ -835,7 +835,7 @@ return [
     'mens_stadium_quote_confirm_free' => 'Confirmar',
     'mens_stadium_quote_cancel' => 'Cancelar',
     'mens_stadium_rented' => '¡Confirmado! Jugarás contra :opponent en :stadium por :price €. La taquilla será mayor.',
-    'mens_stadium_rent_desc' => 'Alquiler de :stadium para el partido contra :opponent.',
+    'mens_stadium_rent_tx_desc' => 'Alquiler de :stadium para el partido contra :opponent.',
     'mens_stadium_quote_expired' => 'El presupuesto ha caducado: vuelve a pedir precio.',
     'mens_stadium_no_budget' => 'No hay presupuesto de club disponible para pagar el alquiler.',
     'mens_stadium_cant_afford' => 'No te llega el presupuesto para pagar ese alquiler.',

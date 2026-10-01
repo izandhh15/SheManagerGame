@@ -803,7 +803,7 @@ return [
     'mens_stadium_quote_confirm_free' => 'Confirm',
     'mens_stadium_quote_cancel' => 'Cancel',
     'mens_stadium_rented' => 'Confirmed! You will play :opponent at :stadium for :price €. Gate revenue will be higher.',
-    'mens_stadium_rent_desc' => 'Rental of :stadium for the match against :opponent.',
+    'mens_stadium_rent_tx_desc' => 'Rental of :stadium for the match against :opponent.',
     'mens_stadium_quote_expired' => 'The quote has expired: ask for a price again.',
     'mens_stadium_no_budget' => 'No club budget available to pay the rental.',
     'mens_stadium_cant_afford' => 'You cannot afford that rental.',
