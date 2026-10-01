@@ -66,7 +66,7 @@
             @endphp
             <div class="mt-12 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
                 @foreach($heroLogos as $logoId)
-                    <img src="{{ asset('img/competitions/' . $logoId . '.svg') }}" alt="{{ $logoId }}" class="w-11 h-11 sm:w-14 sm:h-14 rounded-xl shadow-lg hover:scale-110 transition-transform" loading="lazy">
+                    <img src="{{ \App\Support\CompetitionLogos::url($logoId) }}" alt="{{ $logoId }}" class="w-11 h-11 sm:w-14 sm:h-14 rounded-xl shadow-lg hover:scale-110 transition-transform" loading="lazy">
                 @endforeach
             </div>
         </div>
@@ -109,7 +109,7 @@
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
                     @foreach($row as $logoId => $label)
                         <div class="flex items-center gap-3 px-4 py-3 rounded-xl bg-surface-800 border border-border-default hover:border-purple-500/50 transition-colors">
-                            <img src="{{ asset('img/competitions/' . $logoId . '.svg') }}" alt="{{ $label }}" class="w-10 h-10 shrink-0" loading="lazy">
+                            <img src="{{ \App\Support\CompetitionLogos::url($logoId) }}" alt="{{ $label }}" class="w-10 h-10 shrink-0" loading="lazy">
                             <span class="text-sm font-medium text-text-body truncate">{{ $label }}</span>
                         </div>
                     @endforeach
