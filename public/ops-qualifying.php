@@ -18,8 +18,7 @@ if ($step === 'seed') {
     $uelq = \App\Models\Competition::where('id','UELQ')->first();
     echo "UCLQ: ".($uclq ? "exists ({$uclq->name})" : "MISSING")."\n";
     echo "UELQ: ".($uelq ? "exists ({$uelq->name})" : "MISSING")."\n";
-    echo "UCLQ teams: ".\App\Models\Team::whereHas('competitionEntries', fn($q)=>$q->where('competition_id','UCLQ'))->count()."\n";
-    echo "UELQ teams: ".\App\Models\Team::whereHas('competitionEntries', fn($q)=>$q->where('competition_id','UELQ'))->count()."\n";
+    echo "Teams total: ".\App\Models\Team::count()."\n";
     $torreense = \App\Models\Team::where('name','like','%Torreense%')->first();
     echo "Torreense: ".($torreense ? "exists" : "MISSING")."\n";
 } else {
