@@ -16,6 +16,12 @@ return [
     'centre_forward' => 'Delantera Centro',
     'second_striker' => 'Segunda Delantera',
 
+    // Generic source-data positions (no caen al MC por defecto)
+    'defender' => 'Defensa',
+    'midfielder' => 'Centrocampista',
+    'forward' => 'Delantera',
+    'striker' => 'Delantera',
+
     // Player position abbreviations
     'goalkeeper_abbr' => 'PO',
     'centre_back_abbr' => 'CT',
@@ -30,6 +36,11 @@ return [
     'right_winger_abbr' => 'ED',
     'centre_forward_abbr' => 'DC',
     'second_striker_abbr' => 'SD',
+
+    'defender_abbr' => 'DF',
+    'midfielder_abbr' => 'MC',
+    'forward_abbr' => 'DL',
+    'striker_abbr' => 'DC',
 
     // Labels with abbreviation (for scouting dropdown)
     'goalkeeper_label' => 'Portera (PO)',

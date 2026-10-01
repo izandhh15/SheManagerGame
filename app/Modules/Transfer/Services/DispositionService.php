@@ -580,7 +580,38 @@ class DispositionService
             $disposition -= 0.05;
         }
 
+        // Star premium: expensive players are harder to pry loose — the club
+        // knows what it has and the player has less reason to push a move.
+        $valueCents = (int) ($player->market_value_cents ?? 0);
+        if ($valueCents >= 100_000_000) {          // €1M+
+            $disposition -= 0.15;
+        } elseif ($valueCents >= 50_000_000) {     // €500K+
+            $disposition -= 0.10;
+        } elseif ($valueCents >= 20_000_000) {     // €200K+
+            $disposition -= 0.05;
+        }
+
+        // Continental competition (UWCL & equivalents): clubs on the biggest
+        // stage don't need to sell and their stars don't agitate to leave.
+        if ($this->teamPlaysContinental($player)) {
+            $disposition -= 0.10;
+        }
+
         return max(0.10, min(0.95, $disposition));
+    }
+
+    /**
+     * Whether the player's current team plays a continental club competition
+     * (UWCL, UEFA Women's Europa Cup, Concachampions, Libertadores, ...).
+     */
+    public function teamPlaysContinental(GamePlayer $player): bool
+    {
+        $team = $player->team;
+        if (!$team) {
+            return false;
+        }
+
+        return $team->competitions()->where('competitions.scope', 'continental')->exists();
     }
 
     // =========================================

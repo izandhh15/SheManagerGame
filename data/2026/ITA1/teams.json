@@ -64,7 +64,8 @@
             "Italy"
           ],
           "number": "50",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 74
         },
         {
           "contract": "",
@@ -78,7 +79,8 @@
             "Italy"
           ],
           "number": "51",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 73
         },
         {
           "contract": "Jun 30, 2028",
@@ -148,7 +150,8 @@
             "Italy"
           ],
           "number": "41",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 75
         },
         {
           "contract": "Jun 30, 2028",
@@ -176,7 +179,8 @@
             "Italy"
           ],
           "number": "47",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 70
         },
         {
           "contract": "Jun 30, 2028",
@@ -344,7 +348,8 @@
             "Finland"
           ],
           "number": "45",
-          "position": "Midfielder"
+          "position": "Midfielder",
+          "overall_score": 72
         },
         {
           "contract": "",
@@ -372,7 +377,8 @@
             "Italy"
           ],
           "number": "49",
-          "position": "Midfielder"
+          "position": "Midfielder",
+          "overall_score": 70
         },
         {
           "contract": "Jun 30, 2028",
@@ -428,7 +434,8 @@
             "Spain"
           ],
           "number": "20",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 84
         },
         {
           "contract": "Jun 30, 2028",
@@ -484,7 +491,8 @@
             "Italy"
           ],
           "number": "52",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 74
         },
         {
           "contract": "Jun 30, 2029",
@@ -549,7 +557,8 @@
             "Italy"
           ],
           "number": "35",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 72
         },
         {
           "contract": "Jun 30, 2026",
@@ -801,7 +810,8 @@
             "Italy"
           ],
           "number": "34",
-          "position": "Midfielder"
+          "position": "Midfielder",
+          "overall_score": 72
         },
         {
           "contract": "Jun 30, 2029",
@@ -950,7 +960,8 @@
             "Croatia"
           ],
           "number": "88",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 70
         },
         {
           "contract": "Jun 30, 2028",
@@ -1174,7 +1185,8 @@
             "Hungary"
           ],
           "number": "53",
-          "position": "Midfielder"
+          "position": "Midfielder",
+          "overall_score": 70
         },
         {
           "contract": "Jun 30, 2030",
@@ -1766,7 +1778,8 @@
             "Italy"
           ],
           "number": "44",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 67
         },
         {
           "contract": "Jun 30, 2027",
@@ -1892,7 +1905,8 @@
             "Spain"
           ],
           "number": "47",
-          "position": "Left-Back"
+          "position": "Left-Back",
+          "overall_score": 80
         },
         {
           "contract": "Jun 30, 2028",
@@ -2307,7 +2321,8 @@
             "Switzerland"
           ],
           "number": "15",
-          "position": "Midfielder"
+          "position": "Midfielder",
+          "overall_score": 69
         },
         {
           "contract": "",
@@ -2848,7 +2863,8 @@
             "Italy"
           ],
           "number": "73",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 75
         },
         {
           "contract": "",
@@ -2862,7 +2878,8 @@
             "Italy"
           ],
           "number": "76",
-          "position": "Midfielder"
+          "position": "Midfielder",
+          "overall_score": 74
         }
       ]
     },
@@ -2997,7 +3014,8 @@
             "Italy"
           ],
           "number": "16",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 70
         },
         {
           "contract": "",
@@ -3883,7 +3901,8 @@
             "Italy"
           ],
           "number": "21",
-          "position": "Midfielder"
+          "position": "Midfielder",
+          "overall_score": 68
         },
         {
           "contract": "Jun 30, 2028",
@@ -3911,7 +3930,8 @@
             "Italy"
           ],
           "number": "35",
-          "position": "Midfielder"
+          "position": "Midfielder",
+          "overall_score": 73
         },
         {
           "contract": "Jun 30, 2028",
@@ -4023,7 +4043,8 @@
             "Spain"
           ],
           "number": "32",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 72
         },
         {
           "contract": "Jun 30, 2030",
@@ -4037,7 +4058,8 @@
             "Italy"
           ],
           "number": "41",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 69
         },
         {
           "contract": "Jun 30, 2027",
@@ -4065,7 +4087,8 @@
             "Italy"
           ],
           "number": "44",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 71
         }
       ]
     },
@@ -4088,7 +4111,8 @@
             "Korea, South"
           ],
           "number": "9",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 70
         },
         {
           "contract": "Jun 30, 2027",
@@ -4270,7 +4294,8 @@
             "Italy"
           ],
           "number": "83",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 70
         },
         {
           "contract": "",
@@ -4312,7 +4337,8 @@
             "Italy"
           ],
           "number": "6",
-          "position": "Midfielder"
+          "position": "Midfielder",
+          "overall_score": 73
         },
         {
           "contract": "",
@@ -4382,7 +4408,8 @@
             "Italy"
           ],
           "number": "23",
-          "position": "Midfielder"
+          "position": "Midfielder",
+          "overall_score": 71
         },
         {
           "contract": "Jun 30, 2027",
@@ -4410,7 +4437,8 @@
             "Latvia"
           ],
           "number": "28",
-          "position": "Attacking Midfield"
+          "position": "Attacking Midfield",
+          "overall_score": 73
         },
         {
           "contract": "",
@@ -4480,7 +4508,8 @@
             "Serbia"
           ],
           "number": "99",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 70
         }
       ]
     },
@@ -4503,7 +4532,8 @@
             "Italy"
           ],
           "number": "1",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 70
         },
         {
           "contract": "Jun 30, 2027",
@@ -4671,7 +4701,8 @@
             "Italy"
           ],
           "number": "27",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 73
         },
         {
           "contract": "Jun 30, 2028",

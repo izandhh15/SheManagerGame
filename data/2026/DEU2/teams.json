@@ -23,7 +23,8 @@
             "Australia"
           ],
           "number": "1",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -38,7 +39,8 @@
             "Austria"
           ],
           "number": "33",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 66
         },
         {
           "contract": "",
@@ -52,7 +54,8 @@
             "Austria"
           ],
           "number": "39",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -66,7 +69,8 @@
             "Germany"
           ],
           "number": "",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -80,7 +84,8 @@
             "Germany"
           ],
           "number": "4",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -94,7 +99,8 @@
             "United States"
           ],
           "number": "5",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -108,7 +114,8 @@
             "Germany"
           ],
           "number": "13",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -122,7 +129,8 @@
             "Austria"
           ],
           "number": "14",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -136,7 +144,8 @@
             "Germany"
           ],
           "number": "17",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -150,7 +159,8 @@
             "Germany"
           ],
           "number": "20",
-          "position": "Right-Back"
+          "position": "Right-Back",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -164,7 +174,8 @@
             "Hungary"
           ],
           "number": "21",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -178,7 +189,8 @@
             "Japan"
           ],
           "number": "23",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -192,7 +204,8 @@
             "Germany"
           ],
           "number": "25",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -206,7 +219,8 @@
             "Japan"
           ],
           "number": "6",
-          "position": "Defensive Midfield"
+          "position": "Defensive Midfield",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -221,7 +235,8 @@
             "Tunisia"
           ],
           "number": "7",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -235,7 +250,8 @@
             "Denmark"
           ],
           "number": "8",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 56
         },
         {
           "contract": "",
@@ -249,7 +265,8 @@
             "Austria"
           ],
           "number": "9",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -263,7 +280,8 @@
             "Germany"
           ],
           "number": "11",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -277,7 +295,8 @@
             "United States"
           ],
           "number": "16",
-          "position": "Defensive Midfield"
+          "position": "Defensive Midfield",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -291,7 +310,8 @@
             "United States"
           ],
           "number": "10",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -305,7 +325,8 @@
             "Israel"
           ],
           "number": "2",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 56
         },
         {
           "contract": "",
@@ -319,7 +340,8 @@
             "Panama"
           ],
           "number": "19",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -333,7 +355,8 @@
             "Brazil"
           ],
           "number": "22",
-          "position": "Right Winger"
+          "position": "Right Winger",
+          "overall_score": 58
         },
         {
           "contract": "",
@@ -347,7 +370,8 @@
             "Germany"
           ],
           "number": "31",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 58
         },
         {
           "contract": "",
@@ -361,7 +385,8 @@
             "Germany"
           ],
           "number": "38",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 62
         }
       ]
     },
@@ -384,7 +409,8 @@
             "Germany"
           ],
           "number": "",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -398,7 +424,8 @@
             "Germany"
           ],
           "number": "21",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 57
         },
         {
           "contract": "",
@@ -412,7 +439,8 @@
             "Germany"
           ],
           "number": "26",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -426,7 +454,8 @@
             "Germany"
           ],
           "number": "30",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -440,7 +469,8 @@
             "Hungary"
           ],
           "number": "33",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -454,7 +484,8 @@
             "Germany"
           ],
           "number": "",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 58
         },
         {
           "contract": "",
@@ -468,7 +499,8 @@
             "Germany"
           ],
           "number": "2",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -482,7 +514,8 @@
             "Germany"
           ],
           "number": "3",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -496,7 +529,8 @@
             "Germany"
           ],
           "number": "4",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -510,7 +544,8 @@
             "Germany"
           ],
           "number": "5",
-          "position": "Right-Back"
+          "position": "Right-Back",
+          "overall_score": 56
         },
         {
           "contract": "",
@@ -525,7 +560,8 @@
             "Italy"
           ],
           "number": "12",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -539,7 +575,8 @@
             "Germany"
           ],
           "number": "13",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -554,7 +591,8 @@
             "Germany"
           ],
           "number": "22",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 57
         },
         {
           "contract": "",
@@ -568,7 +606,8 @@
             "Germany"
           ],
           "number": "6",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -583,7 +622,8 @@
             "Turkey"
           ],
           "number": "7",
-          "position": "Right Winger"
+          "position": "Right Winger",
+          "overall_score": 56
         },
         {
           "contract": "",
@@ -597,7 +637,8 @@
             "Germany"
           ],
           "number": "8",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 58
         },
         {
           "contract": "",
@@ -611,7 +652,8 @@
             "Germany"
           ],
           "number": "10",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -625,7 +667,8 @@
             "Germany"
           ],
           "number": "1",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -640,7 +683,8 @@
             "Indonesia"
           ],
           "number": "11",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 57
         },
         {
           "contract": "",
@@ -654,7 +698,8 @@
             "Austria"
           ],
           "number": "16",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -669,7 +714,8 @@
             "Turkey"
           ],
           "number": "18",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -683,7 +729,8 @@
             "Germany"
           ],
           "number": "20",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 57
         },
         {
           "contract": "",
@@ -697,7 +744,8 @@
             "Germany"
           ],
           "number": "9",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -711,7 +759,8 @@
             "Germany"
           ],
           "number": "14",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 66
         },
         {
           "contract": "",
@@ -725,7 +774,8 @@
             "Germany"
           ],
           "number": "17",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 58
         }
       ]
     },
@@ -748,7 +798,8 @@
             "Germany"
           ],
           "number": "1",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -762,7 +813,8 @@
             "Germany"
           ],
           "number": "19",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -776,7 +828,8 @@
             "Germany"
           ],
           "number": "25",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -791,7 +844,8 @@
             "Germany"
           ],
           "number": "4",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -805,7 +859,8 @@
             "Germany"
           ],
           "number": "8",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -819,7 +874,8 @@
             "Germany"
           ],
           "number": "14",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -833,7 +889,8 @@
             "Germany"
           ],
           "number": "22",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -847,7 +904,8 @@
             "Germany"
           ],
           "number": "23",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -861,7 +919,8 @@
             "Germany"
           ],
           "number": "33",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -875,7 +934,8 @@
             "Germany"
           ],
           "number": "5",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -890,7 +950,8 @@
             "Netherlands"
           ],
           "number": "6",
-          "position": "Attacking Midfield"
+          "position": "Attacking Midfield",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -904,7 +965,8 @@
             "Germany"
           ],
           "number": "9",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -918,7 +980,8 @@
             "Germany"
           ],
           "number": "10",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -932,7 +995,8 @@
             "Germany"
           ],
           "number": "13",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -946,7 +1010,8 @@
             "Germany"
           ],
           "number": "15",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -960,7 +1025,8 @@
             "Germany"
           ],
           "number": "17",
-          "position": "Left Midfield"
+          "position": "Left Midfield",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -974,7 +1040,8 @@
             "Germany"
           ],
           "number": "28",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -988,7 +1055,8 @@
             "Germany"
           ],
           "number": "31",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -1002,7 +1070,8 @@
             "Germany"
           ],
           "number": "7",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 55
         },
         {
           "contract": "",
@@ -1016,7 +1085,8 @@
             "Germany"
           ],
           "number": "11",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 57
         },
         {
           "contract": "",
@@ -1030,7 +1100,8 @@
             "Belgium"
           ],
           "number": "18",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -1045,7 +1116,8 @@
             "Germany"
           ],
           "number": "20",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 58
         },
         {
           "contract": "",
@@ -1059,7 +1131,8 @@
             "Germany"
           ],
           "number": "21",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -1073,7 +1146,8 @@
             "Germany"
           ],
           "number": "27",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -1087,7 +1161,8 @@
             "Germany"
           ],
           "number": "29",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 60
         }
       ]
     },
@@ -1110,7 +1185,8 @@
             "Luxembourg"
           ],
           "number": "1",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 58
         },
         {
           "contract": "",
@@ -1124,7 +1200,8 @@
             "Germany"
           ],
           "number": "12",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -1139,7 +1216,8 @@
             "Germany"
           ],
           "number": "21",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -1153,7 +1231,8 @@
             "Germany"
           ],
           "number": "3",
-          "position": "Right-Back"
+          "position": "Right-Back",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -1168,7 +1247,8 @@
             "United States"
           ],
           "number": "2",
-          "position": "Right-Back"
+          "position": "Right-Back",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -1182,7 +1262,8 @@
             "Germany"
           ],
           "number": "4",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -1196,7 +1277,8 @@
             "Germany"
           ],
           "number": "14",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -1211,7 +1293,8 @@
             "Sweden"
           ],
           "number": "15",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -1225,7 +1308,8 @@
             "Germany"
           ],
           "number": "18",
-          "position": "Right-Back"
+          "position": "Right-Back",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -1239,7 +1323,8 @@
             "Germany"
           ],
           "number": "24",
-          "position": "Left-Back"
+          "position": "Left-Back",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -1253,7 +1338,8 @@
             "Germany"
           ],
           "number": "30",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -1267,7 +1353,8 @@
             "Germany"
           ],
           "number": "34",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -1281,7 +1368,8 @@
             "Greece"
           ],
           "number": "5",
-          "position": "Defensive Midfield"
+          "position": "Defensive Midfield",
+          "overall_score": 57
         },
         {
           "contract": "",
@@ -1295,7 +1383,8 @@
             "Germany"
           ],
           "number": "6",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -1309,7 +1398,8 @@
             "Germany"
           ],
           "number": "8",
-          "position": "Attacking Midfield"
+          "position": "Attacking Midfield",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -1323,7 +1413,8 @@
             "Germany"
           ],
           "number": "11",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -1338,7 +1429,8 @@
             "Germany"
           ],
           "number": "13",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -1352,7 +1444,8 @@
             "Netherlands"
           ],
           "number": "",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -1367,7 +1460,8 @@
             "Nigeria"
           ],
           "number": "7",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -1381,7 +1475,8 @@
             "Germany"
           ],
           "number": "9",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -1395,7 +1490,8 @@
             "Denmark"
           ],
           "number": "10",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -1409,7 +1505,8 @@
             "Germany"
           ],
           "number": "19",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -1423,7 +1520,8 @@
             "France"
           ],
           "number": "22",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -1438,7 +1536,8 @@
             "Germany"
           ],
           "number": "27",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 63
         }
       ]
     },
@@ -1461,7 +1560,8 @@
             "Germany"
           ],
           "number": "12",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -1475,7 +1575,8 @@
             "Germany"
           ],
           "number": "23",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -1489,7 +1590,8 @@
             "Germany"
           ],
           "number": "31",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -1503,7 +1605,8 @@
             "Germany"
           ],
           "number": "32",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 56
         },
         {
           "contract": "",
@@ -1517,7 +1620,8 @@
             "Germany"
           ],
           "number": "2",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -1531,7 +1635,8 @@
             "Netherlands"
           ],
           "number": "4",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 56
         },
         {
           "contract": "",
@@ -1545,7 +1650,8 @@
             "Germany"
           ],
           "number": "5",
-          "position": "Defensive Midfield"
+          "position": "Defensive Midfield",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -1560,7 +1666,8 @@
             "Spain"
           ],
           "number": "8",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -1574,7 +1681,8 @@
             "Netherlands"
           ],
           "number": "15",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -1588,7 +1696,8 @@
             "Netherlands"
           ],
           "number": "16",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -1602,7 +1711,8 @@
             "Germany"
           ],
           "number": "17",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -1616,7 +1726,8 @@
             "Germany"
           ],
           "number": "26",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 56
         },
         {
           "contract": "",
@@ -1630,7 +1741,8 @@
             "Germany"
           ],
           "number": "33",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -1644,7 +1756,8 @@
             "Germany"
           ],
           "number": "6",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -1658,7 +1771,8 @@
             "Germany"
           ],
           "number": "11",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 56
         },
         {
           "contract": "",
@@ -1672,7 +1786,8 @@
             "Germany"
           ],
           "number": "13",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -1686,7 +1801,8 @@
             "Netherlands"
           ],
           "number": "21",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 58
         },
         {
           "contract": "",
@@ -1700,7 +1816,8 @@
             "Germany"
           ],
           "number": "22",
-          "position": "Defensive Midfield"
+          "position": "Defensive Midfield",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -1714,7 +1831,8 @@
             "Netherlands"
           ],
           "number": "24",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -1728,7 +1846,8 @@
             "Germany"
           ],
           "number": "7",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -1742,7 +1861,8 @@
             "England"
           ],
           "number": "9",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -1757,7 +1877,8 @@
             "Germany"
           ],
           "number": "10",
-          "position": "Right Winger"
+          "position": "Right Winger",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -1771,7 +1892,8 @@
             "Germany"
           ],
           "number": "19",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -1786,7 +1908,8 @@
             "Germany"
           ],
           "number": "20",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 56
         }
       ]
     },
@@ -1809,7 +1932,8 @@
             "Germany"
           ],
           "number": "1",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -1823,7 +1947,8 @@
             "Germany"
           ],
           "number": "12",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -1837,7 +1962,8 @@
             "Germany"
           ],
           "number": "22",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -1851,7 +1977,8 @@
             "Germany"
           ],
           "number": "2",
-          "position": "Left-Back"
+          "position": "Left-Back",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -1866,7 +1993,8 @@
             "Cameroon"
           ],
           "number": "7",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -1881,7 +2009,8 @@
             "Portugal"
           ],
           "number": "18",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -1895,7 +2024,8 @@
             "Germany"
           ],
           "number": "19",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -1910,7 +2040,8 @@
             "Germany"
           ],
           "number": "21",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -1924,7 +2055,8 @@
             "Germany"
           ],
           "number": "25",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -1938,7 +2070,8 @@
             "Germany"
           ],
           "number": "27",
-          "position": "Right-Back"
+          "position": "Right-Back",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -1952,7 +2085,8 @@
             "Germany"
           ],
           "number": "3",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -1966,7 +2100,8 @@
             "Germany"
           ],
           "number": "5",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -1980,7 +2115,8 @@
             "Germany"
           ],
           "number": "8",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -1994,7 +2130,8 @@
             "Austria"
           ],
           "number": "13",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -2008,7 +2145,8 @@
             "Germany"
           ],
           "number": "14",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -2022,7 +2160,8 @@
             "Germany"
           ],
           "number": "17",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -2036,7 +2175,8 @@
             "Germany"
           ],
           "number": "24",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -2051,7 +2191,8 @@
             "Germany"
           ],
           "number": "4",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -2065,7 +2206,8 @@
             "Germany"
           ],
           "number": "6",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -2079,7 +2221,8 @@
             "Germany"
           ],
           "number": "9",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -2093,7 +2236,8 @@
             "Germany"
           ],
           "number": "10",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -2108,7 +2252,8 @@
             "Germany"
           ],
           "number": "11",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -2122,7 +2267,8 @@
             "Germany"
           ],
           "number": "16",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 57
         },
         {
           "contract": "",
@@ -2136,7 +2282,8 @@
             "Germany"
           ],
           "number": "23",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -2151,7 +2298,8 @@
             "Germany"
           ],
           "number": "26",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 62
         }
       ]
     },
@@ -2174,7 +2322,8 @@
             "Germany"
           ],
           "number": "1",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -2188,7 +2337,8 @@
             "Germany"
           ],
           "number": "13",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -2202,7 +2352,8 @@
             "Germany"
           ],
           "number": "26",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -2216,7 +2367,8 @@
             "Switzerland"
           ],
           "number": "28",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -2230,7 +2382,8 @@
             "Netherlands"
           ],
           "number": "",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 66
         },
         {
           "contract": "",
@@ -2245,7 +2398,8 @@
             "Netherlands"
           ],
           "number": "2",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -2259,7 +2413,8 @@
             "Germany"
           ],
           "number": "3",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -2273,7 +2428,8 @@
             "Germany"
           ],
           "number": "4",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 57
         },
         {
           "contract": "",
@@ -2287,7 +2443,8 @@
             "Germany"
           ],
           "number": "6",
-          "position": "Defensive Midfield"
+          "position": "Defensive Midfield",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -2301,7 +2458,8 @@
             "Germany"
           ],
           "number": "12",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -2315,7 +2473,8 @@
             "Germany"
           ],
           "number": "18",
-          "position": "Left-Back"
+          "position": "Left-Back",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -2329,7 +2488,8 @@
             "Germany"
           ],
           "number": "19",
-          "position": "Right-Back"
+          "position": "Right-Back",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -2343,7 +2503,8 @@
             "Germany"
           ],
           "number": "5",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 56
         },
         {
           "contract": "",
@@ -2357,7 +2518,8 @@
             "Germany"
           ],
           "number": "8",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -2371,7 +2533,8 @@
             "Germany"
           ],
           "number": "10",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -2385,7 +2548,8 @@
             "Netherlands"
           ],
           "number": "11",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 57
         },
         {
           "contract": "",
@@ -2399,7 +2563,8 @@
             "Germany"
           ],
           "number": "14",
-          "position": "Attacking Midfield"
+          "position": "Attacking Midfield",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -2413,7 +2578,8 @@
             "Germany"
           ],
           "number": "15",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -2427,7 +2593,8 @@
             "Germany"
           ],
           "number": "16",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -2441,7 +2608,8 @@
             "United States"
           ],
           "number": "17",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -2455,7 +2623,8 @@
             "Germany"
           ],
           "number": "21",
-          "position": "Defensive Midfield"
+          "position": "Defensive Midfield",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -2469,7 +2638,8 @@
             "Germany"
           ],
           "number": "22",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 57
         },
         {
           "contract": "",
@@ -2483,7 +2653,8 @@
             "Germany"
           ],
           "number": "7",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -2497,7 +2668,8 @@
             "Germany"
           ],
           "number": "9",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 57
         },
         {
           "contract": "",
@@ -2511,7 +2683,8 @@
             "Germany"
           ],
           "number": "23",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 59
         }
       ]
     },
@@ -2534,7 +2707,8 @@
             "Germany"
           ],
           "number": "1",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 66
         },
         {
           "contract": "",
@@ -2548,7 +2722,8 @@
             "Germany"
           ],
           "number": "18",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -2562,7 +2737,8 @@
             "Germany"
           ],
           "number": "26",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -2576,7 +2752,8 @@
             "Germany"
           ],
           "number": "2",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -2590,7 +2767,8 @@
             "Germany"
           ],
           "number": "3",
-          "position": "Left-Back"
+          "position": "Left-Back",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -2604,7 +2782,8 @@
             "Netherlands"
           ],
           "number": "4",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -2618,7 +2797,8 @@
             "Germany"
           ],
           "number": "15",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -2633,7 +2813,8 @@
             "Germany"
           ],
           "number": "17",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -2647,7 +2828,8 @@
             "Germany"
           ],
           "number": "20",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -2661,7 +2843,8 @@
             "Switzerland"
           ],
           "number": "25",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -2676,7 +2859,8 @@
             "Germany"
           ],
           "number": "29",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -2690,7 +2874,8 @@
             "Germany"
           ],
           "number": "5",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -2704,7 +2889,8 @@
             "Germany"
           ],
           "number": "6",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 58
         },
         {
           "contract": "",
@@ -2718,7 +2904,8 @@
             "Germany"
           ],
           "number": "7",
-          "position": "Left Winger"
+          "position": "Left Winger",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -2732,7 +2919,8 @@
             "Germany"
           ],
           "number": "10",
-          "position": "Right Midfield"
+          "position": "Right Midfield",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -2747,7 +2935,8 @@
             "Germany"
           ],
           "number": "14",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 58
         },
         {
           "contract": "",
@@ -2761,7 +2950,8 @@
             "Germany"
           ],
           "number": "16",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -2775,7 +2965,8 @@
             "Germany"
           ],
           "number": "19",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -2790,7 +2981,8 @@
             "Italy"
           ],
           "number": "22",
-          "position": "Defensive Midfield"
+          "position": "Defensive Midfield",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -2804,7 +2996,8 @@
             "Germany"
           ],
           "number": "27",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 58
         },
         {
           "contract": "",
@@ -2818,7 +3011,8 @@
             "Germany"
           ],
           "number": "30",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 58
         },
         {
           "contract": "",
@@ -2832,7 +3026,8 @@
             "Germany"
           ],
           "number": "9",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 66
         },
         {
           "contract": "",
@@ -2846,7 +3041,8 @@
             "Portugal"
           ],
           "number": "21",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 56
         },
         {
           "contract": "",
@@ -2860,7 +3056,8 @@
             "Germany"
           ],
           "number": "23",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -2874,7 +3071,8 @@
             "Germany"
           ],
           "number": "24",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 64
         }
       ]
     },
@@ -2897,7 +3095,8 @@
             "Germany"
           ],
           "number": "1",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -2911,7 +3110,8 @@
             "Germany"
           ],
           "number": "31",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -2925,7 +3125,8 @@
             "Austria"
           ],
           "number": "2",
-          "position": "Right-Back"
+          "position": "Right-Back",
+          "overall_score": 66
         },
         {
           "contract": "",
@@ -2939,7 +3140,8 @@
             "Netherlands"
           ],
           "number": "3",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -2953,7 +3155,8 @@
             "Germany"
           ],
           "number": "4",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -2967,7 +3170,8 @@
             "Germany"
           ],
           "number": "12",
-          "position": "Left Winger"
+          "position": "Left Winger",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -2981,7 +3185,8 @@
             "Germany"
           ],
           "number": "15",
-          "position": "Left-Back"
+          "position": "Left-Back",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -2995,7 +3200,8 @@
             "Germany"
           ],
           "number": "18",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -3009,7 +3215,8 @@
             "Germany"
           ],
           "number": "22",
-          "position": "Left-Back"
+          "position": "Left-Back",
+          "overall_score": 58
         },
         {
           "contract": "",
@@ -3023,7 +3230,8 @@
             "Germany"
           ],
           "number": "26",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 66
         },
         {
           "contract": "",
@@ -3038,7 +3246,8 @@
             "Nigeria"
           ],
           "number": "28",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -3053,7 +3262,8 @@
             "Congo"
           ],
           "number": "6",
-          "position": "Defensive Midfield"
+          "position": "Defensive Midfield",
+          "overall_score": 66
         },
         {
           "contract": "",
@@ -3067,7 +3277,8 @@
             "Germany"
           ],
           "number": "8",
-          "position": "Attacking Midfield"
+          "position": "Attacking Midfield",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -3082,7 +3293,8 @@
             "Germany"
           ],
           "number": "11",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -3096,7 +3308,8 @@
             "Germany"
           ],
           "number": "13",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 58
         },
         {
           "contract": "",
@@ -3110,7 +3323,8 @@
             "Germany"
           ],
           "number": "14",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -3125,7 +3339,8 @@
             "France"
           ],
           "number": "19",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3139,7 +3354,8 @@
             "Netherlands"
           ],
           "number": "20",
-          "position": "Defensive Midfield"
+          "position": "Defensive Midfield",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -3153,7 +3369,8 @@
             "Germany"
           ],
           "number": "23",
-          "position": "Attacking Midfield"
+          "position": "Attacking Midfield",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -3167,7 +3384,8 @@
             "Germany"
           ],
           "number": "7",
-          "position": "Left Winger"
+          "position": "Left Winger",
+          "overall_score": 58
         },
         {
           "contract": "",
@@ -3181,7 +3399,8 @@
             "Germany"
           ],
           "number": "9",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3195,7 +3414,8 @@
             "Germany"
           ],
           "number": "16",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -3209,7 +3429,8 @@
             "Czech Republic"
           ],
           "number": "27",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 66
         },
         {
           "contract": "",
@@ -3223,7 +3444,8 @@
             "Germany"
           ],
           "number": "29",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3238,7 +3460,8 @@
             "Germany"
           ],
           "number": "30",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 64
         }
       ]
     },
@@ -3261,7 +3484,8 @@
             "Switzerland"
           ],
           "number": "",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -3275,7 +3499,8 @@
             "Germany"
           ],
           "number": "1",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -3289,7 +3514,8 @@
             "Germany"
           ],
           "number": "12",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -3303,7 +3529,8 @@
             "Denmark"
           ],
           "number": "2",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -3317,7 +3544,8 @@
             "Switzerland"
           ],
           "number": "4",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3331,7 +3559,8 @@
             "Germany"
           ],
           "number": "8",
-          "position": "Left-Back"
+          "position": "Left-Back",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -3345,7 +3574,8 @@
             "Austria"
           ],
           "number": "22",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -3359,7 +3589,8 @@
             "Germany"
           ],
           "number": "27",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -3373,7 +3604,8 @@
             "Germany"
           ],
           "number": "31",
-          "position": "Left-Back"
+          "position": "Left-Back",
+          "overall_score": 66
         },
         {
           "contract": "",
@@ -3387,7 +3619,8 @@
             "Germany"
           ],
           "number": "5",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -3401,7 +3634,8 @@
             "Hungary"
           ],
           "number": "6",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3415,7 +3649,8 @@
             "Sweden"
           ],
           "number": "15",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3429,7 +3664,8 @@
             "Switzerland"
           ],
           "number": "16",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -3443,7 +3679,8 @@
             "Germany"
           ],
           "number": "17",
-          "position": "Attacking Midfield"
+          "position": "Attacking Midfield",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -3457,7 +3694,8 @@
             "Germany"
           ],
           "number": "18",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -3471,7 +3709,8 @@
             "Germany"
           ],
           "number": "19",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3485,7 +3724,8 @@
             "Germany"
           ],
           "number": "20",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -3499,7 +3739,8 @@
             "Germany"
           ],
           "number": "23",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -3513,7 +3754,8 @@
             "Germany"
           ],
           "number": "3",
-          "position": "Left Midfield"
+          "position": "Left Midfield",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -3527,7 +3769,8 @@
             "Germany"
           ],
           "number": "30",
-          "position": "Attacking Midfield"
+          "position": "Attacking Midfield",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3541,7 +3784,8 @@
             "Germany"
           ],
           "number": "33",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -3555,7 +3799,8 @@
             "Finland"
           ],
           "number": "",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -3569,7 +3814,8 @@
             "Germany"
           ],
           "number": "7",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -3583,7 +3829,8 @@
             "Germany"
           ],
           "number": "10",
-          "position": "Left Midfield"
+          "position": "Left Midfield",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -3597,7 +3844,8 @@
             "Germany"
           ],
           "number": "11",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 58
         }
       ]
     },
@@ -3620,7 +3868,8 @@
             "Germany"
           ],
           "number": "1",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -3634,7 +3883,8 @@
             "Germany"
           ],
           "number": "12",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -3648,7 +3898,8 @@
             "Germany"
           ],
           "number": "24",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 56
         },
         {
           "contract": "",
@@ -3662,7 +3913,8 @@
             "Germany"
           ],
           "number": "32",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -3676,7 +3928,8 @@
             "Switzerland"
           ],
           "number": "3",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -3691,7 +3944,8 @@
             "Italy"
           ],
           "number": "4",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -3705,7 +3959,8 @@
             "Germany"
           ],
           "number": "5",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -3719,7 +3974,8 @@
             "Germany"
           ],
           "number": "14",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -3733,7 +3989,8 @@
             "Germany"
           ],
           "number": "15",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3747,7 +4004,8 @@
             "Germany"
           ],
           "number": "17",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3761,7 +4019,8 @@
             "Austria"
           ],
           "number": "18",
-          "position": "Right-Back"
+          "position": "Right-Back",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -3775,7 +4034,8 @@
             "Austria"
           ],
           "number": "19",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -3789,7 +4049,8 @@
             "Germany"
           ],
           "number": "26",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3803,7 +4064,8 @@
             "Germany"
           ],
           "number": "2",
-          "position": "Right Winger"
+          "position": "Right Winger",
+          "overall_score": 57
         },
         {
           "contract": "",
@@ -3817,7 +4079,8 @@
             "Germany"
           ],
           "number": "6",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -3831,7 +4094,8 @@
             "Germany"
           ],
           "number": "7",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 66
         },
         {
           "contract": "",
@@ -3845,7 +4109,8 @@
             "Germany"
           ],
           "number": "8",
-          "position": "Attacking Midfield"
+          "position": "Attacking Midfield",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -3859,7 +4124,8 @@
             "Germany"
           ],
           "number": "21",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3873,7 +4139,8 @@
             "Germany"
           ],
           "number": "31",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -3887,7 +4154,8 @@
             "Germany"
           ],
           "number": "9",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -3901,7 +4169,8 @@
             "Germany"
           ],
           "number": "10",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -3915,7 +4184,8 @@
             "Germany"
           ],
           "number": "11",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -3929,7 +4199,8 @@
             "Hungary"
           ],
           "number": "13",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3943,7 +4214,8 @@
             "Germany"
           ],
           "number": "20",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -3957,7 +4229,8 @@
             "Germany"
           ],
           "number": "23",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 61
         }
       ]
     },
@@ -3980,7 +4253,8 @@
             "Germany"
           ],
           "number": "1",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -3994,7 +4268,8 @@
             "Germany"
           ],
           "number": "12",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 58
         },
         {
           "contract": "",
@@ -4008,7 +4283,8 @@
             "Germany"
           ],
           "number": "23",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -4022,7 +4298,8 @@
             "Germany"
           ],
           "number": "2",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -4037,7 +4314,8 @@
             "Nigeria"
           ],
           "number": "3",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -4051,7 +4329,8 @@
             "Germany"
           ],
           "number": "4",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -4065,7 +4344,8 @@
             "Germany"
           ],
           "number": "5",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -4079,7 +4359,8 @@
             "Germany"
           ],
           "number": "11",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -4093,7 +4374,8 @@
             "Germany"
           ],
           "number": "16",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 66
         },
         {
           "contract": "",
@@ -4107,7 +4389,8 @@
             "Germany"
           ],
           "number": "22",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -4121,7 +4404,8 @@
             "Germany"
           ],
           "number": "14",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -4135,7 +4419,8 @@
             "Germany"
           ],
           "number": "15",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -4149,7 +4434,8 @@
             "Germany"
           ],
           "number": "18",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -4163,7 +4449,8 @@
             "Germany"
           ],
           "number": "20",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 56
         },
         {
           "contract": "",
@@ -4177,7 +4464,8 @@
             "Germany"
           ],
           "number": "25",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -4191,7 +4479,8 @@
             "Austria"
           ],
           "number": "26",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -4206,7 +4495,8 @@
             "Germany"
           ],
           "number": "7",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 56
         },
         {
           "contract": "",
@@ -4221,7 +4511,8 @@
             "Serbia"
           ],
           "number": "9",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -4235,7 +4526,8 @@
             "Germany"
           ],
           "number": "10",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -4249,7 +4541,8 @@
             "Germany"
           ],
           "number": "13",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -4263,7 +4556,8 @@
             "Germany"
           ],
           "number": "17",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -4277,7 +4571,8 @@
             "Germany"
           ],
           "number": "19",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -4291,7 +4586,8 @@
             "Germany"
           ],
           "number": "21",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -4305,7 +4601,8 @@
             "Germany"
           ],
           "number": "24",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 57
         }
       ]
     },
@@ -4328,7 +4625,8 @@
             "Germany"
           ],
           "number": "1",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 57
         },
         {
           "contract": "",
@@ -4342,7 +4640,8 @@
             "Germany"
           ],
           "number": "25",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -4356,7 +4655,8 @@
             "Germany"
           ],
           "number": "44",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -4370,7 +4670,8 @@
             "Germany"
           ],
           "number": "3",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -4384,7 +4685,8 @@
             "Germany"
           ],
           "number": "4",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 56
         },
         {
           "contract": "",
@@ -4398,7 +4700,8 @@
             "Germany"
           ],
           "number": "13",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 56
         },
         {
           "contract": "",
@@ -4412,7 +4715,8 @@
             "Germany"
           ],
           "number": "15",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 57
         },
         {
           "contract": "",
@@ -4426,7 +4730,8 @@
             "Germany"
           ],
           "number": "28",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 56
         },
         {
           "contract": "",
@@ -4440,7 +4745,8 @@
             "Germany"
           ],
           "number": "33",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 56
         },
         {
           "contract": "",
@@ -4454,7 +4760,8 @@
             "Germany"
           ],
           "number": "34",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 56
         },
         {
           "contract": "",
@@ -4468,7 +4775,8 @@
             "Germany"
           ],
           "number": "35",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 57
         },
         {
           "contract": "",
@@ -4482,7 +4790,8 @@
             "Germany"
           ],
           "number": "7",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -4496,7 +4805,8 @@
             "Germany"
           ],
           "number": "10",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -4510,7 +4820,8 @@
             "Slovakia"
           ],
           "number": "14",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -4524,7 +4835,8 @@
             "Germany"
           ],
           "number": "17",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -4538,7 +4850,8 @@
             "Germany"
           ],
           "number": "21",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -4552,7 +4865,8 @@
             "Germany"
           ],
           "number": "27",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -4566,7 +4880,8 @@
             "Slovakia"
           ],
           "number": "30",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -4580,7 +4895,8 @@
             "Germany"
           ],
           "number": "32",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -4594,7 +4910,8 @@
             "Germany"
           ],
           "number": "40",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -4608,7 +4925,8 @@
             "Germany"
           ],
           "number": "9",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 58
         },
         {
           "contract": "",
@@ -4622,7 +4940,8 @@
             "Germany"
           ],
           "number": "11",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -4637,7 +4956,8 @@
             "Germany"
           ],
           "number": "19",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -4651,7 +4971,8 @@
             "Austria"
           ],
           "number": "29",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 57
         },
         {
           "contract": "",
@@ -4665,7 +4986,8 @@
             "Germany"
           ],
           "number": "31",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 57
         }
       ]
     },
@@ -4688,7 +5010,8 @@
             "Germany"
           ],
           "number": "1",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -4702,7 +5025,8 @@
             "Germany"
           ],
           "number": "22",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 58
         },
         {
           "contract": "",
@@ -4716,7 +5040,8 @@
             "Germany"
           ],
           "number": "30",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -4730,7 +5055,8 @@
             "Germany"
           ],
           "number": "2",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 57
         },
         {
           "contract": "",
@@ -4744,7 +5070,8 @@
             "Germany"
           ],
           "number": "4",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -4758,7 +5085,8 @@
             "Germany"
           ],
           "number": "5",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -4772,7 +5100,8 @@
             "Germany"
           ],
           "number": "9",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -4786,7 +5115,8 @@
             "Germany"
           ],
           "number": "14",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -4800,7 +5130,8 @@
             "Germany"
           ],
           "number": "15",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -4814,7 +5145,8 @@
             "Germany"
           ],
           "number": "24",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 58
         },
         {
           "contract": "",
@@ -4828,7 +5160,8 @@
             "Germany"
           ],
           "number": "3",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -4842,7 +5175,8 @@
             "Germany"
           ],
           "number": "6",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -4856,7 +5190,8 @@
             "Germany"
           ],
           "number": "7",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -4870,7 +5205,8 @@
             "Germany"
           ],
           "number": "10",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -4884,7 +5220,8 @@
             "Germany"
           ],
           "number": "13",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -4898,7 +5235,8 @@
             "Germany"
           ],
           "number": "21",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -4912,7 +5250,8 @@
             "Germany"
           ],
           "number": "26",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -4926,7 +5265,8 @@
             "Germany"
           ],
           "number": "27",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -4940,7 +5280,8 @@
             "Germany"
           ],
           "number": "31",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -4954,7 +5295,8 @@
             "Germany"
           ],
           "number": "32",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -4968,7 +5310,8 @@
             "Germany"
           ],
           "number": "11",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -4982,7 +5325,8 @@
             "Germany"
           ],
           "number": "19",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -4996,7 +5340,8 @@
             "Germany"
           ],
           "number": "25",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 58
         },
         {
           "contract": "",
@@ -5010,7 +5355,8 @@
             "Germany"
           ],
           "number": "28",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 59
         }
       ]
     }

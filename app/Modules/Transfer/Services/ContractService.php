@@ -471,6 +471,14 @@ class ContractService
         $premium = $scenario->wagePremium($player->market_value_cents, $player->tier);
         $demandedWage = (int) ($baseWage * $premium);
 
+        // Continental stage premium: a star playing UWCL & equivalents demands
+        // more to be lured away — her current stage is the pinnacle of the
+        // sport and the buying club must compensate for it.
+        if (in_array($scenario, [NegotiationScenario::TRANSFER, NegotiationScenario::PRE_CONTRACT], true)
+            && $this->dispositionService->teamPlaysContinental($player)) {
+            $demandedWage = (int) round($demandedWage * 1.15);
+        }
+
         // Pre-contract floor: the player is mid-contract at another club and
         // would be walking away on a free transfer. He won't take a pay cut
         // to do that — without this floor, a Segunda Federación (LOCAL) club can

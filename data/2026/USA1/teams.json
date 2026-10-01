@@ -647,7 +647,8 @@
           "number": 16,
           "contract": null,
           "foot": "left",
-          "height": "1,62m"
+          "height": "1,62m",
+          "overall_score": 87
         },
         {
           "id": "943046",
@@ -717,7 +718,8 @@
           "number": 18,
           "contract": null,
           "foot": "left",
-          "height": "1,66m"
+          "height": "1,66m",
+          "overall_score": 88
         },
         {
           "id": "943051",
@@ -731,7 +733,8 @@
           "number": 20,
           "contract": null,
           "foot": "right",
-          "height": "1,67m"
+          "height": "1,67m",
+          "overall_score": 90
         },
         {
           "id": "943052",
@@ -2153,7 +2156,8 @@
           "number": 9,
           "contract": null,
           "foot": "both",
-          "height": "1,62m"
+          "height": "1,62m",
+          "overall_score": 87
         },
         {
           "id": "943151",
@@ -2913,7 +2917,8 @@
           "number": 9,
           "contract": null,
           "foot": "both",
-          "height": "1,68m"
+          "height": "1,68m",
+          "overall_score": 88
         },
         {
           "id": "943204",
@@ -3673,7 +3678,8 @@
           "number": 99,
           "contract": null,
           "foot": "right",
-          "height": "1,57m"
+          "height": "1,57m",
+          "overall_score": 88
         },
         {
           "id": "943257",
@@ -4349,7 +4355,8 @@
           "number": 10,
           "contract": null,
           "foot": "right",
-          "height": "1,75m"
+          "height": "1,75m",
+          "overall_score": 87
         },
         {
           "id": "943304",
@@ -4876,7 +4883,8 @@
           "number": 10,
           "contract": null,
           "foot": "right",
-          "height": "1,74m"
+          "height": "1,74m",
+          "overall_score": 85
         },
         {
           "id": "943341",

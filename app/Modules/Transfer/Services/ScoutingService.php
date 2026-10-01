@@ -469,6 +469,24 @@ class ScoutingService
 
         $totalMultiplier = $importanceMultiplier * $contractModifier * $ageModifier;
 
+        // Star + continental premium: a high-value player at a club playing
+        // UWCL & equivalents costs clearly more — the selling club has no
+        // sporting need to negotiate and the player's stature commands it.
+        // Applied before the clamp so the 1.5x ceiling still holds.
+        $statureMultiplier = 1.0;
+        $valueCents = (int) $player->market_value_cents;
+        if ($valueCents >= 100_000_000) {          // €1M+
+            $statureMultiplier *= 1.25;
+        } elseif ($valueCents >= 50_000_000) {     // €500K+
+            $statureMultiplier *= 1.15;
+        } elseif ($valueCents >= 20_000_000) {     // €200K+
+            $statureMultiplier *= 1.08;
+        }
+        if ($this->dispositionService->teamPlaysContinental($player)) {
+            $statureMultiplier *= 1.15;
+        }
+        $totalMultiplier *= $statureMultiplier;
+
         // Price floor, so a club is never made to give a player away. The floor
         // is driven by raw importance (matching the reluctance in
         // DispositionService::clubSellDisposition) but DECAYS with leverage: at

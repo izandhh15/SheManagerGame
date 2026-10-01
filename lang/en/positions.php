@@ -16,6 +16,12 @@ return [
     'centre_forward' => 'Centre-Forward',
     'second_striker' => 'Second Striker',
 
+    // Generic source-data positions (don't fall through to the MC default)
+    'defender' => 'Defender',
+    'midfielder' => 'Midfielder',
+    'forward' => 'Forward',
+    'striker' => 'Striker',
+
     // Player position abbreviations
     'goalkeeper_abbr' => 'GK',
     'centre_back_abbr' => 'CB',
@@ -30,6 +36,11 @@ return [
     'right_winger_abbr' => 'RW',
     'centre_forward_abbr' => 'CF',
     'second_striker_abbr' => 'SS',
+
+    'defender_abbr' => 'DF',
+    'midfielder_abbr' => 'MC',
+    'forward_abbr' => 'FW',
+    'striker_abbr' => 'ST',
 
     // Labels with abbreviation (for scouting dropdown)
     'goalkeeper_label' => 'Goalkeeper (GK)',

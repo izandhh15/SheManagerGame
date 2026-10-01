@@ -92,7 +92,8 @@
             "Costa Rica"
           ],
           "number": "22",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 70
         },
         {
           "contract": "",
@@ -106,7 +107,8 @@
             "Costa Rica"
           ],
           "number": "",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 73
         },
         {
           "contract": "",
@@ -120,7 +122,8 @@
             "Costa Rica"
           ],
           "number": "2",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 70
         },
         {
           "contract": "",
@@ -134,7 +137,8 @@
             "Costa Rica"
           ],
           "number": "3",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 69
         },
         {
           "contract": "",
@@ -148,7 +152,8 @@
             "Costa Rica"
           ],
           "number": "4",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 71
         },
         {
           "contract": "",
@@ -162,7 +167,8 @@
             "Costa Rica"
           ],
           "number": "5",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 73
         },
         {
           "contract": "",
@@ -177,7 +183,8 @@
             "Nicaragua"
           ],
           "number": "16",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 68
         },
         {
           "contract": "",
@@ -191,7 +198,8 @@
             "Costa Rica"
           ],
           "number": "17",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 72
         },
         {
           "contract": "",
@@ -205,7 +213,8 @@
             "Costa Rica"
           ],
           "number": "21",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 69
         },
         {
           "contract": "",
@@ -219,7 +228,8 @@
             "Costa Rica"
           ],
           "number": "28",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 73
         },
         {
           "contract": "",
@@ -233,7 +243,8 @@
             "Costa Rica"
           ],
           "number": "30",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 69
         },
         {
           "contract": "",
@@ -247,7 +258,8 @@
             "Costa Rica"
           ],
           "number": "35",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 69
         },
         {
           "contract": "",
@@ -261,7 +273,8 @@
             "Costa Rica"
           ],
           "number": "55",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 70
         },
         {
           "contract": "",
@@ -275,7 +288,8 @@
             "Costa Rica"
           ],
           "number": "7",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 73
         },
         {
           "contract": "",
@@ -289,7 +303,8 @@
             "Costa Rica"
           ],
           "number": "8",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 71
         },
         {
           "contract": "",
@@ -303,7 +318,8 @@
             "Costa Rica"
           ],
           "number": "18",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 73
         },
         {
           "contract": "",
@@ -317,7 +333,8 @@
             "Costa Rica"
           ],
           "number": "20",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 67
         },
         {
           "contract": "Jun 30, 2026",
@@ -332,7 +349,8 @@
             "Mexico"
           ],
           "number": "",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 67
         },
         {
           "contract": "",
@@ -347,7 +365,8 @@
             "United States"
           ],
           "number": "9",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 69
         },
         {
           "contract": "",
@@ -361,7 +380,8 @@
             "Panama"
           ],
           "number": "11",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 71
         },
         {
           "contract": "",
@@ -375,7 +395,8 @@
             "Costa Rica"
           ],
           "number": "12",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 73
         },
         {
           "contract": "",
@@ -389,7 +410,8 @@
             "Costa Rica"
           ],
           "number": "19",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 68
         },
         {
           "contract": "",
@@ -404,7 +426,8 @@
             "United States"
           ],
           "number": "24",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 68
         },
         {
           "contract": "",
@@ -418,7 +441,8 @@
             "Costa Rica"
           ],
           "number": "25",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 69
         },
         {
           "contract": "",
@@ -432,7 +456,8 @@
             "Costa Rica"
           ],
           "number": "26",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 67
         },
         {
           "contract": "",
@@ -446,7 +471,8 @@
             "Costa Rica"
           ],
           "number": "27",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 67
         }
       ],
       "entryRound": 1
@@ -470,7 +496,8 @@
             "Costa Rica"
           ],
           "number": "",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 69
         },
         {
           "contract": "",
@@ -484,7 +511,8 @@
             "Costa Rica"
           ],
           "number": "",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 68
         },
         {
           "contract": "",
@@ -498,7 +526,8 @@
             "Costa Rica"
           ],
           "number": "",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 73
         },
         {
           "contract": "",
@@ -512,7 +541,8 @@
             "Costa Rica"
           ],
           "number": "",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 73
         },
         {
           "contract": "",
@@ -526,7 +556,8 @@
             "Costa Rica"
           ],
           "number": "",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 71
         },
         {
           "contract": "",
@@ -540,7 +571,8 @@
             "Costa Rica"
           ],
           "number": "",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 67
         },
         {
           "contract": "",
@@ -554,7 +586,8 @@
             "Costa Rica"
           ],
           "number": "",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 72
         },
         {
           "contract": "",
@@ -568,7 +601,8 @@
             "Costa Rica"
           ],
           "number": "",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 72
         },
         {
           "contract": "",
@@ -582,7 +616,8 @@
             "Costa Rica"
           ],
           "number": "",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 73
         },
         {
           "contract": "",
@@ -596,7 +631,8 @@
             "Costa Rica"
           ],
           "number": "",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 73
         },
         {
           "contract": "",
@@ -610,7 +646,8 @@
             "Costa Rica"
           ],
           "number": "",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 72
         },
         {
           "contract": "",
@@ -624,7 +661,8 @@
             "Costa Rica"
           ],
           "number": "",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 72
         },
         {
           "contract": "",
@@ -638,7 +676,8 @@
             "Costa Rica"
           ],
           "number": "",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 69
         },
         {
           "contract": "",
@@ -652,7 +691,8 @@
             "United States"
           ],
           "number": "",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 67
         },
         {
           "contract": "",
@@ -666,7 +706,8 @@
             "Costa Rica"
           ],
           "number": "",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 71
         },
         {
           "contract": "",
@@ -680,7 +721,8 @@
             "Costa Rica"
           ],
           "number": "",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 69
         },
         {
           "contract": "",
@@ -694,7 +736,8 @@
             "United States"
           ],
           "number": "",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 69
         },
         {
           "contract": "",
@@ -708,7 +751,8 @@
             "Costa Rica"
           ],
           "number": "",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 71
         },
         {
           "contract": "",
@@ -722,7 +766,8 @@
             "Costa Rica"
           ],
           "number": "",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 69
         },
         {
           "contract": "",
@@ -736,7 +781,8 @@
             "Costa Rica"
           ],
           "number": "",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 70
         },
         {
           "contract": "",
@@ -750,7 +796,8 @@
             "Costa Rica"
           ],
           "number": "",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 69
         }
       ],
       "entryRound": 1
@@ -774,7 +821,8 @@
             "El Salvador"
           ],
           "number": "1",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 67
         },
         {
           "contract": "",
@@ -788,7 +836,8 @@
             "El Salvador"
           ],
           "number": "24",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 73
         },
         {
           "contract": "",
@@ -802,7 +851,8 @@
             "El Salvador"
           ],
           "number": "4",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 69
         },
         {
           "contract": "",
@@ -816,7 +866,8 @@
             "El Salvador"
           ],
           "number": "6",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 71
         },
         {
           "contract": "",
@@ -830,7 +881,8 @@
             "El Salvador"
           ],
           "number": "8",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 73
         },
         {
           "contract": "",
@@ -844,7 +896,8 @@
             "El Salvador"
           ],
           "number": "16",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 73
         },
         {
           "contract": "",
@@ -858,7 +911,8 @@
             "El Salvador"
           ],
           "number": "17",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 69
         },
         {
           "contract": "",
@@ -872,7 +926,8 @@
             "El Salvador"
           ],
           "number": "23",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 67
         },
         {
           "contract": "",
@@ -886,7 +941,8 @@
             "United States"
           ],
           "number": "",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 68
         },
         {
           "contract": "",
@@ -900,7 +956,8 @@
             "El Salvador"
           ],
           "number": "3",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 67
         },
         {
           "contract": "",
@@ -914,7 +971,8 @@
             "El Salvador"
           ],
           "number": "12",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 68
         },
         {
           "contract": "",
@@ -928,7 +986,8 @@
             "El Salvador"
           ],
           "number": "19",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 68
         },
         {
           "contract": "",
@@ -942,7 +1001,8 @@
             "El Salvador"
           ],
           "number": "20",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 73
         },
         {
           "contract": "",
@@ -956,7 +1016,8 @@
             "Mexico"
           ],
           "number": "29",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 72
         },
         {
           "contract": "",
@@ -970,7 +1031,8 @@
             "United States"
           ],
           "number": "7",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 71
         },
         {
           "contract": "",
@@ -984,7 +1046,8 @@
             "El Salvador"
           ],
           "number": "9",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 73
         },
         {
           "contract": "",
@@ -998,7 +1061,8 @@
             "El Salvador"
           ],
           "number": "10",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 71
         },
         {
           "contract": "",
@@ -1012,7 +1076,8 @@
             "El Salvador"
           ],
           "number": "14",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 72
         },
         {
           "contract": "",
@@ -1026,7 +1091,8 @@
             "El Salvador"
           ],
           "number": "22",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 73
         },
         {
           "contract": "",
@@ -1040,7 +1106,8 @@
             "El Salvador"
           ],
           "number": "26",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 70
         },
         {
           "contract": "",
@@ -1054,7 +1121,8 @@
             "Mexico"
           ],
           "number": "27",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 68
         },
         {
           "contract": "",
@@ -1068,7 +1136,8 @@
             "El Salvador"
           ],
           "number": "30",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 67
         }
       ],
       "entryRound": 1
@@ -1092,7 +1161,8 @@
             "Colombia"
           ],
           "number": "1",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 69
         },
         {
           "contract": "",
@@ -1106,7 +1176,8 @@
             "Panama"
           ],
           "number": "28",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 73
         },
         {
           "contract": "",
@@ -1120,7 +1191,8 @@
             "Panama"
           ],
           "number": "30",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 68
         },
         {
           "contract": "",
@@ -1134,7 +1206,8 @@
             "Panama"
           ],
           "number": "",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 72
         },
         {
           "contract": "",
@@ -1148,7 +1221,8 @@
             "Panama"
           ],
           "number": "3",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 72
         },
         {
           "contract": "",
@@ -1162,7 +1236,8 @@
             "Colombia"
           ],
           "number": "4",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 67
         },
         {
           "contract": "",
@@ -1176,7 +1251,8 @@
             "Panama"
           ],
           "number": "5",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 67
         },
         {
           "contract": "",
@@ -1190,7 +1266,8 @@
             "Panama"
           ],
           "number": "14",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 71
         },
         {
           "contract": "",
@@ -1204,7 +1281,8 @@
             "Panama"
           ],
           "number": "17",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 73
         },
         {
           "contract": "",
@@ -1218,7 +1296,8 @@
             "Panama"
           ],
           "number": "24",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 73
         },
         {
           "contract": "",
@@ -1232,7 +1311,8 @@
             "Panama"
           ],
           "number": "25",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 71
         },
         {
           "contract": "",
@@ -1246,7 +1326,8 @@
             "Panama"
           ],
           "number": "6",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 73
         },
         {
           "contract": "",
@@ -1260,7 +1341,8 @@
             "Colombia"
           ],
           "number": "8",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 69
         },
         {
           "contract": "",
@@ -1274,7 +1356,8 @@
             "Panama"
           ],
           "number": "11",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 71
         },
         {
           "contract": "",
@@ -1288,7 +1371,8 @@
             "Panama"
           ],
           "number": "15",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 68
         },
         {
           "contract": "",
@@ -1302,7 +1386,8 @@
             "Panama"
           ],
           "number": "18",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 69
         },
         {
           "contract": "",
@@ -1316,7 +1401,8 @@
             "Panama"
           ],
           "number": "19",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 68
         },
         {
           "contract": "",
@@ -1330,7 +1416,8 @@
             "Panama"
           ],
           "number": "20",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 71
         },
         {
           "contract": "",
@@ -1344,7 +1431,8 @@
             "Panama"
           ],
           "number": "21",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 72
         },
         {
           "contract": "",
@@ -1358,7 +1446,8 @@
             "Panama"
           ],
           "number": "26",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 71
         },
         {
           "contract": "",
@@ -1372,7 +1461,8 @@
             "Panama"
           ],
           "number": "29",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 73
         },
         {
           "contract": "",
@@ -1386,7 +1476,8 @@
             "Panama"
           ],
           "number": "2",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 71
         },
         {
           "contract": "",
@@ -1400,7 +1491,8 @@
             "Panama"
           ],
           "number": "9",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 73
         },
         {
           "contract": "",
@@ -1414,7 +1506,8 @@
             "Panama"
           ],
           "number": "12",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 68
         },
         {
           "contract": "",
@@ -1428,7 +1521,8 @@
             "Panama"
           ],
           "number": "22",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 73
         }
       ],
       "entryRound": 1
@@ -1452,7 +1546,8 @@
             "Canada"
           ],
           "number": "13",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 71
         },
         {
           "contract": "Jun 30, 2026",
@@ -1466,7 +1561,8 @@
             "Japan"
           ],
           "number": "31",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 71
         },
         {
           "contract": "Jun 30, 2026",
@@ -1494,7 +1590,8 @@
             "Philippines"
           ],
           "number": "3",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 70
         },
         {
           "contract": "Jun 30, 2026",
@@ -1522,7 +1619,8 @@
             "Australia"
           ],
           "number": "6",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 73
         },
         {
           "contract": "Jun 30, 2026",
@@ -1536,7 +1634,8 @@
             "Canada"
           ],
           "number": "12",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 71
         },
         {
           "contract": "Jun 30, 2026",
@@ -1550,7 +1649,8 @@
             "Canada"
           ],
           "number": "15",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 68
         },
         {
           "contract": "Jun 30, 2026",
@@ -1564,7 +1664,8 @@
             "Japan"
           ],
           "number": "18",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 68
         },
         {
           "contract": "",
@@ -1592,7 +1693,8 @@
             "Philippines"
           ],
           "number": "25",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 72
         },
         {
           "contract": "",
@@ -1606,7 +1708,8 @@
             "Canada"
           ],
           "number": "33",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 68
         },
         {
           "contract": "",
@@ -1620,7 +1723,8 @@
             "Canada"
           ],
           "number": "45",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 69
         },
         {
           "contract": "Jun 30, 2026",
@@ -1662,7 +1766,8 @@
             "Colombia"
           ],
           "number": "10",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 72
         },
         {
           "contract": "Jun 30, 2026",
@@ -1676,7 +1781,8 @@
             "Canada"
           ],
           "number": "14",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 72
         },
         {
           "contract": "Jun 30, 2026",
@@ -1690,7 +1796,8 @@
             "Canada"
           ],
           "number": "16",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 73
         },
         {
           "contract": "Jun 30, 2026",
@@ -1718,7 +1825,8 @@
             "Wales"
           ],
           "number": "24",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 67
         },
         {
           "contract": "Jun 30, 2026",
@@ -1732,7 +1840,8 @@
             "Algeria"
           ],
           "number": "26",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 67
         },
         {
           "contract": "",
@@ -1774,7 +1883,8 @@
             "Canada"
           ],
           "number": "17",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 72
         },
         {
           "contract": "Jun 30, 2026",
@@ -1788,7 +1898,8 @@
             "Colombia"
           ],
           "number": "23",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 72
         },
         {
           "contract": "Jun 30, 2026",
@@ -1802,7 +1913,8 @@
             "Canada"
           ],
           "number": "28",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 71
         },
         {
           "contract": "",
@@ -1816,7 +1928,8 @@
             "Canada"
           ],
           "number": "46",
-          "position": "Forward"
+          "position": "Forward",
+          "overall_score": 68
         },
         {
           "contract": "Jun 30, 2026",

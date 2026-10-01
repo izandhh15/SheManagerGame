@@ -21,6 +21,12 @@ class PositionMapper
         'Right Winger' => 'right_winger',
         'Centre-Forward' => 'centre_forward',
         'Second Striker' => 'second_striker',
+        // Generic source-data positions (must not fall through to the MC default)
+        'Defender' => 'defender',
+        'Midfielder' => 'midfielder',
+        'Midfield' => 'midfielder',
+        'Forward' => 'forward',
+        'Striker' => 'striker',
     ];
 
     /**
@@ -40,6 +46,12 @@ class PositionMapper
         'Right Winger' => 'Forward',
         'Centre-Forward' => 'Forward',
         'Second Striker' => 'Forward',
+        // Generic source-data positions
+        'Defender' => 'Defender',
+        'Midfielder' => 'Midfielder',
+        'Midfield' => 'Midfielder',
+        'Forward' => 'Forward',
+        'Striker' => 'Forward',
     ];
 
     /**

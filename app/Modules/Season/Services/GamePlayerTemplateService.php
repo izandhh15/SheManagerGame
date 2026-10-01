@@ -570,15 +570,14 @@ class GamePlayerTemplateService
         }
         if ($dateOfBirth === null) {
             // No verified DOB (common for Liga MX Femenil and other leagues
-            // where Soccerdonna lacks birth dates): use the 2000-01-01
-            // placeholder instead of dropping the player. Views that show
-            // ages must hide it (see ShowNationalSquadPicker).
-            $dateOfBirth = Carbon::parse('2000-01-01');
+            // where Soccerdonna lacks birth dates): use a deterministic,
+            // varied placeholder per player instead of a flat 2000-01-01,
+            // so squads don't show every unknown as exactly 26 years old.
+            $dateOfBirth = self::variedDefaultDob((string) ($playerData['id'] ?? $playerData['name'] ?? ''), $season);
         }
 
         $referenceDate = Carbon::parse("{$season}-08-15");
-        $defaultContract = '2027-06-30';
-        $contractUntil = $defaultContract;
+        $contractUntil = self::variedDefaultContract((string) ($playerData['id'] ?? $playerData['name'] ?? ''), $referenceDate);
 
         if (!empty($playerData['contract']) && $playerData['contract'] !== '-') {
             try {
@@ -595,7 +594,17 @@ class GamePlayerTemplateService
         }
 
         $age = (int) $dateOfBirth->diffInYears($referenceDate);
+        $position = $playerData['position'] ?? null;
+        $explicitOverall = $this->resolveExplicitAbility($playerData['overall_score'] ?? null);
         $marketValueCents = Money::parseMarketValue($playerData['marketValue'] ?? null);
+        $marketValueLabel = $playerData['marketValue'] ?? null;
+        if ($marketValueCents <= 0 && $explicitOverall !== null) {
+            // Mas media -> mas valor: con rating FIFA/heuristico explicito y sin
+            // valor de mercado real, el valor se deriva de la media con la curva
+            // inversa del juego en vez del suelo plano de 25K.
+            $marketValueCents = $this->valuationService->overallScoreToMarketValue($explicitOverall, $age, null, $position);
+            $marketValueLabel = Money::format($marketValueCents);
+        }
         // Transfermarkt occasionally lists fringe / youth squad players with no
         // quoted value. Floor those at €25K so they get a usable ability
         // baseline, a non-zero transfer price, and don't render as "Free" in the
@@ -607,8 +616,7 @@ class GamePlayerTemplateService
         if ($marketValueCents <= 0) {
             $marketValueCents = 2_500_000; // €25K, matches PlayerGeneratorService floor
         }
-        $position = $playerData['position'] ?? null;
-        $overallScore = $this->resolveExplicitAbility($playerData['overall_score'] ?? null)
+        $overallScore = $explicitOverall
             ?? $this->valuationService->marketValueToOverallScore($marketValueCents, $age, $position);
         $annualWage = $this->contractService->calculateAnnualWageForPlayer($overallScore, $marketValueCents, $minimumWage, $age, $position);
 
@@ -656,7 +664,7 @@ class GamePlayerTemplateService
             'number' => ($playerData['number'] ?? '') === '' ? null : (int) $playerData['number'],
             'position' => $position ?? 'Unknown',
             'secondary_positions' => json_encode($secondaryPositions),
-            'market_value' => $playerData['marketValue'] ?? null,
+            'market_value' => $marketValueLabel,
             'market_value_cents' => $marketValueCents,
             'contract_until' => $contractUntil,
             'annual_wage' => $annualWage,
@@ -698,6 +706,41 @@ class GamePlayerTemplateService
         }
 
         return $clubs;
+    }
+
+    /**
+     * Deterministic, varied placeholder DOB for players without a verified
+     * birth date. Replaces the old flat 2000-01-01 default so squads don't
+     * show every unknown as exactly the same age. Distribution is weighted
+     * like a real squad (peak 21-30, few teenagers/veterans). Keyed by player
+     * id so it's stable across seeds and matches the migration backfill.
+     */
+    public static function variedDefaultDob(string $playerKey, string $season): Carbon
+    {
+        $h = hexdec(substr(md5('dob:' . $playerKey), 0, 8));
+        $r = ($h % 1000) / 1000.0;
+        $age = match (true) {
+            $r < 0.08 => 18 + ($h % 3),   // 18-20
+            $r < 0.35 => 21 + ($h % 3),   // 21-23
+            $r < 0.75 => 24 + ($h % 7),   // 24-30
+            $r < 0.92 => 31 + ($h % 3),   // 31-33
+            default => 34 + ($h % 2),     // 34-35
+        };
+        $refYear = (int) Carbon::parse("{$season}-08-15")->year;
+
+        return Carbon::createFromDate($refYear - $age, 1 + ($h % 12), 1 + (($h >> 5) % 28))->startOfDay();
+    }
+
+    /**
+     * Deterministic, varied default contract end for players without contract
+     * data. Replaces the old flat 2027-06-30 default (1-4 seasons out).
+     */
+    public static function variedDefaultContract(string $playerKey, Carbon $referenceDate): string
+    {
+        $h = hexdec(substr(md5('contract:' . $playerKey), 0, 8));
+        $years = 1 + ($h % 4); // 1-4 years
+
+        return $referenceDate->copy()->addYears($years)->month(6)->day(30)->toDateString();
     }
 
     /**
