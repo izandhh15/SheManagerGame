@@ -46,4 +46,19 @@ $out['templates_by_country'] = DB::table('game_player_templates as p')
     ->select('t.country', DB::raw('count(*) as n'), DB::raw('count(distinct p.team_id) as teams'))
     ->groupBy('t.country')->orderBy('n', 'desc')->get();
 
+// Quien gana cada UUID duplicado en la BD actual
+require __DIR__.'/uuid_list.php';
+$winners = [];
+foreach (array_chunk($uuidList, 40) as $chunk) {
+    $rows = DB::table('game_player_templates as p')
+        ->join('teams as t', 't.id', '=', 'p.team_id')
+        ->where('p.season', '2026')
+        ->whereIn('p.player_id', $chunk)
+        ->select('p.player_id', 'p.name', 't.name as team')
+        ->get();
+    foreach ($rows as $r) { $winners[$r->player_id] = ['name' => $r->name, 'team' => $r->team]; }
+}
+$out['winners'] = $winners;
+$out['winners_count'] = count($winners);
+
 echo json_encode($out, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
