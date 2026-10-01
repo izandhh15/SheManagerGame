@@ -123,7 +123,6 @@ class Competition extends Model
     private const ARTICLES = [
         'WC2026'    => 'el',
         'PRESEASON' => 'el',
-        'ENGSUP'    => 'el',
         'FRASUP'    => 'el',
         'DEUSUP'    => 'el',
     ];

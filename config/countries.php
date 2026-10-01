@@ -332,27 +332,6 @@ return [
                     'cup.final' => ['name' => 'Wembley Stadium', 'capacity' => 90000],
                 ],
             ],
-            'ENGSUP' => [
-                'from_season' => '2026',
-                'handler' => 'knockout_cup',
-                'config_class' => \App\Modules\Competition\Configs\SupercupConfig::class,
-                // Two clubs, so the pairing is never in doubt; seeding it
-                // just fixes which of them is listed first.
-                'draw_pairing' => \App\Modules\Competition\Services\Draw\SeededBracketPairing::class,
-                'short_name' => "Women's Community Shield",
-                'abbreviation' => 'Shield',
-                'neutral_venues' => [
-                    '*' => ['name' => 'Wembley Stadium', 'capacity' => 90000],
-                ],
-            ],
-        ],
-
-        // Champion v Women's FA Cup winner, the two-club shape.
-        'supercup' => [
-            'competition' => 'ENGSUP',
-            'cup' => 'ENGCUP',
-            'league' => 'ENG1',
-            'teams' => 2,
         ],
 
         // Only the top flight is playable, so tier 1 auto-qualifies and every
@@ -635,6 +614,16 @@ return [
                     '*' => ['name' => 'Al-Awwal Park', 'capacity' => 25000],
                 ],
             ],
+            'ITAWC' => [
+                'from_season' => '2026',
+                'handler' => 'knockout_cup',
+                'config_class' => \App\Modules\Competition\Configs\KnockoutCupConfig::class,
+                // No draw_pairing — open draw like the Coppa Italia.
+                // The league cup only ever holds the 12 Serie A Femminile
+                // clubs: the top four from last season skip the first round.
+                'short_name' => "Serie A Women's Cup",
+                'abbreviation' => 'WCup',
+            ],
         ],
 
         // Champion v Coppa Italia femminile winner, the two-club shape.
@@ -664,6 +653,19 @@ return [
                     'byes' => [
                         'positions' => [1, 2, 3, 4, 5, 6, 7, 8],
                         'round' => 4,
+                    ],
+                ],
+            ],
+            // The league cup is Serie A only: every club qualifies, the top
+            // four skip the first round.
+            'ITAWC' => [
+                'auto_qualify_tiers' => [1],
+                'entry_rounds' => [
+                    'league' => 'ITA1',
+                    'default' => 1,
+                    'byes' => [
+                        'positions' => [1, 2, 3, 4],
+                        'round' => 2,
                     ],
                 ],
             ],
@@ -901,6 +903,15 @@ return [
                     '*' => ['name' => 'Estádio Municipal de Aveiro', 'capacity' => 30000],
                 ],
             ],
+            'PORLC' => [
+                'handler' => 'knockout_cup',
+                'config_class' => \App\Modules\Competition\Configs\KnockoutCupConfig::class,
+                // No draw_pairing — open draw like the Taça de Portugal.
+                // The league cup only ever holds the 10 Liga BPI clubs: the
+                // top six from last season skip the first round.
+                'short_name' => 'Taça da Liga Feminina',
+                'abbreviation' => 'Liga',
+            ],
         ],
 
         // Champion v Taça de Portugal Feminina winner, the two-club shape.
@@ -919,6 +930,19 @@ return [
         'cup_qualification' => [
             'PORCUP' => [
                 'auto_qualify_tiers' => [1],
+            ],
+            // The league cup is Liga BPI only: every club qualifies, the
+            // top six skip the first round.
+            'PORLC' => [
+                'auto_qualify_tiers' => [1],
+                'entry_rounds' => [
+                    'league' => 'POR1',
+                    'default' => 1,
+                    'byes' => [
+                        'positions' => [1, 2, 3, 4, 5, 6],
+                        'round' => 2,
+                    ],
+                ],
             ],
         ],
 
