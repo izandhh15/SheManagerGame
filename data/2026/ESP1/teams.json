@@ -2303,6 +2303,20 @@
           ],
           "number": "31",
           "position": "Centre-Forward"
+        },
+        {
+          "contract": "Jun 30, 2028",
+          "dateOfBirth": "Feb 4, 1994",
+          "foot": "left",
+          "height": "1,73m",
+          "id": "904001",
+          "marketValue": "€500k",
+          "name": "Alexia Putellas",
+          "nationality": [
+            "Spain"
+          ],
+          "number": "11",
+          "position": "Midfielder"
         }
       ]
     },
