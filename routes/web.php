@@ -432,6 +432,8 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
         Route::get('/tech-tools', AdminTechTools::class)->name('tech-tools');
         Route::get('/tech-tools/lookup-game', LookupGame::class)->name('lookup-game');
         Route::post('/tech-tools/impersonate-by-game', ImpersonateByGame::class)->name('impersonate-by-game');
+        Route::get('/live', AdminLiveTraffic::class)->name('live');
+        Route::get('/live/data', AdminLiveTrafficData::class)->name('live.data');
     });
 });
 

@@ -28,6 +28,7 @@ $app = Application::configure(basePath: dirname(__DIR__))
 
         $middleware->web(append: [
             \App\Http\Middleware\SetLocale::class,
+            \App\Http\Middleware\TrackVisitors::class,
         ]);
 
         $middleware->alias([

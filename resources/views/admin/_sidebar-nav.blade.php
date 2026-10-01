@@ -9,6 +9,16 @@
         {{ __('admin.nav_dashboard') }}
     </a>
 
+    <a href="{{ route('admin.live') }}"
+       class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium min-h-[44px] transition-colors
+              {{ request()->routeIs('admin.live*') ? 'bg-surface-700 text-text-primary' : 'text-text-muted hover:text-text-secondary hover:bg-surface-700/50' }}">
+        <span class="relative flex h-2.5 w-2.5 shrink-0">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+        </span>
+        {{ __('admin.nav_live') }}
+    </a>
+
     <a href="{{ route('admin.users') }}"
        class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium min-h-[44px] transition-colors
               {{ request()->routeIs('admin.users') ? 'bg-surface-700 text-text-primary' : 'text-text-muted hover:text-text-secondary hover:bg-surface-700/50' }}">
