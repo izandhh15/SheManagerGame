@@ -45,12 +45,9 @@ if ($mode === 'full') {
         $app = require __DIR__.'/../bootstrap/app.php';
         $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
         // Que el manejador de excepciones relance en vez de convertir a 500
-        $app->singleton(Illuminate\Contracts\Debug\ExceptionHandler::class, function () {
-            return new class implements Illuminate\Contracts\Debug\ExceptionHandler {
-                public function report(Throwable $e) {}
-                public function shouldReport(Throwable $e) { return false; }
+        $app->singleton(Illuminate\Contracts\Debug\ExceptionHandler::class, function ($app) {
+            return new class($app) extends Illuminate\Foundation\Exceptions\Handler {
                 public function render($request, Throwable $e) { throw $e; }
-                public function renderForConsole($output, Throwable $e) { throw $e; }
             };
         });
         $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
@@ -70,6 +67,16 @@ if ($mode === 'full') {
         echo "EXCEPCION REAL: ".get_class($e)."\n";
         echo "MENSAJE: ".$e->getMessage()."\n";
         echo "EN: ".$e->getFile().":".$e->getLine()."\n";
+        $prev = $e->getPrevious();
+        $i = 1;
+        while ($prev) {
+            echo "--- CAUSA $i: ".get_class($prev)." ---\n";
+            echo "MENSAJE: ".$prev->getMessage()."\n";
+            echo "EN: ".$prev->getFile().":".$prev->getLine()."\n";
+            $prev = $prev->getPrevious();
+            $i++;
+            if ($i > 4) break;
+        }
         echo "TRACE:\n".substr($e->getTraceAsString(), 0, 4000)."\n";
     }
     exit;
