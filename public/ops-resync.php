@@ -74,7 +74,10 @@ try {
             SELECT
                 gen_random_uuid(), g.id, t.player_id,
                 t.transfermarkt_id, t.sofascore_id, t.fc26_id, t.name, t.date_of_birth, t.nationality, t.height, t.foot,
-                t.team_id, t.number, t.position, t.secondary_positions,
+                t.team_id,
+                COALESCE((SELECT MAX(gp2.number) FROM game_players gp2 WHERE gp2.game_id = g.id AND gp2.team_id = t.team_id), 0)
+                  + ROW_NUMBER() OVER (PARTITION BY g.id, t.team_id ORDER BY t.player_id),
+                t.position, t.secondary_positions,
                 t.market_value, t.market_value_cents, t.contract_until, t.annual_wage, t.release_clause, t.durability,
                 t.overall_score,
                 t.potential, t.potential_low, t.potential_high, t.tier
