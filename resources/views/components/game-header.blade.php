@@ -407,9 +407,10 @@
          forms. If the request fails or the browser is refreshed mid-flight,
          ShowGame still renders game-loading-matchday as the server-side
          fallback. --}}
-    <div x-data="{ visible: false }"
+    <div x-data="{ visible: false, timer: null }"
          x-show="visible"
-         x-on:matchday-advance-starting.window="visible = true"
+         x-on:matchday-advance-starting.window="visible = true; clearTimeout(timer); timer = setTimeout(() => visible = false, 60000)"
+         x-on:matchday-advance-finished.window="visible = false; clearTimeout(timer)"
          x-cloak
          style="display: none"
          class="fixed inset-0 z-[100] bg-surface-900 flex items-start md:items-center justify-center pt-24 md:pt-0 pb-8">
