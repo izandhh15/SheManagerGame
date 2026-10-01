@@ -49,6 +49,7 @@ if ($step === 'refresh') {
 }
 
 if ($step === 'patch-games') {
+try {
     // 2. Parchea TODAS las partidas de club de una vez: inserta solo las
     //    plantillas nuevas (transfermarkt_id 97xxxxx, las reasignadas) que
     //    falten en cada partida. Una sola query, sin bucle por partida.
@@ -109,6 +110,12 @@ if ($step === 'patch-games') {
         $out['inserted_state_rows'] = $addedState;
     }
     $out['games_patched'] = 'bulk';
+} catch (Throwable $e) {
+    http_response_code(500);
+    header('Content-Type: application/json');
+    echo json_encode(['error' => $e->getMessage(), 'class' => get_class($e)]);
+    exit;
+}
 }
 
 echo json_encode($out, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
