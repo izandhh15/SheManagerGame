@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\DB;
 $step = $_GET['step'] ?? '';
 
 if ($step === 'refresh') {
-    $exit = Artisan::call('game:refresh-templates', ['--season' => 2026]);
+    $exit = Artisan::call('app:refresh-player-templates', ['--season' => '2026']);
     $output = Artisan::output();
     
     $before = DB::table('game_player_templates')->where('season', 2026)->count();
