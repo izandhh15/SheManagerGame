@@ -53,14 +53,20 @@
             $positionGroups = ['Goalkeeper', 'Defender', 'Midfielder', 'Forward'];
         @endphp
 
+        {{-- Payload for client-side filtering/sorting (Alpine). It lives in a
+             JSON script block, NOT inside the x-data attribute: @json output
+             contains literal double quotes (JSON syntax) that would terminate
+             the attribute early and dump the JS as page text. --}}
+        <script type="application/json" id="squad-picker-data">@json(['players' => $playersPayload, 'groupLabels' => $groupLabels, 'yearsLabel' => __('app.years')])</script>
+
         <div x-data="{
                 q: '',
                 clubFilter: '',
                 sortBy: 'position',
                 posFilter: { Goalkeeper: true, Defender: true, Midfielder: true, Forward: true },
-                players: @json($playersPayload),
-                groupLabels: @json($groupLabels),
-                yearsLabel: @json(__('app.years')),
+                players: JSON.parse(document.getElementById('squad-picker-data').textContent).players,
+                groupLabels: JSON.parse(document.getElementById('squad-picker-data').textContent).groupLabels,
+                yearsLabel: JSON.parse(document.getElementById('squad-picker-data').textContent).yearsLabel,
                 selected: [],
                 toggle(id) {
                     const i = this.selected.indexOf(id);
