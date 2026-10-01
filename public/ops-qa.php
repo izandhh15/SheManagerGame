@@ -149,5 +149,28 @@ if ($step === 'gameinfo') {
     exit;
 }
 
+if ($step === 'setup') {
+    $gameId = $_GET['gameId'] ?? '';
+    if (!$gameId) {
+        http_response_code(400);
+        exit('missing gameId');
+    }
+    $game = App\Models\Game::find($gameId);
+    if (!$game) {
+        http_response_code(404);
+        exit('game not found');
+    }
+    try {
+        set_time_limit(240);
+        Illuminate\Support\Facades\DB::disableQueryLog();
+        App\Modules\Season\Jobs\SetupTournamentGame::dispatch(gameId: $game->id, teamId: $game->team_id);
+        echo 'SETUP OK — setup_completed_at: ' . ($game->refresh()->setup_completed_at ?? 'null');
+    } catch (\Throwable $e) {
+        http_response_code(500);
+        echo 'SETUP FAIL: ' . get_class($e) . ': ' . $e->getMessage() . "\n" . substr($e->getTraceAsString(), 0, 3000);
+    }
+    exit;
+}
+
 http_response_code(400);
 echo 'unknown step';
