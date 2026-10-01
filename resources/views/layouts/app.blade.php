@@ -179,9 +179,7 @@
                         <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                             {{-- Logo + copyright --}}
                             <div class="flex flex-col items-center md:items-start gap-3">
-                                <div class="-skew-x-12 bg-text-faint/15 px-3 py-0.5">
-                                    <span class="skew-x-12 inline-block text-lg font-extrabold text-text-faint tracking-tight" style="font-family: 'Barlow Semi Condensed', sans-serif;">SheManagerGame</span>
-                                </div>
+                                <a href="{{ route('dashboard') }}" class="font-heading font-bold text-lg uppercase tracking-wide text-text-primary">SheManager<span class="text-purple-400">Game</span></a>
                                 <p class="text-xs text-text-faint">
                                     &copy; {{ date('Y') }} Izan Delgado &middot; <a href="https://github.com/izandhh15/SheManagerGame" target="_blank" class="hover:text-text-muted transition-colors">Proyecto Open Source</a> &middot; <a href="{{ route('legal') }}" class="hover:text-text-muted transition-colors">Aviso Legal</a> &middot; <a href="https://instagram.com/izandhh" target="_blank" rel="noopener" class="hover:text-text-muted transition-colors">Instagram</a>
                                 </p>
