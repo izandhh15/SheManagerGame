@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1B2A4A"/>
+      <stop offset="1" stop-color="#0E1626"/>
+    </linearGradient>
+  </defs>
+  <rect x="2" y="2" width="92" height="92" rx="20" fill="url(#g)"/>
+  <rect x="2" y="2" width="92" height="92" rx="20" fill="none" stroke="#FFFFFF" stroke-opacity="0.25" stroke-width="2"/>
+  <path d="M2 40 Q48 60 94 40 L94 22 Q94 2 74 2 L22 2 Q2 2 2 22 Z" fill="#FFFFFF" opacity="0.08"/>
+  
+  <text x="48" y="46.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="30" fill="#FFFFFF" letter-spacing="0.5">NWSL</text>
+</svg>

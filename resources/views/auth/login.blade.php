@@ -38,5 +38,12 @@
                 {{ __('auth.Log in') }}
             </x-primary-button>
         </div>
+
+        <p class="mt-6 text-center text-sm text-text-secondary">
+            {{ __('auth.no_account_yet') }}
+            <a href="{{ route('register') }}" class="font-semibold text-purple-400 hover:text-purple-300 underline underline-offset-2">
+                {{ __('app.register') }}
+            </a>
+        </p>
     </form>
 </x-guest-layout>

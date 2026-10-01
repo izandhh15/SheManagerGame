@@ -25,6 +25,12 @@ return [
     'view_details' => 'Ver detalles',
 
     // Authentication
+    'menu' => 'Menú',
+    'my_games' => 'Mis partidas',
+    'login' => 'Entrar',
+    'register' => 'Registrarse',
+    'admin' => 'Admin',
+    'profile' => 'Perfil',
     'account' => 'Cuenta',
     'log_out' => 'Cerrar Sesión',
     'edit_profile' => 'Editar perfil',

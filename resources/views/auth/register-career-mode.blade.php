@@ -1,5 +1,5 @@
 <x-guest-layout>
-    @if($betaMode)
+    @if($betaMode && $inviteCode)
         <div class="mb-4 p-3 bg-accent-gold/10 border border-accent-gold/20 rounded-md">
             <p class="text-sm text-accent-gold font-semibold">{{ __('beta.badge') }}</p>
             <p class="text-xs text-accent-gold mt-1">{{ __('beta.register_notice') }}</p>

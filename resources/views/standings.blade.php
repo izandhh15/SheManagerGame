@@ -11,7 +11,10 @@
 
     <div class="max-w-7xl mx-auto px-4 pb-8">
         <div class="mt-6 mb-6 flex items-center justify-between gap-3 flex-wrap">
-            <h2 class="font-heading text-2xl lg:text-3xl font-bold uppercase tracking-wide text-text-primary">{{ __($competition->name) }}</h2>
+            <h2 class="font-heading text-2xl lg:text-3xl font-bold uppercase tracking-wide text-text-primary flex items-center gap-3">
+                <x-competition-logo :competition="$competition" class="w-10 h-10 lg:w-12 lg:h-12 shrink-0 drop-shadow" />
+                {{ __($competition->name) }}
+            </h2>
             <x-other-leagues-menu :game="$game" :current-competition-id="$competition->id" :user-leagues="$userLeagues" :other-leagues="$otherLeagues" />
         </div>
 

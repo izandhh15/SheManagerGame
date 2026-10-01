@@ -143,8 +143,9 @@
                         <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="absolute left-0 z-50 mt-2 w-48 rounded-lg shadow-xl bg-surface-800 border border-border-strong" style="display: none;">
                             <div class="py-1">
                                 @foreach($teamCompetitions as $competition)
-                                <a href="{{ route('game.competition', [$game->id, $competition->id]) }}" class="block px-4 py-2 text-sm text-text-body hover:bg-surface-700 hover:text-text-primary @if(request()->route('competitionId') == $competition->id) bg-surface-700 text-text-primary font-semibold @endif">
-                                    {{ __($competition->name) }}
+                                <a href="{{ route('game.competition', [$game->id, $competition->id]) }}" class="flex items-center gap-2.5 px-4 py-2 text-sm text-text-body hover:bg-surface-700 hover:text-text-primary @if(request()->route('competitionId') == $competition->id) bg-surface-700 text-text-primary font-semibold @endif">
+                                    <x-competition-logo :competition="$competition" class="w-6 h-6 shrink-0" />
+                                    <span class="truncate">{{ __($competition->name) }}</span>
                                 </a>
                                 @endforeach
                             </div>

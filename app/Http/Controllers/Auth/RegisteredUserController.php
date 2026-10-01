@@ -20,29 +20,35 @@ class RegisteredUserController extends Controller
 {
     /**
      * Display the registration view.
+     *
+     * Registration is open: anyone can sign up. An invite code (via ?invite=)
+     * still works to pre-fill name/email when present.
      */
     public function create(Request $request): View|RedirectResponse
     {
         $invite = InviteCode::findByCode($request->query('invite'));
 
+        $name = null;
+        $email = null;
         if ($invite) {
             $name = WaitlistEntry::whereEmail($invite->email)->first()?->name;
-            return view('auth.register-career-mode', [
-                'inviteCode' => $request->query('invite'),
-                'betaMode' => config('beta.enabled'),
-                'name' => $name ?? null,
-                'email' => $invite->email ?? null,
-            ]);
+            $email = $invite->email ?? null;
         }
 
-        // Registration is invite-only. The World Cup open-signup funnel that
-        // previously served the no-invite path has been retired.
-        return redirect()->route('login')
-            ->with('status', __('beta.registration_closed'));
+        return view('auth.register-career-mode', [
+            'inviteCode' => $invite ? $request->query('invite') : null,
+            'betaMode' => config('beta.enabled'),
+            'name' => $name,
+            'email' => $email,
+        ]);
     }
 
     /**
      * Handle an incoming registration request.
+     *
+     * Registration is open: the invite code is optional. When a valid code is
+     * supplied it is consumed and its grants apply; otherwise the new account
+     * gets full access (career + tournament + national modes).
      *
      * @throws \Illuminate\Validation\ValidationException
      */
@@ -52,14 +58,16 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'invite_code' => ['required', 'string'],
+            'invite_code' => ['nullable', 'string'],
         ];
 
         $request->validate($rules);
 
-        $invite = InviteCode::findByCode($request->input('invite_code'));
+        $invite = $request->filled('invite_code')
+            ? InviteCode::findByCode($request->input('invite_code'))
+            : null;
 
-        if (! $invite || ! $invite->isValidForEmail($request->input('email'))) {
+        if ($request->filled('invite_code') && (! $invite || ! $invite->isValidForEmail($request->input('email')))) {
             return back()->withErrors([
                 'invite_code' => __('beta.invalid_invite'),
             ])->withInput();
@@ -71,14 +79,16 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        $invite->consume();
-
         // Access flags are not mass assignable — see User::$fillable.
+        // Open registration grants full access; a valid invite code narrows
+        // it to whatever the code grants.
         $user->forceFill([
             'email_verified_at' => now(),
-            'has_career_access' => $invite->grants_career,
-            'has_tournament_access' => $invite->grants_tournament,
+            'has_career_access' => $invite ? $invite->grants_career : true,
+            'has_tournament_access' => $invite ? $invite->grants_tournament : true,
         ])->save();
+
+        $invite?->consume();
 
         event(new Registered($user));
 

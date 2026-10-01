@@ -25,6 +25,12 @@ return [
     'view_details' => 'View details',
 
     // Authentication
+    'menu' => 'Menu',
+    'my_games' => 'My games',
+    'login' => 'Log in',
+    'register' => 'Sign up',
+    'admin' => 'Admin',
+    'profile' => 'Profile',
     'account' => 'Account',
     'log_out' => 'Log Out',
     'edit_profile' => 'Edit profile',

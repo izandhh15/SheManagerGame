@@ -9,11 +9,11 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
+    // Registration is open to everyone — no invite code required.
     Route::get('register', [RegisteredUserController::class, 'create'])
-        ->middleware('beta.invite');
+        ->name('register');
 
     Route::post('register/career', [RegisteredUserController::class, 'storeCareerModeRegistration'])
-        ->middleware(['beta.invite'])
         ->name('register.career-mode');
 
     Route::get('activation/sent', fn () => view('auth.activation-sent'))

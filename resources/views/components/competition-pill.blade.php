@@ -9,6 +9,7 @@
 @endphp
 
 <div {{ $attributes->merge(['class' => 'inline-flex items-center gap-1.5']) }}>
+    <x-competition-logo :competition="$competition" class="w-5 h-5 shrink-0" />
     <span class="px-3 py-1 text-xs font-semibold rounded-full whitespace-nowrap {{ $badge['bg'] }} {{ $badge['text'] }}">
         {{ $label }}
     </span>

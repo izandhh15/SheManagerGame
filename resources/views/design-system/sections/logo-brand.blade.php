@@ -4,7 +4,7 @@
 
     {{-- Primary Logo --}}
     <h3 class="text-lg font-semibold text-text-primary mb-3">Primary Logo</h3>
-    <p class="text-sm text-text-secondary mb-4">The main wordmark rendered as an SVG. Uses a skewed red-600 parallelogram with Barlow Semi Condensed white text.</p>
+    <p class="text-sm text-text-secondary mb-4">The main wordmark rendered as an SVG. Uses a skewed purple-600 parallelogram with Barlow Semi Condensed white text.</p>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
         {{-- Dark background (surface-900) --}}
@@ -43,7 +43,7 @@
 &lt;x-application-logo /&gt;
 
 &lt;!-- Rendered HTML --&gt;
-&lt;div class="-skew-x-12 bg-red-600 px-3 sm:px-4 py-1"&gt;
+&lt;div class="-skew-x-12 bg-purple-600 px-3 sm:px-4 py-1"&gt;
     &lt;span class="skew-x-12 inline-block text-xl sm:text-3xl font-extrabold text-white tracking-tight"
           style="font-family: 'Barlow Semi Condensed', sans-serif;"&gt;SheManagerGame&lt;/span&gt;
 &lt;/div&gt;</code></pre>
@@ -63,7 +63,7 @@
         <div class="text-center">
             <div class="border border-border-default rounded-lg p-3 bg-surface-800 mb-1.5 inline-flex items-center justify-center" style="width: {{ $icon['size'] + 24 }}px; height: {{ $icon['size'] + 24 }}px;">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="{{ $icon['size'] }}" height="{{ $icon['size'] }}">
-                    <rect fill="#dc2626" x="4" y="4" width="24" height="24" rx="2" transform="skewX(-12)" transform-origin="center"/>
+                    <rect fill="#9333ea" x="4" y="4" width="24" height="24" rx="2" transform="skewX(-12)" transform-origin="center"/>
                     <text fill="white" font-family="'Barlow Semi Condensed', 'Arial Black', sans-serif" font-weight="800" font-size="20" x="16" y="23" text-anchor="middle">V</text>
                 </svg>
             </div>
@@ -79,7 +79,7 @@
             <span x-show="copied" x-cloak class="text-accent-green">Copied!</span>
         </button>
         <pre class="bg-surface-700 text-text-body rounded-lg p-4 overflow-x-auto text-xs leading-relaxed"><code x-ref="faviconCode">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"&gt;
-  &lt;rect fill="#dc2626" x="4" y="4" width="24" height="24" rx="2"
+  &lt;rect fill="#9333ea" x="4" y="4" width="24" height="24" rx="2"
         transform="skewX(-12)" transform-origin="center"/&gt;
   &lt;text fill="white" font-family="'Barlow Semi Condensed', 'Arial Black', sans-serif"
         font-weight="800" font-size="20" x="16" y="23" text-anchor="middle"&gt;V&lt;/text&gt;
@@ -153,16 +153,16 @@
     <p class="text-sm text-text-secondary mb-4">The core elements that make up the SheManagerGame visual identity.</p>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
         <div class="bg-surface-800 border border-border-default rounded-xl p-5">
-            <div class="w-10 h-10 rounded-lg bg-red-600 mb-3 -skew-x-12"></div>
+            <div class="w-10 h-10 rounded-lg bg-purple-600 mb-3 -skew-x-12"></div>
             <h4 class="font-semibold text-sm text-text-primary mb-1">Skewed Parallelogram</h4>
             <p class="text-xs text-text-secondary leading-relaxed">The -12deg skew is the signature shape. Applied via <code class="text-[10px] bg-surface-700 px-1 py-0.5 rounded-sm text-text-body">-skew-x-12</code> in Tailwind or <code class="text-[10px] bg-surface-700 px-1 py-0.5 rounded-sm text-text-body">skewX(-12deg)</code> in SVG.</p>
         </div>
         <div class="bg-surface-800 border border-border-default rounded-xl p-5">
-            <div class="w-10 h-10 rounded-lg bg-red-600 mb-3 flex items-center justify-center">
-                <span class="text-white text-xs font-bold">#dc2626</span>
+            <div class="w-10 h-10 rounded-lg bg-purple-600 mb-3 flex items-center justify-center">
+                <span class="text-white text-xs font-bold">#9333ea</span>
             </div>
             <h4 class="font-semibold text-sm text-text-primary mb-1">Brand Red</h4>
-            <p class="text-xs text-text-secondary leading-relaxed">Tailwind's <code class="text-[10px] bg-surface-700 px-1 py-0.5 rounded-sm text-text-body">red-600</code> (#dc2626) is the primary brand color. Used for the logo background and primary CTA buttons.</p>
+            <p class="text-xs text-text-secondary leading-relaxed">Tailwind's <code class="text-[10px] bg-surface-700 px-1 py-0.5 rounded-sm text-text-body">purple-600</code> (#9333ea) is the logo brand color.</p>
         </div>
         <div class="bg-surface-800 border border-border-default rounded-xl p-5">
             <div class="h-10 mb-3 flex items-center">
@@ -211,7 +211,7 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 143 46" class="h-14">
             <defs>
                 <style>
-                    .vfc-bg { fill: #dc2626; }
+                    .vfc-bg { fill: #9333ea; }
                     .vfc-text { fill: #ffffff; font-family: 'Barlow Semi Condensed', 'Arial Black', sans-serif; font-weight: 800; font-size: 28px; }
                 </style>
             </defs>
@@ -226,7 +226,7 @@
             <span x-show="copied" x-cloak class="text-accent-green">Copied!</span>
         </button>
         <pre class="bg-surface-700 text-text-body rounded-lg p-4 overflow-x-auto text-xs leading-relaxed"><code x-ref="svgLogoCode">&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 143 46"&gt;
-  &lt;rect fill="#dc2626" x="12" y="3" width="129" height="40"
+  &lt;rect fill="#9333ea" x="12" y="3" width="129" height="40"
         transform="skewX(-12)"/&gt;
   &lt;text fill="#fff" font-family="'Barlow Semi Condensed', 'Arial Black', sans-serif"
         font-weight="800" font-size="28" x="72" y="33"

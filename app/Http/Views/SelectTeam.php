@@ -171,6 +171,7 @@ final class SelectTeam
                         'value' => self::PRIMERA_RFEF_TAB,
                         'label' => __('game.segunda_federacion'),
                         'flag' => $this->flagUrl($competition->flag),
+                        'logo' => \App\Support\CompetitionLogos::url('ESP3A') ?? '',
                     ];
 
                     continue;
@@ -180,6 +181,7 @@ final class SelectTeam
                     'value' => $competition->id,
                     'label' => __($competition->name),
                     'flag' => $this->flagUrl($competition->flag),
+                    'logo' => \App\Support\CompetitionLogos::url($competition->id) ?? '',
                 ];
             }
         }

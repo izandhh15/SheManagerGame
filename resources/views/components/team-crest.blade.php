@@ -18,8 +18,10 @@
     style="display: block; width: 100%; height: auto; aspect-ratio: 4/3; object-fit: cover; border-radius: 25% 0 25% 0; border: max(1px, 2.5cqw) solid var(--color-text-body);">
 </span>
 @else
+{{-- object-contain keeps non-square crests from stretching inside fixed w/h boxes,
+     so every crest renders at a consistent visual size. --}}
 <img
     src="{{ $team->image }}"
-    {{ $attributes->merge(['alt' => $team->name]) }}>
+    {{ $attributes->merge(['alt' => $team->name, 'class' => 'object-contain']) }}>
 @endif
 @endif

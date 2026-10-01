@@ -156,8 +156,11 @@ use App\Http\Actions\StartNewSeason;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return redirect('login');
-});
+    // Landing page for guests; authenticated users go to their dashboard.
+    return auth()->check()
+        ? redirect()->route('dashboard')
+        : response()->view('landing');
+})->name('landing');
 
 Route::get('/legal', fn () => view('legal'))->name('legal');
 Route::get('/leaderboard', ShowLeaderboard::class)->name('leaderboard');

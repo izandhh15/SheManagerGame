@@ -75,7 +75,10 @@
         {{ $attributes->merge(['class' => 'w-full min-h-[44px] px-3 py-2 flex items-center justify-between gap-2 rounded-lg border border-border-strong bg-surface-700 text-sm font-medium text-text-body hover:bg-surface-600 focus:outline-none focus:ring-2 focus:ring-accent-blue transition-colors']) }}
     >
         <span class="flex items-center gap-2 min-w-0">
-            <template x-if="selected?.flag">
+            <template x-if="selected?.logo">
+                <img class="w-6 h-6 rounded-md shadow-sm shrink-0 object-contain" :src="selected.logo" alt="">
+            </template>
+            <template x-if="selected?.flag && !selected?.logo">
                 <img class="w-5 h-4 rounded-sm shadow-sm shrink-0" :src="selected.flag" alt="">
             </template>
             <span class="truncate" x-text="selected?.label ?? '—'"></span>
@@ -113,7 +116,10 @@
                     ? 'bg-accent-blue/10 text-accent-blue font-medium'
                     : (active === index ? 'bg-surface-700 text-text-primary' : 'text-text-secondary')"
             >
-                <template x-if="option.flag">
+                <template x-if="option.logo">
+                    <img class="w-6 h-6 rounded-md shadow-sm shrink-0 object-contain" :src="option.logo" alt="">
+                </template>
+                <template x-if="option.flag && !option.logo">
                     <img class="w-5 h-4 rounded-sm shadow-sm shrink-0" :src="option.flag" alt="">
                 </template>
                 <span class="truncate" x-text="option.label"></span>
