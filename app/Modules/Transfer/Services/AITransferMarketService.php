@@ -1069,6 +1069,31 @@ class AITransferMarketService
      * adjacent tiers — a Liga F club shops in Liga F or at the top of
      * Primera RFEF, not at random across the continent.
      */
+    /**
+     * Elite cross-border bonus: super-clubs shop across borders (Barça →
+     * Man City, Lyon → Chelsea). When buyer and seller are both elite or
+     * continental (rep index ≤ 1) but play in different countries, add a
+     * meaningful bonus so the European elite market actually happens.
+     */
+    private function eliteCrossBorderBonus(
+        ?array $buyerLeague,
+        ?array $sellerLeague,
+        int $buyerRepIndex,
+        int $sellerRepIndex,
+    ): int {
+        if ($buyerLeague === null || $sellerLeague === null) {
+            return 0;
+        }
+
+        $buyerCountry = $buyerLeague['country'] ?? null;
+        $sellerCountry = $sellerLeague['country'] ?? null;
+        if ($buyerCountry === null || $sellerCountry === null || $buyerCountry === $sellerCountry) {
+            return 0;
+        }
+
+        return ($buyerRepIndex <= 1 && $sellerRepIndex <= 1) ? 8 : 0;
+    }
+
     private function marketProximityScore(?array $buyerLeague, ?array $sellerLeague): int
     {
         if ($buyerLeague === null || $sellerLeague === null) {
@@ -1188,6 +1213,8 @@ class AITransferMarketService
             $score += max(0, 8 - $repDistance * 2);
             // Market proximity: clubs clear surplus players locally first
             $score += $this->marketProximityScore($teamLeagueMap[$teamId] ?? null, $sellerLeague);
+            // Elite cross-border market (Barça → City type moves)
+            $score += $this->eliteCrossBorderBonus($teamLeagueMap[$teamId] ?? null, $sellerLeague, $buyerRepIndex, $sellerRepIndex);
             $score += mt_rand(0, 5);
 
             if ($score > 0) {
@@ -1297,6 +1324,8 @@ class AITransferMarketService
             // Market proximity: a Liga F club shops in Liga F or at the top
             // of Primera RFEF — not at random across the continent.
             $score += $this->marketProximityScore($teamLeagueMap[$teamId] ?? null, $sellerLeague);
+            // Elite cross-border market (Barça → City type moves)
+            $score += $this->eliteCrossBorderBonus($teamLeagueMap[$teamId] ?? null, $sellerLeague, $buyerRepIndex, $sellerRepIndex);
             $score += mt_rand(0, 5);
 
             if ($score > 0) {

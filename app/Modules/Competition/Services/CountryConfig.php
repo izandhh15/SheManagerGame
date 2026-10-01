@@ -558,7 +558,13 @@ class CountryConfig
         $continentalIds = $this->continentalSupportIds($countryCode);
         $swissIds = \App\Models\Competition::where('handler_type', 'swiss_format')->pluck('id')->toArray();
 
-        return array_unique(array_merge($continentalIds, $swissIds));
+        // Only competitions actually seeded as swiss_format count — knockout
+        // qualifying playoffs (UCLQ/UELQ) live in support.continental too but
+        // must never be initialized as a Swiss league phase.
+        return array_values(array_intersect(
+            array_unique(array_merge($continentalIds, $swissIds)),
+            $swissIds
+        ));
     }
 
     /**

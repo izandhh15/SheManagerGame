@@ -182,6 +182,7 @@ class MatchSimulator
         ?string $userTeamId = null,
         ?array $homePlayerSlots = null,
         ?array $awayPlayerSlots = null,
+        ?string $competitionId = null,
     ): MatchSimulationOutput {
         // Fixed upper bound for event generation — actual stoppage is derived
         // from the event mix *after* simulation by StoppageCalculator. Picking
@@ -1389,6 +1390,24 @@ class MatchSimulator
     }
 
     /**
+     * Qualifying playoff upset factor: pull each side toward the mean
+     * strength by the configured compression. Favourites stay favourites
+     * but underdogs get a genuine chance over two legs.
+     *
+     * @return array{float, float} [homeStrength, awayStrength]
+     */
+    private function applyQualifyingUpset(float $homeStrength, float $awayStrength): array
+    {
+        $mean = ($homeStrength + $awayStrength) / 2;
+        $compression = (float) config('match_simulation.qualifying_upset_compression', 0.25);
+
+        return [
+            $homeStrength + ($mean - $homeStrength) * $compression,
+            $awayStrength + ($mean - $awayStrength) * $compression,
+        ];
+    }
+
+    /**
      * Calculate opponent xG multiplier based on goalkeeper quality.
      *
      * Returns a multiplier >= 1.0 applied to the OPPONENT's expected goals.
@@ -2105,6 +2124,13 @@ class MatchSimulator
         // Preliminary strength calculation (used for card bias and as final strength if no injury sub)
         $homeStrength = $this->calculateTeamStrength($homePlayers, $fromMinute, $homeEntryMinutes, $homeTacticalDrain, $currentDate, $this->homePlayerSlotMap, $homeTeam);
         $awayStrength = $this->calculateTeamStrength($awayPlayers, $fromMinute, $awayEntryMinutes, $awayTacticalDrain, $currentDate, $this->awayPlayerSlotMap, $awayTeam);
+
+        // Cup upset factor: in the qualifying playoffs the pressure of a
+        // two-legged knockout compresses the gap — underdogs get a real
+        // chance (Juventus CAN go out and drop to the Europa Cup).
+        if (in_array($competitionId, ['UCLQ', 'UELQ'], true)) {
+            [$homeStrength, $awayStrength] = $this->applyQualifyingUpset($homeStrength, $awayStrength);
+        }
 
         [$homeExpectedGoals, $awayExpectedGoals] = $this->calculateBaseExpectedGoals(
             $homeStrength, $awayStrength,

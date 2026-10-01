@@ -1,0 +1,366 @@
+{
+  "country": "Cyprus",
+  "image": "https://tmssl.akamaized.net/images/wappen/big/492.png",
+  "name": "Apollon Ladies FC",
+  "players": [
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "492001",
+      "marketValue": "",
+      "name": "Mikaella Hadjisavva",
+      "nationality": [
+        "Cyprus"
+      ],
+      "number": "12",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "492002",
+      "marketValue": "",
+      "name": "Laura Miranda",
+      "nationality": [
+        "Peru",
+        "Spain"
+      ],
+      "number": "20",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "492003",
+      "marketValue": "",
+      "name": "Antriana Mila",
+      "nationality": [
+        "Cyprus"
+      ],
+      "number": "28",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,60m",
+      "id": "492004",
+      "marketValue": "",
+      "name": "Mallory Mooney",
+      "nationality": [
+        "United States",
+        "Ireland"
+      ],
+      "number": "2",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2031",
+      "dateOfBirth": "",
+      "foot": "left",
+      "height": "1,75m",
+      "id": "492005",
+      "marketValue": "",
+      "name": "Steffi Hardy",
+      "nationality": [
+        "Cyprus",
+        "England"
+      ],
+      "number": "6",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "492006",
+      "marketValue": "",
+      "name": "Olivia Pearse",
+      "nationality": [
+        "United States"
+      ],
+      "number": "15",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "492007",
+      "marketValue": "",
+      "name": "Elena Michail",
+      "nationality": [
+        "Cyprus"
+      ],
+      "number": "16",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,60m",
+      "id": "492008",
+      "marketValue": "",
+      "name": "Marilena Georgiou",
+      "nationality": [
+        "Cyprus"
+      ],
+      "number": "17",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "492009",
+      "marketValue": "",
+      "name": "Korina Paola Adamou",
+      "nationality": [
+        "Cyprus"
+      ],
+      "number": "30",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,71m",
+      "id": "492010",
+      "marketValue": "",
+      "name": "Maria Ficzay",
+      "nationality": [
+        "Romania"
+      ],
+      "number": "33",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "492011",
+      "marketValue": "",
+      "name": "Panayiota Fotiou",
+      "nationality": [
+        "Cyprus"
+      ],
+      "number": "45",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "492012",
+      "marketValue": "",
+      "name": "Shannon Studer",
+      "nationality": [
+        "United States"
+      ],
+      "number": "5",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,59m",
+      "id": "492013",
+      "marketValue": "",
+      "name": "Eleni Giannou",
+      "nationality": [
+        "Cyprus"
+      ],
+      "number": "7",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "492014",
+      "marketValue": "",
+      "name": "Filippa Savva",
+      "nationality": [
+        "Cyprus"
+      ],
+      "number": "8",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,64m",
+      "id": "492015",
+      "marketValue": "",
+      "name": "Antriana Tsoukka",
+      "nationality": [
+        "Cyprus"
+      ],
+      "number": "9",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,71m",
+      "id": "492016",
+      "marketValue": "",
+      "name": "Lainey Higgins",
+      "nationality": [
+        "United States"
+      ],
+      "number": "10",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,53m",
+      "id": "492017",
+      "marketValue": "",
+      "name": "Elena Aristodimou",
+      "nationality": [
+        "Cyprus"
+      ],
+      "number": "13",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,74m",
+      "id": "492018",
+      "marketValue": "€20k",
+      "name": "Jelena Prvulović",
+      "nationality": [
+        "Austria",
+        "Serbia"
+      ],
+      "number": "77",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "492019",
+      "marketValue": "",
+      "name": "Mackenzie Geigle",
+      "nationality": [
+        "United States"
+      ],
+      "number": "3",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,76m",
+      "id": "492020",
+      "marketValue": "",
+      "name": "Maya Matesa",
+      "nationality": [
+        "United States",
+        "Philippines"
+      ],
+      "number": "4",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "492021",
+      "marketValue": "",
+      "name": "Tash Hudson",
+      "nationality": [
+        "England"
+      ],
+      "number": "11",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,68m",
+      "id": "492022",
+      "marketValue": "",
+      "name": "Mariam Yunus",
+      "nationality": [
+        "Ghana"
+      ],
+      "number": "18",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "492023",
+      "marketValue": "",
+      "name": "Marilia Constantinou",
+      "nationality": [
+        "Cyprus"
+      ],
+      "number": "19",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "492024",
+      "marketValue": "",
+      "name": "Krystyna Freda",
+      "nationality": [
+        "Cyprus",
+        "United States"
+      ],
+      "number": "21",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "492025",
+      "marketValue": "",
+      "name": "Charalampia Epaminonda",
+      "nationality": [
+        "Cyprus"
+      ],
+      "number": "27",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Makario Athletic Centre",
+  "stadiumSeats": 16000,
+  "transfermarktId": "492"
+}

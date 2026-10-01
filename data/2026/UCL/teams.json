@@ -22,21 +22,9 @@
       "pot": 1
     },
     {
-      "id": "87",
-      "name": "Chelsea LFC",
-      "country": "EN",
-      "pot": 1
-    },
-    {
       "id": "57",
       "name": "Bayern München",
       "country": "DE",
-      "pot": 1
-    },
-    {
-      "id": "6551",
-      "name": "Real Madrid CF",
-      "country": "ES",
       "pot": 1
     },
     {
@@ -46,45 +34,9 @@
       "pot": 1
     },
     {
-      "id": "254",
-      "name": "Paris Saint-Germain",
-      "country": "FR",
-      "pot": 1
-    },
-    {
-      "id": "407",
-      "name": "VfL Wolfsburg",
-      "country": "DE",
-      "pot": 1
-    },
-    {
-      "id": "1129",
-      "name": "Atlético de Madrid",
-      "country": "ES",
-      "pot": 2
-    },
-    {
-      "id": "6245",
-      "name": "Juventus Football Club",
-      "country": "IT",
-      "pot": 2
-    },
-    {
-      "id": "104",
-      "name": "Eintracht Frankfurt",
-      "country": "DE",
-      "pot": 2
-    },
-    {
       "id": "6328",
       "name": "Paris FC",
       "country": "FR",
-      "pot": 2
-    },
-    {
-      "id": "6954",
-      "name": "Inter",
-      "country": "IT",
       "pot": 2
     },
     {

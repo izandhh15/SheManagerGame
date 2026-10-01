@@ -130,6 +130,7 @@ class AppServiceProvider extends ServiceProvider
         Event::listen(CupTieResolved::class, AwardCupPrizeMoney::class);
         Event::listen(CupTieResolved::class, ConductNextCupRoundDraw::class);
         Event::listen(CupTieResolved::class, SendCupTieNotifications::class);
+        Event::listen(CupTieResolved::class, \App\Modules\Match\Listeners\RouteQualifyingResultsListener::class);
 
         Event::listen(LeaguePhaseCompleted::class, AwardLeaguePhaseBonus::class);
 

@@ -52,12 +52,6 @@
       "pot": 1
     },
     {
-      "id": "2307",
-      "name": "Club YLA",
-      "country": "BE",
-      "pot": 1
-    },
-    {
       "id": "154",
       "name": "Glasgow City LFC",
       "country": "GB-SCT",
@@ -88,27 +82,9 @@
       "pot": 2
     },
     {
-      "id": "614",
-      "name": "Hibernian LFC",
-      "country": "GB-SCT",
-      "pot": 2
-    },
-    {
-      "id": "6981",
-      "name": "Beşiktaş JK",
-      "country": "TR",
-      "pot": 2
-    },
-    {
       "id": "576",
       "name": "FC Zürich",
       "country": "CH",
-      "pot": 2
-    },
-    {
-      "id": "9522",
-      "name": "Fenerbahçe SK",
-      "country": "TR",
       "pot": 2
     },
     {
@@ -124,82 +100,10 @@
       "pot": 3
     },
     {
-      "id": "378",
-      "name": "UMF Stjarnan",
-      "country": "IS",
-      "pot": 3
-    },
-    {
-      "id": "7556",
-      "name": "GKS Gieksa Katowice",
-      "country": "PL",
-      "pot": 3
-    },
-    {
-      "id": "8184",
-      "name": "Aarhus GF",
-      "country": "DK",
-      "pot": 3
-    },
-    {
-      "id": "213",
-      "name": "Lillestrøm SK Kvinner",
-      "country": "NO",
-      "pot": 3
-    },
-    {
-      "id": "760",
-      "name": "Standard Femina",
-      "country": "BE",
-      "pot": 3
-    },
-    {
       "id": "1793",
       "name": "Celtic Ladies",
       "country": "GB-SCT",
       "pot": 3
-    },
-    {
-      "id": "5867",
-      "name": "ZNK Split",
-      "country": "HR",
-      "pot": 3
-    },
-    {
-      "id": "5685",
-      "name": "Dinamo Zagreb",
-      "country": "HR",
-      "pot": 4
-    },
-    {
-      "id": "4289",
-      "name": "Lyn Fotball",
-      "country": "NO",
-      "pot": 4
-    },
-    {
-      "id": "326",
-      "name": "Stabæk Fotball",
-      "country": "NO",
-      "pot": 4
-    },
-    {
-      "id": "4332",
-      "name": "FC Slovan Liberec",
-      "country": "CZ",
-      "pot": 4
-    },
-    {
-      "id": "740",
-      "name": "Shamrock Rovers",
-      "country": "IE",
-      "pot": 4
-    },
-    {
-      "id": "6223",
-      "name": "Shelbourne",
-      "country": "IE",
-      "pot": 4
     },
     {
       "id": "157",

@@ -1,0 +1,333 @@
+{
+  "country": "Scotland",
+  "image": "https://tmssl.akamaized.net/images/wappen/big/4112.png",
+  "name": "Heart of Midlothian FC",
+  "players": [
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "4112001",
+      "marketValue": "",
+      "name": "Emma Thomson",
+      "nationality": [
+        "Scotland"
+      ],
+      "number": "25",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "4112002",
+      "marketValue": "",
+      "name": "Erin Anderson",
+      "nationality": [
+        "Scotland"
+      ],
+      "number": "34",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "4112003",
+      "marketValue": "",
+      "name": "Rachael Johnstone",
+      "nationality": [
+        "Scotland"
+      ],
+      "number": "52",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "4112004",
+      "marketValue": "",
+      "name": "Jessica Husband",
+      "nationality": [
+        "Scotland"
+      ],
+      "number": "3",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "4112005",
+      "marketValue": "",
+      "name": "Erin Husband",
+      "nationality": [
+        "Scotland"
+      ],
+      "number": "4",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "4112006",
+      "marketValue": "",
+      "name": "Carly Girasoli",
+      "nationality": [
+        "Scotland"
+      ],
+      "number": "5",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "4112007",
+      "marketValue": "",
+      "name": "Kate Fraser",
+      "nationality": [
+        "Scotland"
+      ],
+      "number": "20",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "4112008",
+      "marketValue": "",
+      "name": "Ebonie Locke",
+      "nationality": [
+        "England"
+      ],
+      "number": "26",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "4112009",
+      "marketValue": "",
+      "name": "Toni Campbell",
+      "nationality": [
+        "Scotland"
+      ],
+      "number": "33",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "4112010",
+      "marketValue": "",
+      "name": "Erin Rennie",
+      "nationality": [
+        "Scotland"
+      ],
+      "number": "6",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "4112011",
+      "marketValue": "",
+      "name": "Maddie Fulton",
+      "nationality": [
+        "Scotland"
+      ],
+      "number": "8",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "left",
+      "height": "1,72m",
+      "id": "4112012",
+      "marketValue": "",
+      "name": "Lauren Wade",
+      "nationality": [
+        "Northern Ireland"
+      ],
+      "number": "11",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "4112013",
+      "marketValue": "",
+      "name": "Ellen Dolan",
+      "nationality": [
+        "Ireland"
+      ],
+      "number": "12",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "4112014",
+      "marketValue": "",
+      "name": "Kayla Jardine",
+      "nationality": [
+        "Scotland"
+      ],
+      "number": "14",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "4112015",
+      "marketValue": "",
+      "name": "Jenny Smith",
+      "nationality": [
+        "Scotland"
+      ],
+      "number": "15",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "4112016",
+      "marketValue": "",
+      "name": "Orla Burn",
+      "nationality": [
+        "Scotland"
+      ],
+      "number": "21",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "4112017",
+      "marketValue": "",
+      "name": "Olivia Chomczuk",
+      "nationality": [
+        "Scotland"
+      ],
+      "number": "22",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "4112018",
+      "marketValue": "",
+      "name": "Lucy Horberry",
+      "nationality": [
+        "Scotland"
+      ],
+      "number": "35",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "4112019",
+      "marketValue": "",
+      "name": "Monica Forsyth",
+      "nationality": [
+        "Scotland"
+      ],
+      "number": "7",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,67m",
+      "id": "4112020",
+      "marketValue": "",
+      "name": "Mariana Speckmaier",
+      "nationality": [
+        "Venezuela",
+        "United States"
+      ],
+      "number": "9",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "4112021",
+      "marketValue": "",
+      "name": "Carly Johns",
+      "nationality": [
+        "England"
+      ],
+      "number": "10",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "4112022",
+      "marketValue": "",
+      "name": "Keri Halliday",
+      "nationality": [
+        "Northern Ireland"
+      ],
+      "number": "18",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "4112023",
+      "marketValue": "",
+      "name": "Ava Crawford",
+      "nationality": [
+        "Scotland"
+      ],
+      "number": "19",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Ainslie Park",
+  "stadiumSeats": 3612,
+  "transfermarktId": "4112"
+}

@@ -1,0 +1,103 @@
+{
+  "id": "UELQ",
+  "name": "UEFA Women's Europa Cup Qualifying",
+  "seasonID": 2026,
+  "clubs": [
+    {
+      "id": "2307",
+      "name": "Club YLA",
+      "country": "BE",
+      "pot": 2
+    },
+    {
+      "id": "614",
+      "name": "Hibernian LFC",
+      "country": "GB-SCT",
+      "pot": 2
+    },
+    {
+      "id": "6981",
+      "name": "Beşiktaş JK",
+      "country": "TR",
+      "pot": 2
+    },
+    {
+      "id": "9522",
+      "name": "Fenerbahçe SK",
+      "country": "TR",
+      "pot": 2
+    },
+    {
+      "id": "378",
+      "name": "UMF Stjarnan",
+      "country": "IS",
+      "pot": 2
+    },
+    {
+      "id": "7556",
+      "name": "GKS Gieksa Katowice",
+      "country": "PL",
+      "pot": 2
+    },
+    {
+      "id": "8184",
+      "name": "Aarhus GF",
+      "country": "DK",
+      "pot": 1
+    },
+    {
+      "id": "213",
+      "name": "Lillestrøm SK Kvinner",
+      "country": "NO",
+      "pot": 1
+    },
+    {
+      "id": "760",
+      "name": "Standard Femina",
+      "country": "BE",
+      "pot": 1
+    },
+    {
+      "id": "5867",
+      "name": "ZNK Split",
+      "country": "HR",
+      "pot": 2
+    },
+    {
+      "id": "5685",
+      "name": "Dinamo Zagreb",
+      "country": "HR",
+      "pot": 1
+    },
+    {
+      "id": "4289",
+      "name": "Lyn Fotball",
+      "country": "NO",
+      "pot": 1
+    },
+    {
+      "id": "326",
+      "name": "Stabæk Fotball",
+      "country": "NO",
+      "pot": 1
+    },
+    {
+      "id": "4332",
+      "name": "FC Slovan Liberec",
+      "country": "CZ",
+      "pot": 1
+    },
+    {
+      "id": "740",
+      "name": "Shamrock Rovers",
+      "country": "IE",
+      "pot": 1
+    },
+    {
+      "id": "6223",
+      "name": "Shelbourne",
+      "country": "IE",
+      "pot": 2
+    }
+  ]
+}

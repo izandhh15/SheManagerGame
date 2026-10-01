@@ -1,0 +1,402 @@
+{
+  "country": "Finland",
+  "image": "https://tmssl.akamaized.net/images/wappen/big/174.png",
+  "name": "HJK",
+  "players": [
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "174001",
+      "marketValue": "",
+      "name": "Annika Laihanen",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "12",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "174002",
+      "marketValue": "",
+      "name": "Siiri Forsström",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "25",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "174003",
+      "marketValue": "",
+      "name": "Ronja Leppämäki",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "26",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "174004",
+      "marketValue": "",
+      "name": "Noora Karvonen",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "2",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "174005",
+      "marketValue": "",
+      "name": "Anelma Lahikainen",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "3",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "174006",
+      "marketValue": "",
+      "name": "Ulrika Sarelius",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "4",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "174007",
+      "marketValue": "",
+      "name": "Juulia Grönlund",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "5",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,73m",
+      "id": "174008",
+      "marketValue": "€30k",
+      "name": "Nora Heroum",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "11",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "174009",
+      "marketValue": "",
+      "name": "Laura Hillberg",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "34",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "174010",
+      "marketValue": "",
+      "name": "Nelli Kalske",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "35",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "1,74m",
+      "id": "174011",
+      "marketValue": "",
+      "name": "Jenna Tivnan",
+      "nationality": [
+        "United States"
+      ],
+      "number": "44",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "left",
+      "height": "1,69m",
+      "id": "174012",
+      "marketValue": "€30k",
+      "name": "Maaria Roth",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "51",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "left",
+      "height": "1,65m",
+      "id": "174013",
+      "marketValue": "€25k",
+      "name": "Amanda Rantanen",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "7",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "174014",
+      "marketValue": "",
+      "name": "Reetta Suomela",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "8",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "left",
+      "height": "1,71m",
+      "id": "174015",
+      "marketValue": "",
+      "name": "Jenna Topra",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "10",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "174016",
+      "marketValue": "€30k",
+      "name": "Minea Lassas",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "13",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "174017",
+      "marketValue": "",
+      "name": "Alma Forstén",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "15",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "174018",
+      "marketValue": "",
+      "name": "Juulia Sarkki",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "16",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "174019",
+      "marketValue": "",
+      "name": "Isabella Ylätalo",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "18",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "174020",
+      "marketValue": "",
+      "name": "Sofia Eranka",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "24",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "174021",
+      "marketValue": "",
+      "name": "Milja Kiviranta",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "27",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "174022",
+      "marketValue": "",
+      "name": "Aada Mandelin",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "28",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "174023",
+      "marketValue": "",
+      "name": "Mira Säikkö",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "42",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,57m",
+      "id": "174024",
+      "marketValue": "€50k",
+      "name": "Miho Kamogawa",
+      "nationality": [
+        "Japan"
+      ],
+      "number": "71",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "174025",
+      "marketValue": "",
+      "name": "Kerttu Sarelius",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "9",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "174026",
+      "marketValue": "",
+      "name": "Iiris Holmström",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "17",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "174027",
+      "marketValue": "",
+      "name": "Sara Sievistö",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "19",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "1,55m",
+      "id": "174028",
+      "marketValue": "",
+      "name": "Lacee Bethea",
+      "nationality": [
+        "United States"
+      ],
+      "number": "30",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Bolt Arena",
+  "stadiumSeats": 10770,
+  "transfermarktId": "174"
+}

@@ -81,6 +81,8 @@ class Competition extends Model
         'NED1'    => 'Eredivisie Vr.',
         'UCL'     => 'UWCL',
         'UEL'     => 'Europa Cup Fem.',
+        'UCLQ'    => 'Previa UWCL',
+        'UELQ'    => 'Previa Europa Cup',
         'WC2026'  => 'Mundial',
         'WQUEFA'  => 'Clasificación · UEFA',
         'WQAFC'   => 'Clasificación · AFC',
@@ -115,6 +117,8 @@ class Competition extends Model
         'NED1'    => 'Eredivisie V',
         'UCL'     => 'UWCL',
         'UEL'     => 'UEC',
+        'UCLQ'    => 'PR-UWCL',
+        'UELQ'    => 'PR-UEC',
     ];
 
     // Spanish grammatical article per competition. Women's competitions are all

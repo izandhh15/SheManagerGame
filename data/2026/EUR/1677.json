@@ -1,0 +1,403 @@
+{
+  "country": "Hungary",
+  "image": "https://tmssl.akamaized.net/images/wappen/big/1677.png",
+  "name": "Ferencvárosi TC",
+  "players": [
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "1,70m",
+      "id": "1677001",
+      "marketValue": "",
+      "name": "Milica Kostić",
+      "nationality": [
+        "Serbia"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "1677002",
+      "marketValue": "",
+      "name": "Nikolett Berceli",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "21",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "1677003",
+      "marketValue": "",
+      "name": "Luca Barti",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "22",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "1677004",
+      "marketValue": "",
+      "name": "Brigitta Gődér",
+      "nationality": [
+        "Romania"
+      ],
+      "number": "4",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "left",
+      "height": "1,69m",
+      "id": "1677005",
+      "marketValue": "",
+      "name": "Anđela Frajtović",
+      "nationality": [
+        "Serbia"
+      ],
+      "number": "6",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "1677006",
+      "marketValue": "",
+      "name": "Laura Mizsei",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "8",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "1677007",
+      "marketValue": "",
+      "name": "Zille Gágyor",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "13",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "1677008",
+      "marketValue": "",
+      "name": "Sára Árvay",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "17",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "1677009",
+      "marketValue": "",
+      "name": "Adél Tóth",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "19",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "1677010",
+      "marketValue": "",
+      "name": "Eszter Ott",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "20",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "1677011",
+      "marketValue": "",
+      "name": "Eszter Kovács",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "1677012",
+      "marketValue": "",
+      "name": "Evelin Könczeyné Fenyvesi",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "14",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "1677013",
+      "marketValue": "",
+      "name": "Vanda Váczi",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "16",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "1677014",
+      "marketValue": "",
+      "name": "Luca Czudar",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "23",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "1677015",
+      "marketValue": "",
+      "name": "Hédi Szántó",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "24",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "1677016",
+      "marketValue": "",
+      "name": "Mia Manna Vám",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "26",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "1677017",
+      "marketValue": "",
+      "name": "Johanna Wächter",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "30",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "1677018",
+      "marketValue": "",
+      "name": "Lili Jablonszki",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "77",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "1677019",
+      "marketValue": "",
+      "name": "Dorottya Czellér",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "88",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,63m",
+      "id": "1677020",
+      "marketValue": "",
+      "name": "Diána Csányi",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "98",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "1677021",
+      "marketValue": "",
+      "name": "Petra Gégény",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "5",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "1677022",
+      "marketValue": "",
+      "name": "Ramóna Tóth",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "7",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "1677023",
+      "marketValue": "",
+      "name": "Korina Oleksza",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "9",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "1677024",
+      "marketValue": "",
+      "name": "Fanni Diószegi",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "10",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "1677025",
+      "marketValue": "",
+      "name": "Viktória Nagy",
+      "nationality": [
+        "Hungary",
+        "Slovakia"
+      ],
+      "number": "25",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,63m",
+      "id": "1677026",
+      "marketValue": "",
+      "name": "Jadyn Edwards",
+      "nationality": [
+        "United States"
+      ],
+      "number": "27",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "1677027",
+      "marketValue": "",
+      "name": "Kíra Benkő",
+      "nationality": [
+        "Hungary"
+      ],
+      "number": "28",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "both",
+      "height": "1,68m",
+      "id": "1677028",
+      "marketValue": "€20k",
+      "name": "Vlada Kubassova",
+      "nationality": [
+        "Estonia"
+      ],
+      "number": "58",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Sándor Kocsis Sports Center",
+  "stadiumSeats": 5000,
+  "transfermarktId": "1677"
+}

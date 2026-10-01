@@ -217,8 +217,10 @@ return [
         // UEFA Women's Europa Cup (internal code UEL).
         'continental_slots' => [
             'ESP1' => [
-                'UCL' => [1, 2, 3],
+                'UCL' => [1],
+                'UCLQ' => [2, 3],
                 'UEL' => [4],
+                'UELQ' => [5],
             ],
         ],
 
@@ -231,6 +233,12 @@ return [
             ],
             'UEL' => [
                 'config_class' => \App\Modules\Competition\Configs\EuropaLeagueConfig::class,
+            ],
+            'UCLQ' => [
+                'config_class' => \App\Modules\Competition\Configs\QualifyingPlayoffConfig::class,
+            ],
+            'UELQ' => [
+                'config_class' => \App\Modules\Competition\Configs\QualifyingPlayoffConfig::class,
             ],
         ],
 
@@ -276,6 +284,8 @@ return [
                 // tiers + transfer_pool where possible, gaps filled from EUR pool
                 'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
                 'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UCLQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
+                'UELQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
             ],
         ],
     ],
@@ -378,8 +388,10 @@ return [
 
         'continental_slots' => [
             'ENG1' => [
-                'UCL' => [1, 2, 3],
+                'UCL' => [1],
+                'UCLQ' => [2, 3],
                 'UEL' => [4],
+                'UELQ' => [5],
             ],
         ],
 
@@ -392,6 +404,12 @@ return [
             ],
             'UEL' => [
                 'config_class' => \App\Modules\Competition\Configs\EuropaLeagueConfig::class,
+            ],
+            'UCLQ' => [
+                'config_class' => \App\Modules\Competition\Configs\QualifyingPlayoffConfig::class,
+            ],
+            'UELQ' => [
+                'config_class' => \App\Modules\Competition\Configs\QualifyingPlayoffConfig::class,
             ],
         ],
 
@@ -418,6 +436,8 @@ return [
             'continental' => [
                 'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
                 'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UCLQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
+                'UELQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
             ],
         ],
     ],
@@ -520,8 +540,10 @@ return [
 
         'continental_slots' => [
             'DEU1' => [
-                'UCL' => [1, 2, 3],
+                'UCL' => [1],
+                'UCLQ' => [2, 3],
                 'UEL' => [4],
+                'UELQ' => [5],
             ],
         ],
 
@@ -534,6 +556,12 @@ return [
             ],
             'UEL' => [
                 'config_class' => \App\Modules\Competition\Configs\EuropaLeagueConfig::class,
+            ],
+            'UCLQ' => [
+                'config_class' => \App\Modules\Competition\Configs\QualifyingPlayoffConfig::class,
+            ],
+            'UELQ' => [
+                'config_class' => \App\Modules\Competition\Configs\QualifyingPlayoffConfig::class,
             ],
         ],
 
@@ -560,6 +588,8 @@ return [
             'continental' => [
                 'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
                 'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UCLQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
+                'UELQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
             ],
         ],
     ],
@@ -685,8 +715,10 @@ return [
 
         'continental_slots' => [
             'ITA1' => [
-                'UCL' => [1, 2],
+                'UCL' => [1],
+                'UCLQ' => [2],
                 'UEL' => [3],
+                'UELQ' => [4],
             ],
         ],
 
@@ -699,6 +731,12 @@ return [
             ],
             'UEL' => [
                 'config_class' => \App\Modules\Competition\Configs\EuropaLeagueConfig::class,
+            ],
+            'UCLQ' => [
+                'config_class' => \App\Modules\Competition\Configs\QualifyingPlayoffConfig::class,
+            ],
+            'UELQ' => [
+                'config_class' => \App\Modules\Competition\Configs\QualifyingPlayoffConfig::class,
             ],
         ],
 
@@ -725,6 +763,8 @@ return [
             'continental' => [
                 'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
                 'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UCLQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
+                'UELQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
             ],
         ],
     ],
@@ -812,8 +852,10 @@ return [
 
         'continental_slots' => [
             'FRA1' => [
-                'UCL' => [1, 2, 3],
+                'UCL' => [1],
+                'UCLQ' => [2, 3],
                 'UEL' => [4],
+                'UELQ' => [5],
             ],
         ],
 
@@ -826,6 +868,12 @@ return [
             ],
             'UEL' => [
                 'config_class' => \App\Modules\Competition\Configs\EuropaLeagueConfig::class,
+            ],
+            'UCLQ' => [
+                'config_class' => \App\Modules\Competition\Configs\QualifyingPlayoffConfig::class,
+            ],
+            'UELQ' => [
+                'config_class' => \App\Modules\Competition\Configs\QualifyingPlayoffConfig::class,
             ],
         ],
 
@@ -852,6 +900,8 @@ return [
             'continental' => [
                 'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
                 'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UCLQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
+                'UELQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
             ],
         ],
     ],
@@ -951,7 +1001,8 @@ return [
         'continental_slots' => [
             'POR1' => [
                 'UCL' => [1],
-                'UEL' => [2],
+                'UCLQ' => [2],
+                'UEL' => [3],
             ],
         ],
 
@@ -964,6 +1015,12 @@ return [
             ],
             'UEL' => [
                 'config_class' => \App\Modules\Competition\Configs\EuropaLeagueConfig::class,
+            ],
+            'UCLQ' => [
+                'config_class' => \App\Modules\Competition\Configs\QualifyingPlayoffConfig::class,
+            ],
+            'UELQ' => [
+                'config_class' => \App\Modules\Competition\Configs\QualifyingPlayoffConfig::class,
             ],
         ],
 
@@ -990,6 +1047,8 @@ return [
             'continental' => [
                 'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
                 'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UCLQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
+                'UELQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
             ],
         ],
     ],
@@ -1078,7 +1137,8 @@ return [
         'continental_slots' => [
             'NED1' => [
                 'UCL' => [1],
-                'UEL' => [2],
+                'UCLQ' => [2],
+                'UEL' => [3],
             ],
         ],
 
@@ -1091,6 +1151,12 @@ return [
             ],
             'UEL' => [
                 'config_class' => \App\Modules\Competition\Configs\EuropaLeagueConfig::class,
+            ],
+            'UCLQ' => [
+                'config_class' => \App\Modules\Competition\Configs\QualifyingPlayoffConfig::class,
+            ],
+            'UELQ' => [
+                'config_class' => \App\Modules\Competition\Configs\QualifyingPlayoffConfig::class,
             ],
         ],
 
@@ -1117,6 +1183,8 @@ return [
             'continental' => [
                 'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
                 'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UCLQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
+                'UELQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
             ],
         ],
     ],
@@ -1155,6 +1223,12 @@ return [
             'UEL' => [
                 'config_class' => \App\Modules\Competition\Configs\EuropaLeagueConfig::class,
             ],
+            'UCLQ' => [
+                'config_class' => \App\Modules\Competition\Configs\QualifyingPlayoffConfig::class,
+            ],
+            'UELQ' => [
+                'config_class' => \App\Modules\Competition\Configs\QualifyingPlayoffConfig::class,
+            ],
         ],
 
         'support' => [
@@ -1172,6 +1246,8 @@ return [
             'continental' => [
                 'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
                 'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UCLQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
+                'UELQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
             ],
         ],
     ],

@@ -79,6 +79,7 @@ class UefaQualificationProcessor implements SeasonProcessor
 
         $this->qualifyUclWinner($game, $data);
         $this->qualifyUelWinner($game, $data);
+        $this->topUpQualifyingCompetitions($game);
         $this->fillRemainingContinentalSlots($game, $swissCompetitionIds);
 
         $data->setMetadata('uefaQualifications', $allQualifications);
@@ -562,6 +563,96 @@ class UefaQualificationProcessor implements SeasonProcessor
      * (those without continental_slots) are eligible, since configured countries
      * already have all their spots allocated via processCountry().
      */
+    /**
+     * Top up the qualifying playoffs to 16 teams from the European pool.
+     *
+     * League slots only fill part of UCLQ/UELQ (e.g. ESP 2nd+3rd → UCLQ);
+     * the remaining ties go to the strongest unqualified European clubs —
+     * the champions of the smaller leagues, real-world style.
+     */
+    private function topUpQualifyingCompetitions(Game $game): void
+    {
+        foreach (['UCLQ' => 16, 'UELQ' => 16] as $competitionId => $target) {
+            $currentIds = CompetitionEntry::where('game_id', $game->id)
+                ->where('competition_id', $competitionId)
+                ->pluck('team_id')
+                ->all();
+
+            $needed = $target - count($currentIds);
+            if ($needed <= 0) {
+                continue;
+            }
+
+            $candidates = $this->strongestUnqualifiedEuropeanTeams($game, $needed);
+
+            if (empty($candidates)) {
+                Log::warning("[UEFA] {$competitionId}: need {$needed} top-up teams but pool is empty");
+                continue;
+            }
+
+            $rows = array_map(fn (string $teamId) => [
+                'game_id' => $game->id,
+                'competition_id' => $competitionId,
+                'team_id' => $teamId,
+                'entry_round' => 1,
+            ], $candidates);
+
+            CompetitionEntry::upsert(
+                $rows,
+                ['game_id', 'competition_id', 'team_id'],
+                ['entry_round']
+            );
+
+            Log::info("[UEFA] {$competitionId}: topped up " . count($candidates) . " teams from European pool");
+        }
+    }
+
+    /**
+     * Strongest European clubs (by squad market value) with a squad in this
+     * game that aren't already in any UEFA competition and aren't from a
+     * country with configured slots.
+     *
+     * @return string[] team IDs, strongest first
+     */
+    private function strongestUnqualifiedEuropeanTeams(Game $game, int $limit): array
+    {
+        $qualifiedTeamIds = CompetitionEntry::where('game_id', $game->id)
+            ->whereIn('competition_id', ['UCL', 'UEL', 'UCLQ', 'UELQ'])
+            ->pluck('team_id')
+            ->all();
+
+        $configuredCountries = collect($this->countryConfig->allCountryCodes())
+            ->filter(fn (string $code) => !empty($this->countryConfig->continentalSlots($code)))
+            ->all();
+
+        $candidateIds = CompetitionTeam::query()
+            ->join('competitions', 'competition_teams.competition_id', '=', 'competitions.id')
+            ->join('teams', 'competition_teams.team_id', '=', 'teams.id')
+            ->where('competitions.country', 'EU')
+            ->whereColumn('competition_teams.season', 'competitions.season')
+            ->whereNotIn('competition_teams.team_id', $qualifiedTeamIds)
+            ->whereNotIn('teams.country', $configuredCountries)
+            ->distinct()
+            ->pluck('competition_teams.team_id')
+            ->all();
+
+        // Only teams that actually have a squad in this game, strongest first.
+        $values = GamePlayer::where('game_id', $game->id)
+            ->whereIn('team_id', $candidateIds)
+            ->groupBy('team_id')
+            ->selectRaw('team_id, SUM(market_value_cents) as v')
+            ->pluck('v', 'team_id')
+            ->all();
+
+        usort($candidateIds, fn ($a, $b) => ($values[$b] ?? 0) <=> ($values[$a] ?? 0));
+
+        return array_slice(
+            array_values(array_filter($candidateIds, fn ($id) => isset($values[$id]))),
+            0,
+            $limit
+        );
+    }
+
     private function fillRemainingContinentalSlots(Game $game, array $swissCompetitionIds): void
     {
         if (empty($swissCompetitionIds)) {
@@ -587,7 +678,15 @@ class UefaQualificationProcessor implements SeasonProcessor
             ->toArray();
 
         $currentCount = count($usedTeamIds);
-        $needed = SwissDrawService::LEAGUE_PHASE_TEAMS - $currentCount;
+        // UCL/UEL league phases are completed by the qualifying playoffs in
+        // September: 8 UCLQ winners join the UCL, 8 UCLQ losers + 8 UELQ
+        // winners join the Europa Cup. Don't fill those slots now.
+        $incomingFromQualifying = match ($userCompetitionId) {
+            'UCL' => 8,
+            'UEL' => 16,
+            default => 0,
+        };
+        $needed = SwissDrawService::LEAGUE_PHASE_TEAMS - $currentCount - $incomingFromQualifying;
 
         Log::info("[UEFA] {$userCompetitionId}: {$currentCount}/"
             . SwissDrawService::LEAGUE_PHASE_TEAMS . " teams, need {$needed} fillers");

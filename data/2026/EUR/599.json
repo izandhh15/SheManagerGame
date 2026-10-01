@@ -1,0 +1,416 @@
+{
+  "country": "Lithuania",
+  "image": "https://tmssl.akamaized.net/images/wappen/big/599.png",
+  "name": "FC Gintra",
+  "players": [
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "599001",
+      "marketValue": "",
+      "name": "Gabrielė Vasilenko",
+      "nationality": [
+        "Lithuania"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "599002",
+      "marketValue": "",
+      "name": "Alla Herasymchuk",
+      "nationality": [
+        "Ukraine"
+      ],
+      "number": "81",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "599003",
+      "marketValue": "",
+      "name": "Makeila Yancey",
+      "nationality": [
+        "United States"
+      ],
+      "number": "2",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "",
+      "id": "599004",
+      "marketValue": "",
+      "name": "Sabrina Amorim",
+      "nationality": [
+        "Brazil"
+      ],
+      "number": "5",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "599005",
+      "marketValue": "",
+      "name": "Tereza Romanovskaja",
+      "nationality": [
+        "Lithuania"
+      ],
+      "number": "17",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "599006",
+      "marketValue": "",
+      "name": "Aivė Andriuškevičiūtė",
+      "nationality": [
+        "Lithuania"
+      ],
+      "number": "21",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "599007",
+      "marketValue": "",
+      "name": "Athena Diachenko",
+      "nationality": [
+        "Lithuania"
+      ],
+      "number": "22",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "599008",
+      "marketValue": "",
+      "name": "Aistė Šveckutė",
+      "nationality": [
+        "Lithuania"
+      ],
+      "number": "23",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "599009",
+      "marketValue": "",
+      "name": "Laura Kubiliūtė",
+      "nationality": [
+        "Lithuania"
+      ],
+      "number": "29",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "1,68m",
+      "id": "599010",
+      "marketValue": "",
+      "name": "Urtė Bujokaitė",
+      "nationality": [
+        "Lithuania"
+      ],
+      "number": "30",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "599011",
+      "marketValue": "",
+      "name": "Gracie Knutzen",
+      "nationality": [
+        "United States"
+      ],
+      "number": "31",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "599012",
+      "marketValue": "",
+      "name": "Algimantė Mikutaitė",
+      "nationality": [
+        "Lithuania"
+      ],
+      "number": "44",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "599013",
+      "marketValue": "",
+      "name": "Marija Jakubaitė",
+      "nationality": [
+        "Lithuania"
+      ],
+      "number": "10",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "599014",
+      "marketValue": "",
+      "name": "Dominyka Misiūnaitė",
+      "nationality": [
+        "Lithuania"
+      ],
+      "number": "11",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "1,65m",
+      "id": "599015",
+      "marketValue": "",
+      "name": "Julia Dias",
+      "nationality": [
+        "Brazil"
+      ],
+      "number": "13",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "599016",
+      "marketValue": "",
+      "name": "Ugnė Grincevičiūtė",
+      "nationality": [
+        "Lithuania"
+      ],
+      "number": "14",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "599017",
+      "marketValue": "",
+      "name": "Justina Blaževičiūtė",
+      "nationality": [
+        "Lithuania"
+      ],
+      "number": "15",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "599018",
+      "marketValue": "",
+      "name": "Augustė Baltrušaitytė",
+      "nationality": [
+        "Lithuania"
+      ],
+      "number": "18",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "599019",
+      "marketValue": "",
+      "name": "Anni Hakasalo",
+      "nationality": [
+        "Finland"
+      ],
+      "number": "20",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,58m",
+      "id": "599020",
+      "marketValue": "",
+      "name": "Tamara Brown",
+      "nationality": [
+        "Canada"
+      ],
+      "number": "24",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "1,74m",
+      "id": "599021",
+      "marketValue": "",
+      "name": "Eitvydė Partikaitė",
+      "nationality": [
+        "Lithuania"
+      ],
+      "number": "27",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,58m",
+      "id": "599022",
+      "marketValue": "",
+      "name": "Misozi Zulu",
+      "nationality": [
+        "Zambia"
+      ],
+      "number": "77",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,66m",
+      "id": "599023",
+      "marketValue": "",
+      "name": "Khrystyna Pereviznyk",
+      "nationality": [
+        "Ukraine"
+      ],
+      "number": "88",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "599024",
+      "marketValue": "",
+      "name": "Viktoriia Lavreniuk",
+      "nationality": [
+        "Ukraine"
+      ],
+      "number": "95",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "599025",
+      "marketValue": "",
+      "name": "Meida Proscevičiūtė",
+      "nationality": [
+        "Lithuania"
+      ],
+      "number": "7",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,68m",
+      "id": "599026",
+      "marketValue": "",
+      "name": "Lidiane Ribeiro",
+      "nationality": [
+        "Brazil"
+      ],
+      "number": "8",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "599027",
+      "marketValue": "",
+      "name": "Agnieška Kazarina",
+      "nationality": [
+        "Lithuania"
+      ],
+      "number": "16",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,65m",
+      "id": "599028",
+      "marketValue": "",
+      "name": "Kiyani Johnson",
+      "nationality": [
+        "Canada"
+      ],
+      "number": "19",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "599029",
+      "marketValue": "",
+      "name": "Elizabeth Mideva",
+      "nationality": [
+        "Kenya"
+      ],
+      "number": "48",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Siauliai Central Stadium",
+  "stadiumSeats": 3017,
+  "transfermarktId": "599"
+}

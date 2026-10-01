@@ -43,6 +43,13 @@ class SeasonInitializationService
     private array $baseSeasonCache = [];
 
     /**
+     * Qualifying playoffs are always drawn at season setup — even when the
+     * user's team isn't involved — because their winners/losers feed the
+     * UCL/UEL league phases (deferred Swiss init).
+     */
+    public const QUALIFYING_COMPETITIONS = ['UCLQ', 'UELQ'];
+
+    /**
      * The reference-data season a game was created from — the `data/{season}/`
      * folder its schedules come from and the origin its fixture dates are
      * offset against. Read from the game rather than Competition::season, which
@@ -265,11 +272,12 @@ class SeasonInitializationService
         $userTeamId = Game::where('id', $gameId)->value('team_id');
 
         foreach ($cupIds as $cupId) {
-            // Mirror initializeSwissCompetition: skip cups the user's team
-            // isn't in. No entries → no draw → no orphaned background work.
-            // Downstream reporting (season summary, trophies) already handles
-            // the "did not compete" case.
-            $userParticipates = CompetitionEntry::where('game_id', $gameId)
+            // Qualifying playoffs are ALWAYS drawn — their results feed the
+            // UCL/UEL league phases. Other cups are skipped when the user's
+            // team isn't in them (no entries → no draw → no orphaned work).
+            $isQualifying = in_array($cupId, self::QUALIFYING_COMPETITIONS, true);
+
+            $userParticipates = $isQualifying || CompetitionEntry::where('game_id', $gameId)
                 ->where('competition_id', $cupId)
                 ->where('team_id', $userTeamId)
                 ->exists();
@@ -279,10 +287,57 @@ class SeasonInitializationService
             }
 
             if ($this->cupDrawService->needsDrawForRound($gameId, $cupId, 1)) {
-                $explicitPairings = $this->explicitCupDrawPairings($gameId, $cupId);
+                $explicitPairings = $isQualifying
+                    ? $this->qualifyingSeededPairings($gameId, $cupId)
+                    : $this->explicitCupDrawPairings($gameId, $cupId);
                 $this->cupDrawService->conductDraw($gameId, $cupId, 1, $explicitPairings);
             }
         }
+    }
+
+    /**
+     * Seeded draw for a qualifying playoff: the 8 strongest entrants (by
+     * squad market value, UEFA-coefficient style) are seeded against the 8
+     * weakest. Shuffled within each pot so ties vary season to season.
+     *
+     * @return array<array{string, string}>|null List of [home_team_id, away_team_id] UUID pairs.
+     */
+    private function qualifyingSeededPairings(string $gameId, string $competitionId): ?array
+    {
+        $teamIds = CompetitionEntry::where('game_id', $gameId)
+            ->where('competition_id', $competitionId)
+            ->pluck('team_id')
+            ->all();
+
+        if (count($teamIds) < 4 || count($teamIds) % 2 !== 0) {
+            return null;
+        }
+
+        $values = GamePlayer::where('game_id', $gameId)
+            ->whereIn('team_id', $teamIds)
+            ->groupBy('team_id')
+            ->selectRaw('team_id, SUM(market_value_cents) as v')
+            ->pluck('v', 'team_id')
+            ->all();
+
+        // Entrants without players (shouldn't happen) rank as weakest.
+        usort($teamIds, fn ($a, $b) => ($values[$b] ?? 0) <=> ($values[$a] ?? 0));
+
+        $half = intdiv(count($teamIds), 2);
+        $seeded = array_slice($teamIds, 0, $half);
+        $unseeded = array_slice($teamIds, $half);
+        shuffle($seeded);
+        shuffle($unseeded);
+
+        $pairings = [];
+        foreach ($seeded as $i => $homeId) {
+            // Alternate home/away for the seeded side so it's not always home first.
+            $pairings[] = $i % 2 === 0
+                ? [$homeId, $unseeded[$i]]
+                : [$unseeded[$i], $homeId];
+        }
+
+        return $pairings;
     }
 
     /**

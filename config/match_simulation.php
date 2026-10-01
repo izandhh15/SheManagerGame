@@ -73,6 +73,16 @@ return [
     'base_goals' => 1.5,                // per-team xG when evenly matched (~3.0 total)
     'goal_supremacy_scale' => 8.5,      // rating points per goal of home-minus-away supremacy
     'home_advantage_goals' => 0.20,     // fixed home xG bonus
+
+    /*
+    | Qualifying playoff upset factor (UCLQ/UELQ).
+    |
+    | Two-legged knockout pressure compresses the strength gap: each side is
+    | pulled this fraction toward the mean strength. 0.25 keeps favourites
+    | favourites but gives underdogs a genuine chance — the "Juventus goes
+    | out in qualifying and drops to the Europa Cup" kind of night.
+    */
+    'qualifying_upset_compression' => 0.25,
     'defensive_quality_damping' => 1.0, // how much quality advantage erodes defensive tactics (0=none, higher=more erosion)
 
     /*

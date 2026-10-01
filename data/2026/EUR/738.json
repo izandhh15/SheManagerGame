@@ -1,0 +1,333 @@
+{
+  "country": "Bosnia & Herzegovina",
+  "image": "https://tmssl.akamaized.net/images/wappen/big/738.png",
+  "name": "SFK 2000",
+  "players": [
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,76m",
+      "id": "738001",
+      "marketValue": "",
+      "name": "Envera Hasanbegović",
+      "nationality": [
+        "Bosnia & Herzegovina"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "738002",
+      "marketValue": "",
+      "name": "Hana Karačić",
+      "nationality": [
+        "Bosnia & Herzegovina"
+      ],
+      "number": "12",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "738003",
+      "marketValue": "",
+      "name": "Nadija Golubović",
+      "nationality": [
+        "Bosnia & Herzegovina"
+      ],
+      "number": "21",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "Jun 30, 2028",
+      "dateOfBirth": "",
+      "foot": "both",
+      "height": "",
+      "id": "738004",
+      "marketValue": "",
+      "name": "Dalal Bratović",
+      "nationality": [
+        "Bosnia & Herzegovina"
+      ],
+      "number": "3",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "738005",
+      "marketValue": "",
+      "name": "Miljana Smiljković",
+      "nationality": [
+        "Serbia"
+      ],
+      "number": "4",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "",
+      "id": "738006",
+      "marketValue": "",
+      "name": "Natalija Mirković",
+      "nationality": [
+        "Bosnia & Herzegovina"
+      ],
+      "number": "5",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,64m",
+      "id": "738007",
+      "marketValue": "",
+      "name": "Ajla Zukić",
+      "nationality": [
+        "Bosnia & Herzegovina"
+      ],
+      "number": "8",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "left",
+      "height": "1,68m",
+      "id": "738008",
+      "marketValue": "€25k",
+      "name": "Andrea Gavrić",
+      "nationality": [
+        "Bosnia & Herzegovina",
+        "Germany"
+      ],
+      "number": "24",
+      "position": "Defender"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "left",
+      "height": "1,70m",
+      "id": "738009",
+      "marketValue": "",
+      "name": "Đula Velagić",
+      "nationality": [
+        "Bosnia & Herzegovina"
+      ],
+      "number": "6",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,70m",
+      "id": "738010",
+      "marketValue": "",
+      "name": "Dajana Spasojević",
+      "nationality": [
+        "Bosnia & Herzegovina"
+      ],
+      "number": "7",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "738011",
+      "marketValue": "",
+      "name": "Hana Mešan",
+      "nationality": [
+        "Bosnia & Herzegovina"
+      ],
+      "number": "10",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "738012",
+      "marketValue": "",
+      "name": "Taylor Harrison",
+      "nationality": [
+        "United States"
+      ],
+      "number": "15",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,66m",
+      "id": "738013",
+      "marketValue": "",
+      "name": "Katarina Čadjenović",
+      "nationality": [
+        "Montenegro"
+      ],
+      "number": "16",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "left",
+      "height": "1,72m",
+      "id": "738014",
+      "marketValue": "",
+      "name": "Amela Kršo",
+      "nationality": [
+        "Bosnia & Herzegovina"
+      ],
+      "number": "17",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "both",
+      "height": "",
+      "id": "738015",
+      "marketValue": "",
+      "name": "Mia Kuljanin",
+      "nationality": [
+        "Bosnia & Herzegovina"
+      ],
+      "number": "18",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,66m",
+      "id": "738016",
+      "marketValue": "",
+      "name": "Amila Abdukić",
+      "nationality": [
+        "Bosnia & Herzegovina"
+      ],
+      "number": "19",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2026",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,61m",
+      "id": "738017",
+      "marketValue": "",
+      "name": "Uma Hadžihajdarević",
+      "nationality": [
+        "Bosnia & Herzegovina"
+      ],
+      "number": "22",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "both",
+      "height": "1,64m",
+      "id": "738018",
+      "marketValue": "",
+      "name": "Petra Pezelj",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": "23",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,71m",
+      "id": "738019",
+      "marketValue": "",
+      "name": "Alma Kamerić",
+      "nationality": [
+        "Bosnia & Herzegovina"
+      ],
+      "number": "77",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "738020",
+      "marketValue": "",
+      "name": "Lina Hadžikadunić",
+      "nationality": [
+        "Bosnia & Herzegovina"
+      ],
+      "number": "11",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "1,65m",
+      "id": "738021",
+      "marketValue": "",
+      "name": "Gisela Betancourt",
+      "nationality": [
+        "Colombia"
+      ],
+      "number": "11",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "left",
+      "height": "1,76m",
+      "id": "738022",
+      "marketValue": "",
+      "name": "Farah Jusufović",
+      "nationality": [
+        "Bosnia & Herzegovina"
+      ],
+      "number": "14",
+      "position": "Striker"
+    },
+    {
+      "contract": "Jun 30, 2027",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,72m",
+      "id": "738023",
+      "marketValue": "",
+      "name": "Veronika Terzić",
+      "nationality": [
+        "Croatia"
+      ],
+      "number": "20",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Stadium TC FF BiH",
+  "stadiumSeats": 6000,
+  "transfermarktId": "738"
+}

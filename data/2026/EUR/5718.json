@@ -1,0 +1,503 @@
+{
+  "country": "Albania",
+  "image": "https://tmssl.akamaized.net/images/wappen/big/5718.png",
+  "name": "KFF Vllaznia",
+  "players": [
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718001",
+      "marketValue": "",
+      "name": "Ambra Reshiti",
+      "nationality": [
+        "Albania"
+      ],
+      "number": "1",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,69m",
+      "id": "5718002",
+      "marketValue": "",
+      "name": "Antigoni Hyska",
+      "nationality": [
+        "Albania"
+      ],
+      "number": "12",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "1,76m",
+      "id": "5718003",
+      "marketValue": "",
+      "name": "Samantha Valadez",
+      "nationality": [
+        "El Salvador",
+        "United States"
+      ],
+      "number": "22",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718004",
+      "marketValue": "",
+      "name": "Eriana Haxhija",
+      "nationality": [
+        "Albania"
+      ],
+      "number": "33",
+      "position": "Goalkeeper"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718005",
+      "marketValue": "",
+      "name": "Suzane Vuksani",
+      "nationality": [
+        "Albania"
+      ],
+      "number": "",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718006",
+      "marketValue": "",
+      "name": "Herta Hasaj",
+      "nationality": [
+        "Albania"
+      ],
+      "number": "",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718007",
+      "marketValue": "",
+      "name": "Mireilis Rojas",
+      "nationality": [
+        "Panama"
+      ],
+      "number": "",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "1,62m",
+      "id": "5718008",
+      "marketValue": "",
+      "name": "Haylee Spray",
+      "nationality": [
+        "United States"
+      ],
+      "number": "2",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718009",
+      "marketValue": "",
+      "name": "Riselda Leba",
+      "nationality": [
+        "Albania"
+      ],
+      "number": "3",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718010",
+      "marketValue": "",
+      "name": "Marina Rushaj",
+      "nationality": [
+        "Albania"
+      ],
+      "number": "4",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "1,73m",
+      "id": "5718011",
+      "marketValue": "",
+      "name": "Erin Van Dolder",
+      "nationality": [
+        "Canada"
+      ],
+      "number": "6",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718012",
+      "marketValue": "",
+      "name": "Izabela Sales",
+      "nationality": [
+        "Brazil"
+      ],
+      "number": "20",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718013",
+      "marketValue": "",
+      "name": "Egla Hoxha",
+      "nationality": [
+        "Albania"
+      ],
+      "number": "23",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718014",
+      "marketValue": "",
+      "name": "Loanne Magalhaes Rodrigues",
+      "nationality": [
+        "Brazil"
+      ],
+      "number": "27",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718015",
+      "marketValue": "",
+      "name": "Desara Lorja",
+      "nationality": [
+        "Albania"
+      ],
+      "number": "29",
+      "position": "Defender"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718016",
+      "marketValue": "",
+      "name": "Mayerlin Hernández",
+      "nationality": [
+        "Colombia"
+      ],
+      "number": "",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718017",
+      "marketValue": "",
+      "name": "Candela González",
+      "nationality": [
+        "Spain"
+      ],
+      "number": "",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718018",
+      "marketValue": "",
+      "name": "Lusil Cungu",
+      "nationality": [
+        "Albania"
+      ],
+      "number": "",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "1,58m",
+      "id": "5718019",
+      "marketValue": "",
+      "name": "Anahí Rentería",
+      "nationality": [
+        "Mexico"
+      ],
+      "number": "",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718020",
+      "marketValue": "",
+      "name": "Marinela Ndoci",
+      "nationality": [
+        "Albania"
+      ],
+      "number": "",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "right",
+      "height": "1,65m",
+      "id": "5718021",
+      "marketValue": "",
+      "name": "Carmen Montenegro",
+      "nationality": [
+        "Panama"
+      ],
+      "number": "",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718022",
+      "marketValue": "",
+      "name": "Verona Berisha",
+      "nationality": [
+        "Kosovo"
+      ],
+      "number": "8",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718023",
+      "marketValue": "",
+      "name": "Rosela Vasa",
+      "nationality": [
+        "Albania"
+      ],
+      "number": "10",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718024",
+      "marketValue": "",
+      "name": "Eglisa Hardhija",
+      "nationality": [
+        "Albania"
+      ],
+      "number": "13",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718025",
+      "marketValue": "",
+      "name": "Ine Aas",
+      "nationality": [
+        "Norway"
+      ],
+      "number": "15",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718026",
+      "marketValue": "",
+      "name": "Amanda DaSilva",
+      "nationality": [
+        "United States",
+        "Brazil"
+      ],
+      "number": "16",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718027",
+      "marketValue": "",
+      "name": "Jylisa Kolekaj",
+      "nationality": [
+        "Albania"
+      ],
+      "number": "17",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718028",
+      "marketValue": "",
+      "name": "Aidena Mustafa",
+      "nationality": [
+        "Albania"
+      ],
+      "number": "18",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718029",
+      "marketValue": "",
+      "name": "Tiana Gjonaj",
+      "nationality": [
+        "Albania",
+        "United States"
+      ],
+      "number": "19",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718030",
+      "marketValue": "",
+      "name": "Xhesika Ndoj",
+      "nationality": [
+        "Albania"
+      ],
+      "number": "21",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718031",
+      "marketValue": "",
+      "name": "Drilona Mataj",
+      "nationality": [
+        "Albania"
+      ],
+      "number": "24",
+      "position": "Midfielder"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718032",
+      "marketValue": "",
+      "name": "Klaudja Borci",
+      "nationality": [
+        "Albania"
+      ],
+      "number": "7",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718033",
+      "marketValue": "",
+      "name": "Kendyl Sarver",
+      "nationality": [
+        "United States"
+      ],
+      "number": "9",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "both",
+      "height": "1,66m",
+      "id": "5718034",
+      "marketValue": "",
+      "name": "Megi Doçi",
+      "nationality": [
+        "Albania"
+      ],
+      "number": "11",
+      "position": "Striker"
+    },
+    {
+      "contract": "",
+      "dateOfBirth": "",
+      "foot": "",
+      "height": "",
+      "id": "5718035",
+      "marketValue": "",
+      "name": "Aldisa Kronaj",
+      "nationality": [
+        "Albania"
+      ],
+      "number": "26",
+      "position": "Striker"
+    }
+  ],
+  "stadiumName": "Loro Boriçi Stadium",
+  "stadiumSeats": 16000,
+  "transfermarktId": "5718"
+}

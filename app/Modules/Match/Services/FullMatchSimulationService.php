@@ -189,6 +189,7 @@ class FullMatchSimulationService
             userTeamId: $simulatorUserTeamId,
             homePlayerSlots: $homePlayerSlots,
             awayPlayerSlots: $awayPlayerSlots,
+            competitionId: $match->competition_id,
         );
 
         $result = $output->result;
