@@ -136,7 +136,7 @@
           ],
           "position": "Centre-Back",
           "shirtNumber": 3,
-          "overall_score": 73
+          "overall_score": 85
         },
         {
           "contractUntil": null,
@@ -1534,7 +1534,7 @@
           "height": "1,63m",
           "shirtNumber": 21,
           "contractUntil": null,
-          "overall_score": 67
+          "overall_score": 74
         },
         {
           "id": "944167",
@@ -1769,7 +1769,7 @@
           "height": "1,59m",
           "shirtNumber": 2,
           "contractUntil": null,
-          "overall_score": 72
+          "overall_score": 82
         },
         {
           "id": "944207",
@@ -2809,7 +2809,7 @@
           "shirtNumber": null,
           "marketValue": null,
           "contractUntil": null,
-          "overall_score": 70
+          "overall_score": 71
         },
         {
           "id": 944311,
@@ -3094,7 +3094,7 @@
           "shirtNumber": 30,
           "marketValue": null,
           "contractUntil": null,
-          "overall_score": 70
+          "overall_score": 85
         },
         {
           "id": 944330,
@@ -3358,7 +3358,8 @@
           "foot": "right",
           "height": "1,64m",
           "shirtNumber": null,
-          "contractUntil": null
+          "contractUntil": null,
+          "overall_score": 74
         },
         {
           "id": "944366",
@@ -3403,7 +3404,7 @@
           "height": null,
           "shirtNumber": null,
           "contractUntil": null,
-          "overall_score": 69
+          "overall_score": 79
         },
         {
           "id": "944369",
@@ -4480,7 +4481,7 @@
           "height": null,
           "shirtNumber": 9,
           "contractUntil": null,
-          "overall_score": 73
+          "overall_score": 69
         },
         {
           "id": "944466",

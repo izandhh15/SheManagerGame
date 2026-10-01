@@ -22,7 +22,8 @@
             "Netherlands"
           ],
           "number": "1",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 59
         },
         {
           "contract": "Jun 30, 2027",
@@ -106,7 +107,8 @@
             "Belgium"
           ],
           "number": "4",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 71
         },
         {
           "contract": "Jun 30, 2029",
@@ -134,7 +136,8 @@
             "Switzerland"
           ],
           "number": "15",
-          "position": "Left-Back"
+          "position": "Left-Back",
+          "overall_score": 71
         },
         {
           "contract": "Jun 30, 2028",
@@ -148,7 +151,8 @@
             "Netherlands"
           ],
           "number": "18",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 71
         },
         {
           "contract": "Jun 30, 2027",
@@ -162,7 +166,8 @@
             "Netherlands"
           ],
           "number": "24",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 73
         },
         {
           "contract": "Jun 30, 2029",
@@ -176,7 +181,8 @@
             "Netherlands"
           ],
           "number": "6",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 75
         },
         {
           "contract": "Jun 30, 2027",
@@ -190,7 +196,8 @@
             "Netherlands"
           ],
           "number": "8",
-          "position": "Midfielder"
+          "position": "Midfielder",
+          "overall_score": 82
         },
         {
           "contract": "Jun 30, 2029",
@@ -204,7 +211,8 @@
             "Netherlands"
           ],
           "number": "12",
-          "position": "Midfielder"
+          "position": "Midfielder",
+          "overall_score": 65
         },
         {
           "contract": "Jun 30, 2028",
@@ -232,7 +240,8 @@
             "Netherlands"
           ],
           "number": "19",
-          "position": "Midfielder"
+          "position": "Midfielder",
+          "overall_score": 63
         },
         {
           "contract": "Jun 30, 2028",
@@ -246,7 +255,8 @@
             "Netherlands"
           ],
           "number": "20",
-          "position": "Midfielder"
+          "position": "Midfielder",
+          "overall_score": 65
         },
         {
           "contract": "Jun 30, 2028",
@@ -274,7 +284,8 @@
             "Netherlands"
           ],
           "number": "27",
-          "position": "Midfielder"
+          "position": "Midfielder",
+          "overall_score": 72
         },
         {
           "contract": "",
@@ -331,7 +342,8 @@
             "Netherlands"
           ],
           "number": "7",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 61
         },
         {
           "contract": "Jun 30, 2029",
@@ -345,7 +357,8 @@
             "Netherlands"
           ],
           "number": "9",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 79
         },
         {
           "contract": "Jun 30, 2027",
@@ -359,7 +372,8 @@
             "Netherlands"
           ],
           "number": "10",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 75
         },
         {
           "contract": "Jun 30, 2029",
@@ -373,7 +387,8 @@
             "Netherlands"
           ],
           "number": "11",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -401,7 +416,8 @@
             "Netherlands"
           ],
           "number": "26",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -693,7 +709,8 @@
             "Belgium"
           ],
           "number": "19",
-          "position": "Defensive Midfield"
+          "position": "Defensive Midfield",
+          "overall_score": 75
         },
         {
           "contract": "Jun 30, 2029",
@@ -3198,7 +3215,8 @@
             "Netherlands"
           ],
           "number": "6",
-          "position": "Midfielder"
+          "position": "Midfielder",
+          "overall_score": 75
         },
         {
           "contract": "Jun 30, 2027",
@@ -3617,7 +3635,8 @@
             "Netherlands"
           ],
           "number": "6",
-          "position": "Midfielder"
+          "position": "Midfielder",
+          "overall_score": 68
         },
         {
           "contract": "Jun 30, 2026",
@@ -3746,7 +3765,7 @@
           ],
           "number": "25",
           "position": "Midfielder",
-          "overall_score": 68
+          "overall_score": 84
         },
         {
           "contract": "Jun 30, 2027",

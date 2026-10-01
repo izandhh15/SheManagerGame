@@ -263,7 +263,7 @@
           ],
           "number": "28",
           "position": "Midfielder",
-          "overall_score": 64
+          "overall_score": 70
         },
         {
           "contract": "",
@@ -278,7 +278,7 @@
           ],
           "number": "4",
           "position": "Centre-Forward",
-          "overall_score": 63
+          "overall_score": 73
         },
         {
           "contract": "Jun 30, 2027",
@@ -399,7 +399,7 @@
           ],
           "number": "19",
           "position": "Midfielder",
-          "overall_score": 72
+          "overall_score": 79
         },
         {
           "contract": "",
@@ -736,7 +736,8 @@
             "England"
           ],
           "number": "14",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 59
         },
         {
           "contract": "",
@@ -1072,7 +1073,8 @@
             "Germany"
           ],
           "number": "16",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 69
         },
         {
           "contract": "Jun 30, 2029",
@@ -1237,7 +1239,7 @@
           ],
           "number": "18",
           "position": "Centre-Forward",
-          "overall_score": 66
+          "overall_score": 79
         },
         {
           "contract": "",
@@ -1482,7 +1484,8 @@
             "Spain"
           ],
           "number": "23",
-          "position": "Right-Back"
+          "position": "Right-Back",
+          "overall_score": 75
         },
         {
           "contract": "Jun 30, 2027",
@@ -1585,7 +1588,8 @@
             "England"
           ],
           "number": "8",
-          "position": "Defensive Midfield"
+          "position": "Defensive Midfield",
+          "overall_score": 71
         },
         {
           "contract": "Jun 30, 2027",
@@ -1615,7 +1619,7 @@
           ],
           "number": "15",
           "position": "Central Midfield",
-          "overall_score": 71
+          "overall_score": 69
         },
         {
           "contract": "Jun 30, 2027",
@@ -1785,7 +1789,8 @@
             "Germany"
           ],
           "number": "1",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 73
         },
         {
           "contract": "Jun 30, 2028",
@@ -1869,7 +1874,8 @@
             "Portugal"
           ],
           "number": "11",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 75
         },
         {
           "contract": "Jun 30, 2027",
@@ -1883,7 +1889,8 @@
             "Portugal"
           ],
           "number": "19",
-          "position": "Right-Back"
+          "position": "Right-Back",
+          "overall_score": 74
         },
         {
           "contract": "Jun 30, 2028",
@@ -1925,7 +1932,8 @@
             "Portugal"
           ],
           "number": "8",
-          "position": "Attacking Midfield"
+          "position": "Attacking Midfield",
+          "overall_score": 75
         },
         {
           "contract": "Jun 30, 2027",
@@ -1953,7 +1961,8 @@
             "Hungary"
           ],
           "number": "14",
-          "position": "Midfielder"
+          "position": "Midfielder",
+          "overall_score": 68
         },
         {
           "contract": "Jun 30, 2027",
@@ -1981,7 +1990,8 @@
             "Portugal"
           ],
           "number": "21",
-          "position": "Defensive Midfield"
+          "position": "Defensive Midfield",
+          "overall_score": 73
         },
         {
           "contract": "Jun 30, 2029",
@@ -2067,7 +2077,8 @@
             "Brazil"
           ],
           "number": "9",
-          "position": "Right Winger"
+          "position": "Right Winger",
+          "overall_score": 76
         },
         {
           "contract": "Jun 30, 2031",
@@ -2081,7 +2092,8 @@
             "Portugal"
           ],
           "number": "13",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 72
         },
         {
           "contract": "Jun 30, 2028",
@@ -2123,7 +2135,8 @@
             "Portugal"
           ],
           "number": "20",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 67
         },
         {
           "contract": "Jun 30, 2028",
@@ -2151,7 +2164,8 @@
             "Canada"
           ],
           "number": "25",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 72
         },
         {
           "contract": "Jun 30, 2029",
@@ -2246,7 +2260,8 @@
             "Portugal"
           ],
           "number": "66",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 71
         },
         {
           "contract": "Jun 30, 2028",
@@ -2305,7 +2320,8 @@
             "Spain"
           ],
           "number": "14",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 74
         },
         {
           "contract": "Jun 30, 2027",
@@ -2574,7 +2590,8 @@
             "Spain"
           ],
           "number": "10",
-          "position": "Left Winger"
+          "position": "Left Winger",
+          "overall_score": 71
         },
         {
           "contract": "Jun 30, 2027",
@@ -2968,7 +2985,8 @@
             "Germany"
           ],
           "number": "17",
-          "position": "Midfielder"
+          "position": "Midfielder",
+          "overall_score": 73
         },
         {
           "contract": "Jun 30, 2027",
@@ -2998,7 +3016,7 @@
           ],
           "number": "22",
           "position": "Defensive Midfield",
-          "overall_score": 69
+          "overall_score": 58
         },
         {
           "contract": "",
@@ -3455,7 +3473,7 @@
           ],
           "number": "3",
           "position": "Centre-Forward",
-          "overall_score": 67
+          "overall_score": 81
         }
       ]
     },
@@ -3494,7 +3512,7 @@
           ],
           "number": "18",
           "position": "Goalkeeper",
-          "overall_score": 69
+          "overall_score": 68
         },
         {
           "contract": "Jun 30, 2027",
@@ -3599,7 +3617,7 @@
           ],
           "number": "4",
           "position": "Centre-Back",
-          "overall_score": 71
+          "overall_score": 70
         },
         {
           "contract": "Jun 30, 2027",
@@ -3658,7 +3676,7 @@
           ],
           "number": "22",
           "position": "Centre-Back",
-          "overall_score": 69
+          "overall_score": 79
         },
         {
           "contract": "Jun 30, 2027",
@@ -4069,7 +4087,8 @@
             "Slovenia"
           ],
           "number": "4",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -4172,7 +4191,8 @@
             "Portugal"
           ],
           "number": "30",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 58
         },
         {
           "contract": "Jun 30, 2027",
@@ -4186,7 +4206,8 @@
             "Portugal"
           ],
           "number": "6",
-          "position": "Attacking Midfield"
+          "position": "Attacking Midfield",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -4289,7 +4310,8 @@
             "Portugal"
           ],
           "number": "18",
-          "position": "Defensive Midfield"
+          "position": "Defensive Midfield",
+          "overall_score": 72
         },
         {
           "contract": "",

@@ -498,7 +498,7 @@
           ],
           "number": "28",
           "position": "Centre-Back",
-          "overall_score": 70
+          "overall_score": 85
         },
         {
           "contract": "",
@@ -633,7 +633,7 @@
           ],
           "number": 4,
           "position": "Attacking Midfield",
-          "overall_score": 71
+          "overall_score": 79
         },
         {
           "contract": "",
@@ -828,7 +828,7 @@
           ],
           "number": "21",
           "position": "Striker",
-          "overall_score": 73
+          "overall_score": 75
         },
         {
           "contract": "",
@@ -1342,7 +1342,7 @@
           ],
           "number": "1",
           "position": "Goalkeeper",
-          "overall_score": 72
+          "overall_score": 75
         },
         {
           "contract": "",
@@ -2084,7 +2084,8 @@
             "Brazil"
           ],
           "number": "88",
-          "position": "Attacking Midfield"
+          "position": "Attacking Midfield",
+          "overall_score": 73
         },
         {
           "contract": "Dec 31, 2026",
@@ -2160,7 +2161,7 @@
           ],
           "number": "25",
           "position": "Striker",
-          "overall_score": 68
+          "overall_score": 69
         },
         {
           "contract": "Dec 31, 2028",
@@ -2512,7 +2513,7 @@
           ],
           "number": null,
           "position": "Defensive Midfield",
-          "overall_score": 68
+          "overall_score": 85
         },
         {
           "contract": "",
@@ -2789,7 +2790,7 @@
           ],
           "number": 4,
           "position": "Centre-Back",
-          "overall_score": 73
+          "overall_score": 79
         },
         {
           "contract": "",
@@ -3158,7 +3159,7 @@
           ],
           "number": 25,
           "position": "Goalkeeper",
-          "overall_score": 70
+          "overall_score": 75
         },
         {
           "contract": "",
@@ -3278,7 +3279,7 @@
           ],
           "number": 29,
           "position": "Defender",
-          "overall_score": 69
+          "overall_score": 85
         },
         {
           "contract": "",
@@ -3354,7 +3355,7 @@
           ],
           "number": null,
           "position": "Midfielder",
-          "overall_score": 64
+          "overall_score": 75
         },
         {
           "contract": "",
@@ -3666,7 +3667,7 @@
           ],
           "number": "15",
           "position": "Defender",
-          "overall_score": 67
+          "overall_score": 70
         },
         {
           "contract": "",
@@ -4335,7 +4336,7 @@
           ],
           "number": 17,
           "position": "Left Winger",
-          "overall_score": 62
+          "overall_score": 79
         },
         {
           "contract": "",
@@ -4645,7 +4646,7 @@
           ],
           "number": 15,
           "position": "Centre-Back",
-          "overall_score": 71
+          "overall_score": 70
         },
         {
           "contract": "",
@@ -5518,7 +5519,7 @@
           ],
           "number": "",
           "position": "Centre-Back",
-          "overall_score": 68
+          "overall_score": 85
         },
         {
           "contract": "",
@@ -5713,7 +5714,7 @@
           ],
           "number": "",
           "position": "Midfielder",
-          "overall_score": 88
+          "overall_score": 87
         },
         {
           "contract": "",
@@ -5788,7 +5789,7 @@
           ],
           "number": "",
           "position": "Striker",
-          "overall_score": 70
+          "overall_score": 79
         },
         {
           "contract": "",
@@ -5818,7 +5819,7 @@
           ],
           "number": "",
           "position": "Striker",
-          "overall_score": 71
+          "overall_score": 70
         }
       ]
     },
@@ -5962,7 +5963,8 @@
             "Brazil"
           ],
           "number": "",
-          "position": "Right-Back"
+          "position": "Right-Back",
+          "overall_score": 81
         },
         {
           "contract": "",
@@ -6350,7 +6352,8 @@
             "Brazil"
           ],
           "number": "10",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 82
         },
         {
           "contract": "",
@@ -7827,7 +7830,7 @@
           ],
           "number": "",
           "position": "Midfielder",
-          "overall_score": 70
+          "overall_score": 75
         },
         {
           "contract": "",

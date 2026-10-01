@@ -1342,7 +1342,7 @@
           ],
           "number": "8",
           "position": "Midfield",
-          "overall_score": 69
+          "overall_score": 75
         },
         {
           "contract": "",
@@ -1679,7 +1679,8 @@
             "Jamaica"
           ],
           "number": "21",
-          "position": "Defender"
+          "position": "Defender",
+          "overall_score": 78
         },
         {
           "contract": "",
@@ -1811,7 +1812,8 @@
             "Canada"
           ],
           "number": "22",
-          "position": "Midfield"
+          "position": "Midfield",
+          "overall_score": 65
         },
         {
           "contract": "Jun 30, 2026",
