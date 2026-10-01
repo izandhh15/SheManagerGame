@@ -157,11 +157,12 @@ class NationalVenueRequestService
     public function randomExcuse(string $clubName): string
     {
         $excuses = [
-            'venue_excuse_maintenance',
-            'venue_excuse_grass',
-            'venue_excuse_event',
-            'venue_excuse_reserve',
-            'venue_excuse_calendar',
+            'game.venue_excuse_derby',
+            'game.venue_excuse_pitch',
+            'game.venue_excuse_concert',
+            'game.venue_excuse_maintenance',
+            'game.venue_excuse_academy',
+            'game.venue_excuse_generic',
         ];
 
         return $excuses[array_rand($excuses)];
@@ -173,10 +174,11 @@ class NationalVenueRequestService
     public function randomMensExcuse(): string
     {
         $excuses = [
-            'venue_excuse_mens_laliga',
-            'venue_excuse_mens_grass',
-            'venue_excuse_mens_concert',
-            'venue_excuse_mens_works',
+            'game.venue_mens_excuse_laliga',
+            'game.venue_mens_excuse_grass',
+            'game.venue_mens_excuse_concert',
+            'game.venue_mens_excuse_maintenance',
+            'game.venue_mens_excuse_reserve',
         ];
 
         return $excuses[array_rand($excuses)];

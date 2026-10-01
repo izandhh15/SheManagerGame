@@ -302,7 +302,7 @@
                         <optgroup label="{{ $country }}">
                             @foreach($list as $s)
                                 <option value="{{ $s['team_id'] }}">
-                                    {{ $s['stadium'] }} — {{ $s['club'] }} ({{ number_format($s['capacity'], 0, ',', '.') }})
+                                    {{ $s['stadium'] }} — {{ $s['team_name'] }} ({{ number_format($s['capacity'], 0, ',', '.') }})
                                 </option>
                             @endforeach
                         </optgroup>
