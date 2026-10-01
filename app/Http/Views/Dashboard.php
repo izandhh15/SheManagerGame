@@ -14,7 +14,7 @@ class Dashboard
 
     public function __invoke(Request $request)
     {
-        $games = Game::with('team')->where('user_id', $request->user()->id)->whereNull('deleting_at')->get();
+        $games = Game::with(['team', 'competition'])->where('user_id', $request->user()->id)->whereNull('deleting_at')->get();
 
         if (! $games->count()) {
             return redirect()->route('select-team');

@@ -47,6 +47,13 @@
                                 <x-game-mode-badge :game="$game" />
                             </dd>
 
+                            @if($game->competition)
+                                <dd class="flex items-center justify-center gap-2 mt-1">
+                                    <x-competition-logo :competition="$game->competition" class="w-7 h-7 shrink-0" />
+                                    <span class="text-xs text-text-secondary">{{ $game->competition->name ? __($game->competition->name) : $game->competition->id }}</span>
+                                </dd>
+                            @endif
+
                             <hr class="pt-4 mt-4 border-t border-border-default">
 
                             @if($game->current_date)
