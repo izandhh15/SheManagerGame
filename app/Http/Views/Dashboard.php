@@ -3,6 +3,7 @@
 namespace App\Http\Views;
 
 use App\Models\Game;
+use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 
@@ -32,6 +33,15 @@ class Dashboard
             $primaryCount = $games->whereNull('linked_game_id')->count();
         }
 
+        // Affiliate-mode CTA: surfaced on the dashboard so the mode isn't
+        // buried in the new-game screen. Only when the user has a free
+        // slot and at least one club has a playable filial.
+        $showAffiliateCta = $primaryCount < $maxGames && Team::where('type', '!=', 'national')
+            ->where('is_placeholder', false)
+            ->whereNull('parent_team_id')
+            ->whereHas('reserveTeam', fn ($q) => $q->where('is_placeholder', false))
+            ->exists();
+
         return view('dashboard', [
             'user' => $request->user(),
             'games' => $games,
@@ -43,6 +53,7 @@ class Dashboard
             ),
             'gameCount' => $primaryCount,
             'maxGames' => $maxGames,
+            'showAffiliateCta' => $showAffiliateCta,
         ]);
     }
 }

@@ -1,334 +1,892 @@
 {
   "stadiums": [
     {
-      "capacity": 105000,
-      "club": "FC Barcelona",
-      "stadium": "Camp Nou",
-      "womens_team": "FC Barcelona"
-    },
-    {
-      "capacity": 81044,
-      "club": "Real Madrid",
-      "stadium": "Santiago Bernabéu",
-      "womens_team": "Real Madrid CF"
-    },
-    {
-      "capacity": 70460,
-      "club": "Atlético de Madrid",
-      "stadium": "Riyadh Air Metropolitano",
-      "womens_team": "Atlético de Madrid"
-    },
-    {
-      "capacity": 49440,
-      "club": "Valencia CF",
-      "stadium": "Mestalla",
-      "womens_team": "Valencia CF Femenino"
-    },
-    {
-      "capacity": 53331,
-      "club": "Athletic Club",
-      "stadium": "San Mamés",
-      "womens_team": "Athletic Club"
-    },
-    {
-      "capacity": 40000,
-      "club": "Real Sociedad",
-      "stadium": "Reale Arena",
-      "womens_team": "Real Sociedad"
-    },
-    {
-      "capacity": 43883,
-      "club": "Sevilla FC",
-      "stadium": "Ramón Sánchez-Pizjuán",
-      "womens_team": "Sevilla FC"
-    },
-    {
-      "capacity": 60720,
-      "club": "Real Betis",
-      "stadium": "Benito Villamarín",
-      "womens_team": "Real Betis Balompié"
-    },
-    {
-      "capacity": 23000,
-      "club": "Villarreal CF",
-      "stadium": "Estadio de la Cerámica",
-      "womens_team": "Villarreal CF"
-    },
-    {
-      "capacity": 40500,
-      "club": "RCD Espanyol",
-      "stadium": "RCDE Stadium",
-      "womens_team": "RCD Espanyol"
-    },
-    {
-      "capacity": 19336,
-      "club": "Granada CF",
-      "stadium": "Nuevo Los Cármenes",
-      "womens_team": "Granada CF"
-    },
-    {
-      "capacity": 26354,
-      "club": "Levante UD",
-      "stadium": "Ciutat de València",
-      "womens_team": "Levante UD B"
-    },
-    {
-      "capacity": 31388,
-      "club": "Elche CF",
-      "stadium": "Manuel Martínez Valero",
-      "womens_team": "Elche CF"
-    },
-    {
-      "capacity": 14708,
-      "club": "Rayo Vallecano",
-      "stadium": "Vallecas",
-      "womens_team": "Rayo Vallecano"
-    },
-    {
-      "capacity": 23576,
-      "club": "CA Osasuna",
-      "stadium": "El Sadar",
-      "womens_team": "CA Osasuna B"
-    },
-    {
-      "capacity": 19840,
-      "club": "Deportivo Alavés",
-      "stadium": "Mendizorrotza",
-      "womens_team": "Deportivo Alavés"
-    },
-    {
-      "capacity": 32660,
-      "club": "RC Deportivo",
-      "stadium": "Riazor",
-      "womens_team": "Dépor Abanca"
-    },
-    {
-      "capacity": 29371,
-      "club": "Sporting de Gijón",
-      "stadium": "El Molinón",
-      "womens_team": "Sporting de Gijón"
-    },
-    {
-      "capacity": 22222,
-      "club": "Racing de Santander",
-      "stadium": "El Sardinero",
-      "womens_team": "Real Racing Club de Santander"
-    },
-    {
-      "capacity": 22824,
-      "club": "CD Tenerife",
-      "stadium": "Heliodoro Rodríguez López",
-      "womens_team": "Costa Adeje Tenerife Egatesa"
-    },
-    {
-      "capacity": 60704,
-      "club": "Arsenal",
-      "stadium": "Emirates Stadium",
-      "womens_team": "Arsenal FC"
-    },
-    {
-      "capacity": 40173,
-      "club": "Chelsea",
-      "stadium": "Stamford Bridge",
-      "womens_team": "Chelsea LFC"
-    },
-    {
-      "capacity": 61276,
-      "club": "Liverpool",
-      "stadium": "Anfield",
-      "womens_team": "Liverpool LFC"
-    },
-    {
-      "capacity": 53400,
-      "club": "Manchester City",
-      "stadium": "Etihad Stadium",
-      "womens_team": "Manchester City LFC"
-    },
-    {
-      "capacity": 74310,
-      "club": "Manchester United",
-      "stadium": "Old Trafford",
-      "womens_team": "Manchester United"
-    },
-    {
-      "capacity": 62850,
-      "club": "Tottenham Hotspur",
-      "stadium": "Tottenham Hotspur Stadium",
-      "womens_team": "Tottenham Hotspur LFC"
-    },
-    {
-      "capacity": 52888,
-      "club": "Everton",
-      "stadium": "Hill Dickinson Stadium",
-      "womens_team": "Everton LFC"
-    },
-    {
-      "capacity": 42657,
-      "club": "Aston Villa",
-      "stadium": "Villa Park",
-      "womens_team": "Aston Villa LFC"
-    },
-    {
-      "capacity": 62500,
-      "club": "West Ham United",
-      "stadium": "London Stadium",
-      "womens_team": "West Ham United LFC"
-    },
-    {
-      "capacity": 75000,
-      "club": "Bayern München",
-      "stadium": "Allianz Arena",
-      "womens_team": "Bayern München"
-    },
-    {
-      "capacity": 30000,
-      "club": "VfL Wolfsburg",
-      "stadium": "Volkswagen Arena",
-      "womens_team": "VfL Wolfsburg"
-    },
-    {
-      "capacity": 58000,
-      "club": "Eintracht Frankfurt",
-      "stadium": "Deutsche Bank Park",
-      "womens_team": "Eintracht Frankfurt"
-    },
-    {
-      "capacity": 30210,
-      "club": "Bayer Leverkusen",
-      "stadium": "BayArena",
-      "womens_team": "Bayer 04 Leverkusen"
-    },
-    {
       "capacity": 49698,
       "club": "1. FC Köln",
       "stadium": "RheinEnergieStadion",
-      "womens_team": "1. FC Köln"
-    },
-    {
-      "capacity": 42100,
-      "club": "Werder Bremen",
-      "stadium": "Weserstadion",
-      "womens_team": "Werder Bremen"
-    },
-    {
-      "capacity": 57000,
-      "club": "Hamburger SV",
-      "stadium": "Volksparkstadion",
-      "womens_team": "Hamburger SV"
-    },
-    {
-      "capacity": 60058,
-      "club": "VfB Stuttgart",
-      "stadium": "MHPArena",
-      "womens_team": "VfB Stuttgart 1893"
-    },
-    {
-      "capacity": 47069,
-      "club": "RB Leipzig",
-      "stadium": "Red Bull Arena",
-      "womens_team": "RB Leipzig"
-    },
-    {
-      "capacity": 34700,
-      "club": "SC Freiburg",
-      "stadium": "Europa-Park Stadion",
-      "womens_team": "SC Freiburg"
-    },
-    {
-      "capacity": 59186,
-      "club": "Olympique Lyonnais",
-      "stadium": "Groupama Stadium",
-      "womens_team": "OL Lyonnes"
-    },
-    {
-      "capacity": 47926,
-      "club": "Paris Saint-Germain",
-      "stadium": "Parc des Princes",
-      "womens_team": "Paris Saint-Germain"
-    },
-    {
-      "capacity": 67394,
-      "club": "Olympique de Marseille",
-      "stadium": "Orange Vélodrome",
-      "womens_team": "Olympique de Marseille"
-    },
-    {
-      "capacity": 38223,
-      "club": "RC Lens",
-      "stadium": "Stade Bollaert-Delelis",
-      "womens_team": "RC Lens"
-    },
-    {
-      "capacity": 41507,
-      "club": "Juventus",
-      "stadium": "Allianz Stadium",
-      "womens_team": "Juventus Football Club"
-    },
-    {
-      "capacity": 75923,
-      "club": "Inter",
-      "stadium": "San Siro",
-      "womens_team": "Inter"
-    },
-    {
-      "capacity": 68530,
-      "club": "AS Roma",
-      "stadium": "Stadio Olimpico",
-      "womens_team": "AS Roma"
+      "womens_team": "1. FC Köln",
+      "rental_price": 490000,
+      "owner": "1. FC Köln"
     },
     {
       "capacity": 75923,
       "club": "AC Milan",
       "stadium": "San Siro",
-      "womens_team": "AC Milan"
+      "womens_team": "AC Milan",
+      "rental_price": 950000,
+      "owner": "AC Milan"
+    },
+    {
+      "capacity": 11386,
+      "club": "AFC Bournemouth",
+      "stadium": "Vitality Stadium",
+      "womens_team": null,
+      "owner": "AFC Bournemouth",
+      "rental_price": 110000
+    },
+    {
+      "capacity": 18523,
+      "club": "AS Monaco",
+      "stadium": "Stade Louis II",
+      "womens_team": null,
+      "owner": "AS Monaco",
+      "rental_price": 185000
     },
     {
       "capacity": 68530,
-      "club": "SS Lazio",
+      "club": "AS Roma",
       "stadium": "Stadio Olimpico",
-      "womens_team": "SS Lazio"
-    },
-    {
-      "capacity": 54726,
-      "club": "SSC Napoli",
-      "stadium": "Diego Armando Maradona",
-      "womens_team": "ASD Napoli Femminile"
+      "womens_team": "AS Roma",
+      "rental_price": 750000,
+      "owner": "AS Roma"
     },
     {
       "capacity": 55865,
       "club": "Ajax",
       "stadium": "Johan Cruijff Arena",
-      "womens_team": "Ajax Amsterdam"
+      "womens_team": "Ajax Amsterdam",
+      "rental_price": 635000,
+      "owner": "Ajax"
     },
     {
-      "capacity": 51177,
-      "club": "Feyenoord",
-      "stadium": "De Kuip",
-      "womens_team": "Feyenoord Rotterdam"
+      "capacity": 60704,
+      "club": "Arsenal",
+      "stadium": "Emirates Stadium",
+      "womens_team": "Arsenal FC",
+      "rental_price": 745000,
+      "owner": "Arsenal"
     },
     {
-      "capacity": 35000,
-      "club": "PSV Eindhoven",
-      "stadium": "Philips Stadion",
-      "womens_team": "FCE/PSV"
+      "capacity": 42657,
+      "club": "Aston Villa",
+      "stadium": "Villa Park",
+      "womens_team": "Aston Villa LFC",
+      "rental_price": 490000,
+      "owner": "Aston Villa"
     },
     {
-      "capacity": 64642,
-      "club": "SL Benfica",
-      "stadium": "Estádio da Luz",
-      "womens_team": "SL Benfica"
+      "capacity": 21747,
+      "club": "Atalanta",
+      "stadium": "Gewiss Stadium",
+      "womens_team": null,
+      "owner": "Atalanta",
+      "rental_price": 205000
+    },
+    {
+      "capacity": 53331,
+      "club": "Athletic Club",
+      "stadium": "San Mamés",
+      "womens_team": "Athletic Club",
+      "rental_price": 505000,
+      "owner": "Athletic Club"
+    },
+    {
+      "capacity": 70460,
+      "club": "Atlético de Madrid",
+      "stadium": "Riyadh Air Metropolitano",
+      "womens_team": "Atlético de Madrid",
+      "rental_price": 630000,
+      "owner": "Atlético de Madrid"
+    },
+    {
+      "capacity": 30210,
+      "club": "Bayer Leverkusen",
+      "stadium": "BayArena",
+      "womens_team": "Bayer 04 Leverkusen",
+      "rental_price": 320000,
+      "owner": "Bayer Leverkusen"
+    },
+    {
+      "capacity": 75000,
+      "club": "Bayern München",
+      "stadium": "Allianz Arena",
+      "womens_team": "Bayern München",
+      "rental_price": 880000,
+      "owner": "Bayern München"
+    },
+    {
+      "capacity": 36462,
+      "club": "Bologna",
+      "stadium": "Renato Dall'Ara",
+      "womens_team": null,
+      "owner": "Bologna",
+      "rental_price": 425000
+    },
+    {
+      "capacity": 81365,
+      "club": "Borussia Dortmund",
+      "stadium": "Signal Iduna Park",
+      "womens_team": null,
+      "owner": "Borussia Dortmund",
+      "rental_price": 815000
+    },
+    {
+      "capacity": 54057,
+      "club": "Borussia Mönchengladbach",
+      "stadium": "Borussia-Park",
+      "womens_team": null,
+      "owner": "Borussia Mönchengladbach",
+      "rental_price": 615000
+    },
+    {
+      "capacity": 17250,
+      "club": "Brentford",
+      "stadium": "Gtech Community Stadium",
+      "womens_team": null,
+      "owner": "Brentford",
+      "rental_price": 190000
+    },
+    {
+      "capacity": 31876,
+      "club": "Brighton & Hove Albion",
+      "stadium": "Amex Stadium",
+      "womens_team": null,
+      "owner": "Brighton & Hove Albion",
+      "rental_price": 415000
+    },
+    {
+      "capacity": 12000,
+      "club": "Burgos CF",
+      "stadium": "El Plantío",
+      "womens_team": null,
+      "owner": "Burgos CF",
+      "rental_price": 110000
+    },
+    {
+      "capacity": 21944,
+      "club": "Burnley",
+      "stadium": "Turf Moor",
+      "womens_team": null,
+      "owner": "Burnley",
+      "rental_price": 205000
+    },
+    {
+      "capacity": 23576,
+      "club": "CA Osasuna",
+      "stadium": "El Sadar",
+      "womens_team": "CA Osasuna B",
+      "rental_price": 195000,
+      "owner": "CA Osasuna"
+    },
+    {
+      "capacity": 12450,
+      "club": "CD Leganés",
+      "stadium": "Butarque",
+      "womens_team": null,
+      "owner": "CD Leganés",
+      "rental_price": 95000
+    },
+    {
+      "capacity": 22824,
+      "club": "CD Tenerife",
+      "stadium": "Heliodoro Rodríguez López",
+      "womens_team": "Costa Adeje Tenerife Egatesa",
+      "rental_price": 305000,
+      "owner": "CD Tenerife"
+    },
+    {
+      "capacity": 16516,
+      "club": "Cagliari",
+      "stadium": "Unipol Domus",
+      "womens_team": null,
+      "owner": "Cagliari",
+      "rental_price": 195000
+    },
+    {
+      "capacity": 40173,
+      "club": "Chelsea",
+      "stadium": "Stamford Bridge",
+      "womens_team": "Chelsea LFC",
+      "rental_price": 530000,
+      "owner": "Chelsea"
+    },
+    {
+      "capacity": 25486,
+      "club": "Crystal Palace",
+      "stadium": "Selhurst Park",
+      "womens_team": null,
+      "owner": "Crystal Palace",
+      "rental_price": 185000
+    },
+    {
+      "capacity": 19840,
+      "club": "Deportivo Alavés",
+      "stadium": "Mendizorrotza",
+      "womens_team": "Deportivo Alavés",
+      "rental_price": 195000,
+      "owner": "Deportivo Alavés"
+    },
+    {
+      "capacity": 58000,
+      "club": "Eintracht Frankfurt",
+      "stadium": "Deutsche Bank Park",
+      "womens_team": "Eintracht Frankfurt",
+      "rental_price": 460000,
+      "owner": "Eintracht Frankfurt"
+    },
+    {
+      "capacity": 31388,
+      "club": "Elche CF",
+      "stadium": "Manuel Martínez Valero",
+      "womens_team": "Elche CF",
+      "rental_price": 270000,
+      "owner": "Elche CF"
+    },
+    {
+      "capacity": 52888,
+      "club": "Everton",
+      "stadium": "Hill Dickinson Stadium",
+      "womens_team": "Everton LFC",
+      "rental_price": 505000,
+      "owner": "Everton"
+    },
+    {
+      "capacity": 30660,
+      "club": "FC Augsburg",
+      "stadium": "WWK Arena",
+      "womens_team": null,
+      "owner": "FC Augsburg",
+      "rental_price": 360000
+    },
+    {
+      "capacity": 105000,
+      "club": "FC Barcelona",
+      "stadium": "Camp Nou",
+      "womens_team": "FC Barcelona",
+      "rental_price": 985000,
+      "owner": "FC Barcelona"
+    },
+    {
+      "capacity": 15235,
+      "club": "FC Cartagena",
+      "stadium": "Cartagonova",
+      "womens_team": null,
+      "owner": "FC Cartagena",
+      "rental_price": 120000
+    },
+    {
+      "capacity": 35322,
+      "club": "FC Nantes",
+      "stadium": "Stade de la Beaujoire",
+      "womens_team": null,
+      "owner": "FC Nantes",
+      "rental_price": 475000
     },
     {
       "capacity": 50033,
       "club": "FC Porto",
       "stadium": "Estádio do Dragão",
-      "womens_team": "FC Porto"
+      "womens_team": "FC Porto",
+      "rental_price": 540000,
+      "owner": "FC Porto"
+    },
+    {
+      "capacity": 29546,
+      "club": "FC St. Pauli",
+      "stadium": "Millerntor-Stadion",
+      "womens_team": null,
+      "owner": "FC St. Pauli",
+      "rental_price": 220000
+    },
+    {
+      "capacity": 51177,
+      "club": "Feyenoord",
+      "stadium": "De Kuip",
+      "womens_team": "Feyenoord Rotterdam",
+      "rental_price": 680000,
+      "owner": "Feyenoord"
+    },
+    {
+      "capacity": 43147,
+      "club": "Fiorentina",
+      "stadium": "Artemio Franchi",
+      "womens_team": null,
+      "owner": "Fiorentina",
+      "rental_price": 380000
+    },
+    {
+      "capacity": 29600,
+      "club": "Fulham",
+      "stadium": "Craven Cottage",
+      "womens_team": null,
+      "owner": "Fulham",
+      "rental_price": 270000
+    },
+    {
+      "capacity": 36599,
+      "club": "Genoa",
+      "stadium": "Luigi Ferraris",
+      "womens_team": null,
+      "owner": "Genoa",
+      "rental_price": 335000
+    },
+    {
+      "capacity": 16500,
+      "club": "Getafe CF",
+      "stadium": "Coliseum Alfonso Pérez",
+      "womens_team": null,
+      "owner": "Getafe CF",
+      "rental_price": 165000
+    },
+    {
+      "capacity": 13500,
+      "club": "Girona FC",
+      "stadium": "Montilivi",
+      "womens_team": null,
+      "owner": "Girona FC",
+      "rental_price": 125000
+    },
+    {
+      "capacity": 19336,
+      "club": "Granada CF",
+      "stadium": "Nuevo Los Cármenes",
+      "womens_team": "Granada CF",
+      "rental_price": 145000,
+      "owner": "Granada CF"
+    },
+    {
+      "capacity": 57000,
+      "club": "Hamburger SV",
+      "stadium": "Volksparkstadion",
+      "womens_team": "Hamburger SV",
+      "rental_price": 570000,
+      "owner": "Hamburger SV"
+    },
+    {
+      "capacity": 39211,
+      "club": "Hellas Verona",
+      "stadium": "Marcantonio Bentegodi",
+      "womens_team": null,
+      "owner": "Hellas Verona",
+      "rental_price": 305000
+    },
+    {
+      "capacity": 74649,
+      "club": "Hertha BSC",
+      "stadium": "Olympiastadion Berlin",
+      "womens_team": null,
+      "owner": "Hertha BSC",
+      "rental_price": 880000
+    },
+    {
+      "capacity": 75923,
+      "club": "Inter",
+      "stadium": "San Siro",
+      "womens_team": "Inter",
+      "rental_price": 650000,
+      "owner": "Inter"
+    },
+    {
+      "capacity": 41507,
+      "club": "Juventus",
+      "stadium": "Allianz Stadium",
+      "womens_team": "Juventus Football Club",
+      "rental_price": 485000,
+      "owner": "Juventus"
+    },
+    {
+      "capacity": 31533,
+      "club": "Lecce",
+      "stadium": "Via del Mare",
+      "womens_team": null,
+      "owner": "Lecce",
+      "rental_price": 320000
+    },
+    {
+      "capacity": 37645,
+      "club": "Leeds United",
+      "stadium": "Elland Road",
+      "womens_team": null,
+      "owner": "Leeds United",
+      "rental_price": 460000
+    },
+    {
+      "capacity": 32262,
+      "club": "Leicester City",
+      "stadium": "King Power Stadium",
+      "womens_team": null,
+      "owner": "Leicester City",
+      "rental_price": 275000
+    },
+    {
+      "capacity": 26354,
+      "club": "Levante UD",
+      "stadium": "Ciutat de València",
+      "womens_team": "Levante UD B",
+      "rental_price": 245000,
+      "owner": "Levante UD"
+    },
+    {
+      "capacity": 50186,
+      "club": "Lille OSC",
+      "stadium": "Pierre-Mauroy",
+      "womens_team": null,
+      "owner": "Lille OSC",
+      "rental_price": 395000
+    },
+    {
+      "capacity": 61276,
+      "club": "Liverpool",
+      "stadium": "Anfield",
+      "womens_team": "Liverpool LFC",
+      "rental_price": 540000,
+      "owner": "Liverpool"
+    },
+    {
+      "capacity": 33305,
+      "club": "Mainz 05",
+      "stadium": "Mewa Arena",
+      "womens_team": null,
+      "owner": "Mainz 05",
+      "rental_price": 385000
+    },
+    {
+      "capacity": 53400,
+      "club": "Manchester City",
+      "stadium": "Etihad Stadium",
+      "womens_team": "Manchester City LFC",
+      "rental_price": 635000,
+      "owner": "Manchester City"
+    },
+    {
+      "capacity": 74310,
+      "club": "Manchester United",
+      "stadium": "Old Trafford",
+      "womens_team": "Manchester United",
+      "rental_price": 810000,
+      "owner": "Manchester United"
+    },
+    {
+      "capacity": 32900,
+      "club": "Montpellier HSC",
+      "stadium": "Stade de la Mosson",
+      "womens_team": null,
+      "owner": "Montpellier HSC",
+      "rental_price": 330000
+    },
+    {
+      "capacity": 30044,
+      "club": "Málaga CF",
+      "stadium": "La Rosaleda",
+      "womens_team": null,
+      "owner": "Málaga CF",
+      "rental_price": 405000
+    },
+    {
+      "capacity": 52305,
+      "club": "Newcastle United",
+      "stadium": "St James' Park",
+      "womens_team": null,
+      "owner": "Newcastle United",
+      "rental_price": 525000
+    },
+    {
+      "capacity": 35624,
+      "club": "OGC Nice",
+      "stadium": "Allianz Riviera",
+      "womens_team": null,
+      "owner": "OGC Nice",
+      "rental_price": 305000
+    },
+    {
+      "capacity": 59186,
+      "club": "Olympique Lyonnais",
+      "stadium": "Groupama Stadium",
+      "womens_team": "OL Lyonnes",
+      "rental_price": 545000,
+      "owner": "Olympique Lyonnais"
+    },
+    {
+      "capacity": 67394,
+      "club": "Olympique de Marseille",
+      "stadium": "Orange Vélodrome",
+      "womens_team": "Olympique de Marseille",
+      "rental_price": 545000,
+      "owner": "Olympique de Marseille"
+    },
+    {
+      "capacity": 35000,
+      "club": "PSV Eindhoven",
+      "stadium": "Philips Stadion",
+      "womens_team": "FCE/PSV",
+      "rental_price": 250000,
+      "owner": "PSV Eindhoven"
+    },
+    {
+      "capacity": 5938,
+      "club": "Palamós CF",
+      "stadium": "Nou Estadi de Palamós",
+      "womens_team": null,
+      "owner": "Palamós CF",
+      "rental_price": 80000
+    },
+    {
+      "capacity": 47926,
+      "club": "Paris Saint-Germain",
+      "stadium": "Parc des Princes",
+      "womens_team": "Paris Saint-Germain",
+      "rental_price": 415000,
+      "owner": "Paris Saint-Germain"
+    },
+    {
+      "capacity": 27906,
+      "club": "Parma",
+      "stadium": "Ennio Tardini",
+      "womens_team": null,
+      "owner": "Parma",
+      "rental_price": 215000
+    },
+    {
+      "capacity": 47069,
+      "club": "RB Leipzig",
+      "stadium": "Red Bull Arena",
+      "womens_team": "RB Leipzig",
+      "rental_price": 515000,
+      "owner": "RB Leipzig"
+    },
+    {
+      "capacity": 24870,
+      "club": "RC Celta",
+      "stadium": "Balaídos",
+      "womens_team": null,
+      "owner": "RC Celta",
+      "rental_price": 260000
+    },
+    {
+      "capacity": 32660,
+      "club": "RC Deportivo",
+      "stadium": "Riazor",
+      "womens_team": "Dépor Abanca",
+      "rental_price": 370000,
+      "owner": "RC Deportivo"
+    },
+    {
+      "capacity": 38223,
+      "club": "RC Lens",
+      "stadium": "Stade Bollaert-Delelis",
+      "womens_team": "RC Lens",
+      "rental_price": 480000,
+      "owner": "RC Lens"
+    },
+    {
+      "capacity": 40500,
+      "club": "RCD Espanyol",
+      "stadium": "RCDE Stadium",
+      "womens_team": "RCD Espanyol",
+      "rental_price": 420000,
+      "owner": "RCD Espanyol"
+    },
+    {
+      "capacity": 12043,
+      "club": "Racing de Ferrol",
+      "stadium": "A Malata",
+      "womens_team": null,
+      "owner": "Racing de Ferrol",
+      "rental_price": 110000
+    },
+    {
+      "capacity": 22222,
+      "club": "Racing de Santander",
+      "stadium": "El Sardinero",
+      "womens_team": "Real Racing Club de Santander",
+      "rental_price": 220000,
+      "owner": "Racing de Santander"
+    },
+    {
+      "capacity": 14708,
+      "club": "Rayo Vallecano",
+      "stadium": "Vallecas",
+      "womens_team": "Rayo Vallecano",
+      "rental_price": 130000,
+      "owner": "Rayo Vallecano"
+    },
+    {
+      "capacity": 60720,
+      "club": "Real Betis",
+      "stadium": "Benito Villamarín",
+      "womens_team": "Real Betis Balompié",
+      "rental_price": 715000,
+      "owner": "Real Betis"
+    },
+    {
+      "capacity": 81044,
+      "club": "Real Madrid",
+      "stadium": "Santiago Bernabéu",
+      "womens_team": "Real Madrid CF",
+      "rental_price": 720000,
+      "owner": "Real Madrid"
+    },
+    {
+      "capacity": 30500,
+      "club": "Real Oviedo",
+      "stadium": "Estadio Carlos Tartiere",
+      "womens_team": null,
+      "owner": "Real Oviedo",
+      "rental_price": 360000
+    },
+    {
+      "capacity": 40000,
+      "club": "Real Sociedad",
+      "stadium": "Reale Arena",
+      "womens_team": "Real Sociedad",
+      "rental_price": 480000,
+      "owner": "Real Sociedad"
+    },
+    {
+      "capacity": 27618,
+      "club": "Real Valladolid",
+      "stadium": "Estadio José Zorrilla",
+      "womens_team": null,
+      "owner": "Real Valladolid",
+      "rental_price": 285000
+    },
+    {
+      "capacity": 33608,
+      "club": "Real Zaragoza",
+      "stadium": "La Romareda",
+      "womens_team": null,
+      "owner": "Real Zaragoza",
+      "rental_price": 385000
+    },
+    {
+      "capacity": 34700,
+      "club": "SC Freiburg",
+      "stadium": "Europa-Park Stadion",
+      "womens_team": "SC Freiburg",
+      "rental_price": 370000,
+      "owner": "SC Freiburg"
+    },
+    {
+      "capacity": 8164,
+      "club": "SD Eibar",
+      "stadium": "Ipurua",
+      "womens_team": "SD Eibar",
+      "owner": "SD Eibar",
+      "rental_price": 75000
+    },
+    {
+      "capacity": 9100,
+      "club": "SD Huesca",
+      "stadium": "El Alcoraz",
+      "womens_team": null,
+      "owner": "SD Huesca",
+      "rental_price": 85000
+    },
+    {
+      "capacity": 8432,
+      "club": "SD Ponferradina",
+      "stadium": "El Toralín",
+      "womens_team": null,
+      "owner": "SD Ponferradina",
+      "rental_price": 70000
+    },
+    {
+      "capacity": 64642,
+      "club": "SL Benfica",
+      "stadium": "Estádio da Luz",
+      "womens_team": "SL Benfica",
+      "rental_price": 705000,
+      "owner": "SL Benfica"
+    },
+    {
+      "capacity": 68530,
+      "club": "SS Lazio",
+      "stadium": "Stadio Olimpico",
+      "womens_team": "SS Lazio",
+      "rental_price": 530000,
+      "owner": "SS Lazio"
+    },
+    {
+      "capacity": 54726,
+      "club": "SSC Napoli",
+      "stadium": "Diego Armando Maradona",
+      "womens_team": "ASD Napoli Femminile",
+      "rental_price": 405000,
+      "owner": "SSC Napoli"
+    },
+    {
+      "capacity": 62271,
+      "club": "Schalke 04",
+      "stadium": "Veltins-Arena",
+      "womens_team": null,
+      "owner": "Schalke 04",
+      "rental_price": 640000
+    },
+    {
+      "capacity": 43883,
+      "club": "Sevilla FC",
+      "stadium": "Ramón Sánchez-Pizjuán",
+      "womens_team": "Sevilla FC",
+      "rental_price": 435000,
+      "owner": "Sevilla FC"
+    },
+    {
+      "capacity": 32050,
+      "club": "Sheffield United",
+      "stadium": "Bramall Lane",
+      "womens_team": null,
+      "owner": "Sheffield United",
+      "rental_price": 385000
     },
     {
       "capacity": 50095,
       "club": "Sporting CP",
       "stadium": "José Alvalade",
-      "womens_team": "Sporting Clube de Portugal"
+      "womens_team": "Sporting Clube de Portugal",
+      "rental_price": 450000,
+      "owner": "Sporting CP"
+    },
+    {
+      "capacity": 29371,
+      "club": "Sporting de Gijón",
+      "stadium": "El Molinón",
+      "womens_team": "Sporting de Gijón",
+      "rental_price": 290000,
+      "owner": "Sporting de Gijón"
+    },
+    {
+      "capacity": 29778,
+      "club": "Stade Rennais",
+      "stadium": "Roazhon Park",
+      "womens_team": null,
+      "owner": "Stade Rennais",
+      "rental_price": 260000
+    },
+    {
+      "capacity": 21029,
+      "club": "Stade de Reims",
+      "stadium": "Stade Auguste-Delaune",
+      "womens_team": null,
+      "owner": "Stade de Reims",
+      "rental_price": 240000
+    },
+    {
+      "capacity": 49000,
+      "club": "Sunderland",
+      "stadium": "Stadium of Light",
+      "womens_team": null,
+      "owner": "Sunderland",
+      "rental_price": 615000
+    },
+    {
+      "capacity": 30150,
+      "club": "TSG Hoffenheim",
+      "stadium": "PreZero Arena",
+      "womens_team": null,
+      "owner": "TSG Hoffenheim",
+      "rental_price": 385000
+    },
+    {
+      "capacity": 27958,
+      "club": "Torino",
+      "stadium": "Olimpico Grande Torino",
+      "womens_team": null,
+      "owner": "Torino",
+      "rental_price": 215000
+    },
+    {
+      "capacity": 62850,
+      "club": "Tottenham Hotspur",
+      "stadium": "Tottenham Hotspur Stadium",
+      "womens_team": "Tottenham Hotspur LFC",
+      "rental_price": 615000,
+      "owner": "Tottenham Hotspur"
+    },
+    {
+      "capacity": 33150,
+      "club": "Toulouse FC",
+      "stadium": "Stadium de Toulouse",
+      "womens_team": null,
+      "owner": "Toulouse FC",
+      "rental_price": 335000
+    },
+    {
+      "capacity": 25144,
+      "club": "Udinese",
+      "stadium": "Bluenergy Stadium",
+      "womens_team": null,
+      "owner": "Udinese",
+      "rental_price": 200000
+    },
+    {
+      "capacity": 49440,
+      "club": "Valencia CF",
+      "stadium": "Mestalla",
+      "womens_team": "Valencia CF Femenino",
+      "rental_price": 410000,
+      "owner": "Valencia CF"
+    },
+    {
+      "capacity": 60058,
+      "club": "VfB Stuttgart",
+      "stadium": "MHPArena",
+      "womens_team": "VfB Stuttgart 1893",
+      "rental_price": 510000,
+      "owner": "VfB Stuttgart"
+    },
+    {
+      "capacity": 26000,
+      "club": "VfL Bochum",
+      "stadium": "Vonovia Ruhrstadion",
+      "womens_team": null,
+      "owner": "VfL Bochum",
+      "rental_price": 250000
+    },
+    {
+      "capacity": 30000,
+      "club": "VfL Wolfsburg",
+      "stadium": "Volkswagen Arena",
+      "womens_team": "VfL Wolfsburg",
+      "rental_price": 375000,
+      "owner": "VfL Wolfsburg"
+    },
+    {
+      "capacity": 23000,
+      "club": "Villarreal CF",
+      "stadium": "Estadio de la Cerámica",
+      "womens_team": "Villarreal CF",
+      "rental_price": 245000,
+      "owner": "Villarreal CF"
+    },
+    {
+      "capacity": 42100,
+      "club": "Werder Bremen",
+      "stadium": "Weserstadion",
+      "womens_team": "Werder Bremen",
+      "rental_price": 530000,
+      "owner": "Werder Bremen"
+    },
+    {
+      "capacity": 62500,
+      "club": "West Ham United",
+      "stadium": "London Stadium",
+      "womens_team": "West Ham United LFC",
+      "rental_price": 645000,
+      "owner": "West Ham United"
+    },
+    {
+      "capacity": 31750,
+      "club": "Wolverhampton Wanderers",
+      "stadium": "Molineux",
+      "womens_team": null,
+      "owner": "Wolverhampton Wanderers",
+      "rental_price": 265000
+    },
+    {
+      "capacity": 55926,
+      "club": null,
+      "stadium": "Estadi Olímpic Lluís Companys",
+      "womens_team": null,
+      "owner": "Ajuntament de Barcelona",
+      "rental_price": 450000
+    },
+    {
+      "capacity": 57619,
+      "club": null,
+      "stadium": "La Cartuja",
+      "womens_team": null,
+      "owner": "Ayuntamiento de Sevilla",
+      "rental_price": 755000
     }
   ]
 }

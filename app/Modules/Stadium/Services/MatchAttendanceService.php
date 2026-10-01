@@ -32,6 +32,7 @@ class MatchAttendanceService
         private readonly DemandCurveService $demandCurve,
         private readonly SeasonTicketPricingService $seasonTicketPricingService,
         private readonly GameStadiumResolver $stadiumResolver,
+        private readonly MatchdayPricingService $pricing,
     ) {}
 
     /** Per-request caches — MatchAttendanceService is resolved fresh per request. */
@@ -256,6 +257,16 @@ class MatchAttendanceService
         );
 
         $attendance = $this->composeSeasonTicketAttendance($match, $game, $attendance, $capacity);
+
+        // The manager's ticket price moves demand: pricey entry cools the
+        // crowd down, cheap entry warms it up. Only for the user's own home
+        // games in club mode (neutral venues and other teams are untouched).
+        if (! $game->isTournamentMode() && $match->home_team_id === $game->team_id) {
+            $factor = $this->pricing->attendanceFactor(
+                (int) ($game->ticket_price ?? MatchdayPricingService::DEFAULT_TICKET)
+            );
+            $attendance = (int) round($attendance * $factor);
+        }
 
         return [
             'attendance' => $attendance,

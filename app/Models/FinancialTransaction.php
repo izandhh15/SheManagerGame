@@ -74,6 +74,11 @@ class FinancialTransaction extends Model
     public const CATEGORY_AGENT_FEE = 'agent_fee';           // Commercial-agency fee (e.g. seeking naming-rights sponsors)
     public const CATEGORY_BUDGET_LOAN = 'budget_loan';       // Budget loan received
     public const CATEGORY_LOAN_REPAYMENT = 'loan_repayment'; // Budget loan repayment
+    public const CATEGORY_VENUE_RENT = 'venue_rent'; // Men's/municipal stadium rental for a home match
+    public const CATEGORY_MATCHDAY_TICKETS = 'matchday_tickets'; // Single-ticket gate revenue
+    public const CATEGORY_MATCHDAY_SHIRTS = 'matchday_shirts'; // Official shirts sold on matchday
+    public const CATEGORY_MATCHDAY_MERCH = 'matchday_merch'; // Merchandising sold on matchday
+    public const CATEGORY_MATCHDAY_BARS = 'matchday_bars'; // Stadium bar sales on matchday
 
     public function game(): BelongsTo
     {
@@ -125,6 +130,11 @@ class FinancialTransaction extends Model
             self::CATEGORY_AGENT_FEE => __('finances.category_agent_fee'),
             self::CATEGORY_BUDGET_LOAN => __('finances.category_budget_loan'),
             self::CATEGORY_LOAN_REPAYMENT => __('finances.category_loan_repayment'),
+            self::CATEGORY_VENUE_RENT => __('finances.category_venue_rent'),
+            self::CATEGORY_MATCHDAY_TICKETS => __('finances.category_matchday_tickets'),
+            self::CATEGORY_MATCHDAY_SHIRTS => __('finances.category_matchday_shirts'),
+            self::CATEGORY_MATCHDAY_MERCH => __('finances.category_matchday_merch'),
+            self::CATEGORY_MATCHDAY_BARS => __('finances.category_matchday_bars'),
             default => ucfirst(str_replace('_', ' ', $this->category)),
         };
     }

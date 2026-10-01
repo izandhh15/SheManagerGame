@@ -11,6 +11,7 @@ use App\Modules\Finance\Services\BudgetProjectionService;
 use App\Modules\Finance\Services\StadiumLoanService;
 use App\Modules\Stadium\Enums\StadiumProjectStatus;
 use App\Modules\Stadium\Enums\StadiumProjectType;
+use App\Modules\Stadium\Services\MensStadiumRequestService;
 use App\Modules\Stadium\Services\NamingRightsReadService;
 use App\Modules\Stadium\Services\StadiumSummaryService;
 use App\Modules\Stadium\Services\StadiumUpgradeService;
@@ -24,6 +25,7 @@ class ShowClubStadium
         private readonly StadiumSummaryService $stadiumSummaryService,
         private readonly StadiumUpgradeService $stadiumUpgradeService,
         private readonly StadiumLoanService $stadiumLoanService,
+        private readonly MensStadiumRequestService $mensStadiumService,
         private readonly NamingRightsReadService $namingRightsReadService,
         private readonly BudgetProjectionService $budgetProjectionService,
     ) {}
@@ -314,22 +316,15 @@ class ShowClubStadium
         // so the user can see how full the ground actually gets per preset.
         $seasonTicketNoShowRate = (float) config('stadium.season_ticket_noshow_rate', 0.05);
 
-        // Men's stadium request: load the men's stadium for this team (if any)
-        // and the next unplayed home match, so the blade can offer the
-        // "request men's stadium" button.
-        $mensStadium = null;
+        // Men's stadium rental: the affiliated men's ground (same entity,
+        // if any) plus the full rental catalogue — every men's/municipal
+        // ground with its owner's asking price. Clubs without a linked
+        // men's team (e.g. FC Badalona Women) rent from the catalogue.
+        $teamName = $game->team?->name ?? '';
+        $mensStadium = $this->mensStadiumService->mensStadiumFor($teamName);
+        $mensRentalCatalogue = $this->mensStadiumService->rentalCatalogue($teamName);
         $nextHomeMatch = null;
-        $mensStadiumPath = base_path('data/mens_stadiums.json');
-        if (file_exists($mensStadiumPath)) {
-            $mensData = json_decode(file_get_contents($mensStadiumPath), true);
-            foreach ($mensData['stadiums'] ?? [] as $entry) {
-                if (($entry['womens_team'] ?? '') === $game->team->name) {
-                    $mensStadium = $entry;
-                    break;
-                }
-            }
-        }
-        if ($mensStadium) {
+        if ($mensRentalCatalogue !== []) {
             $nextHomeMatch = GameMatch::where('game_id', $game->id)
                 ->where('home_team_id', $game->team_id)
                 ->where('played', false)
@@ -354,6 +349,7 @@ class ShowClubStadium
             'matchdayFactors' => $matchdayFactors,
             'seasonTicketNoShowRate' => $seasonTicketNoShowRate,
             'mensStadium' => $mensStadium,
+            'mensRentalCatalogue' => $mensRentalCatalogue,
             'nextHomeMatch' => $nextHomeMatch,
             'pendingVenueRequests' => $pendingVenueRequests,
             ...$this->stadiumSummaryService->build($game),

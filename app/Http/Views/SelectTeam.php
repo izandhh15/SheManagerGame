@@ -150,6 +150,21 @@ final class SelectTeam
             $ntTeams = $allNtTeams->reject(fn ($t) => in_array($t->fifa_code, $featuredCodes))->values();
         }
 
+        // Deep-linkable initial mode (?mode=affiliate from the dashboard CTA):
+        // only honored when that mode's card is actually rendered.
+        $allowedModes = array_filter([
+            $hasCareerAccess ? 'career' : null,
+            $hasCareerAccess ? 'career_pro' : null,
+            $hasTournamentMode ? 'tournament' : null,
+            $hasNationalMode ? 'national' : null,
+            ($hasCareerAccess && $hasNationalMode) ? 'dual' : null,
+            ($hasCareerAccess && $affiliateClubs->isNotEmpty()) ? 'affiliate' : null,
+        ]);
+        $requestedMode = $request->query('mode');
+        $initialMode = in_array($requestedMode, $allowedModes, true)
+            ? $requestedMode
+            : ($hasCareerAccess ? 'career' : ($hasNationalMode ? 'national' : ($hasTournamentMode ? 'tournament' : 'career')));
+
         return view('select-team', [
             'countries' => $countries,
             'leagues' => $this->leagueOptions($countries),
@@ -163,6 +178,7 @@ final class SelectTeam
             'proManagerTeams' => $proManagerTeams,
             'academyClubs' => $academyClubs,
             'affiliateClubs' => $affiliateClubs,
+            'initialMode' => $initialMode,
         ]);
     }
 

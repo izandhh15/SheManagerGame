@@ -202,6 +202,11 @@ return [
     'category_agent_fee' => 'Comisión de agencia',
     'category_budget_loan' => 'Préstamo Presupuestario',
     'category_loan_repayment' => 'Devolución de Préstamo',
+    'category_venue_rent' => 'Alquiler de estadio',
+    'category_matchday_tickets' => 'Taquilla: entradas',
+    'category_matchday_shirts' => 'Taquilla: camisetas',
+    'category_matchday_merch' => 'Taquilla: merchandising',
+    'category_matchday_bars' => 'Taquilla: bares',
 
     // Infrastructure upgrades
     'upgrade' => 'Mejorar',

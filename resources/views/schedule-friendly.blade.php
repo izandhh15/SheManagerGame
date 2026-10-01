@@ -317,8 +317,8 @@
                 <select name="mens_stadium" id="mens_stadium"
                         class="w-full rounded-lg border border-border-default bg-surface-900 px-4 py-2.5 text-sm text-text-body focus:outline-none focus:ring-2 focus:ring-accent-blue/50">
                     @foreach($mensStadiums as $s)
-                        <option value="{{ $s['stadium'] }}">
-                            {{ $s['stadium'] }} — {{ $s['club'] }} ({{ number_format($s['capacity'], 0, ',', '.') }})
+                        <option value="{{ $s['key'] }}">
+                            {{ $s['stadium'] }} — {{ $s['club'] ?? $s['owner'] }} ({{ number_format($s['capacity'], 0, ',', '.') }}) · {{ number_format($s['rental_price'], 0, ',', '.') }} €
                         </option>
                     @endforeach
                 </select>

@@ -7,6 +7,7 @@ return [
         'finances' => 'Finances',
         'investment' => 'Personnel',
         'stadium' => 'Stadium',
+        'matchday' => 'Matchday',
         'commercial' => 'Commercial',
         'reputation' => 'Reputation',
     ],
@@ -209,6 +210,29 @@ return [
 
             'window_closed_notice' => 'Stadium identity is set in pre-season. Naming deals and renames reopen before next season’s first league match.',
         ],
+    ],
+
+    'matchday' => [
+        'title' => 'Matchday & gate',
+        'intro' => 'Price single tickets, official shirts, merchandising and stadium bars. Every home match earns revenue from the crowd — but watch out: pricey entry cools the stands, cheap entry empties the shop.',
+        'prices_title' => 'Prices',
+        'ticket_label' => 'Single ticket',
+        'shirt_label' => 'Official shirt',
+        'merch_label' => 'Merchandising (scarf, etc.)',
+        'bar_label' => 'Drink at the bar',
+        'default_is' => 'default €:amount',
+        'ticket_hint' => 'Raising it lowers attendance; lowering it lifts it.',
+        'shirt_hint' => 'About 2% of the crowd buys a shirt; price moves demand.',
+        'merch_hint' => 'About 8% of the crowd buys merch; price moves demand.',
+        'bar_hint' => 'About 45% of the crowd visits the bar; price moves demand.',
+        'save' => 'Save prices',
+        'projection_title' => 'Next home match forecast',
+        'vs' => 'vs',
+        'expected_crowd' => ':attendance fans of :capacity capacity.',
+        'total' => 'Estimated total',
+        'projection_note' => 'Estimate with current prices. Actual revenue depends on final attendance.',
+        'no_home_match' => 'No home matches left to play this season.',
+        'recent_title' => 'Recent gate income',
     ],
 
     'reputation' => [

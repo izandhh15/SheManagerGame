@@ -52,6 +52,7 @@ use App\Support\PositionSlotMapper;
  * @property string|null $venue_request_team_id
  * @property string|null $venue_request_type
  * @property string|null $venue_request_excuse
+ * @property int|null $venue_fee
  * @property-read \App\Models\Team $awayTeam
  * @property-read \App\Models\GamePlayer|null $mvpPlayer
  * @property-read \Illuminate\Database\Eloquent\Collection<int, \App\Models\MatchEvent> $cardEvents
@@ -150,6 +151,7 @@ class GameMatch extends Model
         'venue_request_team_id',
         'venue_request_type',
         'venue_request_excuse',
+        'venue_fee',
     ];
 
     protected $casts = [
@@ -188,6 +190,7 @@ class GameMatch extends Model
         'substitutions' => 'array',
         'standings_applied' => 'boolean',
         'neutral_venue_capacity' => 'integer',
+        'venue_fee' => 'integer',
     ];
 
     public function game(): BelongsTo

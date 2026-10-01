@@ -130,10 +130,16 @@ class NationalVenueRequestService
 
         return collect($data['stadiums'] ?? [])
             ->map(fn (array $row) => [
+                'key' => $row['stadium'] . '|' . ($row['club'] ?? $row['owner'] ?? ''),
                 'stadium' => $row['stadium'],
                 'capacity' => (int) $row['capacity'],
                 'club' => $row['club'],
-                'womens_team' => $row['womens_team'],
+                'womens_team' => $row['womens_team'] ?? null,
+                // The owner names the price: each men's club sets its own
+                // per-match fee; municipal grounds (La Cartuja...) belong to
+                // the city council and anyone can rent them.
+                'owner' => $row['owner'] ?? $row['club'],
+                'rental_price' => (int) ($row['rental_price'] ?? 0),
             ])
             ->sortBy('stadium')
             ->values()
@@ -199,8 +205,23 @@ class NationalVenueRequestService
      *
      * @return array{accepted: bool, excuse: string|null}
      */
-    public function evaluateMensRequest(string $mensClub, ?Team $nationalTeam, ?Team $opponent, ?int $offerEuros = null): array
+    /**
+     * The men's club decides whether to host a national team. The price is
+     * theirs (rental_price in the catalogue) — the federation pays it or
+     * walks away. Acceptance depends on the fixture's profile, not on the
+     * offer: big nations and marquee opponents get a yes.
+     */
+    /**
+     * The men's club (always AI) evaluates the request. A null club means a
+     * municipal ground (e.g. La Cartuja): the city council rents to whoever
+     * pays, so the request is always accepted.
+     */
+    public function evaluateMensRequest(?string $mensClub, ?Team $nationalTeam, ?Team $opponent): array
     {
+        if ($mensClub === null || $mensClub === '') {
+            return ['accepted' => true, 'excuse' => null];
+        }
+
         $importance = mt_rand(0, 20);
 
         $bigNations = ['Spain', 'United States', 'England', 'Germany', 'France', 'Brazil'];
@@ -209,10 +230,6 @@ class NationalVenueRequestService
         }
         if ($opponent && in_array($opponent->name, $bigNations, true)) {
             $importance += 30;
-        }
-
-        if ($offerEuros !== null && $offerEuros > 0) {
-            $importance += min(30, (int) floor($offerEuros / 500000) * 5);
         }
 
         $accepted = $importance >= 50;

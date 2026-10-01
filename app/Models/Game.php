@@ -159,6 +159,10 @@ class Game extends Model
         'federation_budget',
         'board_confidence',
         'pair_mode',
+        'ticket_price',
+        'shirt_price',
+        'merch_price',
+        'bar_price',
     ];
 
     protected $casts = [
@@ -185,6 +189,10 @@ class Game extends Model
         'manager_reputation_points' => 'integer',
         'training_stage' => 'array',
         'federation_budget' => 'integer',
+        'ticket_price' => 'integer',
+        'shirt_price' => 'integer',
+        'merch_price' => 'integer',
+        'bar_price' => 'integer',
     ];
 
     /**

@@ -202,6 +202,11 @@ return [
     'category_agent_fee' => 'Agency fee',
     'category_budget_loan' => 'Budget Loan',
     'category_loan_repayment' => 'Loan Repayment',
+    'category_venue_rent' => 'Stadium rental',
+    'category_matchday_tickets' => 'Gate: tickets',
+    'category_matchday_shirts' => 'Gate: shirts',
+    'category_matchday_merch' => 'Gate: merch',
+    'category_matchday_bars' => 'Gate: bars',
 
     // Infrastructure upgrades
     'upgrade' => 'Upgrade',
@@ -250,4 +255,13 @@ return [
     'loan_confirm' => 'Confirm Loan',
     'loan_cancel' => 'Cancel',
     'loan_not_available_desc' => 'Loans can be requested during transfer windows when no other loan is active.',
+
+    // Severance (free-transfer letter) payment method
+    'severance_payment_title' => 'Payment method',
+    'severance_method_lump_sum' => 'Lump sum',
+    'severance_method_lump_sum_detail' => 'You pay :amount at once from the budget.',
+    'severance_method_installments' => 'In installments (:months months)',
+    'severance_method_installments_detail' => ':monthly/month for :months months (total :total with interest).',
+    'severance_method_bank_loan' => 'Ask the bank for a loan',
+    'severance_method_bank_loan_detail' => 'The bank lends you :amount and you pay it back at the end of the season (:repayment with interest).',
 ];

@@ -6,7 +6,7 @@
         </div>
 
         <div x-data="{
-                mode: @js($hasCareerAccess ? 'career' : ($hasNationalMode ? 'national' : ($hasTournamentMode ? 'tournament' : 'career'))),
+                mode: @js($initialMode ?? ($hasCareerAccess ? 'career' : ($hasNationalMode ? 'national' : ($hasTournamentMode ? 'tournament' : 'career')))),
                 leagues: @js($leagues),
                 openTab: @js($leagues[0]['value'] ?? null),
                 loading: false,
@@ -32,6 +32,7 @@
                         + (($hasCareerAccess && $affiliateClubs->isNotEmpty()) ? 1 : 0);
                     // Literal class strings so Tailwind JIT keeps the variants.
                     $modeGridClass = match ($modeCardCount) {
+                        6 => 'md:grid-cols-3',
                         5 => 'md:grid-cols-3',
                         4 => 'md:grid-cols-4',
                         3 => 'md:grid-cols-3',

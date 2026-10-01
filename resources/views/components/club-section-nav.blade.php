@@ -18,6 +18,11 @@
             'active' => $active === 'stadium',
         ],
         [
+            'href' => route('game.club.matchday', $game->id),
+            'label' => __('club.nav.matchday'),
+            'active' => $active === 'matchday',
+        ],
+        [
             'href' => route('game.club.commercial', $game->id),
             'label' => __('club.nav.commercial'),
             'active' => $active === 'commercial',

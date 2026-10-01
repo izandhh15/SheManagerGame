@@ -7,6 +7,7 @@ return [
         'finances' => 'Finanzas',
         'investment' => 'Empleados',
         'stadium' => 'Estadio',
+        'matchday' => 'Taquilla',
         'commercial' => 'Comercial',
         'reputation' => 'Reputación',
     ],
@@ -209,6 +210,29 @@ return [
 
             'window_closed_notice' => 'La identidad del estadio se fija en pretemporada. Los acuerdos y renombres se reabren antes del primer partido de liga de la próxima temporada.',
         ],
+    ],
+
+    'matchday' => [
+        'title' => 'Taquilla y día de partido',
+        'intro' => 'Pon precio a las entradas sueltas, las camisetas oficiales, el merchandising y los bares del estadio. Cada partido en casa genera ingresos según la asistencia — pero ojo: la entrada cara enfría la grada y la barata vacía la tienda.',
+        'prices_title' => 'Precios',
+        'ticket_label' => 'Entrada suelta',
+        'shirt_label' => 'Camiseta oficial',
+        'merch_label' => 'Merchandising (bufanda, etc.)',
+        'bar_label' => 'Consumición en el bar',
+        'default_is' => 'por defecto :amount €',
+        'ticket_hint' => 'Subirla baja la asistencia; bajarla la anima.',
+        'shirt_hint' => 'El ~2 % de la grada compra camiseta; el precio mueve la demanda.',
+        'merch_hint' => 'El ~8 % de la grada compra merchandising; el precio mueve la demanda.',
+        'bar_hint' => 'El ~45 % de la grada pasa por el bar; el precio mueve la demanda.',
+        'save' => 'Guardar precios',
+        'projection_title' => 'Previsión del próximo partido en casa',
+        'vs' => 'contra',
+        'expected_crowd' => ':attendance espectadores de :capacity de aforo.',
+        'total' => 'Total estimado',
+        'projection_note' => 'Estimación con los precios actuales. Los ingresos reales dependen de la asistencia final.',
+        'no_home_match' => 'No queda ningún partido en casa por jugar esta temporada.',
+        'recent_title' => 'Últimos ingresos de taquilla',
     ],
 
     'reputation' => [

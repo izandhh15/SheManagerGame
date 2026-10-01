@@ -81,22 +81,71 @@
                 {{-- Capacity upgrades (gradas supletorias + rebuild) --}}
                 @include('club.partials.stadium-upgrades')
 
-                {{-- Men's stadium request — play a big home match at the men's ground --}}
-                @if($mensStadium && $nextHomeMatch)
+                {{-- Men's stadium rental — each owner names their price.
+                     Affiliated club: "precio de la casa". Municipal grounds
+                     (La Cartuja...) rentable by anyone. --}}
+                @if($nextHomeMatch && !empty($mensRentalCatalogue))
                 <div class="bg-surface-800 border border-border-default rounded-xl p-5">
                     <h4 class="font-heading text-lg font-bold uppercase text-text-primary mb-2">
-                        {{ __('game.mens_stadium_title') }}
+                        {{ __('game.mens_stadium_rent_title') }}
                     </h4>
                     <p class="text-sm text-text-muted mb-4">
-                        {{ __('game.mens_stadium_desc', ['stadium' => $mensStadium['stadium'], 'capacity' => number_format($mensStadium['capacity'])]) }}
+                        {{ __('game.mens_stadium_rent_desc') }}
                     </p>
-                    <form method="POST" action="{{ route('game.club.stadium.mens-stadium.request', ['gameId' => $game->id]) }}">
+
+                    {{-- Pending quote: the owner named their price --}}
+                    @if(session('mens_quote'))
+                        @php $quote = session('mens_quote'); @endphp
+                        <div class="rounded-lg border border-accent-gold/40 bg-accent-gold/5 p-4 mb-4">
+                            <p class="font-semibold text-text-primary text-sm mb-1">
+                                💰 {{ __('game.mens_stadium_quote_title') }}
+                            </p>
+                            <p class="text-sm text-text-muted mb-4">
+                                @if(($quote['price'] ?? 0) > 0)
+                                    {{ __('game.mens_stadium_quote_desc', ['owner' => $quote['owner'], 'stadium' => $quote['stadium'], 'price' => number_format($quote['price'], 0, ',', '.'), 'opponent' => $quote['opponent'] ?? '']) }}
+                                @else
+                                    {{ __('game.mens_stadium_quote_free', ['owner' => $quote['owner'], 'stadium' => $quote['stadium'], 'opponent' => $quote['opponent'] ?? '']) }}
+                                @endif
+                            </p>
+                            <div class="flex gap-2">
+                                <form method="POST" action="{{ route('game.club.stadium.mens-stadium.confirm', ['gameId' => $game->id]) }}">
+                                    @csrf
+                                    <input type="hidden" name="match_id" value="{{ $quote['match_id'] }}">
+                                    <input type="hidden" name="stadium" value="{{ $quote['key'] }}">
+                                    <button type="submit" class="px-4 py-2 bg-accent-gold hover:brightness-110 text-surface-900 font-bold rounded-lg text-sm">
+                                        @if(($quote['price'] ?? 0) > 0)
+                                            {{ __('game.mens_stadium_quote_confirm') }} · {{ number_format($quote['price'], 0, ',', '.') }} €
+                                        @else
+                                            {{ __('game.mens_stadium_quote_confirm_free') }}
+                                        @endif
+                                    </button>
+                                </form>
+                                <a href="{{ route('game.club.stadium', ['gameId' => $game->id]) }}" class="px-4 py-2 bg-surface-700 hover:bg-surface-600 text-text-body font-semibold rounded-lg text-sm inline-flex items-center">
+                                    {{ __('game.mens_stadium_quote_cancel') }}
+                                </a>
+                            </div>
+                        </div>
+                    @endif
+
+                    <form method="POST" action="{{ route('game.club.stadium.mens-stadium.request', ['gameId' => $game->id]) }}" class="flex flex-col sm:flex-row gap-2">
                         @csrf
                         <input type="hidden" name="match_id" value="{{ $nextHomeMatch->id }}">
-                        <button type="submit" class="px-4 py-2 bg-accent-600 hover:bg-accent-500 text-white font-semibold rounded-lg text-sm">
-                            {{ __('game.mens_stadium_request', ['stadium' => $mensStadium['stadium']]) }}
+                        <select name="stadium" required
+                                class="flex-1 rounded-lg border border-border-default bg-surface-900 px-3 py-2 text-sm text-text-body focus:outline-none focus:ring-2 focus:ring-accent-blue/50">
+                            @foreach($mensRentalCatalogue as $entry)
+                                <option value="{{ $entry['key'] }}">
+                                    {{ $entry['stadium'] }} — {{ $entry['club'] ?? $entry['owner'] }} ({{ number_format($entry['capacity'], 0, ',', '.') }}) · {{ number_format($entry['rental_price'], 0, ',', '.') }} €
+                                    @if(($entry['womens_team'] ?? '') === ($game->team?->name ?? '') && ($game->team?->name ?? '') !== '')— {{ __('game.mens_stadium_affiliated_badge') }}@elseif(empty($entry['club']))— {{ __('game.mens_stadium_municipal_badge') }}@endif
+                                </option>
+                            @endforeach
+                        </select>
+                        <button type="submit" class="px-4 py-2 bg-accent-600 hover:bg-accent-500 text-white font-semibold rounded-lg text-sm whitespace-nowrap">
+                            {{ __('game.mens_stadium_ask_price') }}
                         </button>
                     </form>
+                    <p class="text-xs text-text-faint mt-2">
+                        {{ __('game.mens_stadium_pick_label', ['opponent' => $quote['opponent'] ?? '']) }}
+                    </p>
                 </div>
                 @endif
 

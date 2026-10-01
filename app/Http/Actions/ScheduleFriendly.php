@@ -100,6 +100,13 @@ class ScheduleFriendly
             $this->ensureOpponentTemplates($game, $season, $opponent);
             $this->materializeRivalPlayers($game, $season, $opponent->id);
 
+            // Men's-stadium friendlies are paid from the federation budget:
+            // the men's club names the price.
+            $fee = (int) ($venue['fee'] ?? 0);
+            if ($fee > 0) {
+                $game->update(['federation_budget' => max(0, (int) ($game->federation_budget ?? 0) - $fee)]);
+            }
+
             $match = GameMatch::create([
                 'id' => Str::uuid()->toString(),
                 'game_id' => $game->id,
@@ -118,6 +125,7 @@ class ScheduleFriendly
                 'venue_request_team_id' => $venue['request_team_id'],
                 'venue_request_type' => $venue['request_type'],
                 'venue_request_excuse' => $venue['excuse_key'],
+                'venue_fee' => $fee,
             ]);
         });
 
@@ -247,13 +255,35 @@ class ScheduleFriendly
             ];
         }
 
-        // 4. Men's big stadium: the men's club (always AI) decides.
+        // 4. Men's big stadium: the men's club (always AI) decides, and it
+        //    names the price — paid from the federation budget.
         if ($venueType === 'mens') {
             $mens = collect($this->venueService->mensStadiums())
-                ->firstWhere('stadium', $validated['mens_stadium'] ?? null);
+                ->firstWhere('key', $validated['mens_stadium'] ?? null);
 
             if (! $mens) {
                 return null;
+            }
+
+            $price = (int) ($mens['rental_price'] ?? 0);
+            $budget = (int) ($game->federation_budget ?? 0);
+
+            if ($price > $budget) {
+                return [
+                    'stadium' => $neutral['stadium'],
+                    'capacity' => $neutral['capacity'],
+                    'status' => 'rejected',
+                    'request_team_id' => null,
+                    'request_type' => 'mens',
+                    'excuse_key' => null,
+                    'pending_club' => false,
+                    'requested_stadium' => $mens['stadium'],
+                    'success_message' => __('game.venue_org_mens_cant_afford', [
+                        'stadium' => $mens['stadium'],
+                        'price' => number_format($price, 0, ',', '.'),
+                        'owner' => $mens['owner'] ?? $mens['club'] ?? $mens['stadium'],
+                    ]),
+                ];
             }
 
             $userTeam = Team::find($game->team_id);
@@ -268,8 +298,10 @@ class ScheduleFriendly
                     'request_type' => 'mens',
                     'excuse_key' => null,
                     'pending_club' => false,
+                    'fee' => $price,
                     'success_message' => __('game.friendly_venue_mens_accepted', [
                         'stadium' => $mens['stadium'],
+                        'fee' => number_format($price, 0, ',', '.'),
                     ]),
                 ];
             }

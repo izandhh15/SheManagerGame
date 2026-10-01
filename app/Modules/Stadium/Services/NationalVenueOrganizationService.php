@@ -161,7 +161,7 @@ class NationalVenueOrganizationService
             'national' => $this->organizeNational($game, $match, $selection),
             'neutral' => $this->organizeNeutral($game, $match),
             'club' => $this->organizeClub($game, $match, $selection, $offerEuros, $userTeam, $opponent, $budget),
-            'mens' => $this->organizeMens($game, $match, $selection, $offerEuros, $userTeam, $opponent, $budget),
+            'mens' => $this->organizeMens($game, $match, $selection, $userTeam, $opponent, $budget),
             default => $this->fail('game.venue_org_invalid_match'),
         };
     }
@@ -305,24 +305,48 @@ class NationalVenueOrganizationService
         ];
     }
 
+    /**
+     * The men's club names the price (rental_price in the catalogue): the
+     * federation pays it or walks away. Each club sets its own fee —
+     * Mestalla costs more than the Ciutat de València; municipal grounds
+     * like La Cartuja belong to the city council and anyone can rent them.
+     * A national team playing at its OWN ground (national_team: true in
+     * data/stadiums.json) never pays: that is the free 'national' option.
+     */
     private function organizeMens(
         Game $game,
         GameMatch $match,
         array $selection,
-        int $offerEuros,
         ?Team $userTeam,
         ?Team $opponent,
         int $budget,
     ): array {
         $mens = collect($this->venueService->mensStadiums())
-            ->firstWhere('stadium', $selection['mens_stadium'] ?? null);
+            ->firstWhere('key', $selection['mens_stadium'] ?? null);
 
         if (! $mens) {
             return $this->fail('game.friendly_invalid_stadium');
         }
 
-        // The men's club (always AI) decides; a bigger offer helps.
-        $decision = $this->venueService->evaluateMensRequest($mens['club'], $userTeam, $opponent, $offerEuros);
+        $price = (int) ($mens['rental_price'] ?? 0);
+        $owner = $mens['owner'] ?? $mens['club'] ?? $mens['stadium'];
+
+        if ($price > $budget) {
+            return [
+                'ok' => false,
+                'message' => __('game.venue_org_mens_cant_afford', [
+                    'stadium' => $mens['stadium'],
+                    'price' => number_format($price, 0, ',', '.'),
+                    'owner' => $owner,
+                ]),
+                'accepted' => false,
+                'rebate' => 0,
+            ];
+        }
+
+        // The men's club (always AI) decides; the price is theirs, so the
+        // offer no longer influences the decision.
+        $decision = $this->venueService->evaluateMensRequest($mens['club'], $userTeam, $opponent);
 
         if (! $decision['accepted']) {
             return [
@@ -337,23 +361,23 @@ class NationalVenueOrganizationService
         }
 
         $rebate = 0;
-        if ($offerEuros >= self::REBATE_MIN_OFFER) {
+        if ($price >= self::REBATE_MIN_OFFER) {
             // Quid pro quo: the men's club returns ~20% for the academy.
-            $rebate = (int) floor($offerEuros * self::REBATE_SHARE / 100000) * 100000;
+            $rebate = (int) floor($price * self::REBATE_SHARE / 100000) * 100000;
         }
 
-        DB::transaction(function () use ($game, $match, $mens, $offerEuros, $rebate, $budget) {
-            $game->update(['federation_budget' => $budget - $offerEuros]);
+        DB::transaction(function () use ($game, $match, $mens, $price, $rebate, $budget) {
+            $game->update(['federation_budget' => $budget - $price]);
             $match->update([
                 'neutral_venue_name' => $mens['stadium'],
                 'neutral_venue_capacity' => $mens['capacity'],
                 'venue_status' => 'confirmed',
                 'venue_request_team_id' => null,
                 'venue_request_type' => 'mens',
-                'venue_fee' => $offerEuros,
+                'venue_fee' => $price,
             ]);
             if ($rebate > 0) {
-                $this->grantRebate($game, $mens['club'], $mens['stadium'], $rebate);
+                $this->grantRebate($game, $mens['club'] ?? $mens['owner'], $mens['stadium'], $rebate);
             }
         });
 
@@ -363,11 +387,11 @@ class NationalVenueOrganizationService
 
         $message = __('game.venue_org_accepted_fee', [
             'stadium' => $mens['stadium'],
-            'fee' => number_format($offerEuros, 0, ',', '.'),
+            'fee' => number_format($price, 0, ',', '.'),
         ]);
         if ($rebate > 0) {
             $message .= ' ' . __('game.venue_org_rebate', [
-                'club' => $mens['club'],
+                'club' => $mens['club'] ?? $mens['owner'],
                 'amount' => number_format($rebate, 0, ',', '.'),
             ]);
         }

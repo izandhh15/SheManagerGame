@@ -23,6 +23,7 @@ use App\Modules\Match\Handlers\LeagueWithPlayoffHandler;
 use App\Modules\Match\Handlers\PreSeasonHandler;
 use App\Modules\Match\Handlers\SwissFormatHandler;
 use App\Modules\Match\Listeners\AwardCupPrizeMoney;
+use App\Modules\Finance\Listeners\RecordMatchdayRevenue;
 use App\Modules\Match\Listeners\AwardLeaguePhaseBonus;
 use App\Modules\Match\Listeners\ConductNextCupRoundDraw;
 use App\Modules\Match\Listeners\EnsureMatchAttendance;
@@ -117,6 +118,7 @@ class AppServiceProvider extends ServiceProvider
         Event::listen(MatchFinalized::class, SendCompetitionProgressNotifications::class);
         Event::listen(MatchFinalized::class, UpdateManagerStats::class);
         Event::listen(MatchFinalized::class, EnsureMatchAttendance::class);
+        Event::listen(MatchFinalized::class, RecordMatchdayRevenue::class);
         // Tournament-end detection is NOT wired here on purpose: it must run
         // after MatchFinalizationService::beforeMatches has had a chance to
         // generate the next knockout round for group_stage_cup competitions

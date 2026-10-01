@@ -141,8 +141,8 @@
                             <select name="mens_stadium"
                                     class="w-full rounded-lg border border-border-default bg-surface-900 px-4 py-2.5 text-sm text-text-body focus:outline-none focus:ring-2 focus:ring-accent-blue/50">
                                 @foreach($mensStadiums as $s)
-                                    <option value="{{ $s['stadium'] }}">
-                                        {{ $s['stadium'] }} — {{ $s['club'] }} ({{ number_format($s['capacity'], 0, ',', '.') }})
+                                    <option value="{{ $s['key'] }}">
+                                        {{ $s['stadium'] }} — {{ $s['club'] ?? $s['owner'] }} ({{ number_format($s['capacity'], 0, ',', '.') }}) · {{ number_format($s['rental_price'], 0, ',', '.') }} €
                                     </option>
                                 @endforeach
                             </select>
@@ -156,8 +156,9 @@
                             </div>
                         </div>
 
-                        {{-- Offer: pay whatever you want, within the federation budget --}}
-                        <div x-show="venueType === 'club' || venueType === 'mens'" x-cloak
+                        {{-- Offer: pay whatever you want, within the federation budget.
+                             Only for women's clubs: men's clubs name their own price. --}}
+                        <div x-show="venueType === 'club'" x-cloak
                              class="rounded-lg border border-accent-green/30 bg-accent-green/5 p-4">
                             <div class="flex items-center justify-between mb-2">
                                 <label class="text-sm font-semibold text-text-body">💰 {{ __('game.venue_org_offer') }}</label>

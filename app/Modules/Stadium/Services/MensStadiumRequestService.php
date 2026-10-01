@@ -5,22 +5,41 @@ declare(strict_types=1);
 namespace App\Modules\Stadium\Services;
 
 use App\Models\ClubProfile;
+use App\Models\FinancialTransaction;
 use App\Models\Game;
+use App\Models\GameInvestment;
 use App\Models\GameMatch;
 use App\Models\TeamReputation;
+use App\Models\TransferOffer;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\DB;
 
 /**
  * "Jugar en el estadio masculino": the user's women's club asks the men's
- * club to play a home match at the men's stadium (e.g. Valencia Femenino
- * asking to play at Mestalla).
+ * club to play a home match at a men's stadium (e.g. Valencia Femenino
+ * asking to play at Mestalla, or renting La Cartuja from the city council).
  *
- * The men's club (AI) evaluates the match importance (0-100):
+ * NEW MODEL (01-10-2026): the men's club names the price — each club sets
+ * its own per-match rental fee in data/mens_stadiums.json (Mestalla costs
+ * more than the Ciutat de València, La Cartuja belongs to the Sevilla city
+ * council and anyone can rent it). The women's club either pays it or
+ * walks away:
+ *  - Affiliated club (same entity, womens_team link): "precio de la casa"
+ *    (50% of the listed price). On huge nights (importance >= 80) the
+ *    house invites: free.
+ *  - Any other men's ground or municipal stadium: full listed price.
+ *
+ * Clubs WITHOUT a linked men's team (e.g. FC Badalona Women, who play at
+ * Palamós's ground without being the same entity) can rent any stadium
+ * from the catalogue — they just pay the full price.
+ *
+ * The men's club (AI) still evaluates the match importance (0-100) and may
+ * refuse outright for low-profile games:
  *  - Rival ELITE: +40 / CONTINENTAL: +25
  *  - Cup/knockout or title-deciding late-season match: +30
  *  - Derby (same country): +20
  *  - Random: +0-15
- * Accepts if importance >= 50. Max 3 matches per season.
+ * Accepts if importance >= 50. Max 3 matches per season, 21 days advance.
  */
 class MensStadiumRequestService
 {
@@ -29,27 +48,70 @@ class MensStadiumRequestService
     public const ACCEPT_THRESHOLD = 50;
 
     /**
-     * Minimum days in advance to request the men's stadium.
-     * The men's club needs time to organize logistics.
+     * Minimum days in advance to request a men's stadium.
+     * The owner needs time to organize logistics.
      */
     public const MIN_ADVANCE_DAYS = 21;
 
-    /** @var array<string, array{stadium: string, capacity: int}>|null */
-    private ?array $stadiums = null;
+    /**
+     * Affiliated clubs (same entity) pay this share of the listed price.
+     */
+    public const AFFILIATED_SHARE = 0.5;
 
     /**
-     * @return array{stadium: string, capacity: int}|null
+     * Affiliated + match importance at/above this: the men's club invites
+     * (free) — "la casa invita en las grandes noches".
+     */
+    public const CASA_INVITA_THRESHOLD = 80;
+
+    /** @var array<string, array>|null keyed by stadium|owner composite key */
+    private ?array $stadiumsByName = null;
+
+    /** @var array<string, array>|null keyed by women's team name */
+    private ?array $affiliatedMap = null;
+
+    /**
+     * The men's stadium affiliated with a women's team (same entity), if
+     * any. Full row: stadium, capacity, club, owner, rental_price,
+     * womens_team.
      */
     public function mensStadiumFor(string $womensTeamName): ?array
     {
         $this->loadStadiums();
 
-        return $this->stadiums[$womensTeamName] ?? null;
+        return $this->affiliatedMap[$womensTeamName] ?? null;
     }
 
     public function hasMensStadium(string $womensTeamName): bool
     {
         return $this->mensStadiumFor($womensTeamName) !== null;
+    }
+
+    /**
+     * Full rental catalogue: every men's/municipal ground that can be
+     * rented, affiliated first (user's own), then the rest by club.
+     *
+     * @return list<array>
+     */
+    public function rentalCatalogue(string $womensTeamName): array
+    {
+        $this->loadStadiums();
+
+        $mine = $this->affiliatedMap[$womensTeamName] ?? null;
+        $rest = collect($this->stadiumsByName)
+            ->reject(fn (array $s) => $mine !== null && $s['key'] === $mine['key'])
+            ->sortBy(fn (array $s) => ($s['club'] ?? $s['owner'] ?? $s['stadium']))
+            ->values()
+            ->all();
+
+        return $mine !== null ? [$mine, ...$rest] : $rest;
+    }
+
+    public function stadiumByKey(string $key): ?array
+    {
+        $this->loadStadiums();
+
+        return $this->stadiumsByName[$key] ?? null;
     }
 
     public function usesThisSeason(Game $game): int
@@ -106,38 +168,135 @@ class MensStadiumRequestService
     }
 
     /**
-     * @return array{accepted: bool, importance: int, reasons: list<string>}
+     * The owner names their price for this match. Returns the quote the
+     * user sees before confirming (or the refusal).
+     *
+     * @return array{eligible: bool, accepted: bool, importance: int, reasons: list<string>, price: int, affiliated: bool, casa_invita: bool, stadium: array}
      */
-    public function requestForMatch(GameMatch $match, Game $game): array
+    public function quoteForMatch(GameMatch $match, Game $game, array $stadium): array
     {
         $teamName = $game->team?->name ?? '';
-        $mens = $this->mensStadiumFor($teamName);
+        $affiliated = ($stadium['womens_team'] ?? null) === $teamName
+            && $teamName !== '';
 
-        if ($mens === null) {
-            return ['accepted' => false, 'importance' => 0, 'reasons' => ['no_mens_stadium']];
-        }
+        $base = [
+            'eligible' => true,
+            'accepted' => false,
+            'importance' => 0,
+            'reasons' => [],
+            'price' => 0,
+            'affiliated' => $affiliated,
+            'casa_invita' => false,
+            'stadium' => $stadium,
+        ];
 
         if (! $this->canRequest($game)) {
-            return ['accepted' => false, 'importance' => 0, 'reasons' => ['limit_reached']];
+            $base['eligible'] = false;
+            $base['reasons'] = ['limit_reached'];
+
+            return $base;
         }
 
-        // Must request at least 3 weeks in advance
         if (! $this->hasEnoughAdvance($match, $game)) {
-            return ['accepted' => false, 'importance' => 0, 'reasons' => ['too_late']];
+            $base['eligible'] = false;
+            $base['reasons'] = ['too_late'];
+
+            return $base;
+        }
+
+        // Municipal grounds (no men's club attached, e.g. La Cartuja): the
+        // city council rents to whoever pays — no importance evaluation.
+        if (($stadium['club'] ?? null) === null) {
+            $base['accepted'] = true;
+            $base['importance'] = 50;
+            $base['price'] = (int) ($stadium['rental_price'] ?? 0);
+            $base['reasons'][] = 'municipal';
+
+            return $base;
         }
 
         $result = $this->evaluate($match, $game);
+        $base['importance'] = $result['importance'];
+        $base['reasons'] = $result['reasons'];
 
-        if ($result['accepted']) {
-            $match->neutral_venue_name = $mens['stadium'];
-            $match->neutral_venue_capacity = $mens['capacity'];
-            $match->save();
-        } else {
-            // Add a random excuse from the men's club
-            $result['reasons'][] = $this->randomExcuse();
+        if (! $result['accepted']) {
+            $base['reasons'][] = $this->randomExcuse();
+
+            return $base;
         }
 
-        return $result;
+        $base['accepted'] = true;
+        $listPrice = (int) ($stadium['rental_price'] ?? 0);
+
+        if ($affiliated && $result['importance'] >= self::CASA_INVITA_THRESHOLD) {
+            // Big night at home: the men's club invites.
+            $base['price'] = 0;
+            $base['casa_invita'] = true;
+            $base['reasons'][] = 'casa_invita';
+        } elseif ($affiliated) {
+            $base['price'] = (int) round($listPrice * self::AFFILIATED_SHARE / 1000) * 1000;
+            $base['reasons'][] = 'precio_casa';
+        } else {
+            $base['price'] = $listPrice;
+        }
+
+        return $base;
+    }
+
+    /**
+     * Confirm a quoted request: charge the club (if priced) and move the
+     * match to the stadium.
+     *
+     * @param array{price: int, stadium: array} $quote
+     * @return array{ok: bool, error: string|null}
+     */
+    public function confirmQuote(GameMatch $match, Game $game, array $quote): array
+    {
+        $price = (int) ($quote['price'] ?? 0);
+        $stadium = $quote['stadium'];
+
+        if ($price > 0) {
+            $investment = $game->currentInvestment;
+            if (! $investment instanceof GameInvestment) {
+                return ['ok' => false, 'error' => 'game.mens_stadium_no_budget'];
+            }
+
+            // Budgets and transactions are stored in cents.
+            $priceCents = $price * 100;
+            $available = $investment->transfer_budget - TransferOffer::committedBudget($game->id);
+            if ($priceCents > $available) {
+                return ['ok' => false, 'error' => 'game.mens_stadium_cant_afford'];
+            }
+
+            DB::transaction(function () use ($game, $investment, $match, $stadium, $price, $priceCents) {
+                $investment->update(['transfer_budget' => $investment->transfer_budget - $priceCents]);
+
+                FinancialTransaction::recordExpense(
+                    gameId: $game->id,
+                    category: FinancialTransaction::CATEGORY_VENUE_RENT,
+                    amount: $priceCents,
+                    description: __('game.mens_stadium_rent_desc', [
+                        'stadium' => $stadium['stadium'],
+                        'opponent' => $match->awayTeam?->name ?? '',
+                    ]),
+                    transactionDate: $game->current_date->toDateString(),
+                );
+
+                $match->update([
+                    'neutral_venue_name' => $stadium['stadium'],
+                    'neutral_venue_capacity' => (int) $stadium['capacity'],
+                ]);
+            });
+
+            return ['ok' => true, 'error' => null];
+        }
+
+        $match->update([
+            'neutral_venue_name' => $stadium['stadium'],
+            'neutral_venue_capacity' => (int) $stadium['capacity'],
+        ]);
+
+        return ['ok' => true, 'error' => null];
     }
 
     /**
@@ -172,12 +331,12 @@ class MensStadiumRequestService
     }
 
     /**
-     * Random excuse from the men's club when they reject the request.
+     * Random excuse from the owner when they reject the request.
      */
     private function randomExcuse(): string
     {
         $excuses = [
-            'excuse_laliga',      // Men's team has a LALIGA EA Sports match that weekend
+            'excuse_laliga',      // Men's team has a league match that weekend
             'excuse_grass',       // Changing the pitch grass
             'excuse_concert',     // Stadium booked for a concert/event
             'excuse_maintenance', // Scheduled maintenance works
@@ -269,26 +428,34 @@ class MensStadiumRequestService
 
     private function loadStadiums(): void
     {
-        if ($this->stadiums !== null) {
+        if ($this->stadiumsByName !== null) {
             return;
         }
 
-        $this->stadiums = Cache::remember('mens_stadiums_map', 86400, function () {
+        $data = Cache::remember('mens_stadiums_v2', 86400, function () {
             $path = base_path('data/mens_stadiums.json');
             if (! is_file($path)) {
                 return [];
             }
 
-            $data = json_decode(file_get_contents($path), true);
-            $map = [];
-            foreach ($data['stadiums'] ?? [] as $row) {
-                $map[$row['womens_team']] = [
-                    'stadium' => $row['stadium'],
-                    'capacity' => (int) $row['capacity'],
-                ];
-            }
+            $json = json_decode(file_get_contents($path), true);
 
-            return $map;
+            return $json['stadiums'] ?? [];
         });
+
+        $this->stadiumsByName = [];
+        $this->affiliatedMap = [];
+        foreach ($data as $row) {
+            $row['capacity'] = (int) ($row['capacity'] ?? 0);
+            $row['rental_price'] = (int) ($row['rental_price'] ?? 0);
+            // Shared grounds (San Siro: Milan + Inter, Olimpico: Roma +
+            // Lazio) appear once per owner with their own price: the lookup
+            // key is stadium|owner so each priced entry stays reachable.
+            $row['key'] = $row['stadium'] . '|' . ($row['club'] ?? $row['owner'] ?? '');
+            $this->stadiumsByName[$row['key']] = $row;
+            if (! empty($row['womens_team'])) {
+                $this->affiliatedMap[$row['womens_team']] = $row;
+            }
+        }
     }
 }
