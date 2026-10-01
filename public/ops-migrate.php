@@ -40,9 +40,9 @@ if ($step === 'check') {
         'last_seen' => $now,
     ]], ['visitor_key'], ['path', 'device', 'last_seen']);
 
-    // Endpoint JSON (no necesita layout)
-    $json = $app->make(App\Http\Views\AdminLiveTrafficData::class);
-    $data = json_decode($json(new Illuminate\Http\Request)->getContent(), true);
+    // Endpoint JSON (no necesita layout). $app->call hace la inyeccion de LiveTrafficService.
+    $resp = $app->call(App\Http\Views\AdminLiveTrafficData::class.'@__invoke');
+    $data = json_decode($resp->getContent(), true);
     echo "JSON online_total: ".$data['online_total']."\n";
     echo "JSON today_visits: ".$data['today_visits']."\n";
     echo "JSON keys: ".implode(',', array_keys($data))."\n";
@@ -58,9 +58,8 @@ if ($step === 'check') {
     $fake->name = 'Check';
     $fake->email = 'check@local';
     auth()->setUser($fake);
-    $view = $app->make(App\Http\Views\AdminLiveTraffic::class);
-    $response = $view(new Illuminate\Http\Request);
-    $html = $response->render();
+    $viewResp = $app->call(App\Http\Views\AdminLiveTraffic::class.'@__invoke');
+    $html = $viewResp->render();
     echo "VIEW OK, longitud: ".strlen($html)."\n";
     echo "VIEW contiene marcador live-data: ".(str_contains($html, 'live-data') ? 'SI' : 'NO')."\n";
 
