@@ -864,11 +864,16 @@ class MatchNarrativeService
     private function toNarrative(array $candidate, int $matchday, ?Game $game = null): MatchNarrative
     {
         $variantKey = $this->pickVariant($candidate['key'], $matchday);
+        $headlineKey = "narrative.{$variantKey}_headline";
+        $headline = __($headlineKey) !== $headlineKey
+            ? __($headlineKey, $candidate['params'])
+            : null;
 
         return new MatchNarrative(
             text: __("narrative.{$variantKey}", $candidate['params']),
             category: $candidate['category'],
             source: $game ? $this->mediaOutlets->randomOutlet($game) : null,
+            headline: $headline,
         );
     }
 

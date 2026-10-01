@@ -69,6 +69,25 @@ class MediaOutletService
         return $outlets[array_rand($outlets)];
     }
 
+    /**
+     * Branding info for an outlet: logo URL (local file) + brand colour.
+     * Outlets without a downloaded logo fall back to a coloured text badge.
+     *
+     * @return array{name: string, logo: ?string, color: string}
+     */
+    public function outletInfo(string $name): array
+    {
+        $outlet = $this->data()['outlets'][$name] ?? null;
+
+        return [
+            'name' => $name,
+            'logo' => !empty($outlet['logo'])
+                ? asset('images/media-logos/'.$outlet['logo'])
+                : null,
+            'color' => $outlet['color'] ?? '#475569',
+        ];
+    }
+
     private function teamName(Game $game): ?string
     {
         try {

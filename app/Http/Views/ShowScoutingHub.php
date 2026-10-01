@@ -50,6 +50,9 @@ class ShowScoutingHub
 
         $isPreContractPeriod = $game->isPreContractPeriod();
 
+        // Contract radar: scouts flag rival players whose contracts are running down.
+        $contractRadar = $this->scoutingService->getExpiringContractTargets($game);
+
         // Build JSON-serializable shortlist data for Alpine.js. Every target now
         // carries its full dossier — there is no per-player intel gating.
         $shortlistData = $shortlistedPlayers
@@ -70,6 +73,7 @@ class ShowScoutingHub
             'latestReport' => $searchHistory->first(),
             'canSearchInternationally' => $canSearchInternationally,
             'isPreContractPeriod' => $isPreContractPeriod,
+            'contractRadar' => $contractRadar,
             'shortlistData' => $shortlistData,
             'scoutingTier' => $game->currentInvestment?->scouting_tier ?? 0,
             ...$headerData,

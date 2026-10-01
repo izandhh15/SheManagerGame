@@ -481,4 +481,15 @@ return [
     'clause_wants_wage' => 'Pedirá ~:wage/año por esta cláusula',
     'clause_wage_covered' => 'Tu salario cubre esta cláusula',
     'clause_below_market_value' => 'Por debajo del valor de mercado: vulnerable a fichajes rivales',
+
+    // ── Radar de contratos (scouts) ──────────────────────────────────
+    'contract_radar_title' => 'Radar de contratos',
+    'contract_radar_subtitle' => 'Tus ojeadores han detectado jugadoras de otros clubes con el contrato a punto de vencer. Ficha barato antes de que renueven… o espera al precontrato.',
+    'contract_radar_expires' => 'Termina: :date',
+    'contract_radar_months_left' => ':count mes|:count meses',
+    'contract_radar_days_left' => ':count día|:count días',
+    'contract_radar_this_season' => '¡Queda libre este verano!',
+    'contract_radar_precontract' => 'Precontrato disponible',
+    'contract_radar_shortlist' => 'Seguir',
+    'contract_radar_empty' => 'Sin avisos: ningún objetivo interesante con el contrato en su recta final.',
 ];

@@ -4,6 +4,9 @@
     $style = \App\Support\NarrativePresenter::style($narrative->category);
     $clickable = $style['route'] !== null;
     $tag = $clickable ? 'a' : 'div';
+    $outlet = !empty($narrative->source)
+        ? app(\App\Modules\Media\Services\MediaOutletService::class)->outletInfo($narrative->source)
+        : null;
 @endphp
 
 <{{ $tag }}
@@ -13,8 +16,23 @@
     <x-notification-icon :icon="$style['icon']" :icon-bg="$style['bg']" :icon-text="$style['text']" />
 
     <div class="flex-1">
-        @if(!empty($narrative->source))
-            <p class="text-[11px] font-bold uppercase tracking-wide text-text-faint">{{ $narrative->source }}</p>
+        @if($outlet)
+            <div class="mb-1 flex items-center gap-2">
+                @if($outlet['logo'])
+                    <img src="{{ $outlet['logo'] }}" alt="{{ $outlet['name'] }}" title="{{ $outlet['name'] }}"
+                         class="h-5 w-auto max-w-[110px] object-contain rounded-sm bg-white/90 px-1 py-0.5"
+                         loading="lazy"
+                         onerror="this.style.display='none';this.nextElementSibling.style.display='inline-flex';" />
+                    <span style="display:none;background-color:{{ $outlet['color'] }}"
+                          class="items-center rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">{{ $outlet['name'] }}</span>
+                @else
+                    <span style="background-color:{{ $outlet['color'] }}"
+                          class="inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">{{ $outlet['name'] }}</span>
+                @endif
+            </div>
+        @endif
+        @if(!empty($narrative->headline))
+            <p class="text-sm font-bold leading-snug text-text-primary">{{ $narrative->headline }}</p>
         @endif
         <p class="text-sm leading-relaxed text-text-secondary">{{ $narrative->text }}</p>
     </div>

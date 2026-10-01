@@ -984,4 +984,82 @@ class ScoutingService
 
         return $desirability >= self::RIVAL_INTEREST_THRESHOLD;
     }
+
+    // =========================================
+    // CONTRACT RADAR — scouts flag players whose contracts are running down
+    // =========================================
+
+    /** Maximum targets shown in the contract radar section. */
+    public const CONTRACT_RADAR_LIMIT = 8;
+
+    /**
+     * Players at other clubs whose contracts expire within the attention
+     * window (14 months), ordered by expiry date then quality. These are the
+     * scouts' "act now" list: sign them cheap before the contract runs out,
+     * or wait for the pre-contract window.
+     *
+     * Excludes: the user's own players, players loaned to the user, retiring
+     * players, and anyone whose future is already settled (renewal agreed or
+     * pre-contract signed elsewhere).
+     *
+     * @return array<int, array{player: GamePlayer, months_left: int, days_left: int, expiring_this_season: bool, can_precontract: bool, asking_price: int, is_shortlisted: bool}>
+     */
+    public function getExpiringContractTargets(Game $game, int $limit = self::CONTRACT_RADAR_LIMIT): array
+    {
+        $now = $game->current_date;
+        $cutoff = $now->copy()->addMonths(GamePlayer::CONTRACT_ATTENTION_WINDOW_MONTHS);
+
+        $candidates = GamePlayer::where('game_id', $game->id)
+            ->whereNotNull('team_id')
+            ->where('team_id', '!=', $game->team_id)
+            ->whereNotNull('contract_until')
+            ->where('contract_until', '<=', $cutoff)
+            ->with(['team', 'transferOffers'])
+            ->get()
+            ->filter(function (GamePlayer $gp) use ($game) {
+                // Effectively the user's player (loaned in).
+                if ($gp->isLoanedIn($game->team_id)) {
+                    return false;
+                }
+
+                if ($gp->isRetiring()) {
+                    return false;
+                }
+
+                // Future already settled: renewal agreed or pre-contract elsewhere.
+                if ($gp->hasRenewalAgreed() || $gp->hasAgreedPreContractDeparture()) {
+                    return false;
+                }
+
+                return true;
+            })
+            ->sortBy([
+                ['contract_until', 'asc'],
+                ['overall_score', 'desc'],
+            ])
+            ->take($limit)
+            ->values();
+
+        $shortlistedIds = ShortlistedPlayer::where('game_id', $game->id)
+            ->whereIn('game_player_id', $candidates->pluck('id'))
+            ->pluck('game_player_id')
+            ->all();
+
+        $isPreContractPeriod = $game->isPreContractPeriod();
+
+        return $candidates->map(function (GamePlayer $gp) use ($game, $now, $shortlistedIds, $isPreContractPeriod) {
+            $daysLeft = (int) $now->diffInDays($gp->contract_until, false);
+            $monthsLeft = (int) floor($daysLeft / 30.44);
+
+            return [
+                'player' => $gp,
+                'months_left' => max(0, $monthsLeft),
+                'days_left' => max(0, $daysLeft),
+                'expiring_this_season' => $gp->isContractExpiring(),
+                'can_precontract' => $isPreContractPeriod && $gp->canReceivePreContractOffers(),
+                'asking_price' => $this->calculateAskingPrice($gp, $now),
+                'is_shortlisted' => in_array($gp->id, $shortlistedIds, true),
+            ];
+        })->all();
+    }
 }

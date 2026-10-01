@@ -1,1 +1,594 @@
-{"countries":{"ARG":["Olé","TyC Sports","ESPN AR","La Nación"],"BRA":["Globo Esporte","UOL Esporte","ESPN BR","Lance!"],"DEU":["Kicker","Bild","Sport1","DAZN DE"],"ENG":["BBC Sport","Sky Sports","The Guardian","The Athletic","Daily Mail"],"ESP":["MARCA","AS","SPORT","Mundo Deportivo","Relevo"],"FRA":["L'Équipe","RMC Sport","Le Parisien","Foot Mercato"],"ITA":["La Gazzetta dello Sport","Corriere dello Sport","Tuttosport","Sky Sport IT"],"MEX":["RÉCORD","Mediotiempo","TUDN","ESPN MX"],"NED":["De Telegraaf","AD Sportwereld","Voetbal International","NOS Sport"],"POR":["A Bola","Record","O Jogo","Mais Futebol"],"SUI":["Blick","SRF Sport","20 Minuten","NZZ"],"USA":["ESPN","The Athletic","CBS Sports","NWSLsoccer.com"]},"default":["EFE Deportes","Reuters Sports","AP Sports"],"teams":{"Ajax":["De Telegraaf","Ajax.nl","AD Sportwereld"],"Arsenal":["Arsenal.com","Sky Sports","BBC Sport","The Athletic"],"Athletic":["MARCA","AS","Deia","El Correo"],"Atlético":["MARCA","AS","Mundo Deportivo"],"Barcelona":["SPORT","Mundo Deportivo","TV3","Catalunya Ràdio"],"Bayern":["Kicker","Bild","FCBayern.com","Abendzeitung"],"Benfica":["A Bola","Record","SLBenfica.pt"],"Chelsea":["ChelseaFC.com","Sky Sports","BBC Sport"],"Inter":["La Gazzetta dello Sport","Inter.it","Corriere dello Sport"],"Juventus":["La Gazzetta dello Sport","Juventus.com","Tuttosport"],"Liverpool":["LiverpoolFC.com","Sky Sports","Liverpool Echo"],"Manchester City":["ManCity.com","Sky Sports","Manchester Evening News"],"Milan":["La Gazzetta dello Sport","ACMilan.com","Corriere della Sera"],"OL Lyonnes":["L'Équipe","OL.fr","Le Progrès"],"PSG":["L'Équipe","PSG.fr","Le Parisien"],"PSV":["Eindhovens Dagblad","PSV.nl","Voetbal International"],"Porto":["A Bola","O Jogo","FCPorto.pt"],"Real Madrid":["MARCA","AS","RealMadrid TV","El Chiringuito"],"Real Sociedad":["MARCA","AS","Diario Vasco","Noticias de Gipuzkoa"],"Roma":["La Gazzetta dello Sport","ASRoma.com","Corriere dello Sport"],"Sevilla":["MARCA","AS","Estadio Deportivo","Diario de Sevilla"],"Sporting":["A Bola","Record","Sporting.pt"],"Tottenham":["SpursOfficial","Sky Sports","Football.London"],"Valencia":["Tribuna Deportiva","El Nostre Equip","SUPERDeporte","Levante-EMV"],"València":["Tribuna Deportiva","El Nostre Equip","SUPERDeporte","Levante-EMV"],"Wolfsburg":["Kicker","Wolfsburger Nachrichten","VfL-Wolfsburg.de"]}}
+{
+  "outlets": {
+    "20 Minuten": {
+      "logo": "20-minuten.png",
+      "color": "#009FE3"
+    },
+    "A Bola": {
+      "logo": null,
+      "color": "#E30613"
+    },
+    "ACMilan.com": {
+      "logo": null,
+      "color": "#475569"
+    },
+    "AD Sportwereld": {
+      "logo": "ad-sportwereld.png",
+      "color": "#E30613"
+    },
+    "AP Sports": {
+      "logo": null,
+      "color": "#C8102E"
+    },
+    "AS": {
+      "logo": "as.png",
+      "color": "#E30613"
+    },
+    "ASRoma.com": {
+      "logo": null,
+      "color": "#475569"
+    },
+    "Abendzeitung": {
+      "logo": null,
+      "color": "#E30613"
+    },
+    "Ajax.nl": {
+      "logo": null,
+      "color": "#475569"
+    },
+    "Arsenal.com": {
+      "logo": null,
+      "color": "#475569"
+    },
+    "BBC Sport": {
+      "logo": "bbc-sport.png",
+      "color": "#B80000"
+    },
+    "Bild": {
+      "logo": "bild.png",
+      "color": "#DD0000"
+    },
+    "Blick": {
+      "logo": "blick.png",
+      "color": "#E30613"
+    },
+    "CBS Sports": {
+      "logo": null,
+      "color": "#1B3A6B"
+    },
+    "Catalunya Ràdio": {
+      "logo": "catalunya-r-dio.png",
+      "color": "#E30613"
+    },
+    "ChelseaFC.com": {
+      "logo": null,
+      "color": "#475569"
+    },
+    "Corriere della Sera": {
+      "logo": null,
+      "color": "#1A1A1A"
+    },
+    "Corriere dello Sport": {
+      "logo": null,
+      "color": "#C8102E"
+    },
+    "DAZN DE": {
+      "logo": "dazn-de.png",
+      "color": "#F6FF00"
+    },
+    "Daily Mail": {
+      "logo": "daily-mail.png",
+      "color": "#1B3A6B"
+    },
+    "De Telegraaf": {
+      "logo": null,
+      "color": "#1B3A6B"
+    },
+    "Deia": {
+      "logo": null,
+      "color": "#C8102E"
+    },
+    "Diario Vasco": {
+      "logo": "diario-vasco.png",
+      "color": "#005BAA"
+    },
+    "Diario de Sevilla": {
+      "logo": "diario-de-sevilla.png",
+      "color": "#E30613"
+    },
+    "EFE Deportes": {
+      "logo": null,
+      "color": "#C60B1E"
+    },
+    "ESPN": {
+      "logo": "espn.png",
+      "color": "#CC0000"
+    },
+    "ESPN AR": {
+      "logo": null,
+      "color": "#CC0000"
+    },
+    "ESPN BR": {
+      "logo": null,
+      "color": "#CC0000"
+    },
+    "ESPN MX": {
+      "logo": null,
+      "color": "#CC0000"
+    },
+    "Eindhovens Dagblad": {
+      "logo": "eindhovens-dagblad.png",
+      "color": "#1B3A6B"
+    },
+    "El Chiringuito": {
+      "logo": "el-chiringuito.png",
+      "color": "#7B2FBE"
+    },
+    "El Correo": {
+      "logo": null,
+      "color": "#1B3A6B"
+    },
+    "El Nostre Equip": {
+      "logo": "el-nostre-equip.png",
+      "color": "#123A5C"
+    },
+    "Estadio Deportivo": {
+      "logo": "estadio-deportivo.png",
+      "color": "#00A651"
+    },
+    "FCBayern.com": {
+      "logo": null,
+      "color": "#475569"
+    },
+    "FCPorto.pt": {
+      "logo": null,
+      "color": "#475569"
+    },
+    "Foot Mercato": {
+      "logo": null,
+      "color": "#00A651"
+    },
+    "Football.London": {
+      "logo": null,
+      "color": "#1B3A6B"
+    },
+    "Globo Esporte": {
+      "logo": "globo-esporte.png",
+      "color": "#00A651"
+    },
+    "Inter.it": {
+      "logo": null,
+      "color": "#475569"
+    },
+    "Juventus.com": {
+      "logo": null,
+      "color": "#475569"
+    },
+    "Kicker": {
+      "logo": "kicker.png",
+      "color": "#CC0000"
+    },
+    "L'Équipe": {
+      "logo": "l-quipe.png",
+      "color": "#E30613"
+    },
+    "La Gazzetta dello Sport": {
+      "logo": null,
+      "color": "#E8720C"
+    },
+    "La Nación": {
+      "logo": "la-naci-n.png",
+      "color": "#1B3A6B"
+    },
+    "Lance!": {
+      "logo": null,
+      "color": "#009FE3"
+    },
+    "Le Parisien": {
+      "logo": "le-parisien.png",
+      "color": "#1B2A4A"
+    },
+    "Le Progrès": {
+      "logo": null,
+      "color": "#005BAA"
+    },
+    "Levante-EMV": {
+      "logo": "levante-emv.png",
+      "color": "#003DA5"
+    },
+    "Liverpool Echo": {
+      "logo": "liverpool-echo.png",
+      "color": "#C8102E"
+    },
+    "LiverpoolFC.com": {
+      "logo": null,
+      "color": "#475569"
+    },
+    "MARCA": {
+      "logo": "marca.png",
+      "color": "#C60B1E"
+    },
+    "Mais Futebol": {
+      "logo": null,
+      "color": "#00A651"
+    },
+    "ManCity.com": {
+      "logo": null,
+      "color": "#475569"
+    },
+    "Manchester Evening News": {
+      "logo": "manchester-evening-news.png",
+      "color": "#1B3A6B"
+    },
+    "Mediotiempo": {
+      "logo": null,
+      "color": "#00A651"
+    },
+    "Mundo Deportivo": {
+      "logo": "mundo-deportivo.svg",
+      "color": "#B9970B"
+    },
+    "NOS Sport": {
+      "logo": "nos-sport.png",
+      "color": "#FF6600"
+    },
+    "NWSLsoccer.com": {
+      "logo": null,
+      "color": "#00A651"
+    },
+    "NZZ": {
+      "logo": "nzz.png",
+      "color": "#1A1A1A"
+    },
+    "Noticias de Gipuzkoa": {
+      "logo": "noticias-de-gipuzkoa.png",
+      "color": "#009FE3"
+    },
+    "O Jogo": {
+      "logo": "o-jogo.png",
+      "color": "#009FE3"
+    },
+    "OL.fr": {
+      "logo": null,
+      "color": "#475569"
+    },
+    "Olé": {
+      "logo": "ol.png",
+      "color": "#E30613"
+    },
+    "PSG.fr": {
+      "logo": null,
+      "color": "#475569"
+    },
+    "PSV.nl": {
+      "logo": null,
+      "color": "#475569"
+    },
+    "RMC Sport": {
+      "logo": "rmc-sport.png",
+      "color": "#E30613"
+    },
+    "RealMadrid TV": {
+      "logo": null,
+      "color": "#475569"
+    },
+    "Record": {
+      "logo": null,
+      "color": "#C8102E"
+    },
+    "Relevo": {
+      "logo": "relevo.svg",
+      "color": "#7B2FBE"
+    },
+    "Reuters Sports": {
+      "logo": null,
+      "color": "#FF6600"
+    },
+    "RÉCORD": {
+      "logo": null,
+      "color": "#E30613"
+    },
+    "SLBenfica.pt": {
+      "logo": null,
+      "color": "#475569"
+    },
+    "SPORT": {
+      "logo": "sport.svg",
+      "color": "#D52B1E"
+    },
+    "SRF Sport": {
+      "logo": "srf-sport.png",
+      "color": "#E30613"
+    },
+    "SUPERDeporte": {
+      "logo": "superdeporte.svg",
+      "color": "#E43526"
+    },
+    "Sky Sport IT": {
+      "logo": "sky-sport-it.png",
+      "color": "#0072C6"
+    },
+    "Sky Sports": {
+      "logo": "sky-sports.png",
+      "color": "#0072C6"
+    },
+    "Sport1": {
+      "logo": "sport1.png",
+      "color": "#009FE3"
+    },
+    "Sporting.pt": {
+      "logo": null,
+      "color": "#475569"
+    },
+    "SpursOfficial": {
+      "logo": null,
+      "color": "#475569"
+    },
+    "TUDN": {
+      "logo": "tudn.png",
+      "color": "#00A651"
+    },
+    "TV3": {
+      "logo": "tv3.png",
+      "color": "#E30613"
+    },
+    "The Athletic": {
+      "logo": null,
+      "color": "#1A1A1A"
+    },
+    "The Guardian": {
+      "logo": "the-guardian.png",
+      "color": "#052962"
+    },
+    "Tribuna Deportiva": {
+      "logo": "tribuna-deportiva.png",
+      "color": "#C8102E"
+    },
+    "Tuttosport": {
+      "logo": null,
+      "color": "#E30613"
+    },
+    "TyC Sports": {
+      "logo": "tyc-sports.png",
+      "color": "#00A651"
+    },
+    "UOL Esporte": {
+      "logo": "uol-esporte.png",
+      "color": "#FF6600"
+    },
+    "VfL-Wolfsburg.de": {
+      "logo": null,
+      "color": "#475569"
+    },
+    "Voetbal International": {
+      "logo": "voetbal-international.png",
+      "color": "#009FE3"
+    },
+    "Wolfsburger Nachrichten": {
+      "logo": "wolfsburger-nachrichten.png",
+      "color": "#00A651"
+    }
+  },
+  "countries": {
+    "ARG": [
+      "Olé",
+      "TyC Sports",
+      "ESPN AR",
+      "La Nación"
+    ],
+    "BRA": [
+      "Globo Esporte",
+      "UOL Esporte",
+      "ESPN BR",
+      "Lance!"
+    ],
+    "DEU": [
+      "Kicker",
+      "Bild",
+      "Sport1",
+      "DAZN DE"
+    ],
+    "ENG": [
+      "BBC Sport",
+      "Sky Sports",
+      "The Guardian",
+      "The Athletic",
+      "Daily Mail"
+    ],
+    "ESP": [
+      "MARCA",
+      "AS",
+      "SPORT",
+      "Mundo Deportivo",
+      "Relevo"
+    ],
+    "FRA": [
+      "L'Équipe",
+      "RMC Sport",
+      "Le Parisien",
+      "Foot Mercato"
+    ],
+    "ITA": [
+      "La Gazzetta dello Sport",
+      "Corriere dello Sport",
+      "Tuttosport",
+      "Sky Sport IT"
+    ],
+    "MEX": [
+      "RÉCORD",
+      "Mediotiempo",
+      "TUDN",
+      "ESPN MX"
+    ],
+    "NED": [
+      "De Telegraaf",
+      "AD Sportwereld",
+      "Voetbal International",
+      "NOS Sport"
+    ],
+    "POR": [
+      "A Bola",
+      "Record",
+      "O Jogo",
+      "Mais Futebol"
+    ],
+    "SUI": [
+      "Blick",
+      "SRF Sport",
+      "20 Minuten",
+      "NZZ"
+    ],
+    "USA": [
+      "ESPN",
+      "The Athletic",
+      "CBS Sports",
+      "NWSLsoccer.com"
+    ]
+  },
+  "teams": {
+    "Ajax": [
+      "De Telegraaf",
+      "Ajax.nl",
+      "AD Sportwereld"
+    ],
+    "Arsenal": [
+      "Arsenal.com",
+      "Sky Sports",
+      "BBC Sport",
+      "The Athletic"
+    ],
+    "Athletic": [
+      "MARCA",
+      "AS",
+      "Deia",
+      "El Correo"
+    ],
+    "Atlético": [
+      "MARCA",
+      "AS",
+      "Mundo Deportivo"
+    ],
+    "Barcelona": [
+      "SPORT",
+      "Mundo Deportivo",
+      "TV3",
+      "Catalunya Ràdio"
+    ],
+    "Bayern": [
+      "Kicker",
+      "Bild",
+      "FCBayern.com",
+      "Abendzeitung"
+    ],
+    "Benfica": [
+      "A Bola",
+      "Record",
+      "SLBenfica.pt"
+    ],
+    "Chelsea": [
+      "ChelseaFC.com",
+      "Sky Sports",
+      "BBC Sport"
+    ],
+    "Inter": [
+      "La Gazzetta dello Sport",
+      "Inter.it",
+      "Corriere dello Sport"
+    ],
+    "Juventus": [
+      "La Gazzetta dello Sport",
+      "Juventus.com",
+      "Tuttosport"
+    ],
+    "Liverpool": [
+      "LiverpoolFC.com",
+      "Sky Sports",
+      "Liverpool Echo"
+    ],
+    "Manchester City": [
+      "ManCity.com",
+      "Sky Sports",
+      "Manchester Evening News"
+    ],
+    "Milan": [
+      "La Gazzetta dello Sport",
+      "ACMilan.com",
+      "Corriere della Sera"
+    ],
+    "OL Lyonnes": [
+      "L'Équipe",
+      "OL.fr",
+      "Le Progrès"
+    ],
+    "PSG": [
+      "L'Équipe",
+      "PSG.fr",
+      "Le Parisien"
+    ],
+    "PSV": [
+      "Eindhovens Dagblad",
+      "PSV.nl",
+      "Voetbal International"
+    ],
+    "Porto": [
+      "A Bola",
+      "O Jogo",
+      "FCPorto.pt"
+    ],
+    "Real Madrid": [
+      "MARCA",
+      "AS",
+      "RealMadrid TV",
+      "El Chiringuito"
+    ],
+    "Real Sociedad": [
+      "MARCA",
+      "AS",
+      "Diario Vasco",
+      "Noticias de Gipuzkoa"
+    ],
+    "Roma": [
+      "La Gazzetta dello Sport",
+      "ASRoma.com",
+      "Corriere dello Sport"
+    ],
+    "Sevilla": [
+      "MARCA",
+      "AS",
+      "Estadio Deportivo",
+      "Diario de Sevilla"
+    ],
+    "Sporting": [
+      "A Bola",
+      "Record",
+      "Sporting.pt"
+    ],
+    "Tottenham": [
+      "SpursOfficial",
+      "Sky Sports",
+      "Football.London"
+    ],
+    "Valencia": [
+      "Tribuna Deportiva",
+      "El Nostre Equip",
+      "SUPERDeporte",
+      "Levante-EMV"
+    ],
+    "València": [
+      "Tribuna Deportiva",
+      "El Nostre Equip",
+      "SUPERDeporte",
+      "Levante-EMV"
+    ],
+    "Wolfsburg": [
+      "Kicker",
+      "Wolfsburger Nachrichten",
+      "VfL-Wolfsburg.de"
+    ]
+  },
+  "default": [
+    "EFE Deportes",
+    "Reuters Sports",
+    "AP Sports"
+  ]
+}

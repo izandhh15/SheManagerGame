@@ -473,4 +473,15 @@ return [
     'clause_wants_wage' => 'Will want ~:wage/yr for this clause',
     'clause_wage_covered' => 'Your wage covers this clause',
     'clause_below_market_value' => 'Below market value — easy for rivals to poach',
+
+    // ── Contract radar (scouts) ──────────────────────────────────────
+    'contract_radar_title' => 'Contract radar',
+    'contract_radar_subtitle' => 'Your scouts have flagged players at other clubs with contracts running down. Sign them cheap before they renew… or wait for the pre-contract window.',
+    'contract_radar_expires' => 'Expires: :date',
+    'contract_radar_months_left' => ':count month|:count months',
+    'contract_radar_days_left' => ':count day|:count days',
+    'contract_radar_this_season' => 'Free agent this summer!',
+    'contract_radar_precontract' => 'Pre-contract available',
+    'contract_radar_shortlist' => 'Shortlist',
+    'contract_radar_empty' => 'All quiet: no interesting targets with contracts in their final stretch.',
 ];

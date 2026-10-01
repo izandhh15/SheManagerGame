@@ -171,6 +171,64 @@
                 </div>
             @endif
 
+            {{-- ============================================================= --}}
+            {{-- CONTRACT RADAR — scouts flag rival players with expiring deals --}}
+            {{-- ============================================================= --}}
+            <div class="mt-4 border border-amber-500/30 rounded-xl overflow-hidden bg-surface-800">
+                <div class="px-4 py-3 border-b border-border-default bg-amber-500/5">
+                    <h3 class="font-semibold text-sm text-text-primary flex items-center gap-2">
+                        <span class="text-base">⏳</span> {{ __('transfers.contract_radar_title') }}
+                        @if(!empty($contractRadar))
+                            <span class="text-xs font-normal text-text-secondary tabular-nums">({{ count($contractRadar) }})</span>
+                        @endif
+                    </h3>
+                    <p class="text-xs text-text-secondary mt-1">{{ __('transfers.contract_radar_subtitle') }}</p>
+                </div>
+                @if(empty($contractRadar))
+                    <p class="px-4 py-5 text-sm text-text-muted">{{ __('transfers.contract_radar_empty') }}</p>
+                @else
+                    <ul class="divide-y divide-border-default">
+                        @foreach($contractRadar as $target)
+                            @php
+                                $rp = $target['player'];
+                                $timeLeft = $target['months_left'] > 0
+                                    ? trans_choice('transfers.contract_radar_months_left', $target['months_left'], ['count' => $target['months_left']])
+                                    : trans_choice('transfers.contract_radar_days_left', max(1, $target['days_left']), ['count' => max(1, $target['days_left'])]);
+                            @endphp
+                            <li class="px-4 py-3 flex items-center gap-3">
+                                <div class="min-w-0 flex-1">
+                                    <div class="flex items-center gap-2 flex-wrap">
+                                        <span class="font-semibold text-sm text-text-primary truncate">{{ $rp->name }}</span>
+                                        <span class="text-[10px] font-bold px-1.5 py-0.5 rounded {{ $target['expiring_this_season'] ? 'bg-red-500/15 text-red-400' : 'bg-amber-500/15 text-amber-400' }}">
+                                            ⏳ {{ $timeLeft }}
+                                        </span>
+                                        @if($target['expiring_this_season'])
+                                            <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-red-500/15 text-red-400 uppercase tracking-wide">{{ __('transfers.contract_radar_this_season') }}</span>
+                                        @endif
+                                        @if($target['can_precontract'])
+                                            <span class="text-[10px] font-bold px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-400 uppercase tracking-wide">{{ __('transfers.contract_radar_precontract') }}</span>
+                                        @endif
+                                    </div>
+                                    <p class="text-xs text-text-secondary mt-0.5 truncate">
+                                        {{ $rp->team->name ?? '' }} · {{ \App\Support\PositionMapper::toDisplayName($rp->position) }} · {{ __('squad.overall') }} {{ $rp->overall_score }}
+                                        · {{ __('transfers.contract_radar_expires', ['date' => $rp->contract_until->locale(app()->getLocale())->translatedFormat('M Y')]) }}
+                                    </p>
+                                </div>
+                                <div class="shrink-0 text-right">
+                                    <p class="text-xs text-text-muted">{{ \App\Support\Money::format($target['asking_price']) }}</p>
+                                    @unless($target['is_shortlisted'])
+                                        <form method="post" action="{{ route('game.scouting.shortlist.toggle', [$game->id, $rp->id]) }}" class="mt-1">
+                                            @csrf
+                                            <button type="submit" class="text-xs font-medium text-accent-blue hover:text-accent-blue/80">★ {{ __('transfers.contract_radar_shortlist') }}</button>
+                                        </form>
+                                    @endunless
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
+                @endif
+            </div>
+
             {{-- Latest search results — the "fresh catch", below the watchlist summary. Lazy-loads the existing
                  results partial (same as the modal) so the hub stays fast; ★-ing a player live-adds them to the board above. --}}
             @if($latestReport)

@@ -99,7 +99,7 @@
         <select id="locale" name="locale" class="mt-1 block w-full bg-surface-700 border border-border-strong text-text-primary focus:border-accent-blue focus:ring-accent-blue rounded-lg shadow-xs text-sm min-h-[44px]">
             @foreach (config('app.supported_locales') as $locale)
                 <option value="{{ $locale }}" {{ old('locale', $user->locale) === $locale ? 'selected' : '' }}>
-                    {{ $locale === 'es' ? 'Español' : 'English' }}
+                    {{ ['es' => 'Español', 'en' => 'English', 'fr' => 'Français', 'pt' => 'Português', 'de' => 'Deutsch'][$locale] ?? $locale }}
                 </option>
             @endforeach
         </select>

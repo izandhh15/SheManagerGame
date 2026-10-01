@@ -8,5 +8,6 @@ readonly class MatchNarrative
         public string $text,
         public string $category,
         public ?string $source = null,
+        public ?string $headline = null,
     ) {}
 }
