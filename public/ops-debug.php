@@ -38,7 +38,43 @@ if ($mode === 'health') {
     }
     exit;
 }
+if ($mode === 'full') {
+    header('Content-Type: text/plain; charset=utf-8');
+    try {
+        $app = require __DIR__.'/../bootstrap/app.php';
+        // Que el manejador de excepciones relance en vez de convertir a 500
+        $app->singleton(Illuminate\Contracts\Debug\ExceptionHandler::class, function () {
+            return new class implements Illuminate\Contracts\Debug\ExceptionHandler {
+                public function report(Throwable $e) {}
+                public function shouldReport(Throwable $e) { return false; }
+                public function render($request, Throwable $e) { throw $e; }
+                public function renderForConsole($output, Throwable $e) { throw $e; }
+            };
+        });
+        $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
+        $user = App\Models\User::where('email', 'qadual20261001@example.com')->firstOrFail();
+        $req = Illuminate\Http\Request::create('/game/2ed63cd6-68df-47c8-b439-bc59db750f1d/lineup', 'GET');
+        // Simular sesion autenticada
+        $req->setLaravelSession($app['session']->driver());
+        $app['auth']->setUser($user);
+        $resp = $kernel->handle($req);
+        echo "HTTP: ".$resp->getStatusCode()."\n";
+        if ($resp->getStatusCode() >= 400) {
+            echo substr(strip_tags($resp->getContent()), 0, 500)."\n";
+        } else {
+            echo "OK, longitud: ".strlen($resp->getContent())."\n";
+        }
+    } catch (Throwable $e) {
+        echo "EXCEPCION REAL: ".get_class($e)."\n";
+        echo "MENSAJE: ".$e->getMessage()."\n";
+        echo "EN: ".$e->getFile().":".$e->getLine()."\n";
+        echo "TRACE:\n".substr($e->getTraceAsString(), 0, 4000)."\n";
+    }
+    exit;
+}
 if ($mode === 'log') {
+    echo "DIR /data/logs: ".implode(', ', array_diff(scandir('/data/logs'), ['.', '..']))."\n";
+    echo "LOG_CHANNEL env: ".getenv('LOG_CHANNEL')."\n";
     $log = '/data/logs/laravel-'.date('Y-m-d').'.log';
     if (!is_file($log)) { $log = '/data/logs/laravel.log'; }
     if (!is_file($log)) { echo "SIN LOG\n"; exit; }
