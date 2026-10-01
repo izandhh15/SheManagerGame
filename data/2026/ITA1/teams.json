@@ -528,7 +528,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/6954.png",
-      "name": "Inter Mailand",
+      "name": "Inter",
       "stadiumName": "Arena Civica Gianni Brera",
       "stadiumSeats": 10000,
       "transfermarktId": "6954",
@@ -921,7 +921,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/6952.png",
-      "name": "AS Rom",
+      "name": "AS Roma",
       "stadiumName": "Stadio Tre Fontane",
       "stadiumSeats": 4000,
       "transfermarktId": "6952",
@@ -1308,7 +1308,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/6940.png",
-      "name": "ACF Florenz",
+      "name": "ACF Fiorentina",
       "stadiumName": "Stadio Curva Fiesole - Viola Park",
       "stadiumSeats": 3000,
       "transfermarktId": "6940",
@@ -1754,7 +1754,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/6937.png",
-      "name": "ACF Mailand",
+      "name": "AC Milan",
       "stadiumName": "Puma House of Football - Centro P. Vismara",
       "stadiumSeats": 1200,
       "transfermarktId": "6937",

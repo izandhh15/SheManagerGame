@@ -25,7 +25,7 @@
       "entryRound": 1
     },
     {
-      "name": "Rayados de Monterrey",
+      "name": "CF Monterrey",
       "transfermarktId": 7434,
       "stadiumName": "Estadio BBVA",
       "stadiumSeats": 51348,
@@ -479,7 +479,7 @@
     },
     {
       "image": "",
-      "name": "Saprissa",
+      "name": "Deportivo Saprissa",
       "stadiumName": "Estadio Ricardo Saprissa Aymá",
       "stadiumSeats": 24000,
       "transfermarktId": 5698,
@@ -804,7 +804,7 @@
     },
     {
       "image": "",
-      "name": "Alianza",
+      "name": "Alianza Women FC",
       "stadiumName": "Estadio Las Delicias",
       "stadiumSeats": 0,
       "transfermarktId": 10343,
@@ -1529,7 +1529,7 @@
     },
     {
       "image": "",
-      "name": "Vancouver Rise",
+      "name": "Vancouver Rise FC",
       "stadiumName": "Swangard Stadium",
       "stadiumSeats": 4500,
       "transfermarktId": 16120,

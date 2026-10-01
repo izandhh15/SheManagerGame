@@ -11,19 +11,19 @@
     },
     {
       "id": "6952",
-      "name": "AS Rom",
+      "name": "AS Roma",
       "country": "IT",
       "pot": 1
     },
     {
       "id": "56",
-      "name": "Bayer Leverkusen",
+      "name": "Bayer 04 Leverkusen",
       "country": "DE",
       "pot": 1
     },
     {
       "id": "44",
-      "name": "Athletic Bilbao",
+      "name": "Athletic Club",
       "country": "ES",
       "pot": 1
     },
@@ -53,7 +53,7 @@
     },
     {
       "id": "2307",
-      "name": "FC Brügge",
+      "name": "Club YLA",
       "country": "BE",
       "pot": 1
     },
@@ -113,13 +113,13 @@
     },
     {
       "id": "77",
-      "name": "BSC Young Boys",
+      "name": "BSC YB Frauen",
       "country": "CH",
       "pot": 3
     },
     {
       "id": "322",
-      "name": "Sparta Praha",
+      "name": "AC Sparta Praha",
       "country": "CZ",
       "pot": 3
     },
@@ -137,19 +137,19 @@
     },
     {
       "id": "8184",
-      "name": "AGF Kvindefodbold",
+      "name": "Aarhus GF",
       "country": "DK",
       "pot": 3
     },
     {
       "id": "213",
-      "name": "Lillestrøm SK",
+      "name": "Lillestrøm SK Kvinner",
       "country": "NO",
       "pot": 3
     },
     {
       "id": "760",
-      "name": "Standard Liège",
+      "name": "Standard Femina",
       "country": "BE",
       "pot": 3
     },
@@ -173,13 +173,13 @@
     },
     {
       "id": "4289",
-      "name": "Lyn Oslo",
+      "name": "Lyn Fotball",
       "country": "NO",
       "pot": 4
     },
     {
       "id": "326",
-      "name": "Stabæk FK",
+      "name": "Stabæk Fotball",
       "country": "NO",
       "pot": 4
     },
@@ -203,7 +203,7 @@
     },
     {
       "id": "157",
-      "name": "Grasshoppers Zürich",
+      "name": "Grasshopper Club Zürich",
       "country": "CH",
       "pot": 4
     },

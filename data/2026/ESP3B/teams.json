@@ -373,7 +373,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7956.png",
-      "name": "Atlético Baleares",
+      "name": "Balears FC",
       "stadiumName": "Campo de Son Malferit",
       "stadiumSeats": 1200,
       "transfermarktId": "7956",
@@ -1976,7 +1976,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7192.png",
-      "name": "Espanyol Barcelona B",
+      "name": "RCD Espanyol B",
       "stadiumName": "Ciudad Deportiva Dani Jarque - Campo 3",
       "stadiumSeats": 0,
       "transfermarktId": "7192",
@@ -2767,7 +2767,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/17107.png",
-      "name": "FC Ona Sant Adria",
+      "name": "FC Ona Sant Adrià",
       "stadiumName": "CEM Besòs",
       "stadiumSeats": 0,
       "transfermarktId": "17107",
@@ -3356,7 +3356,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7189.png",
-      "name": "Valencia CF 'B'",
+      "name": "Valencia CF B",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": "7189",
@@ -3681,7 +3681,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/267.png",
-      "name": "Prainsa",
+      "name": "Zaragoza CFF",
       "stadiumName": "Estadio Nuevo Enrique Porta",
       "stadiumSeats": 2000,
       "transfermarktId": "267",
@@ -4676,7 +4676,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7801.png",
-      "name": "SE AEM Lleida",
+      "name": "SE AEM",
       "stadiumName": "Camp de Futbol Municipal de Recasens",
       "stadiumSeats": 0,
       "transfermarktId": "7801",
@@ -5178,7 +5178,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7193.png",
-      "name": "UD Levante B",
+      "name": "Levante UD B",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": "7193",
@@ -5427,6 +5427,14 @@
           "name": "Chinyere Mercy Kalu",
           "position": "Midfielder",
           "nationality": "Nigeria"
+        },
+        {
+          "id": "9800121",
+          "name": "Lucía González Benito Comin",
+          "position": "Midfielder",
+          "nationality": "España",
+          "age": 20,
+          "number": 8
         }
       ]
     }

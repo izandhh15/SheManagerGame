@@ -3104,7 +3104,7 @@
         },
         {
           "id": "9800014",
-          "name": "Maïté Mendiburu",
+          "name": "Maite Mendiburu",
           "position": "Goalkeeper",
           "nationality": "Francia",
           "age": 18,
@@ -3138,7 +3138,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/1143.png",
-      "name": "VCF Femenino",
+      "name": "Valencia CF Femenino",
       "stadiumName": "Ciudad Dptva. Valencia CF Antonio Puchades",
       "stadiumSeats": 3000,
       "transfermarktId": "1143",
@@ -3459,7 +3459,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/16818.png",
-      "name": "Costa Adeje Tenerife",
+      "name": "Costa Adeje Tenerife Egatesa",
       "stadiumName": "Estadio Heliodoro Rodríguez López",
       "stadiumSeats": 22948,
       "transfermarktId": "16818",
@@ -5276,7 +5276,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7278.png",
-      "name": "Deportivo Abanca",
+      "name": "Dépor Abanca",
       "stadiumName": "Estadio Abanca-Riazor",
       "stadiumSeats": 34611,
       "transfermarktId": "7278",

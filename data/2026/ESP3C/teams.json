@@ -5,7 +5,7 @@
   "clubs": [
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/1130.png",
-      "name": "Club Atlético Málaga",
+      "name": "Málaga CF",
       "stadiumName": "Ciudad Deportiva Málaga CF Campo 1",
       "stadiumSeats": 0,
       "transfermarktId": "1130",
@@ -1499,7 +1499,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7795.png",
-      "name": "CF Pozuelo",
+      "name": "CF Pozuelo de Alarcón",
       "stadiumName": "Ciudad Deportiva Valle de las Cañas",
       "stadiumSeats": 0,
       "transfermarktId": "7795",
@@ -3579,7 +3579,7 @@
           "height": "",
           "id": "926005",
           "marketValue": "",
-          "name": "Lucía Corsi",
+          "name": "Lucía Nunes",
           "nationality": [
             "Spain"
           ],
@@ -3661,6 +3661,20 @@
           "number": "21",
           "position": "Centre-Forward",
           "overall_score": 56
+        },
+        {
+          "id": "9800122",
+          "name": "Luna Jiménez",
+          "position": "Goalkeeper",
+          "nationality": "España"
+        },
+        {
+          "id": "9800123",
+          "name": "Adriana Cuadros",
+          "position": "Midfielder",
+          "nationality": "España",
+          "age": 26,
+          "number": 14
         }
       ]
     },
@@ -4199,7 +4213,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/11907.png",
-      "name": "UD Almeria",
+      "name": "UD Almería",
       "stadiumName": "Estadio de la Juventud Emilio Campra",
       "stadiumSeats": 4000,
       "transfermarktId": "11907",

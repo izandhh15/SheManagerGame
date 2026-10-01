@@ -1985,7 +1985,7 @@
     },
     {
       "image": "",
-      "name": "Atlas Guadalajara",
+      "name": "Atlas FC",
       "stadiumName": "Estadio Jalisco",
       "stadiumSeats": 55020,
       "transfermarktId": 6471,
@@ -3327,7 +3327,7 @@
     },
     {
       "image": "",
-      "name": "Xolos Tijuana",
+      "name": "Club Tijuana",
       "stadiumName": "Estadio Caliente",
       "stadiumSeats": 27333,
       "transfermarktId": 7259,
@@ -5000,7 +5000,7 @@
     },
     {
       "image": "",
-      "name": "Club Deportivo Toluca",
+      "name": "Deportivo Toluca FC",
       "stadiumName": "Estadio Nemesio Díez",
       "stadiumSeats": 31000,
       "transfermarktId": 7429,
@@ -6305,7 +6305,7 @@
     },
     {
       "image": "",
-      "name": "Gallos Blancos de Querétaro",
+      "name": "Querétaro FC",
       "stadiumName": "Estadio Corregidora",
       "stadiumSeats": 34130,
       "transfermarktId": 7432,
@@ -6678,7 +6678,7 @@
     },
     {
       "image": "",
-      "name": "Rayados de Monterrey",
+      "name": "CF Monterrey",
       "stadiumName": "Estadio BBVA",
       "stadiumSeats": 51348,
       "transfermarktId": 7434,

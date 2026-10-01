@@ -5,7 +5,7 @@
   "clubs": [
     {
       "image": null,
-      "name": "Venezia FC",
+      "name": "Venezia FC Femminile",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950001,
@@ -419,7 +419,7 @@
     },
     {
       "image": null,
-      "name": "ACF Brescia",
+      "name": "ACF Brescia Femminile",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950002,
@@ -1541,7 +1541,7 @@
     },
     {
       "image": null,
-      "name": "Bologna FC 1909",
+      "name": "ASD Bologna FC 1909",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950005,
@@ -1985,7 +1985,7 @@
     },
     {
       "image": null,
-      "name": "Cesena FC",
+      "name": "Cesena FC Femminile",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950006,
@@ -3332,7 +3332,7 @@
     },
     {
       "image": null,
-      "name": "Frosinone Calcio",
+      "name": "Frosinone Calcio Femminile",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950009,

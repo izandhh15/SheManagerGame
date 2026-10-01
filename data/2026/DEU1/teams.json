@@ -1208,7 +1208,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/56.png",
-      "name": "Bayer Leverkusen",
+      "name": "Bayer 04 Leverkusen",
       "stadiumName": "Ulrich-Haberland-Stadion",
       "stadiumSeats": 3200,
       "transfermarktId": "56",
@@ -2054,7 +2054,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/18.png",
-      "name": "1899 Hoffenheim",
+      "name": "TSG 1899 Hoffenheim",
       "stadiumName": "Ensinger-Stadion",
       "stadiumSeats": 2000,
       "transfermarktId": "18",
@@ -2429,7 +2429,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/8.png",
-      "name": "1. FC Nuremberg",
+      "name": "1. FC Nürnberg",
       "stadiumName": "Max-Morlock-Stadion",
       "stadiumSeats": 50000,
       "transfermarktId": "8",
@@ -2878,7 +2878,7 @@
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/6053.png",
-      "name": "Rasenballsport Leipzig",
+      "name": "RB Leipzig",
       "stadiumName": "RB-Trainingszentrum (Cottaweg), Rasenplatz",
       "stadiumSeats": 1000,
       "transfermarktId": "6053",
