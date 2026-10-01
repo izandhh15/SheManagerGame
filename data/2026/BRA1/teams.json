@@ -6753,6 +6753,22 @@
           "number": 3,
           "position": "Centre-Forward",
           "overall_score": 72
+        },
+        {
+          "id": "9800028",
+          "name": "Taiane Flores",
+          "position": "Defender",
+          "nationality": "Brasil",
+          "age": 25,
+          "number": 3
+        },
+        {
+          "id": "9800029",
+          "name": "Isabella \"Isa\" Rangel",
+          "position": "Forward",
+          "nationality": "Brasil",
+          "age": 23,
+          "number": 18
         }
       ]
     },

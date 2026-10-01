@@ -5413,6 +5413,26 @@
           "number": "28",
           "position": "Centre-Back",
           "overall_score": 54
+        },
+        {
+          "id": "9800018",
+          "name": "Claudia Bermejo Gasent",
+          "position": "Goalkeeper",
+          "nationality": "España",
+          "age": 21
+        },
+        {
+          "id": "9800019",
+          "name": "Daniela Luque Fernández",
+          "position": "Defender",
+          "nationality": "España",
+          "age": 19
+        },
+        {
+          "id": "9800020",
+          "name": "Chinyere Mercy Kalu",
+          "position": "Midfielder",
+          "nationality": "Nigeria"
         }
       ]
     }

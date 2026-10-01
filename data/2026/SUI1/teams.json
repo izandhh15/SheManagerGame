@@ -2176,6 +2176,55 @@
           "number": "",
           "position": "Centre-Forward",
           "overall_score": 68
+        },
+        {
+          "id": "9800021",
+          "name": "Melani Emily Meier",
+          "position": "Goalkeeper",
+          "nationality": "Suiza",
+          "age": 34
+        },
+        {
+          "id": "9800022",
+          "name": "Sira Sofija Campisi",
+          "position": "Defender",
+          "nationality": "Suiza",
+          "age": 19
+        },
+        {
+          "id": "9800023",
+          "name": "Jessica Rebelo Pereira",
+          "position": "Defender",
+          "nationality": "Portugal",
+          "age": 22
+        },
+        {
+          "id": "9800024",
+          "name": "Lara Ribicic",
+          "position": "Defender",
+          "nationality": "Suiza",
+          "age": 18
+        },
+        {
+          "id": "9800025",
+          "name": "Sarina Steffen",
+          "position": "Midfielder",
+          "nationality": "Suiza",
+          "age": 18
+        },
+        {
+          "id": "9800026",
+          "name": "Zoe Lopes Gomes",
+          "position": "Forward",
+          "nationality": "Suiza",
+          "age": 18
+        },
+        {
+          "id": "9800027",
+          "name": "Antonina Stuparevic",
+          "position": "Forward",
+          "nationality": "Bosnia-Herzegovina",
+          "age": 17
         }
       ]
     },

@@ -4807,6 +4807,103 @@
           "shirtNumber": 11,
           "contractUntil": null,
           "overall_score": 71
+        },
+        {
+          "id": "9800074",
+          "name": "Jaimar Castillo",
+          "position": "Goalkeeper",
+          "nationality": "Venezuela",
+          "number": 12
+        },
+        {
+          "id": "9800075",
+          "name": "Ángeles Rosales",
+          "position": "Goalkeeper",
+          "nationality": "Venezuela",
+          "number": 1
+        },
+        {
+          "id": "9800076",
+          "name": "Mariangel Escobar",
+          "position": "Defender",
+          "nationality": "Venezuela",
+          "number": 16
+        },
+        {
+          "id": "9800077",
+          "name": "María José Díaz",
+          "position": "Defender",
+          "nationality": "Venezuela",
+          "number": 5
+        },
+        {
+          "id": "9800078",
+          "name": "Yormary Ramones",
+          "position": "Defender",
+          "nationality": "Venezuela",
+          "number": 3
+        },
+        {
+          "id": "9800079",
+          "name": "Gellinott Reyes",
+          "position": "Defender",
+          "nationality": "Venezuela",
+          "number": 6
+        },
+        {
+          "id": "9800080",
+          "name": "Ambar Sánchez",
+          "position": "Midfielder",
+          "nationality": "Venezuela",
+          "number": 28
+        },
+        {
+          "id": "9800081",
+          "name": "Dariana Elías",
+          "position": "Midfielder",
+          "nationality": "Venezuela",
+          "number": 18
+        },
+        {
+          "id": "9800082",
+          "name": "Estefani Pérez",
+          "position": "Midfielder",
+          "nationality": "Venezuela",
+          "number": 8
+        },
+        {
+          "id": "9800083",
+          "name": "Yuleisi Rivero",
+          "position": "Midfielder",
+          "nationality": "Venezuela",
+          "number": 14
+        },
+        {
+          "id": "9800084",
+          "name": "Genyerlys Arias",
+          "position": "Forward",
+          "nationality": "Venezuela",
+          "number": 10
+        },
+        {
+          "id": "9800085",
+          "name": "Milennys Medina",
+          "position": "Forward",
+          "nationality": "Venezuela",
+          "number": 26
+        },
+        {
+          "id": "9800086",
+          "name": "Rutlesby Flores",
+          "position": "Forward",
+          "nationality": "Venezuela",
+          "number": 13
+        },
+        {
+          "id": "9800087",
+          "name": "Jesusmar Colmenarez",
+          "position": "Forward",
+          "nationality": "Venezuela"
         }
       ],
       "entryRound": 1
