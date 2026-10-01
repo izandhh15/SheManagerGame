@@ -36,16 +36,18 @@ if ($step === 'refresh') {
 }
 
 if ($step === 'patch-games') {
-    // 2. Para cada partida de CLUB: inserta SOLO las plantillas nuevas
-    //    (las que no existen aun en esa partida). No toca selecciones.
-    //    Solo consideramos plantillas de club (team no nacional).
+    // 2. Parchea TODAS las partidas de club de una vez: inserta solo las
+    //    plantillas nuevas (transfermarkt_id 97xxxxx, las reasignadas) que
+    //    falten en cada partida. Una sola query, sin bucle por partida.
     $games = DB::table('games as g')
         ->join('teams as t', 't.id', '=', 'g.team_id')
         ->where('t.type', '!=', 'national')
-        ->select('g.id', 't.name as team')->get();
-    $out['games_patched'] = [];
-    foreach ($games as $g) {
-        // Solo las plantillas que faltan en esta partida (por player_id)
+        ->select('g.id')->get();
+    $gameIds = $games->pluck('id')->all();
+    $out['games_count'] = count($gameIds);
+
+    if (count($gameIds) > 0) {
+        // INSERT masivo: por cada juego x cada plantilla nueva que falte
         $addedPlayers = DB::insert(<<<SQL
             INSERT INTO game_players (
                 id, game_id, player_id,
@@ -56,22 +58,27 @@ if ($step === 'patch-games') {
                 potential, potential_low, potential_high, tier
             )
             SELECT
-                gen_random_uuid(), ?, t.player_id,
+                gen_random_uuid(), g.id, t.player_id,
                 t.transfermarkt_id, t.sofascore_id, t.fc26_id, t.name, t.date_of_birth, t.nationality, t.height, t.foot,
                 t.team_id, t.number, t.position, t.secondary_positions,
                 t.market_value, t.market_value_cents, t.contract_until, t.annual_wage, t.release_clause, t.durability,
                 t.overall_score,
                 t.potential, t.potential_low, t.potential_high, t.tier
-            FROM game_player_templates t
+            FROM games g
+            CROSS JOIN game_player_templates t
             WHERE t.season = '2026'
+              AND t.transfermarkt_id LIKE '97%'
               AND t.team_id NOT IN (SELECT id FROM teams WHERE type = 'national')
+              AND g.id IN (SELECT g2.id FROM games g2 JOIN teams t2 ON t2.id = g2.team_id WHERE t2.type != 'national')
               AND NOT EXISTS (
                   SELECT 1 FROM game_players gp
-                  WHERE gp.game_id = ? AND gp.player_id = t.player_id
+                  WHERE gp.game_id = g.id AND gp.player_id = t.player_id
               )
             ON CONFLICT (game_id, player_id) DO NOTHING
-        SQL, [$g->id, $g->id]);
+        SQL);
+        $out['inserted_rows'] = $addedPlayers;
 
+        // match_state para las nuevas
         $addedState = DB::insert(<<<'SQL'
             INSERT INTO game_player_match_state (game_player_id, game_id, fitness, morale)
             SELECT gp.id, gp.game_id, t.fitness, t.morale
@@ -80,21 +87,15 @@ if ($step === 'patch-games') {
               ON t.player_id = gp.player_id
              AND t.team_id = gp.team_id
              AND t.season = '2026'
-            WHERE gp.game_id = ?
+             AND t.transfermarkt_id LIKE '97%'
+            WHERE NOT EXISTS (
+                SELECT 1 FROM game_player_match_state s WHERE s.game_player_id = gp.id
+            )
             ON CONFLICT (game_player_id) DO NOTHING
-        SQL, [$g->id]);
-
-        // cuantas tiene ahora el equipo del usuario en esa partida
-        $userTeamCount = DB::table('game_players')->where('game_id', $g->id)
-            ->whereIn('team_id', function ($q) use ($g) {
-                $q->select('team_id')->from('games')->where('id', $g->id);
-            })->count();
-
-        $out['games_patched'][] = [
-            'team' => $g->team, 'id' => substr($g->id, 0, 8),
-            'user_squad_now' => $userTeamCount,
-        ];
+        SQL);
+        $out['inserted_state_rows'] = $addedState;
     }
+    $out['games_patched'] = 'bulk';
 }
 
 echo json_encode($out, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
