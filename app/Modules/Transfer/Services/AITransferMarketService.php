@@ -360,7 +360,121 @@ class AITransferMarketService
         // Flush to database
         $this->flushBatchedOperations($playerUpdates, $transferInserts);
 
+        // Phase 4: Academies sign young free agents.
+        // Reserve teams (filials) pick up young free agents (age <= 20) for
+        // their academies, as requested. This runs after the main signing so
+        // first teams get priority on the best players.
+        $academySignings = $this->signYoungFreeAgentsForAcademies(
+            $game, $freeAgents, $teamRosters, $teams, $newSeason
+        );
+        $count += $academySignings['count'];
+        $signings = array_merge($signings, $academySignings['signings']);
+
         return ['count' => $count, 'signings' => $signings];
+    }
+
+    /**
+     * Academies (reserve teams) sign young free agents (age <= 20).
+     * Gives young national-team players without clubs a home in academies.
+     */
+    private function signYoungFreeAgentsForAcademies(
+        Game $game,
+        Collection $freeAgents,
+        Collection $teamRosters,
+        Collection $teams,
+        string $newSeason,
+    ): array {
+        $signings = [];
+        $count = 0;
+
+        // Get reserve teams with roster space
+        $reserveTeams = $teams->filter(fn ($team) => $team->parent_team_id !== null);
+
+        if ($reserveTeams->isEmpty()) {
+            return ['count' => 0, 'signings' => []];
+        }
+
+        // Young free agents only (age <= 20)
+        $youngAgents = $freeAgents->filter(function ($player) {
+            $age = $this->getPlayerAge($player);
+            return $age !== null && $age <= 20;
+        })->sortByDesc(fn ($p) => $this->getPlayerAbility($p));
+
+        if ($youngAgents->isEmpty()) {
+            return ['count' => 0, 'signings' => []];
+        }
+
+        $playerUpdates = [];
+        $transferInserts = [];
+
+        foreach ($youngAgents as $agent) {
+            // Find a reserve team with space (max 25 players for academies)
+            $bestTeamId = null;
+            foreach ($reserveTeams as $teamId => $team) {
+                $rosterCount = $teamRosters->get($teamId)?->count() ?? 0;
+                if ($rosterCount < 25) {
+                    $bestTeamId = $teamId;
+                    break;
+                }
+            }
+
+            if (!$bestTeamId) {
+                break; // No academy has space
+            }
+
+            // Sign the player to the academy
+            $playerUpdates[] = [
+                'id' => $agent->id,
+                'team_id' => $bestTeamId,
+            ];
+
+            $signings[] = [
+                'player_id' => $agent->id,
+                'player_name' => $agent->name,
+                'team_id' => $bestTeamId,
+                'team_name' => $teams->get($bestTeamId)?->name ?? 'Unknown',
+                'type' => 'academy',
+            ];
+            $count++;
+
+            // Remove from free agents pool
+            $freeAgents->forget($agent->id);
+
+            // Update roster count
+            if (!$teamRosters->has($bestTeamId)) {
+                $teamRosters->put($bestTeamId, collect());
+            }
+            $teamRosters->get($bestTeamId)->push($agent);
+
+            // Limit: max 5 academy signings per season to avoid hoarding
+            if ($count >= 5) {
+                break;
+            }
+        }
+
+        $this->flushBatchedOperations($playerUpdates, $transferInserts);
+
+        return ['count' => $count, 'signings' => $signings];
+    }
+
+    /**
+     * Get player age from date of birth.
+     */
+    private function getPlayerAge($player): ?int
+    {
+        if (!$player->date_of_birth) {
+            return null;
+        }
+
+        try {
+            $dob = $player->date_of_birth instanceof \DateTime
+                ? $player->date_of_birth
+                : new \DateTime($player->date_of_birth);
+            $now = new \DateTime();
+            return $now->diff($dob)->y;
+        } catch (\Exception $e) {
+            return null;
+        }
     }
 
     /**
