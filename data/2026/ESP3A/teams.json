@@ -1188,47 +1188,41 @@
           "name": "Henar Martín",
           "position": "Defender",
           "nationality": "España",
-          "age": 19,
-          "number": 2
+          "age": 19
         },
         {
           "id": "9800113",
           "name": "Estefanía González",
           "position": "Defender",
           "nationality": "España",
-          "age": 20,
-          "number": 14
+          "age": 20
         },
         {
           "id": "9800114",
           "name": "Natalia Serrano",
           "position": "Defender",
           "nationality": "España",
-          "age": 22,
-          "number": 4
+          "age": 22
         },
         {
           "id": "9800115",
           "name": "Noa Bartels",
           "position": "Midfielder",
           "nationality": "España",
-          "age": 21,
-          "number": 18
+          "age": 21
         },
         {
           "id": "9800116",
           "name": "Sara Caparroz",
           "position": "Forward",
-          "nationality": "España",
-          "number": 9
+          "nationality": "España"
         },
         {
           "id": "9800117",
           "name": "Elsa Tejero",
           "position": "Forward",
           "nationality": "España",
-          "age": 19,
-          "number": 11
+          "age": 19
         },
         {
           "id": "9800118",
@@ -1617,62 +1611,53 @@
           "id": "9800103",
           "name": "Paula Novo",
           "position": "Defender",
-          "nationality": "España",
-          "number": 5
+          "nationality": "España"
         },
         {
           "id": "9800104",
           "name": "Michi Apostol",
           "position": "Forward",
-          "nationality": "Venezuela",
-          "number": 6
+          "nationality": "Venezuela"
         },
         {
           "id": "9800105",
           "name": "Lucía Rivas",
           "position": "Forward",
-          "nationality": "España",
-          "number": 11
+          "nationality": "España"
         },
         {
           "id": "9800106",
           "name": "Antía Veiga",
           "position": "Goalkeeper",
-          "nationality": "España",
-          "number": 13
+          "nationality": "España"
         },
         {
           "id": "9800107",
           "name": "Paula Redruello",
           "position": "Midfielder",
-          "nationality": "España",
-          "number": 16
+          "nationality": "España"
         },
         {
           "id": "9800108",
           "name": "Dunia Dahmouni",
-          "position": "Forward",
-          "number": 27
+          "position": "Forward"
         },
         {
           "id": "9800109",
           "name": "Paula Monteagudo",
           "position": "Defender",
-          "nationality": "España",
-          "number": 28
+          "nationality": "España"
         },
         {
           "id": "9800110",
           "name": "Daniela Macedo",
-          "position": "Forward",
-          "number": 29
+          "position": "Forward"
         },
         {
           "id": "9800111",
           "name": "Claudia Sande",
           "position": "Midfielder",
-          "nationality": "España",
-          "number": 31
+          "nationality": "España"
         }
       ]
     },

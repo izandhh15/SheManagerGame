@@ -4646,15 +4646,13 @@
           "id": "9800130",
           "name": "Sara Marie Mund",
           "position": "Unknown",
-          "nationality": "Alemania",
-          "number": 31
+          "nationality": "Alemania"
         },
         {
           "id": "9800131",
           "name": "Laetizia Majer",
           "position": "Unknown",
-          "nationality": "Alemania",
-          "number": 29
+          "nationality": "Alemania"
         }
       ]
     },
@@ -5045,46 +5043,40 @@
           "name": "Alissa Tuzyna",
           "position": "Goalkeeper",
           "nationality": "Alemania",
-          "age": 17,
-          "number": 20
+          "age": 17
         },
         {
           "id": "9800133",
           "name": "Ellen Heuser",
           "position": "Defender",
           "nationality": "Alemania",
-          "age": 17,
-          "number": 16
+          "age": 17
         },
         {
           "id": "9800134",
           "name": "Vivien Chonticha Dieter",
           "position": "Defender",
           "nationality": "Alemania",
-          "age": 17,
-          "number": 18
+          "age": 17
         },
         {
           "id": "9800135",
           "name": "Leticia Zinn",
           "position": "Midfielder",
-          "nationality": "Alemania",
-          "number": 5
+          "nationality": "Alemania"
         },
         {
           "id": "9800136",
           "name": "Madita Röhrl",
           "position": "Midfielder",
-          "nationality": "Alemania",
-          "number": 8
+          "nationality": "Alemania"
         },
         {
           "id": "9800137",
           "name": "Jasmin Cate Bornemann",
           "position": "Midfielder",
           "nationality": "Suiza",
-          "age": 17,
-          "number": 22
+          "age": 17
         }
       ]
     },
