@@ -599,6 +599,9 @@ return [
     'preseason_setup_search_placeholder' => 'Search teams…',
     'preseason_setup_no_results' => 'No teams found.',
     'preseason_setup_clear' => 'Clear',
+    'preseason_setup_trophy_label' => 'Trophy name',
+    'preseason_setup_trophy_optional' => 'optional',
+    'preseason_setup_trophy_placeholder' => 'E.g.: Joan Gamper Trophy…',
 
     // Schedulable friendlies (national-team mode)
     'schedule_friendly_title' => 'Schedule friendlies',

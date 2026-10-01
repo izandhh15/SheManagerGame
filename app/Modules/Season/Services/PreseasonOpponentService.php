@@ -116,7 +116,7 @@ class PreseasonOpponentService
     /**
      * Materialise the chosen friendlies and end pre-season setup.
      *
-     * @param  array<int, array{slot:int, team_id:string, is_home:bool}>  $selections
+     * @param  array<int, array{slot:int, team_id:string, is_home:bool, trophy_name?:string|null}>  $selections
      */
     public function confirmSelections(Game $game, array $selections): void
     {
@@ -140,6 +140,7 @@ class PreseasonOpponentService
                 'away_team_id' => $selection['is_home'] ? $selection['team_id'] : $game->team_id,
                 'scheduled_date' => $date->toDateString(),
                 'round_number' => $slot + 1,
+                'trophy_name' => $selection['trophy_name'] ?? null,
                 'played' => false,
             ]);
 
@@ -168,8 +169,8 @@ class PreseasonOpponentService
      * and pool members, and enforce one fixture per slot (two friendlies can't
      * share a date). The same opponent may be picked in multiple slots.
      *
-     * @param  array<int, array{slot?:mixed, team_id?:mixed, is_home?:mixed}>  $selections
-     * @return array<int, array{slot:int, team_id:string, is_home:bool}>
+     * @param  array<int, array{slot?:mixed, team_id?:mixed, is_home?:mixed, trophy_name?:mixed}>  $selections
+     * @return array<int, array{slot:int, team_id:string, is_home:bool, trophy_name:string|null}>
      */
     private function sanitizeSelections(Game $game, array $selections): array
     {
@@ -194,10 +195,20 @@ class PreseasonOpponentService
 
             $usedSlots[$slot] = true;
 
+            // Optional custom trophy name (e.g. "Trofeo Joan Gamper"). Trimmed,
+            // max 100 chars, null when empty.
+            $trophyName = isset($selection['trophy_name']) && is_string($selection['trophy_name'])
+                ? trim(mb_substr($selection['trophy_name'], 0, 100))
+                : null;
+            if ($trophyName === '') {
+                $trophyName = null;
+            }
+
             $clean[] = [
                 'slot' => $slot,
                 'team_id' => $teamId,
                 'is_home' => (bool) ($selection['is_home'] ?? true),
+                'trophy_name' => $trophyName,
             ];
         }
 

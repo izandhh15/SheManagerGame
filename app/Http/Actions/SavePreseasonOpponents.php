@@ -24,6 +24,7 @@ class SavePreseasonOpponents
             'slots' => ['array'],
             'slots.*.team_id' => ['nullable', 'string'],
             'slots.*.is_home' => ['nullable', 'boolean'],
+            'slots.*.trophy_name' => ['nullable', 'string', 'max:100'],
         ]);
 
         // Reshape the per-slot form input into the service's selection list,
@@ -39,6 +40,7 @@ class SavePreseasonOpponents
                 'slot' => (int) $slot,
                 'team_id' => $input['team_id'],
                 'is_home' => filter_var($input['is_home'] ?? true, FILTER_VALIDATE_BOOL),
+                'trophy_name' => $input['trophy_name'] ?? null,
             ];
         }
 

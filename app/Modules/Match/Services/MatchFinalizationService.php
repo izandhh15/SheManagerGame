@@ -15,6 +15,7 @@ use App\Models\CupTie;
 use App\Models\Game;
 use App\Models\GameMatch;
 use App\Models\GamePlayer;
+use App\Models\ManagerTrophy;
 use App\Models\MatchEvent;
 use App\Models\PlayerSuspension;
 use Carbon\Carbon;
@@ -188,6 +189,47 @@ class MatchFinalizationService
         // Otherwise the "no unplayed matches" check is briefly true between rounds and
         // ends the tournament prematurely after the group phase.
         $this->tournamentEndDetector->detect($result->game->refresh());
+
+        // 7. Custom pre-season trophy (e.g. Trofeo Joan Gamper): if this friendly
+        // was designated as a trophy match and the user's team won, record it.
+        $this->recordCustomTrophy($result->match, $result->game);
+    }
+
+    /**
+     * Record a custom pre-season trophy win in the manager's cabinet.
+     * Only records when the user's team won the trophy match; draws award nothing.
+     */
+    private function recordCustomTrophy(GameMatch $match, Game $game): void
+    {
+        $trophyName = $match->trophy_name;
+        if (empty($trophyName)) {
+            return;
+        }
+
+        $winnerId = $match->getWinnerId();
+        if ($winnerId === null) {
+            return;
+        }
+
+        // Only the user's teams can earn cabinet trophies.
+        $userTeamIds = $game->userTeamIds();
+        if (! in_array($winnerId, $userTeamIds, true)) {
+            return;
+        }
+
+        ManagerTrophy::firstOrCreate(
+            [
+                'game_id' => $game->id,
+                'competition_id' => null,
+                'custom_name' => $trophyName,
+                'season' => $game->season,
+            ],
+            [
+                'user_id' => $game->user_id,
+                'team_id' => $winnerId,
+                'trophy_type' => 'friendly_trophy',
+            ]
+        );
     }
 
     /**

@@ -30,6 +30,7 @@ class ManagerTrophy extends Model
         'game_id',
         'team_id',
         'competition_id',
+        'custom_name',
         'season',
         'trophy_type',
     ];

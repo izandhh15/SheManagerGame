@@ -101,6 +101,7 @@ class GameMatch extends Model
         'competition_id',
         'round_number',
         'round_name',
+        'trophy_name',
         'home_team_id',
         'away_team_id',
         'scheduled_date',

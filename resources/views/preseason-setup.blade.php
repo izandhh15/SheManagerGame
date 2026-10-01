@@ -88,6 +88,19 @@ $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
                                 {{-- Serialized state --}}
                                 <input type="hidden" name="slots[{{ $index }}][team_id]" :value="selections[{{ $index }}].teamId || ''">
                                 <input type="hidden" name="slots[{{ $index }}][is_home]" :value="selections[{{ $index }}].isHome ? '1' : '0'">
+                                <input type="hidden" name="slots[{{ $index }}][trophy_name]" :value="selections[{{ $index }}].trophyName || ''">
+
+                                {{-- Optional trophy name: turn this friendly into a cup final (e.g. Trofeo Joan Gamper) --}}
+                                <div x-show="selections[{{ $index }}].teamId" x-cloak class="mt-3">
+                                    <label class="block text-xs font-medium text-text-secondary mb-1.5">
+                                        🏆 {{ __('game.preseason_setup_trophy_label') }}
+                                        <span class="text-text-muted font-normal">({{ __('game.preseason_setup_trophy_optional') }})</span>
+                                    </label>
+                                    <input type="text" x-model="selections[{{ $index }}].trophyName"
+                                           maxlength="100"
+                                           placeholder="{{ __('game.preseason_setup_trophy_placeholder') }}"
+                                           class="w-full px-3 py-2 bg-surface-700 border border-border-default rounded-lg text-sm text-text-primary placeholder-text-muted focus:outline-none focus:border-accent-blue/50 focus:ring-1 focus:ring-accent-blue/30 min-h-[44px]">
+                                </div>
                             </div>
                         @endforeach
                     </div>

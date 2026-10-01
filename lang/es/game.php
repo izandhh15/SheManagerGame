@@ -621,6 +621,9 @@ return [
     'preseason_setup_search_placeholder' => 'Buscar equipos…',
     'preseason_setup_no_results' => 'No se encontraron equipos.',
     'preseason_setup_clear' => 'Quitar',
+    'preseason_setup_trophy_label' => 'Nombre del trofeo',
+    'preseason_setup_trophy_optional' => 'opcional',
+    'preseason_setup_trophy_placeholder' => 'Ej.: Trofeo Joan Gamper…',
 
     // Amistosos programables (modo selección)
     'schedule_friendly_title' => 'Programar amistosos',
