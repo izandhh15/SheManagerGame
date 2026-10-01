@@ -36,14 +36,16 @@ if ($step === 'refresh') {
 }
 
 if ($step === 'patch-games') {
-    // 2. Para cada partida de CLUB: inserta las jugadoras que falten (las nuevas del refresh).
-    //    No toca partidas de seleccion.
+    // 2. Para cada partida de CLUB: inserta SOLO las plantillas nuevas
+    //    (las que no existen aun en esa partida). No toca selecciones.
+    //    Solo consideramos plantillas de club (team no nacional).
     $games = DB::table('games as g')
         ->join('teams as t', 't.id', '=', 'g.team_id')
         ->where('t.type', '!=', 'national')
         ->select('g.id', 't.name as team')->get();
     $out['games_patched'] = [];
     foreach ($games as $g) {
+        // Solo las plantillas que faltan en esta partida (por player_id)
         $addedPlayers = DB::insert(<<<SQL
             INSERT INTO game_players (
                 id, game_id, player_id,
@@ -63,8 +65,12 @@ if ($step === 'patch-games') {
             FROM game_player_templates t
             WHERE t.season = '2026'
               AND t.team_id NOT IN (SELECT id FROM teams WHERE type = 'national')
+              AND NOT EXISTS (
+                  SELECT 1 FROM game_players gp
+                  WHERE gp.game_id = ? AND gp.player_id = t.player_id
+              )
             ON CONFLICT (game_id, player_id) DO NOTHING
-        SQL, [$g->id]);
+        SQL, [$g->id, $g->id]);
 
         $addedState = DB::insert(<<<'SQL'
             INSERT INTO game_player_match_state (game_player_id, game_id, fitness, morale)
