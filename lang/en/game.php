@@ -455,6 +455,8 @@ return [
     'squad_picker_sort_overall_asc' => 'Overall: low to high',
     'squad_picker_positions' => 'Positions',
     'squad_picker_no_results' => 'No players match the filters.',
+    'squad_picker_goals_short' => 'g',
+    'squad_picker_assists_short' => 'a',
     'mode_dual' => 'Dual career',
     'mode_dual_desc' => 'Manage a club and a national team at once: two linked saves.',
     'dual_step_1' => 'Step 1 · Pick your club',

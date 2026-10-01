@@ -3,6 +3,7 @@
 namespace App\Http\Views;
 
 use App\Models\Team;
+use App\Modules\Season\Services\ClubFormService;
 use App\Modules\Season\Services\NationalSquadService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -93,20 +94,35 @@ final class ShowNationalSquadPicker
 
         $groupOrder = array_flip(self::POSITION_GROUPS);
 
-        $players = $players->map(function ($row) use ($clubByPlayerId) {
+        // Club form: at creation time show last completed season (2025);
+        // in update mode show the current season scaled by progress.
+        $clubSeason = $updateGame ? (string) ($updateGame->season ?? '2026') : '2025';
+        $clubProgress = $updateGame
+            ? ClubFormService::seasonProgress($updateGame->current_date?->format('Y-m-d'))
+            : 1.0;
+
+        $players = $players->map(function ($row) use ($clubByPlayerId, $clubSeason, $clubProgress) {
             // Las plantillas de selecciones traen "2000-01-01" como fecha
             // comodín (sin fecha real): en ese caso no mostramos edad.
             $dob = $row->date_of_birth ? \Carbon\Carbon::parse($row->date_of_birth) : null;
             $isPlaceholderDob = $dob && $dob->format('Y-m-d') === '2000-01-01';
+            $group = self::positionGroup($row->position ?? '');
 
             return [
                 'player_id' => $row->player_id,
                 'name' => $row->name,
                 'position' => $row->position,
-                'group' => self::positionGroup($row->position ?? ''),
+                'group' => $group,
                 'overall' => (int) $row->overall_score,
                 'age' => ($dob && ! $isPlaceholderDob) ? (int) $dob->diffInYears(now()) : null,
                 'club' => $clubByPlayerId[$row->player_id] ?? null,
+                'club_form' => ClubFormService::statsFor(
+                    (string) $row->player_id,
+                    (int) $row->overall_score,
+                    $group,
+                    $clubSeason,
+                    $clubProgress,
+                ),
             ];
         })->sortBy([
             fn ($p) => $groupOrder[$p['group']] ?? 99,

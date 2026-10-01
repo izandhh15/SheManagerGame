@@ -14,6 +14,9 @@
     <div class="flex-1 min-w-0">
         <p class="text-sm md:text-base font-medium text-text-body truncate" x-text="p.name"></p>
         <p class="text-xs text-text-muted truncate"><span x-text="p.position"></span><span x-show="p.club"> · <span x-text="p.club"></span></span></p>
+        <p x-show="p.club_form" class="text-[11px] text-text-secondary mt-0.5 truncate">
+            <span x-text="p.club_form.minutes"></span>' · <span x-text="p.club_form.goals"></span>{{ __('game.squad_picker_goals_short') }} · <span x-text="p.club_form.assists"></span>{{ __('game.squad_picker_assists_short') }} <span class="text-text-muted">(<span x-text="p.club_form.rating"></span>)</span>
+        </p>
         <p x-show="p.injured_label" class="text-[11px] font-semibold text-red-400 mt-0.5" x-text="p.injured_label"></p>
     </div>
     <div class="shrink-0 text-right">

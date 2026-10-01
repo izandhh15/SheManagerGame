@@ -34,6 +34,7 @@
                 'overall' => $p['overall'],
                 'age' => $p['age'],
                 'club' => $p['club'],
+                'club_form' => $p['club_form'],
                 'injured_label' => isset($injured[$p['player_id']])
                     ? __('game.squad_picker_injured_until', ['date' => \Carbon\Carbon::parse($injured[$p['player_id']])->format('d/m/Y')])
                     : null,

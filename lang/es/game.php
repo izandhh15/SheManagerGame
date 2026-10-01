@@ -477,6 +477,8 @@ return [
     'squad_picker_sort_overall_asc' => 'Media: de menor a mayor',
     'squad_picker_positions' => 'Posiciones',
     'squad_picker_no_results' => 'Ninguna jugadora coincide con los filtros.',
+    'squad_picker_goals_short' => 'g',
+    'squad_picker_assists_short' => 'a',
     'mode_dual' => 'Carrera dual',
     'mode_dual_desc' => 'Lleva un club y una selección a la vez: dos partidas vinculadas.',
     'dual_step_1' => 'Paso 1 · Elige tu club',
