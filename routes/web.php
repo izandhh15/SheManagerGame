@@ -21,6 +21,8 @@ use App\Http\Actions\SendWaitlistInvite;
 use App\Http\Views\AdminActivation;
 use App\Http\Views\AdminDashboard;
 use App\Http\Views\AdminGameStats;
+use App\Http\Views\AdminLiveTraffic;
+use App\Http\Views\AdminLiveTrafficData;
 use App\Http\Views\AdminTechTools;
 use App\Http\Views\AdminPlayerTemplateAuditLog;
 use App\Http\Views\AdminPlayerTemplates;
