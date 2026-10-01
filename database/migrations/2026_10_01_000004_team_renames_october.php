@@ -88,7 +88,7 @@ return new class extends Migration
 
             DB::table('teams')
                 ->where('name', $old)
-                ->update(['name' => $new, 'updated_at' => now()]);
+                ->update(['name' => $new]);
         }
     }
 
