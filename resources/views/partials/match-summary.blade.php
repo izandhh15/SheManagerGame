@@ -5,9 +5,13 @@
     // Optional props (set by the caller via @include data array).
     $showHeader = $showHeader ?? false;
     $mode = $mode ?? MatchSummaryPresenter::MODE_COMPACT;
+    $game = $game ?? null;
 
     $summary = app(MatchSummaryPresenter::class)->present($match, $mode);
     $isFull = $mode === MatchSummaryPresenter::MODE_FULL;
+
+    // Show press conference CTA if the player's team played and no statement yet.
+    $showPressCta = $game && $isFull && !\App\Models\PressStatement::where('game_id', $game->id)->where('match_id', $match->id)->exists();
 @endphp
 
 <div class="rounded-xl border border-border-default bg-surface-800 overflow-hidden">
@@ -100,6 +104,19 @@
             })">
                 @include('partials.live-match.lineups-roster')
             </div>
+        </div>
+    @endif
+
+    {{-- Press conference CTA --}}
+    @if($showPressCta)
+        <div class="border-t border-border-default px-4 py-4 bg-accent-blue/5">
+            <a href="{{ route('game.press', [$game->id, $match->id]) }}"
+               class="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-accent-blue text-white font-bold uppercase tracking-wide hover:opacity-90 transition-opacity">
+                🎤 {{ app()->getLocale() === 'es' ? 'Atender a la prensa' : 'Face the press' }}
+            </a>
+            <p class="text-xs text-text-faint text-center mt-2">
+                {{ app()->getLocale() === 'es' ? 'Tus declaraciones generarán reacciones en la red social...' : 'Your statements will spark reactions on social media...' }}
+            </p>
         </div>
     @endif
 </div>

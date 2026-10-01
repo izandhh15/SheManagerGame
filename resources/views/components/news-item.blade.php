@@ -12,7 +12,12 @@
 >
     <x-notification-icon :icon="$style['icon']" :icon-bg="$style['bg']" :icon-text="$style['text']" />
 
-    <p class="flex-1 text-sm leading-relaxed text-text-secondary">{{ $narrative->text }}</p>
+    <div class="flex-1">
+        @if(!empty($narrative->source))
+            <p class="text-[11px] font-bold uppercase tracking-wide text-text-faint">{{ $narrative->source }}</p>
+        @endif
+        <p class="text-sm leading-relaxed text-text-secondary">{{ $narrative->text }}</p>
+    </div>
 
     @if($clickable)
         <svg class="mt-0.5 h-4 w-4 shrink-0 text-text-faint transition-colors group-hover:text-text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -7,5 +7,6 @@ readonly class MatchNarrative
     public function __construct(
         public string $text,
         public string $category,
+        public ?string $source = null,
     ) {}
 }

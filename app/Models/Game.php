@@ -157,6 +157,7 @@ class Game extends Model
         'linked_game_id',
         'training_stage',
         'federation_budget',
+        'board_confidence',
     ];
 
     protected $casts = [

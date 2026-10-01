@@ -11,9 +11,13 @@ use App\Models\Team;
 use App\Models\TransferOffer;
 use App\Modules\Competition\Contracts\HasSeasonGoals;
 use App\Modules\Match\DTOs\MatchNarrative;
+use App\Modules\Media\Services\MediaOutletService;
 
 class MatchNarrativeService
 {
+    public function __construct(
+        private readonly MediaOutletService $mediaOutlets,
+    ) {}
     /**
      * Categories whose selected line already names and frames THIS fixture, so a
      * generic opponent preview beside it is just a redundant second intro. A
@@ -59,7 +63,7 @@ class MatchNarrativeService
             ];
         }
 
-        return $this->selectTop($candidates, $nextMatch->round_number ?? 1, $limit);
+        return $this->selectTop($candidates, $nextMatch->round_number ?? 1, $limit, $game);
     }
 
     // ═══════════════════════════════════════════════════════════════════
@@ -849,21 +853,22 @@ class MatchNarrativeService
      *
      * @return array<MatchNarrative>
      */
-    private function selectTop(array $candidates, int $matchday, int $limit = 2): array
+    private function selectTop(array $candidates, int $matchday, int $limit = 2, ?Game $game = null): array
     {
         return array_map(
-            fn (array $candidate) => $this->toNarrative($candidate, $matchday),
+            fn (array $candidate) => $this->toNarrative($candidate, $matchday, $game),
             $this->selectCandidates($candidates, $limit),
         );
     }
 
-    private function toNarrative(array $candidate, int $matchday): MatchNarrative
+    private function toNarrative(array $candidate, int $matchday, ?Game $game = null): MatchNarrative
     {
         $variantKey = $this->pickVariant($candidate['key'], $matchday);
 
         return new MatchNarrative(
             text: __("narrative.{$variantKey}", $candidate['params']),
             category: $candidate['category'],
+            source: $game ? $this->mediaOutlets->randomOutlet($game) : null,
         );
     }
 

@@ -257,6 +257,15 @@ Route::middleware('auth')->group(function () {
         // Dual mode: advance one matchday on the current game and its linked partner
         Route::post('/game/{gameId}/advance-both', AdvanceBothMatchdays::class)->name('game.advance-both');
 
+        // Fake social network + press conferences
+        Route::get('/game/{gameId}/social', ShowSocialFeed::class)->name('game.social');
+        Route::get('/game/{gameId}/press/{matchId}', ShowPressConference::class)->name('game.press');
+        Route::post('/game/{gameId}/press/{matchId}', SubmitPressStatement::class)->name('game.press.submit');
+
+        // Youth scouting: poach prospects from rival academies
+        Route::get('/game/{gameId}/scouting/youth', ShowYouthScouting::class)->name('game.scouting.youth');
+        Route::post('/game/{gameId}/scouting/youth/{playerId}/poach', PoachYouthPlayer::class)->name('game.scouting.youth.poach');
+
         // Fast mode (assistant coach)
         Route::get('/game/{gameId}/fast-mode', ShowFastMode::class)->name('game.fast-mode');
         Route::post('/game/{gameId}/fast-mode/enter', EnterFastMode::class)->name('game.fast-mode.enter');
