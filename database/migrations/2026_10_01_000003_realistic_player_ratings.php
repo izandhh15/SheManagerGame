@@ -12,13 +12,13 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Support\Facades\DB;
 
 /**
- * Realistic player ratings (FIFA-style), 01-10-2026.
+ * Realistic player ratings (EA Sports FC 27), 01-10-2026.
  *
  * Applies the curated ratings from data/2026/asterisk/teams.json +
- * data/players/NAT.json (FC 26 official top-26 women + Liga F top-30 +
- * heuristic tier/age curve for the rest) to the seeded 2026 templates:
+ * data/players/NAT.json (1.687 official FC 27 ratings + derived values for
+ * the rest) to the seeded 2026 templates:
  *
- * - overall_score from the JSON rating (explicit FIFA where available)
+ * - overall_score from the JSON rating (official FC 27 where available)
  * - market_value derived from the rating where the JSON had no real value
  *   (more rating -> more value), instead of the flat EUR 25K floor
  * - annual_wage / potential / tier recalculated from the new numbers
@@ -31,6 +31,11 @@ use Illuminate\Support\Facades\DB;
  * London City one with her official FC 27 rating. Her Spain NT template
  * is left untouched.
  *
+ * Performance: the refresh runs as bulk CASE-based UPDATEs (a few hundred
+ * rows per statement) instead of one UPDATE per template, and JSON files
+ * are processed one at a time, so it survives the Wasmer Edge PHP
+ * limits (32-bit, HTTP timeouts).
+ *
  * Idempotent: re-running only rewrites rows that still differ from the
  * source-of-truth JSON (potential uses a per-player rand seed).
  */
@@ -42,35 +47,11 @@ return new class extends Migration
 
     public function up(): void
     {
+        set_time_limit(0);
+
         $this->movePutellasToLondonCity();
         $this->ensurePutellasSpainTemplate();
-
-        $players = $this->loadJsonPlayers();
-        if (empty($players)) {
-            return;
-        }
-
-        $valuation = app(PlayerValuationService::class);
-        $contracts = app(ContractService::class);
-        $development = app(PlayerDevelopmentService::class);
-
-        // team_id -> competition_id (for the wage minimum)
-        $teamCompetition = DB::table('competition_teams')
-            ->where('season', self::SEASON)
-            ->pluck('competition_id', 'team_id')
-            ->all();
-
-        $reference = Carbon::parse(self::SEASON . '-08-15');
-        $me = $this;
-
-        DB::table('game_player_templates')
-            ->where('season', self::SEASON)
-            ->orderBy('id')
-            ->chunkById(500, function ($rows) use ($me, $players, $valuation, $contracts, $development, $teamCompetition, $reference) {
-                foreach ($rows as $row) {
-                    $me->refreshRow($row, $players, $valuation, $contracts, $development, $teamCompetition, $reference);
-                }
-            });
+        $this->refreshAllRatings();
     }
 
     public function down(): void
@@ -240,11 +221,25 @@ return new class extends Migration
     }
 
     /**
-     * All JSON players keyed by transfermarkt_id (string).
+     * Refresh all 2026 templates from the JSON source of truth, one JSON
+     * file at a time, applying changes with bulk CASE UPDATEs.
      */
-    private function loadJsonPlayers(): array
+    private function refreshAllRatings(): void
     {
-        $players = [];
+        $valuation = app(PlayerValuationService::class);
+        $contracts = app(ContractService::class);
+        $development = app(PlayerDevelopmentService::class);
+
+        // team_id -> competition_id (for the wage minimum)
+        $teamCompetition = DB::table('competition_teams')
+            ->where('season', self::SEASON)
+            ->pluck('competition_id', 'team_id')
+            ->all();
+
+        $reference = Carbon::parse(self::SEASON . '-08-15');
+        $minWageCache = [];
+        $done = []; // transfermarkt_id already processed (first file wins)
+
         $files = glob(base_path('data/2026/*/teams.json')) ?: [];
         $natFile = base_path('data/2026/NAT.json');
         if (is_file($natFile)) {
@@ -252,45 +247,79 @@ return new class extends Migration
         }
 
         foreach ($files as $file) {
-            $data = json_decode(file_get_contents($file), true);
+            $data = json_decode(@file_get_contents($file), true);
             if (!is_array($data)) {
                 continue;
             }
             $clubs = $data['clubs'] ?? $data['teams'] ?? [];
+            unset($data);
+
+            $jsonPlayers = [];
             foreach ($clubs as $club) {
                 foreach ($club['players'] ?? [] as $p) {
                     $tmId = (string) ($p['id'] ?? '');
-                    if ($tmId === '' || isset($players[$tmId])) {
+                    if ($tmId === '' || isset($done[$tmId]) || isset($jsonPlayers[$tmId])) {
                         continue;
                     }
-                    $players[$tmId] = [
-                        'overall_score' => $p['overall_score'] ?? null,
+                    if (empty($p['overall_score'])) {
+                        continue;
+                    }
+                    $jsonPlayers[$tmId] = [
+                        'overall_score' => (int) $p['overall_score'],
                         'marketValue' => $p['marketValue'] ?? null,
                         'dateOfBirth' => $p['dateOfBirth'] ?? null,
                         'contract' => $p['contract'] ?? null,
                     ];
                 }
             }
-        }
+            unset($clubs);
+            if (empty($jsonPlayers)) {
+                continue;
+            }
+            foreach ($jsonPlayers as $tmId => $_) {
+                $done[$tmId] = true;
+            }
 
-        return $players;
+            $updates = [];
+            $me = $this;
+            DB::table('game_player_templates')
+                ->where('season', self::SEASON)
+                ->whereIn('transfermarkt_id', array_keys($jsonPlayers))
+                ->orderBy('id')
+                ->chunkById(1000, function ($rows) use ($me, $jsonPlayers, $valuation, $contracts, $development, $teamCompetition, $reference, &$minWageCache, &$updates) {
+                    foreach ($rows as $row) {
+                        $json = $jsonPlayers[(string) $row->transfermarkt_id] ?? null;
+                        if (!$json) {
+                            continue;
+                        }
+                        $u = $me->computeUpdates($row, $json, $valuation, $contracts, $development, $teamCompetition, $reference, $minWageCache);
+                        if (!empty($u)) {
+                            $updates[$row->id] = $u;
+                        }
+                    }
+                });
+
+            $this->bulkUpdate($updates);
+            unset($jsonPlayers, $updates);
+            gc_collect_cycles();
+        }
     }
 
-    private function refreshRow(
+    /**
+     * Compute the column updates for one template row. Returns [] when the
+     * row already matches the JSON source of truth.
+     */
+    private function computeUpdates(
         object $row,
-        array $players,
+        array $json,
         PlayerValuationService $valuation,
         ContractService $contracts,
         PlayerDevelopmentService $development,
         array $teamCompetition,
         Carbon $reference,
-    ): bool {
+        array &$minWageCache,
+    ): array {
         $tmId = (string) $row->transfermarkt_id;
-        $json = $players[$tmId] ?? null;
-        if (!$json || empty($json['overall_score'])) {
-            return false;
-        }
-
         $newOverall = (int) $json['overall_score'];
         $updates = [];
 
@@ -350,13 +379,15 @@ return new class extends Migration
 
         // --- Wage / potential / tier ----------------------------------------
         if (isset($updates['overall_score']) || isset($updates['market_value_cents']) || isset($updates['date_of_birth'])) {
-            $competitionId = $teamCompetition[$row->team_id] ?? null;
-            $minimumWage = $competitionId
-                ? $contracts->getMinimumWageForCompetition($competitionId, $row->team_id)
-                : 0;
+            if (!array_key_exists($row->team_id, $minWageCache)) {
+                $competitionId = $teamCompetition[$row->team_id] ?? null;
+                $minWageCache[$row->team_id] = $competitionId
+                    ? $contracts->getMinimumWageForCompetition($competitionId, $row->team_id)
+                    : 0;
+            }
 
             $updates['annual_wage'] = $contracts->calculateAnnualWageForPlayer(
-                $newOverall, $mvCents, $minimumWage, $age, $row->position, true
+                $newOverall, $mvCents, $minWageCache[$row->team_id], $age, $row->position, true
             );
 
             srand(crc32('potential:' . $tmId)); // deterministic per player
@@ -369,12 +400,53 @@ return new class extends Migration
             $updates['tier'] = PlayerTierService::tierFromMarketValue($mvCents);
         }
 
-        if (empty($updates)) {
-            return false;
+        return $updates;
+    }
+
+    /**
+     * Apply [id => [col => value]] updates with bulk CASE-based UPDATE
+     * statements (400 rows per statement) to avoid one roundtrip per row.
+     */
+    private function bulkUpdate(array $rows): void
+    {
+        if (empty($rows)) {
+            return;
         }
 
-        DB::table('game_player_templates')->where('id', $row->id)->update($updates);
+        foreach (array_chunk($rows, 400, true) as $chunk) {
+            $ids = array_keys($chunk);
+            $cols = [];
+            foreach ($chunk as $u) {
+                foreach (array_keys($u) as $c) {
+                    $cols[$c] = true;
+                }
+            }
 
-        return true;
+            $setParts = [];
+            $bindings = [];
+            foreach (array_keys($cols) as $col) {
+                $case = "\"{$col}\" = CASE \"id\"";
+                foreach ($chunk as $id => $u) {
+                    if (array_key_exists($col, $u)) {
+                        $case .= ' WHEN ? THEN ?';
+                        $bindings[] = $id;
+                        $bindings[] = $u[$col];
+                    }
+                }
+                $case .= " ELSE \"{$col}\" END";
+                $setParts[] = $case;
+            }
+
+            foreach ($ids as $id) {
+                $bindings[] = $id;
+            }
+            $inPlaceholders = implode(',', array_fill(0, count($ids), '?'));
+
+            DB::update(
+                'UPDATE "game_player_templates" SET ' . implode(', ', $setParts)
+                    . " WHERE \"id\" IN ({$inPlaceholders})",
+                $bindings
+            );
+        }
     }
 };
