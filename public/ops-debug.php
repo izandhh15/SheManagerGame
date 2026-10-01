@@ -2,6 +2,17 @@
 // TEMPORAL - diagnóstico 500 en /lineup. BORRAR tras usar.
 if (($_GET['token'] ?? '') !== 'dbg-lineup-20261001') { http_response_code(403); exit('no'); }
 
+$mode = $_GET['mode'] ?? 'trace';
+if ($mode === 'log') {
+    $log = '/data/logs/laravel.log';
+    if (!is_file($log)) { echo "SIN LOG en $log\n"; exit; }
+    $lines = file($log);
+    echo "LOG: $log (".count($lines)." lineas)\n";
+    echo "=== ULTIMAS 120 LINEAS ===\n";
+    echo implode('', array_slice($lines, -120));
+    exit;
+}
+
 require __DIR__.'/../vendor/autoload.php';
 $app = require __DIR__.'/../bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
