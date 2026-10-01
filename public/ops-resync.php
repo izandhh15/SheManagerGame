@@ -67,7 +67,7 @@ if ($step === 'patch-games') {
             FROM games g
             CROSS JOIN game_player_templates t
             WHERE t.season = '2026'
-              AND t.transfermarkt_id LIKE '97%'
+              AND t.transfermarkt_id >= 9700000 AND t.transfermarkt_id < 9800000
               AND t.team_id NOT IN (SELECT id FROM teams WHERE type = 'national')
               AND g.id IN (SELECT g2.id FROM games g2 JOIN teams t2 ON t2.id = g2.team_id WHERE t2.type != 'national')
               AND NOT EXISTS (
@@ -87,7 +87,7 @@ if ($step === 'patch-games') {
               ON t.player_id = gp.player_id
              AND t.team_id = gp.team_id
              AND t.season = '2026'
-             AND t.transfermarkt_id LIKE '97%'
+             AND t.transfermarkt_id >= 9700000 AND t.transfermarkt_id < 9800000
             WHERE NOT EXISTS (
                 SELECT 1 FROM game_player_match_state s WHERE s.game_player_id = gp.id
             )
