@@ -213,7 +213,7 @@ class TournamentCreationService
             'competition_id' => $competitionId,
             'season' => $isNational ? '2026' : '2025',
             'base_season' => $isNational ? '2026' : '2025',
-            'current_date' => $isNational ? '2026-08-15' : '2026-06-11',
+            'current_date' => $isNational ? '2026-07-01' : '2026-06-11',
             'needs_welcome' => true,
             'needs_new_season_setup' => true,
             'setup_completed_at' => null,
