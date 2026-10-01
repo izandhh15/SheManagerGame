@@ -246,6 +246,11 @@ class GamePlayerTemplateService
         $rows = [];
         foreach ($clubTemplates as $template) {
             $nationalities = json_decode($template->nationality ?? '[]', true) ?: [];
+            // Algunas plantillas guardan la nacionalidad como string JSON
+            // escalar ("Spain") en vez de array: normalizar siempre a array.
+            if (!is_array($nationalities)) {
+                $nationalities = [$nationalities];
+            }
             foreach ($nationalities as $nationality) {
                 $ntTeamId = $teamIdByName[$nationality] ?? null;
                 if (!$ntTeamId) {
