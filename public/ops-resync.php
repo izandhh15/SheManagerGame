@@ -13,6 +13,19 @@ $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 
+ini_set('display_errors', '1');
+error_reporting(E_ALL);
+
+// Captura errores fatales y muestra el mensaje
+register_shutdown_function(function () {
+    $e = error_get_last();
+    if ($e && in_array($e['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR])) {
+        http_response_code(500);
+        header('Content-Type: application/json');
+        echo json_encode(['fatal' => $e['message'], 'file' => basename($e['file']), 'line' => $e['line']]);
+    }
+});
+
 header('Content-Type: application/json');
 $out = [];
 $step = $_GET['step'] ?? 'refresh';
