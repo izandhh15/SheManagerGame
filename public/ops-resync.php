@@ -31,6 +31,7 @@ $out = [];
 $step = $_GET['step'] ?? 'refresh';
 
 if ($step === 'refresh') {
+    try {
     // 1. Regenera plantillas de CLUBS desde el JSON actual (ratings FC27 incluidos).
     //    No toca las plantillas de selecciones.
     $before = DB::table('game_player_templates')->where('season', '2026')->count();
@@ -46,6 +47,9 @@ if ($step === 'refresh') {
         ->whereIn('t.name', ['Grêmio', 'Cruzeiro', 'Internacional', 'Sevilla FC', 'SD Eibar', 'Real Sociedad', 'FC Luzern'])
         ->select('t.name', DB::raw('count(*) as n'), DB::raw('max(p.overall_score) as max_ovr'))
         ->groupBy('t.name')->orderBy('t.name')->get();
+    } catch (\Throwable $e) {
+        $out['error'] = get_class($e).': '.$e->getMessage().' @ '.$e->getFile().':'.$e->getLine();
+    }
 }
 
 if ($step === 'patch-games') {
