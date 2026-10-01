@@ -4079,7 +4079,8 @@
           ],
           "number": "8",
           "position": "Midfielder",
-          "overall_score": 52
+          "overall_score": 52,
+          "age": 32
         },
         {
           "contract": "",
@@ -4094,7 +4095,8 @@
           ],
           "number": "13",
           "position": "Goalkeeper",
-          "overall_score": 56
+          "overall_score": 56,
+          "age": 22
         },
         {
           "contract": "",
@@ -4109,7 +4111,8 @@
           ],
           "number": "30",
           "position": "Goalkeeper",
-          "overall_score": 52
+          "overall_score": 52,
+          "age": 17
         },
         {
           "contract": "",
@@ -4124,7 +4127,8 @@
           ],
           "number": "2",
           "position": "Centre-Back",
-          "overall_score": 52
+          "overall_score": 52,
+          "age": 16
         },
         {
           "contract": "",
@@ -4139,7 +4143,8 @@
           ],
           "number": "4",
           "position": "Centre-Back",
-          "overall_score": 59
+          "overall_score": 59,
+          "age": 24
         },
         {
           "contract": "",
@@ -4154,7 +4159,8 @@
           ],
           "number": "5",
           "position": "Centre-Back",
-          "overall_score": 55
+          "overall_score": 55,
+          "age": 24
         },
         {
           "contract": "",
@@ -4169,7 +4175,8 @@
           ],
           "number": "14",
           "position": "Centre-Back",
-          "overall_score": 55
+          "overall_score": 55,
+          "age": 24
         },
         {
           "contract": "",
@@ -4183,7 +4190,8 @@
             "Spain"
           ],
           "number": "15",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "age": 18
         },
         {
           "contract": "",
@@ -4198,7 +4206,8 @@
           ],
           "number": "22",
           "position": "Centre-Back",
-          "overall_score": 52
+          "overall_score": 52,
+          "age": 19
         },
         {
           "contract": "",
@@ -4213,7 +4222,8 @@
           ],
           "number": "6",
           "position": "Midfielder",
-          "overall_score": 55
+          "overall_score": 55,
+          "age": 22
         },
         {
           "contract": "",
@@ -4228,7 +4238,8 @@
           ],
           "number": "10",
           "position": "Midfielder",
-          "overall_score": 52
+          "overall_score": 52,
+          "age": 21
         },
         {
           "contract": "",
@@ -4243,7 +4254,8 @@
           ],
           "number": "17",
           "position": "Midfielder",
-          "overall_score": 51
+          "overall_score": 51,
+          "age": 16
         },
         {
           "contract": "",
@@ -4258,7 +4270,8 @@
           ],
           "number": "24",
           "position": "Midfielder",
-          "overall_score": 55
+          "overall_score": 55,
+          "age": 15
         },
         {
           "contract": "",
@@ -4273,7 +4286,8 @@
           ],
           "number": "7",
           "position": "Centre-Forward",
-          "overall_score": 60
+          "overall_score": 60,
+          "age": 25
         },
         {
           "contract": "",
@@ -4288,7 +4302,8 @@
           ],
           "number": "9",
           "position": "Centre-Forward",
-          "overall_score": 55
+          "overall_score": 55,
+          "age": 18
         },
         {
           "contract": "",
@@ -4303,7 +4318,8 @@
           ],
           "number": "11",
           "position": "Centre-Forward",
-          "overall_score": 53
+          "overall_score": 53,
+          "age": 21
         },
         {
           "contract": "",
@@ -4318,7 +4334,8 @@
           ],
           "number": "18",
           "position": "Centre-Forward",
-          "overall_score": 54
+          "overall_score": 54,
+          "age": 21
         },
         {
           "contract": "",
@@ -4333,7 +4350,8 @@
           ],
           "number": "23",
           "position": "Centre-Forward",
-          "overall_score": 55
+          "overall_score": 55,
+          "age": 23
         },
         {
           "contract": "",
@@ -4348,7 +4366,8 @@
           ],
           "number": "27",
           "position": "Centre-Forward",
-          "overall_score": 57
+          "overall_score": 57,
+          "age": 21
         }
       ]
     },
