@@ -8,9 +8,9 @@
     // Active states — mirror the desktop nav groups (Mi equipo, Fichajes, Club,
     // Competición, Selección) so the right tab lights up on every page.
     $dashboardActive = $currentRoute === 'show-game';
-    $squadActive = in_array($currentRoute, ['game.squad', 'game.player.detail']);
+    $squadActive = in_array($currentRoute, ['game.squad', 'game.player.detail', 'game.squad.academy', 'game.academy.detail']);
     $lineupActive = $currentRoute === 'game.lineup';
-    $transfersActive = in_array($currentRoute, ['game.transfers', 'game.transfers.outgoing', 'game.scouting', 'game.scouting.results', 'game.explore', 'game.explore.teams', 'game.explore.squad', 'game.explore.pool-teams', 'game.explore.team', 'game.transfer-activity', 'game.transfers.market', 'game.squad.academy', 'game.academy.detail']);
+    $transfersActive = in_array($currentRoute, ['game.transfers', 'game.transfers.outgoing', 'game.scouting', 'game.scouting.results', 'game.explore', 'game.explore.teams', 'game.explore.squad', 'game.explore.pool-teams', 'game.explore.team', 'game.transfer-activity', 'game.transfers.market']);
     $clubRoutes = ['game.club', 'game.club.finances', 'game.club.investment', 'game.club.stadium', 'game.club.commercial', 'game.club.reputation'];
     $moreActive = in_array($currentRoute, array_merge($clubRoutes, [
         'game.calendar', 'game.competition', 'game.results', 'game.manager.career',
@@ -127,6 +127,14 @@
                 </a>
                 @endif
                 @if($isCareer)
+                @if(!$game->isFilial())
+                <a href="{{ route('game.squad.academy', $game->id) }}" @click="moreOpen = false" class="{{ $moreItem }}{{ in_array($currentRoute, ['game.squad.academy', 'game.academy.detail']) ? $moreItemActive : $moreItemIdle }}">
+                    <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.26 10.147a60.436 60.436 0 0 0-.491 6.347A48.627 48.627 0 0 1 12 20.904a48.627 48.627 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.57 50.57 0 0 0-2.658-.813A59.905 59.905 0 0 1 12 3.493a59.902 59.902 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/>
+                    </svg>
+                    <span class="text-sm font-medium">🌱 {{ __('squad.academy') }}</span>
+                </a>
+                @endif
                 <a href="{{ route('game.squad.planner', $game->id) }}" @click="moreOpen = false" class="{{ $moreItem }}{{ $currentRoute === 'game.squad.planner' ? $moreItemActive : $moreItemIdle }}">
                     <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3.75 6A2.25 2.25 0 0 1 6 3.75h2.25A2.25 2.25 0 0 1 10.5 6v2.25a2.25 2.25 0 0 1-2.25 2.25H6a2.25 2.25 0 0 1-2.25-2.25V6ZM3.75 15.75A2.25 2.25 0 0 1 6 13.5h2.25a2.25 2.25 0 0 1 2.25 2.25V18a2.25 2.25 0 0 1-2.25 2.25H6A2.25 2.25 0 0 1 3.75 18v-2.25ZM13.5 6a2.25 2.25 0 0 1 2.25-2.25H18A2.25 2.25 0 0 1 20.25 6v2.25A2.25 2.25 0 0 1 18 10.5h-2.25a2.25 2.25 0 0 1-2.25-2.25V6ZM13.5 15.75a2.25 2.25 0 0 1 2.25-2.25H18a2.25 2.25 0 0 1 2.25 2.25V18A2.25 2.25 0 0 1 18 20.25h-2.25A2.25 2.25 0 0 1 13.5 18v-2.25Z"/>
@@ -178,15 +186,8 @@
                     </svg>
                     <span class="text-sm font-medium">{{ __('transfers.explore_tab') }}</span>
                 </a>
-                @if(!$game->isFilial())
-                <a href="{{ route('game.squad.academy', $game->id) }}" @click="moreOpen = false" class="{{ $moreItem }}{{ in_array($currentRoute, ['game.squad.academy', 'game.academy.detail']) ? $moreItemActive : $moreItemIdle }}">
-                    <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.26 10.147a60.436 60.436 0 0 0-.491 6.347A48.627 48.627 0 0 1 12 20.904a48.627 48.627 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.57 50.57 0 0 0-2.658-.813A59.905 59.905 0 0 1 12 3.493a59.902 59.902 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"/>
-                    </svg>
-                    <span class="text-sm font-medium">{{ __('squad.academy') }}</span>
-                </a>
                 @endif
-                @endif
+                {{-- (Cantera movida a MI EQUIPO, más visible) --}}
 
                 {{-- 🏟️ CLUB (career only) --}}
                 @if($isCareer)

@@ -58,8 +58,8 @@
                         $isNationalTeam = $game->team->type === 'national';
 
                         // Active-state matchers per group
-                        $teamNavRoutes = ['game.squad', 'game.squad.planner', 'game.lineup', 'game.squad.registration', 'game.squad.reserve', 'game.player.detail', 'game.opponent-analysis'];
-                        $transfersNavRoutes = ['game.transfers', 'game.transfers.outgoing', 'game.scouting', 'game.scouting.results', 'game.explore', 'game.explore.teams', 'game.explore.squad', 'game.explore.pool-teams', 'game.explore.team', 'game.transfers.market', 'game.transfer-activity', 'game.squad.academy', 'game.academy.detail'];
+                        $teamNavRoutes = ['game.squad', 'game.squad.planner', 'game.lineup', 'game.squad.registration', 'game.squad.reserve', 'game.player.detail', 'game.opponent-analysis', 'game.squad.academy', 'game.academy.detail'];
+                        $transfersNavRoutes = ['game.transfers', 'game.transfers.outgoing', 'game.scouting', 'game.scouting.results', 'game.explore', 'game.explore.teams', 'game.explore.squad', 'game.explore.pool-teams', 'game.explore.team', 'game.transfers.market', 'game.transfer-activity'];
                         $clubNavRoutes = ['game.club', 'game.club.finances', 'game.club.investment', 'game.club.stadium', 'game.club.commercial', 'game.club.reputation'];
                         $compNavRoutes = ['game.calendar', 'game.competition', 'game.results', 'game.match.summary', 'game.live-match'];
                         $teamNavActive = in_array($navRoute, $teamNavRoutes);
@@ -75,6 +75,7 @@
                         // 📋 MI EQUIPO items
                         $miEquipoItems = [
                             ['route' => 'game.squad', 'label' => __('squad.first_team'), 'icon' => 'M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Z', 'match' => ['game.squad', 'game.player.detail']],
+                            ['route' => 'game.squad.academy', 'label' => '🌱 ' . __('squad.academy'), 'icon' => 'M4.26 10.147a60.436 60.436 0 0 0-.491 6.347A48.627 48.627 0 0 1 12 20.904a48.627 48.627 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.57 50.57 0 0 0-2.658-.813A59.905 59.905 0 0 1 12 3.493a59.902 59.902 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5', 'match' => ['game.squad.academy', 'game.academy.detail'], 'career_only' => true, 'hide_filial' => true],
                             ['route' => 'game.social', 'label' => '🐦 ' . (app()->getLocale() === 'es' ? 'Red Social' : 'Social'), 'icon' => 'M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm3.75 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm3.75 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0ZM21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.73 21.75a.75.75 0 0 1-.46-1.355l1.5-1.5a5.972 5.972 0 0 1-1.046-3.386C3.75 12.556 3.75 12.278 3.75 12S3.75 11.444 5.724 8.02a5.972 5.972 0 0 1 1.046-3.386l-1.5-1.5a.75.75 0 0 1 .46-1.355A5.972 5.972 0 0 1 9.445 2.25a9.764 9.764 0 0 1 2.555-.337C16.97 3.75 21 7.444 21 12Z', 'match' => ['game.social']],
                         ];
                         if ($nextMatch) {
@@ -98,9 +99,7 @@
                             ['route' => 'game.scouting.youth', 'label' => '🔍 ' . (app()->getLocale() === 'es' ? 'Canteras rivales' : 'Rival academies'), 'icon' => 'M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z', 'match' => ['game.scouting.youth']],
                             ['route' => 'game.explore', 'label' => __('transfers.explore_tab'), 'icon' => 'M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 0 1 7.843 4.582M12 3a8.997 8.997 0 0 0-7.843 4.582m15.686 0A11.953 11.953 0 0 1 12 10.5a11.964 11.964 0 0 1-7.843-2.918m15.686 0A8.959 8.959 0 0 1 21 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0 1 12 16.5c-2.632 0-5.152-.577-7.416-1.626m0 0A12.04 12.04 0 0 1 3 12c0-.778.099-1.533.284-2.253', 'match' => ['game.explore', 'game.explore.teams', 'game.explore.squad', 'game.explore.pool-teams', 'game.explore.team']],
                         ];
-                        if (!$game->isFilial()) {
-                            $fichajesItems[] = ['route' => 'game.squad.academy', 'label' => __('squad.academy'), 'icon' => 'M4.26 10.147a60.436 60.436 0 0 0-.491 6.347A48.627 48.627 0 0 1 12 20.904a48.627 48.627 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.57 50.57 0 0 0-2.658-.813A59.905 59.905 0 0 1 12 3.493a59.902 59.902 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5', 'match' => ['game.squad.academy', 'game.academy.detail']];
-                        }
+                        // (La cantera vive ahora en MI EQUIPO, más visible)
 
                         // 🏟️ CLUB items (career only)
                         $clubItems = [
@@ -134,6 +133,8 @@
                         <div x-show="open" x-cloak x-transition:enter="transition ease-out duration-100" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="absolute left-0 z-50 mt-2 w-56 rounded-xl shadow-xl bg-surface-800 border border-border-strong overflow-hidden">
                             <div class="py-1.5">
                                 @foreach($miEquipoItems as $item)
+                                @continue(!empty($item['career_only']) && !$game->isCareerMode())
+                                @continue(!empty($item['hide_filial']) && $game->isFilial())
                                 @php $isActive = in_array($navRoute, $item['match']); @endphp
                                 <a href="{{ route($item['route'], $game->id) }}" class="flex items-center gap-3 px-4 py-2.5 text-sm transition-colors {{ $isActive ? 'bg-purple-600/15 text-text-primary font-semibold' : 'text-text-body hover:bg-surface-700' }}">
                                     <svg class="w-[18px] h-[18px] shrink-0 {{ $isActive ? 'text-purple-400' : 'text-text-muted' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="{{ $item['icon'] }}"/></svg>
