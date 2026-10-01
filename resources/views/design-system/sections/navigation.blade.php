@@ -94,7 +94,7 @@
     {{-- Mobile Bottom Tab Bar --}}
     <div class="mb-12">
         <h3 class="text-lg font-semibold text-text-primary mb-2">Mobile Bottom Tab Bar</h3>
-        <p class="text-sm text-text-secondary mb-4">On mobile (<code class="text-[10px] bg-surface-700 px-1.5 py-0.5 rounded-sm text-text-body">lg:hidden</code>), navigation uses a fixed bottom tab bar with 5 tabs: Dashboard, Squad, Starting XI, Calendar, and More. The "More" tab opens a slide-up panel with secondary items (Finances, Transfers, Competitions). Implemented in <code class="text-[10px] bg-surface-700 px-1.5 py-0.5 rounded-sm text-text-body">bottom-tab-bar.blade.php</code>, included via <code class="text-[10px] bg-surface-700 px-1.5 py-0.5 rounded-sm text-text-body">game-header.blade.php</code>.</p>
+        <p class="text-sm text-text-secondary mb-4">On mobile (<code class="text-[10px] bg-surface-700 px-1.5 py-0.5 rounded-sm text-text-body">lg:hidden</code>), navigation uses a fixed bottom tab bar with 5 tabs: Dashboard, Squad, Starting XI (when a match is next), Transfers (career mode), and More. The "More" tab opens a slide-up panel grouped in the same 5 logical sections as the desktop nav (Mi equipo, Fichajes, Club, Competición, Selección). Implemented in <code class="text-[10px] bg-surface-700 px-1.5 py-0.5 rounded-sm text-text-body">bottom-tab-bar.blade.php</code>, included via <code class="text-[10px] bg-surface-700 px-1.5 py-0.5 rounded-sm text-text-body">game-header.blade.php</code>.</p>
 
         <div class="bg-surface-700/30 border border-border-default rounded-xl p-6 mb-3">
             {{-- Simulated mobile layout --}}

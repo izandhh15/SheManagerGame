@@ -3,8 +3,16 @@
 return [
     // Navigation
     'dashboard' => 'Inicio',
+    'my_team' => 'Mi equipo',
+    'selection' => 'Selección',
     'squad' => 'Plantilla',
     'starting_xi' => 'Alineación',
+    'tactics' => 'Tácticas',
+    'matches' => 'Partidos',
+    'results' => 'Resultados',
+    'renewals' => 'Renovaciones',
+    'quick_actions' => 'Acciones rápidas',
+    'play_match' => 'Jugar partido',
     'scout_opponent' => 'Estudiar Rival',
     'finances' => 'Finanzas',
     'club' => 'Club',

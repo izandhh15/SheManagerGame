@@ -44,6 +44,43 @@
         </div>
         @endif
 
+        {{-- ⚡ Acciones rápidas: atajos a lo que más se usa, sin pasar por los menús --}}
+        @php
+            $quickActions = [];
+            if ($nextMatch) {
+                $quickActions[] = ['route' => 'game.lineup', 'label' => __('app.play_match'), 'icon' => 'M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.348a1.125 1.125 0 0 1 0 1.971l-11.54 6.347a1.125 1.125 0 0 1-1.667-.985V5.653Z', 'highlight' => true];
+            }
+            if ($game->isCareerMode()) {
+                $quickActions[] = ['route' => 'game.transfers.market', 'label' => __('transfers.market_tab'), 'icon' => 'M13.5 21v-7.5a.75.75 0 0 1 .75-.75h3a.75.75 0 0 1 .75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349M3.75 21V9.349m0 0a3.001 3.001 0 0 0 3.75-.615A2.993 2.993 0 0 0 9.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 0 0 2.25 1.016c.896 0 1.7-.393 2.25-1.015a3.001 3.001 0 0 0 3.75.614m-16.5 0a3.004 3.004 0 0 1-.621-4.72L4.318 3.44A1.5 1.5 0 0 1 5.378 3h13.243a1.5 1.5 0 0 1 1.06.44l1.19 1.189a3 3 0 0 1-.621 4.72m-13.5 8.615c0 .331.27.6.6.6h3.6a.6.6 0 0 0 .6-.6v-1.2a.6.6 0 0 0-.6-.6h-3.6a.6.6 0 0 0-.6.6v1.2Z', 'highlight' => false];
+                $quickActions[] = ['route' => 'game.transfers', 'label' => __('app.renewals'), 'icon' => 'M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0 3.181 3.183a8.25 8.25 0 0 0 13.803-3.7M4.031 9.865a8.25 8.25 0 0 1 13.803-3.7l3.181 3.182m0-4.991v4.99', 'highlight' => false];
+                $quickActions[] = ['route' => 'game.scouting', 'label' => __('transfers.scouting_tab'), 'icon' => 'M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z', 'highlight' => false];
+                if (!$game->isFilial()) {
+                    $quickActions[] = ['route' => 'game.squad.academy', 'label' => __('squad.academy'), 'icon' => 'M4.26 10.147a60.436 60.436 0 0 0-.491 6.347A48.627 48.627 0 0 1 12 20.904a48.627 48.627 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.57 50.57 0 0 0-2.658-.813A59.905 59.905 0 0 1 12 3.493a59.902 59.902 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5', 'highlight' => false];
+                }
+                $quickActions[] = ['route' => 'game.club.stadium', 'label' => __('club.nav.stadium'), 'icon' => 'M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21', 'highlight' => false];
+            }
+            $quickActions[] = ['route' => 'game.calendar', 'label' => __('app.calendar'), 'icon' => 'M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5', 'highlight' => false];
+            if ($game->team->type === 'national') {
+                $quickActions[] = ['route' => 'game.national-squad-picker', 'label' => __('game.convocatoria'), 'icon' => 'M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0-3.75-3.75M17.25 21 21 17.25', 'highlight' => false];
+            }
+        @endphp
+        @if(!empty($quickActions))
+        <x-section-card :title="__('app.quick_actions')" class="mt-6">
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2 px-4 py-4">
+                @foreach($quickActions as $action)
+                <a href="{{ route($action['route'], $game->id) }}"
+                   class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg border transition-colors text-sm font-medium
+                          {{ $action['highlight'] ? 'bg-accent-red/10 border-accent-red/40 text-text-primary hover:bg-accent-red/20' : 'bg-surface-700/40 border-border-default text-text-body hover:bg-surface-700 hover:text-text-primary' }}">
+                    <svg class="w-5 h-5 shrink-0 {{ $action['highlight'] ? 'text-accent-red' : 'text-text-muted' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="{{ $action['icon'] }}"/>
+                    </svg>
+                    {{ $action['label'] }}
+                </a>
+                @endforeach
+            </div>
+        </x-section-card>
+        @endif
+
         @if($nextMatch)
         <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
             {{-- Context rail: next match + fixtures + standings. The narrow 1/3
