@@ -717,7 +717,9 @@ class GamePlayerTemplateService
      */
     public static function variedDefaultDob(string $playerKey, string $season): Carbon
     {
-        $h = hexdec(substr(md5('dob:' . $playerKey), 0, 8));
+        // 7 hex digits max (0xFFFFFFF < 2^31): hexdec() with 8 digits returns
+        // a float on 32-bit PHP and the % below can go negative (fatal month).
+        $h = hexdec(substr(md5('dob:' . $playerKey), 0, 7));
         $r = ($h % 1000) / 1000.0;
         $age = match (true) {
             $r < 0.08 => 18 + ($h % 3),   // 18-20
@@ -737,7 +739,8 @@ class GamePlayerTemplateService
      */
     public static function variedDefaultContract(string $playerKey, Carbon $referenceDate): string
     {
-        $h = hexdec(substr(md5('contract:' . $playerKey), 0, 8));
+        // 7 hex digits max (0xFFFFFFF < 2^31): see variedDefaultDob.
+        $h = hexdec(substr(md5('contract:' . $playerKey), 0, 7));
         $years = 1 + ($h % 4); // 1-4 years
 
         return $referenceDate->copy()->addYears($years)->month(6)->day(30)->toDateString();
