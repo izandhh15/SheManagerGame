@@ -22,7 +22,8 @@
             "Spain"
           ],
           "number": "1",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 68
         },
         {
           "contract": "",
@@ -81,7 +82,8 @@
             "Spain"
           ],
           "number": "5",
-          "position": "Left-Back"
+          "position": "Left-Back",
+          "overall_score": 61
         },
         {
           "contract": "Jun 30, 2027",
@@ -110,7 +112,8 @@
             "Spain"
           ],
           "number": "17",
-          "position": "Right-Back"
+          "position": "Right-Back",
+          "overall_score": 61
         },
         {
           "contract": "Jun 30, 2028",
@@ -125,7 +128,7 @@
           ],
           "number": "11",
           "position": "Midfielder",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2029",
@@ -139,7 +142,8 @@
             "Argentina"
           ],
           "number": "3",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -168,7 +172,8 @@
             "Spain"
           ],
           "number": "7",
-          "position": "Midfielder"
+          "position": "Midfielder",
+          "overall_score": 62
         },
         {
           "contract": "Jun 30, 2027",
@@ -197,7 +202,8 @@
             "Spain"
           ],
           "number": "10",
-          "position": "Attacking Midfield"
+          "position": "Attacking Midfield",
+          "overall_score": 68
         },
         {
           "contract": "Jun 30, 2028",
@@ -241,7 +247,8 @@
             "Spain"
           ],
           "number": "20",
-          "position": "Right Midfield"
+          "position": "Right Midfield",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -255,7 +262,8 @@
             "Spain"
           ],
           "number": "9",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2028",
@@ -269,7 +277,8 @@
             "Spain"
           ],
           "number": "16",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 69
         },
         {
           "contract": "Jun 30, 2027",
@@ -283,7 +292,8 @@
             "Spain"
           ],
           "number": "18",
-          "position": "Left Winger"
+          "position": "Left Winger",
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2028",
@@ -298,7 +308,7 @@
           ],
           "number": "19",
           "position": "Centre-Forward",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2028",
@@ -337,7 +347,7 @@
           ],
           "number": "1",
           "position": "Goalkeeper",
-          "overall_score": 58
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2028",
@@ -352,7 +362,7 @@
           ],
           "number": "13",
           "position": "Goalkeeper",
-          "overall_score": 56
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2029",
@@ -367,7 +377,7 @@
           ],
           "number": "3",
           "position": "Centre-Back",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -381,7 +391,8 @@
             "Spain"
           ],
           "number": "4",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 65
         },
         {
           "contract": "Jun 30, 2028",
@@ -425,7 +436,8 @@
             "Spain"
           ],
           "number": "2",
-          "position": "Right-Back"
+          "position": "Right-Back",
+          "overall_score": 64
         },
         {
           "contract": "Jun 30, 2028",
@@ -440,7 +452,7 @@
           ],
           "number": "17",
           "position": "Right-Back",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -469,7 +481,8 @@
             "Spain"
           ],
           "number": "16",
-          "position": "Defensive Midfield"
+          "position": "Defensive Midfield",
+          "overall_score": 67
         },
         {
           "contract": "",
@@ -483,7 +496,8 @@
             "Spain"
           ],
           "number": "7",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 67
         },
         {
           "contract": "",
@@ -498,7 +512,7 @@
           ],
           "number": "8",
           "position": "Defensive Midfield",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2029",
@@ -512,7 +526,8 @@
             "Poland"
           ],
           "number": "9",
-          "position": "Defensive Midfield"
+          "position": "Defensive Midfield",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -557,7 +572,7 @@
           ],
           "number": "22",
           "position": "Attacking Midfield",
-          "overall_score": 58
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2030",
@@ -571,7 +586,8 @@
             "Italy"
           ],
           "number": "11",
-          "position": "Left Winger"
+          "position": "Left Winger",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -600,7 +616,8 @@
             "Spain"
           ],
           "number": "19",
-          "position": "Left Winger"
+          "position": "Left Winger",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -614,7 +631,8 @@
             "Netherlands"
           ],
           "number": "34",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -628,7 +646,8 @@
             "Spain"
           ],
           "number": "14",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -643,7 +662,7 @@
           ],
           "number": "31",
           "position": "Centre-Forward",
-          "overall_score": 58
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -658,7 +677,7 @@
           ],
           "number": "36",
           "position": "Centre-Forward",
-          "overall_score": 57
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -742,7 +761,7 @@
           ],
           "number": "13",
           "position": "Goalkeeper",
-          "overall_score": 56
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -772,7 +791,7 @@
           ],
           "number": "3",
           "position": "Centre-Back",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -801,7 +820,8 @@
             "Spain"
           ],
           "number": "4",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 67
         },
         {
           "contract": "",
@@ -845,7 +865,8 @@
             "Equatorial Guinea"
           ],
           "number": "14",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 65
         },
         {
           "contract": "",
@@ -874,7 +895,8 @@
             "Spain"
           ],
           "number": "30",
-          "position": "Midfielder"
+          "position": "Midfielder",
+          "overall_score": 64
         },
         {
           "contract": "",
@@ -889,7 +911,7 @@
           ],
           "number": "17",
           "position": "Midfielder",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -904,7 +926,7 @@
           ],
           "number": "22",
           "position": "Midfielder",
-          "overall_score": 58
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -964,7 +986,7 @@
           ],
           "number": "29",
           "position": "Left Winger",
-          "overall_score": 56
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -979,7 +1001,7 @@
           ],
           "number": "25",
           "position": "Centre-Forward",
-          "overall_score": 56
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -993,7 +1015,8 @@
             "Spain"
           ],
           "number": "21",
-          "position": "Left Winger"
+          "position": "Left Winger",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -1045,87 +1068,100 @@
           "name": "Enara Fernández Hernández",
           "position": "Defender",
           "nationality": "España",
-          "age": 17
+          "age": 17,
+          "overall_score": 67
         },
         {
           "id": "9800090",
           "name": "Marta López de Guereñu Arriaga",
           "position": "Defender",
           "nationality": "España",
-          "age": 23
+          "age": 23,
+          "overall_score": 66
         },
         {
           "id": "9800091",
           "name": "Alaia Echeverria Sainz",
           "position": "Defender",
           "nationality": "España",
-          "age": 18
+          "age": 18,
+          "overall_score": 69
         },
         {
           "id": "9800092",
           "name": "Aiala Ochoa de Eribe",
           "position": "Defender",
-          "nationality": "España"
+          "nationality": "España",
+          "overall_score": 61
         },
         {
           "id": "9800093",
           "name": "Aliza Fernández Expósito",
           "position": "Defender",
           "nationality": "España",
-          "age": 16
+          "age": 16,
+          "overall_score": 69
         },
         {
           "id": "9800094",
           "name": "Maialen Valladares Mesa",
           "position": "Midfielder",
-          "nationality": "España"
+          "nationality": "España",
+          "overall_score": 61
         },
         {
           "id": "9800095",
           "name": "Garazi Belaustegi Uriagereka",
           "position": "Midfielder",
           "nationality": "España",
-          "age": 19
+          "age": 19,
+          "overall_score": 64
         },
         {
           "id": "9800096",
           "name": "Malen Armesto Kortabitarte",
           "position": "Midfielder",
           "nationality": "España",
-          "age": 19
+          "age": 19,
+          "overall_score": 68
         },
         {
           "id": "9800097",
           "name": "Ainhoa Oliva Alonso",
           "position": "Midfielder",
           "nationality": "España",
-          "age": 17
+          "age": 17,
+          "overall_score": 67
         },
         {
           "id": "9800098",
           "name": "Cristina Ochandiano Corcostegui",
           "position": "Forward",
-          "nationality": "España"
+          "nationality": "España",
+          "overall_score": 64
         },
         {
           "id": "9800099",
           "name": "Malen Uranga Callejo",
           "position": "Forward",
           "nationality": "España",
-          "age": 24
+          "age": 24,
+          "overall_score": 69
         },
         {
           "id": "9800100",
           "name": "Nagore Garro Lobato",
           "position": "Forward",
           "nationality": "España",
-          "age": 18
+          "age": 18,
+          "overall_score": 63
         },
         {
           "id": "9800101",
           "name": "María Ortega",
           "position": "Forward",
-          "nationality": "España"
+          "nationality": "España",
+          "overall_score": 60
         }
       ]
     },
@@ -1149,7 +1185,7 @@
           ],
           "number": "1",
           "position": "Goalkeeper",
-          "overall_score": 58
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -1209,7 +1245,7 @@
           ],
           "number": "5",
           "position": "Right-Back",
-          "overall_score": 56
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -1253,7 +1289,8 @@
             "Spain"
           ],
           "number": "8",
-          "position": "Defensive Midfield"
+          "position": "Defensive Midfield",
+          "overall_score": 63
         },
         {
           "contract": "Jun 30, 2027",
@@ -1298,7 +1335,7 @@
           ],
           "number": "11",
           "position": "Right Winger",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -1532,7 +1569,7 @@
           ],
           "number": "35",
           "position": "Goalkeeper",
-          "overall_score": 58
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -1576,7 +1613,8 @@
             "Spain"
           ],
           "number": "2",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 68
         },
         {
           "contract": "Jun 30, 2027",
@@ -1666,7 +1704,7 @@
           ],
           "number": "34",
           "position": "Centre-Back",
-          "overall_score": 57
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -1696,7 +1734,7 @@
           ],
           "number": "7",
           "position": "Attacking Midfield",
-          "overall_score": 58
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -1726,7 +1764,7 @@
           ],
           "number": "10",
           "position": "Midfielder",
-          "overall_score": 58
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -1755,7 +1793,8 @@
             "Spain"
           ],
           "number": "3",
-          "position": "Right Midfield"
+          "position": "Right Midfield",
+          "overall_score": 64
         },
         {
           "contract": "Jun 30, 2027",
@@ -1800,7 +1839,7 @@
           ],
           "number": "17",
           "position": "Centre-Forward",
-          "overall_score": 58
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -1845,7 +1884,7 @@
           ],
           "number": "28",
           "position": "Centre-Forward",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2028",
@@ -1914,7 +1953,7 @@
           ],
           "number": "1",
           "position": "Goalkeeper",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2028",
@@ -1944,7 +1983,7 @@
           ],
           "number": "4",
           "position": "Goalkeeper",
-          "overall_score": 57
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -1958,7 +1997,8 @@
             "Spain"
           ],
           "number": "13",
-          "position": "Right-Back"
+          "position": "Right-Back",
+          "overall_score": 68
         },
         {
           "contract": "Jun 30, 2028",
@@ -1988,7 +2028,7 @@
           ],
           "number": "5",
           "position": "Centre-Back",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -2018,7 +2058,7 @@
           ],
           "number": "14",
           "position": "Centre-Back",
-          "overall_score": 56
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -2093,7 +2133,7 @@
           ],
           "number": "16",
           "position": "Central Midfield",
-          "overall_score": 58
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2029",
@@ -2108,7 +2148,7 @@
           ],
           "number": "20",
           "position": "Attacking Midfield",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -2123,7 +2163,7 @@
           ],
           "number": "22",
           "position": "Midfielder",
-          "overall_score": 57
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -2138,7 +2178,7 @@
           ],
           "number": "29",
           "position": "Midfielder",
-          "overall_score": 57
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -2153,7 +2193,7 @@
           ],
           "number": "30",
           "position": "Midfielder",
-          "overall_score": 58
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -2168,7 +2208,7 @@
           ],
           "number": "18",
           "position": "Centre-Forward",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -2212,7 +2252,8 @@
             "Spain"
           ],
           "number": "8",
-          "position": "Right Winger"
+          "position": "Right Winger",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -2241,7 +2282,8 @@
             "Spain"
           ],
           "number": "11",
-          "position": "Second Striker"
+          "position": "Second Striker",
+          "overall_score": 62
         },
         {
           "contract": "",
@@ -2256,7 +2298,7 @@
           ],
           "number": "15",
           "position": "Centre-Forward",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -2271,7 +2313,7 @@
           ],
           "number": "17",
           "position": "Centre-Forward",
-          "overall_score": 58
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -2286,44 +2328,15 @@
           ],
           "number": "27",
           "position": "Centre-Forward",
-          "overall_score": 57
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Jan 1, 2000",
-          "foot": "",
-          "height": "",
-          "id": 930022,
-          "marketValue": "",
-          "name": "Cristina Redondo",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "35",
-          "position": "Centre-Forward",
-          "overall_score": 65
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Jan 1, 2000",
-          "foot": "",
-          "height": "",
-          "id": 930023,
-          "marketValue": "",
-          "name": "Daniela Miñambres",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "46",
-          "position": "Centre-Back",
-          "overall_score": 63
+          "overall_score": 60
         },
         {
           "id": "9800088",
           "name": "Anna Longobardi",
           "position": "Midfielder",
           "nationality": "Italia",
-          "age": 20
+          "age": 20,
+          "overall_score": 63
         }
       ]
     },
@@ -2392,7 +2405,7 @@
           ],
           "number": "3",
           "position": "Centre-Back",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -2422,7 +2435,7 @@
           ],
           "number": "12",
           "position": "Right-Back",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -2497,7 +2510,7 @@
           ],
           "number": "27",
           "position": "Midfielder",
-          "overall_score": 58
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2028",
@@ -2617,7 +2630,7 @@
           ],
           "number": "26",
           "position": "Centre-Forward",
-          "overall_score": 58
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -2760,7 +2773,8 @@
             "Spain"
           ],
           "number": "10",
-          "position": "Left Midfield"
+          "position": "Left Midfield",
+          "overall_score": 69
         },
         {
           "contract": "Jun 30, 2027",
@@ -2775,7 +2789,7 @@
           ],
           "number": "7",
           "position": "Left Winger",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -2804,7 +2818,8 @@
             "Venezuela"
           ],
           "number": "19",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -2820,21 +2835,6 @@
           "number": "2",
           "position": "Centre-Back",
           "overall_score": 65
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Jan 1, 2000",
-          "foot": "",
-          "height": "",
-          "id": 930030,
-          "marketValue": "",
-          "name": "Lena Pérez",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "3",
-          "position": "Centre-Back",
-          "overall_score": 63
         },
         {
           "contract": "",
@@ -2865,21 +2865,6 @@
           "number": "6",
           "position": "Midfielder",
           "overall_score": 60
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Jan 1, 2000",
-          "foot": "",
-          "height": "",
-          "id": 930033,
-          "marketValue": "",
-          "name": "Daniela Arques",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "8",
-          "position": "Midfielder",
-          "overall_score": 64
         },
         {
           "contract": "",
@@ -2961,21 +2946,6 @@
           "dateOfBirth": "Jan 1, 2000",
           "foot": "",
           "height": "",
-          "id": 930039,
-          "marketValue": "",
-          "name": "Raquel Morcillo",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "15",
-          "position": "Centre-Forward",
-          "overall_score": 72
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Jan 1, 2000",
-          "foot": "",
-          "height": "",
           "id": 930040,
           "marketValue": "",
           "name": "Carmen Fresneda",
@@ -3006,21 +2976,6 @@
           "dateOfBirth": "Jan 1, 2000",
           "foot": "",
           "height": "",
-          "id": 930042,
-          "marketValue": "",
-          "name": "Marina Martí",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "16",
-          "position": "Centre-Forward",
-          "overall_score": 62
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Jan 1, 2000",
-          "foot": "",
-          "height": "",
           "id": 930043,
           "marketValue": "",
           "name": "Lucía Ramírez",
@@ -3030,21 +2985,6 @@
           "number": "20",
           "position": "Centre-Back",
           "overall_score": 60
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Jan 1, 2000",
-          "foot": "",
-          "height": "",
-          "id": 930044,
-          "marketValue": "",
-          "name": "Lucía Martínez",
-          "nationality": [
-            "Spain"
-          ],
-          "number": "21",
-          "position": "Midfielder",
-          "overall_score": 72
         },
         {
           "contract": "",
@@ -3097,7 +3037,8 @@
             "France"
           ],
           "number": "1",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 66
         },
         {
           "contract": "",
@@ -3112,7 +3053,7 @@
           ],
           "number": "13",
           "position": "Goalkeeper",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3232,7 +3173,7 @@
           ],
           "number": "6",
           "position": "Midfielder",
-          "overall_score": 58
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3247,7 +3188,7 @@
           ],
           "number": "8",
           "position": "Midfielder",
-          "overall_score": 56
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3262,7 +3203,7 @@
           ],
           "number": "11",
           "position": "Midfielder",
-          "overall_score": 58
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3277,7 +3218,7 @@
           ],
           "number": "14",
           "position": "Midfielder",
-          "overall_score": 57
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3292,7 +3233,7 @@
           ],
           "number": "17",
           "position": "Midfielder",
-          "overall_score": 58
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3307,7 +3248,7 @@
           ],
           "number": "19",
           "position": "Midfielder",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3322,7 +3263,7 @@
           ],
           "number": "21",
           "position": "Midfielder",
-          "overall_score": 58
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3337,7 +3278,7 @@
           ],
           "number": "7",
           "position": "Centre-Forward",
-          "overall_score": 56
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3352,7 +3293,7 @@
           ],
           "number": "9",
           "position": "Centre-Forward",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3367,7 +3308,7 @@
           ],
           "number": "10",
           "position": "Right Winger",
-          "overall_score": 57
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3412,7 +3353,7 @@
           ],
           "number": "28",
           "position": "Centre-Forward",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3434,7 +3375,8 @@
           "name": "Andrea Berganza Fidalgo",
           "position": "Goalkeeper",
           "nationality": "España",
-          "age": 17
+          "age": 17,
+          "overall_score": 66
         }
       ]
     },
@@ -3457,7 +3399,8 @@
             "Spain"
           ],
           "number": "1",
-          "position": "Goalkeeper"
+          "position": "Goalkeeper",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -3487,7 +3430,7 @@
           ],
           "number": "25",
           "position": "Goalkeeper",
-          "overall_score": 56
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3502,7 +3445,7 @@
           ],
           "number": "2",
           "position": "Right-Back",
-          "overall_score": 56
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3517,7 +3460,7 @@
           ],
           "number": "3",
           "position": "Centre-Back",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3532,7 +3475,7 @@
           ],
           "number": "4",
           "position": "Centre-Back",
-          "overall_score": 57
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3562,7 +3505,7 @@
           ],
           "number": "14",
           "position": "Centre-Back",
-          "overall_score": 58
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3577,7 +3520,7 @@
           ],
           "number": "15",
           "position": "Centre-Back",
-          "overall_score": 57
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2026",
@@ -3591,7 +3534,8 @@
             "Spain"
           ],
           "number": "19",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 66
         },
         {
           "contract": "",
@@ -3606,7 +3550,7 @@
           ],
           "number": "22",
           "position": "Right-Back",
-          "overall_score": 57
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3620,7 +3564,8 @@
             "Spain"
           ],
           "number": "5",
-          "position": "Defensive Midfield"
+          "position": "Defensive Midfield",
+          "overall_score": 63
         },
         {
           "contract": "",
@@ -3634,7 +3579,8 @@
             "Spain"
           ],
           "number": "11",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3663,7 +3609,8 @@
             "Spain"
           ],
           "number": "8",
-          "position": "Attacking Midfield"
+          "position": "Attacking Midfield",
+          "overall_score": 69
         },
         {
           "contract": "",
@@ -3692,7 +3639,8 @@
             "Netherlands"
           ],
           "number": "24",
-          "position": "Midfielder"
+          "position": "Midfielder",
+          "overall_score": 61
         },
         {
           "contract": "",
@@ -3707,7 +3655,7 @@
           ],
           "number": "7",
           "position": "Centre-Forward",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3722,7 +3670,7 @@
           ],
           "number": "9",
           "position": "Centre-Forward",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3766,7 +3714,8 @@
             "Morocco"
           ],
           "number": "18",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 68
         },
         {
           "contract": "",
@@ -3781,7 +3730,7 @@
           ],
           "number": "20",
           "position": "Centre-Forward",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "",
@@ -3795,51 +3744,59 @@
             "Spain"
           ],
           "number": "21",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 67
         },
         {
           "id": "9800138",
           "name": "Manuela Fernández Ramírez",
           "position": "Goalkeeper",
           "nationality": "España",
-          "age": 18
+          "age": 18,
+          "overall_score": 65
         },
         {
           "id": "9800139",
           "name": "Alicia de la Cuerda García-Calvo",
           "position": "Midfielder",
           "nationality": "España",
-          "age": 22
+          "age": 22,
+          "overall_score": 63
         },
         {
           "id": "9800140",
           "name": "Marta Vega Espinosa",
           "position": "Unknown",
-          "nationality": "España"
+          "nationality": "España",
+          "overall_score": 64
         },
         {
           "id": "9800141",
           "name": "Sofía Lozano Cobo",
           "position": "Forward",
           "nationality": "España",
-          "age": 18
+          "age": 18,
+          "overall_score": 66
         },
         {
           "id": "9800142",
           "name": "Ariadna Nayaded González Pedrosa",
           "position": "Unknown",
-          "nationality": "España"
+          "nationality": "España",
+          "overall_score": 62
         },
         {
           "id": "9800143",
           "name": "Miranda Grace Sterner",
-          "position": "Unknown"
+          "position": "Unknown",
+          "overall_score": 67
         },
         {
           "id": "9800144",
           "name": "Nuria Carracedo Monterreal",
           "position": "Unknown",
-          "nationality": "España"
+          "nationality": "España",
+          "overall_score": 64
         }
       ]
     },
@@ -3922,7 +3879,8 @@
             "Spain"
           ],
           "number": "19",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 67
         },
         {
           "contract": "Jun 30, 2027",
@@ -3951,7 +3909,8 @@
             "Chile"
           ],
           "number": "23",
-          "position": "Left-Back"
+          "position": "Left-Back",
+          "overall_score": 63
         },
         {
           "contract": "Jun 30, 2027",
@@ -3965,7 +3924,8 @@
             "Spain"
           ],
           "number": "10",
-          "position": "Central Midfield"
+          "position": "Central Midfield",
+          "overall_score": 62
         },
         {
           "contract": "Jun 30, 2027",
@@ -3994,7 +3954,8 @@
             "Spain"
           ],
           "number": "21",
-          "position": "Midfielder"
+          "position": "Midfielder",
+          "overall_score": 63
         },
         {
           "contract": "Jun 30, 2027",
@@ -4024,7 +3985,7 @@
           ],
           "number": "8",
           "position": "Centre-Forward",
-          "overall_score": 57
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -4287,7 +4248,8 @@
             "Spain"
           ],
           "number": "17",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -4302,7 +4264,7 @@
           ],
           "number": "18",
           "position": "Centre-Back",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -4506,7 +4468,7 @@
           ],
           "number": "1",
           "position": "Goalkeeper",
-          "overall_score": 58
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -4535,7 +4497,8 @@
             "Brazil"
           ],
           "number": "5",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 68
         },
         {
           "contract": "Jun 30, 2027",
@@ -4550,7 +4513,7 @@
           ],
           "number": "14",
           "position": "Centre-Back",
-          "overall_score": 58
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -4639,7 +4602,8 @@
             "Spain"
           ],
           "number": "2",
-          "position": "Midfielder"
+          "position": "Midfielder",
+          "overall_score": 67
         },
         {
           "contract": "Jun 30, 2027",
@@ -4684,7 +4648,7 @@
           ],
           "number": "8",
           "position": "Attacking Midfield",
-          "overall_score": 56
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -4774,7 +4738,7 @@
           ],
           "number": "23",
           "position": "Centre-Forward",
-          "overall_score": 58
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -4804,7 +4768,7 @@
           ],
           "number": "17",
           "position": "Centre-Forward",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -4873,7 +4837,7 @@
           ],
           "number": "2",
           "position": "Goalkeeper",
-          "overall_score": 56
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -4917,7 +4881,8 @@
             "Spain"
           ],
           "number": "4",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 67
         },
         {
           "contract": "Jun 30, 2027",
@@ -4931,7 +4896,8 @@
             "Spain"
           ],
           "number": "12",
-          "position": "Centre-Back"
+          "position": "Centre-Back",
+          "overall_score": 69
         },
         {
           "contract": "Jun 30, 2027",
@@ -4946,7 +4912,7 @@
           ],
           "number": "14",
           "position": "Left-Back",
-          "overall_score": 58
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -4991,7 +4957,7 @@
           ],
           "number": "35",
           "position": "Centre-Back",
-          "overall_score": 59
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -5036,7 +5002,7 @@
           ],
           "number": "15",
           "position": "Defensive Midfield",
-          "overall_score": 56
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -5050,7 +5016,8 @@
             "Spain"
           ],
           "number": "17",
-          "position": "Midfielder"
+          "position": "Midfielder",
+          "overall_score": 65
         },
         {
           "contract": "Jun 30, 2027",
@@ -5064,7 +5031,8 @@
             "Spain"
           ],
           "number": "19",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 61
         },
         {
           "contract": "Jun 30, 2027",
@@ -5123,7 +5091,8 @@
             "Spain"
           ],
           "number": "8",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 68
         },
         {
           "contract": "Jun 30, 2027",
@@ -5138,7 +5107,7 @@
           ],
           "number": "9",
           "position": "Centre-Forward",
-          "overall_score": 58
+          "overall_score": 60
         },
         {
           "contract": "Jun 30, 2027",
@@ -5152,7 +5121,8 @@
             "Spain"
           ],
           "number": "11",
-          "position": "Centre-Forward"
+          "position": "Centre-Forward",
+          "overall_score": 62
         },
         {
           "contract": "Jun 30, 2027",
@@ -5188,25 +5158,29 @@
           "id": "9800145",
           "name": "Adriana Suárez Artiles",
           "position": "Goalkeeper",
-          "nationality": "España"
+          "nationality": "España",
+          "overall_score": 63
         },
         {
           "id": "9800146",
           "name": "Clara Palacio Pérez",
           "position": "Unknown",
-          "nationality": "España"
+          "nationality": "España",
+          "overall_score": 61
         },
         {
           "id": "9800147",
           "name": "Marta Álvarez Coviella",
           "position": "Unknown",
-          "nationality": "España"
+          "nationality": "España",
+          "overall_score": 68
         },
         {
           "id": "9800148",
           "name": "Miriam Garrido Antón",
           "position": "Unknown",
-          "nationality": "España"
+          "nationality": "España",
+          "overall_score": 68
         }
       ]
     }

@@ -237,21 +237,6 @@
         },
         {
           "contract": "",
-          "dateOfBirth": "Jan 25, 2003",
-          "foot": "",
-          "height": "",
-          "id": "941650",
-          "marketValue": null,
-          "name": "Ana Flavia",
-          "nationality": [
-            "Brazil"
-          ],
-          "number": "5",
-          "position": "Midfielder",
-          "overall_score": 68
-        },
-        {
-          "contract": "",
           "dateOfBirth": "Feb 11, 2003",
           "foot": "right",
           "height": "1,68 m",
@@ -2397,7 +2382,7 @@
         },
         {
           "contract": "Dec 31, 2027",
-          "dateOfBirth": "Jun 12, 1997",
+          "dateOfBirth": "Jan 1, 2000",
           "foot": "right",
           "height": "1,63",
           "id": "9700099",
@@ -2406,8 +2391,9 @@
           "nationality": [
             "Venezuela"
           ],
-          "number": null,
-          "position": "Defender"
+          "number": "",
+          "position": "Defender",
+          "overall_score": 68
         },
         {
           "contract": "Dec 31, 2026",
@@ -3014,21 +3000,6 @@
           "number": 17,
           "position": "Striker",
           "overall_score": 69
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Jan 27, 2006",
-          "foot": "right",
-          "height": "1,63",
-          "id": "941173",
-          "marketValue": null,
-          "name": "Dudinha",
-          "nationality": [
-            "Brazil"
-          ],
-          "number": 21,
-          "position": "Striker",
-          "overall_score": 68
         },
         {
           "contract": "Jun 30, 2026",
@@ -4187,21 +4158,6 @@
         },
         {
           "contract": "",
-          "dateOfBirth": "Aug 24, 1994",
-          "foot": "",
-          "height": "1,60",
-          "id": "9700145",
-          "marketValue": null,
-          "name": "Jessica Peña",
-          "nationality": [
-            "Colombia"
-          ],
-          "number": 14,
-          "position": "Midfielder",
-          "overall_score": 71
-        },
-        {
-          "contract": "",
           "dateOfBirth": "Feb 27, 1998",
           "foot": "",
           "height": "",
@@ -4244,21 +4200,6 @@
           "number": 1,
           "position": "Attacking Midfield",
           "overall_score": 70
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Jun 9, 2003",
-          "foot": "",
-          "height": "",
-          "id": "9700153",
-          "marketValue": null,
-          "name": "Dudinha",
-          "nationality": [
-            "Brazil"
-          ],
-          "number": 40,
-          "position": "Midfielder",
-          "overall_score": 69
         },
         {
           "contract": "",
@@ -4823,21 +4764,6 @@
           "number": 27,
           "position": "Attacking Midfield",
           "overall_score": 71
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Feb 26, 2001",
-          "foot": "left",
-          "height": "",
-          "id": "941386",
-          "marketValue": null,
-          "name": "Bia",
-          "nationality": [
-            "Brazil"
-          ],
-          "number": 31,
-          "position": "Midfielder",
-          "overall_score": 68
         },
         {
           "contract": "",
@@ -6233,21 +6159,6 @@
         },
         {
           "contract": "",
-          "dateOfBirth": "Dec 6, 2005",
-          "foot": "right",
-          "height": "1,70 m",
-          "id": "941062",
-          "marketValue": null,
-          "name": "Dudinha",
-          "nationality": [
-            "Brazil"
-          ],
-          "number": "21",
-          "position": "Midfielder",
-          "overall_score": 69
-        },
-        {
-          "contract": "",
           "dateOfBirth": "Oct 1, 1999",
           "foot": "",
           "height": "1,60 m",
@@ -7234,21 +7145,6 @@
           "number": "16",
           "position": "Left-Back",
           "overall_score": 70
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Jan 30, 2004",
-          "foot": "right",
-          "height": "1,61 m",
-          "id": "941085",
-          "marketValue": null,
-          "name": "Ravena",
-          "nationality": [
-            "Brazil"
-          ],
-          "number": "22",
-          "position": "Right-Back",
-          "overall_score": 69
         },
         {
           "contract": "",

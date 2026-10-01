@@ -8,11 +8,18 @@
        $alpineMode - mode value gating required/disabled (default 'career')
        $xModel     - when set, radios bind with x-model instead of the
                     required/disabled pair (used by dual mode's clubId)
+       $xModelMode - when set together with $xModel, radios are disabled
+                    unless the page mode matches (prevents leaking the value
+                    into another mode's form)
 --}}
 @php
     $radioName ??= 'team_id';
     $alpineMode ??= 'career';
     $xModel ??= null;
+    // When set, x-model radios are also disabled unless the page mode
+    // matches (e.g. dual's club grid must not leak its club_id into the
+    // affiliate form when the user switches modes).
+    $xModelMode ??= null;
 @endphp
 
 {{-- League picker. ESP3A/ESP3B share one 'ESP3' entry, built in
@@ -51,7 +58,7 @@
                             <x-team-crest :team="$team" class="w-7 h-7 md:w-10 md:h-10 shrink-0" />
                             <span class="text-xs md:text-base font-medium text-text-body truncate">{{ $team->name }}</span>
                             @if($xModel)
-                                <input x-model="{{ $xModel }}" type="radio" name="{{ $radioName }}" value="{{ $team->id }}" class="hidden">
+                                <input x-model="{{ $xModel }}" @if($xModelMode) x-bind:disabled="mode !== '{{ $xModelMode }}'" @endif type="radio" name="{{ $radioName }}" value="{{ $team->id }}" class="hidden">
                             @else
                                 <input x-bind:required="mode === '{{ $alpineMode }}'" x-bind:disabled="mode !== '{{ $alpineMode }}'" type="radio" name="{{ $radioName }}" value="{{ $team->id }}" class="hidden">
                             @endif

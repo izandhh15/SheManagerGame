@@ -214,21 +214,6 @@
         },
         {
           "contractUntil": null,
-          "dateOfBirth": "Aug 19, 2004",
-          "foot": null,
-          "height": "1,62m",
-          "id": 944011,
-          "marketValue": null,
-          "name": "Milagros Rolón",
-          "nationality": [
-            "Paraguay"
-          ],
-          "position": "Central Midfield",
-          "shirtNumber": 2,
-          "overall_score": 70
-        },
-        {
-          "contractUntil": null,
           "dateOfBirth": "Jul 7, 2000",
           "foot": "right",
           "height": null,
@@ -421,21 +406,6 @@
           "position": "Striker",
           "shirtNumber": 20,
           "overall_score": 68
-        },
-        {
-          "contractUntil": null,
-          "dateOfBirth": "Jun 25, 2005",
-          "foot": null,
-          "height": "1,69m",
-          "id": 944025,
-          "marketValue": null,
-          "name": "Dahiana Rivas",
-          "nationality": [
-            "Paraguay"
-          ],
-          "position": "Striker",
-          "shirtNumber": 21,
-          "overall_score": 69
         },
         {
           "contractUntil": null,
@@ -1160,36 +1130,6 @@
           ],
           "position": "Central Midfield",
           "shirtNumber": 11,
-          "overall_score": 65
-        },
-        {
-          "contractUntil": null,
-          "dateOfBirth": "Jul 13, 2008",
-          "foot": null,
-          "height": null,
-          "id": 944117,
-          "marketValue": null,
-          "name": "María Figueroa",
-          "nationality": [
-            "Uruguay"
-          ],
-          "position": "Central Midfield",
-          "shirtNumber": 21,
-          "overall_score": 64
-        },
-        {
-          "contractUntil": null,
-          "dateOfBirth": "Jun 15, 1994",
-          "foot": null,
-          "height": "1,71m",
-          "id": 944118,
-          "marketValue": null,
-          "name": "Sofía Oxandabarat",
-          "nationality": [
-            "Uruguay"
-          ],
-          "position": "Striker",
-          "shirtNumber": 8,
           "overall_score": 65
         },
         {
@@ -2456,21 +2396,6 @@
           "overall_score": 67
         },
         {
-          "id": 944270,
-          "name": "Mariana Silva",
-          "position": "Centre-Forward",
-          "nationality": [
-            "Colombia"
-          ],
-          "dateOfBirth": null,
-          "height": null,
-          "foot": null,
-          "shirtNumber": null,
-          "marketValue": null,
-          "contractUntil": null,
-          "overall_score": 68
-        },
-        {
           "id": 944271,
           "name": "Daniela Garavito",
           "position": "Second Striker",
@@ -3165,21 +3090,6 @@
           "overall_score": 71
         },
         {
-          "id": "944353",
-          "name": "Silvana Alfaro",
-          "position": "Goalkeeper",
-          "dateOfBirth": null,
-          "nationality": [
-            "Peru"
-          ],
-          "marketValue": null,
-          "foot": "right",
-          "height": "1,73m",
-          "shirtNumber": 30,
-          "contractUntil": null,
-          "overall_score": 70
-        },
-        {
           "id": "944354",
           "name": "Tatiana Castañeda",
           "position": "Centre-Back",
@@ -3638,19 +3548,6 @@
           "shirtNumber": null,
           "contractUntil": null,
           "overall_score": 67
-        },
-        {
-          "id": "944385",
-          "name": "Stephanie Lacoste",
-          "position": "Centre-Back",
-          "dateOfBirth": null,
-          "nationality": null,
-          "marketValue": null,
-          "foot": null,
-          "height": null,
-          "shirtNumber": null,
-          "contractUntil": null,
-          "overall_score": 68
         },
         {
           "id": "944386",

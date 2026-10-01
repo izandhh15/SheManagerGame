@@ -198,6 +198,7 @@ return [
     'category_severance' => 'Severance',
     'category_infrastructure' => 'Infrastructure',
     'category_stadium' => 'Stadium',
+    'category_venue_fee' => 'Venue fee (national team)',
     'category_agent_fee' => 'Agency fee',
     'category_budget_loan' => 'Budget Loan',
     'category_loan_repayment' => 'Loan Repayment',

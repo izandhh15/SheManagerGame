@@ -57,10 +57,14 @@
         @php $dualPartner = $game->dualPartner(); @endphp
         @if($dualPartner)
         <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 rounded-xl border border-accent-green/30 bg-accent-green/5 px-4 py-3">
-            <span class="text-[10px] font-semibold uppercase tracking-widest text-accent-green">{{ __('game.dual_mode') }}</span>
+            <span class="text-[10px] font-semibold uppercase tracking-widest text-accent-green">{{ $game->isAffiliatePair() ? __('game.affiliate_mode') : __('game.dual_mode') }}</span>
             <a href="{{ route('show-game', $dualPartner->id) }}" class="inline-flex items-center gap-2 text-sm font-semibold text-text-body hover:text-accent-green transition-colors">
                 <x-team-crest :team="$dualPartner->team" class="w-6 h-6" />
-                {{ $game->isDualSecondary() ? __('game.dual_go_club') : __('game.dual_go_nation') }}: {{ $dualPartner->team->name }}
+                @if($game->isAffiliatePair())
+                    {{ $game->isDualSecondary() ? __('game.affiliate_go_first') : __('game.affiliate_go_reserve') }}: {{ $dualPartner->team->name }}
+                @else
+                    {{ $game->isDualSecondary() ? __('game.dual_go_club') : __('game.dual_go_nation') }}: {{ $dualPartner->team->name }}
+                @endif
             </a>
             <form action="{{ route('game.advance-both', $game->id) }}" method="POST" class="ml-auto" x-data="{ submitting: false }" @submit="if (submitting) { $event.preventDefault(); return; } submitting = true; $dispatch('matchday-advance-starting')">
                 @csrf
@@ -89,6 +93,14 @@
             $quickActions[] = ['route' => 'game.calendar', 'label' => __('app.calendar'), 'icon' => 'M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5', 'highlight' => false];
             if ($game->team->type === 'national') {
                 $quickActions[] = ['route' => 'game.national-squad-picker', 'label' => __('game.convocatoria'), 'icon' => 'M3 4.5h14.25M3 9h9.75M3 13.5h9.75m4.5-4.5v12m0 0-3.75-3.75M17.25 21 21 17.25', 'highlight' => false];
+                // Venue organization for Nations League / qualifiers home matches.
+                $pendingVenues = $pendingVenues ?? 0;
+                $quickActions[] = [
+                    'route' => 'game.national-venues',
+                    'label' => __('game.venue_org_quick') . ($pendingVenues > 0 ? " ({$pendingVenues})" : ''),
+                    'icon' => 'M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21',
+                    'highlight' => $pendingVenues > 0,
+                ];
             }
         @endphp
         @if(!empty($quickActions))

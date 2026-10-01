@@ -1352,15 +1352,18 @@
         },
         {
           "contract": "",
-          "dateOfBirth": "",
+          "dateOfBirth": "Jan 1, 2000",
           "foot": "",
           "height": "",
           "id": "946098",
-          "marketValue": "€25k",
+          "marketValue": "",
           "name": "Maëlle Richelandet",
-          "nationality": [],
-          "number": "19",
-          "position": "Right-Back"
+          "nationality": [
+            "France"
+          ],
+          "number": "",
+          "position": "Defender",
+          "overall_score": 67
         },
         {
           "contract": "",
@@ -1784,15 +1787,18 @@
         },
         {
           "contract": "",
-          "dateOfBirth": "",
+          "dateOfBirth": "Jan 1, 2000",
           "foot": "",
           "height": "1,77m",
           "id": "946131",
           "marketValue": "€15k",
           "name": "Lucie Tengue",
-          "nationality": [],
-          "number": "19",
-          "position": "Central Midfield"
+          "nationality": [
+            "Benin"
+          ],
+          "number": "",
+          "position": "Midfielder",
+          "overall_score": 71
         },
         {
           "contract": "",
@@ -3125,15 +3131,18 @@
         },
         {
           "contract": "",
-          "dateOfBirth": "",
+          "dateOfBirth": "Jul 17, 2001",
           "foot": "",
           "height": "",
           "id": "946225",
-          "marketValue": "€30k",
+          "marketValue": "",
           "name": "Frédérique Abrogoua",
-          "nationality": [],
-          "number": "17",
-          "position": "Central Midfield"
+          "nationality": [
+            "Ivory Coast"
+          ],
+          "number": "",
+          "position": "Midfielder",
+          "overall_score": 72
         },
         {
           "contract": "",

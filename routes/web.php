@@ -45,6 +45,7 @@ use App\Http\Actions\ExitFastMode;
 use App\Http\Actions\SimulateTournament;
 use App\Http\Actions\ScheduleFriendly;
 use App\Http\Actions\SaveTrainingStage;
+use App\Http\Actions\OrganizeNationalVenue;
 use App\Http\Actions\CancelLoanSearch;
 use App\Http\Actions\CancelScoutSearch;
 use App\Http\Actions\AcknowledgeCriticalAlerts;
@@ -60,6 +61,7 @@ use App\Http\Actions\ProcessPenalties;
 use App\Http\Actions\InitGame;
 use App\Http\Actions\InitNationalGame;
 use App\Http\Actions\InitDualGame;
+use App\Http\Actions\InitAffiliateGame;
 use App\Http\Actions\ListPlayerForTransfer;
 use App\Http\Actions\NegotiateCounterOffer;
 use App\Http\Actions\NegotiateFreeAgent;
@@ -108,6 +110,7 @@ use App\Http\Views\Dashboard;
 use App\Http\Views\SelectTeam;
 use App\Http\Views\ShowNationalSquadPicker;
 use App\Http\Views\ShowNationalSquadPreview;
+use App\Http\Views\ShowNationalVenues;
 use App\Http\Views\ShowScheduleFriendly;
 use App\Http\Views\ShowCalendar;
 use App\Http\Views\ShowClubCommercial;
@@ -201,6 +204,9 @@ Route::middleware('auth')->group(function () {
 
     // Dual mode (club + national team): same throttle as the other creation endpoints
     Route::post('/new-game/dual', InitDualGame::class)->middleware('throttle:game-creation')->name('init-dual-game');
+
+    // Affiliate mode (first team + reserve team, linked saves like dual)
+    Route::post('/new-game/affiliate', InitAffiliateGame::class)->middleware('throttle:game-creation')->name('init-affiliate-game');
 
     Route::get('/tournament-summary/{summaryId}', ShowTournamentSummary::class)->name('tournament-summary.show');
 
@@ -369,6 +375,11 @@ Route::middleware('auth')->group(function () {
         Route::get('/game/{gameId}/schedule-friendly', ShowScheduleFriendly::class)->name('game.schedule-friendly');
         Route::post('/game/{gameId}/schedule-friendly', ScheduleFriendly::class)->name('game.schedule-friendly.store');
         Route::post('/game/{gameId}/schedule-friendly/stage', SaveTrainingStage::class)->name('game.schedule-friendly.stage.save');
+
+        // Venue organization for competitive national-team matches
+        // (Nations League groups -> semifinals, WWC/Euro qualifiers).
+        Route::get('/game/{gameId}/national-venues', ShowNationalVenues::class)->name('game.national-venues');
+        Route::post('/game/{gameId}/national-venues', OrganizeNationalVenue::class)->name('game.national-venues.store');
 
         // Budget Allocation
         // Legacy budget route — investment now lives on the Club investment page.

@@ -2090,20 +2090,6 @@
           "overall_score": 73
         },
         {
-          "contract": "Jun 30, 2028",
-          "dateOfBirth": "May 16, 2007",
-          "foot": "",
-          "height": "",
-          "id": "58625",
-          "marketValue": "€30k",
-          "name": "Romy Bräutigam",
-          "nationality": [
-            "Germany"
-          ],
-          "number": "31",
-          "position": "Goalkeeper"
-        },
-        {
           "contract": "Jun 30, 2027",
           "dateOfBirth": "Aug 24, 2000",
           "foot": "left",
@@ -3809,17 +3795,18 @@
         },
         {
           "contract": "",
-          "dateOfBirth": "Jul 31, 2004",
-          "foot": "both",
-          "height": "1,62m",
+          "dateOfBirth": "Jan 1, 2004",
+          "foot": "",
+          "height": "",
           "id": "40379",
-          "marketValue": "€75k",
-          "name": "Chiara D’Angelo",
+          "marketValue": "",
+          "name": "Chiara D'Angelo",
           "nationality": [
             "Austria"
           ],
-          "number": "2",
-          "position": "Left-Back"
+          "number": "",
+          "position": "Defence",
+          "overall_score": 65
         },
         {
           "contract": "",

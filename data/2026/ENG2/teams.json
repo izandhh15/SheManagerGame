@@ -132,7 +132,7 @@
         },
         {
           "contract": "Jun 30, 2027",
-          "dateOfBirth": "",
+          "dateOfBirth": "Jan 1, 2000",
           "foot": "",
           "height": "",
           "id": "947001",
@@ -141,8 +141,9 @@
           "nationality": [
             "Wales"
           ],
-          "number": "20",
-          "position": "Centre-Back"
+          "number": "",
+          "position": "Defender",
+          "overall_score": 84
         },
         {
           "contract": "Jun 30, 2029",

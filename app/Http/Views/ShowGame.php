@@ -26,6 +26,7 @@ class ShowGame
         private readonly CompetitionViewService $competitionViewService,
         private readonly MatchFinalizationService $finalizationService,
         private readonly DualTurnService $dualTurn,
+        private readonly \App\Modules\Stadium\Services\NationalVenueOrganizationService $venueOrg,
     ) {}
 
     public function __invoke(string $gameId)
@@ -207,6 +208,9 @@ class ShowGame
             'groupedNotifications' => $groupedNotifications,
             'unreadNotificationCount' => $this->notificationService->getUnreadCount($game->id),
             'dashboardContext' => $dashboardContext,
+            // National teams: home matches in Nations League / qualifiers
+            // still waiting for the manager to organize a venue.
+            'pendingVenues' => $game->isTournamentMode() ? $this->venueOrg->pendingMatches($game)->count() : 0,
         ];
 
         // Generate pre-match narrative snippets. Tournament mode renders 1-2 in

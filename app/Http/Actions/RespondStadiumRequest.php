@@ -52,14 +52,48 @@ class RespondStadiumRequest
         $nationalGame = Game::find($match->game_id);
         $clubTeam = $game->team;
         $accepted = $validated['decision'] === 'accept';
+        // Competitive NT matches (Nations League / qualifiers) carry a money
+        // offer in venue_fee; friendlies don't (null => legacy behaviour).
+        $isCompetitive = $match->competition_id !== 'FRIENDLY';
+        $offerEuros = $isCompetitive ? (int) ($match->venue_fee ?? 0) : 0;
 
-        DB::transaction(function () use ($match, $accepted, $clubTeam) {
+        DB::transaction(function () use ($match, $accepted, $clubTeam, $game, $nationalGame, $offerEuros, $isCompetitive) {
             if ($accepted) {
                 $match->neutral_venue_name = $clubTeam->stadium_name;
                 $match->neutral_venue_capacity = (int) $clubTeam->stadium_seats;
                 $match->venue_status = 'confirmed';
+
+                // The club receives the offered fee: charge the federation
+                // budget and credit this club game.
+                if ($isCompetitive && $offerEuros > 0 && $nationalGame) {
+                    $nationalGame->update([
+                        'federation_budget' => max(0, (int) $nationalGame->federation_budget - $offerEuros),
+                    ]);
+                    \App\Models\FinancialTransaction::create([
+                        'game_id' => $game->id,
+                        'type' => \App\Models\FinancialTransaction::TYPE_INCOME,
+                        'category' => 'venue_fee',
+                        'amount' => $offerEuros * 100,
+                        'description' => __('game.venue_fee_income_desc', [
+                            'team' => $nationalGame->team?->name ?? '',
+                            'stadium' => $clubTeam->stadium_name ?? '',
+                        ]),
+                        'transaction_date' => \Carbon\Carbon::parse($match->scheduled_date)->toDateString(),
+                    ]);
+                }
             } else {
-                $match->venue_status = 'rejected';
+                if ($isCompetitive) {
+                    // Back to the venue-organization list: the manager can
+                    // try another stadium or offer more money.
+                    $match->venue_status = 'rejected';
+                    $match->neutral_venue_name = null;
+                    $match->neutral_venue_capacity = null;
+                    $match->venue_fee = null;
+                    $match->venue_request_team_id = null;
+                    $match->venue_request_type = null;
+                } else {
+                    $match->venue_status = 'rejected';
+                }
                 $match->venue_request_excuse = $this->venueService->randomExcuse($clubTeam->name ?? '');
             }
             $match->save();

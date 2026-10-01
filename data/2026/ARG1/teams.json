@@ -2648,21 +2648,6 @@
           "dateOfBirth": "",
           "foot": "",
           "height": "",
-          "id": "941246",
-          "marketValue": "",
-          "name": "Laura Felipe",
-          "nationality": [
-            "Uruguay"
-          ],
-          "number": "23",
-          "position": "Defender",
-          "overall_score": 67
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "",
-          "foot": "",
-          "height": "",
           "id": "941247",
           "marketValue": "",
           "name": "Romina Luna",
@@ -3159,21 +3144,6 @@
           "number": "23",
           "position": "Forward",
           "overall_score": 67
-        },
-        {
-          "contract": "",
-          "dateOfBirth": "Jan 24, 1998",
-          "foot": "",
-          "height": "",
-          "id": "941267",
-          "marketValue": "",
-          "name": "Yamila Rodríguez",
-          "nationality": [
-            "Argentina"
-          ],
-          "number": "32",
-          "position": "Forward",
-          "overall_score": 73
         },
         {
           "contract": "",

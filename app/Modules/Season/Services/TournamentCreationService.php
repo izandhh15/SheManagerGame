@@ -218,6 +218,8 @@ class TournamentCreationService
             'needs_new_season_setup' => true,
             'setup_completed_at' => null,
             'national_squad_player_ids' => $squadPlayerIds,
+            // Venue organization budget for Nations League / qualifiers.
+            'federation_budget' => $isNational ? $this->budgetForNation($team) : 2000000,
         ]);
 
         // Create default tactical settings
@@ -229,5 +231,25 @@ class TournamentCreationService
         );
 
         return $game;
+    }
+
+    /**
+     * Federation venue-organization budget (euros) for a national team.
+     */
+    public function budgetForNation(Team $team): int
+    {
+        $top = [
+            'Spain', 'United States', 'England', 'Germany', 'France', 'Brazil',
+            'Japan', 'Netherlands', 'Sweden', 'Canada', 'Australia', 'Norway',
+            'Denmark', 'Italy', 'Iceland', 'South Korea',
+        ];
+        if (in_array($team->name, $top, true)) {
+            return 15_000_000;
+        }
+        if ($team->confederation === 'UEFA') {
+            return 8_000_000;
+        }
+
+        return 3_000_000;
     }
 }

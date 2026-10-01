@@ -574,17 +574,18 @@
         },
         {
           "id": "943039",
-          "name": "Denise O’Sullivan",
-          "position": "Defensive Midfield",
-          "dateOfBirth": "Feb 4, 1994",
+          "name": "Denise O'Sullivan",
+          "position": "Midfielder",
+          "dateOfBirth": "Jan 1, 2000",
           "nationality": [
             "Ireland"
           ],
           "marketValue": "€110k",
-          "number": 5,
+          "number": "",
           "contract": null,
           "foot": "right",
-          "height": "1,63m"
+          "height": "1,63m",
+          "overall_score": 82
         },
         {
           "id": "943040",
@@ -1578,17 +1579,18 @@
         },
         {
           "id": "943105",
-          "name": "Evan O’Steen",
+          "name": "Evan O'Steen",
           "position": "Goalkeeper",
-          "dateOfBirth": "Mar 22, 2008",
+          "dateOfBirth": "Jan 1, 2000",
           "nationality": [
-            "United States"
+            "USA"
           ],
-          "marketValue": "€45k",
-          "number": 18,
-          "contract": null,
-          "foot": null,
-          "height": "1,77m"
+          "marketValue": "",
+          "number": "",
+          "contract": "",
+          "foot": "",
+          "height": "",
+          "overall_score": 65
         },
         {
           "id": "943106",
@@ -5821,16 +5823,17 @@
         {
           "id": "943388",
           "name": "Linda Ullmark",
-          "position": "Midfielder",
-          "dateOfBirth": "Apr 21, 2006",
+          "position": "Midfield",
+          "dateOfBirth": "Jan 1, 2000",
           "nationality": [
-            "United States"
+            "USA"
           ],
-          "marketValue": "€65k",
-          "number": 30,
-          "contract": null,
-          "foot": null,
-          "height": "1,65m"
+          "marketValue": "",
+          "number": "",
+          "contract": "",
+          "foot": "",
+          "height": "",
+          "overall_score": 65
         },
         {
           "id": "943389",
@@ -6373,15 +6376,16 @@
           "id": "943425",
           "name": "Audrey McKeen",
           "position": "Striker",
-          "dateOfBirth": "Nov 26, 2008",
+          "dateOfBirth": "Jan 1, 2000",
           "nationality": [
-            "United States"
+            "USA"
           ],
-          "marketValue": "€35k",
-          "number": 88,
-          "contract": null,
-          "foot": null,
-          "height": "1,72m"
+          "marketValue": "",
+          "number": "",
+          "contract": "",
+          "foot": "",
+          "height": "",
+          "overall_score": 65
         }
       ]
     }

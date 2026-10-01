@@ -158,6 +158,7 @@ class Game extends Model
         'training_stage',
         'federation_budget',
         'board_confidence',
+        'pair_mode',
     ];
 
     protected $casts = [
@@ -322,6 +323,15 @@ class Game extends Model
     public function dualPartner(): ?Game
     {
         return $this->isDualSecondary() ? $this->linkedGame : $this->linkedSecondary;
+    }
+
+    /**
+     * Whether this linked pair is an affiliate (first team + reserve team)
+     * career rather than a club+nation dual.
+     */
+    public function isAffiliatePair(): bool
+    {
+        return $this->pair_mode === 'affiliate' && $this->dualPartner() !== null;
     }
 
     /**

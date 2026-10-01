@@ -28,7 +28,8 @@
                         + ($hasCareerAccess ? 1 : 0)
                         + ($hasTournamentMode ? 1 : 0)
                         + ($hasNationalMode ? 1 : 0)
-                        + (($hasCareerAccess && $hasNationalMode) ? 1 : 0);
+                        + (($hasCareerAccess && $hasNationalMode) ? 1 : 0)
+                        + (($hasCareerAccess && $affiliateClubs->isNotEmpty()) ? 1 : 0);
                     // Literal class strings so Tailwind JIT keeps the variants.
                     $modeGridClass = match ($modeCardCount) {
                         5 => 'md:grid-cols-3',
@@ -208,6 +209,37 @@
                             </div>
                             <div x-show="mode === 'dual'" x-cloak class="shrink-0">
                                 <svg class="w-6 h-6 text-accent-green" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </button>
+                        @endif
+
+                        {{-- Affiliate mode card (first team + reserve team, linked saves) --}}
+                        @if($hasCareerAccess && $affiliateClubs->isNotEmpty())
+                        <button type="button"
+                                @click="mode = 'affiliate'"
+                                :class="mode === 'affiliate'
+                                    ? 'ring-2 ring-accent-gold border-accent-gold/30 bg-accent-gold/5'
+                                    : 'border-border-strong hover:bg-surface-700/50'"
+                                class="relative flex items-center gap-4 p-4 md:p-5 rounded-xl border transition-all duration-200 text-left">
+                            <div class="shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center"
+                                 :class="mode === 'affiliate' ? 'bg-accent-gold' : 'bg-surface-600'">
+                                <svg class="w-6 h-6 md:w-7 md:h-7" :class="mode === 'affiliate' ? 'text-white' : 'text-text-muted'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+                                </svg>
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <h3 class="font-heading font-bold text-base md:text-lg uppercase tracking-wide" :class="mode === 'affiliate' ? 'text-accent-gold' : 'text-text-body'">
+                                    {{ __('game.mode_affiliate') }}
+                                    <span class="ml-1 align-middle text-[10px] font-sans font-semibold uppercase tracking-widest px-1.5 py-0.5 rounded bg-accent-gold/15 text-accent-gold">{{ __('game.mode_new_badge') }}</span>
+                                </h3>
+                                <p class="text-xs md:text-sm mt-0.5" :class="mode === 'affiliate' ? 'text-accent-gold/80' : 'text-text-muted'">
+                                    {{ __('game.mode_affiliate_desc') }}
+                                </p>
+                            </div>
+                            <div x-show="mode === 'affiliate'" x-cloak class="shrink-0">
+                                <svg class="w-6 h-6 text-accent-gold" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                                     <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
                                 </svg>
                             </div>
@@ -398,7 +430,7 @@
                     <div x-show="mode === 'dual'" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" class="space-y-6">
                         <div>
                             <p class="text-sm font-semibold text-text-body mb-3">{{ __('game.dual_step_1') }}</p>
-                            @include('partials.club-grid', ['radioName' => 'club_id', 'xModel' => 'clubId'])
+                            @include('partials.club-grid', ['radioName' => 'club_id', 'xModel' => 'clubId', 'xModelMode' => 'dual'])
                         </div>
 
                         <div x-data="{ q: '' }">
@@ -433,6 +465,40 @@
                                     </div>
                                 @endforeach
                             </div>
+                        </div>
+                    </div>
+                @endif
+
+                {{-- ===================== AFFILIATE MODE: first team + its filial =====================
+                     Step 1: pick the first team (only clubs with a playable filial are
+                     listed). The submit button posts to the affiliate endpoint with
+                     club_id via formaction, so both halves are created in one step. --}}
+                @if($hasCareerAccess && $affiliateClubs->isNotEmpty())
+                    <div x-show="mode === 'affiliate'" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" class="space-y-6">
+                        <div>
+                            <p class="text-sm font-semibold text-text-body mb-1">{{ __('game.affiliate_step_1') }}</p>
+                            <p class="text-xs text-text-muted mb-3">{{ __('game.affiliate_step_1_hint') }}</p>
+                            <x-input-error :messages="$errors->get('club_id')" class="mt-2 mb-2"/>
+                            <div class="grid grid-cols-2 lg:grid-cols-4 gap-2">
+                                @foreach($affiliateClubs as $club)
+                                    <label class="flex items-center gap-2 md:gap-3 rounded-lg border border-border-default p-2 md:p-4 cursor-pointer transition-all
+                                                   hover:bg-accent-gold/5 hover:border-accent-gold/30
+                                                   has-checked:ring-2 has-checked:ring-accent-gold has-checked:border-accent-gold/30 has-checked:bg-accent-gold/5">
+                                        <x-team-crest :team="$club" class="w-7 h-7 md:w-10 md:h-10 shrink-0" />
+                                        <span class="min-w-0">
+                                            <span class="block text-xs md:text-base font-medium text-text-body truncate">{{ $club->name }}</span>
+                                            <span class="block text-[11px] text-text-muted truncate">🔗 {{ $club->reserveTeam->name ?? '' }}</span>
+                                        </span>
+                                        <input x-bind:required="mode === 'affiliate'" x-bind:disabled="mode !== 'affiliate'" type="radio" name="club_id" value="{{ $club->id }}" class="hidden">
+                                    </label>
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="flex justify-center pt-2">
+                            <button type="submit" formaction="{{ route('init-affiliate-game') }}" formmethod="post"
+                                    class="rounded-lg bg-accent-gold px-8 py-3 text-sm font-bold uppercase tracking-wide text-white hover:brightness-110 transition">
+                                {{ __('game.affiliate_start') }}
+                            </button>
                         </div>
                     </div>
                 @endif

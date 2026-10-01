@@ -198,6 +198,7 @@ return [
     'category_severance' => 'Abfindung',
     'category_infrastructure' => 'Infrastruktur',
     'category_stadium' => 'Stadion',
+    'category_venue_fee' => 'Venue fee (national team)',
     'category_agent_fee' => 'Agenturprovision',
     'category_budget_loan' => 'Budgetdarlehen',
     'category_loan_repayment' => 'Darlehensrückzahlung',

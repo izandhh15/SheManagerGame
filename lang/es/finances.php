@@ -198,6 +198,7 @@ return [
     'category_severance' => 'Indemnización',
     'category_infrastructure' => 'Infraestructura',
     'category_stadium' => 'Estadio',
+    'category_venue_fee' => 'Alquiler de estadio (selección)',
     'category_agent_fee' => 'Comisión de agencia',
     'category_budget_loan' => 'Préstamo Presupuestario',
     'category_loan_repayment' => 'Devolución de Préstamo',

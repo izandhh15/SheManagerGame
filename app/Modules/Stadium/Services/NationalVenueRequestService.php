@@ -95,26 +95,34 @@ class NationalVenueRequestService
     /**
      * AI club decision for a national-team venue request.
      *
+     * A bigger offer (€) increases the acceptance chance: +5 points per
+     * €250K offered, capped at +30.
+     *
      * @return array{accepted: bool, excuse: string|null}
      */
-    public function evaluateClubRequest(Team $clubTeam, Team $nationalTeam, Team $opponent): array
+    public function evaluateClubRequest(Team $clubTeam, ?Team $nationalTeam, ?Team $opponent, ?int $offerEuros = null): array
     {
         $acceptChance = 55;
 
         // Prestigious national teams are attractive for the club's image.
         $bigNations = ['Spain', 'United States', 'England', 'Germany', 'France', 'Brazil'];
-        if (in_array($nationalTeam->name, $bigNations, true)) {
+        if ($nationalTeam && in_array($nationalTeam->name, $bigNations, true)) {
             $acceptChance += 20;
         }
 
         // Attractive opponent => more media attention.
-        if (in_array($opponent->name, $bigNations, true)) {
+        if ($opponent && in_array($opponent->name, $bigNations, true)) {
             $acceptChance += 10;
         }
 
         // Same country as the club => local pride.
-        if (($clubTeam->country ?? null) !== null && $clubTeam->country === ($nationalTeam->country ?? null)) {
+        if ($nationalTeam && ($clubTeam->country ?? null) !== null && $clubTeam->country === ($nationalTeam->country ?? null)) {
             $acceptChance += 10;
+        }
+
+        // Money talks: the federation's offer sweetens the deal.
+        if ($offerEuros !== null && $offerEuros > 0) {
+            $acceptChance += min(30, (int) floor($offerEuros / 250000) * 5);
         }
 
         $accepted = mt_rand(1, 100) <= min(95, $acceptChance);
@@ -127,20 +135,25 @@ class NationalVenueRequestService
 
     /**
      * AI men's club decision for a big-stadium request. Big stadiums are
-     * harder to get: the match must feel important.
+     * harder to get: the match must feel important. A bigger offer helps:
+     * +5 importance points per €500K offered, capped at +30.
      *
      * @return array{accepted: bool, excuse: string|null}
      */
-    public function evaluateMensRequest(string $mensClub, Team $nationalTeam, Team $opponent): array
+    public function evaluateMensRequest(string $mensClub, ?Team $nationalTeam, ?Team $opponent, ?int $offerEuros = null): array
     {
         $importance = mt_rand(0, 20);
 
         $bigNations = ['Spain', 'United States', 'England', 'Germany', 'France', 'Brazil'];
-        if (in_array($nationalTeam->name, $bigNations, true)) {
+        if ($nationalTeam && in_array($nationalTeam->name, $bigNations, true)) {
             $importance += 25;
         }
-        if (in_array($opponent->name, $bigNations, true)) {
+        if ($opponent && in_array($opponent->name, $bigNations, true)) {
             $importance += 30;
+        }
+
+        if ($offerEuros !== null && $offerEuros > 0) {
+            $importance += min(30, (int) floor($offerEuros / 500000) * 5);
         }
 
         $accepted = $importance >= 50;

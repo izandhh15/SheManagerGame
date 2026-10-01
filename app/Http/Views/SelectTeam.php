@@ -114,6 +114,19 @@ final class SelectTeam
             ? $academyCareerService->getClubsWithAcademies()
             : collect();
 
+        // Affiliate career (first team + reserve team, linked saves): the
+        // user picks a FIRST team that has a filial in the game and plays
+        // both halves with the same strict alternation as dual mode.
+        $affiliateClubs = $hasCareerAccess
+            ? Team::where('type', '!=', 'national')
+                ->where('is_placeholder', false)
+                ->whereNull('parent_team_id')
+                ->whereHas('reserveTeam', fn ($q) => $q->where('is_placeholder', false))
+                ->with(['reserveTeam' => fn ($q) => $q->select('id', 'name', 'parent_team_id')])
+                ->orderBy('name')
+                ->get(['id', 'name', 'country', 'image', 'transfermarkt_id'])
+            : collect();
+
         // National-team mode (beta, World Cup qualifiers by confederation): all
         // women's national teams with seeded templates. Shown when any
         // qualifier competition is seeded (legacy WWCQ alias counts too).
@@ -149,6 +162,7 @@ final class SelectTeam
             'hasCareerAccess' => $hasCareerAccess,
             'proManagerTeams' => $proManagerTeams,
             'academyClubs' => $academyClubs,
+            'affiliateClubs' => $affiliateClubs,
         ]);
     }
 
