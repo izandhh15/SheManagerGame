@@ -10,7 +10,7 @@ $kernel->bootstrap();
 
 $step = $_GET['step'] ?? '';
 if ($step === 'seed') {
-    $exit = \Illuminate\Support\Facades\Artisan::call('app:seed-reference-data', ['--season' => '2026']);
+    $exit = \Illuminate\Support\Facades\Artisan::call('app:seed-reference-data');
     echo "SEED EXIT: $exit\n";
     echo \Illuminate\Support\Facades\Artisan::output();
 } elseif ($step === 'check') {
