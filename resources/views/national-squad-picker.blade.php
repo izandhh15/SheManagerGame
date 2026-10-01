@@ -50,6 +50,7 @@
                 'Midfielder' => __('squad.midfielders_short'),
                 'Forward' => __('squad.forwards_short'),
             ];
+            $order = ['Goalkeeper', 'Defender', 'Midfielder', 'Forward'];
             $positionGroups = ['Goalkeeper', 'Defender', 'Midfielder', 'Forward'];
         @endphp
 
@@ -89,14 +90,10 @@
                     } else {
                         list.sort((a, b) => (groupOrder[a.group] ?? 99) - (groupOrder[b.group] ?? 99) || b.overall - a.overall || a.name.localeCompare(b.name));
                     }
-                    if (this.sortBy !== 'position') return list;
-                    const out = [];
-                    let lastGroup = null;
-                    for (const p of list) {
-                        if (p.group !== lastGroup) { out.push({ header: p.group }); lastGroup = p.group; }
-                        out.push(p);
-                    }
-                    return out;
+                    return list;
+                },
+                playersInGroup(group) {
+                    return this.visiblePlayers().filter(p => p.group === group);
                 },
             }">
             <div class="sticky top-0 z-10 bg-surface-900/95 backdrop-blur py-3 space-y-3">
@@ -160,40 +157,30 @@
                     <input type="hidden" name="player_ids[]" :value="id" />
                 </template>
 
-                <div class="space-y-1.5 mt-2">
-                    <template x-for="p in visiblePlayers()" :key="p.header ? 'header-' + p.header : p.player_id">
-                        <template x-if="p.header">
-                            <h3 class="font-heading text-sm md:text-base font-semibold uppercase tracking-wide text-text-secondary mt-6 mb-2" x-text="groupLabels[p.header]"></h3>
-                        </template>
-                        <template x-if="!p.header">
-                            <div @click="if (!p.injured_label) toggle(p.player_id)"
-                                 :class="[isSelected(p.player_id) ? 'border-accent-blue/60 bg-accent-blue/10' : 'border-border-default hover:bg-surface-700/50', p.injured_label ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer']"
-                                 class="flex items-center gap-3 rounded-lg border p-2.5 md:p-3 transition-all select-none">
-                                <div class="shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center"
-                                     :class="isSelected(p.player_id) ? 'border-accent-blue bg-accent-blue' : 'border-border-strong'">
-                                    <svg x-show="isSelected(p.player_id)" class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
-                                    </svg>
-                                </div>
-                                <div class="flex-1 min-w-0">
-                                    <p class="text-sm md:text-base font-medium text-text-body truncate" x-text="p.name"></p>
-                                    <p class="text-xs text-text-muted truncate"><span x-text="p.position"></span><template x-if="p.club"><span> · <span x-text="p.club"></span></span></template></p>
-                                    <template x-if="p.injured_label">
-                                        <p class="text-[11px] font-semibold text-red-400 mt-0.5" x-text="p.injured_label"></p>
-                                    </template>
-                                </div>
-                                <div class="shrink-0 text-right">
-                                    <span class="inline-block min-w-10 text-center text-sm font-bold px-2 py-1 rounded bg-surface-700 text-text-body" x-text="p.overall"></span>
-                                    <template x-if="p.age"><p class="text-[11px] text-text-muted mt-0.5"><span x-text="p.age"></span> <span x-text="yearsLabel"></span></p></template>
-                                </div>
-                            </div>
-                        </template>
-                    </template>
-                    <template x-if="visiblePlayers().length === 0">
-                        <p class="text-sm text-text-muted text-center py-8">{{ __('game.squad_picker_no_results') }}</p>
+                {{-- Flat list (sorted by media). Each x-for template has a SINGLE
+                     root element: Alpine's x-for only clones firstElementChild. --}}
+                <div x-show="sortBy !== 'position'" class="space-y-1.5 mt-2">
+                    <template x-for="p in visiblePlayers()" :key="p.player_id">
+                        @include('partials.squad-picker-card')
                     </template>
                 </div>
 
+                {{-- Grouped by position. Headers are server-rendered; each group
+                     gets its own x-for with a single root element. --}}
+                <div x-show="sortBy === 'position'">
+                    @foreach($order as $pos)
+                    <div x-show="playersInGroup('{{ $pos }}').length > 0">
+                        <h3 class="font-heading text-sm md:text-base font-semibold uppercase tracking-wide text-text-secondary mt-6 mb-2">{{ $groupLabels[$pos] ?? $pos }}</h3>
+                        <div class="space-y-1.5 mt-2">
+                            <template x-for="p in playersInGroup('{{ $pos }}')" :key="p.player_id">
+                                @include('partials.squad-picker-card')
+                            </template>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+
+                <p x-show="visiblePlayers().length === 0" class="text-sm text-text-muted text-center py-8">{{ __('game.squad_picker_no_results') }}</p>
                 <x-input-error :messages="$errors->get('player_ids')" class="mt-4" />
                 <x-input-error :messages="$errors->get('club_id')" class="mt-4" />
                 <x-input-error :messages="$errors->get('national_team_id')" class="mt-4" />
