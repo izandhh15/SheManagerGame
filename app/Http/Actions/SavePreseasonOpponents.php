@@ -3,6 +3,7 @@
 namespace App\Http\Actions;
 
 use App\Models\Game;
+use App\Models\PreseasonInvitation;
 use App\Modules\Season\Services\PreseasonOpponentService;
 use Illuminate\Http\Request;
 
@@ -25,6 +26,7 @@ class SavePreseasonOpponents
             'slots.*.team_id' => ['nullable', 'string'],
             'slots.*.is_home' => ['nullable', 'boolean'],
             'slots.*.trophy_name' => ['nullable', 'string', 'max:100'],
+            'slots.*.stadium_name' => ['nullable', 'string', 'max:100'],
         ]);
 
         // Reshape the per-slot form input into the service's selection list,
@@ -41,6 +43,24 @@ class SavePreseasonOpponents
                 'team_id' => $input['team_id'],
                 'is_home' => filter_var($input['is_home'] ?? true, FILTER_VALIDATE_BOOL),
                 'trophy_name' => $input['trophy_name'] ?? null,
+                'stadium_name' => $input['stadium_name'] ?? null,
+            ];
+        }
+
+        // Merge accepted AI invitations: they occupy their slots with the
+        // inviting team, trophy name and proposed stadium.
+        $acceptedInvitations = PreseasonInvitation::where('game_id', $game->id)
+            ->where('status', PreseasonInvitation::STATUS_ACCEPTED)
+            ->get();
+
+        foreach ($acceptedInvitations as $invitation) {
+            $selections[] = [
+                'slot' => $invitation->slot,
+                'team_id' => $invitation->inviting_team_id,
+                // Invited matches are played at the inviter's ground (their trophy, their stadium).
+                'is_home' => false,
+                'trophy_name' => $invitation->trophy_name,
+                'stadium_name' => $invitation->stadium_name,
             ];
         }
 

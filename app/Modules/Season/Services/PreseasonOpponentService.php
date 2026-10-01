@@ -6,6 +6,7 @@ use App\Models\CompetitionEntry;
 use App\Models\Competition;
 use App\Models\Game;
 use App\Models\GameMatch;
+use App\Models\PreseasonInvitation;
 use App\Models\Team;
 use App\Modules\Match\Events\GameDateAdvanced;
 use App\Modules\Match\Jobs\ProcessCareerActions;
@@ -116,7 +117,7 @@ class PreseasonOpponentService
     /**
      * Materialise the chosen friendlies and end pre-season setup.
      *
-     * @param  array<int, array{slot:int, team_id:string, is_home:bool, trophy_name?:string|null}>  $selections
+     * @param  array<int, array{slot:int, team_id:string, is_home:bool, trophy_name?:string|null, stadium_name?:string|null}>  $selections
      */
     public function confirmSelections(Game $game, array $selections): void
     {
@@ -141,6 +142,7 @@ class PreseasonOpponentService
                 'scheduled_date' => $date->toDateString(),
                 'round_number' => $slot + 1,
                 'trophy_name' => $selection['trophy_name'] ?? null,
+                'stadium_name' => $selection['stadium_name'] ?? null,
                 'played' => false,
             ]);
 
@@ -169,12 +171,18 @@ class PreseasonOpponentService
      * and pool members, and enforce one fixture per slot (two friendlies can't
      * share a date). The same opponent may be picked in multiple slots.
      *
-     * @param  array<int, array{slot?:mixed, team_id?:mixed, is_home?:mixed, trophy_name?:mixed}>  $selections
-     * @return array<int, array{slot:int, team_id:string, is_home:bool, trophy_name:string|null}>
+     * @param  array<int, array{slot?:mixed, team_id?:mixed, is_home?:mixed, trophy_name?:mixed, stadium_name?:mixed}>  $selections
+     * @return array<int, array{slot:int, team_id:string, is_home:bool, trophy_name:string|null, stadium_name:string|null}>
      */
     private function sanitizeSelections(Game $game, array $selections): array
     {
         $validTeamIds = $this->candidatePool($game)->pluck('id')->flip();
+
+        // Accepted invitations bypass the candidate pool (the inviter is valid by definition).
+        $invitedTeamIds = PreseasonInvitation::where('game_id', $game->id)
+            ->where('status', PreseasonInvitation::STATUS_ACCEPTED)
+            ->pluck('inviting_team_id')
+            ->flip();
 
         $clean = [];
         $usedSlots = [];
@@ -186,7 +194,7 @@ class PreseasonOpponentService
             if ($slot < 0 || $slot >= self::NUM_SLOTS) {
                 continue;
             }
-            if (! is_string($teamId) || ! $validTeamIds->has($teamId)) {
+            if (! is_string($teamId) || (! $validTeamIds->has($teamId) && ! $invitedTeamIds->has($teamId))) {
                 continue;
             }
             if (isset($usedSlots[$slot])) {
@@ -204,11 +212,20 @@ class PreseasonOpponentService
                 $trophyName = null;
             }
 
+            // Optional custom stadium (e.g. play at Camp Nou).
+            $stadiumName = isset($selection['stadium_name']) && is_string($selection['stadium_name'])
+                ? trim(mb_substr($selection['stadium_name'], 0, 100))
+                : null;
+            if ($stadiumName === '') {
+                $stadiumName = null;
+            }
+
             $clean[] = [
                 'slot' => $slot,
                 'team_id' => $teamId,
                 'is_home' => (bool) ($selection['is_home'] ?? true),
                 'trophy_name' => $trophyName,
+                'stadium_name' => $stadiumName,
             ];
         }
 

@@ -12,6 +12,7 @@ export default function preseasonSetup(config) {
             teamImage: '',
             isHome: true,
             trophyName: '',
+            stadiumName: '',
         })),
         openSlot: null,
         searchQuery: '',
@@ -39,6 +40,7 @@ export default function preseasonSetup(config) {
             s.teamImage = '';
             s.isHome = true;
             s.trophyName = '';
+            s.stadiumName = '';
         },
 
         closeModal() {

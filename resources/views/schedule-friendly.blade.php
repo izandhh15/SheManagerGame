@@ -54,7 +54,8 @@
         </div>
 
         {{-- Scheduling form --}}
-        <form method="POST" action="{{ route('game.schedule-friendly.store', $game->id) }}" class="rounded-xl border border-border-default bg-surface-800 p-5 space-y-5">
+        <form method="POST" action="{{ route('game.schedule-friendly.store', $game->id) }}" class="rounded-xl border border-border-default bg-surface-800 p-5 space-y-5"
+              x-data="{ stageCountry: '' }">
             @csrf
 
             <div>
@@ -76,12 +77,25 @@
                 <p class="text-xs text-text-muted mt-1">{{ __('game.friendly_date_hint') }}</p>
             </div>
 
+            {{-- Training camp (stage): pick a country to filter its stadiums --}}
+            <div class="rounded-lg border border-accent-blue/30 bg-accent-blue/5 p-4">
+                <label for="stage_country" class="block text-sm font-semibold text-text-body mb-2">🏕️ {{ __('game.friendly_stage_title') }}</label>
+                <select id="stage_country" x-model="stageCountry"
+                        class="w-full rounded-lg border border-border-default bg-surface-900 px-4 py-2.5 text-sm text-text-body focus:outline-none focus:ring-2 focus:ring-accent-blue/50">
+                    <option value="">{{ __('game.friendly_stage_all') }}</option>
+                    @foreach($stadiums as $country => $list)
+                        <option value="{{ $country }}">{{ $country }} ({{ count($list) }})</option>
+                    @endforeach
+                </select>
+                <p class="text-xs text-text-muted mt-1">{{ __('game.friendly_stage_hint') }}</p>
+            </div>
+
             <div>
                 <label for="stadium" class="block text-sm font-semibold text-text-body mb-2">{{ __('game.friendly_stadium') }}</label>
                 <select name="stadium" id="stadium" required
                         class="w-full rounded-lg border border-border-default bg-surface-900 px-4 py-2.5 text-sm text-text-body focus:outline-none focus:ring-2 focus:ring-accent-blue/50">
                     @foreach($stadiums as $country => $list)
-                        <optgroup label="{{ $country }}">
+                        <optgroup label="{{ $country }}" x-show="!stageCountry || stageCountry === '{{ $country }}'">
                             @foreach($list as $s)
                                 <option value="{{ $s['stadium'] }}" @selected($defaultStadium && $s['stadium'] === $defaultStadium['stadium'])>
                                     {{ $s['stadium'] }} — {{ $s['city'] }} ({{ number_format($s['capacity'], 0, ',', '.') }})

@@ -2,6 +2,7 @@
 /** @var App\Models\Game $game */
 /** @var \Illuminate\Support\Collection $teams */
 /** @var array $slots */
+/** @var \Illuminate\Support\Collection $invitations */
 $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
 @endphp
 
@@ -22,6 +23,53 @@ $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
             </div>
 
             <x-flash-message type="error" :message="session('error')" class="mb-6" />
+            <x-flash-message type="info" :message="session('info')" class="mb-6" />
+
+            {{-- AI Invitations: the machine invites you to friendlies/trophies --}}
+            @if($invitations->isNotEmpty())
+                <div class="mb-8">
+                    <h2 class="text-lg font-bold text-text-primary mb-1">📨 {{ __('game.preseason_invitations_title') }}</h2>
+                    <p class="text-sm text-text-secondary mb-4">{{ __('game.preseason_invitations_subtitle') }}</p>
+                    <div class="space-y-3">
+                        @foreach($invitations as $invitation)
+                            <div class="bg-surface-800 border border-border-default rounded-xl p-4">
+                                <div class="flex items-center gap-3">
+                                    <x-team-crest :team="$invitation->invitingTeam" class="w-10 h-10 shrink-0" />
+                                    <div class="flex-1 min-w-0">
+                                        <p class="text-sm font-semibold text-text-primary truncate">
+                                            {{ $invitation->invitingTeam->name }}
+                                        </p>
+                                        @if($invitation->trophy_name)
+                                            <p class="text-xs text-amber-400 font-medium">🏆 {{ $invitation->trophy_name }}</p>
+                                        @else
+                                            <p class="text-xs text-text-muted">{{ __('game.preseason_invitation_friendly') }}</p>
+                                        @endif
+                                        @if($invitation->stadium_name)
+                                            <p class="text-xs text-text-muted">📍 {{ $invitation->stadium_name }}</p>
+                                        @endif
+                                    </div>
+                                    <div class="flex gap-2 shrink-0">
+                                        <form action="{{ route('game.preseason-setup.invitation.accept', $game->id) }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="invitation_id" value="{{ $invitation->id }}">
+                                            <button type="submit" class="px-3 py-2 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-semibold rounded-lg transition-colors min-h-[44px]">
+                                                {{ __('game.preseason_invitation_accept') }}
+                                            </button>
+                                        </form>
+                                        <form action="{{ route('game.preseason-setup.invitation.decline', $game->id) }}" method="POST">
+                                            @csrf
+                                            <input type="hidden" name="invitation_id" value="{{ $invitation->id }}">
+                                            <button type="submit" class="px-3 py-2 bg-surface-700 hover:bg-surface-600 text-text-secondary text-sm font-semibold rounded-lg border border-border-default transition-colors min-h-[44px]">
+                                                {{ __('game.preseason_invitation_decline') }}
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            @endif
 
             <form action="{{ route('game.preseason-setup.save', $game->id) }}" method="POST">
                 @csrf
@@ -89,6 +137,7 @@ $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
                                 <input type="hidden" name="slots[{{ $index }}][team_id]" :value="selections[{{ $index }}].teamId || ''">
                                 <input type="hidden" name="slots[{{ $index }}][is_home]" :value="selections[{{ $index }}].isHome ? '1' : '0'">
                                 <input type="hidden" name="slots[{{ $index }}][trophy_name]" :value="selections[{{ $index }}].trophyName || ''">
+                                <input type="hidden" name="slots[{{ $index }}][stadium_name]" :value="selections[{{ $index }}].stadiumName || ''">
 
                                 {{-- Optional trophy name: turn this friendly into a cup final (e.g. Trofeo Joan Gamper) --}}
                                 <div x-show="selections[{{ $index }}].teamId" x-cloak class="mt-3">
@@ -99,6 +148,18 @@ $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
                                     <input type="text" x-model="selections[{{ $index }}].trophyName"
                                            maxlength="100"
                                            placeholder="{{ __('game.preseason_setup_trophy_placeholder') }}"
+                                           class="w-full px-3 py-2 bg-surface-700 border border-border-default rounded-lg text-sm text-text-primary placeholder-text-muted focus:outline-none focus:border-accent-blue/50 focus:ring-1 focus:ring-accent-blue/30 min-h-[44px]">
+                                </div>
+
+                                {{-- Optional stadium: request the match at a specific ground --}}
+                                <div x-show="selections[{{ $index }}].teamId" x-cloak class="mt-3">
+                                    <label class="block text-xs font-medium text-text-secondary mb-1.5">
+                                        📍 {{ __('game.preseason_setup_stadium_label') }}
+                                        <span class="text-text-muted font-normal">({{ __('game.preseason_setup_stadium_optional') }})</span>
+                                    </label>
+                                    <input type="text" x-model="selections[{{ $index }}].stadiumName"
+                                           maxlength="100"
+                                           placeholder="{{ __('game.preseason_setup_stadium_placeholder') }}"
                                            class="w-full px-3 py-2 bg-surface-700 border border-border-default rounded-lg text-sm text-text-primary placeholder-text-muted focus:outline-none focus:border-accent-blue/50 focus:ring-1 focus:ring-accent-blue/30 min-h-[44px]">
                                 </div>
                             </div>

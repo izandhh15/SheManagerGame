@@ -92,6 +92,8 @@ use App\Http\Actions\ToggleShortlist;
 use App\Http\Actions\RemoveFromShortlist;
 use App\Http\Actions\DeleteScoutSearch;
 use App\Http\Actions\SavePreseasonOpponents;
+use App\Http\Actions\AcceptPreseasonInvitation;
+use App\Http\Actions\DeclinePreseasonInvitation;
 use App\Http\Actions\UnlistPlayerFromTransfer;
 use App\Http\Views\ShowLineup;
 use App\Http\Views\ShowOpponentAnalysis;
@@ -359,6 +361,8 @@ Route::middleware('auth')->group(function () {
         // Pre-Season opponent selection (mandatory at season start)
         Route::get('/game/{gameId}/preseason-setup', ShowPreseasonSetup::class)->name('game.preseason-setup');
         Route::post('/game/{gameId}/preseason-setup', SavePreseasonOpponents::class)->name('game.preseason-setup.save');
+        Route::post('/game/{gameId}/preseason-setup/invitation/accept', AcceptPreseasonInvitation::class)->name('game.preseason-setup.invitation.accept');
+        Route::post('/game/{gameId}/preseason-setup/invitation/decline', DeclinePreseasonInvitation::class)->name('game.preseason-setup.invitation.decline');
 
         // Squad Selection (Tournament mode new-season setup)
         Route::get('/game/{gameId}/squad-selection', ShowSquadSelection::class)->name('game.squad-selection');
