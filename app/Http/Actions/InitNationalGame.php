@@ -4,6 +4,7 @@ namespace App\Http\Actions;
 
 use App\Models\ActivationEvent;
 use App\Modules\Season\Services\ActivationTracker;
+use App\Modules\Season\Services\NationalSquadService;
 use App\Modules\Season\Services\TournamentCreationService;
 use App\Models\Game;
 use App\Models\Team;
@@ -58,19 +59,16 @@ class InitNationalGame
 
         $playerIds = array_values(array_unique(array_map('strval', $request->get('player_ids', []))));
         // Squad is picked a few days before each FIFA window, not at game
-        // creation. If none provided, auto-pick the 23 highest-rated eligible
-        // players as a provisional squad.
-        if (count($playerIds) !== 23) {
-            $playerIds = DB::table('game_player_templates')
-                ->where('season', '2026')
-                ->where('team_id', $team->id)
-                ->orderByDesc('overall_rating')
-                ->limit(23)
-                ->pluck('player_id')
-                ->map(fn ($id) => (string) $id)
-                ->all();
+        // creation. If none provided, auto-pick the 23 highest-rated
+        // eligible players as a provisional squad (skipping the injured).
+        if (count($playerIds) !== NationalSquadService::SQUAD_SIZE) {
+            $injuredIds = array_keys(NationalSquadService::injuredPlayersUntil(
+                $request->user()->id,
+                now()->format('Y-m-d'),
+            ));
+            $playerIds = NationalSquadService::provisionalSquad($team->id, $injuredIds);
         }
-        if (count($playerIds) !== 23) {
+        if (count($playerIds) !== NationalSquadService::SQUAD_SIZE) {
             return back()->withErrors(['player_ids' => __('game.squad_picker_need_23')]);
         }
 
@@ -78,13 +76,13 @@ class InitNationalGame
         // template for the team) — prevents crafted POSTs calling up
         // ineligible players.
         $eligibleCount = DB::table('game_player_templates')
-            ->where('season', '2026')
+            ->where('season', NationalSquadService::TEMPLATE_SEASON)
             ->where('team_id', $team->id)
             ->whereIn('player_id', $playerIds)
             ->distinct()
             ->count('player_id');
 
-        if ($eligibleCount !== 23) {
+        if ($eligibleCount !== NationalSquadService::SQUAD_SIZE) {
             return back()->withErrors(['player_ids' => __('game.squad_picker_need_23')]);
         }
 
@@ -94,6 +92,13 @@ class InitNationalGame
             competitionId: TournamentCreationService::competitionIdForConfederation($team->confederation),
             squadPlayerIds: $playerIds,
         );
+
+        // The creation-time pick counts as this window's convocatoria so
+        // the per-window picker doesn't fire again immediately.
+        $window = NationalSquadService::relevantWindow($game);
+        if ($window) {
+            $game->update(['national_squad_window' => $window['start']]);
+        }
 
         $this->activationTracker->record($request->user()->id, ActivationEvent::EVENT_GAME_CREATED, $game->id, Game::MODE_TOURNAMENT);
 

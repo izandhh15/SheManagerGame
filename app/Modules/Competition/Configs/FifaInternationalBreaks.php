@@ -46,6 +46,24 @@ final class FifaInternationalBreaks
     }
 
     /**
+     * The window containing $date, if any. Used together with
+     * upcomingWithin() so the squad picker is also prompted while a
+     * break is already underway (not only in the days before it).
+     *
+     * @return array{start: string, end: string, label: string}|null
+     */
+    public static function currentWindow(string $season, string $date): ?array
+    {
+        foreach (self::forSeason($season) as $window) {
+            if ($date >= $window['start'] && $date <= $window['end']) {
+                return $window;
+            }
+        }
+
+        return null;
+    }
+
+    /**
      * Next window starting within $daysBefore days from $date.
      * Used to prompt the squad picker a few days before each window.
      *

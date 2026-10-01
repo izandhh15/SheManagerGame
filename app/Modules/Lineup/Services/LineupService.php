@@ -32,6 +32,10 @@ class LineupService
         $players = GamePlayer::with(['matchState'])
             ->where('game_id', $gameId)
             ->where('team_id', $teamId)
+            // National-team call-ups change every FIFA window: players
+            // dropped from the current convocatoria keep their rows
+            // (history) flagged out and can't be lined up.
+            ->where('is_squad_member', true)
             ->get();
 
         // Batch load suspended player IDs for this competition (single query)

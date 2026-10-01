@@ -23,6 +23,17 @@ class ShowSquadSelection
             return redirect()->route('game.new-season', $gameId);
         }
 
+        // National-team games don't use the generic tournament squad UI:
+        // their squad is the per-window convocatoria (national-squad
+        // picker) and the 23 are already materialised by
+        // SetupTournamentGame. Just complete the setup step.
+        if ($game->team->type === 'national') {
+            $game->completeNewSeasonSetup();
+
+            return redirect()->route('show-game', $game->id)
+                ->with('success', __('squad.squad_confirmed'));
+        }
+
         $candidates = $this->loadCandidates($game);
 
         // If the roster has 26 or fewer players, auto-select all and skip the UI

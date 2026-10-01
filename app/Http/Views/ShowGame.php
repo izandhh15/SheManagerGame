@@ -40,15 +40,13 @@ class ShowGame
             return redirect()->route('game.new-season', $gameId);
         }
 
-        // National teams: prompt the squad picker a few days before each
-        // FIFA window so the convocatoria happens per window, not at game
-        // creation.
+        // National teams: prompt the squad picker for each FIFA window so
+        // the convocatoria happens per window, not at game creation. Fires
+        // in the days before a break and while it's underway.
         if ($game->team->type === 'national' && $game->current_date) {
-            $season = $game->season ?? '2026';
-            $today = $game->current_date->format('Y-m-d');
-            $upcoming = \App\Modules\Competition\Configs\FifaInternationalBreaks::upcomingWithin($season, $today, 7);
+            $window = \App\Modules\Season\Services\NationalSquadService::relevantWindow($game);
             $confirmedWindow = $game->national_squad_window?->format('Y-m-d');
-            if ($upcoming && $confirmedWindow !== $upcoming['start']) {
+            if ($window && $confirmedWindow !== $window['start']) {
                 return redirect()->route('game.national-squad-picker', $gameId);
             }
         }

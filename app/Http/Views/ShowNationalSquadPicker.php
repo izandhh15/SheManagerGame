@@ -3,6 +3,7 @@
 namespace App\Http\Views;
 
 use App\Models\Team;
+use App\Modules\Season\Services\NationalSquadService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -120,12 +121,30 @@ final class ShowNationalSquadPicker
             fn ($group) => $group->take(150)
         )->values();
 
+        // Injured players can't be called up until they recover: look up
+        // active injuries in every save of the user (club and national —
+        // injuries carry over to the national team). Keyed by template
+        // player_id, valued with the return date for display.
+        $season = $updateGame?->season ?? NationalSquadService::TEMPLATE_SEASON;
+        $today = ($updateGame?->current_date ?? now())->format('Y-m-d');
+        // Which break this call-up is for: the game's relevant window in
+        // update mode, otherwise the next break on the calendar.
+        $window = $updateGame
+            ? NationalSquadService::relevantWindow($updateGame)
+            : \App\Modules\Competition\Configs\FifaInternationalBreaks::upcomingWithin($season, $today, 60);
+        $injured = NationalSquadService::injuredPlayersUntil(
+            $request->user()->id,
+            $window['start'] ?? $today,
+        );
+
         return view('national-squad-picker', [
             'team' => $team,
             'players' => $players,
             'clubs' => $players->pluck('club')->filter()->unique()->sort()->values(),
             'dualClub' => $dualClub,
             'updateGame' => $updateGame,
+            'injured' => $injured,
+            'window' => $window,
         ]);
     }
 }

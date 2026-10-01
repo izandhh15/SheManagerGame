@@ -149,6 +149,7 @@ class GamePlayer extends Model
         'potential_high',
         'retiring_at_season',
         'is_stand_in',
+        'is_squad_member',
     ];
 
     protected $casts = [
@@ -170,6 +171,7 @@ class GamePlayer extends Model
         'potential_low' => 'integer',
         'potential_high' => 'integer',
         'is_stand_in' => 'boolean',
+        'is_squad_member' => 'boolean',
     ];
 
     /**
