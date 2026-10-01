@@ -15,6 +15,8 @@ try {
     $view = $app->make(App\Http\Views\ShowLineup::class);
     $response = $view($gameId);
     echo "OK - sin excepcion. Respuesta: ".get_class($response)."\n";
+    $html = $response->render();
+    echo "RENDER OK, longitud: ".strlen($html)."\n";
 } catch (Throwable $e) {
     echo "EXCEPCION: ".get_class($e)."\n";
     echo "MENSAJE: ".$e->getMessage()."\n";
