@@ -23,11 +23,12 @@
 @foreach($countries as $countryCode => $country)
     @foreach($country['tiers'] as $tier => $competition)
         @php
-            $isPrimeraRfef = in_array($competition->id, ['ESP3A', 'ESP3B'], true);
+            $isPrimeraRfef = in_array($competition->id, ['ESP3A', 'ESP3B', 'ESP3C'], true);
             $activeTabId = $isPrimeraRfef ? 'ESP3' : $competition->id;
             $groupHeadingKey = match ($competition->id) {
                 'ESP3A' => 'game.group_1',
                 'ESP3B' => 'game.group_2',
+                'ESP3C' => 'game.group_3',
                 default => null,
             };
         @endphp

@@ -93,17 +93,27 @@ class NationalSquadService
      */
     public static function provisionalSquad(string $teamId, array $excludePlayerIds = []): array
     {
-        $query = DB::table('game_player_templates')
-            ->where('season', self::TEMPLATE_SEASON)
-            ->where('team_id', $teamId)
-            ->orderByDesc('overall_score')
+        // Exclude retired players (they're tracked in game_players, but for
+        // provisional we check the templates joined with game state)
+        $query = DB::table('game_player_templates as t')
+            ->leftJoin('game_players as gp', function ($join) use ($teamId) {
+                $join->on('gp.player_id', '=', 't.player_id')
+                     ->where('gp.team_id', '=', $teamId);
+            })
+            ->where('t.season', self::TEMPLATE_SEASON)
+            ->where('t.team_id', $teamId)
+            ->where(function ($q) {
+                $q->whereNull('gp.retired_from_national')
+                  ->orWhere('gp.retired_from_national', false);
+            })
+            ->orderByDesc('t.overall_score')
             ->limit(self::SQUAD_SIZE);
 
         if ($excludePlayerIds !== []) {
-            $query->whereNotIn('player_id', $excludePlayerIds);
+            $query->whereNotIn('t.player_id', $excludePlayerIds);
         }
 
-        return $query->pluck('player_id')
+        return $query->pluck('t.player_id')
             ->map(fn ($id) => (string) $id)
             ->all();
     }

@@ -38,6 +38,7 @@ use App\Modules\Report\Listeners\CreateTournamentSnapshot;
 use App\Modules\Season\Listeners\GrantCareerAccessToChampion;
 use App\Modules\Season\Listeners\RecordSeasonCompleted;
 use App\Modules\Season\Listeners\RecordTournamentCompletedActivation;
+use App\Modules\Season\Listeners\RollNationalTeamEvents;
 use App\Modules\Season\Listeners\SimulateOtherLeagues;
 use App\Modules\Season\Listeners\SoftDeleteCompletedTournamentGame;
 use App\Modules\Squad\Listeners\CheckRecoveredPlayers;
@@ -156,6 +157,7 @@ class AppServiceProvider extends ServiceProvider
         Event::listen(GameDateAdvanced::class, ApplyWageGapMoraleDrip::class);
         Event::listen(GameDateAdvanced::class, RollAIContractRenewals::class);
         Event::listen(GameDateAdvanced::class, ActivateCompletedStadiumProjects::class);
+        Event::listen(GameDateAdvanced::class, RollNationalTeamEvents::class);
 
         Queue::failing(function (JobFailed $event) {
             try {

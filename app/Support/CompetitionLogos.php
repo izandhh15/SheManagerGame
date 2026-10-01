@@ -24,13 +24,16 @@ class CompetitionLogos
         if ($competitionId) {
             $path = "img/competitions/{$competitionId}.svg";
             if (file_exists(public_path($path))) {
-                return $disk->url($path);
+                // Cache-busting: append file mtime so browsers fetch updated logos
+                $mtime = filemtime(public_path($path));
+                return $disk->url($path) . '?v=' . $mtime;
             }
         }
 
         $fallback = 'img/competitions/GENERIC.svg';
         if (file_exists(public_path($fallback))) {
-            return $disk->url($fallback);
+            $mtime = filemtime(public_path($fallback));
+            return $disk->url($fallback) . '?v=' . $mtime;
         }
 
         return null;

@@ -72,6 +72,8 @@ class GameNotification extends Model
     public const TYPE_MATCH_FORFEIT = 'match_forfeit';
     public const TYPE_BUDGET_LOAN = 'budget_loan';
     public const TYPE_STADIUM = 'stadium';
+    public const TYPE_NATIONAL_TEAM_INJURY = 'national_team_injury';
+    public const TYPE_NATIONAL_TEAM_RESIGNATION = 'national_team_resignation';
     public const TYPE_COMMERCIAL = 'commercial';
     public const TYPE_TRANSFER_WINDOW_CLOSING = 'transfer_window_closing';
     public const TYPE_SQUAD_REGISTRATION_REQUIRED = 'squad_registration_required';

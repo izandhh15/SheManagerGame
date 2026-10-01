@@ -471,6 +471,7 @@ return [
     'segunda_federacion' => 'Segunda Federación',
     'group_1' => 'Group 1',
     'group_2' => 'Group 2',
+    'group_3' => 'Group 3',
 
     // Season Goals
     'goal_title' => 'Win the League',
