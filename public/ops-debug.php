@@ -32,7 +32,7 @@ foreach ($json['clubs'] as $c) {
 }
 
 // El team_id de Cruzeiro en BD y su transfermarkt_id
-$out['team_cruzeiro'] = DB::table('teams')->where('name', 'Cruzeiro')->select('id', 'name', 'transfermarkt_id', 'transfermarktId')->first();
+$out['team_cruzeiro'] = DB::table('teams')->where('name', 'Cruzeiro')->select('id', 'name', 'transfermarkt_id')->first();
 
 // Que competiciones procesa BR segun CountryConfig
 $cc = app(App\Modules\Competition\Services\CountryConfig::class);
