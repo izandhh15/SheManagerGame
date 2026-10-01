@@ -7,6 +7,7 @@ use App\Models\Game;
 use App\Models\GameMatch;
 use App\Models\Team;
 use App\Modules\Competition\Configs\FifaInternationalBreaks;
+use App\Modules\Season\Services\GamePlayerTemplateService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -14,6 +15,10 @@ use Illuminate\Support\Str;
 
 class ScheduleFriendly
 {
+    public function __construct(
+        private readonly GamePlayerTemplateService $templateService,
+    ) {}
+
     public function __invoke(Request $request, string $gameId): RedirectResponse
     {
         $game = Game::findOrFail($gameId);
@@ -30,10 +35,11 @@ class ScheduleFriendly
             'stadium' => ['required', 'string'],
         ]);
 
-        // Rival must be a real national team, not the user's own.
-        $opponent = Team::where('type', 'national')
-            ->where('is_placeholder', false)
+        // Rival can be a national team or a club (for stage friendlies).
+        // Must not be the user's own team.
+        $opponent = Team::where('is_placeholder', false)
             ->where('id', '!=', $game->team_id)
+            ->whereIn('type', ['national', 'club'])
             ->find($validated['opponent_id']);
 
         if (! $opponent) {
@@ -74,6 +80,7 @@ class ScheduleFriendly
         // stadium (home ground or neutral venue) is stored on the match.
         DB::transaction(function () use ($game, $season, $opponent, $validated, $stadium) {
             $this->ensureFriendlyCompetition($season);
+            $this->ensureOpponentTemplates($game, $season, $opponent);
             $this->materializeRivalPlayers($game, $season, $opponent->id);
 
             GameMatch::create([
@@ -118,6 +125,37 @@ class ScheduleFriendly
                 'season' => $season,
             ]
         );
+    }
+
+    /**
+     * Ensure the opponent has player templates for the season. National teams
+     * always have them (from tournament setup). Clubs get them generated
+     * on-demand from their country's data files.
+     */
+    private function ensureOpponentTemplates(Game $game, string $season, Team $opponent): void
+    {
+        if ($opponent->type === 'national') {
+            return;
+        }
+
+        $hasTemplates = DB::table('game_player_templates')
+            ->where('season', $season)
+            ->where('team_id', $opponent->id)
+            ->exists();
+
+        if ($hasTemplates) {
+            return;
+        }
+
+        // Generate templates for the club's country (cached; safe to re-run).
+        // This populates game_player_templates for all clubs in that country,
+        // from which materializeRivalPlayers() then copies this club's squad.
+        try {
+            $this->templateService->generateTemplates($season, $opponent->country ?? 'ES');
+        } catch (\Throwable $e) {
+            // If generation fails, the friendly can't be played without players.
+            throw new \RuntimeException('Could not generate squad for ' . $opponent->name);
+        }
     }
 
     /**

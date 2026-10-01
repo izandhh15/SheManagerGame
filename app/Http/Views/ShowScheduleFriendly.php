@@ -54,6 +54,21 @@ class ShowScheduleFriendly
             ->orderBy('name')
             ->get(['id', 'name', 'country']);
 
+        // Club teams as additional friendly opponents (e.g. play against
+        // Spanish clubs during a stage in Spain). Grouped by country NAME
+        // (matching the stadium grouping) for the stage filter.
+        $countryNames = $this->countryCodeToNameMap();
+        $clubs = Team::where('type', 'club')
+            ->where('is_placeholder', false)
+            ->orderBy('name')
+            ->get(['id', 'name', 'country'])
+            ->map(function ($club) use ($countryNames) {
+                $club->country_name = $countryNames[strtoupper($club->country ?? '')] ?? $club->country;
+                return $club;
+            })
+            ->groupBy('country_name')
+            ->sortKeys();
+
         // Stadiums grouped by country for the selector.
         $stadiums = collect(json_decode(file_get_contents(base_path('data/stadiums.json')), true) ?? [])
             ->groupBy('country')
@@ -78,10 +93,89 @@ class ShowScheduleFriendly
             'userTeam' => $userTeam,
             'windows' => $windows,
             'opponents' => $opponents,
+            'clubs' => $clubs,
             'stadiums' => $stadiums,
             'defaultStadium' => $defaultStadium,
             'scheduled' => $scheduled,
             'maxPerWindow' => self::MAX_PER_WINDOW,
         ]);
+    }
+
+    /**
+     * Map 2-char country codes to the full names used in stadiums.json,
+     * so club opponents group under the same country as the stage filter.
+     *
+     * @return array<string, string>
+     */
+    private function countryCodeToNameMap(): array
+    {
+        return [
+            'ES' => 'Spain',
+            'EN' => 'England',
+            'FR' => 'France',
+            'DE' => 'Germany',
+            'IT' => 'Italy',
+            'PT' => 'Portugal',
+            'NL' => 'Netherlands',
+            'BE' => 'Belgium',
+            'CH' => 'Switzerland',
+            'AT' => 'Austria',
+            'SE' => 'Sweden',
+            'NO' => 'Norway',
+            'DK' => 'Denmark',
+            'FI' => 'Finland',
+            'IS' => 'Iceland',
+            'IE' => 'Republic of Ireland',
+            'GB-SCT' => 'Scotland',
+            'GB-WLS' => 'Wales',
+            'GB-NIR' => 'Northern Ireland',
+            'PL' => 'Poland',
+            'CZ' => 'Czechia',
+            'SK' => 'Slovakia',
+            'HU' => 'Hungary',
+            'RO' => 'Romania',
+            'BG' => 'Bulgaria',
+            'GR' => 'Greece',
+            'HR' => 'Croatia',
+            'RS' => 'Serbia',
+            'SI' => 'Slovenia',
+            'BA' => 'Bosnia and Herzegovina',
+            'AL' => 'Albania',
+            'MK' => 'North Macedonia',
+            'ME' => 'Montenegro',
+            'TR' => 'Turkey',
+            'UA' => 'Ukraine',
+            'RU' => 'Russia',
+            'BY' => 'Belarus',
+            'AR' => 'Argentina',
+            'BR' => 'Brazil',
+            'CL' => 'Chile',
+            'CO' => 'Colombia',
+            'UY' => 'Uruguay',
+            'PY' => 'Paraguay',
+            'PE' => 'Peru',
+            'VE' => 'Venezuela',
+            'EC' => 'Ecuador',
+            'BO' => 'Bolivia',
+            'MX' => 'Mexico',
+            'US' => 'USA',
+            'CA' => 'Canada',
+            'CR' => 'Costa Rica',
+            'JP' => 'Japan',
+            'KR' => 'South Korea',
+            'CN' => 'China',
+            'AU' => 'Australia',
+            'NZ' => 'New Zealand',
+            'ZA' => 'South Africa',
+            'NG' => 'Nigeria',
+            'GH' => 'Ghana',
+            'CM' => 'Cameroon',
+            'SN' => 'Senegal',
+            'CI' => 'Ivory Coast',
+            'MA' => 'Morocco',
+            'DZ' => 'Algeria',
+            'TN' => 'Tunisia',
+            'EG' => 'Egypt',
+        ];
     }
 }

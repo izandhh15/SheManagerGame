@@ -63,10 +63,21 @@
                 <select name="opponent_id" id="opponent_id" required
                         class="w-full rounded-lg border border-border-default bg-surface-900 px-4 py-2.5 text-sm text-text-body focus:outline-none focus:ring-2 focus:ring-accent-blue/50">
                     <option value="">{{ __('game.friendly_choose_opponent') }}</option>
-                    @foreach($opponents as $opp)
-                        <option value="{{ $opp->id }}">{{ $opp->name }}</option>
+                    <optgroup label="{{ __('game.friendly_national_teams') }}">
+                        @foreach($opponents as $opp)
+                            <option value="{{ $opp->id }}">{{ $opp->name }}</option>
+                        @endforeach
+                    </optgroup>
+                    @foreach($clubs as $country => $countryClubs)
+                        <optgroup label="{{ $country }} — {{ __('game.friendly_clubs') }}"
+                                  x-show="!stageCountry || stageCountry === '{{ $country }}'">
+                            @foreach($countryClubs as $club)
+                                <option value="{{ $club->id }}">{{ $club->name }}</option>
+                            @endforeach
+                        </optgroup>
                     @endforeach
                 </select>
+                <p class="text-xs text-text-muted mt-1">{{ __('game.friendly_opponent_hint') }}</p>
             </div>
 
             <div>
