@@ -57,6 +57,9 @@ $gameId = $_GET['game'] ?? '2ed63cd6-68df-47c8-b439-bc59db750f1d';
 try {
     $user = App\Models\User::where('email', 'qadual20261001@example.com')->firstOrFail();
     auth()->setUser($user);
+    // En peticiones web reales el middleware ShareErrorsFromSession comparte $errors;
+    // lo simulamos para no enmascarar el error REAL que hay mas abajo en la vista.
+    $app['view']->share('errors', new Illuminate\Support\ViewErrorBag);
     $view = $app->make(App\Http\Views\ShowLineup::class);
     $response = $view($gameId);
     echo "OK - sin excepcion. Respuesta: ".get_class($response)."\n";
