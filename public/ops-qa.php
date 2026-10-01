@@ -127,6 +127,10 @@ if ($step === 'grantaccess') {
 
 if ($step === 'gameinfo') {
     $gameId = $_GET['gameId'] ?? '';
+    if (!$gameId) {
+        http_response_code(400);
+        exit('missing gameId');
+    }
     $game = App\Models\Game::find($gameId);
     if (!$game) {
         http_response_code(404);
@@ -145,4 +149,5 @@ if ($step === 'gameinfo') {
     exit;
 }
 
+http_response_code(400);
 echo 'unknown step';
