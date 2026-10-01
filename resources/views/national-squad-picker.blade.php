@@ -5,6 +5,9 @@
             <div>
                 <h2 class="font-heading text-2xl lg:text-3xl font-bold uppercase tracking-wide text-text-primary">{{ __('game.squad_picker_title') }}: {{ $team->name }}</h2>
                 <p class="text-sm text-text-secondary mt-1">{{ __('game.squad_picker_subtitle') }}</p>
+                @if($window ?? null)
+                    <p class="text-xs text-text-muted mt-1">{{ __('game.squad_picker_window_note', ['start' => \Carbon\Carbon::parse($window['start'])->format('d/m/Y'), 'end' => \Carbon\Carbon::parse($window['end'])->format('d/m/Y')]) }}</p>
+                @endif
             </div>
         </div>
 
@@ -83,10 +86,11 @@
                         <h3 class="font-heading text-sm md:text-base font-semibold uppercase tracking-wide text-text-secondary mt-6 mb-2">{{ $groupLabels[$pos] ?? $pos }}</h3>
                         <div class="space-y-1.5">
                             @foreach($grouped[$pos] as $p)
+                                @php $injuredUntil = $injured[$p['player_id']] ?? null; @endphp
                                 <div x-show="(q === '' || '{{ addslashes($p['name']) }}'.toLowerCase().includes(q.toLowerCase())) && (clubFilter === '' || clubFilter === '{{ addslashes($p['club'] ?? '') }}')"
-                                     @click="toggle('{{ $p['player_id'] }}')"
+                                     @if(!$injuredUntil) @click="toggle('{{ $p['player_id'] }}')" @endif
                                      :class="isSelected('{{ $p['player_id'] }}') ? 'border-accent-blue/60 bg-accent-blue/10' : 'border-border-default hover:bg-surface-700/50'"
-                                     class="flex items-center gap-3 rounded-lg border p-2.5 md:p-3 cursor-pointer transition-all select-none">
+                                     class="flex items-center gap-3 rounded-lg border p-2.5 md:p-3 transition-all select-none {{ $injuredUntil ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer' }}">
                                     <div class="shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center"
                                          :class="isSelected('{{ $p['player_id'] }}') ? 'border-accent-blue bg-accent-blue' : 'border-border-strong'">
                                         <svg x-show="isSelected('{{ $p['player_id'] }}')" class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
@@ -98,6 +102,9 @@
                                         <p class="text-xs text-text-muted truncate">
                                             {{ $p['position'] }}@if($p['club']) · {{ $p['club'] }}@endif
                                         </p>
+                                        @if($injuredUntil)
+                                            <p class="text-[11px] font-semibold text-red-400 mt-0.5">{{ __('game.squad_picker_injured_until', ['date' => \Carbon\Carbon::parse($injuredUntil)->format('d/m/Y')]) }}</p>
+                                        @endif
                                     </div>
                                     <div class="shrink-0 text-right">
                                         <span class="inline-block min-w-10 text-center text-sm font-bold px-2 py-1 rounded bg-surface-700 text-text-body">{{ $p['overall'] }}</span>
