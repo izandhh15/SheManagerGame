@@ -102,6 +102,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Views\Dashboard;
 use App\Http\Views\SelectTeam;
 use App\Http\Views\ShowNationalSquadPicker;
+use App\Http\Views\ShowNationalSquadPreview;
 use App\Http\Views\ShowScheduleFriendly;
 use App\Http\Views\ShowCalendar;
 use App\Http\Views\ShowClubCommercial;
@@ -184,6 +185,8 @@ Route::middleware('auth')->group(function () {
 
     // National-team mode (beta): squad picker + game creation
     Route::get('/new-game/national/{teamId}', ShowNationalSquadPicker::class)->name('national-squad-picker');
+    // Read-only call-up preview (before creating the game): the 23 from NAT.json
+    Route::get('/new-game/national/{teamId}/convocatoria', ShowNationalSquadPreview::class)->name('national-squad-preview');
     Route::post('/new-game/national', InitNationalGame::class)->middleware('throttle:game-creation')->name('init-national-game');
 
     // Dual mode (club + national team): same throttle as the other creation endpoints
@@ -281,6 +284,8 @@ Route::middleware('auth')->group(function () {
         Route::post('/game/{gameId}/transfers/decline-renewal/{playerId}', DeclineRenewal::class)->name('game.transfers.decline-renewal');
         Route::post('/game/{gameId}/transfers/reconsider-renewal/{playerId}', ReconsiderRenewal::class)->name('game.transfers.reconsider-renewal');
         Route::post('/game/{gameId}/squad/release/{playerId}', ReleasePlayer::class)->name('game.squad.release');
+        Route::post('/game/{gameId}/negotiate/mutual-termination/{playerId}', NegotiateMutualTermination::class)->name('game.negotiate.mutual-termination');
+        Route::post('/game/{gameId}/squad/mutual-termination/{playerId}/complete', CompleteMutualTermination::class)->name('game.squad.mutual-termination.complete');
 
         // Scouting
         Route::get('/game/{gameId}/scouting', ShowScoutingHub::class)->name('game.scouting');

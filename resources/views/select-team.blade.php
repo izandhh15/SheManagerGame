@@ -343,12 +343,23 @@
                         @if($ntFeaturedTeams->isNotEmpty())
                         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
                             @foreach($ntFeaturedTeams as $team)
-                                <a href="{{ route('national-squad-picker', $team->id) }}"
-                                   x-show="q === '' || '{{ addslashes($team->name) }}'.toLowerCase().includes(q.toLowerCase())"
-                                   class="flex flex-col items-center gap-2 rounded-xl border border-border-default p-4 md:p-5 transition-all hover:bg-accent-blue/5 hover:border-accent-blue/30">
-                                    <x-team-crest :team="$team" class="w-14 h-14 md:w-16 md:h-16" />
-                                    <span class="text-sm md:text-base font-semibold text-text-body text-center truncate w-full">{{ $team->name }}</span>
-                                </a>
+                                <div class="relative">
+                                    <a href="{{ route('national-squad-picker', $team->id) }}"
+                                       x-show="q === '' || '{{ addslashes($team->name) }}'.toLowerCase().includes(q.toLowerCase())"
+                                       class="flex flex-col items-center gap-2 rounded-xl border border-border-default p-4 md:p-5 transition-all hover:bg-accent-blue/5 hover:border-accent-blue/30">
+                                        <x-team-crest :team="$team" class="w-14 h-14 md:w-16 md:h-16" />
+                                        <span class="text-sm md:text-base font-semibold text-text-body text-center truncate w-full">{{ $team->name }}</span>
+                                    </a>
+                                    <a href="{{ route('national-squad-preview', $team->id) }}" target="_blank" rel="noopener"
+                                       title="{{ __('game.view_squad') }}"
+                                       class="absolute top-2 right-2 p-1.5 rounded-lg border border-border-default bg-surface-800/90 text-text-muted hover:text-accent-blue hover:border-accent-blue/40 transition">
+                                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+                                        <span class="sr-only">{{ __('game.view_squad') }}</span>
+                                    </a>
+                                </div>
                             @endforeach
                         </div>
                         @endif
@@ -356,12 +367,23 @@
                         {{-- All other teams (compact cards) --}}
                         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
                             @foreach($ntTeams as $team)
-                                <a href="{{ route('national-squad-picker', $team->id) }}"
-                                   x-show="q === '' || '{{ addslashes($team->name) }}'.toLowerCase().includes(q.toLowerCase())"
-                                   class="flex items-center gap-2.5 rounded-lg border border-border-default p-3 transition-all hover:bg-accent-blue/5 hover:border-accent-blue/30">
-                                    <x-team-crest :team="$team" class="w-8 h-8 shrink-0" />
-                                    <span class="text-sm font-medium text-text-body truncate">{{ $team->name }}</span>
-                                </a>
+                                <div class="relative">
+                                    <a href="{{ route('national-squad-picker', $team->id) }}"
+                                       x-show="q === '' || '{{ addslashes($team->name) }}'.toLowerCase().includes(q.toLowerCase())"
+                                       class="flex items-center gap-2.5 rounded-lg border border-border-default p-3 pr-9 transition-all hover:bg-accent-blue/5 hover:border-accent-blue/30">
+                                        <x-team-crest :team="$team" class="w-8 h-8 shrink-0" />
+                                        <span class="text-sm font-medium text-text-body truncate">{{ $team->name }}</span>
+                                    </a>
+                                    <a href="{{ route('national-squad-preview', $team->id) }}" target="_blank" rel="noopener"
+                                       title="{{ __('game.view_squad') }}"
+                                       class="absolute top-1/2 -translate-y-1/2 right-2 p-1 rounded-md text-text-muted hover:text-accent-blue transition">
+                                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                        </svg>
+                                        <span class="sr-only">{{ __('game.view_squad') }}</span>
+                                    </a>
+                                </div>
                             @endforeach
                         </div>
                     </div>
@@ -390,14 +412,25 @@
 
                             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
                                 @foreach($ntFeaturedTeams->concat($ntTeams) as $team)
-                                    <a :href="'{{ route('national-squad-picker', $team->id) }}' + (clubId ? '?club_id=' + clubId : '')"
-                                       @click="if (!clubId) $event.preventDefault()"
-                                       x-show="q === '' || '{{ addslashes($team->name) }}'.toLowerCase().includes(q.toLowerCase())"
-                                       :class="clubId ? 'hover:bg-accent-blue/5 hover:border-accent-blue/30' : 'opacity-60 cursor-not-allowed'"
-                                       class="flex items-center gap-2.5 rounded-lg border border-border-default p-3 transition-all">
-                                        <x-team-crest :team="$team" class="w-8 h-8 shrink-0" />
-                                        <span class="text-sm font-medium text-text-body truncate">{{ $team->name }}</span>
-                                    </a>
+                                    <div class="relative">
+                                        <a :href="'{{ route('national-squad-picker', $team->id) }}' + (clubId ? '?club_id=' + clubId : '')"
+                                           @click="if (!clubId) $event.preventDefault()"
+                                           x-show="q === '' || '{{ addslashes($team->name) }}'.toLowerCase().includes(q.toLowerCase())"
+                                           :class="clubId ? 'hover:bg-accent-blue/5 hover:border-accent-blue/30' : 'opacity-60 cursor-not-allowed'"
+                                           class="flex items-center gap-2.5 rounded-lg border border-border-default p-3 pr-9 transition-all">
+                                            <x-team-crest :team="$team" class="w-8 h-8 shrink-0" />
+                                            <span class="text-sm font-medium text-text-body truncate">{{ $team->name }}</span>
+                                        </a>
+                                        <a href="{{ route('national-squad-preview', $team->id) }}" target="_blank" rel="noopener"
+                                           title="{{ __('game.view_squad') }}"
+                                           class="absolute top-1/2 -translate-y-1/2 right-2 p-1 rounded-md text-text-muted hover:text-accent-blue transition">
+                                            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                            </svg>
+                                            <span class="sr-only">{{ __('game.view_squad') }}</span>
+                                        </a>
+                                    </div>
                                 @endforeach
                             </div>
                         </div>
