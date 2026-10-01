@@ -2797,6 +2797,20 @@
           "position": "Forward",
           "nationality": "España",
           "number": 26
+        },
+        {
+          "id": "9800149",
+          "name": "Amaiur Artetxe Santos",
+          "position": "Defender",
+          "nationality": "España",
+          "age": 21
+        },
+        {
+          "id": "9800150",
+          "name": "Eider Egaña Vicuña",
+          "position": "Goalkeeper",
+          "nationality": "España",
+          "age": 24
         }
       ]
     },
