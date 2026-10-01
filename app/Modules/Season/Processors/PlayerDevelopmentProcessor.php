@@ -94,10 +94,23 @@ class PlayerDevelopmentProcessor implements SeasonProcessor
             $randomize = $row->team_id !== $userTeamId;
 
             $newOverall = $this->computeNewOverall($age, $appearances, $previousOverall, $potential, $randomize);
-            $newMarketValue = $this->valuationService->overallScoreToMarketValue($newOverall, $age, $previousOverall, $row->position ?? null);
-            $newTier = PlayerTierService::tierFromMarketValue($newMarketValue);
 
+            // Market value: apply RELATIVE change, not absolute formula value.
+            // This preserves real Soccerdonna values as the base:
+            // - Veterans devalue from their real (low) value instead of being
+            //   inflated up to the formula value
+            // - Young players grow proportionally from their real base
+            // The ratio captures overall change + age devaluation + trend.
             $oldMarketValue = (int) $row->old_market_value;
+            $oldFormulaValue = $this->valuationService->overallScoreToMarketValue($previousOverall, $age - 1, null, $row->position ?? null);
+            $newFormulaValue = $this->valuationService->overallScoreToMarketValue($newOverall, $age, $previousOverall, $row->position ?? null);
+
+            $ratio = $oldFormulaValue > 0 ? $newFormulaValue / $oldFormulaValue : 1.0;
+            // Clamp to avoid extreme swings: max 50% up, max 50% down per season
+            $ratio = max(0.5, min(1.5, $ratio));
+            $newMarketValue = (int) round($oldMarketValue * $ratio);
+
+            $newTier = PlayerTierService::tierFromMarketValue($newMarketValue);
             $oldTier = (int) $row->old_tier;
 
             if ($newOverall === $previousOverall && $newMarketValue === $oldMarketValue && $newTier === $oldTier) {
