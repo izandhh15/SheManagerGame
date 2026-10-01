@@ -329,6 +329,10 @@ Route::middleware('auth')->group(function () {
         // non-pro-manager modes — gated inside the view class.
         Route::get('/game/{gameId}/career', ShowManagerCareer::class)->name('game.manager.career');
 
+        // Job market: apply for jobs at other clubs mid-season.
+        Route::get('/game/{gameId}/job-market', \App\Http\Views\ShowJobMarket::class)->name('game.job-market');
+        Route::post('/game/{gameId}/job-market/apply/{teamId}', \App\Http\Actions\ApplyForJob::class)->name('game.job-market.apply');
+
         // Tournament End
         Route::get('/game/{gameId}/tournament-end', ShowTournamentEnd::class)->name('game.tournament-end');
         Route::get('/game/{gameId}/simulate-tournament', SimulateTournament::class)->middleware('throttle:tournament-simulation')->name('game.simulate-tournament');
