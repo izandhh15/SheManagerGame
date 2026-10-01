@@ -43,6 +43,7 @@ return new class extends Migration
     public function up(): void
     {
         $this->movePutellasToLondonCity();
+        $this->ensurePutellasSpainTemplate();
 
         $players = $this->loadJsonPlayers();
         if (empty($players)) {
@@ -157,6 +158,84 @@ return new class extends Migration
             'number' => 11,
             'annual_wage' => $contracts->calculateAnnualWageForPlayer($overall, $marketValueCents, 0, $age, 'Midfielder', true),
             'release_clause' => $contracts->calculateReleaseClause($marketValueCents, 'EN'),
+        ]);
+    }
+
+    /**
+     * The E2E found Alexia missing from Spain's call-up pool: her Spain NT
+     * template may never have been inserted (migration 000002 resolved the
+     * team by fifa_code). Ensure it exists with her official EA Sports FC 27
+     * rating (91) so she is eligible for the convocatoria. Idempotent.
+     */
+    private function ensurePutellasSpainTemplate(): void
+    {
+        $spainId = DB::table('teams')
+            ->where('type', 'national')
+            ->where('fifa_code', 'ESP')
+            ->value('id');
+
+        if (!$spainId) {
+            return;
+        }
+
+        $overall = 91; // official EA Sports FC 27 rating
+
+        $exists = DB::table('game_player_templates')
+            ->where('season', self::SEASON)
+            ->where('team_id', $spainId)
+            ->where('transfermarkt_id', '904001')
+            ->exists();
+
+        if ($exists) {
+            // The row is there: make sure it carries the official rating.
+            DB::table('game_player_templates')
+                ->where('season', self::SEASON)
+                ->where('team_id', $spainId)
+                ->where('transfermarkt_id', '904001')
+                ->update(['overall_score' => $overall]);
+
+            return;
+        }
+
+        $contracts = app(ContractService::class);
+        $development = app(PlayerDevelopmentService::class);
+
+        $playerId = GamePlayerTemplateService::playerIdFor('904001');
+        $dob = Carbon::parse('1994-02-04');
+        $age = (int) $dob->diffInYears(Carbon::parse(self::SEASON . '-08-15'));
+        $marketValueCents = Money::parseMarketValue('€500k');
+        $potential = $development->generatePotential($age, $overall, $marketValueCents);
+
+        // NT templates carry no squad number (partial unique index on
+        // (season, team_id, number)); the picker is the call-up pool.
+        DB::table('game_player_templates')->insert([
+            'season' => self::SEASON,
+            'player_id' => $playerId,
+            'transfermarkt_id' => '904001',
+            'sofascore_id' => null,
+            'fc26_id' => null,
+            'name' => 'Alexia Putellas',
+            'date_of_birth' => $dob->toDateString(),
+            'nationality' => json_encode(['Spain']),
+            'height' => '1,73m',
+            'foot' => 'left',
+            'secondary_positions' => json_encode([]),
+            'market_value' => '€500k',
+            'market_value_cents' => $marketValueCents,
+            'contract_until' => '2028-06-30',
+            'fitness' => 80,
+            'morale' => 80,
+            'durability' => InjuryService::generateDurability(),
+            'overall_score' => $overall,
+            'potential' => $potential['potential'],
+            'potential_low' => $potential['low'],
+            'potential_high' => $potential['high'],
+            'tier' => PlayerTierService::tierFromMarketValue($marketValueCents),
+            'position' => 'Midfielder',
+            'team_id' => $spainId,
+            'number' => null,
+            'annual_wage' => $contracts->calculateAnnualWageForPlayer($overall, $marketValueCents, 0, $age, 'Midfielder', true),
+            'release_clause' => $contracts->calculateReleaseClause($marketValueCents, null),
         ]);
     }
 
