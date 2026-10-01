@@ -37,6 +37,7 @@ class ShowLineup
                 ->with('dual_forced', [
                     'team' => $forced->team->name,
                     'from' => $game->team->name,
+                    'to_nation' => $forced->team->type === 'national',
                 ]);
         }
 

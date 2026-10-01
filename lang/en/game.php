@@ -473,6 +473,7 @@ return [
     'dual_forced_blocked' => ':mine stops dead: you must play with :partner first.',
     'dual_forced_cta' => 'Go to :team',
     'dual_forced_bounced_title' => 'Switched to the national team',
+    'dual_forced_back_title' => 'Back to the club',
     'dual_forced_bounced' => 'Play the :team match to go back to :from.',
     'legacy_saves_notice' => 'Saved careers keep the squads they started with. To play with :season data, start a new career.',
     'wc2026_name' => 'World Cup 2026',

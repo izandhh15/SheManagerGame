@@ -495,6 +495,7 @@ return [
     'dual_forced_blocked' => ':mine se para en seco: antes debes jugar con :partner.',
     'dual_forced_cta' => 'Ir a :team',
     'dual_forced_bounced_title' => 'Cambio a la selección',
+    'dual_forced_back_title' => 'Vuelta al club',
     'dual_forced_bounced' => 'Juega el partido de :team para volver a :from.',
     'legacy_saves_notice' => 'Las partidas guardadas mantienen las plantillas con las que empezaron. Para jugar con los datos :season, empieza una partida nueva.',
     'wc2026_name' => 'Copa del Mundo 2026',
