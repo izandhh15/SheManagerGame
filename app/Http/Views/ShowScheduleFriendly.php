@@ -77,15 +77,12 @@ class ShowScheduleFriendly
             ->sortKeys();
 
         // Stadiums grouped by country for the selector.
-        $stadiums = collect(json_decode(file_get_contents(base_path('data/stadiums.json')), true) ?? [])
-            ->groupBy('country')
-            ->sortKeys();
+        $stadiumList = $this->venueService->nationalStadiums();
+        $stadiums = (clone $stadiumList)->groupBy('country')->sortKeys();
 
         // Default stadium: the user's national stadium (first entry matching
-        // their country code), falling back to the first stadium overall.
-        $flat = $stadiums->flatten(1);
-        $defaultStadium = $flat->firstWhere('code', strtoupper($userTeam->country ?? ''))
-            ?? $flat->first();
+        // their country), falling back to the first stadium overall.
+        $defaultStadium = $this->venueService->defaultNationalStadium($stadiumList, $userTeam);
 
         // Already-scheduled friendlies (upcoming only).
         $scheduled = GameMatch::where('game_id', $gameId)

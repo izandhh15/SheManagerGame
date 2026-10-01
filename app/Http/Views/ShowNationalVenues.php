@@ -29,12 +29,9 @@ class ShowNationalVenues
         $awaitingClub = $this->orgService->pendingClubDecisions($game);
 
         // National stadiums grouped by country for the picker.
-        $stadiums = collect(json_decode(@file_get_contents(base_path('data/stadiums.json')), true) ?? [])
-            ->groupBy('country')
-            ->sortKeys();
-        $flat = $stadiums->flatten(1);
-        $defaultStadium = $flat->firstWhere('code', strtoupper($userTeam->country ?? ''))
-            ?? $flat->first();
+        $stadiumList = $this->venueService->nationalStadiums();
+        $stadiums = (clone $stadiumList)->groupBy('country')->sortKeys();
+        $defaultStadium = $this->venueService->defaultNationalStadium($stadiumList, $userTeam);
 
         $countryNames = $this->countryCodeToNameMap();
         $clubStadiums = $this->venueService->clubStadiums()

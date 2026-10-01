@@ -143,7 +143,7 @@ class ScheduleFriendly
 
         // 1. National stadium: catalogue lookup, always confirmed.
         if ($venueType === 'national') {
-            $stadiums = collect(json_decode(file_get_contents(base_path('data/stadiums.json')), true) ?? []);
+            $stadiums = $this->venueService->nationalStadiums();
             $stadium = $stadiums->firstWhere('stadium', $validated['stadium'] ?? null);
             if (! $stadium) {
                 return null;

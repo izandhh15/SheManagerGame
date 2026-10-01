@@ -173,7 +173,7 @@ class NationalVenueOrganizationService
 
     private function organizeNational(Game $game, GameMatch $match, array $selection): array
     {
-        $stadiums = collect(json_decode(@file_get_contents(base_path('data/stadiums.json')), true) ?? []);
+        $stadiums = $this->venueService->nationalStadiums();
         $stadium = $stadiums->firstWhere('stadium', $selection['stadium'] ?? null);
         if (! $stadium) {
             return $this->fail('game.friendly_invalid_stadium');

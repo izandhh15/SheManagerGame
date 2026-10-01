@@ -32,6 +32,65 @@ class NationalVenueRequestService
     public const NEUTRAL_VENUE_CAPACITY = 8000;
 
     /**
+     * National-team stadium catalogue (data/stadiums.json).
+     *
+     * NOTE: the file is an object {"stadiums": [...]}, NOT a top-level
+     * array — collect() on the raw decode gives a single 'stadiums' group
+     * and every downstream access ($s['stadium'], number_format($s['capacity']))
+     * blows up into a 500. Always go through this method.
+     *
+     * @return Collection<int, array{stadium: string, city: string|null, capacity: int, country: string, national_team: bool}>
+     */
+    public function nationalStadiums(): Collection
+    {
+        $path = base_path('data/stadiums.json');
+        if (! is_file($path)) {
+            return collect();
+        }
+
+        $data = json_decode(@file_get_contents($path), true);
+
+        return collect($data['stadiums'] ?? [])
+            ->map(fn (array $row) => [
+                'stadium' => (string) ($row['stadium'] ?? ''),
+                'city' => $row['city'] ?? null,
+                'capacity' => (int) ($row['capacity'] ?? 0),
+                'country' => (string) ($row['country'] ?? ''),
+                'national_team' => (bool) ($row['national_team'] ?? false),
+            ])
+            ->filter(fn (array $row) => $row['stadium'] !== '')
+            ->values();
+    }
+
+    /**
+     * Sensible default national stadium for the user's national team:
+     * the country's national-team ground when the catalogue has one,
+     * otherwise the first national-team ground overall, otherwise the
+     * first stadium in the catalogue.
+     */
+    public function defaultNationalStadium(Collection $stadiums, ?Team $nationalTeam): ?array
+    {
+        if ($stadiums->isEmpty()) {
+            return null;
+        }
+
+        $teamName = strtolower(trim((string) ($nationalTeam?->name ?? '')));
+        if ($teamName !== '') {
+            $home = $stadiums->first(
+                fn (array $s) => strtolower($s['country']) === $teamName && $s['national_team']
+            ) ?? $stadiums->first(
+                fn (array $s) => strtolower($s['country']) === $teamName
+            );
+            if ($home) {
+                return $home;
+            }
+        }
+
+        return $stadiums->first(fn (array $s) => $s['national_team'])
+            ?? $stadiums->first();
+    }
+
+    /**
      * Women's club home grounds that can be requested, grouped for the UI.
      * Only clubs with a real home ground (stadium_name set).
      *
