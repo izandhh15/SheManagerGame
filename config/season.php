@@ -23,6 +23,6 @@ return [
     |
     */
 
-    'current' => env('GAME_SEASON', '2025'),
+    'current' => env('GAME_SEASON', '2026'),
 
 ];

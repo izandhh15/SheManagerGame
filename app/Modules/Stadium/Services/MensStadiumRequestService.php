@@ -28,6 +28,12 @@ class MensStadiumRequestService
 
     public const ACCEPT_THRESHOLD = 50;
 
+    /**
+     * Minimum days in advance to request the men's stadium.
+     * The men's club needs time to organize logistics.
+     */
+    public const MIN_ADVANCE_DAYS = 21;
+
     /** @var array<string, array{stadium: string, capacity: int}>|null */
     private ?array $stadiums = null;
 
@@ -115,15 +121,70 @@ class MensStadiumRequestService
             return ['accepted' => false, 'importance' => 0, 'reasons' => ['limit_reached']];
         }
 
+        // Must request at least 3 weeks in advance
+        if (! $this->hasEnoughAdvance($match, $game)) {
+            return ['accepted' => false, 'importance' => 0, 'reasons' => ['too_late']];
+        }
+
         $result = $this->evaluate($match, $game);
 
         if ($result['accepted']) {
             $match->neutral_venue_name = $mens['stadium'];
             $match->neutral_venue_capacity = $mens['capacity'];
             $match->save();
+        } else {
+            // Add a random excuse from the men's club
+            $result['reasons'][] = $this->randomExcuse();
         }
 
         return $result;
+    }
+
+    /**
+     * Check if the request is made at least MIN_ADVANCE_DAYS before the match.
+     */
+    public function hasEnoughAdvance(GameMatch $match, Game $game): bool
+    {
+        if (! $match->scheduled_date || ! $game->current_date) {
+            return true; // Can't verify, allow it
+        }
+
+        $matchDate = \Carbon\Carbon::parse($match->scheduled_date);
+        $now = \Carbon\Carbon::parse($game->current_date);
+
+        return $now->diffInDays($matchDate, false) >= self::MIN_ADVANCE_DAYS;
+    }
+
+    /**
+     * Days remaining to request for a match (for UI display).
+     */
+    public function daysUntilDeadline(GameMatch $match, Game $game): int
+    {
+        if (! $match->scheduled_date || ! $game->current_date) {
+            return 0;
+        }
+
+        $matchDate = \Carbon\Carbon::parse($match->scheduled_date);
+        $now = \Carbon\Carbon::parse($game->current_date);
+        $deadline = $matchDate->copy()->subDays(self::MIN_ADVANCE_DAYS);
+
+        return (int) $now->diffInDays($deadline, false);
+    }
+
+    /**
+     * Random excuse from the men's club when they reject the request.
+     */
+    private function randomExcuse(): string
+    {
+        $excuses = [
+            'excuse_laliga',      // Men's team has a LALIGA EA Sports match that weekend
+            'excuse_grass',       // Changing the pitch grass
+            'excuse_concert',     // Stadium booked for a concert/event
+            'excuse_maintenance', // Scheduled maintenance works
+            'excuse_reserve',     // Reserve team playing there
+        ];
+
+        return $excuses[array_rand($excuses)];
     }
 
     private function isCupOrKnockout(GameMatch $match): bool

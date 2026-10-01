@@ -764,6 +764,12 @@ return [
     'mens_stadium_rejected_derby' => 'El club masculino ha rechazado jugar en :stadium.',
     'mens_stadium_rejected_no_mens_stadium' => 'Tu club no tiene estadio masculino disponible.',
     'mens_stadium_rejected_limit_reached' => 'Ya has usado el estadio masculino :max veces esta temporada.',
+    'mens_stadium_rejected_too_late' => 'Demasiado tarde: debes pedir el estadio con al menos 3 semanas de antelación.',
+    'mens_stadium_rejected_excuse_laliga' => 'El club masculino rechaza ceder :stadium: el primer equipo juega partido de LALIGA EA Sports esa jornada y necesitan el campo en perfectas condiciones.',
+    'mens_stadium_rejected_excuse_grass' => 'El club masculino rechaza ceder :stadium: están cambiando el césped esas semanas.',
+    'mens_stadium_rejected_excuse_concert' => 'El club masculino rechaza ceder :stadium: hay un concierto programado y el campo estará ocupado con el escenario.',
+    'mens_stadium_rejected_excuse_maintenance' => 'El club masculino rechaza ceder :stadium: tienen obras de mantenimiento programadas en el estadio.',
+    'mens_stadium_rejected_excuse_reserve' => 'El club masculino rechaza ceder :stadium: el filial juega allí ese fin de semana.',
     'back_to_dashboard' => 'Volver al panel',
 
     // MVP
