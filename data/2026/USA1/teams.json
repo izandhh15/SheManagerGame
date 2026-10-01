@@ -3574,8 +3574,7 @@
           "number": 23,
           "contract": null,
           "foot": "right",
-          "height": "1,82m",
-          "overall_score": 85
+          "height": "1,82m"
         },
         {
           "id": "943238",
@@ -3848,7 +3847,7 @@
           "nationality": [
             "Brazil"
           ],
-          "marketValue": "€200k",
+          "marketValue": "€250k",
           "number": 99,
           "contract": null,
           "foot": "right",
