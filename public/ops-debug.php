@@ -23,6 +23,7 @@ if ($mode === 'health') {
     echo "== BOOT LARAVEL ==\n";
     try {
         $app = require __DIR__.'/../bootstrap/app.php';
+        $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
         $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
         $req = Illuminate\Http\Request::create('/up', 'GET');
         $resp = $kernel->handle($req);
@@ -42,6 +43,7 @@ if ($mode === 'full') {
     header('Content-Type: text/plain; charset=utf-8');
     try {
         $app = require __DIR__.'/../bootstrap/app.php';
+        $app->make(Illuminate\Contracts\Console\Kernel::class)->bootstrap();
         // Que el manejador de excepciones relance en vez de convertir a 500
         $app->singleton(Illuminate\Contracts\Debug\ExceptionHandler::class, function () {
             return new class implements Illuminate\Contracts\Debug\ExceptionHandler {
