@@ -2,6 +2,8 @@
 // TEMPORAL - diagnóstico 500 en /lineup. BORRAR tras usar.
 if (($_GET['token'] ?? '') !== 'dbg-lineup-20261001') { http_response_code(403); exit('no'); }
 
+require __DIR__.'/../vendor/autoload.php';
+
 $mode = $_GET['mode'] ?? 'trace';
 if ($mode === 'health') {
     header('Content-Type: text/plain; charset=utf-8');
@@ -46,7 +48,6 @@ if ($mode === 'log') {
     exit;
 }
 
-require __DIR__.'/../vendor/autoload.php';
 $app = require __DIR__.'/../bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
 $kernel->bootstrap();
