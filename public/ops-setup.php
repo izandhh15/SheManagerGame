@@ -38,6 +38,30 @@ try {
             echo Artisan::output();
             break;
 
+        case 'debug-up':
+            // Run each part of migration 000003 separately with markers,
+            // catching Throwables per step so we see exactly what fails.
+            $migration = require database_path('migrations/2026_10_01_000003_realistic_player_ratings.php');
+            $ref = new ReflectionClass($migration);
+            foreach (['movePutellasToLondonCity', 'ensurePutellasSpainTemplate', 'refreshAllRatings'] as $m) {
+                echo "=== {$m} ===\n";
+                if (ob_get_level()) { ob_flush(); }
+                flush();
+                try {
+                    $method = $ref->getMethod($m);
+                    $method->setAccessible(true);
+                    $method->invoke($migration);
+                    echo "OK {$m}\n";
+                } catch (Throwable $e) {
+                    echo 'THROWABLE ' . get_class($e) . ': ' . $e->getMessage() . "\n";
+                    echo $e->getTraceAsString() . "\n";
+                }
+                if (ob_get_level()) { ob_flush(); }
+                flush();
+            }
+            echo "DONE debug-up\n";
+            break;
+
         case 'verify-alexia':
             $rows = DB::table('game_player_templates')
                 ->join('teams', 'teams.id', '=', 'game_player_templates.team_id')
