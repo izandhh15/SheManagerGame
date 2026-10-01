@@ -3,6 +3,7 @@
 namespace App\Modules\Season\Services;
 
 use App\Models\CompetitionEntry;
+use App\Models\Competition;
 use App\Models\Game;
 use App\Models\GameMatch;
 use App\Models\Team;
@@ -10,6 +11,7 @@ use App\Modules\Match\Events\GameDateAdvanced;
 use App\Modules\Match\Jobs\ProcessCareerActions;
 use App\Support\CountryCodeMapper;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
@@ -55,11 +57,14 @@ class PreseasonOpponentService
     }
 
     /**
-     * Candidate opponents the player can choose from: every team in this game
-     * that has a generated squad — the same universe as the transfer market /
-     * explore. transferMarketEligible() drops national, reserve, and cup-only
-     * (squad-less) sides; the user's own teams are excluded so you can't play
-     * yourself. Sorted by name for a stable picker.
+     * Candidate opponents the player can choose from: every club team in this
+     * game that has a generated squad — including reserve teams (filiales),
+     * so you can schedule friendlies against B teams. National teams are
+     * excluded (club friendlies only); the user's own teams are excluded so
+     * you can't play yourself. Sorted by name for a stable picker.
+     *
+     * Note: unlike transferMarketEligible() (which drops reserve teams because
+     * they never buy/sell on the market), friendlies have no such restriction.
      *
      * @return Collection<int, Team>
      */
@@ -69,9 +74,10 @@ class PreseasonOpponentService
             ->distinct()
             ->pluck('team_id');
 
-        return Team::transferMarketEligible()
+        return Team::where('type', '!=', 'national')
             ->whereIn('id', $teamIds)
             ->whereNotIn('id', $game->userTeamIds())
+            ->whereHas('competitions', fn (Builder $q) => $q->where('role', '!=', Competition::ROLE_DOMESTIC_CUP))
             ->orderBy('name')
             ->get();
     }
