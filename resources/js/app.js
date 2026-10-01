@@ -22,6 +22,7 @@ import playerDossier from './player-dossier';
 import shortlistStar from './shortlist-star';
 import budgetAllocation from './budget-allocation';
 import preMatchLoader from './pre-match-loader';
+import trainingStage from './training-stage';
 import loanRequestForm from './loan-request-form';
 import mutualTerminationChat from './mutual-termination-chat';
 
@@ -52,6 +53,7 @@ Alpine.data('playerDossier', playerDossier);
 Alpine.data('shortlistStar', shortlistStar);
 Alpine.data('budgetAllocation', budgetAllocation);
 Alpine.data('preMatchLoader', preMatchLoader);
+Alpine.data('trainingStage', trainingStage);
 Alpine.data('loanRequestForm', loanRequestForm);
 Alpine.data('mutualTerminationChat', mutualTerminationChat);
 

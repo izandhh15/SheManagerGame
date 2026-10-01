@@ -6,6 +6,7 @@ use App\Models\Game;
 use App\Models\GameMatch;
 use App\Models\Team;
 use App\Modules\Competition\Configs\FifaInternationalBreaks;
+use App\Modules\Season\Services\TrainingStageService;
 use App\Modules\Stadium\Services\NationalVenueRequestService;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,7 @@ class ShowScheduleFriendly
     public const MAX_PER_WINDOW = 2;
 
     public function __construct(
+        private readonly TrainingStageService $stageService,
         private readonly NationalVenueRequestService $venueService,
     ) {}
 
@@ -111,6 +113,14 @@ class ShowScheduleFriendly
             'defaultStadium' => $defaultStadium,
             'scheduled' => $scheduled,
             'maxPerWindow' => self::MAX_PER_WINDOW,
+            'stageService' => $this->stageService,
+            'stageConfig' => $game->training_stage,
+            'federationBudget' => $game->federation_budget ?? 2000000,
+            'stageDurations' => TrainingStageService::DURATIONS,
+            'stageIntensities' => TrainingStageService::INTENSITIES,
+            'stageFocuses' => TrainingStageService::FOCUSES,
+            'stageCountries' => $stadiums->keys()->values()->all(),
+            'stageHomeCountry' => $countryNames[strtoupper($userTeam->country ?? '')] ?? null,
             'clubStadiums' => $clubStadiums,
             'mensStadiums' => $mensStadiums,
             'neutralVenueName' => NationalVenueRequestService::NEUTRAL_VENUE_NAME,

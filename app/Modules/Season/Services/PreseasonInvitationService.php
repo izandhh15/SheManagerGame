@@ -90,6 +90,9 @@ class PreseasonInvitationService
     /**
      * Accept an invitation: occupies its slot with a friendly against the
      * inviting team. Returns the slot index, or null if the slot is taken.
+     *
+     * Accepting one invitation auto-declines the other pending invitations
+     * for the same slot — a slot can only host one invited match.
      */
     public function accept(Game $game, string $invitationId): ?int
     {
@@ -102,16 +105,49 @@ class PreseasonInvitationService
             return null;
         }
 
+        // The slot is taken if another invitation was already accepted for it.
+        $slotTaken = PreseasonInvitation::where('game_id', $game->id)
+            ->where('id', '!=', $invitation->id)
+            ->where('slot', $invitation->slot)
+            ->where('status', PreseasonInvitation::STATUS_ACCEPTED)
+            ->exists();
+
+        if ($slotTaken) {
+            return null;
+        }
+
         $invitation->update(['status' => PreseasonInvitation::STATUS_ACCEPTED]);
 
+        // Decline the rival invitations for the same slot so they don't linger.
+        PreseasonInvitation::where('game_id', $game->id)
+            ->where('id', '!=', $invitation->id)
+            ->where('slot', $invitation->slot)
+            ->where('status', PreseasonInvitation::STATUS_PENDING)
+            ->update(['status' => PreseasonInvitation::STATUS_DECLINED]);
+
         return $invitation->slot;
+    }
+
+    /**
+     * Accepted invitations for the pre-season setup screen, with team data.
+     * These occupy their slots: the user sees them as locked fixtures.
+     *
+     * @return Collection<int, PreseasonInvitation>
+     */
+    public function acceptedFor(Game $game): Collection
+    {
+        return PreseasonInvitation::where('game_id', $game->id)
+            ->where('status', PreseasonInvitation::STATUS_ACCEPTED)
+            ->with('invitingTeam')
+            ->orderBy('slot')
+            ->get();
     }
 
     public function decline(Game $game, string $invitationId): void
     {
         PreseasonInvitation::where('game_id', $game->id)
             ->where('id', $invitationId)
-            ->where('status', PreseasonInvitation::STATUS_PENDING)
+            ->whereIn('status', [PreseasonInvitation::STATUS_PENDING, PreseasonInvitation::STATUS_ACCEPTED])
             ->update(['status' => PreseasonInvitation::STATUS_DECLINED]);
     }
 

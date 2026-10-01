@@ -33,12 +33,26 @@ class ShowPreseasonSetup
         $teams = $this->opponentService->candidateTeamsGroupedByCountry($game);
         $slots = $this->opponentService->fixtureSlots($game);
         $invitations = $this->invitationService->pendingFor($game);
+        $acceptedInvitations = $this->invitationService->acceptedFor($game);
+
+        // Accepted invitations as locked slots for the Alpine picker.
+        $acceptedForJs = $acceptedInvitations->map(fn ($inv) => [
+            'slot' => $inv->slot,
+            'teamId' => $inv->inviting_team_id,
+            'teamName' => $inv->invitingTeam->name,
+            'teamImage' => $inv->invitingTeam->image,
+            'trophyName' => $inv->trophy_name,
+            'stadiumName' => $inv->stadium_name,
+            'invitationId' => $inv->id,
+        ])->values()->all();
 
         return view('preseason-setup', [
             'game' => $game,
             'teams' => $teams,
             'slots' => $slots,
             'invitations' => $invitations,
+            'acceptedInvitations' => $acceptedInvitations,
+            'acceptedForJs' => $acceptedForJs,
         ]);
     }
 }

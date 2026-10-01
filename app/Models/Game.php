@@ -155,6 +155,8 @@ class Game extends Model
         'season_offers_generated_for',
         'manager_reputation_points',
         'linked_game_id',
+        'training_stage',
+        'federation_budget',
     ];
 
     protected $casts = [
@@ -179,6 +181,8 @@ class Game extends Model
         'matchday_advance_result' => 'array',
         'deleting_at' => 'datetime',
         'manager_reputation_points' => 'integer',
+        'training_stage' => 'array',
+        'federation_budget' => 'integer',
     ];
 
     /**

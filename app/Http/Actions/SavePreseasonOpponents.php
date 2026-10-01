@@ -32,23 +32,13 @@ class SavePreseasonOpponents
         // Reshape the per-slot form input into the service's selection list,
         // dropping slots the player left empty. The service does the real
         // validation (valid pool members, unique slots/teams).
+        //
+        // Accepted AI invitations go FIRST so they win if the user also
+        // picked a manual opponent for the same slot (sanitizeSelections
+        // keeps the first fixture per slot). The setup screen locks those
+        // slots visually, but this keeps the merge safe even if the form
+        // is tampered with.
         $selections = [];
-        foreach ($validated['slots'] ?? [] as $slot => $input) {
-            if (empty($input['team_id'])) {
-                continue;
-            }
-
-            $selections[] = [
-                'slot' => (int) $slot,
-                'team_id' => $input['team_id'],
-                'is_home' => filter_var($input['is_home'] ?? true, FILTER_VALIDATE_BOOL),
-                'trophy_name' => $input['trophy_name'] ?? null,
-                'stadium_name' => $input['stadium_name'] ?? null,
-            ];
-        }
-
-        // Merge accepted AI invitations: they occupy their slots with the
-        // inviting team, trophy name and proposed stadium.
         $acceptedInvitations = PreseasonInvitation::where('game_id', $game->id)
             ->where('status', PreseasonInvitation::STATUS_ACCEPTED)
             ->get();
@@ -61,6 +51,20 @@ class SavePreseasonOpponents
                 'is_home' => false,
                 'trophy_name' => $invitation->trophy_name,
                 'stadium_name' => $invitation->stadium_name,
+            ];
+        }
+
+        foreach ($validated['slots'] ?? [] as $slot => $input) {
+            if (empty($input['team_id'])) {
+                continue;
+            }
+
+            $selections[] = [
+                'slot' => (int) $slot,
+                'team_id' => $input['team_id'],
+                'is_home' => filter_var($input['is_home'] ?? true, FILTER_VALIDATE_BOOL),
+                'trophy_name' => $input['trophy_name'] ?? null,
+                'stadium_name' => $input['stadium_name'] ?? null,
             ];
         }
 
