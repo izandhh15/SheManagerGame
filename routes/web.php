@@ -42,6 +42,7 @@ use App\Http\Actions\EnterFastMode;
 use App\Http\Actions\ExitFastMode;
 use App\Http\Actions\SimulateTournament;
 use App\Http\Actions\ScheduleFriendly;
+use App\Http\Actions\SaveTrainingStage;
 use App\Http\Actions\CancelLoanSearch;
 use App\Http\Actions\CancelScoutSearch;
 use App\Http\Actions\AcknowledgeCriticalAlerts;
@@ -348,6 +349,7 @@ Route::middleware('auth')->group(function () {
         // view + action abort 404 for other modes).
         Route::get('/game/{gameId}/schedule-friendly', ShowScheduleFriendly::class)->name('game.schedule-friendly');
         Route::post('/game/{gameId}/schedule-friendly', ScheduleFriendly::class)->name('game.schedule-friendly.store');
+        Route::post('/game/{gameId}/schedule-friendly/stage', SaveTrainingStage::class)->name('game.schedule-friendly.stage.save');
 
         // Budget Allocation
         // Legacy budget route — investment now lives on the Club investment page.

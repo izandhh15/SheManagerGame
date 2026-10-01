@@ -10,6 +10,7 @@ use App\Http\View\Composers\TacticalGuideComposer;
 use App\Modules\Academy\Listeners\GenerateInitialAcademyBatch;
 use App\Modules\Competition\Services\CompetitionHandlerResolver;
 use App\Modules\Finance\Listeners\ActivateCompletedStadiumProjects;
+use App\Modules\Finance\Listeners\ProcessSeveranceInstallments;
 use App\Modules\Finance\Listeners\RecomputeWageProjectionOnWindowClose;
 use App\Modules\Match\Events\CupTieResolved;
 use App\Modules\Match\Events\GameDateAdvanced;
@@ -157,6 +158,7 @@ class AppServiceProvider extends ServiceProvider
         Event::listen(GameDateAdvanced::class, ApplyWageGapMoraleDrip::class);
         Event::listen(GameDateAdvanced::class, RollAIContractRenewals::class);
         Event::listen(GameDateAdvanced::class, ActivateCompletedStadiumProjects::class);
+        Event::listen(GameDateAdvanced::class, ProcessSeveranceInstallments::class);
         Event::listen(GameDateAdvanced::class, RollNationalTeamEvents::class);
 
         Queue::failing(function (JobFailed $event) {

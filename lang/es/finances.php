@@ -214,6 +214,8 @@ return [
     'tx_player_signed' => ':player fichada :team_de',
     'tx_loan_in' => ':player cedida :team_de (salario)',
     'tx_player_released' => ':player liberada (indemnización)',
+    'tx_severance_installment' => 'Indemnización :player (cuota :current/:total)',
+    'tx_severance_loan_received' => 'Préstamo para indemnización de :player',
     'tx_cup_advancement' => ':competition - :round',
     'tx_league_phase_qualification' => ':competition - Fase de liga superada (:positionº)',
     'tx_infrastructure_upgrade' => ':area mejorada de Nivel :from a Nivel :to',
@@ -249,4 +251,13 @@ return [
     'loan_confirm' => 'Confirmar Préstamo',
     'loan_cancel' => 'Cancelar',
     'loan_not_available_desc' => 'Los préstamos se pueden solicitar durante las ventanas de fichajes cuando no hay otro préstamo activo.',
+
+    // Forma de pago de la indemnización (carta de libertad)
+    'severance_payment_title' => 'Forma de pago',
+    'severance_method_lump_sum' => 'Pago único',
+    'severance_method_lump_sum_detail' => 'Pagas :amount de golpe con cargo al presupuesto.',
+    'severance_method_installments' => 'A plazos (:months meses)',
+    'severance_method_installments_detail' => ':monthly/mes durante :months meses (total :total con intereses).',
+    'severance_method_bank_loan' => 'Pedir préstamo al banco',
+    'severance_method_bank_loan_detail' => 'El banco te presta :amount y lo devuelves a fin de temporada (:repayment con intereses).',
 ];

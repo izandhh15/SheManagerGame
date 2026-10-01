@@ -7,7 +7,6 @@ use App\Models\Competition;
 use App\Modules\Player\PlayerAge;
 use App\Modules\Player\Services\PlayerValuationService;
 use App\Modules\Transfer\Enums\NegotiationScenario;
-use App\Models\FinancialTransaction;
 use App\Models\Game;
 use App\Models\GameNotification;
 use App\Models\GamePlayer;
@@ -63,6 +62,7 @@ class ContractService
         private readonly DispositionService $dispositionService,
         private readonly SquadMinimumService $squadMinimumService,
         private readonly PlayerValuationService $valuationService,
+        private readonly RenewalRivalOfferService $rivalOfferService,
     ) {}
 
     /**
@@ -1033,10 +1033,20 @@ class ContractService
     }
 
     /**
-     * Initiate a new renewal negotiation.
+     * Prepare (or reuse) a renewal negotiation row before the first offer.
+     * Rolling the rival-offer dice here means the agent can play the rival
+     * card from the very first message of the negotiation.
      */
-    public function initiateNegotiation(GamePlayer $player, int $offerWage, int $offeredYears, ?int $requestedClauseCents = null): RenewalNegotiation
+    public function prepareNegotiation(GamePlayer $player): RenewalNegotiation
     {
+        $existing = RenewalNegotiation::where('game_player_id', $player->id)
+            ->where('status', RenewalNegotiation::STATUS_OFFER_PENDING)
+            ->first();
+
+        if ($existing) {
+            return $existing;
+        }
+
         $demand = $this->calculateWageDemand($player, NegotiationScenario::RENEWAL);
 
         // Check for any previous negotiations (for round carry-over)
@@ -1052,17 +1062,37 @@ class ContractService
 
         $startRound = $previousNegotiation ? min($previousNegotiation->round + 1, self::MAX_NEGOTIATION_ROUNDS) : 1;
 
-        return RenewalNegotiation::create([
+        $negotiation = RenewalNegotiation::create([
             'game_id' => $player->game_id,
             'game_player_id' => $player->id,
             'status' => RenewalNegotiation::STATUS_OFFER_PENDING,
             'round' => $startRound,
             'player_demand' => $demand['wage'],
             'preferred_years' => $demand['contractYears'],
+            'agent_patience' => 100,
+        ]);
+
+        // The agent may already have a rival club's offer on the table.
+        $this->rivalOfferService->maybeAttachRivalOffer($player->game, $player, $negotiation);
+
+        return $negotiation->refresh();
+    }
+
+    /**
+     * Initiate a new renewal negotiation.
+     */
+    public function initiateNegotiation(GamePlayer $player, int $offerWage, int $offeredYears, ?int $requestedClauseCents = null): RenewalNegotiation
+    {
+        $negotiation = $this->prepareNegotiation($player);
+
+        $negotiation->update([
+            'status' => RenewalNegotiation::STATUS_OFFER_PENDING,
             'user_offer' => $offerWage,
             'offered_years' => $offeredYears,
             'release_clause_requested' => $requestedClauseCents,
         ]);
+
+        return $negotiation->refresh();
     }
 
     /**
@@ -1096,6 +1126,24 @@ class ContractService
             $player->isHomegrown(),
         );
 
+        // Harder renegotiation: an agent whose patience has worn thin holds out
+        // for MORE, not less. Each failed round inflates the effective demand.
+        $patience = (int) ($negotiation->agent_patience ?? 100);
+        $patienceMultiplier = 1 + ((100 - $patience) / 100) * 0.12;
+        $effectiveDemand = (int) ($effectiveDemand * $patienceMultiplier);
+
+        // A rival club's offer on the table is a hard floor: the player won't
+        // take less from you than what the rival is offering her.
+        if ($negotiation->hasActiveRivalOffer()) {
+            $rivalFloor = (int) $negotiation->rival_offer_wage;
+            $salaryFloor = $salaryFloor === null ? $rivalFloor : max($salaryFloor, $rivalFloor);
+        }
+
+        // When patience has worn thin, the agent stops softening: drop the
+        // "never raise above previous counter" cap so the counter-offer can
+        // climb back up toward the (patience-inflated) demand.
+        $previousCounter = $patience < 60 ? null : $negotiation->counter_offer;
+
         $evaluation = $this->wageNegotiationEvaluator->evaluate(
             offerWage: $negotiation->user_offer,
             offeredYears: $negotiation->offered_years,
@@ -1105,7 +1153,7 @@ class ContractService
             round: $negotiation->round,
             maxRounds: self::MAX_NEGOTIATION_ROUNDS,
             salaryFloor: $salaryFloor,
-            previousCounter: $negotiation->counter_offer,
+            previousCounter: $previousCounter,
             flexibilityRatio: NegotiationScenario::RENEWAL->flexibilityRatio($player->tier),
         );
 
@@ -1130,6 +1178,8 @@ class ContractService
         if ($evaluation['result'] === 'countered') {
             $updateData['status'] = RenewalNegotiation::STATUS_PLAYER_COUNTERED;
             $updateData['counter_offer'] = $evaluation['counterWage'];
+            // Failed round: the agent loses patience and gets harsher.
+            $updateData['agent_patience'] = $this->erodePatience($negotiation, $effectiveDemand);
 
             $negotiation->fill($updateData)->save();
 
@@ -1138,9 +1188,27 @@ class ContractService
 
         $updateData['status'] = RenewalNegotiation::STATUS_PLAYER_REJECTED;
         $updateData['rejected_at'] = $player->game->current_date;
+        $updateData['agent_patience'] = 0;
         $negotiation->fill($updateData)->save();
 
         return 'rejected';
+    }
+
+    /**
+     * Erode the agent's patience after a failed round. Lowball offers
+     * (far below the demand) burn patience much faster.
+     */
+    private function erodePatience(RenewalNegotiation $negotiation, int $effectiveDemand): int
+    {
+        $current = (int) ($negotiation->agent_patience ?? 100);
+        $offerRatio = $effectiveDemand > 0
+            ? min(1.0, $negotiation->user_offer / $effectiveDemand)
+            : 1.0;
+
+        // 12 base + up to 23 extra when the offer is insultingly low
+        $loss = (int) (12 + (1.0 - $offerRatio) * 23);
+
+        return max(0, $current - $loss);
     }
 
     /**
@@ -1284,11 +1352,12 @@ class ContractService
      * Release a player from the user's squad (unilateral contract termination).
      *
      * The player becomes a free agent (team_id = null) and the club pays
-     * severance equal to 50% of remaining contract wages.
+     * severance equal to 50% of remaining contract wages, using the chosen
+     * payment method (lump sum, installments, or bank loan).
      *
-     * @return array{error?: string, playerName?: string, severance?: int, formattedSeverance?: string}
+     * @return array{error?: string, playerName?: string, severance?: int, formattedSeverance?: string, paymentMethod?: string}
      */
-    public function releasePlayer(Game $game, GamePlayer $player): array
+    public function releasePlayer(Game $game, GamePlayer $player, string $paymentMethod = \App\Modules\Finance\Services\SeverancePaymentService::METHOD_LUMP_SUM): array
     {
         $playerName = $player->name;
 
@@ -1300,16 +1369,12 @@ class ContractService
         // Calculate severance
         $severance = $this->calculateSeverance($game, $player);
 
-        // Record severance as a financial transaction
-        if ($severance > 0) {
-            FinancialTransaction::recordExpense(
-                gameId: $game->id,
-                category: FinancialTransaction::CATEGORY_SEVERANCE,
-                amount: $severance,
-                description: __('finances.tx_player_released', ['player' => $playerName]),
-                transactionDate: $game->current_date,
-                relatedPlayerId: $player->id,
-            );
+        // Pay using the chosen method (records the financial transaction).
+        $paymentResult = app(\App\Modules\Finance\Services\SeverancePaymentService::class)
+            ->paySeverance($game, $player, $playerName, $severance, $paymentMethod);
+
+        if ($paymentResult['error'] ?? false) {
+            return ['error' => $paymentResult['error']];
         }
 
         // Release the player to the free agent pool
@@ -1339,6 +1404,7 @@ class ContractService
             'playerName' => $playerName,
             'severance' => $severance,
             'formattedSeverance' => Money::format($severance),
+            'paymentMethod' => $paymentResult['method'] ?? $paymentMethod,
         ];
     }
 

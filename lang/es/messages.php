@@ -126,6 +126,12 @@ return [
     'release_squad_too_small' => 'No se puede liberar — tu plantilla debe tener al menos :min jugadoras.',
     'release_position_minimum' => 'No se puede liberar — necesitas al menos :min :group.',
 
+    // Rescisión de mutuo acuerdo
+    'mutual_termination_completed' => 'Rescisión de mutuo acuerdo con :player completada. Indemnización: :amount.',
+    'severance_invalid_method' => 'Forma de pago no válida.',
+    'severance_loan_active' => 'Ya tienes un préstamo activo. No puedes pedir otro.',
+    'severance_loan_unavailable' => 'No se puede solicitar el préstamo en este momento.',
+
     // Squad-minimum guards on promote / demote / list / accept
     'promote_squad_too_small' => 'No se puede subir — el filial debe tener al menos :min jugadoras.',
     'promote_position_minimum' => 'No se puede subir — el filial necesita al menos :min :group.',

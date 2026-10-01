@@ -160,6 +160,16 @@ return [
     'player_released_message' => ':player ha sido liberada de tu plantilla. Indemnización pagada: :severance.',
     'player_released_message_free' => ':player ha sido liberada de tu plantilla.',
 
+    // Rescisión de mutuo acuerdo
+    'mutual_termination_title' => 'Rescisión de mutuo acuerdo: :player',
+    'mutual_termination_message' => 'Has rescindido de mutuo acuerdo el contrato de :player. Indemnización pactada: :amount.',
+
+    // Plan de pago de indemnización a plazos
+    'severance_plan_title' => 'Indemnización a plazos: :player',
+    'severance_plan_message' => 'Pagarás la indemnización de :player en :months cuotas de :monthly (total :total con intereses).',
+    'severance_plan_completed_title' => 'Indemnización saldada: :player',
+    'severance_plan_completed_message' => 'Has terminado de pagar la indemnización de :player (total :total).',
+
     // Fichajes de emergencia
     'emergency_signing_title' => 'Refuerzo de emergencia',
     'emergency_signing_message' => 'Tu plantilla estaba en niveles críticos. Se han fichado :count agentes libres para asegurar que puedas alinear un equipo: :players.',

@@ -98,6 +98,9 @@ class ShowPlayerDetail
             && !$gamePlayer->hasActiveLoanSearch();
 
         $severance = $canRelease ? $this->contractService->calculateSeverance($game, $gamePlayer) : 0;
+        $severanceMethods = $canRelease
+            ? app(\App\Modules\Finance\Services\SeverancePaymentService::class)->availableMethods($game, $severance)
+            : [];
 
         return view('partials.player-detail', [
             'game' => $game,
@@ -107,6 +110,7 @@ class ShowPlayerDetail
             'renewalCooldown' => $renewalCooldown,
             'canRelease' => $canRelease,
             'severance' => $severance,
+            'severanceMethods' => $severanceMethods,
             'isOnReserve' => $isOnReserve,
             'isCalledUpFromReserve' => $isCalledUpFromReserve,
             'canCallUpToFirstTeam' => $canCallUpToFirstTeam,

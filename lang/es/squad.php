@@ -47,6 +47,7 @@ return [
     'release_remaining_contract' => 'Contrato restante',
     'release_years_remaining' => ':years año(s)',
     'release_confirm_button' => 'Confirmar Liberación',
+    'mutual_terminate' => 'Rescindir de mutuo acuerdo',
     'loan_searching' => 'Buscando destino de cesión',
     'contract_expiring' => 'Contrato por expirar',
 

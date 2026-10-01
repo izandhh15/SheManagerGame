@@ -390,17 +390,130 @@
                                 </div>
                             </div>
 
+                            @if($severance > 0 && !empty($severanceMethods))
+                                <div class="mb-5">
+                                    <p class="text-sm font-semibold text-text-primary mb-2">{{ __('finances.severance_payment_title') }}</p>
+                                    <div class="space-y-2">
+                                        @foreach($severanceMethods as $method)
+                                            <label class="flex items-start gap-3 p-3 rounded-lg bg-surface-700/50 border border-border-default cursor-pointer hover:border-accent-blue/50 transition-colors has-[:checked]:border-accent-blue">
+                                                <input type="radio" name="payment_method" value="{{ $method['key'] }}" {{ $loop->first ? 'checked' : '' }} form="release-form-{{ $gamePlayer->id }}" class="mt-1 accent-blue-500">
+                                                <span>
+                                                    <span class="block text-sm font-medium text-text-primary">{{ $method['label'] }}</span>
+                                                    <span class="block text-xs text-text-muted mt-0.5">{{ $method['detail'] }}</span>
+                                                </span>
+                                            </label>
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @endif
+
                             <div class="flex gap-3">
                                 <x-secondary-button @click="showReleaseConfirm = false" class="flex-1">
                                     {{ __('app.cancel') }}
                                 </x-secondary-button>
-                                <form method="POST" action="{{ route('game.squad.release', [$game->id, $gamePlayer->id]) }}" class="flex-1">
+                                <form method="POST" action="{{ route('game.squad.release', [$game->id, $gamePlayer->id]) }}" class="flex-1" id="release-form-{{ $gamePlayer->id }}">
                                     @csrf
                                     <x-danger-button class="w-full">
                                         {{ __('squad.release_confirm_button') }}
                                     </x-danger-button>
                                 </form>
                             </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        @endif
+        @if($canRelease ?? false)
+            <div x-data="mutualTerminationChat('{{ route('game.negotiate.mutual-termination', [$game->id, $gamePlayer->id]) }}', '{{ $gamePlayer->name }}')">
+                <x-action-button color="amber" type="button" @click="open()">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                    {{ __('squad.mutual_terminate') }}
+                </x-action-button>
+
+                <template x-teleport="body">
+                    <div x-show="openModal" x-cloak class="fixed inset-0 z-50 flex items-center justify-center p-4">
+                        <div x-show="openModal" x-transition:enter="ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="ease-in duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" @click="close()" class="fixed inset-0 bg-black/80"></div>
+                        <div x-show="openModal" x-transition:enter="ease-out duration-200" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="ease-in duration-150" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="relative bg-surface-800 rounded-xl shadow-xl max-w-md w-full p-6 z-10 max-h-[90vh] overflow-y-auto" @keydown.escape.window="close()">
+                            <h3 class="text-lg font-semibold text-text-primary mb-3">{{ __('termination.modal_title') }}</h3>
+
+                            <template x-if="step === 'intro'">
+                                <div>
+                                    <p class="text-sm text-text-secondary mb-4">{{ __('termination.modal_intro', ['player' => $gamePlayer->name]) }}</p>
+                                    <div class="flex gap-3">
+                                        <x-secondary-button @click="close()" class="flex-1">{{ __('app.cancel') }}</x-secondary-button>
+                                        <x-action-button color="amber" @click="start()" class="flex-1" ::disabled="loading">
+                                            <span x-text="loading ? '…' : '{{ __('termination.btn_start') }}'"></span>
+                                        </x-action-button>
+                                    </div>
+                                </div>
+                            </template>
+
+                            <template x-if="step === 'negotiating'">
+                                <div>
+                                    <div class="p-4 bg-surface-700/50 rounded-lg mb-4">
+                                        <p class="text-sm text-text-secondary italic" x-text="agentMessage"></p>
+                                    </div>
+                                    <div class="flex justify-between text-sm mb-4">
+                                        <span class="text-text-muted">{{ __('termination.agent_demand_label') }}</span>
+                                        <span class="font-bold text-accent-red text-base" x-text="demandFormatted"></span>
+                                    </div>
+                                    <div class="flex justify-between text-xs mb-4">
+                                        <span class="text-text-muted">{{ __('termination.unilateral_cost_label') }}</span>
+                                        <span class="text-text-secondary" x-text="unilateralFormatted"></span>
+                                    </div>
+                                    <p class="text-xs text-text-muted mb-2" x-text="'{{ __('termination.round_label', ['current' => '__C__', 'max' => '__M__']) }}'.replace('__C__', round).replace('__M__', maxRounds)"></p>
+                                    <template x-if="error">
+                                        <p class="text-xs text-accent-red mb-2" x-text="error"></p>
+                                    </template>
+                                    <label class="block text-sm font-medium text-text-primary mb-1">{{ __('termination.your_offer_label') }}</label>
+                                    <input type="number" x-model.number="offerAmount" min="0" step="1000" placeholder="{{ __('termination.your_offer_placeholder') }}"
+                                        class="w-full mb-3 px-3 py-2 rounded-lg bg-surface-700 border border-border-default text-text-primary text-sm">
+                                    <div class="grid grid-cols-2 gap-2 mb-2">
+                                        <x-action-button color="blue" @click="sendOffer()" ::disabled="loading || !offerAmount">
+                                            <span x-text="loading ? '…' : '{{ __('termination.btn_offer') }}'"></span>
+                                        </x-action-button>
+                                        <x-action-button color="green" @click="acceptDemand()" ::disabled="loading">
+                                            <span x-text="loading ? '…' : '{{ __('termination.btn_accept_demand') }}'"></span>
+                                        </x-action-button>
+                                    </div>
+                                    <button type="button" @click="walkAway()" ::disabled="loading" class="w-full text-xs text-text-muted hover:text-accent-red py-2">
+                                        {{ __('termination.btn_walk_away') }}
+                                    </button>
+                                </div>
+                            </template>
+
+                            <template x-if="step === 'payment'">
+                                <div>
+                                    <div class="p-4 bg-green-900/30 border border-green-700/50 rounded-lg mb-4">
+                                        <p class="text-sm text-text-secondary" x-text="agentMessage"></p>
+                                        <p class="text-lg font-bold text-green-400 mt-1" x-text="agreedFormatted"></p>
+                                    </div>
+                                    <p class="text-sm font-semibold text-text-primary mb-2">{{ __('termination.payment_title') }}</p>
+                                    <p class="text-xs text-text-muted mb-3">{{ __('termination.payment_intro', ['amount' => '__A__', 'player' => $gamePlayer->name]).replace('__A__', agreedFormatted) }}</p>
+                                    <form method="POST" :action="completeUrl" class="space-y-2">
+                                        @csrf
+                                        <template x-for="method in paymentMethods" :key="method.key">
+                                            <label class="flex items-start gap-3 p-3 rounded-lg bg-surface-700/50 border border-border-default cursor-pointer hover:border-accent-blue/50 transition-colors has-[:checked]:border-accent-blue">
+                                                <input type="radio" name="payment_method" :value="method.key" :checked="method.key === paymentMethods[0].key" class="mt-1 accent-blue-500">
+                                                <span>
+                                                    <span class="block text-sm font-medium text-text-primary" x-text="method.label"></span>
+                                                    <span class="block text-xs text-text-muted mt-0.5" x-text="method.detail"></span>
+                                                </span>
+                                            </label>
+                                        </template>
+                                        <x-danger-button class="w-full mt-3">{{ __('termination.btn_complete') }}</x-danger-button>
+                                    </form>
+                                </div>
+                            </template>
+
+                            <template x-if="step === 'done'">
+                                <div>
+                                    <div class="p-4 rounded-lg mb-4" :class="terminalOk ? 'bg-green-900/30 border border-green-700/50' : 'bg-surface-700/50'">
+                                        <p class="text-sm text-text-secondary" x-text="agentMessage"></p>
+                                    </div>
+                                    <x-secondary-button @click="close()" class="w-full">{{ __('app.cancel') }}</x-secondary-button>
+                                </div>
+                            </template>
                         </div>
                     </div>
                 </template>

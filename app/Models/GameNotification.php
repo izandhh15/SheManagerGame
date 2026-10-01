@@ -68,10 +68,14 @@ class GameNotification extends Model
     public const TYPE_AI_TRANSFER_ACTIVITY = 'ai_transfer_activity';
     public const TYPE_TRANSFER_WINDOW_OPEN = 'transfer_window_open';
     public const TYPE_PLAYER_RELEASED = 'player_released';
+    public const TYPE_SEVERANCE_PLAN_CREATED = 'severance_plan_created';
+    public const TYPE_SEVERANCE_PLAN_COMPLETED = 'severance_plan_completed';
     public const TYPE_EMERGENCY_SIGNING = 'emergency_signing';
     public const TYPE_MATCH_FORFEIT = 'match_forfeit';
     public const TYPE_BUDGET_LOAN = 'budget_loan';
     public const TYPE_STADIUM = 'stadium';
+    public const TYPE_STADIUM_REQUEST = 'stadium_request';
+    public const TYPE_STADIUM_REQUEST_RESULT = 'stadium_request_result';
     public const TYPE_NATIONAL_TEAM_INJURY = 'national_team_injury';
     public const TYPE_NATIONAL_TEAM_RESIGNATION = 'national_team_resignation';
     public const TYPE_COMMERCIAL = 'commercial';
@@ -114,12 +118,16 @@ class GameNotification extends Model
         self::TYPE_AI_TRANSFER_ACTIVITY => 'transfer-activity',
         self::TYPE_TRANSFER_WINDOW_OPEN => 'scouting',
         self::TYPE_PLAYER_RELEASED => 'squad',
+        self::TYPE_SEVERANCE_PLAN_CREATED => 'finances',
+        self::TYPE_SEVERANCE_PLAN_COMPLETED => 'finances',
         self::TYPE_EMERGENCY_SIGNING => 'squad',
         self::TYPE_MATCH_FORFEIT => 'squad',
         self::TYPE_BUDGET_LOAN => 'finances',
         self::TYPE_TRANSFER_WINDOW_CLOSING => 'transfers',
         self::TYPE_SQUAD_REGISTRATION_REQUIRED => 'registration',
         self::TYPE_STADIUM => 'stadium',
+        self::TYPE_STADIUM_REQUEST => 'stadium',
+        self::TYPE_STADIUM_REQUEST_RESULT => 'stadium',
         self::TYPE_COMMERCIAL => 'commercial',
         self::TYPE_JOB_OFFER_RECEIVED => 'season-end',
         self::TYPE_PLAYER_LEFT_VIA_RELEASE_CLAUSE => 'transfer-activity',
@@ -156,6 +164,8 @@ class GameNotification extends Model
         self::TYPE_LOAN_RETURN => self::DEPARTMENT_SPORTING,
         self::TYPE_TRANSFER_COMPLETE => self::DEPARTMENT_SPORTING,
         self::TYPE_PLAYER_RELEASED => self::DEPARTMENT_SPORTING,
+        self::TYPE_SEVERANCE_PLAN_CREATED => self::DEPARTMENT_BOARD,
+        self::TYPE_SEVERANCE_PLAN_COMPLETED => self::DEPARTMENT_BOARD,
         self::TYPE_EMERGENCY_SIGNING => self::DEPARTMENT_SPORTING,
         self::TYPE_MATCH_FORFEIT => self::DEPARTMENT_SPORTING,
         self::TYPE_SQUAD_REGISTRATION_REQUIRED => self::DEPARTMENT_SPORTING,
@@ -179,6 +189,8 @@ class GameNotification extends Model
         // Board / finance
         self::TYPE_BUDGET_LOAN => self::DEPARTMENT_BOARD,
         self::TYPE_STADIUM => self::DEPARTMENT_BOARD,
+        self::TYPE_STADIUM_REQUEST => self::DEPARTMENT_BOARD,
+        self::TYPE_STADIUM_REQUEST_RESULT => self::DEPARTMENT_BOARD,
         self::TYPE_COMMERCIAL => self::DEPARTMENT_BOARD,
         self::TYPE_JOB_OFFER_RECEIVED => self::DEPARTMENT_BOARD,
         // Competition

@@ -23,6 +23,7 @@ import shortlistStar from './shortlist-star';
 import budgetAllocation from './budget-allocation';
 import preMatchLoader from './pre-match-loader';
 import loanRequestForm from './loan-request-form';
+import mutualTerminationChat from './mutual-termination-chat';
 
 Alpine.plugin(Collapse);
 Alpine.plugin(Tooltip);
@@ -52,6 +53,7 @@ Alpine.data('shortlistStar', shortlistStar);
 Alpine.data('budgetAllocation', budgetAllocation);
 Alpine.data('preMatchLoader', preMatchLoader);
 Alpine.data('loanRequestForm', loanRequestForm);
+Alpine.data('mutualTerminationChat', mutualTerminationChat);
 
 window.Alpine = Alpine;
 
