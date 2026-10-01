@@ -148,7 +148,7 @@
 <nav aria-label="breadcrumb" class="hidden md:block border-b border-border-default bg-surface-800/60">
     <ol class="max-w-[1600px] mx-auto px-4 py-1.5 flex items-center gap-1.5 text-xs text-text-muted overflow-x-auto whitespace-nowrap">
         <li>
-            <a href="{{ route('game.show', $game->id) }}" class="hover:text-text-primary transition-colors">{{ __('app.dashboard') }}</a>
+            <a href="{{ route('show-game', $game->id) }}" class="hover:text-text-primary transition-colors">{{ __('app.dashboard') }}</a>
         </li>
         @if($crumbSection)
         <li aria-hidden="true" class="text-text-faint">/</li>
