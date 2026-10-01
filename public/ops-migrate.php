@@ -40,11 +40,7 @@ if ($step === 'check') {
         'last_seen' => $now,
     ]], ['visitor_key'], ['path', 'device', 'last_seen']);
 
-    $view = $app->make(App\Http\Views\AdminLiveTraffic::class);
-    $response = $view(new Illuminate\Http\Request);
-    $html = $response->render();
-    echo "VIEW OK, longitud: ".strlen($html)."\n";
-
+    // Endpoint JSON (no necesita layout)
     $json = $app->make(App\Http\Views\AdminLiveTrafficData::class);
     $data = json_decode($json(new Illuminate\Http\Request)->getContent(), true);
     echo "JSON online_total: ".$data['online_total']."\n";
@@ -55,6 +51,18 @@ if ($step === 'check') {
         if (($v['path'] ?? '') === '/') { $found = true; break; }
     }
     echo "visitante sintetico en lista: ".($found ? 'SI' : 'NO')."\n";
+
+    // Vista Blade con usuario admin ficticio (el layout exige auth()->user()->is_admin)
+    $fake = new App\Models\User();
+    $fake->is_admin = true;
+    $fake->name = 'Check';
+    $fake->email = 'check@local';
+    auth()->setUser($fake);
+    $view = $app->make(App\Http\Views\AdminLiveTraffic::class);
+    $response = $view(new Illuminate\Http\Request);
+    $html = $response->render();
+    echo "VIEW OK, longitud: ".strlen($html)."\n";
+    echo "VIEW contiene marcador live-data: ".(str_contains($html, 'live-data') ? 'SI' : 'NO')."\n";
 
     Illuminate\Support\Facades\DB::table('visitor_heartbeats')->where('visitor_key', 'check-sintetico-ops')->delete();
     echo "limpieza OK\n";
