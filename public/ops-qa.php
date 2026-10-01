@@ -113,6 +113,18 @@ if ($step === 'errors') {
     exit;
 }
 
+if ($step === 'grantaccess') {
+    $email = $_GET['email'] ?? '';
+    $user = App\Models\User::where('email', $email)->first();
+    if (!$user) {
+        http_response_code(404);
+        exit('user not found');
+    }
+    $user->update(['has_career_access' => true, 'has_tournament_access' => true]);
+    echo "ACCESS GRANTED to {$email} (id {$user->id})";
+    exit;
+}
+
 if ($step === 'gameinfo') {
     $gameId = $_GET['gameId'] ?? '';
     $game = App\Models\Game::find($gameId);
