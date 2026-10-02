@@ -85,13 +85,33 @@ class ClubSocialService
     }
 
     /**
+     * Strip accents without iconv (//TRANSLIT is not available on Edge).
+     */
+    public static function ascii(string $text): string
+    {
+        return strtr($text, [
+            'á' => 'a', 'à' => 'a', 'ä' => 'a', 'â' => 'a', 'ã' => 'a',
+            'é' => 'e', 'è' => 'e', 'ë' => 'e', 'ê' => 'e',
+            'í' => 'i', 'ì' => 'i', 'ï' => 'i', 'î' => 'i',
+            'ó' => 'o', 'ò' => 'o', 'ö' => 'o', 'ô' => 'o', 'õ' => 'o',
+            'ú' => 'u', 'ù' => 'u', 'ü' => 'u', 'û' => 'u',
+            'ñ' => 'n', 'ç' => 'c',
+            'Á' => 'A', 'À' => 'A', 'Ä' => 'A', 'Â' => 'A', 'Ã' => 'A',
+            'É' => 'E', 'È' => 'E', 'Ë' => 'E', 'Ê' => 'E',
+            'Í' => 'I', 'Ì' => 'I', 'Ï' => 'I', 'Î' => 'I',
+            'Ó' => 'O', 'Ò' => 'O', 'Ö' => 'O', 'Ô' => 'O', 'Õ' => 'O',
+            'Ú' => 'U', 'Ù' => 'U', 'Ü' => 'U', 'Û' => 'U',
+            'Ñ' => 'N', 'Ç' => 'C',
+        ]);
+    }
+
+    /**
      * The club's official handle, derived from the team name.
      */
     public function clubHandle(Game $game): string
     {
         $name = $game->team?->name ?? 'club';
-        $slug = strtolower($name);
-        $slug = iconv('UTF-8', 'ASCII//TRANSLIT', $slug) ?: $slug;
+        $slug = strtolower(self::ascii($name));
         $slug = preg_replace('/\b(cd|cf|ud|sd|rcd|ad|emf|cff)\b/', '', $slug);
         $slug = preg_replace('/\b(femenino|femenina|femenil|women|ladies)\b/', '', $slug);
         $slug = preg_replace('/[^a-z0-9]+/', '', $slug);

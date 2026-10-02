@@ -424,8 +424,7 @@ class SocialMediaService
 
             if (rand(1, 100) <= 35) {
                 // Handle built from the fan's first name: @laia_gol23.
-                $first = strtolower(explode(' ', $name)[0]);
-                $first = iconv('UTF-8', 'ASCII//TRANSLIT', $first) ?: $first;
+                $first = strtolower(ClubSocialService::ascii(explode(' ', $name)[0]));
                 $first = preg_replace('/[^a-z]/', '', $first);
                 $handle = '@' . $first . '_' . $words[array_rand($words)] . rand(2, 99);
             } else {
