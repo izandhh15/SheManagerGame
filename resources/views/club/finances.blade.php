@@ -103,6 +103,18 @@
                             </div>
                             @endif
                         @endforeach
+                        {{-- F8: subsidy broken down by government source --}}
+                        @if($finances->projected_subsidy_revenue > 0 && !empty($finances->subsidy_breakdown))
+                            <div class="mt-1 mb-2 ml-5 rounded-lg bg-surface-900/60 border border-border-default p-3">
+                                <p class="text-[10px] font-bold uppercase tracking-widest text-text-muted mb-2">{{ __('game.subsidy_breakdown_title') }}</p>
+                                @foreach($finances->subsidy_breakdown as $item)
+                                    <div class="flex items-center justify-between py-1 text-sm">
+                                        <span class="text-text-muted">{{ $item['source'] }}</span>
+                                        <span class="text-accent-green font-medium">+{{ number_format($item['amount'] ?? 0, 0, ',', '.') }} €</span>
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endif
                         <div class="border-t border-border-default pt-2 mt-1">
                             <div class="flex items-center justify-between py-1">
                                 <span class="font-semibold text-text-body pl-5">{{ __('finances.total_revenue') }}</span>

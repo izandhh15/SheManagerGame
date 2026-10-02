@@ -953,4 +953,7 @@ return [
     'gov_venue_already_answered' => 'Esta oferta ya fue respondida.',
     'gov_venue_invalid' => 'La oferta ya no es válida.',
     'gov_venue_invalid_stadium' => 'Ese estadio no está en la oferta.',
+    // Subsidy breakdown (F8)
+    'subsidy_city_council' => 'Ayuntamiento',
+    'subsidy_breakdown_title' => 'Desglose de la subvención',
 ];

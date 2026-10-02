@@ -170,6 +170,7 @@ class GameFinances extends Model
         'projected_ad_board_revenue' => 'integer',
         'projected_trading_allowance' => 'integer',
         'projected_subsidy_revenue' => 'integer',
+        'subsidy_breakdown' => 'array',
         'projected_total_revenue' => 'integer',
         'projected_wages' => 'integer',
         'projected_operating_expenses' => 'integer',

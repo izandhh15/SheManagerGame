@@ -31,6 +31,7 @@ class BudgetProjectionService
         // Optional so existing manual constructions (tests) keep working;
         // the container always injects the real service in production.
         private readonly ?SponsorService $sponsorService = null,
+        private readonly ?SubsidyBreakdownService $subsidyBreakdownService = null,
     ) {}
 
     /**
@@ -188,6 +189,10 @@ class BudgetProjectionService
                 'projected_ad_board_revenue' => $projectedAdBoardRevenue,
                 'projected_trading_allowance' => $projectedTradingAllowance,
                 'projected_subsidy_revenue' => $projectedSubsidyRevenue,
+                'subsidy_breakdown' => $this->subsidyBreakdownService?->breakdown(
+                    (int) ($projectedSubsidyRevenue / 100),
+                    $team
+                ) ?? [],
                 'projected_total_revenue' => $projectedTotalRevenue,
                 'projected_wages' => $projectedWages,
                 'projected_operating_expenses' => $projectedOperatingExpenses,
