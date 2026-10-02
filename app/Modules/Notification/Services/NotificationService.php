@@ -9,6 +9,7 @@ use App\Models\GamePlayer;
 use App\Models\ScoutReport;
 use App\Models\Team;
 use App\Models\TransferOffer;
+use App\Modules\Transfer\Enums\TransferWindowType;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
@@ -785,16 +786,27 @@ class NotificationService
 
     /**
      * Notify the user that the transfer window is about to close.
+     *
+     * The winter window gets its own deadline-day flavor: it's a single
+     * frantic month (January), so the warning reads like the classic
+     * "¡Día límite!" rather than the generic closing notice.
      */
     public function notifyTransferWindowClosing(Game $game, string $window): GameNotification
     {
-        $windowLabel = __("notifications.ai_transfer_window_{$window}");
+        if ($window === TransferWindowType::WINTER->value) {
+            $title = __('notifications.transfer_window_closing_title_winter');
+            $message = __('notifications.transfer_window_closing_message_winter');
+        } else {
+            $windowLabel = __("notifications.ai_transfer_window_{$window}");
+            $title = __('notifications.transfer_window_closing_title', ['window' => $windowLabel]);
+            $message = __('notifications.transfer_window_closing_message');
+        }
 
         return $this->create(
             game: $game,
             type: GameNotification::TYPE_TRANSFER_WINDOW_CLOSING,
-            title: __('notifications.transfer_window_closing_title', ['window' => $windowLabel]),
-            message: __('notifications.transfer_window_closing_message'),
+            title: $title,
+            message: $message,
             priority: GameNotification::PRIORITY_WARNING,
             metadata: [
                 'window' => $window,

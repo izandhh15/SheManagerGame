@@ -689,6 +689,8 @@ return [
     'stage_effect_injury' => 'Verletzungsrisiko: :risk% pro Spielerin',
     'stage_effect_youth' => 'Nachwuchs: :boost Stärke für U22-Spielerinnen',
     'stage_confirm' => 'Lehrgang bestätigen',
+    'stage_organize_button' => 'Lehrgang organisieren',
+    'stage_cancel' => 'Abbrechen',
     'stage_confirmed' => 'Lehrgang bestätigt. Der Kader hat das Trainingslager abgeschlossen.',
     'stage_injuries_report' => 'Im Lehrgang verletzt: :names.',
     'stage_invalid_config' => 'Ungültige Lehrgangskonfiguration.',

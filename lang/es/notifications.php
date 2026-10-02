@@ -146,6 +146,8 @@ return [
     // Transfer window closing
     'transfer_window_closing_title' => 'Cierre de Ventana de :window',
     'transfer_window_closing_message' => 'Esta es tu última oportunidad para fichar. La ventana de fichajes cierra tras esta jornada.',
+    'transfer_window_closing_title_winter' => '⏰ ¡Día límite del mercado de invierno!',
+    'transfer_window_closing_message_winter' => 'Últimas horas del mercado de enero: la ventana cierra tras esta jornada. ¡Que nadie se duerma!',
 
     // Transfer window closed (also the AI market summary — the window-close notice
     // and the league transfer count are a single notification)

@@ -59,7 +59,10 @@
         </div>
 
         {{-- Training camp configurator (national teams) --}}
-        <div class="rounded-xl border border-accent-blue/30 bg-accent-blue/5 p-5 mb-6">
+        <div id="stage-configurator"
+             x-data="{ stageFormOpen: {{ $errors->any() ? 'true' : 'false' }} }"
+             @close-stage-form.window="stageFormOpen = false"
+             class="rounded-xl border border-accent-blue/30 bg-accent-blue/5 p-5 mb-6 scroll-mt-24">
             <div class="flex items-center justify-between flex-wrap gap-2 mb-1">
                 <h2 class="text-lg font-bold text-text-primary">🏕️ {{ __('game.stage_config_title') }}</h2>
                 <span class="text-sm text-text-secondary">{{ __('game.stage_budget') }}:
@@ -89,6 +92,15 @@
                     </p>
                 </div>
             @else
+                {{-- Visible entry point: opens the stage form without hunting for the URL --}}
+                <button type="button"
+                        x-show="!stageFormOpen"
+                        @click="stageFormOpen = true; $nextTick(() => document.getElementById('stage-form').scrollIntoView({ behavior: 'smooth', block: 'start' }))"
+                        class="w-full sm:w-auto px-6 py-3 rounded-lg bg-accent-blue text-white font-bold text-sm hover:brightness-110 transition min-h-[44px]">
+                    🏕️ {{ __('game.stage_organize_button') }}
+                </button>
+
+                <div id="stage-form" x-show="stageFormOpen" x-cloak>
                 <form method="POST" action="{{ route('game.schedule-friendly.stage.save', $game->id) }}"
                       x-data="trainingStage({
                           countries: @js($stageCountries),
@@ -187,11 +199,18 @@
                         </p>
                     </div>
 
-                    <button type="submit" :disabled="!affordable"
-                            class="w-full sm:w-auto px-6 py-3 rounded-lg bg-accent-blue text-white font-bold text-sm hover:brightness-110 transition disabled:opacity-40 disabled:cursor-not-allowed min-h-[44px]">
-                        {{ __('game.stage_confirm') }}
-                    </button>
+                    <div class="flex flex-wrap items-center gap-3">
+                        <button type="submit" :disabled="!affordable"
+                                class="w-full sm:w-auto px-6 py-3 rounded-lg bg-accent-blue text-white font-bold text-sm hover:brightness-110 transition disabled:opacity-40 disabled:cursor-not-allowed min-h-[44px]">
+                            {{ __('game.stage_confirm') }}
+                        </button>
+                        <button type="button" @click="$dispatch('close-stage-form')"
+                                class="w-full sm:w-auto px-6 py-3 rounded-lg border border-border-default text-sm font-semibold text-text-secondary hover:bg-surface-800 transition min-h-[44px]">
+                            {{ __('game.stage_cancel') }}
+                        </button>
+                    </div>
                 </form>
+                </div>
             @endif
         </div>
 

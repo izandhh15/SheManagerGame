@@ -6,6 +6,7 @@ use App\Models\Game;
 use App\Models\GameMatch;
 use App\Models\PressStatement;
 use App\Models\SocialPost;
+use App\Models\TransferOffer;
 
 /**
  * Fake in-game social network ("X" clone). Fans react to the manager's press
@@ -340,6 +341,79 @@ class SocialMediaService
                 'sentiment' => -1,
                 'likes' => rand(500, 2000),
                 'context' => 'sacked',
+            ]);
+        }
+    }
+
+    /**
+     * Deadline-day drama for the winter window: during the final week of
+     * January, fans react to pending bids on the user's players with rumor
+     * posts ("👀 RUMOR: ..."). Deduplicated — at most one batch every 3 days.
+     */
+    public function generateDeadlineDayRumors(Game $game): void
+    {
+        if (! $game->isWinterWindowOpen()) {
+            return;
+        }
+
+        // Deadline week: last 7 days of January.
+        $date = $game->current_date;
+        if ($date->month !== 1 || $date->day < 25) {
+            return;
+        }
+
+        $recent = SocialPost::where('game_id', $game->id)
+            ->where('context', 'deadline_rumor')
+            ->where('created_at', '>=', now()->subDays(3))
+            ->exists();
+
+        if ($recent) {
+            return;
+        }
+
+        $offers = TransferOffer::with(['gamePlayer', 'offeringTeam'])
+            ->where('game_id', $game->id)
+            ->ofType(TransferOffer::TYPE_UNSOLICITED)
+            ->active()
+            ->departingFrom($game->userTeamIds())
+            ->orderByDesc('transfer_fee')
+            ->take(3)
+            ->get();
+
+        if ($offers->isEmpty()) {
+            return;
+        }
+
+        $es = app()->getLocale() === 'es';
+
+        foreach ($offers as $offer) {
+            $playerName = $offer->gamePlayer?->name;
+            $clubName = $offer->offeringTeam?->name;
+
+            if (! $playerName || ! $clubName) {
+                continue;
+            }
+
+            $templates = $es ? [
+                "👀 RUMOR: {$clubName} aprieta por {$playerName} en el día límite. ¡No la vendáis!",
+                "Dicen que {$playerName} tiene una oferta del {$clubName} sobre la mesa... Últimas horas del mercado 😰",
+                "⏰ {$clubName} quiere a {$playerName} SÍ o SÍ antes de que cierre enero. La afición cruza los dedos.",
+            ] : [
+                "👀 RUMOUR: {$clubName} are pushing for {$playerName} on deadline day. Don't sell her!",
+                "Word is {$playerName} has an offer from {$clubName} on the table... Final hours of the window 😰",
+                "⏰ {$clubName} want {$playerName} no matter what before January closes. Fans have their fingers crossed.",
+            ];
+
+            [$name, $handle] = $this->randomFan();
+
+            SocialPost::create([
+                'game_id' => $game->id,
+                'author_name' => $name,
+                'author_handle' => $handle,
+                'text' => $templates[array_rand($templates)],
+                'sentiment' => 0,
+                'likes' => rand(300, 1500),
+                'context' => 'deadline_rumor',
             ]);
         }
     }

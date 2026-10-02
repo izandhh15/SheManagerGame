@@ -689,6 +689,8 @@ return [
     'stage_effect_injury' => 'Risco de lesão: :risk% por jogadora',
     'stage_effect_youth' => 'Formação: :boost de média para menores de 22',
     'stage_confirm' => 'Confirmar estágio',
+    'stage_organize_button' => 'Organizar estágio',
+    'stage_cancel' => 'Cancelar',
     'stage_confirmed' => 'Estágio confirmado. O plantel completou a concentração.',
     'stage_injuries_report' => 'Lesionadas no estágio: :names.',
     'stage_invalid_config' => 'Configuração do estágio não válida.',

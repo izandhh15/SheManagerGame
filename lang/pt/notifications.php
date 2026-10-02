@@ -146,6 +146,8 @@ return [
     // Janela de transferências a fechar
     'transfer_window_closing_title' => 'Fecho da Janela de :window',
     'transfer_window_closing_message' => 'Esta é a tua última oportunidade para contratar. A janela de transferências fecha após esta jornada.',
+    'transfer_window_closing_title_winter' => '⏰ Dia limite do mercado de inverno!',
+    'transfer_window_closing_message_winter' => 'Últimas horas da janela de janeiro: fecha após esta jornada. Que ninguém adormeça!',
 
     // Janela de transferências fechada (também o resumo do mercado da IA — o aviso
     // de fecho da janela e a contagem de transferências da liga são uma só notificação)

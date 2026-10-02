@@ -715,6 +715,8 @@ return [
     'stage_effect_injury' => 'Injury risk: :risk% per player',
     'stage_effect_youth' => 'Youth: :boost rating for under-22s',
     'stage_confirm' => 'Confirm camp',
+    'stage_organize_button' => 'Organise stage',
+    'stage_cancel' => 'Cancel',
     'stage_confirmed' => 'Training camp confirmed. The squad completed the camp.',
     'stage_injuries_report' => 'Injured during the camp: :names.',
     'stage_invalid_config' => 'Invalid training camp configuration.',

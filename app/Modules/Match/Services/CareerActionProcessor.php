@@ -11,6 +11,7 @@ use App\Modules\Academy\Services\YouthAcademyService;
 use App\Modules\Notification\Services\NotificationService;
 use App\Modules\Transfer\Enums\TransferWindowType;
 use App\Modules\Transfer\Services\AITransferMarketService;
+use App\Modules\Media\Services\SocialMediaService;
 use App\Modules\Transfer\Services\LoanService;
 use App\Modules\Transfer\Services\ScoutingService;
 use App\Modules\Transfer\Services\TransferMarketService;
@@ -48,6 +49,7 @@ class CareerActionProcessor
         private readonly NotificationService $notificationService,
         private readonly AITransferMarketService $aiTransferMarketService,
         private readonly TransferMarketService $transferMarketService,
+        private readonly SocialMediaService $socialMediaService,
     ) {}
 
     /**
@@ -199,6 +201,11 @@ class CareerActionProcessor
         // AI transfer market: process batch during open window
         $this->processAITransferBatch($game);
         $mark('ai_transfer_batch');
+
+        // Winter deadline-day drama: rumor posts when bids land on the
+        // user's players during the final week of January.
+        $this->socialMediaService->generateDeadlineDayRumors($game);
+        $mark('deadline_day_rumors');
 
         // Within an open window, complete_transfers and processAITransferBatch
         // may have moved players between teams, changing per-team squad totals.

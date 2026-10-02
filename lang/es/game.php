@@ -718,6 +718,8 @@ return [
     'stage_effect_injury' => 'Riesgo de lesión: :risk% por jugadora',
     'stage_effect_youth' => 'Cantera: :boost de media para menores de 22',
     'stage_confirm' => 'Confirmar stage',
+    'stage_organize_button' => 'Organizar stage',
+    'stage_cancel' => 'Cancelar',
     'stage_confirmed' => 'Stage confirmado. La plantilla ha completado la concentración.',
     'stage_injuries_report' => 'Lesionadas en el stage: :names.',
     'stage_invalid_config' => 'Configuración del stage no válida.',

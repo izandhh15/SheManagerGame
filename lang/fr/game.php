@@ -689,6 +689,8 @@ return [
     'stage_effect_injury' => 'Risque de blessure : :risk% par joueuse',
     'stage_effect_youth' => 'Centre de formation : :boost de note pour les moins de 22 ans',
     'stage_confirm' => 'Confirmer le stage',
+    'stage_organize_button' => 'Organiser le stage',
+    'stage_cancel' => 'Annuler',
     'stage_confirmed' => 'Stage confirmé. L\'effectif a terminé le rassemblement.',
     'stage_injuries_report' => 'Blessées pendant le stage : :names.',
     'stage_invalid_config' => 'Configuration du stage non valide.',

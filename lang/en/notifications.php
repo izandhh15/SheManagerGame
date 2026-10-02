@@ -146,6 +146,8 @@ return [
     // Transfer window closing
     'transfer_window_closing_title' => ':window Transfer Window Closing',
     'transfer_window_closing_message' => 'This is your last chance to sign a player. The transfer window closes after this matchday.',
+    'transfer_window_closing_title_winter' => '⏰ Winter transfer deadline day!',
+    'transfer_window_closing_message_winter' => 'Final hours of the January window: it closes after this matchday. Nobody fall asleep!',
 
     // Transfer window closed (also the AI market summary — the window-close notice
     // and the league transfer count are a single notification)
