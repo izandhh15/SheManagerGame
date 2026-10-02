@@ -90,8 +90,18 @@ class SeasonInitializationService
         $baseSeason = $this->baseSeasonFor($gameId);
         $matchdays = LeagueFixtureGenerator::loadMatchdays($competitionId, $baseSeason);
 
+        // National-team competitions use absolute calendar dates in their
+        // schedule.json (Izan's unified multi-year calendar). The game
+        // `season` increments per competition, not per year, so shifting
+        // by yearDiff would push every subsequent competition a year late.
+        $isNational = in_array(
+            $competitionId,
+            \App\Modules\Season\Services\TournamentCreationService::NATIONAL_TEAM_COMPETITION_IDS,
+            true,
+        );
+
         $yearDiff = (int) $season - (int) $baseSeason;
-        if ($yearDiff !== 0) {
+        if ($yearDiff !== 0 && ! $isNational) {
             $matchdays = LeagueFixtureGenerator::adjustMatchdayYears($matchdays, $yearDiff);
         }
 
