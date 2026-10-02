@@ -310,6 +310,7 @@ class MatchResimulationService
                 awayPlayerSlots: $awayPlayerSlots,
                 preservePerformance: true,
                 toMinute: $regulationEnd,
+                competitionId: $match->competition_id,
             );
         } else {
             $remainderOutput = $this->matchSimulator->simulateRemainder(
@@ -345,6 +346,7 @@ class MatchResimulationService
                 // Mirrors the AI-subs branch above: passing null opts the
                 // user team INTO injury auto-subs (Skip to end / fast mode).
                 userTeamId: $autoSubUserTeam ? null : $game->team_id,
+                competitionId: $match->competition_id,
             );
         }
 

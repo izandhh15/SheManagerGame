@@ -220,6 +220,7 @@ class MatchSimulator
                 $matchSeed,
                 $userTeamId,
                 $regulationEnd,
+                $competitionId,
             )
             : $this->simulateRemainder(
                 $homeTeam, $awayTeam,
@@ -240,6 +241,7 @@ class MatchSimulator
                 neutralVenue: $neutralVenue,
                 toMinute: $regulationEnd,
                 userTeamId: $userTeamId,
+                competitionId: $competitionId,
             );
 
         return $output;
@@ -273,6 +275,7 @@ class MatchSimulator
         string $matchSeed,
         ?string $userTeamId = null,
         int $regulationEnd = 93,
+        ?string $competitionId = null,
     ): MatchSimulationOutput {
         $homeFormation = $homeFormation ?? Formation::F_4_4_2;
         $awayFormation = $awayFormation ?? Formation::F_4_4_2;
@@ -331,6 +334,7 @@ class MatchSimulator
                 awayDefLine: $awayDefLine,
                 matchSeed: $matchSeed,
                 userTeamId: $userTeamId,
+                competitionId: $competitionId,
             );
         }
 
@@ -395,6 +399,7 @@ class MatchSimulator
                 toMinute: $splitMinute,
                 skipXGAdjustment: true,
                 userTeamId: $userTeamId,
+                competitionId: $competitionId,
             );
 
             $periodResult = $periodOutput->result;
@@ -487,6 +492,7 @@ class MatchSimulator
             toMinute: $regulationEnd,
             skipXGAdjustment: true,
             userTeamId: $userTeamId,
+            competitionId: $competitionId,
         );
 
         $finalResult = $finalOutput->result;
@@ -797,6 +803,7 @@ class MatchSimulator
         ?array $awayPlayerSlots = null,
         bool $preservePerformance = false,
         int $toMinute = 95,
+        ?string $competitionId = null,
     ): MatchSimulationOutput {
         if ($homePlayerSlots !== null) {
             $this->homePlayerSlotMap = $homePlayerSlots;
@@ -870,6 +877,7 @@ class MatchSimulator
                 awayExistingSubstitutions: $awayExistingSubstitutions,
                 toMinute: $toMinute,
                 userTeamId: $userTeamId,
+                competitionId: $competitionId,
             );
         }
 
@@ -923,6 +931,7 @@ class MatchSimulator
                 toMinute: $splitMinute,
                 skipXGAdjustment: true,
                 userTeamId: $userTeamId,
+                competitionId: $competitionId,
             );
 
             $periodResult = $periodOutput->result;
@@ -1014,6 +1023,7 @@ class MatchSimulator
             toMinute: $toMinute,
             skipXGAdjustment: true,
             userTeamId: $userTeamId,
+            competitionId: $competitionId,
         );
 
         $finalResult = $finalOutput->result;
@@ -2087,6 +2097,7 @@ class MatchSimulator
         ?array $homePlayerSlots = null,
         ?array $awayPlayerSlots = null,
         ?string $userTeamId = null,
+        ?string $competitionId = null,
     ): MatchSimulationOutput {
         if (! $preservePerformance) {
             $this->matchPerformance = [];
