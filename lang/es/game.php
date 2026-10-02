@@ -837,7 +837,7 @@ return [
     'venue_org_requested' => 'Petición enviada: :club debe responder sobre :stadium.',
     'venue_org_accepted_fee' => '¡Aceptado! Se jugará en :stadium por :fee €.',
     'venue_org_mens_cant_afford' => ':owner pide :price € por :stadium y no te llega el presupuesto de la federación.',
-    'venue_org_rejected' => ':stadium ha rechazado la petición: :excuse. Puedes intentarlo con otro estadio u ofrecer más.',
+    'venue_org_rejected' => ':club ha rechazado la petición: :excuse. Puedes intentarlo con otro estadio u ofrecer más.',
     'venue_org_rebate' => ':club devuelve :amount € para invertir en cantera.',
     'venue_rebate_title' => 'Contraprestación por la sede',
     'venue_rebate_club_desc' => ':club te devuelve :amount € para invertir en la cantera.',

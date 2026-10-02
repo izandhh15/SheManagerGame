@@ -786,7 +786,7 @@ return [
     'venue_org_requested' => 'Request sent: :club must answer about :stadium.',
     'venue_org_accepted_fee' => 'Accepted! It will be played at :stadium for :fee €.',
     'venue_org_mens_cant_afford' => ':owner asks :price € for :stadium and the federation budget does not cover it.',
-    'venue_org_rejected' => ':stadium rejected the request: :excuse. You can try another stadium or offer more.',
+    'venue_org_rejected' => ':club rejected the request: :excuse. You can try another stadium or offer more.',
     'venue_org_rebate' => ':club returns :amount € to invest in the academy.',
     'venue_request_not_found' => 'The stadium request is no longer available.',
     'venue_requests_title' => 'Stadium requests',
