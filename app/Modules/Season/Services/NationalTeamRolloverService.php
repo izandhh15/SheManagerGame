@@ -6,9 +6,15 @@ use App\Models\CompetitionEntry;
 use App\Models\CupTie;
 use App\Models\Game;
 use App\Models\GameMatch;
+use App\Models\GamePlayer;
 use App\Models\GameStanding;
 use App\Models\SeasonArchive;
+use App\Modules\Season\Contracts\SeasonProcessor;
+use App\Modules\Season\DTOs\SeasonTransitionData;
 use App\Modules\Season\Jobs\SetupTournamentGame;
+use App\Modules\Season\Processors\PlayerDevelopmentProcessor;
+use App\Modules\Season\Processors\PlayerRetirementProcessor;
+use App\Modules\Squad\Services\PlayerGeneratorService;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -28,6 +34,12 @@ use Illuminate\Support\Facades\DB;
  */
 class NationalTeamRolloverService
 {
+    public function __construct(
+        private readonly PlayerDevelopmentProcessor $developmentProcessor,
+        private readonly PlayerRetirementProcessor $retirementProcessor,
+        private readonly PlayerGeneratorService $playerGenerator,
+    ) {}
+
     public function rollover(Game $game): void
     {
         DB::transaction(function () use ($game) {
@@ -51,6 +63,11 @@ class NationalTeamRolloverService
                 'transfer_activity' => [],
             ]);
 
+            // 1b. Player evolution: ratings up/down, retirements, youth
+            // intake — so the national squad changes season to season
+            // like club squads do.
+            $this->evolveSquad($locked);
+
             // 2. Purge the finished season's competition data.
             DB::table('match_events')->where('game_id', $game->id)->delete();
             GameMatch::where('game_id', $game->id)->delete();
@@ -71,6 +88,53 @@ class NationalTeamRolloverService
         $fresh = Game::find($game->id);
         if ($fresh && $fresh->setup_completed_at === null) {
             SetupTournamentGame::dispatch(gameId: $fresh->id, teamId: $fresh->team_id);
+        }
+    }
+
+    /**
+     * Evolve the national squad between competitions: ratings move up/down
+     * with age and form, veterans retire, and new youth prospects emerge.
+     * Mirrors what the club season-closing pipeline does, so a multi-year
+     * national-team career feels alive.
+     */
+    private function evolveSquad(Game $game): void
+    {
+        $oldSeason = (string) $game->season;
+        $newSeason = (string) ((int) $game->season + 1);
+
+        $data = new SeasonTransitionData(
+            oldSeason: $oldSeason,
+            newSeason: $newSeason,
+            competitionId: $game->competition_id ?? '',
+        );
+
+        // Ratings up/down.
+        $data = $this->developmentProcessor->process($game, $data);
+
+        // Retirements (announced last season are processed; new ones announced).
+        $data = $this->retirementProcessor->process($game, $data);
+
+        // Youth intake: fill the squad back up to 23 with new prospects
+        // when retirements (or anything else) left gaps, plus one extra
+        // prospect each cycle so new faces keep emerging.
+        $squadCount = GamePlayer::where('game_id', $game->id)
+            ->where('team_id', $game->team_id)
+            ->where('is_squad_member', true)
+            ->count();
+
+        $toGenerate = max(0, 23 - (int) $squadCount) + 1;
+        $positions = ['Goalkeeper', 'Defender', 'Midfielder', 'Forward'];
+
+        for ($i = 0; $i < $toGenerate; $i++) {
+            $position = $positions[array_rand($positions)];
+            $playerData = $this->playerGenerator->buildYouthPlayerData(
+                $game,
+                $game->team_id,
+                $position,
+                'top', // national teams draw from the country's best
+            );
+            $player = $this->playerGenerator->create($game, $playerData);
+            $player->update(['is_squad_member' => true]);
         }
     }
 
