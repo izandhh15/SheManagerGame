@@ -23,6 +23,8 @@ return [
     'full_calendar' => 'Calendario Completo',
     'today' => 'Hoy',
     'jump_to_next' => 'Ir al próximo partido',
+    'list_view' => 'Vista lista',
+    'month_view' => 'Vista mes',
     'all_competitions' => 'Todas',
     'lineups' => 'Alineaciones',
     'substitutions' => 'Cambios',

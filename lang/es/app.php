@@ -19,6 +19,13 @@ return [
     'transfers' => 'Fichajes',
     'calendar' => 'Calendario',
     'competitions' => 'Competiciones',
+    'weekday_mon' => 'Lun',
+    'weekday_tue' => 'Mar',
+    'weekday_wed' => 'Mié',
+    'weekday_thu' => 'Jue',
+    'weekday_fri' => 'Vie',
+    'weekday_sat' => 'Sáb',
+    'weekday_sun' => 'Dom',
 
     // Common actions
     'continue' => 'Continuar',

@@ -120,6 +120,7 @@ use App\Http\Views\ShowNationalSquadPreview;
 use App\Http\Views\ShowNationalVenues;
 use App\Http\Views\ShowScheduleFriendly;
 use App\Http\Views\ShowCalendar;
+use App\Http\Views\ShowMonthCalendar;
 use App\Http\Views\ShowClubCommercial;
 use App\Http\Views\ShowClubReputation;
 use App\Http\Views\ShowClubStadium;
@@ -275,6 +276,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/game/{gameId}/transfers/market', ShowTransferMarket::class)->name('game.transfers.market');
         Route::get('/game/{gameId}/transfer-activity', ShowTransferActivity::class)->name('game.transfer-activity');
         Route::get('/game/{gameId}/calendar', ShowCalendar::class)->name('game.calendar');
+        Route::get('/game/{gameId}/calendar/month', ShowMonthCalendar::class)->name('game.calendar.month');
         Route::get('/game/{gameId}/competition/{competitionId}', ShowCompetition::class)->name('game.competition');
         Route::get('/game/{gameId}/results/{competition}/{matchday}', ShowMatchResults::class)->name('game.results');
         Route::get('/game/{gameId}/match/{matchId}/summary', ShowMatchSummary::class)->name('game.match.summary');

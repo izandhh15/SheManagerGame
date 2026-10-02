@@ -15,6 +15,11 @@
     <div x-data="{ comp: 'all' }" class="max-w-7xl mx-auto px-4 pb-8">
         <div class="mt-6 mb-4 flex items-center justify-between gap-4">
             <h2 class="font-heading text-2xl lg:text-3xl font-bold uppercase tracking-wide text-text-primary">{{ __('app.calendar') }}</h2>
+            <div class="flex items-center gap-2">
+                <a href="{{ route('game.calendar.month', $game->id) }}"
+                   class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-accent-blue/10 hover:bg-accent-blue/20 text-accent-blue text-xs font-semibold uppercase tracking-wider transition-colors">
+                    {{ __('game.month_view') }}
+                </a>
             @if($nextMatchId)
                 <button type="button"
                     @click="document.getElementById('calendar-today')?.scrollIntoView({ behavior: 'smooth', block: 'center' })"
@@ -26,6 +31,7 @@
                     <span class="sm:hidden">{{ __('game.next') }}</span>
                 </button>
             @endif
+            </div>
         </div>
 
         {{-- Competition filter pills --}}
