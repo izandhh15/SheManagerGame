@@ -153,6 +153,34 @@ class ClubSocialServiceTest extends TestCase
         $this->assertFalse($service->announce($this->game, 'season_tickets')['ok']);
     }
 
+    public function test_season_ticket_announcement_shows_real_price(): void
+    {
+        $service = app(ClubSocialService::class);
+
+        // Real pricing row, as saved when the user picks a preset.
+        \App\Models\SeasonTicketPricing::create([
+            'game_id' => $this->game->id,
+            'season' => (int) $this->game->season,
+            'areas' => [
+                ['slug' => 'general', 'price_cents' => 8500],
+                ['slug' => 'tribuna', 'price_cents' => 15000],
+            ],
+            'total_capacity' => 1000,
+            'total_sold' => 500,
+            'total_revenue' => 5000000,
+            'pricing_preset' => 'standard',
+            'is_default' => false,
+        ]);
+
+        $result = $service->announce($this->game, 'season_tickets');
+        $this->assertTrue($result['ok']);
+
+        $post = \App\Models\SocialPost::find($result['post_id']);
+        // Cheapest area: 8500 cents = 85 € — must appear, not "0 €".
+        $this->assertStringContainsString('85', $post->text);
+        $this->assertStringNotContainsString('0 €', $post->text);
+    }
+
     public function test_hype_boosts_home_attendance_projection(): void
     {
         $attendance = app(\App\Modules\Stadium\Services\MatchAttendanceService::class);

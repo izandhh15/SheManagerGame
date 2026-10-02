@@ -313,8 +313,12 @@ class ClubSocialService
 
         $pricing = app(\App\Modules\Stadium\Services\SeasonTicketPricingService::class)
             ->getCurrent($game);
-        $price = $pricing ? (int) round($pricing->total_price_cents / 100) : 0;
-        $preset = $pricing?->preset ?? 'standard';
+        // "Desde X €": the cheapest area's price. (There is no
+        // total_price_cents column — the per-area prices live in areas[].)
+        $areas = $pricing?->areas ?? [];
+        $minCents = count($areas) > 0 ? min(array_column($areas, 'price_cents')) : 0;
+        $price = (int) round($minCents / 100);
+        $preset = $pricing?->pricing_preset ?? 'standard';
 
         $expensive = in_array($preset, ['premium', 'vip'], true);
 
