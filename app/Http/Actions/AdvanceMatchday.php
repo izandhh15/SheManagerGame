@@ -3,6 +3,7 @@
 namespace App\Http\Actions;
 
 use App\Models\Game;
+use App\Modules\Government\Services\GovernmentFriendlyService;
 use App\Modules\Match\Services\MatchdayAdvanceCoordinator;
 use App\Modules\Season\Services\DualTurnService;
 
@@ -11,6 +12,7 @@ class AdvanceMatchday
     public function __construct(
         private readonly MatchdayAdvanceCoordinator $coordinator,
         private readonly DualTurnService $dualTurn,
+        private readonly GovernmentFriendlyService $governmentFriendly,
     ) {}
 
     public function __invoke(string $gameId)
@@ -44,6 +46,10 @@ class AdvanceMatchday
         // already holds the flag) falls through to ShowGame, which renders
         // game-loading-matchday and polls — the existing safety net.
         $this->coordinator->runSync($gameId);
+
+        // F4: national teams without a competition in progress may receive
+        // a government-paid friendly offer (via in-game mail).
+        $this->governmentFriendly->maybeOffer($game->fresh());
 
         return redirect()->route('show-game', $gameId);
     }

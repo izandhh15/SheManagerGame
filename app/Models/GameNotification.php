@@ -78,6 +78,9 @@ class GameNotification extends Model
     public const TYPE_STADIUM_REQUEST = 'stadium_request';
     public const TYPE_STADIUM_REQUEST_RESULT = 'stadium_request_result';
     public const TYPE_NATIONAL_TEAM_INJURY = 'national_team_injury';
+    public const TYPE_GOVERNMENT_FRIENDLY_OFFER = 'government_friendly_offer';
+    public const TYPE_GOVERNMENT_FRIENDLY_RESULT = 'government_friendly_result';
+    public const TYPE_GOVERNMENT_VENUE_OFFER = 'government_venue_offer';
     public const TYPE_NATIONAL_TEAM_RESIGNATION = 'national_team_resignation';
     public const TYPE_COMMERCIAL = 'commercial';
     public const TYPE_TRANSFER_WINDOW_CLOSING = 'transfer_window_closing';
@@ -134,6 +137,9 @@ class GameNotification extends Model
         self::TYPE_COMMERCIAL => 'commercial',
         self::TYPE_JOB_OFFER_RECEIVED => 'season-end',
         self::TYPE_PLAYER_LEFT_VIA_RELEASE_CLAUSE => 'transfer-activity',
+        self::TYPE_GOVERNMENT_FRIENDLY_OFFER => 'government-friendly',
+        self::TYPE_GOVERNMENT_FRIENDLY_RESULT => 'squad',
+        self::TYPE_GOVERNMENT_VENUE_OFFER => 'government-venue',
     ];
 
     // Club departments. A derived grouping over `type` (see DEPARTMENT_MAP) that
@@ -382,6 +388,8 @@ class GameNotification extends Model
             'commercial' => 'game.club.commercial',
             'registration' => 'game.squad.registration',
             'season-end' => 'game.season-end',
+            'government-friendly' => 'game.government-friendly',
+            'government-venue' => 'game.government-venue',
             default => 'game.squad.academy',
         };
     }

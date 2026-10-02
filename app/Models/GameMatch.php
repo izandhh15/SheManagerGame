@@ -152,6 +152,7 @@ class GameMatch extends Model
         'venue_request_type',
         'venue_request_excuse',
         'venue_fee',
+        'government_sponsored',
     ];
 
     protected $casts = [
