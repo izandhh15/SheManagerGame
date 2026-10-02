@@ -6,6 +6,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/210.png",
       "name": "Levante UD",
+      "managerName": "Javier Aguado",
       "stadiumName": "Ciudad Deportiva de Buñol - Campo 1",
       "stadiumSeats": 3000,
       "transfermarktId": "210",
@@ -330,6 +331,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/4644.png",
       "name": "FC Barcelona B",
+      "managerName": "Òscar Belis",
       "stadiumName": "C. Dep. Joan Gamper - Campo 7",
       "stadiumSeats": 0,
       "transfermarktId": "4644",
@@ -714,6 +716,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/5474.png",
       "name": "Athletic Club B",
+      "managerName": "Ander Ojanguren",
       "stadiumName": "Instalaciones de Lezama - Campo 4",
       "stadiumSeats": 3200,
       "transfermarktId": "5474",
@@ -1153,6 +1156,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/5734.png",
       "name": "Fundación Albacete",
+      "managerName": "Rubén López",
       "stadiumName": "Ciudad Deportiva Andrés Iniesta",
       "stadiumSeats": 3000,
       "transfermarktId": "5734",
@@ -1507,6 +1511,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7039.png",
       "name": "Villarreal CF",
+      "managerName": "Jordi Ferriols",
       "stadiumName": "Ciudad Deportiva del Villarreal CF - Mini Estadi",
       "stadiumSeats": 3500,
       "transfermarktId": "7039",
@@ -1921,6 +1926,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7440.png",
       "name": "Atlético de Madrid B",
+      "managerName": "Roberto Hernández",
       "stadiumName": "Cerro del Espino",
       "stadiumSeats": 3376,
       "transfermarktId": "7440",
@@ -2328,6 +2334,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7499.png",
       "name": "CA Osasuna",
+      "managerName": "Roberto Pérez",
       "stadiumName": "Ciudad Deportiva de Tajonar",
       "stadiumSeats": 4500,
       "transfermarktId": "7499",
@@ -2712,6 +2719,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7543.png",
       "name": "Alhama CF",
+      "managerName": "Juan Antonio García",
       "stadiumName": "Estadio Municipal Francisco Artés Carrasco",
       "stadiumSeats": 8120,
       "transfermarktId": "7543",
@@ -3006,6 +3014,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7889.png",
       "name": "Real Sociedad B",
+      "managerName": "Aitor Resende",
       "stadiumName": "Instalaciones de Zubieta",
       "stadiumSeats": 0,
       "transfermarktId": "7889",
@@ -3368,6 +3377,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/8292.png",
       "name": "Real Madrid B",
+      "managerName": "Fernando Maillo",
       "stadiumName": "Ciudad del Real Madrid Campo 10",
       "stadiumSeats": 1000,
       "transfermarktId": "8292",
@@ -3788,6 +3798,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/8326.png",
       "name": "Real Unión de Tenerife Santa Cruz",
+      "managerName": "Noe Dávila",
       "stadiumName": "Estadio Argelio Tabares",
       "stadiumSeats": 2000,
       "transfermarktId": "8326",
@@ -4112,6 +4123,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/9384.png",
       "name": "CP Cacereño",
+      "managerName": "Ernesto Sánchez",
       "stadiumName": "Estadio Manuel Sánchez Delgado",
       "stadiumSeats": 4000,
       "transfermarktId": "9384",
@@ -4436,6 +4448,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/11530.png",
       "name": "Sportextremadura CD",
+      "managerName": "Juan Carlos Antúnez",
       "stadiumName": "Instalaciones Deportivas Municipales - El Vivero",
       "stadiumSeats": 0,
       "transfermarktId": "11530",
@@ -4805,6 +4818,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/16819.png",
       "name": "CD Tenerife Femenino B",
+      "managerName": "Adrián Albéniz",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": "16819",

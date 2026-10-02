@@ -381,7 +381,8 @@
           "number": "",
           "position": "Right-Back"
         }
-      ]
+      ],
+      "managerName": "Cristian Toro"
     },
     {
       "image": "https://img.sofascore.com/api/v1/team/37197/image",
@@ -740,7 +741,8 @@
           "number": "",
           "position": "Central Midfield"
         }
-      ]
+      ],
+      "managerName": "Martina Voss-Tecklenburg"
     },
     {
       "image": "https://img.sofascore.com/api/v1/team/277220/image",
@@ -1072,7 +1074,8 @@
           "number": "",
           "position": "Centre-Forward"
         }
-      ]
+      ],
+      "managerName": "Laura Vetterlein"
     },
     {
       "image": "https://img.sofascore.com/api/v1/team/53371/image",
@@ -1508,7 +1511,8 @@
           "position": "Centre-Forward",
           "overall_score": 69
         }
-      ]
+      ],
+      "managerName": "Imke Wübbenhorst"
     },
     {
       "image": "https://img.sofascore.com/api/v1/team/285332/image",
@@ -1928,7 +1932,8 @@
           "position": "Centre-Forward",
           "overall_score": 71
         }
-      ]
+      ],
+      "managerName": "Danique Stein"
     },
     {
       "image": "https://img.sofascore.com/api/v1/team/249208/image",
@@ -2226,7 +2231,8 @@
           "nationality": "Bosnia-Herzegovina",
           "age": 17
         }
-      ]
+      ],
+      "managerName": "Luzia Odermatt"
     },
     {
       "image": "https://img.sofascore.com/api/v1/team/2460/image",
@@ -2688,7 +2694,8 @@
           "position": "Centre-Forward",
           "overall_score": 65
         }
-      ]
+      ],
+      "managerName": "Arnaud Vialatte"
     },
     {
       "image": "https://img.sofascore.com/api/v1/team/37390/image",
@@ -3077,7 +3084,8 @@
           "position": "Centre-Forward",
           "overall_score": 67
         }
-      ]
+      ],
+      "managerName": "Gerold Bisig"
     },
     {
       "image": "https://img.sofascore.com/api/v1/team/326525/image",
@@ -3447,7 +3455,8 @@
           "position": "Centre-Forward",
           "overall_score": 68
         }
-      ]
+      ],
+      "managerName": "Jasmin Schweer"
     },
     {
       "image": "https://img.sofascore.com/api/v1/team/387033/image",
@@ -3821,7 +3830,8 @@
           "position": "Centre-Forward",
           "overall_score": 70
         }
-      ]
+      ],
+      "managerName": "Eduardo Barrera"
     }
   ]
 }

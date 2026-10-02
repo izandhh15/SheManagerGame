@@ -325,7 +325,8 @@
           "position": "Striker",
           "overall_score": 70
         }
-      ]
+      ],
+      "managerName": "Jorge Victor"
     },
     {
       "image": "",
@@ -829,7 +830,8 @@
           "position": "Centre-Forward",
           "overall_score": 69
         }
-      ]
+      ],
+      "managerName": "Fabiana Guedes"
     },
     {
       "image": null,
@@ -1304,7 +1306,8 @@
       ],
       "stadiumName": null,
       "stadiumSeats": null,
-      "transfermarktId": 94006
+      "transfermarktId": 94006,
+      "managerName": "Felipe Freitas"
     },
     {
       "image": "",
@@ -1748,7 +1751,8 @@
           "position": "Right Winger",
           "overall_score": 70
         }
-      ]
+      ],
+      "managerName": "Léo Goulart"
     },
     {
       "image": "",
@@ -2237,7 +2241,8 @@
           "position": "Centre-Forward",
           "overall_score": 66
         }
-      ]
+      ],
+      "managerName": "Emily Lima"
     },
     {
       "image": null,
@@ -2680,7 +2685,8 @@
           "overall_score": 67
         }
       ],
-      "transfermarktId": 94007
+      "transfermarktId": 94007,
+      "managerName": "Jonas Urias"
     },
     {
       "image": null,
@@ -3049,7 +3055,8 @@
       ],
       "stadiumName": null,
       "stadiumSeats": null,
-      "transfermarktId": 94004
+      "transfermarktId": 94004,
+      "managerName": "Leo Mendes"
     },
     {
       "image": null,
@@ -3508,7 +3515,8 @@
       ],
       "stadiumName": null,
       "stadiumSeats": null,
-      "transfermarktId": 94005
+      "transfermarktId": 94005,
+      "managerName": "Celso Silva"
     },
     {
       "image": "",
@@ -3952,7 +3960,8 @@
           "position": "Centre-Forward",
           "overall_score": 66
         }
-      ]
+      ],
+      "managerName": "Saulo Silva"
     },
     {
       "image": null,
@@ -4397,7 +4406,8 @@
           "overall_score": 67
         }
       ],
-      "transfermarktId": 94008
+      "transfermarktId": 94008,
+      "managerName": "Jéssica de Lima"
     },
     {
       "image": null,
@@ -4901,7 +4911,8 @@
           "overall_score": 73
         }
       ],
-      "transfermarktId": 94009
+      "transfermarktId": 94009,
+      "managerName": "Maurício Salgado"
     },
     {
       "image": "",
@@ -5345,7 +5356,8 @@
           "position": "Striker",
           "overall_score": 70
         }
-      ]
+      ],
+      "managerName": "Luciano Brandalise"
     },
     {
       "image": "",
@@ -5728,7 +5740,8 @@
           "position": "Striker",
           "overall_score": 70
         }
-      ]
+      ],
+      "managerName": "Adilson Galdino"
     },
     {
       "image": "",
@@ -6337,7 +6350,8 @@
           "position": "Right Winger",
           "overall_score": 71
         }
-      ]
+      ],
+      "managerName": "Rosana Augusto"
     },
     {
       "image": "",
@@ -6662,7 +6676,8 @@
           "age": 23,
           "number": 18
         }
-      ]
+      ],
+      "managerName": "Humberto Simão"
     },
     {
       "image": "",
@@ -6986,7 +7001,8 @@
           "position": "Right Winger",
           "overall_score": 65
         }
-      ]
+      ],
+      "managerName": "Marcelo Frigerio"
     },
     {
       "image": "",
@@ -7431,7 +7447,8 @@
           "position": "Right Winger",
           "overall_score": 68
         }
-      ]
+      ],
+      "managerName": "Thiago Viana"
     },
     {
       "image": "",
@@ -7905,7 +7922,8 @@
           "position": "Striker",
           "overall_score": 69
         }
-      ]
+      ],
+      "managerName": "Anderson Magalhães"
     }
   ]
 }

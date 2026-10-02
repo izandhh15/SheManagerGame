@@ -6,6 +6,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/36.png",
       "name": "Arsenal FC",
+      "managerName": "Renée Slegers",
       "stadiumName": "Emirates Stadium",
       "stadiumSeats": 60704,
       "transfermarktId": "36",
@@ -418,6 +419,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/897.png",
       "name": "Aston Villa LFC",
+      "managerName": "Natalia Arroyo",
       "stadiumName": "Villa Park",
       "stadiumSeats": 42095,
       "transfermarktId": "897",
@@ -844,6 +846,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/65.png",
       "name": "Birmingham City LFC",
+      "managerName": "Amy Merricks",
       "stadiumName": "St Andrew’s",
       "stadiumSeats": 29409,
       "transfermarktId": "65",
@@ -1174,6 +1177,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/932.png",
       "name": "Brighton & Hove Albion WFC",
+      "managerName": "Arturo Ruiz",
       "stadiumName": "Broadfield Stadium",
       "stadiumSeats": 6134,
       "transfermarktId": "932",
@@ -1595,6 +1599,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/86.png",
       "name": "Charlton Athletic",
+      "managerName": "Karen Hills",
       "stadiumName": "The Valley",
       "stadiumSeats": 27111,
       "transfermarktId": "86",
@@ -1984,6 +1989,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/87.png",
       "name": "Chelsea LFC",
+      "managerName": "Sonia Bompastor",
       "stadiumName": "Kingsmeadow",
       "stadiumSeats": 4850,
       "transfermarktId": "87",
@@ -2408,6 +2414,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/1443.png",
       "name": "Crystal Palace LFC",
+      "managerName": "Jo Potter",
       "stadiumName": "VBS Community Stadium",
       "stadiumSeats": 7032,
       "transfermarktId": "1443",
@@ -2791,6 +2798,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/108.png",
       "name": "Everton LFC",
+      "managerName": "Scott Phelan",
       "stadiumName": "Goodison Park",
       "stadiumSeats": 39414,
       "transfermarktId": "108",
@@ -3173,6 +3181,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/215.png",
       "name": "Liverpool LFC",
+      "managerName": "Gareth Taylor",
       "stadiumName": "BrewDog Stadium",
       "stadiumSeats": 18000,
       "transfermarktId": "215",
@@ -3611,6 +3620,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7219.png",
       "name": "London City Lionesses",
+      "managerName": "Eder Maestre",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": "7219",
@@ -4038,6 +4048,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/990.png",
       "name": "Manchester City LFC",
+      "managerName": "Andrée Jeglertz",
       "stadiumName": "Joie Stadium",
       "stadiumSeats": 7000,
       "transfermarktId": "990",
@@ -4495,6 +4506,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/4458.png",
       "name": "Manchester United",
+      "managerName": "Eva Olid",
       "stadiumName": "Leigh Sports Village",
       "stadiumSeats": 12000,
       "transfermarktId": "4458",
@@ -4898,6 +4910,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/1439.png",
       "name": "Tottenham Hotspur LFC",
+      "managerName": "Martin Ho",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": "1439",
@@ -5278,6 +5291,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/1059.png",
       "name": "West Ham United LFC",
+      "managerName": "Rita Guarino",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": "1059",

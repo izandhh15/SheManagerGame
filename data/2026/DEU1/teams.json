@@ -6,6 +6,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/57.png",
       "name": "Bayern München",
+      "managerName": "José Barcala",
       "stadiumName": "FC Bayern Campus",
       "stadiumSeats": 2500,
       "transfermarktId": "57",
@@ -373,6 +374,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/407.png",
       "name": "VfL Wolfsburg",
+      "managerName": "Stephan Lerch",
       "stadiumName": "AOK Stadion",
       "stadiumSeats": 5200,
       "transfermarktId": "407",
@@ -780,6 +782,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/104.png",
       "name": "Eintracht Frankfurt",
+      "managerName": "Niko Arnautis",
       "stadiumName": "Stadion am Brentanobad",
       "stadiumSeats": 5650,
       "transfermarktId": "104",
@@ -1209,6 +1212,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/56.png",
       "name": "Bayer 04 Leverkusen",
+      "managerName": "Roberto Pätzold",
       "stadiumName": "Ulrich-Haberland-Stadion",
       "stadiumSeats": 3200,
       "transfermarktId": "56",
@@ -1600,6 +1604,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/11.png",
       "name": "1. FC Union Berlin",
+      "managerName": "Marie-Louise Eta",
       "stadiumName": "Stadion an der alten Försterei",
       "stadiumSeats": 22012,
       "transfermarktId": "11",
@@ -2055,6 +2060,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/18.png",
       "name": "TSG 1899 Hoffenheim",
+      "managerName": "Eva-Maria Virsinger",
       "stadiumName": "Ensinger-Stadion",
       "stadiumSeats": 2000,
       "transfermarktId": "18",
@@ -2416,6 +2422,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/8.png",
       "name": "1. FC Nürnberg",
+      "managerName": "Omar Adlani",
       "stadiumName": "Max-Morlock-Stadion",
       "stadiumSeats": 50000,
       "transfermarktId": "8",
@@ -2865,6 +2872,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/6053.png",
       "name": "RB Leipzig",
+      "managerName": "Jonas Stephan",
       "stadiumName": "RB-Trainingszentrum (Cottaweg), Rasenplatz",
       "stadiumSeats": 1000,
       "transfermarktId": "6053",
@@ -3235,6 +3243,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/5.png",
       "name": "1. FC Köln",
+      "managerName": "Britta Carlson",
       "stadiumName": "Franz-Kremer-Stadion",
       "stadiumSeats": 5457,
       "transfermarktId": "5",
@@ -3731,6 +3740,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/421.png",
       "name": "Werder Bremen",
+      "managerName": "Friederike Kromp",
       "stadiumName": "Platz 11",
       "stadiumSeats": 5500,
       "transfermarktId": "421",
@@ -4121,6 +4131,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/163.png",
       "name": "Hamburger SV",
+      "managerName": "Rodolfo Cardoso",
       "stadiumName": "Volksparkstadion",
       "stadiumSeats": 57000,
       "transfermarktId": "163",
@@ -4542,6 +4553,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/292.png",
       "name": "SC Freiburg",
+      "managerName": "Marco Konrad",
       "stadiumName": "Dreisamstadion",
       "stadiumSeats": 24000,
       "transfermarktId": "292",
@@ -4992,6 +5004,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7384.png",
       "name": "VfB Stuttgart 1893",
+      "managerName": "Nico Schneck",
       "stadiumName": "GAZi-Stadion auf der Waldau",
       "stadiumSeats": 11,
       "transfermarktId": "7384",
@@ -5428,6 +5441,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/10785.png",
       "name": "1. FSV Mainz 05",
+      "managerName": "Takashi Yamashita",
       "stadiumName": "Bruchwegstadion",
       "stadiumSeats": 7134,
       "transfermarktId": "10785",

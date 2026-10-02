@@ -6,6 +6,7 @@
     {
       "image": null,
       "name": "AS Saint-Étienne",
+      "managerName": "Yannick Chandioux",
       "stadiumName": "Stade Salif-Keita",
       "stadiumSeats": 1500,
       "transfermarktId": 950013,
@@ -375,6 +376,7 @@
     {
       "image": null,
       "name": "Le Mans FC",
+      "managerName": "Damien Bollini",
       "stadiumName": "Complexe de la Californie",
       "stadiumSeats": 400,
       "transfermarktId": 950014,
@@ -696,6 +698,7 @@
     {
       "image": null,
       "name": "LOSC Lille",
+      "managerName": "Mathieu Robail",
       "stadiumName": "Stadium (Lille)",
       "stadiumSeats": 550,
       "transfermarktId": 950015,
@@ -978,6 +981,7 @@
     {
       "image": null,
       "name": "FC Metz",
+      "managerName": "Lucas Guillaume",
       "stadiumName": "Stade Dezavelle, Longeville-lès-Metz",
       "stadiumSeats": 1500,
       "transfermarktId": 950016,
@@ -1256,6 +1260,7 @@
     {
       "image": null,
       "name": "Grenoble Foot 38",
+      "managerName": "Nasreddine Behloul",
       "stadiumName": "Stade des Alpes",
       "stadiumSeats": 20000,
       "transfermarktId": 950017,
@@ -1574,6 +1579,7 @@
     {
       "image": null,
       "name": "OGC Nice",
+      "managerName": "Alain Wathelet",
       "stadiumName": "Stade de la Plaine du Var",
       "stadiumSeats": 1000,
       "transfermarktId": 950018,
@@ -1894,6 +1900,7 @@
     {
       "image": null,
       "name": "Thonon Évian Grand Genève FC",
+      "managerName": "Alfred Picariello",
       "stadiumName": "Stade Camille-Fournier, Évian-les-Bains",
       "stadiumSeats": 1524,
       "transfermarktId": 950019,
@@ -2233,6 +2240,7 @@
     {
       "image": null,
       "name": "AS Cannes",
+      "managerName": "Steven Paulle",
       "stadiumName": "Stade Maurice Chevalier",
       "stadiumSeats": 400,
       "transfermarktId": 950020,
@@ -2563,6 +2571,7 @@
     {
       "image": null,
       "name": "Bourges FC",
+      "managerName": "Sandrine Jacquet",
       "stadiumName": "Stade Jacques-Rimbault",
       "stadiumSeats": 8000,
       "transfermarktId": 950021,
@@ -2947,6 +2956,7 @@
     {
       "image": null,
       "name": "AJ Auxerre",
+      "managerName": "Cédric Mengual",
       "stadiumName": "Stade de l'Abbé-Deschamps",
       "stadiumSeats": 18000,
       "transfermarktId": 950022,
@@ -3227,6 +3237,7 @@
     {
       "image": null,
       "name": "Racing Club Roubaix Wervicq",
+      "managerName": "Bruno Antunes",
       "stadiumName": "Stade Antoine-Maillard",
       "stadiumSeats": 3000,
       "transfermarktId": 950023,

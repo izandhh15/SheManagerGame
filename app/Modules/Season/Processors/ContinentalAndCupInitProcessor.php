@@ -10,6 +10,7 @@ use App\Models\Game;
 use App\Models\GameMatch;
 use App\Models\GameStanding;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Initializes Swiss format competitions (UCL) and conducts cup draws

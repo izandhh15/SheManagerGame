@@ -489,7 +489,8 @@
           "position": "Forward",
           "overall_score": 69
         }
-      ]
+      ],
+      "managerName": "Florencia Quiñones"
     },
     {
       "image": "",
@@ -828,7 +829,8 @@
           "position": "Forward",
           "overall_score": 73
         }
-      ]
+      ],
+      "managerName": "Nicolás Loncharich"
     },
     {
       "image": "",
@@ -1143,7 +1145,8 @@
           "position": "Midfielder",
           "nationality": "Argentina"
         }
-      ]
+      ],
+      "managerName": "Franco Bertera"
     },
     {
       "image": "",
@@ -1497,7 +1500,8 @@
           "position": "Goalkeeper",
           "overall_score": 71
         }
-      ]
+      ],
+      "managerName": "Héctor Bracamonte"
     },
     {
       "image": "",
@@ -1821,7 +1825,8 @@
           "position": "Forward",
           "overall_score": 68
         }
-      ]
+      ],
+      "managerName": "Mariana Sanchez"
     },
     {
       "image": "",
@@ -2145,7 +2150,8 @@
           "position": "Forward",
           "overall_score": 68
         }
-      ]
+      ],
+      "managerName": "Silvana Villalobos"
     },
     {
       "image": "",
@@ -2484,7 +2490,8 @@
           "position": "Forward",
           "overall_score": 68
         }
-      ]
+      ],
+      "managerName": "Indiana Fernández"
     },
     {
       "image": "",
@@ -2851,7 +2858,8 @@
           "nationality": "Argentina",
           "age": 33
         }
-      ]
+      ],
+      "managerName": "Carlos Polenta"
     },
     {
       "image": "",
@@ -3175,7 +3183,8 @@
           "position": "Forward",
           "overall_score": 69
         }
-      ]
+      ],
+      "managerName": "Leandro Iglesias"
     },
     {
       "image": "",
@@ -3602,7 +3611,8 @@
           "nationality": "Argentina",
           "age": 21
         }
-      ]
+      ],
+      "managerName": "Juan Alonso"
     },
     {
       "image": "",
@@ -3941,7 +3951,8 @@
           "position": "Forward",
           "overall_score": 73
         }
-      ]
+      ],
+      "managerName": "Leandro Capuccio"
     },
     {
       "image": "",
@@ -4224,7 +4235,8 @@
           "position": "Midfielder",
           "nationality": "Argentina"
         }
-      ]
+      ],
+      "managerName": "Leandro Páramo"
     },
     {
       "image": "",
@@ -4543,7 +4555,8 @@
           "age": 22,
           "number": 33
         }
-      ]
+      ],
+      "managerName": "Juan Palermo"
     },
     {
       "image": "",
@@ -4867,7 +4880,8 @@
           "position": "Forward",
           "overall_score": 68
         }
-      ]
+      ],
+      "managerName": "Nicolás Basualdo"
     },
     {
       "image": "",
@@ -5206,7 +5220,8 @@
           "position": "Forward",
           "overall_score": 68
         }
-      ]
+      ],
+      "managerName": "Pablo Poccia"
     },
     {
       "image": "",
@@ -5650,7 +5665,8 @@
           "position": "Forward",
           "overall_score": 67
         }
-      ]
+      ],
+      "managerName": "Juan Granda"
     }
   ]
 }

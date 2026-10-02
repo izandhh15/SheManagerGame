@@ -6,6 +6,7 @@
     {
       "image": null,
       "name": "Bristol City",
+      "managerName": "Charlotte Healy",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950039,
@@ -405,6 +406,7 @@
     {
       "image": null,
       "name": "Burnley",
+      "managerName": "Jackie Bachteler",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950040,
@@ -792,6 +794,7 @@
     {
       "image": null,
       "name": "Durham",
+      "managerName": "Willie Kirk",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950041,
@@ -1148,6 +1151,7 @@
     {
       "image": null,
       "name": "Ipswich Town",
+      "managerName": "David Wright",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950042,
@@ -1562,6 +1566,7 @@
     {
       "image": null,
       "name": "Leicester City",
+      "managerName": "Rick Passmoor",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950043,
@@ -1905,6 +1910,7 @@
     {
       "image": null,
       "name": "Newcastle United",
+      "managerName": "Tanya Oxtoby",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950044,
@@ -2249,6 +2255,7 @@
     {
       "image": null,
       "name": "Nottingham Forest",
+      "managerName": "Tom Mallinson",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950045,
@@ -2639,6 +2646,7 @@
     {
       "image": null,
       "name": "Sheffield United",
+      "managerName": "Stephen Healy",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950046,
@@ -2982,6 +2990,7 @@
     {
       "image": null,
       "name": "Southampton",
+      "managerName": "Simon Parker",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950047,
@@ -3353,6 +3362,7 @@
     {
       "image": null,
       "name": "Sunderland",
+      "managerName": "Melanie Reay",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950048,
@@ -3699,6 +3709,7 @@
     {
       "image": null,
       "name": "Watford",
+      "managerName": "Renée Hector",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950049,
@@ -4058,6 +4069,7 @@
     {
       "image": null,
       "name": "Wolverhampton Wanderers",
+      "managerName": "Dan McNamara",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950050,

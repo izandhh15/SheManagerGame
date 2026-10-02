@@ -430,7 +430,8 @@
           "height": "1,70m",
           "overall_score": 69
         }
-      ]
+      ],
+      "managerName": "Mak Lind"
     },
     {
       "image": null,
@@ -794,7 +795,8 @@
           "foot": null,
           "height": "1,70m"
         }
-      ]
+      ],
+      "managerName": "Juan Carlos Amorós"
     },
     {
       "image": null,
@@ -1175,7 +1177,8 @@
           "foot": null,
           "height": "1,67m"
         }
-      ]
+      ],
+      "managerName": "Yolanda Thomas"
     },
     {
       "image": null,
@@ -1553,7 +1556,8 @@
           "height": "1,65m",
           "overall_score": 69
         }
-      ]
+      ],
+      "managerName": "Jimmy Coenraets"
     },
     {
       "image": null,
@@ -1960,7 +1964,8 @@
           "foot": null,
           "height": "1,70m"
         }
-      ]
+      ],
+      "managerName": "Laura Harvey"
     },
     {
       "image": null,
@@ -2338,7 +2343,8 @@
           "height": "1,81m",
           "overall_score": 76
         }
-      ]
+      ],
+      "managerName": "Karina Báez"
     },
     {
       "image": null,
@@ -2758,7 +2764,8 @@
           "height": "1,75m",
           "overall_score": 82
         }
-      ]
+      ],
+      "managerName": "Adrián González"
     },
     {
       "image": null,
@@ -3149,7 +3156,8 @@
           "foot": null,
           "height": "1,76m"
         }
-      ]
+      ],
+      "managerName": "Robert Vilahamn"
     },
     {
       "image": null,
@@ -3540,7 +3548,8 @@
           "foot": "left",
           "height": "1,60m"
         }
-      ]
+      ],
+      "managerName": "Jonas Eidevall"
     },
     {
       "image": null,
@@ -3945,7 +3954,8 @@
           "height": "1,65m",
           "overall_score": 70
         }
-      ]
+      ],
+      "managerName": "Chris Armas"
     },
     {
       "image": null,
@@ -4333,7 +4343,8 @@
           "foot": "right",
           "height": "1,65m"
         }
-      ]
+      ],
+      "managerName": "Leif Gunnar Smerud"
     },
     {
       "image": null,
@@ -4747,7 +4758,8 @@
           "foot": "right",
           "height": "1,61m"
         }
-      ]
+      ],
+      "managerName": "Nick Cushing"
     },
     {
       "image": null,
@@ -5158,7 +5170,8 @@
           "foot": "left",
           "height": "1,58m"
         }
-      ]
+      ],
+      "managerName": "Emma Coates"
     },
     {
       "image": null,
@@ -5547,7 +5560,8 @@
           "height": "1,72m",
           "overall_score": 78
         }
-      ]
+      ],
+      "managerName": "Filipa Patão"
     },
     {
       "image": null,
@@ -5951,7 +5965,8 @@
           "foot": "right",
           "height": "1,61m"
         }
-      ]
+      ],
+      "managerName": "Fabrice Gautrat"
     },
     {
       "image": null,
@@ -6387,7 +6402,8 @@
           "height": "",
           "overall_score": 65
         }
-      ]
+      ],
+      "managerName": "Bev Yanez"
     }
   ]
 }

@@ -375,6 +375,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7956.png",
       "name": "Balears FC",
+      "managerName": "Miky Mayans",
       "stadiumName": "Campo de Son Malferit",
       "stadiumSeats": 1200,
       "transfermarktId": "7956",
@@ -1083,6 +1084,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/8150.png",
       "name": "CE Europa",
+      "managerName": "Nany Haces",
       "stadiumName": "Nou Sardenya",
       "stadiumSeats": 4000,
       "transfermarktId": "8150",
@@ -1647,6 +1649,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7916.png",
       "name": "Elche CF",
+      "managerName": "Txema Expósito",
       "stadiumName": "Polideportivo Altabix Enrique Cervera",
       "stadiumSeats": 0,
       "transfermarktId": "7916",
@@ -1956,6 +1959,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7192.png",
       "name": "RCD Espanyol B",
+      "managerName": "Adri Albaladejo",
       "stadiumName": "Ciudad Deportiva Dani Jarque - Campo 3",
       "stadiumSeats": 0,
       "transfermarktId": "7192",
@@ -2295,6 +2299,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/12513.png",
       "name": "FC Barcelona C",
+      "managerName": "Adrià Lamas",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": "12513",
@@ -3363,6 +3368,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7189.png",
       "name": "Valencia CF B",
+      "managerName": "Víctor García",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": "7189",
@@ -3688,6 +3694,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/267.png",
       "name": "Zaragoza CFF",
+      "managerName": "Carlos Roldán",
       "stadiumName": "Estadio Nuevo Enrique Porta",
       "stadiumSeats": 2000,
       "transfermarktId": "267",
@@ -4072,6 +4079,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7917.png",
       "name": "Real Murcia",
+      "managerName": "Juando Alhama",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": "7917",
@@ -4385,6 +4393,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/9262.png",
       "name": "SD Huesca",
+      "managerName": "Verónica Rodríguez",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": "9262",
@@ -4709,6 +4718,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7801.png",
       "name": "SE AEM",
+      "managerName": "Rubén López",
       "stadiumName": "Camp de Futbol Municipal de Recasens",
       "stadiumSeats": 0,
       "transfermarktId": "7801",

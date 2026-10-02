@@ -6,6 +6,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/6245.png",
       "name": "Juventus Football Club",
+      "managerName": "Isaac Guerrero",
       "stadiumName": "Stadio Alessandro La Marmora - Pozzo",
       "stadiumSeats": 5827,
       "transfermarktId": "6245",
@@ -529,6 +530,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/6954.png",
       "name": "Inter",
+      "managerName": "David Sassarini",
       "stadiumName": "Arena Civica Gianni Brera",
       "stadiumSeats": 10000,
       "transfermarktId": "6954",
@@ -922,6 +924,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/6952.png",
       "name": "AS Roma",
+      "managerName": "Gianpiero Piovani",
       "stadiumName": "Stadio Tre Fontane",
       "stadiumSeats": 4000,
       "transfermarktId": "6952",
@@ -1309,6 +1312,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/6940.png",
       "name": "ACF Fiorentina",
+      "managerName": "Pablo Piñones-Arce",
       "stadiumName": "Stadio Curva Fiesole - Viola Park",
       "stadiumSeats": 3000,
       "transfermarktId": "6940",
@@ -1755,6 +1759,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/6937.png",
       "name": "AC Milan",
+      "managerName": "Suzanne Bakker",
       "stadiumName": "Puma House of Football - Centro P. Vismara",
       "stadiumSeats": 1200,
       "transfermarktId": "6937",
@@ -2160,6 +2165,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/15673.png",
       "name": "Como 1907",
+      "managerName": "Selena Mazzantini",
       "stadiumName": "Centro sportivo SNEF Lambrone",
       "stadiumSeats": 0,
       "transfermarktId": "15673",
@@ -2527,6 +2533,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/8968.png",
       "name": "SSD Riozzese Como",
+      "managerName": "Paolo Tramezzani",
       "stadiumName": "Stadio Ferruccio Trabattoni",
       "stadiumSeats": 3700,
       "transfermarktId": "8968",
@@ -2932,6 +2939,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/8278.png",
       "name": "Parma Calcio 1913",
+      "managerName": "Giovanni Valenti",
       "stadiumName": "Stadio Ennio Tardini",
       "stadiumSeats": 22352,
       "transfermarktId": "8278",
@@ -3349,6 +3357,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/8049.png",
       "name": "SS Lazio",
+      "managerName": "Gianluca Grassadonia",
       "stadiumName": "Centro Sportivo Campo Aquile - Mirko Fersini",
       "stadiumSeats": 0,
       "transfermarktId": "8049",
@@ -3714,6 +3723,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7445.png",
       "name": "ASD Napoli Femminile",
+      "managerName": "Alessandro Spugna",
       "stadiumName": "Stadio Giuseppe Piccolo",
       "stadiumSeats": 0,
       "transfermarktId": "7445",
@@ -4148,6 +4158,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/6329.png",
       "name": "US Sassuolo Calcio",
+      "managerName": "Salvatore Colantuono",
       "stadiumName": "Stadio Enzo Ricci",
       "stadiumSeats": 4008,
       "transfermarktId": "6329",
@@ -4571,6 +4582,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7549.png",
       "name": "Ternana Calcio Femminile",
+      "managerName": "Marino Defendi",
       "stadiumName": "Stadio Moreno Gubbiotti",
       "stadiumSeats": 0,
       "transfermarktId": "7549",

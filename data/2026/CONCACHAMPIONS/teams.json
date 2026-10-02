@@ -8,56 +8,64 @@
       "transfermarktId": 1512,
       "stadiumName": "Estadio Universitario",
       "stadiumSeats": 41886,
-      "entryRound": 2
+      "entryRound": 2,
+      "managerName": "Pedro Martínez Losa"
     },
     {
       "name": "Club América",
       "transfermarktId": 7108,
       "stadiumName": "Estadio Azteca",
       "stadiumSeats": 87523,
-      "entryRound": 1
+      "entryRound": 1,
+      "managerName": "Ángel Villacampa"
     },
     {
       "name": "CF Pachuca",
       "transfermarktId": 7167,
       "stadiumName": "Estadio Hidalgo",
       "stadiumSeats": 27512,
-      "entryRound": 1
+      "entryRound": 1,
+      "managerName": "Montse Tomé"
     },
     {
       "name": "CF Monterrey",
       "transfermarktId": 7434,
       "stadiumName": "Estadio BBVA",
       "stadiumSeats": 51348,
-      "entryRound": 1
+      "entryRound": 1,
+      "managerName": "Amandine Miquel"
     },
     {
       "name": "Orlando Pride",
       "transfermarktId": 6081,
       "stadiumName": "Inter&Co Stadium",
       "stadiumSeats": 25500,
-      "entryRound": 2
+      "entryRound": 2,
+      "managerName": "Yolanda Thomas"
     },
     {
       "name": "Washington Spirit",
       "transfermarktId": 5028,
       "stadiumName": "Audi Field",
       "stadiumSeats": 20000,
-      "entryRound": 2
+      "entryRound": 2,
+      "managerName": "Adrián González"
     },
     {
       "name": "Portland Thorns FC",
       "transfermarktId": 5027,
       "stadiumName": "Providence Park",
       "stadiumSeats": 25218,
-      "entryRound": 1
+      "entryRound": 1,
+      "managerName": "Robert Vilahamn"
     },
     {
       "name": "Kansas City Current",
       "transfermarktId": 8586,
       "stadiumName": "CPKC Stadium",
       "stadiumSeats": 11500,
-      "entryRound": 1
+      "entryRound": 1,
+      "managerName": "Chris Armas"
     },
     {
       "image": "",
@@ -475,7 +483,8 @@
           "overall_score": 67
         }
       ],
-      "entryRound": 1
+      "entryRound": 1,
+      "managerName": "María Fernanda Barrantes"
     },
     {
       "image": "",
@@ -785,7 +794,8 @@
           "overall_score": 69
         }
       ],
-      "entryRound": 1
+      "entryRound": 1,
+      "managerName": "José Rodríguez"
     },
     {
       "image": "",
@@ -1125,7 +1135,8 @@
           "overall_score": 67
         }
       ],
-      "entryRound": 1
+      "entryRound": 1,
+      "managerName": "Luis Sosa"
     },
     {
       "image": "",
@@ -1918,7 +1929,8 @@
           "position": "Forward"
         }
       ],
-      "entryRound": 1
+      "entryRound": 1,
+      "managerName": "Iain Darbyshire"
     }
   ]
 }

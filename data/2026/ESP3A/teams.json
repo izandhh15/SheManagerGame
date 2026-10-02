@@ -6,6 +6,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/271.png",
       "name": "Rayo Vallecano",
+      "managerName": "Óscar Lomas",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": "271",
@@ -300,6 +301,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7124.png",
       "name": "Sporting de Gijón",
+      "managerName": "Chus Viña",
       "stadiumName": "Escuela de Fútbol de Mareo",
       "stadiumSeats": 3000,
       "transfermarktId": "7124",
@@ -759,6 +761,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7195.png",
       "name": "Madrid CFF B",
+      "managerName": "Pablo José García",
       "stadiumName": "Estadio Antiguo Canódromo",
       "stadiumSeats": 4000,
       "transfermarktId": "7195",
@@ -2424,6 +2427,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/11985.png",
       "name": "Real Avilés CF",
+      "managerName": "Javier Gómez",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": "11985",
@@ -2748,6 +2752,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/15528.png",
       "name": "As Celtas",
+      "managerName": "David Ferreiro",
       "stadiumName": "Estadio Abanca-Balaídos",
       "stadiumSeats": 24870,
       "transfermarktId": "15528",
@@ -3102,6 +3107,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/15769.png",
       "name": "Real Racing Club de Santander",
+      "managerName": "José Enrique Rodríguez",
       "stadiumName": "Campo de Fútbol Municipal La Planchada",
       "stadiumSeats": 2000,
       "transfermarktId": "15769",
@@ -4279,6 +4285,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/1165.png",
       "name": "Club de Fútbol Oviedo Moderno Universida",
+      "managerName": "Paco Fernández",
       "stadiumName": "Campo de Fútbol José Ramón Suarez Fernández",
       "stadiumSeats": 0,
       "transfermarktId": "1165",
@@ -4618,6 +4625,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7914.png",
       "name": "Victoria CF",
+      "managerName": "Isabel Vázquez",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": "7914",
@@ -4957,6 +4965,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/12229.png",
       "name": "Burgos CF",
+      "managerName": "Tania Güemes",
       "stadiumName": "Estadio Municipal de El Plantío",
       "stadiumSeats": 11355,
       "transfermarktId": "12229",

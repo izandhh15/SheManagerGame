@@ -434,7 +434,8 @@
           "position": "Centre-Forward",
           "overall_score": 65
         }
-      ]
+      ],
+      "managerName": "Anouk Bruil"
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/4585.png",
@@ -852,7 +853,8 @@
           "number": "47",
           "position": "Centre-Forward"
         }
-      ]
+      ],
+      "managerName": "Kasper Kurland"
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/126.png",
@@ -1240,7 +1242,8 @@
           "number": "40",
           "position": "Centre-Forward"
         }
-      ]
+      ],
+      "managerName": "Corina Dekker"
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7951.png",
@@ -1586,7 +1589,8 @@
           "number": "28",
           "position": "Centre-Forward"
         }
-      ]
+      ],
+      "managerName": "Marc Pieters"
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/577.png",
@@ -1963,7 +1967,8 @@
           "position": "Centre-Forward",
           "overall_score": 70
         }
-      ]
+      ],
+      "managerName": "Olivier Amelink"
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/52.png",
@@ -2340,7 +2345,8 @@
           "number": "17",
           "position": "Centre-Forward"
         }
-      ]
+      ],
+      "managerName": "Joël Titaley"
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/128.png",
@@ -2719,7 +2725,8 @@
           "position": "Centre-Forward",
           "overall_score": 68
         }
-      ]
+      ],
+      "managerName": "Sylvia Smit"
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/26.png",
@@ -3053,7 +3060,8 @@
           "number": "35",
           "position": "Centre-Forward"
         }
-      ]
+      ],
+      "managerName": "Sjaak Polak"
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/15297.png",
@@ -3400,7 +3408,8 @@
           "number": "22",
           "position": "Centre-Forward"
         }
-      ]
+      ],
+      "managerName": "Timo Kleinhesselink"
     },
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/294.png",
@@ -3793,7 +3802,8 @@
           "number": "17",
           "position": "Centre-Forward"
         }
-      ]
+      ],
+      "managerName": "Niklas Tarvajärvi"
     }
   ]
 }

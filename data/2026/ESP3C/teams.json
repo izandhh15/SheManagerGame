@@ -6,6 +6,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/1130.png",
       "name": "Málaga CF",
+      "managerName": "Héctor Díaz",
       "stadiumName": "Ciudad Deportiva Málaga CF Campo 1",
       "stadiumSeats": 0,
       "transfermarktId": "1130",
@@ -390,6 +391,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/1142.png",
       "name": "Sporting de Huelva",
+      "managerName": "Antonio Toledo",
       "stadiumName": "Ciudad Deportiva Francisco Mendoza",
       "stadiumSeats": 1000,
       "transfermarktId": "1142",
@@ -699,6 +701,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/5648.png",
       "name": "Real Betis Balompié",
+      "managerName": "Marco Tamarit",
       "stadiumName": "Ciudad Deportiva Luis del Sol",
       "stadiumSeats": 1300,
       "transfermarktId": "5648",
@@ -1053,6 +1056,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7793.png",
       "name": "CD Femarguín",
+      "managerName": "Fran Bordón",
       "stadiumName": "Campo Municipal de Mogán",
       "stadiumSeats": 432,
       "transfermarktId": "7793",
@@ -1497,6 +1501,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7795.png",
       "name": "CF Pozuelo de Alarcón",
+      "managerName": "Juan Martínez",
       "stadiumName": "Ciudad Deportiva Valle de las Cañas",
       "stadiumSeats": 0,
       "transfermarktId": "7795",
@@ -1941,6 +1946,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7799.png",
       "name": "Córdoba CF",
+      "managerName": "Sergio Guillén",
       "stadiumName": "Ciudad Deportiva Córdoba CF Campo 1",
       "stadiumSeats": 0,
       "transfermarktId": "7799",
@@ -2295,6 +2301,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/8403.png",
       "name": "CD Getafe Femenino",
+      "managerName": "Blas Ramírez",
       "stadiumName": "Coliseum Alfonso Pérez",
       "stadiumSeats": 17000,
       "transfermarktId": "8403",
@@ -2889,6 +2896,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/8413.png",
       "name": "EMF Fuensalida",
+      "managerName": "Claudio Expósito",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": "8413",
@@ -3288,6 +3296,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/8421.png",
       "name": "Granada CF B",
+      "managerName": "Diego Rimoldi",
       "stadiumName": "Municipal Emilio Baena",
       "stadiumSeats": 0,
       "transfermarktId": "8421",
@@ -3597,6 +3606,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/11531.png",
       "name": "CFF Olympia Las Rozas",
+      "managerName": "Arantxa de la Chica",
       "stadiumName": "Polideportivo Municipal Navalcarbón",
       "stadiumSeats": 0,
       "transfermarktId": "11531",
@@ -4131,6 +4141,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/11907.png",
       "name": "UD Almería",
+      "managerName": "Martín Rodríguez",
       "stadiumName": "Estadio de la Juventud Emilio Campra",
       "stadiumSeats": 4000,
       "transfermarktId": "11907",
@@ -4485,6 +4496,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/13594.png",
       "name": "CD Guiniguada Apolinario",
+      "managerName": "Fabio Vega Guerra",
       "stadiumName": "Campo de Futbol Parque Atlantico",
       "stadiumSeats": 1000,
       "transfermarktId": "13594",
@@ -5004,6 +5016,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/14437.png",
       "name": "CD Argual",
+      "managerName": "Jorge Concepción",
       "stadiumName": "Estadio Municipal Aceró",
       "stadiumSeats": 3000,
       "transfermarktId": "14437",

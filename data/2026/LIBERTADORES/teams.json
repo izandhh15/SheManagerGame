@@ -8,56 +8,64 @@
       "transfermarktId": 94001,
       "stadiumName": "",
       "stadiumSeats": 0,
-      "entryRound": 2
+      "entryRound": 2,
+      "managerName": "Emily Lima"
     },
     {
       "name": "Flamengo",
       "transfermarktId": 94005,
       "stadiumName": null,
       "stadiumSeats": null,
-      "entryRound": 2
+      "entryRound": 2,
+      "managerName": "Celso Silva"
     },
     {
       "name": "Palmeiras",
       "transfermarktId": 94002,
       "stadiumName": "",
       "stadiumSeats": 0,
-      "entryRound": 2
+      "entryRound": 2,
+      "managerName": "Rosana Augusto"
     },
     {
       "name": "São Paulo",
       "transfermarktId": 94003,
       "stadiumName": "",
       "stadiumSeats": 0,
-      "entryRound": 2
+      "entryRound": 2,
+      "managerName": "Thiago Viana"
     },
     {
       "name": "Boca Juniors",
       "transfermarktId": 68,
       "stadiumName": "Complejo Pedro Pompilio",
       "stadiumSeats": 1000,
-      "entryRound": 2
+      "entryRound": 2,
+      "managerName": "Florencia Quiñones"
     },
     {
       "name": "River Plate",
       "transfermarktId": 277,
       "stadiumName": "River Camp",
       "stadiumSeats": 2000,
-      "entryRound": 2
+      "entryRound": 2,
+      "managerName": "Nicolás Loncharich"
     },
     {
       "name": "San Lorenzo",
       "transfermarktId": 287,
       "stadiumName": "Estadio Pedro Bidegain",
       "stadiumSeats": 47964,
-      "entryRound": 2
+      "entryRound": 2,
+      "managerName": "Franco Bertera"
     },
     {
       "name": "Racing Club",
       "transfermarktId": 8047,
       "stadiumName": "Predio Tita Mattiussi",
       "stadiumSeats": 1000,
-      "entryRound": 2
+      "entryRound": 2,
+      "managerName": "Héctor Bracamonte"
     },
     {
       "image": null,
@@ -441,7 +449,8 @@
       "stadiumName": "Estadio Osvaldo Domínguez Dibb",
       "stadiumSeats": 25820,
       "transfermarktId": 944001,
-      "entryRound": 1
+      "entryRound": 1,
+      "managerName": "Diego Uran"
     },
     {
       "image": null,
@@ -1611,7 +1620,8 @@
           "overall_score": 68
         }
       ],
-      "entryRound": 2
+      "entryRound": 2,
+      "managerName": "Tatiele Silveira"
     },
     {
       "name": "Universidad de Chile",
@@ -2101,7 +2111,8 @@
           "overall_score": 72
         }
       ],
-      "entryRound": 2
+      "entryRound": 2,
+      "managerName": "Nicolás Bravo"
     },
     {
       "name": "Independiente Santa Fe",
@@ -2576,7 +2587,8 @@
           "overall_score": 71
         }
       ],
-      "entryRound": 2
+      "entryRound": 2,
+      "managerName": "Omar Ramírez"
     },
     {
       "name": "Deportivo Cali",
@@ -3050,7 +3062,8 @@
           "overall_score": 69
         }
       ],
-      "entryRound": 2
+      "entryRound": 2,
+      "managerName": "Jhon Alber Ortiz"
     },
     {
       "name": "Universitario de Deportes",
@@ -3759,7 +3772,8 @@
           "overall_score": 68
         }
       ],
-      "entryRound": 1
+      "entryRound": 1,
+      "managerName": "Carlos Véliz"
     },
     {
       "name": "Independiente del Valle",
@@ -4144,7 +4158,8 @@
           "overall_score": 67
         }
       ],
-      "entryRound": 1
+      "entryRound": 1,
+      "managerName": "Gustavo Pineda"
     },
     {
       "name": "LDU Quito",
@@ -4484,7 +4499,8 @@
           "overall_score": 67
         }
       ],
-      "entryRound": 1
+      "entryRound": 1,
+      "managerName": "Gerardo Londoño"
     },
     {
       "name": "Caracas FC",
@@ -4801,7 +4817,8 @@
           "nationality": "Venezuela"
         }
       ],
-      "entryRound": 1
+      "entryRound": 1,
+      "managerName": "Enzo Tropiano"
     },
     {
       "name": "Club Bolívar",
@@ -5141,7 +5158,8 @@
           "overall_score": 71
         }
       ],
-      "entryRound": 1
+      "entryRound": 1,
+      "managerName": "Diomedes García"
     }
   ]
 }

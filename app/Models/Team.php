@@ -57,6 +57,7 @@ class Team extends Model
         'confederation',
         'is_placeholder',
         'name',
+        'manager_name',
         'slug',
         'country',
         'parent_team_id',

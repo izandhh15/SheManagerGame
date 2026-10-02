@@ -6,6 +6,7 @@
     {
       "image": null,
       "name": "1. FFC Turbine Potsdam",
+      "managerName": "Steen Gravgaard",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950025,
@@ -378,6 +379,7 @@
     {
       "image": null,
       "name": "Eintracht Frankfurt II",
+      "managerName": "Kim Fellhauer",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950026,
@@ -714,6 +716,7 @@
     {
       "image": null,
       "name": "SG 99 Andernach",
+      "managerName": "Isabelle Hawel",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950027,
@@ -1101,6 +1104,7 @@
     {
       "image": null,
       "name": "SC Sand",
+      "managerName": "Jürgen Hartmann",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950028,
@@ -1476,6 +1480,7 @@
     {
       "image": null,
       "name": "Borussia Mönchengladbach",
+      "managerName": "Jonas Spengler",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950029,
@@ -1848,6 +1853,7 @@
     {
       "image": null,
       "name": "FC Ingolstadt 04",
+      "managerName": "Benjamin Stolte",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950030,
@@ -2238,6 +2244,7 @@
     {
       "image": null,
       "name": "SV Meppen",
+      "managerName": "Thomas Pfannkuch & Katharina Börger",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950031,
@@ -2623,6 +2630,7 @@
     {
       "image": null,
       "name": "VfL Bochum",
+      "managerName": "Kyra Malinowski",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950032,
@@ -3011,6 +3019,7 @@
     {
       "image": null,
       "name": "FC Viktoria 1889 Berlin",
+      "managerName": "Miren Ćatović",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950033,
@@ -3400,6 +3409,7 @@
     {
       "image": null,
       "name": "FC Carl Zeiss Jena",
+      "managerName": "Florian Kästner",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950034,
@@ -3784,6 +3794,7 @@
     {
       "image": null,
       "name": "SGS Essen",
+      "managerName": "Heleen Jaques",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950035,
@@ -4169,6 +4180,7 @@
     {
       "image": null,
       "name": "1. FC Köln II",
+      "managerName": "Verena Hagedorn",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950036,
@@ -4538,6 +4550,7 @@
     {
       "image": null,
       "name": "TSG 1899 Hoffenheim II",
+      "managerName": "Rico Weber",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950037,
@@ -4887,6 +4900,7 @@
     {
       "image": null,
       "name": "Hertha BSC",
+      "managerName": "Tobias Kurbjuweit",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950038,

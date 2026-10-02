@@ -141,6 +141,7 @@ class SeedNationalTeams extends Command
             if ($existing) {
                 DB::table('teams')->where('id', $existing->id)->update([
                     'name' => $name,
+                    'manager_name' => $club['managerName'] ?? $existing->manager_name,
                     'country' => $countryCode,
                     'confederation' => $confederation,
                     'colors' => $existing->colors ?? json_encode(TeamColors::get($name)),
@@ -156,6 +157,7 @@ class SeedNationalTeams extends Command
                     'fifa_code' => $fifaCode,
                     'is_placeholder' => false,
                     'name' => $name,
+                    'manager_name' => $club['managerName'] ?? null,
                     'country' => $countryCode,
                     'confederation' => $confederation,
                     'image' => null,

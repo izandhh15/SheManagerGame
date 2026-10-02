@@ -6,6 +6,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/16742.png",
       "name": "OL Lyonnes",
+      "managerName": "Jonatan Giráldez",
       "stadiumName": "Parc Olympique Lyonnais",
       "stadiumSeats": 59186,
       "transfermarktId": "16742",
@@ -487,6 +488,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/254.png",
       "name": "Paris Saint-Germain",
+      "managerName": "Paulo César",
       "stadiumName": "Stade Jean Bouin",
       "stadiumSeats": 20000,
       "transfermarktId": "254",
@@ -960,6 +962,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/6328.png",
       "name": "Paris FC",
+      "managerName": "Sandrine Soubeyrand",
       "stadiumName": "Stade Robert Bobin",
       "stadiumSeats": 18850,
       "transfermarktId": "6328",
@@ -1394,6 +1397,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/4696.png",
       "name": "Olympique de Marseille",
+      "managerName": "Nicolas Chabot",
       "stadiumName": "Stade OM Campus - Roger Scotti",
       "stadiumSeats": 1000,
       "transfermarktId": "4696",
@@ -1785,6 +1789,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/6327.png",
       "name": "FC Fleury 91",
+      "managerName": "Antoine Ponroy",
       "stadiumName": "Stade Auguste Gentelet",
       "stadiumSeats": 2000,
       "transfermarktId": "6327",
@@ -2175,6 +2180,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/7214.png",
       "name": "RC Strasbourg",
+      "managerName": "Vincent Nogueira",
       "stadiumName": "Parc des Sports Stadium n°1",
       "stadiumSeats": 2000,
       "transfermarktId": "7214",
@@ -2566,6 +2572,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/6650.png",
       "name": "FC Nantes",
+      "managerName": "Pierre-Alain Picard",
       "stadiumName": "Stade Marcel-Saupin",
       "stadiumSeats": 1880,
       "transfermarktId": "6650",
@@ -2919,6 +2926,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/18001.png",
       "name": "Montpellier FC",
+      "managerName": "Patrice Lair",
       "stadiumName": "Stade Bernard Gasset Terrain n°7",
       "stadiumSeats": 1000,
       "transfermarktId": "18001",
@@ -3349,6 +3357,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/8038.png",
       "name": "RC Lens",
+      "managerName": "Loïc Fiévet",
       "stadiumName": "Stade Bollaert-Delelis",
       "stadiumSeats": 38223,
       "transfermarktId": "8038",
@@ -3743,6 +3752,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/6896.png",
       "name": "Le Havre AC",
+      "managerName": "Maxime Di Liberto",
       "stadiumName": "Stade Océane",
       "stadiumSeats": 25178,
       "transfermarktId": "6896",
@@ -4086,6 +4096,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/361.png",
       "name": "Toulouse FC",
+      "managerName": "Antoine Gérard",
       "stadiumName": "Parc des Sports - Stadium annexe 5 - Brice Taton",
       "stadiumSeats": 1000,
       "transfermarktId": "361",
@@ -4455,6 +4466,7 @@
     {
       "image": "https://tmssl.akamaized.net/images/wappen/big/4782.png",
       "name": "US Saint-Malo",
+      "managerName": "Roland Jamelot",
       "stadiumName": "Stade de Marville",
       "stadiumSeats": 2233,
       "transfermarktId": "4782",

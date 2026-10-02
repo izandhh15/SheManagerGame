@@ -6,6 +6,7 @@
     {
       "image": null,
       "name": "Venezia FC Femminile",
+      "managerName": "Gian Luca Petruzzelli",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950001,
@@ -420,6 +421,7 @@
     {
       "image": null,
       "name": "ACF Brescia Femminile",
+      "managerName": "Damiano Zenoni",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950002,
@@ -789,6 +791,7 @@
     {
       "image": null,
       "name": "Hellas Verona",
+      "managerName": "Vincenzo De Martino",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950003,
@@ -1173,6 +1176,7 @@
     {
       "image": null,
       "name": "San Marino Academy",
+      "managerName": "Giacomo Piva",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950004,
@@ -1542,6 +1546,7 @@
     {
       "image": null,
       "name": "ASD Bologna FC 1909",
+      "managerName": "Jacopo Leandri",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950005,
@@ -1986,6 +1991,7 @@
     {
       "image": null,
       "name": "Cesena FC Femminile",
+      "managerName": "Roberto Rossi",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950006,
@@ -2490,6 +2496,7 @@
     {
       "image": null,
       "name": "ACF Arezzo",
+      "managerName": "Andrea Benedetti",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950007,
@@ -2934,6 +2941,7 @@
     {
       "image": null,
       "name": "Genoa CFC",
+      "managerName": "Roberto Briata",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950008,
@@ -3333,6 +3341,7 @@
     {
       "image": null,
       "name": "Frosinone Calcio Femminile",
+      "managerName": "Francesco Foglietta",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950009,
@@ -3717,6 +3726,7 @@
     {
       "image": null,
       "name": "FC Lumezzane Women",
+      "managerName": "Nicoletta Mazza",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950010,
@@ -4131,6 +4141,7 @@
     {
       "image": null,
       "name": "Catania FC",
+      "managerName": "Silvestro Reitano",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950011,
@@ -4575,6 +4586,7 @@
     {
       "image": null,
       "name": "Donna Roma FC",
+      "managerName": "Matteo Pachera",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950012,
@@ -4959,6 +4971,7 @@
     {
       "image": null,
       "name": "Vicenza WFC",
+      "managerName": "Fabio Viviani",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950051,
@@ -5583,6 +5596,7 @@
     {
       "image": null,
       "name": "Moncalieri Women",
+      "managerName": "Franco Semioli",
       "stadiumName": "",
       "stadiumSeats": 0,
       "transfermarktId": 950052,
