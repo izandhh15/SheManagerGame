@@ -1475,6 +1475,7 @@ return [
         'tournament' => true,
         'continental_competitions' => [
             'WWCU27'  => ['config_class' => \App\Modules\Competition\Configs\WomensWorldCupConfig::class],
+            'WOLYMP'  => ['config_class' => \App\Modules\Competition\Configs\WomensOlympicsConfig::class],
             'WEURO'   => ['config_class' => \App\Modules\Competition\Configs\WomensEuroConfig::class],
             'WEUROQ'  => ['config_class' => \App\Modules\Competition\Configs\WomensEuroQualifyingConfig::class],
             'WCOPAAM' => ['config_class' => \App\Modules\Competition\Configs\CopaAmericaFemeninaConfig::class],

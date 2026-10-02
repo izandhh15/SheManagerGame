@@ -1,0 +1,38 @@
+{
+  "knockout": [
+    {
+      "date": "2028-07-31",
+      "name": "cup.quarter_finals",
+      "round": 3
+    },
+    {
+      "date": "2028-08-03",
+      "name": "cup.semi_finals",
+      "round": 4
+    },
+    {
+      "date": "2028-08-05",
+      "name": "cup.third_place",
+      "round": 5
+    },
+    {
+      "date": "2028-08-06",
+      "name": "cup.final",
+      "round": 6
+    }
+  ],
+  "league": [
+    {
+      "date": "2028-07-22",
+      "round": 1
+    },
+    {
+      "date": "2028-07-25",
+      "round": 2
+    },
+    {
+      "date": "2028-07-28",
+      "round": 3
+    }
+  ]
+}

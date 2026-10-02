@@ -53,6 +53,9 @@ class TournamentCreationService
     /** FIFA Women's World Cup 2027 (final tournament) competition id. */
     public const WWCU27_ID = 'WWCU27';
 
+    /** Olympic women's football tournament 2028 (final tournament) competition id. */
+    public const WOLYMP_ID = 'WOLYMP';
+
     /** UEFA Women's Euro 2029 (final tournament) competition id. */
     public const WEURO_ID = 'WEURO';
 
@@ -70,17 +73,19 @@ class TournamentCreationService
         'WWCQ',
         'WNL',
         'WWCU27',
+        'WOLYMP',
         'WEURO',
         'WEUROQ',
     ];
 
     /**
-     * Competition ids of the final tournaments (World Cup / Euros).
+     * Competition ids of the final tournaments (World Cup / Olympics / Euros).
      * These are set up with groups + knockout instead of a drawn
      * qualifier group.
      */
     public const NATIONAL_TEAM_FINAL_IDS = [
         'WWCU27',
+        'WOLYMP',
         'WEURO',
     ];
 
@@ -97,11 +102,13 @@ class TournamentCreationService
     /**
      * National team competition sequence (Izan's unified calendar):
      * Nations League → World Cup Qualifying → (World Cup 2027) →
-     * Nations League → Euro Qualifying → (Euro 2029) → Nations League…
+     * (Olympics 2028) → Nations League → Euro Qualifying →
+     * (Euro 2029) → Nations League…
      *
      * After each Nations League, the cycle alternates: the first cycle
      * runs the World Cup qualifiers; once the game has played a World
-     * Cup, the next cycle runs the Euro qualifiers, and so on.
+     * Cup (or the Olympics that follow it), the next cycle runs the Euro
+     * qualifiers, and so on.
      * Returns the next competition id after the given one, or null if
      * the sequence ends.
      */
@@ -112,7 +119,8 @@ class TournamentCreationService
             'WQUEFA' => self::WWCU27_ID,      // World Cup Qualifying → World Cup 2027
             // Other confederations' qualifiers also lead to the World Cup.
             'WQAFC', 'WQCAF', 'WQCONC', 'WQCONM', 'WQOFC' => self::WWCU27_ID,
-            self::WWCU27_ID => self::afterWorldCup($game),
+            self::WWCU27_ID => self::WOLYMP_ID, // World Cup → Olympics 2028 (defend the gold!)
+            self::WOLYMP_ID => self::afterWorldCup($game), // Olympics → back to the confederation's competition
             self::WEUROQ_ID => self::WEURO_ID, // Euro Qualifying → Euro 2029
             self::WEURO_ID => self::WNL_ID,   // Euro → Nations League
             default => null,
@@ -120,8 +128,9 @@ class TournamentCreationService
     }
 
     /**
-     * After the World Cup, each team returns to its confederation's
-     * competition (Nations League for UEFA, qualifiers elsewhere).
+     * After the World Cup / Olympics, each team returns to its
+     * confederation's competition (Nations League for UEFA, qualifiers
+     * elsewhere).
      */
     private static function afterWorldCup(?Game $game): string
     {
@@ -135,8 +144,10 @@ class TournamentCreationService
      */
     private static function afterNationsLeague(?Game $game): string
     {
-        if ($game !== null && self::lastPlayedFinal($game) === self::WWCU27_ID) {
-            return self::WEUROQ_ID; // last final was the World Cup → Euro cycle
+        // The Olympics follow the World Cup in the same cycle, so both
+        // count as "the World Cup cycle was last played" → Euro cycle next.
+        if ($game !== null && in_array(self::lastPlayedFinal($game), [self::WWCU27_ID, self::WOLYMP_ID], true)) {
+            return self::WEUROQ_ID; // last final was the World Cup / Olympics → Euro cycle
         }
 
         return 'WQUEFA'; // no final yet, or last final was the Euro → World Cup cycle

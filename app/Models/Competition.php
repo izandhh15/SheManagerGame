@@ -92,6 +92,7 @@ class Competition extends Model
         'WQOFC'   => 'Clasificación · OFC',
         'WNL'     => 'Nations League',
         'WWCU27'  => 'Mundial 2027',
+        'WOLYMP'  => 'Juegos Olímpicos',
         'WEURO'   => 'Eurocopa',
         'WEUROQ'  => 'Clasificación · Euro',
         'PRESEASON' => 'Amistoso',
@@ -123,12 +124,14 @@ class Competition extends Model
 
     // Spanish grammatical article per competition. Women's competitions are all
     // feminine ("la Liga F", "la Copa de la Reina", "la UWCL", "la Supercopa").
-    // Falls back to "la" for anything not listed.
+    // Falls back to "la" for anything not listed. "los Juegos Olímpicos"
+    // is the only masculine-plural name in the game.
     private const ARTICLES = [
         'WC2026'    => 'el',
         'PRESEASON' => 'el',
         'FRASUP'    => 'el',
         'DEUSUP'    => 'el',
+        'WOLYMP'    => 'los',
     ];
 
     protected $fillable = [
@@ -187,6 +190,7 @@ class Competition extends Model
     {
         return match ($this->article) {
             'la' => 'de la ' . $this->shortName(),
+            'los' => 'de los ' . $this->shortName(),
             null => 'de ' . $this->shortName(),
             default => 'del ' . $this->shortName(),
         };
@@ -199,6 +203,7 @@ class Competition extends Model
     {
         return match ($this->article) {
             'la' => 'a la ' . $this->shortName(),
+            'los' => 'a los ' . $this->shortName(),
             null => 'a ' . $this->shortName(),
             default => 'al ' . $this->shortName(),
         };
@@ -211,6 +216,7 @@ class Competition extends Model
     {
         return match ($this->article) {
             'la' => 'en la ' . $this->shortName(),
+            'los' => 'en los ' . $this->shortName(),
             null => 'en ' . $this->shortName(),
             default => 'en el ' . $this->shortName(),
         };
@@ -225,6 +231,7 @@ class Competition extends Model
     {
         return match ($this->article) {
             'la' => 'la ' . $this->shortName(),
+            'los' => 'los ' . $this->shortName(),
             null => $this->shortName(),
             default => 'el ' . $this->shortName(),
         };

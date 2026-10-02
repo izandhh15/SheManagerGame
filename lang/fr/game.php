@@ -69,6 +69,7 @@ return [
     'world_cup_qualified' => 'Qualifié pour la Coupe du monde 2027',
     'euro_qualified' => 'Qualifiée pour l\'Euro 2029',
     'knockout_qualified' => 'Qualifiée pour la phase à élimination directe',
+    'knockout_best_third' => 'Qualification possible comme meilleure troisième',
     'direct_promotion' => 'Promotion directe',
     'promotion_playoff' => 'Barrage de promotion',
     'relegation_playoff' => 'Barrage de relégation',

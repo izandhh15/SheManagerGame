@@ -69,6 +69,7 @@ return [
     'world_cup_qualified' => 'Qualified for World Cup 2027',
     'euro_qualified' => 'Qualified for Euro 2029',
     'knockout_qualified' => 'Qualified for the knockout stage',
+    'knockout_best_third' => 'Possible best third-place spot',
     'direct_promotion' => 'Direct Promotion',
     'promotion_playoff' => 'Promotion Playoff',
     'relegation_playoff' => 'Relegation Playoff',

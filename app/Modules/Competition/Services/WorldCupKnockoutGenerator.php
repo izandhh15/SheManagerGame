@@ -23,6 +23,9 @@ use App\Models\GameStanding;
  *   group-position slots ("1A", "2B") in the first knockout round are
  *   resolved from the group standings. A competition whose bracket has
  *   no "third_place" key simply skips that match (e.g. the Euros).
+ * - WOLYMP (Olympics) also advances the 2 best third-place teams;
+ *   its bracket references them with "3RD1"/"3RD2" slots, resolved
+ *   from the ranked third-place standings.
  */
 class WorldCupKnockoutGenerator
 {
@@ -48,8 +51,13 @@ class WorldCupKnockoutGenerator
         '1L' => 80,
     ];
 
-    /** Competitions whose format includes best-third-place qualifiers (legacy WC2026 only). */
-    private const THIRD_PLACE_QUALIFIER_COMPETITIONS = ['WC2026'];
+    /** Competitions whose format includes best-third-place qualifiers,
+     *  mapped to how many thirds advance: the legacy WC2026 format (8)
+     *  and the Olympic women's tournament (2). */
+    private const THIRD_PLACE_QUALIFIER_COUNTS = [
+        'WC2026' => 8,
+        'WOLYMP' => 2,
+    ];
 
     /** @var array<string, array> competitionId → decoded bracket.json */
     private array $brackets = [];
@@ -350,7 +358,9 @@ class WorldCupKnockoutGenerator
      * Resolve a bracket reference to a team ID.
      *
      * Handles: "W73" (winner of match 73), "RU101" (loser of match 101),
-     * "1A"/"2B" (group winner/runner-up, women's finals first KO round).
+     * "1A"/"2B" (group winner/runner-up, women's finals first KO round),
+     * "3RD1"/"3RD2" (best/second-best third-place finisher — the
+     * Olympic format).
      */
     private function resolveBracketReference(string $ref, string $gameId, string $competitionId, array $positionMap = []): ?string
     {
@@ -372,6 +382,12 @@ class WorldCupKnockoutGenerator
         // women's finals.
         if (preg_match('/^([12])([A-H])$/', $ref, $m)) {
             return $positionMap[$m[1] . $m[2]] ?? null;
+        }
+
+        // Best third-place slot, e.g. "3RD1" — first knockout round of
+        // competitions with best-third-place qualifiers (Olympics).
+        if (preg_match('/^3RD(\d+)$/', $ref, $m)) {
+            return $this->getRankedThirdPlaceTeams($gameId, $competitionId)->get(((int) $m[1]) - 1);
         }
 
         return null;
@@ -495,8 +511,9 @@ class WorldCupKnockoutGenerator
      * Get teams that qualified from the group stage.
      *
      * WC2026 (legacy 48-team format): top 2 per group + best 8
-     * third-place teams. Women's finals (WWCU27, WEURO): top 2 per
-     * group only.
+     * third-place teams. WOLYMP (Olympics): top 2 per group + best 2
+     * third-place teams. Other women's finals (WWCU27, WEURO): top 2
+     * per group only.
      *
      * @return array<string> Team IDs
      */
@@ -510,12 +527,31 @@ class WorldCupKnockoutGenerator
             ->pluck('team_id')
             ->toArray();
 
-        if (!in_array($competitionId, self::THIRD_PLACE_QUALIFIER_COMPETITIONS, true)) {
+        $thirdPlaceCount = self::THIRD_PLACE_QUALIFIER_COUNTS[$competitionId] ?? 0;
+        if ($thirdPlaceCount === 0) {
             return $top2;
         }
 
-        // Best 8 third-place teams (WC2026 legacy format only)
-        $thirdPlace = GameStanding::where('game_id', $gameId)
+        // Best third-place teams, ranked by points, goal difference,
+        // goals scored and group label.
+        $thirdPlace = $this->getRankedThirdPlaceTeams($gameId, $competitionId)
+            ->take($thirdPlaceCount)
+            ->all();
+
+        return array_merge($top2, $thirdPlace);
+    }
+
+    /**
+     * All third-place group finishers, ranked best first (points, goal
+     * difference, goals scored, group label). Powers both the qualified
+     * teams list and the "3RD1"/"3RD2" bracket slots of competitions
+     * with best-third-place qualifiers (e.g. the Olympics).
+     *
+     * @return \Illuminate\Support\Collection<int, string> Team IDs, best first
+     */
+    public function getRankedThirdPlaceTeams(string $gameId, string $competitionId): \Illuminate\Support\Collection
+    {
+        return GameStanding::where('game_id', $gameId)
             ->where('competition_id', $competitionId)
             ->whereNotNull('group_label')
             ->where('position', 3)
@@ -523,11 +559,7 @@ class WorldCupKnockoutGenerator
             ->orderByRaw('(goals_for - goals_against) DESC')
             ->orderByDesc('goals_for')
             ->orderBy('group_label')
-            ->take(8)
-            ->pluck('team_id')
-            ->toArray();
-
-        return array_merge($top2, $thirdPlace);
+            ->pluck('team_id');
     }
 
     /**

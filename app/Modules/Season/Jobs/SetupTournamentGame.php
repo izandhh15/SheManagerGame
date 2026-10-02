@@ -61,7 +61,7 @@ class SetupTournamentGame implements ShouldQueue
         // National team competition progression: if this is a new season
         // (game has archived seasons from previous competitions), advance to
         // the next competition in the sequence
-        // (e.g. WNL → WQUEFA → WWCU27 → WNL → WEUROQ → WEURO …).
+        // (e.g. WNL → WQUEFA → WWCU27 → WOLYMP → WNL → WEUROQ → WEURO …).
         // This creates the unified multi-year calendar Izan wants.
         $hasPreviousSeason = \App\Models\SeasonArchive::where('game_id', $game->id)->exists();
         if ($hasPreviousSeason) {
@@ -72,6 +72,12 @@ class SetupTournamentGame implements ShouldQueue
                 // qualifier. Otherwise the cycle skips the final and the
                 // team goes back to its confederation's competition.
                 if ($nextCompetition === TournamentCreationService::WWCU27_ID
+                    && !TournamentCreationService::userQualifiedForFinal($game, $game->competition_id)) {
+                    $nextCompetition = TournamentCreationService::competitionIdForConfederation(
+                        $game->team?->confederation
+                    );
+                }
+                if ($nextCompetition === TournamentCreationService::WOLYMP_ID
                     && !TournamentCreationService::userQualifiedForFinal($game, $game->competition_id)) {
                     $nextCompetition = TournamentCreationService::competitionIdForConfederation(
                         $game->team?->confederation
@@ -92,8 +98,8 @@ class SetupTournamentGame implements ShouldQueue
         // confederation runs its own qualifier (WQUEFA, WQAFC, ...); WWCQ is
         // the legacy alias for the original single global competition.
         // WNL (UEFA Women's Nations League) uses the real 2025 groups.
-        // WWCU27 (World Cup 2027) and WEURO (Euro 2029) are final
-        // tournaments: drawn groups + knockout bracket.
+        // WWCU27 (World Cup 2027), WOLYMP (Olympics 2028) and WEURO
+        // (Euro 2029) are final tournaments: drawn groups + knockout bracket.
         if (in_array($game->competition_id, TournamentCreationService::NATIONAL_TEAM_COMPETITION_IDS, true)) {
             if (in_array($game->competition_id, TournamentCreationService::NATIONAL_TEAM_FINAL_IDS, true)) {
                 $this->handleNationalFinalTournament($game, $notificationService, $formationRecommender, $formationBiasResolver);
@@ -211,24 +217,27 @@ class SetupTournamentGame implements ShouldQueue
 
     /**
      * Final-tournament formats: group count, host nation (FIFA code,
-     * always included — Brazil 2027, Germany 2029) and the confederation
-     * the rivals are drawn from (null = worldwide, for the World Cup).
+     * always included — Brazil 2027, USA 2028, Germany 2029) and the
+     * confederation the rivals are drawn from (null = worldwide, for
+     * the World Cup and the Olympics).
      */
     private const FINAL_TOURNAMENT_FORMATS = [
         'WWCU27' => ['groups' => 8, 'host_fifa_code' => 'BRA', 'rival_confederation' => null],
+        'WOLYMP' => ['groups' => 3, 'host_fifa_code' => 'USA', 'rival_confederation' => null],
         'WEURO'  => ['groups' => 4, 'host_fifa_code' => 'GER', 'rival_confederation' => 'UEFA'],
     ];
 
     /**
      * Setup for the women's final tournaments: WWCU27 (FIFA Women's
-     * World Cup 2027, hosted by Brazil) and WEURO (UEFA Women's Euro
+     * World Cup 2027, hosted by Brazil), WOLYMP (Olympic women's
+     * football 2028, hosted by the USA) and WEURO (UEFA Women's Euro
      * 2029, hosted by Germany).
      *
-     * Draws groups of 4 (8 for the World Cup, 4 for the Euros), creates
-     * a single round-robin group stage with group labels, and leaves
-     * the knockout bracket to GroupStageCupHandler, which generates it
-     * progressively from data/2026/{id}/bracket.json once the groups
-     * are decided. The host nation is always in the draw.
+     * Draws groups of 4 (8 for the World Cup, 3 for the Olympics, 4 for
+     * the Euros), creates a single round-robin group stage with group
+     * labels, and leaves the knockout bracket to GroupStageCupHandler,
+     * which generates it progressively from data/2026/{id}/bracket.json
+     * once the groups are decided. The host nation is always in the draw.
      */
     private function handleNationalFinalTournament(
         Game $game,
@@ -273,9 +282,10 @@ class SetupTournamentGame implements ShouldQueue
 
     /**
      * Draw the final-tournament groups: the user's team headlines group
-     * A; the host nation (Brazil 2027 / Germany 2029) is always included;
-     * the rest are drawn (UEFA-only for the Euros, worldwide for the
-     * World Cup), preferring sides with a playable roster.
+     * A; the host nation (Brazil 2027 / USA 2028 / Germany 2029) is
+     * always included; the rest are drawn (UEFA-only for the Euros,
+     * worldwide for the World Cup and the Olympics), preferring sides
+     * with a playable roster.
      *
      * @return array<string, array<int, string>> group label → team ids
      */

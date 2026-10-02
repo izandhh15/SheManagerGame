@@ -64,11 +64,12 @@ class SeedNationalTeams extends Command
 
     /**
      * Final tournaments and their qualifier: id => [display name, handler_type].
-     * The finals (WWCU27, WEURO) run groups + knockout via the
+     * The finals (WWCU27, WOLYMP, WEURO) run groups + knockout via the
      * group_stage_cup handler; WEUROQ is a drawn qualifier group like the WQ*.
      */
     private const FINAL_COMPETITIONS = [
         'WWCU27' => ["FIFA Women's World Cup 2027", 'group_stage_cup'],
+        'WOLYMP' => ['Juegos Olímpicos 2028', 'group_stage_cup'],
         'WEURO'  => ["UEFA Women's Euro 2029", 'group_stage_cup'],
         'WEUROQ' => ['Clasificación Eurocopa 2029 · UEFA', 'league'],
     ];
@@ -251,10 +252,11 @@ class SeedNationalTeams extends Command
         );
         $this->info("  Competition: WNL (UEFA Women's Nations League).");
 
-        // Final tournaments (World Cup 2027 in Brazil, Euro 2029 in
-        // Germany) + the Euro 2029 qualifier. The finals run groups +
-        // knockout via the group_stage_cup handler; WEUROQ is a drawn
-        // qualifier group like the WQ* competitions.
+        // Final tournaments (World Cup 2027 in Brazil, Olympics 2028 in
+        // Los Angeles, Euro 2029 in Germany) + the Euro 2029 qualifier.
+        // The finals run groups + knockout via the group_stage_cup
+        // handler; WEUROQ is a drawn qualifier group like the WQ*
+        // competitions.
         foreach (self::FINAL_COMPETITIONS as $id => [$name, $handlerType]) {
             DB::table('competitions')->updateOrInsert(
                 ['id' => $id],

@@ -1,0 +1,58 @@
+{
+  "final": [
+    {
+      "away": "W6",
+      "date": "2028-08-06",
+      "home": "W5",
+      "match_number": 8
+    }
+  ],
+  "quarter_finals": [
+    {
+      "away": "3RD2",
+      "date": "2028-07-31",
+      "home": "1A",
+      "match_number": 1
+    },
+    {
+      "away": "2B",
+      "date": "2028-07-31",
+      "home": "2A",
+      "match_number": 2
+    },
+    {
+      "away": "3RD1",
+      "date": "2028-08-01",
+      "home": "1C",
+      "match_number": 3
+    },
+    {
+      "away": "2C",
+      "date": "2028-08-01",
+      "home": "1B",
+      "match_number": 4
+    }
+  ],
+  "semi_finals": [
+    {
+      "away": "W2",
+      "date": "2028-08-03",
+      "home": "W1",
+      "match_number": 5
+    },
+    {
+      "away": "W4",
+      "date": "2028-08-04",
+      "home": "W3",
+      "match_number": 6
+    }
+  ],
+  "third_place": [
+    {
+      "away": "RU6",
+      "date": "2028-08-05",
+      "home": "RU5",
+      "match_number": 7
+    }
+  ]
+}
