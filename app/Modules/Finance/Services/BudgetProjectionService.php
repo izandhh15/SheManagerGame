@@ -9,12 +9,14 @@ use App\Models\Game;
 use App\Models\GameFinances;
 use App\Models\GameInvestment;
 use App\Models\GameMatch;
+use App\Models\GameSponsorDeal;
 use App\Models\GamePlayer;
 use App\Models\Team;
 use App\Models\TeamReputation;
 use App\Modules\Squad\Services\SquadService;
 use App\Modules\Stadium\Services\MatchAttendanceService;
 use App\Modules\Stadium\Services\NamingRightsService;
+use App\Modules\Commercial\Services\SponsorService;
 use App\Modules\Stadium\Services\SeasonTicketPricingService;
 use Carbon\Carbon;
 
@@ -26,6 +28,9 @@ class BudgetProjectionService
         private readonly SeasonTicketPricingService $seasonTicketPricingService,
         private readonly StadiumLoanService $stadiumLoanService,
         private readonly NamingRightsService $namingRightsService,
+        // Optional so existing manual constructions (tests) keep working;
+        // the container always injects the real service in production.
+        private readonly ?SponsorService $sponsorService = null,
     ) {}
 
     /**
@@ -103,12 +108,19 @@ class BudgetProjectionService
         // the ground's expected fill. Zero when no deal is active.
         $projectedNamingRightsRevenue = $this->namingRightsService->projectedRevenueForGame($game);
 
+        // Shirt / ad-board income from active sponsor deals (fixed annual
+        // fees). Zero when no deal is active for the slot.
+        $projectedShirtSponsorRevenue = $this->sponsorService?->projectedRevenueForGame($game, GameSponsorDeal::SLOT_SHIRT) ?? 0;
+        $projectedAdBoardRevenue = $this->sponsorService?->projectedRevenueForGame($game, GameSponsorDeal::SLOT_AD_BOARD) ?? 0;
+
         $projectedTotalRevenue = $projectedTvRevenue
             + $projectedMatchdayRevenue
             + $projectedSolidarityFundsRevenue
             + $projectedCommercialRevenue
             + $projectedSeasonTicketRevenue
-            + $projectedNamingRightsRevenue;
+            + $projectedNamingRightsRevenue
+            + $projectedShirtSponsorRevenue
+            + $projectedAdBoardRevenue;
 
         // Calculate projected wages
         $projectedWages = $this->calculateProjectedWages($game);
@@ -172,6 +184,8 @@ class BudgetProjectionService
                 'projected_season_ticket_revenue' => $projectedSeasonTicketRevenue,
                 'projected_commercial_revenue' => $projectedCommercialRevenue,
                 'projected_naming_rights_revenue' => $projectedNamingRightsRevenue,
+                'projected_shirt_sponsor_revenue' => $projectedShirtSponsorRevenue,
+                'projected_ad_board_revenue' => $projectedAdBoardRevenue,
                 'projected_trading_allowance' => $projectedTradingAllowance,
                 'projected_subsidy_revenue' => $projectedSubsidyRevenue,
                 'projected_total_revenue' => $projectedTotalRevenue,

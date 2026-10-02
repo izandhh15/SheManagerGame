@@ -98,5 +98,47 @@
                 </div>
             </x-section-card>
         </div>
+
+        {{-- Shirt sponsor + ad boards: offers arrive on their own each month --}}
+        @foreach(['shirt', 'ad_board'] as $slot)
+            @php($panel = $sponsors[$slot] ?? ['activeDeal' => null, 'offers' => []])
+            <div class="mt-4">
+                <x-section-card :title="__('club.commercial.' . $slot . '_title')">
+                    <div class="px-5 py-5">
+                        <p class="text-xs text-text-secondary leading-relaxed">{{ __('club.commercial.' . $slot . '_intro') }}</p>
+
+                        @if($panel['activeDeal'])
+                            {{-- Active sponsorship --}}
+                            @php($deal = $panel['activeDeal'])
+                            <div class="mt-4 px-4 py-4 bg-accent-green/10 border border-accent-green/30 rounded-lg">
+                                <div class="flex items-baseline justify-between gap-3">
+                                    <span class="text-sm font-semibold text-text-primary">{{ $deal['sponsor_name'] }}</span>
+                                    <span class="text-[11px] text-text-secondary">{{ trans_choice('club.commercial.seasons_remaining', $deal['seasons_remaining'], ['count' => $deal['seasons_remaining']]) }}</span>
+                                </div>
+                                <div class="mt-1">
+                                    <span class="inline-block text-[10px] uppercase tracking-wide font-semibold px-2 py-0.5 rounded-md bg-accent-gold/10 text-accent-gold">
+                                        {{ __('club.commercial.tier_badge_' . ($deal['tier'] ?? 'local')) }}
+                                    </span>
+                                </div>
+                                <div class="mt-3 text-sm">
+                                    <div class="text-[10px] text-text-muted uppercase tracking-widest">{{ __('club.commercial.annual_value') }}</div>
+                                    <div class="font-heading text-lg font-bold text-accent-green tabular-nums">{{ Money::format($deal['annual_value_cents']) }}</div>
+                                </div>
+                            </div>
+                        @elseif(count($panel['offers']) > 0)
+                            {{-- Offer board --}}
+                            <div class="mt-4">
+                                <div class="text-[10px] text-text-muted uppercase tracking-widest mb-3">{{ __('club.commercial.offers_title') }}</div>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    @foreach($panel['offers'] as $offer)
+                                        <x-sponsor-offer-card :offer="$offer" :game="$game" />
+                                    @endforeach
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                </x-section-card>
+            </div>
+        @endforeach
     </div>
 </x-app-layout>

@@ -7,6 +7,7 @@ use App\Modules\Season\DTOs\SeasonTransitionData;
 use App\Modules\Finance\Services\BudgetLoanService;
 use App\Modules\Stadium\Services\MatchAttendanceService;
 use App\Modules\Stadium\Services\NamingRightsService;
+use App\Modules\Commercial\Services\SponsorService;
 use App\Modules\Stadium\Services\SeasonTicketPricingService;
 use App\Models\BudgetLoan;
 use App\Models\FinancialTransaction;
@@ -14,6 +15,7 @@ use App\Models\TeamReputation;
 use App\Models\Game;
 use App\Models\GameMatch;
 use App\Models\GamePlayer;
+use App\Models\GameSponsorDeal;
 use App\Models\GameStanding;
 use App\Models\Loan;
 use App\Models\TransferOffer;
@@ -30,6 +32,9 @@ class SeasonSettlementProcessor implements SeasonProcessor
         private readonly MatchAttendanceService $matchAttendanceService,
         private readonly SeasonTicketPricingService $seasonTicketPricingService,
         private readonly NamingRightsService $namingRightsService,
+        // Optional so existing manual constructions (tests) keep working;
+        // the container always injects the real service in production.
+        private readonly ?SponsorService $sponsorService = null,
     ) {}
 
     public function priority(): int
@@ -66,6 +71,11 @@ class SeasonSettlementProcessor implements SeasonProcessor
         // a season of empty seats earns the sponsor's lower end.
         $actualNamingRightsRevenue = $this->namingRightsService->settledRevenueForGame($game);
 
+        // Shirt / ad-board income settles at the fixed annual fee — the
+        // sponsor pays the same regardless of results.
+        $actualShirtSponsorRevenue = $this->sponsorService?->settledRevenueForGame($game, GameSponsorDeal::SLOT_SHIRT) ?? 0;
+        $actualAdBoardRevenue = $this->sponsorService?->settledRevenueForGame($game, GameSponsorDeal::SLOT_AD_BOARD) ?? 0;
+
         // Guaranteed income — same amount as projected. Season ticket
         // revenue is collected up front at the season's start so it stays
         // locked to the projected figure (no variance).
@@ -78,6 +88,8 @@ class SeasonSettlementProcessor implements SeasonProcessor
             + $actualSeasonTicketRevenue
             + $actualCommercialRevenue
             + $actualNamingRightsRevenue
+            + $actualShirtSponsorRevenue
+            + $actualAdBoardRevenue
             + $actualSubsidyRevenue
             + $actualSolidarityFundsRevenue
             + $actualCupBonusRevenue
@@ -104,6 +116,8 @@ class SeasonSettlementProcessor implements SeasonProcessor
             'actual_season_ticket_revenue' => $actualSeasonTicketRevenue,
             'actual_commercial_revenue' => $actualCommercialRevenue,
             'actual_naming_rights_revenue' => $actualNamingRightsRevenue,
+            'actual_shirt_sponsor_revenue' => $actualShirtSponsorRevenue,
+            'actual_ad_board_revenue' => $actualAdBoardRevenue,
             'actual_subsidy_revenue' => $actualSubsidyRevenue,
             'actual_transfer_income' => $actualTransferIncome,
             'net_transfer_result' => $this->calculateNetTransferResult($game),

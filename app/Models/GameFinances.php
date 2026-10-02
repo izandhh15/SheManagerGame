@@ -18,6 +18,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $projected_season_ticket_revenue
  * @property int $projected_commercial_revenue
  * @property int $projected_naming_rights_revenue
+ * @property int $projected_shirt_sponsor_revenue
+ * @property int $projected_ad_board_revenue
  * @property int $projected_total_revenue
  * @property int $projected_wages
  * @property int $projected_surplus
@@ -27,6 +29,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $actual_season_ticket_revenue
  * @property int $actual_commercial_revenue
  * @property int $actual_naming_rights_revenue
+ * @property int $actual_shirt_sponsor_revenue
+ * @property int $actual_ad_board_revenue
  * @property int $actual_transfer_income
  * @property int $actual_total_revenue
  * @property int $actual_wages
@@ -44,6 +48,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property-read \App\Models\Game $game
  * @property-read int $available_surplus
  * @property-read string $formatted_actual_commercial_revenue
+ * @property-read string $formatted_actual_ad_board_revenue
+ * @property-read string $formatted_actual_shirt_sponsor_revenue
  * @property-read string $formatted_actual_cup_bonus_revenue
  * @property-read string $formatted_actual_matchday_revenue
  * @property-read string $formatted_actual_operating_expenses
@@ -57,6 +63,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property-read string $formatted_carried_debt
  * @property-read string $formatted_carried_surplus
  * @property-read string $formatted_projected_commercial_revenue
+ * @property-read string $formatted_projected_ad_board_revenue
+ * @property-read string $formatted_projected_shirt_sponsor_revenue
  * @property-read string $formatted_projected_matchday_revenue
  * @property-read string $formatted_projected_operating_expenses
  * @property-read string $formatted_projected_solidarity_funds_revenue
@@ -115,6 +123,8 @@ class GameFinances extends Model
         'projected_season_ticket_revenue',
         'projected_commercial_revenue',
         'projected_naming_rights_revenue',
+        'projected_shirt_sponsor_revenue',
+        'projected_ad_board_revenue',
         'projected_trading_allowance',
         'projected_subsidy_revenue',
         'projected_total_revenue',
@@ -129,6 +139,8 @@ class GameFinances extends Model
         'actual_season_ticket_revenue',
         'actual_commercial_revenue',
         'actual_naming_rights_revenue',
+        'actual_shirt_sponsor_revenue',
+        'actual_ad_board_revenue',
         'actual_subsidy_revenue',
         'actual_transfer_income',
         'net_transfer_result',
@@ -154,6 +166,8 @@ class GameFinances extends Model
         'projected_season_ticket_revenue' => 'integer',
         'projected_commercial_revenue' => 'integer',
         'projected_naming_rights_revenue' => 'integer',
+        'projected_shirt_sponsor_revenue' => 'integer',
+        'projected_ad_board_revenue' => 'integer',
         'projected_trading_allowance' => 'integer',
         'projected_subsidy_revenue' => 'integer',
         'projected_total_revenue' => 'integer',
@@ -169,6 +183,8 @@ class GameFinances extends Model
         'actual_season_ticket_revenue' => 'integer',
         'actual_commercial_revenue' => 'integer',
         'actual_naming_rights_revenue' => 'integer',
+        'actual_shirt_sponsor_revenue' => 'integer',
+        'actual_ad_board_revenue' => 'integer',
         'actual_subsidy_revenue' => 'integer',
         'actual_transfer_income' => 'integer',
         'net_transfer_result' => 'integer',
@@ -271,6 +287,16 @@ class GameFinances extends Model
         return Money::format($this->projected_naming_rights_revenue);
     }
 
+    public function getFormattedProjectedShirtSponsorRevenueAttribute(): string
+    {
+        return Money::format($this->projected_shirt_sponsor_revenue);
+    }
+
+    public function getFormattedProjectedAdBoardRevenueAttribute(): string
+    {
+        return Money::format($this->projected_ad_board_revenue);
+    }
+
     public function getFormattedProjectedSubsidyRevenueAttribute(): string
     {
         return Money::format($this->projected_subsidy_revenue);
@@ -325,6 +351,16 @@ class GameFinances extends Model
     public function getFormattedActualNamingRightsRevenueAttribute(): string
     {
         return Money::format($this->actual_naming_rights_revenue);
+    }
+
+    public function getFormattedActualShirtSponsorRevenueAttribute(): string
+    {
+        return Money::format($this->actual_shirt_sponsor_revenue);
+    }
+
+    public function getFormattedActualAdBoardRevenueAttribute(): string
+    {
+        return Money::format($this->actual_ad_board_revenue);
     }
 
     public function getFormattedActualSolidarityFundsRevenueAttribute(): string

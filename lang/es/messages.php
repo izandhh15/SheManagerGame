@@ -233,4 +233,10 @@ return [
     'naming_rights_search_cooldown' => 'Tu agencia comercial aún está sondeando el mercado. Espera unos días antes de volver a buscar.',
     'naming_rights_search_unaffordable' => 'No tienes presupuesto para la comisión de la agencia comercial.',
     'naming_rights_board_full' => 'Ya tienes el máximo de ofertas sobre la mesa. Acepta una o pásalas antes de buscar más.',
+    'naming_rights_offer_rejected' => 'Oferta de :sponsor descartada. Ni se va a enterar.',
+
+    'sponsor_deal_accepted' => '¡Trato hecho! :sponsor patrocinará :slot. A ingresar.',
+    'sponsor_deal_rejected' => 'Oferta de :sponsor descartada. A otra cosa.',
+    'sponsor_offer_unavailable' => 'Esa oferta de patrocinio ya no está disponible.',
+    'sponsor_deal_active' => 'Ya tienes un patrocinador activo en ese espacio. Espera a que expire el contrato.',
 ];

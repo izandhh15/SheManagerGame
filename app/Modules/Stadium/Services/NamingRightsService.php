@@ -395,6 +395,30 @@ class NamingRightsService
     }
 
     /**
+     * Turn a pending naming-rights offer down: it leaves the board for good.
+     * Unlike acceptance, rejection is always available while the offer is
+     * pending — even outside the signing window (passing on a bid is not
+     * signing a deal).
+     */
+    public function rejectOffer(Game $game, string $dealId): GameStadiumNamingDeal
+    {
+        $deal = GameStadiumNamingDeal::query()
+            ->where('id', $dealId)
+            ->where('game_id', $game->id)
+            ->where('team_id', $game->team_id)
+            ->where('status', GameStadiumNamingDeal::STATUS_PENDING)
+            ->first();
+
+        if (! $deal) {
+            throw new InvalidArgumentException('messages.naming_rights_offer_unavailable');
+        }
+
+        $deal->update(['status' => GameStadiumNamingDeal::STATUS_REJECTED]);
+
+        return $deal;
+    }
+
+    /**
      * Cosmetic rename. No fan effect; just the pre-season window and a
      * once-per-season cooldown. Blocked while a naming-rights deal owns the
      * name.

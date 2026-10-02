@@ -221,6 +221,9 @@ return [
     'commercial_window_open_title' => 'Ventana comercial abierta',
     'commercial_window_open_message' => 'Hasta el primer partido de liga puedes buscar patrocinadores en la página Comercial para aumentar tus ingresos y tu tope salarial.',
 
+    'sponsor_offers_arrived_title' => '¡Te llueven ofertas de patrocinio!',
+    'sponsor_offers_arrived_message' => '{1}Una marca quiere patrocinar al equipo: pásate por la página Comercial para ver la oferta.|[2,*]:count marcas quieren patrocinar al equipo: pásate por la página Comercial para ver las ofertas.',
+
     // Squad registration
     'squad_registration_required_title' => 'Inscripción de plantilla requerida',
     'squad_registration_required_message' => 'Tienes :count jugadoras sin inscribir. Registra tu plantilla antes de que comience la temporada — las jugadoras no inscritas no podrán ser convocadas.',

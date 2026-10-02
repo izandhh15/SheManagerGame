@@ -338,4 +338,149 @@ return [
         4172 => ['sponsor' => 'Cetilar',           'clean_name' => 'Arena Garibaldi'],     // Pisa Sporting Club
     ],
 
+    // ── Sponsor Deals (shirt + ad boards) ───────────────────────────────
+    // The two manager-chosen commercial slots beside stadium naming rights:
+    // shirt sponsor (camiseta) and ad-board sponsor (valla publicitaria).
+    // Unlike naming rights (sought proactively from the Commercial page),
+    // these offers ARRIVE on their own: a monthly top-up mints fresh bids
+    // whose stature tracks how the team is doing — division + league
+    // position. Bottom of the second tier gets the local university or the
+    // neighbourhood shop; top of the first tier gets the big brands.
+    //
+    // Sponsor stature tiers: local < regional < nacional < internacional.
+    'sponsor_deals' => [
+        // Offers a club may hold pending per slot (the monthly top-up fills
+        // up to this many).
+        'max_pending_offers' => 3,
+
+        // [min, max] annual fee by slot and sponsor tier (cents). The shirt
+        // is the prime slot (above naming rights); the boards pay less.
+        // Calibrated to the women's game: a local shop pays hundreds of
+        // euros, a global brand on a title contender pays hundreds of
+        // thousands. Longer terms discount below the band (term multiplier).
+        'annual_value' => [
+            'shirt' => [
+                'internacional' => [150_000_00, 400_000_00],
+                'nacional'      => [ 40_000_00, 120_000_00],
+                'regional'      => [  8_000_00,  30_000_00],
+                'local'         => [      500_00,   3_000_00],
+            ],
+            'ad_board' => [
+                'internacional' => [ 60_000_00, 150_000_00],
+                'nacional'      => [ 15_000_00,  50_000_00],
+                'regional'      => [  3_000_00,  12_000_00],
+                'local'         => [      200_00,   1_500_00],
+            ],
+        ],
+
+        // Contract length bounds (seasons), chosen per offer.
+        'min_contract_seasons' => 1,
+        'max_contract_seasons' => 3,
+
+        // Annual fee multiplier by contract length: the band is the 1-season
+        // headline; committing longer trades a lower annual fee for more
+        // total, guaranteed income.
+        'term_value_multiplier' => [
+            1 => 1.00,
+            2 => 0.95,
+            3 => 0.90,
+        ],
+
+        // Term (seasons) granted when an incumbent renewal is accepted.
+        'renewal_seasons' => 1,
+
+        // Which brand reaches bid for each sponsor tier. Reuses the reach
+        // tags of the naming-rights brand pool (global/national/regional)
+        // plus the `local` pool below: global names chase title contenders,
+        // national names chase solid top-flight sides, regional names chase
+        // the middle, and local institutions/shops back the small clubs.
+        'tier_reach' => [
+            'internacional' => ['global'],
+            'nacional'      => ['national'],
+            'regional'      => ['regional'],
+            'local'         => ['local'],
+        ],
+
+        // Local-tier brand pool (reach = local), per country. Real regional
+        // institutions (universities) where known, plus generic descriptive
+        // names for neighbourhood businesses — never invented fake brands.
+        // A non-global brand only sponsors clubs in its own country.
+        'local_sponsors' => [
+            'ES' => [
+                ['name' => 'Universidad de Castilla-La Mancha', 'reach' => 'local', 'country' => 'ES'],
+                ['name' => 'Universidad de Oviedo',             'reach' => 'local', 'country' => 'ES'],
+                ['name' => 'Universidad de Zaragoza',           'reach' => 'local', 'country' => 'ES'],
+                ['name' => 'Universidad de Sevilla',            'reach' => 'local', 'country' => 'ES'],
+                ['name' => 'Universidad de Valladolid',         'reach' => 'local', 'country' => 'ES'],
+                ['name' => 'Quesería artesanal de la zona',     'reach' => 'local', 'country' => 'ES'],
+                ['name' => 'Panadería familiar del barrio',     'reach' => 'local', 'country' => 'ES'],
+                ['name' => 'Taller mecánico de confianza',       'reach' => 'local', 'country' => 'ES'],
+                ['name' => 'Clínica dental del centro',          'reach' => 'local', 'country' => 'ES'],
+                ['name' => 'Ferretería de toda la vida',         'reach' => 'local', 'country' => 'ES'],
+                ['name' => 'Bar restaurante de la esquina',      'reach' => 'local', 'country' => 'ES'],
+            ],
+            'EN' => [
+                ['name' => 'University of Leeds',               'reach' => 'local', 'country' => 'EN'],
+                ['name' => 'University of Birmingham',          'reach' => 'local', 'country' => 'EN'],
+                ['name' => 'University of Sheffield',           'reach' => 'local', 'country' => 'EN'],
+                ['name' => 'Manchester Metropolitan University','reach' => 'local', 'country' => 'EN'],
+                ['name' => 'Quesería artesanal de la zona',     'reach' => 'local', 'country' => 'EN'],
+                ['name' => 'Panadería familiar del barrio',     'reach' => 'local', 'country' => 'EN'],
+                ['name' => 'Taller mecánico de confianza',       'reach' => 'local', 'country' => 'EN'],
+                ['name' => 'Clínica dental del centro',          'reach' => 'local', 'country' => 'EN'],
+                ['name' => 'Ferretería de toda la vida',         'reach' => 'local', 'country' => 'EN'],
+            ],
+            'DE' => [
+                ['name' => 'Universität Hamburg',                'reach' => 'local', 'country' => 'DE'],
+                ['name' => 'Universität zu Köln',                'reach' => 'local', 'country' => 'DE'],
+                ['name' => 'Technische Universität München',    'reach' => 'local', 'country' => 'DE'],
+                ['name' => 'Goethe-Universität Frankfurt',      'reach' => 'local', 'country' => 'DE'],
+                ['name' => 'Quesería artesanal de la zona',     'reach' => 'local', 'country' => 'DE'],
+                ['name' => 'Panadería familiar del barrio',     'reach' => 'local', 'country' => 'DE'],
+                ['name' => 'Taller mecánico de confianza',       'reach' => 'local', 'country' => 'DE'],
+                ['name' => 'Clínica dental del centro',          'reach' => 'local', 'country' => 'DE'],
+            ],
+            'FR' => [
+                ['name' => 'Université de Lyon',                'reach' => 'local', 'country' => 'FR'],
+                ['name' => 'Université de Bordeaux',           'reach' => 'local', 'country' => 'FR'],
+                ['name' => 'Université de Lille',              'reach' => 'local', 'country' => 'FR'],
+                ['name' => 'Sorbonne Université',              'reach' => 'local', 'country' => 'FR'],
+                ['name' => 'Quesería artesanal de la zona',     'reach' => 'local', 'country' => 'FR'],
+                ['name' => 'Panadería familiar del barrio',     'reach' => 'local', 'country' => 'FR'],
+                ['name' => 'Taller mecánico de confianza',       'reach' => 'local', 'country' => 'FR'],
+                ['name' => 'Clínica dental del centro',          'reach' => 'local', 'country' => 'FR'],
+            ],
+            'IT' => [
+                ['name' => 'Università di Bologna',             'reach' => 'local', 'country' => 'IT'],
+                ['name' => 'Università di Napoli Federico II',  'reach' => 'local', 'country' => 'IT'],
+                ['name' => 'Università di Torino',              'reach' => 'local', 'country' => 'IT'],
+                ['name' => 'Università di Firenze',            'reach' => 'local', 'country' => 'IT'],
+                ['name' => 'Quesería artesanal de la zona',     'reach' => 'local', 'country' => 'IT'],
+                ['name' => 'Panadería familiar del barrio',     'reach' => 'local', 'country' => 'IT'],
+                ['name' => 'Taller mecánico de confianza',       'reach' => 'local', 'country' => 'IT'],
+                ['name' => 'Clínica dental del centro',          'reach' => 'local', 'country' => 'IT'],
+            ],
+            'PT' => [
+                ['name' => 'Universidade do Porto',             'reach' => 'local', 'country' => 'PT'],
+                ['name' => 'Universidade de Lisboa',            'reach' => 'local', 'country' => 'PT'],
+                ['name' => 'Universidade de Coimbra',           'reach' => 'local', 'country' => 'PT'],
+                ['name' => 'Universidade do Minho',             'reach' => 'local', 'country' => 'PT'],
+                ['name' => 'Quesería artesanal de la zona',     'reach' => 'local', 'country' => 'PT'],
+                ['name' => 'Panadería familiar del barrio',     'reach' => 'local', 'country' => 'PT'],
+                ['name' => 'Taller mecánico de confianza',       'reach' => 'local', 'country' => 'PT'],
+                ['name' => 'Clínica dental del centro',          'reach' => 'local', 'country' => 'PT'],
+            ],
+            'NL' => [
+                ['name' => 'Universiteit van Amsterdam',        'reach' => 'local', 'country' => 'NL'],
+                ['name' => 'Universiteit Utrecht',              'reach' => 'local', 'country' => 'NL'],
+                ['name' => 'Erasmus Universiteit Rotterdam',    'reach' => 'local', 'country' => 'NL'],
+                ['name' => 'Rijksuniversiteit Groningen',       'reach' => 'local', 'country' => 'NL'],
+                ['name' => 'Quesería artesanal de la zona',     'reach' => 'local', 'country' => 'NL'],
+                ['name' => 'Panadería familiar del barrio',     'reach' => 'local', 'country' => 'NL'],
+                ['name' => 'Taller mecánico de confianza',       'reach' => 'local', 'country' => 'NL'],
+                ['name' => 'Clínica dental del centro',          'reach' => 'local', 'country' => 'NL'],
+            ],
+        ],
+    ],
+
 ];

@@ -33,14 +33,22 @@
         </div>
     </div>
 
-    {{-- Accept CTA --}}
-    <div class="px-5 pb-5 mt-auto">
-        <form method="POST" action="{{ route('game.club.commercial.naming-rights.accept', $game->id) }}"
+    {{-- Accept / reject --}}
+    <div class="px-5 pb-5 mt-auto flex gap-2">
+        <form method="POST" action="{{ route('game.club.commercial.naming-rights.accept', $game->id) }}" class="flex-1"
               onsubmit="return confirm(@js(__('club.stadium.naming_rights.' . (($offer['is_renewal'] ?? false) ? 'renew_confirm' : 'accept_confirm'), ['sponsor' => $offer['sponsor_name']])))">
             @csrf
             <input type="hidden" name="deal_id" value="{{ $offer['id'] }}">
             <x-primary-button color="green" size="sm" class="w-full">
                 {{ ($offer['is_renewal'] ?? false) ? __('club.stadium.naming_rights.renew_button') : __('club.stadium.naming_rights.accept_button') }}
+            </x-primary-button>
+        </form>
+        <form method="POST" action="{{ route('game.club.commercial.naming-rights.reject', $game->id) }}"
+              onsubmit="return confirm(@js(__('club.commercial.reject_confirm', ['sponsor' => $offer['sponsor_name']])))">
+            @csrf
+            <input type="hidden" name="deal_id" value="{{ $offer['id'] }}">
+            <x-primary-button color="red" size="sm">
+                {{ __('club.commercial.reject_button') }}
             </x-primary-button>
         </form>
     </div>

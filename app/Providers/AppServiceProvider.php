@@ -163,6 +163,7 @@ class AppServiceProvider extends ServiceProvider
         Event::listen(GameDateAdvanced::class, ActivateCompletedStadiumProjects::class);
         Event::listen(GameDateAdvanced::class, ProcessSeveranceInstallments::class);
         Event::listen(GameDateAdvanced::class, RollNationalTeamEvents::class);
+        Event::listen(GameDateAdvanced::class, \App\Modules\Commercial\Listeners\GenerateSponsorOffersOnDateAdvanced::class);
 
         Queue::failing(function (JobFailed $event) {
             try {
