@@ -341,6 +341,19 @@ class ShowClubStadium
             ->orderBy('scheduled_date')
             ->get();
 
+        // Filial: the parent first team's ground can be requested for a
+        // home match.
+        $parentTeam = $game->team?->parentTeam;
+        $parentHomeMatch = null;
+        if ($parentTeam && $parentTeam->stadium_name) {
+            $parentHomeMatch = GameMatch::where('game_id', $game->id)
+                ->where('home_team_id', $game->team_id)
+                ->where('played', false)
+                ->whereNull('neutral_venue_name')
+                ->orderBy('scheduled_date')
+                ->first();
+        }
+
         return view('club.stadium', [
             'game' => $game,
             'upgrade' => $upgrade,
@@ -351,6 +364,8 @@ class ShowClubStadium
             'mensRentalCatalogue' => $mensRentalCatalogue,
             'nextHomeMatch' => $nextHomeMatch,
             'pendingVenueRequests' => $pendingVenueRequests,
+            'parentTeam' => $parentTeam,
+            'parentHomeMatch' => $parentHomeMatch,
             ...$this->stadiumSummaryService->build($game),
             ...$this->namingRightsReadService->buildIdentityPanel($game),
         ]);

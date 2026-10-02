@@ -81,6 +81,26 @@
                 {{-- Capacity upgrades (gradas supletorias + rebuild) --}}
                 @include('club.partials.stadium-upgrades')
 
+                {{-- Parent first-team ground (filial only) --}}
+                @if(!empty($parentTeam) && !empty($parentTeam->stadium_name) && !empty($parentHomeMatch))
+                <div class="bg-surface-800 border border-border-default rounded-xl p-5">
+                    <h4 class="font-heading text-lg font-bold uppercase text-text-primary mb-2">
+                        {{ __('game.parent_stadium_title') }}
+                    </h4>
+                    <p class="text-sm text-text-muted mb-4">
+                        {{ __('game.parent_stadium_desc', ['stadium' => $parentTeam->stadium_name, 'club' => $parentTeam->name]) }}
+                    </p>
+                    <form method="POST" action="{{ route('game.club.stadium.parent-stadium.request', ['gameId' => $game->id]) }}" class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-center">
+                        @csrf
+                        <input type="hidden" name="match_id" value="{{ $parentHomeMatch->id }}">
+                        <span class="text-sm text-text-secondary flex-1">
+                            {{ $parentHomeMatch->homeTeam?->name }} vs {{ $parentHomeMatch->awayTeam?->name }}
+                        </span>
+                        <x-primary-button type="submit" class="text-sm">{{ __('game.parent_stadium_cta') }}</x-primary-button>
+                    </form>
+                </div>
+                @endif
+
                 {{-- Men's stadium rental — restricted to the affiliated
                      men's ground ("la casa del equipo masculino") when the
                      team has one mapped; only unmapped clubs see the full

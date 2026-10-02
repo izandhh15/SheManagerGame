@@ -88,6 +88,7 @@ use App\Http\Actions\AcceptNamingRightsDeal;
 use App\Http\Actions\AcceptSponsorDeal;
 use App\Http\Actions\RenameStadium;
 use App\Http\Actions\RequestMensStadium;
+use App\Http\Actions\RequestParentStadium;
 use App\Http\Actions\AcceptGovernmentFriendly;
 use App\Http\Actions\RejectGovernmentFriendly;
 use App\Http\Actions\AcceptGovernmentVenue;
@@ -267,6 +268,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/game/{gameId}/club/stadium/uefa-upgrade', CommitStadiumUefaUpgrade::class)->name('game.club.stadium.uefa-upgrade');
         Route::post('/game/{gameId}/club/stadium/rename', RenameStadium::class)->name('game.club.stadium.rename');
         Route::post('/game/{gameId}/club/stadium/mens-stadium', RequestMensStadium::class)->name('game.club.stadium.mens-stadium.request');
+        Route::post('/game/{gameId}/club/stadium/parent-stadium', RequestParentStadium::class)->name('game.club.stadium.parent-stadium.request');
         Route::post('/game/{gameId}/club/stadium/mens-stadium/confirm', ConfirmMensStadium::class)->name('game.club.stadium.mens-stadium.confirm');
         Route::post('/game/{gameId}/club/stadium/requests/{matchId}/respond', RespondStadiumRequest::class)->name('game.club.stadium.request.respond');
         Route::get('/game/{gameId}/club/commercial', ShowClubCommercial::class)->name('game.club.commercial');
