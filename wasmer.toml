@@ -1,10 +1,6 @@
-# wasmer.toml — SheManagerGame (VirtuaFC adaptado a fútbol femenino)
-# Basado en la guía oficial de Wasmer para Laravel: https://docs.wasmer.io/edge/guides/laravel/
-#
-# PHP: el juego pedía ^8.5 pero se verificó la madrugada del 30-09-2026 que todo
-# el código (960 ficheros) y Laravel 13 (^8.3) corren en PHP 8.3 —
-# `composer.json` exige ahora ^8.3 y `app:validate-season` pasa en 8.3.6.
-# El pin de abajo usa la última 8.3.x del registro de Wasmer.
+[package]
+name = "izandhh15/shemanager"
+version = "0.3.0"
 
 [dependencies]
 "php/php" = "=8.3.403"
@@ -17,8 +13,7 @@
 name = "run"
 module = "php/php:php"
 runner = "wasi"
+
 [command.annotations.wasi]
-# Equivale a: php -t /app/public -S localhost:8080 (guía oficial de Wasmer)
 main-args = ["-t", "/app/public", "-S", "localhost:8080"]
-# PHPRC apunta al php.ini empaquetado en /config
 env = ["PHPRC=/config/"]
