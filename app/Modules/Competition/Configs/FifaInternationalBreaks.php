@@ -80,4 +80,21 @@ final class FifaInternationalBreaks
 
         return null;
     }
+
+    /**
+     * The next window starting at or after $date, however far away.
+     * Null when the season has no more windows.
+     *
+     * @return array{start: string, end: string, label: string}|null
+     */
+    public static function nextWindow(string $season, string $date): ?array
+    {
+        foreach (self::forSeason($season) as $window) {
+            if ($window['end'] >= $date) {
+                return $window;
+            }
+        }
+
+        return null;
+    }
 }

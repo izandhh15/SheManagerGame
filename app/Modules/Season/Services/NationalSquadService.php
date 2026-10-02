@@ -39,6 +39,10 @@ class NationalSquadService
      * inside right now, otherwise the next upcoming one (7-day prompt
      * first, then a 60-day lookahead so creation-time picks count).
      *
+     * NOTE: the 60-day lookahead is intentionally wide so a pick always
+     * stamps SOME window. The dashboard gate must NOT use this directly
+     * (it would nag 2 months early) — it uses promptWindow() instead.
+     *
      * @return array{start: string, end: string, label: string}|null
      */
     public static function relevantWindow(Game $game): ?array
@@ -49,6 +53,54 @@ class NationalSquadService
         return FifaInternationalBreaks::currentWindow($season, $today)
             ?? FifaInternationalBreaks::upcomingWithin($season, $today, 7)
             ?? FifaInternationalBreaks::upcomingWithin($season, $today, 60);
+    }
+
+    /**
+     * Days before a window starts when the dashboard starts prompting
+     * for its convocatoria. Kept well under the 60-day relevantWindow
+     * lookahead: prompting 2 months early meant the picker fired almost
+     * every visit during the autumn break cluster (Sep/Oct/Nov).
+     */
+    public const PROMPT_DAYS_BEFORE = 21;
+
+    /**
+     * The window the dashboard gate may prompt for: the relevant window,
+     * but only when it's actually near (inside it, or starting within
+     * PROMPT_DAYS_BEFORE days). A confirmed convocatoria for that window
+     * is never re-prompted.
+     *
+     * @return array{start: string, end: string, label: string}|null
+     */
+    public static function promptWindow(Game $game): ?array
+    {
+        $window = self::relevantWindow($game);
+        if (!$window) {
+            return null;
+        }
+
+        $today = ($game->current_date ?? now())->format('Y-m-d');
+        if ($today > $window['end']) {
+            return null;
+        }
+        $promptFrom = date('Y-m-d', strtotime($window['start'] . ' -' . self::PROMPT_DAYS_BEFORE . ' days'));
+
+        return $today >= $promptFrom ? $window : null;
+    }
+
+    /**
+     * The next FIFA window at or after $date, however far away (null when
+     * the season has no more windows). Used at game creation so the
+     * initial pick stamps a window even when no break is near.
+     *
+     * @return array{start: string, end: string, label: string}|null
+     */
+    public static function nextWindow(Game $game): ?array
+    {
+        $season = $game->season ?? self::TEMPLATE_SEASON;
+        $today = ($game->current_date ?? now())->format('Y-m-d');
+
+        return FifaInternationalBreaks::currentWindow($season, $today)
+            ?? FifaInternationalBreaks::nextWindow($season, $today);
     }
 
     /**

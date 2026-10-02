@@ -70,9 +70,12 @@ class ShowGame
 
         // National teams: prompt the squad picker for each FIFA window so
         // the convocatoria happens per window, not at game creation. Fires
-        // in the days before a break and while it's underway.
+        // while a break is underway or within PROMPT_DAYS_BEFORE days
+        // before it — never months early (the 60-day relevantWindow
+        // lookahead would nag on almost every visit during the autumn
+        // break cluster). A confirmed convocatoria is never re-prompted.
         if ($game->team->type === 'national' && $game->current_date) {
-            $window = \App\Modules\Season\Services\NationalSquadService::relevantWindow($game);
+            $window = \App\Modules\Season\Services\NationalSquadService::promptWindow($game);
             $confirmedWindow = $game->national_squad_window?->format('Y-m-d');
             if ($window && $confirmedWindow !== $window['start']) {
                 return redirect()->route('game.national-squad-picker', $gameId);
