@@ -12,7 +12,7 @@ use App\Modules\Competition\DTOs\PlayoffRoundConfig;
 use App\Modules\Competition\Enums\PlayoffState;
 use App\Modules\Competition\Services\LeagueFixtureGenerator;
 use App\Modules\Competition\Services\ReserveTeamFilter;
-use App\Modules\Competition\Services\SeasonSimulationService;
+use App\Modules\Finance\Services\SeasonSimulationService;
 
 /**
  * Promotion playoff from Segunda Federación (ESP3A/B/C) to Primera Federación.
@@ -314,27 +314,14 @@ class SegundaFederacionPlayoffGenerator implements PlayoffGenerator
             return array_values($existing->results);
         }
 
-        $teams = \App\Models\CompetitionEntry::where('game_id', $game->id)
-            ->where('competition_id', $groupId)
-            ->pluck('team_id')
-            ->all();
-
-        if (empty($teams)) {
+        $competition = \App\Models\Competition::find($groupId);
+        if ($competition === null) {
             return [];
         }
 
-        $ordered = app(SeasonSimulationService::class)->simulateLeague($game, $teams);
+        $simulated = app(SeasonSimulationService::class)->simulateLeague($game, $competition);
 
-        SimulatedSeason::updateOrCreate(
-            [
-                'game_id' => $game->id,
-                'competition_id' => $groupId,
-                'season' => $game->season,
-            ],
-            ['results' => array_values($ordered)]
-        );
-
-        return array_values($ordered);
+        return array_values($simulated->results ?? []);
     }
 
     /**
