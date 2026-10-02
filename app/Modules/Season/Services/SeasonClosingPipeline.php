@@ -9,6 +9,7 @@ use App\Modules\Season\DTOs\SeasonTransitionData;
 use App\Modules\Season\Processors\AgreedTransferCompletionProcessor;
 use App\Modules\Season\Processors\AIFreeAgentSigningProcessor;
 use App\Modules\Season\Processors\AIReserveCallUpProcessor;
+use App\Modules\Season\Processors\ClubWorldCupQualificationProcessor;
 use App\Modules\Season\Processors\ContractExpirationProcessor;
 use App\Modules\Season\Processors\ContractRenewalProcessor;
 use App\Modules\Season\Processors\DomesticCupQualificationProcessor;
@@ -78,6 +79,7 @@ class SeasonClosingPipeline
         FanLoyaltyUpdateProcessor $fanLoyaltyUpdate,
         YouthAcademyClosingProcessor $youthAcademyClosing,
         UefaQualificationProcessor $uefaQualification,
+        ClubWorldCupQualificationProcessor $clubWorldCupQualification,
         AffiliateFirstTeamSackProcessor $affiliateFirstTeamSack,
     ) {
         $this->processors = [
@@ -110,6 +112,7 @@ class SeasonClosingPipeline
             $fanLoyaltyUpdate,
             $youthAcademyClosing,
             $uefaQualification,
+            $clubWorldCupQualification,
             $affiliateFirstTeamSack,
         ];
 

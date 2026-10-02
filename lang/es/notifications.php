@@ -231,4 +231,8 @@ return [
     'squad_registration_required_message' => 'Tienes :count jugadoras sin inscribir. Registra tu plantilla antes de que comience la temporada — las jugadoras no inscritas no podrán ser convocadas.',
     'unenrolled_before_window_close_title' => 'Jugadoras sin inscribir — cierra la ventana de :window',
     'unenrolled_before_window_close_message' => 'Tienes :count jugadoras sin inscribir. Esta es tu última jornada para registrarlas antes de que cierre la ventana de fichajes — sin dorsal no podrán ser convocadas.',
+
+    // Mundial de Clubes
+    'cwc_qualified_title' => '🌍 ¡Nos vamos al Mundial de Clubes!',
+    'cwc_qualified_message' => 'Tu equipo está entre los mejores clubes de su confederación y se ha clasificado para el Mundial de Clubes. 32 equipos, un solo trofeo… ¡a por la copa más grande del planeta, míster!',
 ];

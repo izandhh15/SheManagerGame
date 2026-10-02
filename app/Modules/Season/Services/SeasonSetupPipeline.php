@@ -6,6 +6,7 @@ use App\Modules\Manager\Processors\ApplyPendingTeamSwitchProcessor;
 use App\Modules\Season\Contracts\SeasonProcessor;
 use App\Modules\Season\DTOs\SeasonTransitionData;
 use App\Modules\Season\Processors\BudgetProjectionProcessor;
+use App\Modules\Season\Processors\ClubWorldCupInitProcessor;
 use App\Modules\Season\Processors\ContinentalAndCupInitProcessor;
 use App\Modules\Season\Processors\DefaultInvestmentProcessor;
 use App\Modules\Season\Processors\GenerateNamingRightsOffersProcessor;
@@ -41,6 +42,7 @@ class SeasonSetupPipeline
         BudgetProjectionProcessor $budgetProjection,
         DefaultInvestmentProcessor $defaultInvestment,
         ContinentalAndCupInitProcessor $competitionInitialization,
+        ClubWorldCupInitProcessor $clubWorldCupInit,
         SquadRegistrationEnforcementProcessor $squadRegistration,
         PreSeasonFixtureProcessor $preSeasonFixture,
         NewSeasonResetProcessor $newSeasonReset,
@@ -58,6 +60,7 @@ class SeasonSetupPipeline
             $budgetProjection,
             $defaultInvestment,
             $competitionInitialization,
+            $clubWorldCupInit,
             // UEFA Super Cup does not exist in women's football: the
             // UefaSuperCupQualificationProcessor stays out of the pipeline
             // (its class is kept for the existing test coverage).

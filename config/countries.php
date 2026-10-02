@@ -240,6 +240,9 @@ return [
             'UELQ' => [
                 'config_class' => \App\Modules\Competition\Configs\QualifyingPlayoffConfig::class,
             ],
+            'CWC' => [
+                'config_class' => \App\Modules\Competition\Configs\ClubWorldCupConfig::class,
+            ],
         ],
 
         /*

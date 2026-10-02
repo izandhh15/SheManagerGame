@@ -95,6 +95,7 @@ class Competition extends Model
         'WOLYMP'  => 'Juegos Olímpicos',
         'WEURO'   => 'Eurocopa',
         'WEUROQ'  => 'Clasificación · Euro',
+        'CWC'     => 'Mundial de Clubes',
         'PRESEASON' => 'Amistoso',
         'FRIENDLY' => 'Amistoso',
     ];
@@ -120,6 +121,7 @@ class Competition extends Model
         'UEL'     => 'UEC',
         'UCLQ'    => 'PR-UWCL',
         'UELQ'    => 'PR-UEC',
+        'CWC'     => 'Mundial',
     ];
 
     // Spanish grammatical article per competition. Women's competitions are all
@@ -132,6 +134,7 @@ class Competition extends Model
         'FRASUP'    => 'el',
         'DEUSUP'    => 'el',
         'WOLYMP'    => 'los',
+        'CWC'       => 'el',
     ];
 
     protected $fillable = [
