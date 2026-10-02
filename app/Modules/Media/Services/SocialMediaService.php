@@ -202,6 +202,15 @@ class SocialMediaService
         // Mixed mood: randomize each post's sentiment.
         $sentiment = $mood === 'mixed' ? (rand(0, 1) ? 1 : -1) : ($mood === 'positive' ? 1 : -1);
 
+        // Every wave has its contrarians: even after a disastrous press
+        // conference a few fans defend the manager, and even a triumph
+        // always has its haters. That's what makes the feed feel alive.
+        if ($mood === 'negative' && rand(1, 100) <= 20) {
+            $sentiment = 1;
+        } elseif ($mood === 'positive' && rand(1, 100) <= 15) {
+            $sentiment = -1;
+        }
+
         $templates = $this->templatesFor($sentiment, $statementKey, $targetName);
         $text = $templates[array_rand($templates)];
 
