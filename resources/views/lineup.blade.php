@@ -80,6 +80,35 @@
                 </div>
             @endif
 
+            {{-- Pre-match press conference: big match ahead --}}
+            @if(!empty($pressConference['needed']))
+                @php
+                    $pcReasonLabels = [
+                        'final' => app()->getLocale() === 'es' ? 'la final' : 'the final',
+                        'derby' => app()->getLocale() === 'es' ? 'el derbi' : 'the derby',
+                        'european' => app()->getLocale() === 'es' ? 'la noche europea' : 'the European night',
+                        'rival' => app()->getLocale() === 'es' ? 'el duelo contra un rival directo' : 'the clash with a direct rival',
+                    ];
+                    $pcReason = $pcReasonLabels[$pressConference['reasons'][0] ?? 'rival'] ?? '';
+                @endphp
+                <div class="mt-4 p-4 rounded-xl bg-accent-blue/10 border border-accent-blue/30 flex flex-col sm:flex-row sm:items-center gap-3">
+                    <div class="text-3xl">🎤</div>
+                    <div class="flex-1">
+                        <p class="font-semibold text-text-primary">
+                            {{ app()->getLocale() === 'es' ? 'Rueda de prensa antes de ' . $pcReason : 'Press conference before ' . $pcReason }}
+                        </p>
+                        <p class="text-sm text-text-secondary">
+                            {{ app()->getLocale() === 'es'
+                                ? 'Los periodistas quieren oírte. Tus palabras pueden subir o bajar la moral del equipo.'
+                                : 'Journalists want to hear from you. Your words can raise or lower team morale.' }}
+                        </p>
+                    </div>
+                    <a href="{{ $pressConference['url'] }}" class="shrink-0 px-4 py-2 rounded-lg bg-accent-blue text-white text-sm font-bold uppercase tracking-wide text-center">
+                        {{ app()->getLocale() === 'es' ? 'Atender a la prensa' : 'Face the press' }}
+                    </a>
+                </div>
+            @endif
+
             <form method="POST" action="{{ route('game.lineup.save', $game->id) }}" @submit="_isSaving = true">
                 @csrf
 

@@ -9,6 +9,7 @@ use App\Modules\Lineup\Enums\PlayingStyle;
 use App\Modules\Lineup\Enums\PressingIntensity;
 use App\Modules\Lineup\Services\AITacticsService;
 use App\Modules\Lineup\Services\LineupService;
+use App\Modules\Media\Services\PressConferenceService;
 use App\Modules\Season\Services\DualTurnService;
 
 use App\Support\PitchGrid;
@@ -22,6 +23,7 @@ class ShowLineup
         private readonly LineupService $lineupService,
         private readonly AITacticsService $aiTactics,
         private readonly DualTurnService $dualTurn,
+        private readonly PressConferenceService $press,
     ) {}
 
     public function __invoke(string $gameId)
@@ -46,6 +48,17 @@ class ShowLineup
         $opponent = $context->opponent;
         $matchDate = $context->matchDate;
         $competitionId = $context->competitionId;
+
+        // Pre-match press conference: offered before big matches (derby,
+        // final, european night, direct rival). Shown once per match.
+        $pressConference = ['needed' => false, 'reasons' => [], 'url' => null];
+        if ($match && $this->press->isBigMatch($game, $match) && ! $this->press->alreadyAnswered($game, $match)) {
+            $pressConference = [
+                'needed' => true,
+                'reasons' => $this->press->bigMatchReasons($game, $match),
+                'url' => route('game.pre-press', [$game->id, $match->id]),
+            ];
+        }
 
         // Get all players (including unavailable for display), sorted and grouped
         $playersByGroup = $this->lineupService->getPlayersByPositionGroup($gameId, $game->team_id);
@@ -268,6 +281,7 @@ class ShowLineup
             'opponent' => $opponent,
             'competitionId' => $competitionId,
             'matchDate' => $matchDate,
+            'pressConference' => $pressConference,
             'goalkeepers' => $playersByGroup['goalkeepers'],
             'defenders' => $playersByGroup['defenders'],
             'midfielders' => $playersByGroup['midfielders'],

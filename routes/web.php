@@ -136,10 +136,13 @@ use App\Http\Views\ShowMatchSummary;
 use App\Http\Views\ShowIncomingTransfers;
 use App\Http\Views\ShowScoutingHub;
 use App\Http\Views\ShowSocialFeed;
+use App\Http\Views\ShowPreMatchPress;
 use App\Http\Views\ShowPressConference;
 use App\Http\Views\ShowYouthScouting;
+use App\Http\Actions\SubmitPreMatchPress;
 use App\Http\Actions\SubmitPressStatement;
 use App\Http\Actions\ReplyToHater;
+use App\Http\Actions\LikeSocialPost;
 use App\Http\Actions\PoachYouthPlayer;
 use App\Http\Views\ShowScoutReportResults;
 use App\Http\Views\ShowExplore;
@@ -287,8 +290,12 @@ Route::middleware('auth')->group(function () {
         // Fake social network + press conferences
         Route::get('/game/{gameId}/social', ShowSocialFeed::class)->name('game.social');
         Route::post('/game/{gameId}/social/{postId}/reply', ReplyToHater::class)->name('game.social.reply');
+        Route::post('/game/{gameId}/social/{postId}/like', LikeSocialPost::class)->name('game.social.like');
         Route::get('/game/{gameId}/press/{matchId}', ShowPressConference::class)->name('game.press');
         Route::post('/game/{gameId}/press/{matchId}', SubmitPressStatement::class)->name('game.press.submit');
+        // Pre-match press conference: before big matches (derby, final, european night, direct rival)
+        Route::get('/game/{gameId}/pre-press/{matchId}', ShowPreMatchPress::class)->name('game.pre-press');
+        Route::post('/game/{gameId}/pre-press/{matchId}', SubmitPreMatchPress::class)->name('game.pre-press.submit');
 
         // Youth scouting: poach prospects from rival academies
         Route::get('/game/{gameId}/scouting/youth', ShowYouthScouting::class)->name('game.scouting.youth');
@@ -415,6 +422,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/game/{gameId}/preseason-setup', SavePreseasonOpponents::class)->name('game.preseason-setup.save');
         Route::post('/game/{gameId}/preseason-setup/invitation/accept', AcceptPreseasonInvitation::class)->name('game.preseason-setup.invitation.accept');
         Route::post('/game/{gameId}/preseason-setup/invitation/decline', DeclinePreseasonInvitation::class)->name('game.preseason-setup.invitation.decline');
+        Route::post('/game/{gameId}/preseason-setup/tour', SavePreseasonTour::class)->name('game.preseason-setup.tour');
 
         // Squad Selection (Tournament mode new-season setup)
         Route::get('/game/{gameId}/squad-selection', ShowSquadSelection::class)->name('game.squad-selection');
