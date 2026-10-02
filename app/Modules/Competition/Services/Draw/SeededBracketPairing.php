@@ -21,7 +21,7 @@ use Illuminate\Support\Collection;
  */
 class SeededBracketPairing implements CupDrawPairingStrategy
 {
-    public function pairTeams(Collection $teams, array $teamTierMap, array $teamSeedMap = []): Collection
+    public function pairTeams(Collection $teams, array $teamTierMap, array $teamSeedMap = [], array $teamRegionMap = []): Collection
     {
         $seeded = $teams->filter(fn (string $id) => isset($teamSeedMap[$id]))
             ->sortBy(fn (string $id) => $teamSeedMap[$id])

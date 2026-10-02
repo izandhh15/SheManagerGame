@@ -402,11 +402,13 @@ return [
         ],
 
         // Local-tier brand pool (reach = local), per country. Real regional
-        // institutions (universities) where known, plus generic descriptive
-        // names for neighbourhood businesses — never invented fake brands.
-        // A non-global brand only sponsors clubs in its own country; a brand
-        // with `region` only sponsors clubs in its own region (no "Universidad
-        // de Valladolid" on a Getafe shirt — Madrid clubs get Madrid brands).
+        // institutions (universities) where known, plus plausible fictional
+        // neighbourhood businesses with surname-style names ("Panadería
+        // Navarro", "Taller Berma") — they read like the real local shops
+        // that sponsor small clubs. A non-global brand only sponsors clubs
+        // in its own country; a brand with `region` only sponsors clubs in
+        // its own region (no "Universidad de Valladolid" on a Getafe shirt
+        // — Madrid clubs get Madrid brands).
         'local_sponsors' => [
             'ES' => [
                 ['name' => 'Universidad Complutense de Madrid',       'reach' => 'local', 'country' => 'ES', 'region' => 'madrid'],
@@ -428,12 +430,14 @@ return [
                 ['name' => 'Universidad de Cantabria',                'reach' => 'local', 'country' => 'ES', 'region' => 'cantabria'],
                 ['name' => 'Universitat de les Illes Balears',        'reach' => 'local', 'country' => 'ES', 'region' => 'baleares'],
                 ['name' => 'Universidad de La Rioja',                 'reach' => 'local', 'country' => 'ES', 'region' => 'la-rioja'],
-                ['name' => 'Quesería artesanal de la zona',     'reach' => 'local', 'country' => 'ES'],
-                ['name' => 'Panadería familiar del barrio',     'reach' => 'local', 'country' => 'ES'],
-                ['name' => 'Taller mecánico de confianza',       'reach' => 'local', 'country' => 'ES'],
-                ['name' => 'Clínica dental del centro',          'reach' => 'local', 'country' => 'ES'],
-                ['name' => 'Ferretería de toda la vida',         'reach' => 'local', 'country' => 'ES'],
-                ['name' => 'Bar restaurante de la esquina',      'reach' => 'local', 'country' => 'ES'],
+                ['name' => 'Panadería Navarro',           'reach' => 'local', 'country' => 'ES'],
+                ['name' => 'Panadería Pulido',            'reach' => 'local', 'country' => 'ES'],
+                ['name' => 'Taller Berma',                 'reach' => 'local', 'country' => 'ES'],
+                ['name' => 'Taller de Tony',               'reach' => 'local', 'country' => 'ES'],
+                ['name' => 'Quesería Hermanos Gil',        'reach' => 'local', 'country' => 'ES'],
+                ['name' => 'Clínica Dental Serrano',       'reach' => 'local', 'country' => 'ES'],
+                ['name' => 'Ferretería La Llave',          'reach' => 'local', 'country' => 'ES'],
+                ['name' => 'Bar Casa Paco',                'reach' => 'local', 'country' => 'ES'],
             ],
             'EN' => [
                 ['name' => 'University of Leeds',               'reach' => 'local', 'country' => 'EN'],

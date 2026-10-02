@@ -106,28 +106,31 @@ class ClubSocialService
     }
 
     /**
-     * The club's official handle, derived from the team name.
+     * The club's official handle: the REAL account from
+     * config/social_handles.php when known (verified one by one), falling
+     * back to the generated @nombre_oficial for unmapped clubs.
      */
     public function clubHandle(Game $game): string
     {
-        $name = $game->team?->name ?? 'club';
-        $slug = strtolower(self::ascii($name));
-        $slug = preg_replace('/\b(cd|cf|ud|sd|rcd|ad|emf|cff)\b/', '', $slug);
-        $slug = preg_replace('/\b(femenino|femenina|femenil|women|ladies)\b/', '', $slug);
-        $slug = preg_replace('/[^a-z0-9]+/', '', $slug);
-
-        if ($slug === '') {
-            $slug = 'club';
+        $mapped = $this->mappedSocial($game);
+        if (isset($mapped['handle'])) {
+            return $mapped['handle'];
         }
 
-        return '@' . substr($slug, 0, 18) . '_oficial';
+        return $this->generatedHandle($game);
     }
 
     /**
-     * Fake follower count, scaled by the club's reputation tier.
+     * Follower count: the real approximate figure when the club is mapped,
+     * otherwise the old reputation-scaled fake number.
      */
     public function followers(Game $game): string
     {
+        $mapped = $this->mappedSocial($game);
+        if (isset($mapped['followers'])) {
+            return $this->formatFollowers((int) $mapped['followers']);
+        }
+
         $level = ClubProfile::where('team_id', $game->team_id)->value('reputation_level')
             ?? ClubProfile::REPUTATION_LOCAL;
 
@@ -141,11 +144,53 @@ class ClubSocialService
 
         $count = (int) ($base * (0.9 + (crc32($game->team_id) % 20) / 100));
 
+        return $this->formatFollowers($count);
+    }
+
+    private function formatFollowers(int $count): string
+    {
         if ($count >= 1_000_000) {
             return number_format($count / 1_000_000, 1, ',', '.') . ' M';
         }
 
         return number_format((int) ($count / 1000), 0, ',', '.') . ' mil';
+    }
+
+    /**
+     * The mapped real account for this team, if any. Indexed directly (not
+     * via dot notation) so team names containing dots don't break it.
+     *
+     * @return array{handle?: string, followers?: int}
+     */
+    private function mappedSocial(Game $game): array
+    {
+        $teamName = $game->team?->name;
+        if ($teamName === null || $teamName === '') {
+            return [];
+        }
+
+        $byCountry = (array) config("social_handles.{$game->country}", []);
+
+        return (array) ($byCountry[$teamName] ?? []);
+    }
+
+    /**
+     * Fallback handle for clubs without a mapped real account,
+     * derived from the team name.
+     */
+    private function generatedHandle(Game $game): string
+    {
+        $name = $game->team?->name ?? 'club';
+        $slug = strtolower(self::ascii($name));
+        $slug = preg_replace('/\b(cd|cf|ud|sd|rcd|ad|emf|cff)\b/', '', $slug);
+        $slug = preg_replace('/\b(femenino|femenina|femenil|women|ladies)\b/', '', $slug);
+        $slug = preg_replace('/[^a-z0-9]+/', '', $slug);
+
+        if ($slug === '') {
+            $slug = 'club';
+        }
+
+        return '@' . substr($slug, 0, 18) . '_oficial';
     }
 
     /**

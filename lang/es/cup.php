@@ -26,6 +26,7 @@ return [
 
     // Draw
     'draw_pending' => 'Sorteo pendiente',
+    'bye' => 'Exento',
 
     // Resolution types
     'pens' => 'Pen:',

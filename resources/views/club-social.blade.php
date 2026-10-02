@@ -44,32 +44,40 @@ $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
         <div class="mb-6 p-4 rounded-xl bg-surface-800 border border-border-default">
             <h3 class="font-bold text-text-primary mb-3">📢 {{ __('game.club_social_compose') }}</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {{-- Signing --}}
+                {{-- Signing (recent signings only) --}}
                 <form method="POST" action="{{ route('game.club-social.announce', $game->id) }}" class="p-3 rounded-lg border border-border-default bg-surface-700">
                     @csrf
                     <input type="hidden" name="type" value="signing">
                     <p class="text-sm font-semibold text-text-primary mb-2">{{ __('game.club_social_type_signing') }}</p>
-                    <select name="player_id" required class="w-full mb-2 text-sm rounded-lg bg-surface-800 border-border-default text-text-primary">
-                        <option value="">{{ __('game.club_social_pick_player') }}…</option>
-                        @foreach($squad as $player)
-                            <option value="{{ $player->id }}">{{ $player->name }} ({{ $player->overall_score }})</option>
-                        @endforeach
-                    </select>
-                    <x-primary-button type="submit" class="w-full text-xs">{{ __('game.club_social_publish') }}</x-primary-button>
+                    @if($recentSignings->isEmpty())
+                        <p class="text-xs text-text-faint mb-2">{{ __('game.club_social_no_recent_signings') }}</p>
+                    @else
+                        <select name="player_id" required class="w-full mb-2 text-sm rounded-lg bg-surface-800 border-border-default text-text-primary">
+                            <option value="">{{ __('game.club_social_pick_player') }}…</option>
+                            @foreach($recentSignings as $player)
+                                <option value="{{ $player->id }}">{{ $player->name }} ({{ $player->overall_score }})</option>
+                            @endforeach
+                        </select>
+                    @endif
+                    <x-primary-button type="submit" @disabled($recentSignings->isEmpty()) class="w-full text-xs">{{ __('game.club_social_publish') }}</x-primary-button>
                 </form>
-                {{-- Sale --}}
+                {{-- Sale (recent sales only) --}}
                 <form method="POST" action="{{ route('game.club-social.announce', $game->id) }}" class="p-3 rounded-lg border border-border-default bg-surface-700">
                     @csrf
                     <input type="hidden" name="type" value="sale">
                     <p class="text-sm font-semibold text-text-primary mb-2">{{ __('game.club_social_type_sale') }}</p>
-                    <select name="player_id" required class="w-full mb-2 text-sm rounded-lg bg-surface-800 border-border-default text-text-primary">
-                        <option value="">{{ __('game.club_social_pick_player') }}…</option>
-                        @foreach($squad as $player)
-                            <option value="{{ $player->id }}">{{ $player->name }} ({{ $player->overall_score }})</option>
-                        @endforeach
-                    </select>
+                    @if($recentSales->isEmpty())
+                        <p class="text-xs text-text-faint mb-2">{{ __('game.club_social_no_recent_sales') }}</p>
+                    @else
+                        <select name="player_id" required class="w-full mb-2 text-sm rounded-lg bg-surface-800 border-border-default text-text-primary">
+                            <option value="">{{ __('game.club_social_pick_player') }}…</option>
+                            @foreach($recentSales as $player)
+                                <option value="{{ $player->id }}">{{ $player->name }} ({{ $player->overall_score }})</option>
+                            @endforeach
+                        </select>
+                    @endif
                     <input type="text" name="destination" maxlength="100" placeholder="{{ __('game.club_social_destination') }}" class="w-full mb-2 text-sm rounded-lg bg-surface-800 border-border-default text-text-primary placeholder:text-text-faint">
-                    <x-primary-button type="submit" class="w-full text-xs">{{ __('game.club_social_publish') }}</x-primary-button>
+                    <x-primary-button type="submit" @disabled($recentSales->isEmpty()) class="w-full text-xs">{{ __('game.club_social_publish') }}</x-primary-button>
                 </form>
                 {{-- Injury report --}}
                 <form method="POST" action="{{ route('game.club-social.announce', $game->id) }}" class="p-3 rounded-lg border border-border-default bg-surface-700">

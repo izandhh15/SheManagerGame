@@ -26,6 +26,7 @@ return [
 
     // Draw
     'draw_pending' => 'Draw pending',
+    'bye' => 'Bye',
 
     // Resolution types
     'pens' => 'Pens:',

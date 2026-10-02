@@ -1,6 +1,8 @@
 @props(['tie', 'playerTeamId'])
 
 @php
+    // A bye is stored as a tie of a team against itself (no opponent).
+    $isBye = $tie->home_team_id === $tie->away_team_id;
     $isPlayerTie = $tie->involvesTeam($playerTeamId);
     $homeWon = $tie->winner_id === $tie->home_team_id;
     $awayWon = $tie->winner_id === $tie->away_team_id;
@@ -16,6 +18,16 @@
 @endphp
 
 <div class="rounded-lg overflow-hidden {{ $isPlayerTie ? 'border border-accent-blue/30 bg-accent-blue/5' : 'border border-border-strong' }}">
+    @if($isBye)
+        {{-- Bye: the team advances without playing --}}
+        <div class="flex items-center gap-2 px-2.5 py-2 bg-accent-green/10">
+            <x-team-crest :team="$tie->homeTeam" class="w-5 h-5 shrink-0" />
+            <span class="flex-1 text-xs truncate font-semibold {{ $tie->home_team_id === $playerTeamId ? 'text-accent-blue' : 'text-text-body' }}">
+                {{ $tie->homeTeam->name }}
+            </span>
+            <span class="text-[10px] uppercase tracking-wide text-text-muted">{{ __('cup.bye') }}</span>
+        </div>
+    @else
     {{-- Home Team --}}
     <div class="flex items-center gap-2 px-2.5 py-2 {{ $homeWon ? 'bg-accent-green/10' : '' }} {{ $awayWon ? 'opacity-50' : '' }}">
         <x-team-crest :team="$tie->homeTeam" class="w-5 h-5 shrink-0" />
@@ -43,6 +55,7 @@
             <span class="text-xs tabular-nums font-heading {{ $awayWon ? 'font-semibold text-text-primary' : 'text-text-body' }}">{{ $tie->secondLegMatch->home_score }}</span>
         @endif
     </div>
+    @endif
 
     {{-- Resolution info --}}
     @if($tie->completed && $tie->resolution && ($tie->resolution['type'] ?? 'normal') !== 'normal')

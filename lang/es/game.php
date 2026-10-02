@@ -977,6 +977,8 @@ return [
     'club_social_invalid_type' => 'Tipo de comunicado no válido.',
     'club_social_not_available' => 'Las redes del club no están disponibles en este modo.',
     'club_social_no_player' => 'Selecciona una jugadora de la plantilla.',
+    'club_social_no_recent_signings' => 'Sin fichajes esta temporada: ficha a alguien y podrás anunciarlo aquí.',
+    'club_social_no_recent_sales' => 'Sin ventas esta temporada: vende a alguien y podrás anunciarlo aquí.',
     'club_social_already_announced' => 'Ya hay un comunicado sobre esto.',
     'club_social_official_badge' => 'Cuenta oficial',
 ];

@@ -21,7 +21,12 @@ interface CupDrawPairingStrategy
      *                                           competitions that seed their
      *                                           bracket instead of drawing it.
      *                                           Empty for everything else.
+     * @param  array<string, string>  $teamRegionMap  Map of team ID → region
+     *                                           (e.g. autonomous community),
+     *                                           for draws that weigh
+     *                                           geographic proximity.
+     *                                           Empty for everything else.
      * @return Collection<int, string>
      */
-    public function pairTeams(Collection $teams, array $teamTierMap, array $teamSeedMap = []): Collection;
+    public function pairTeams(Collection $teams, array $teamTierMap, array $teamSeedMap = [], array $teamRegionMap = []): Collection;
 }

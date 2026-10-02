@@ -11,6 +11,7 @@ use App\Models\CompetitionEntry;
 use App\Models\CupTie;
 use App\Models\Game;
 use App\Models\GameMatch;
+use App\Models\Team;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
@@ -85,6 +86,19 @@ class CupDrawService
                     'winner_id' => $homeTeamId,
                 ];
                 continue;
+            }
+
+            // Defensive: a real tie can never pit a team against itself. A
+            // duplicate team ID in the draw pool means the upstream field is
+            // corrupt — fail loudly instead of rendering "X vs X".
+            if ($homeTeamId === $awayTeamId) {
+                throw new \RuntimeException(sprintf(
+                    '[CupDrawService] %s round %d: team %s drawn against itself. '
+                    . 'The draw pool contains a duplicate team ID.',
+                    $competitionId,
+                    $roundNumber,
+                    $homeTeamId,
+                ));
             }
 
             // Lower-category team (higher tier number) gets home advantage
@@ -243,6 +257,7 @@ class CupDrawService
                 $enteringTeams,
                 $teamTierMap,
                 $this->getTeamSeedMap($gameId, $competitionId, $enteringTeams),
+                $this->getTeamRegionMap($competitionId, $enteringTeams, $roundNumber),
             );
 
             return $this->chunkIntoPairs($orderedTeams, $competitionId, $roundNumber);
@@ -268,9 +283,49 @@ class CupDrawService
             $allTeams,
             $teamTierMap,
             $this->getTeamSeedMap($gameId, $competitionId, $allTeams),
+            $this->getTeamRegionMap($competitionId, $allTeams, $roundNumber),
         );
 
         return $this->chunkIntoPairs($orderedTeams, $competitionId, $roundNumber);
+    }
+
+    /**
+     * Map of team ID → region (autonomous community) for draws that weigh
+     * geographic proximity (Copa de la Reina's early rounds, per RFEF).
+     * Only the first two rounds use it; later rounds are a pure draw.
+     * Empty when the competition's country has no region mapping.
+     *
+     * @param  Collection<int, string>  $teamIds
+     * @return array<string, string>
+     */
+    private function getTeamRegionMap(string $competitionId, Collection $teamIds, int $roundNumber): array
+    {
+        if ($roundNumber > 2 || $teamIds->isEmpty()) {
+            return [];
+        }
+
+        $country = Competition::whereKey($competitionId)->value('country');
+        if (!$country) {
+            return [];
+        }
+
+        // Indexed directly (not via dot notation) so team names containing
+        // dots don't break the lookup.
+        $regions = (array) config("team_regions.{$country}", []);
+        if (empty($regions)) {
+            return [];
+        }
+
+        $names = Team::whereIn('id', $teamIds->all())->pluck('name', 'id')->all();
+
+        $map = [];
+        foreach ($names as $id => $name) {
+            if (isset($regions[$name])) {
+                $map[$id] = $regions[$name];
+            }
+        }
+
+        return $map;
     }
 
     /**

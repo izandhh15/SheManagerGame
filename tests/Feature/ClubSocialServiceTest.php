@@ -174,4 +174,37 @@ class ClubSocialServiceTest extends TestCase
         // +40% at full hype.
         $this->assertEqualsWithDelta($base['attendance'] * 1.4, $hyped['attendance'], $base['attendance'] * 0.05 + 1);
     }
+
+    public function test_mapped_club_uses_its_real_handle_and_followers(): void
+    {
+        $service = app(ClubSocialService::class);
+
+        $this->team->update(['name' => 'Valencia CF Femenino']);
+        $this->game->refresh();
+
+        $this->assertSame('@VCF_Femenino', $service->clubHandle($this->game));
+        // 44.500 seguidores → "44 mil".
+        $this->assertSame('44 mil', $service->followers($this->game));
+    }
+
+    public function test_reserve_team_uses_its_academy_handle(): void
+    {
+        $service = app(ClubSocialService::class);
+
+        $this->team->update(['name' => 'Valencia CF B']);
+        $this->game->refresh();
+
+        $this->assertSame('@Academia_VCF', $service->clubHandle($this->game));
+        $this->assertSame('24 mil', $service->followers($this->game));
+    }
+
+    public function test_unmapped_club_falls_back_to_generated_handle(): void
+    {
+        $service = app(ClubSocialService::class);
+
+        // 'CD Getafe Femenino' (from setUp) has no mapped account.
+        $this->assertSame('@getafe_oficial', $service->clubHandle($this->game));
+        // MODEST reputation → ~95 mil estimate.
+        $this->assertMatchesRegularExpression('/^\d+ mil$/', $service->followers($this->game));
+    }
 }

@@ -268,7 +268,7 @@ class DomesticCupQualificationProcessor implements SeasonProcessor
                 ->delete();
         }
 
-        $leagueRounds = $this->leagueEntryRounds($game, $rule);
+        $leagueRounds = $this->leagueEntryRounds($game, $rule, $reserveLookup);
 
         $rows = [];
         foreach (array_keys($qualifiers) as $teamId) {
@@ -304,31 +304,71 @@ class DomesticCupQualificationProcessor implements SeasonProcessor
      * 16 — both halves are needed, since sending only the byes forward would
      * drop the other twelve to round 1 and leave the field unable to halve.
      *
+     * Two shapes are supported. The legacy single-league shape:
+     *   ['league' => 'ITA1', 'default' => 2, 'byes' => ['positions' => [...], 'round' => 4]]
+     * And the multi-league shape (Copa de la Reina):
+     *   ['leagues' => ['ESP1' => ['default' => 1, 'by_position' => [
+     *       ['positions' => [1..8], 'round' => 4],
+     *       ['positions' => [9..14], 'round' => 3],
+     *   ]], 'ESP2' => [...]]]
+     * A bye entry may set 'skip_reserves' so its positions are counted over
+     * the non-reserve table only (Primera Federación's 2 promoted teams are
+     * its top 2 non-reserve finishers — a filial can't go up).
+     *
      * It has to run here, at the close, while the final table is still
      * readable: by the time CupEntryRoundService assigns rounds at setup,
      * the standings have rolled over.
      *
-     * @param  array{entry_rounds?: array{league: string, default: int, byes?: array{positions: int[], round: int}}}  $rule
+     * @param  array{entry_rounds?: array}  $rule
+     * @param  array<string, bool>  $reserveLookup  team_id => true for reserves
      * @return array<string, int>
      */
-    private function leagueEntryRounds(Game $game, array $rule): array
+    private function leagueEntryRounds(Game $game, array $rule, array $reserveLookup): array
     {
         $entryRounds = $rule['entry_rounds'] ?? null;
         if (!$entryRounds) {
             return [];
         }
 
-        $ranked = $this->rankedTeams($game, $entryRounds['league']);
-
-        $rounds = [];
-        foreach ($ranked as $teamId) {
-            $rounds[$teamId] = $entryRounds['default'];
+        $leagues = $entryRounds['leagues'] ?? null;
+        if ($leagues === null) {
+            // Legacy single-league shape.
+            $leagues = [$entryRounds['league'] => $entryRounds];
         }
 
-        foreach ($entryRounds['byes']['positions'] ?? [] as $position) {
-            $teamId = $ranked[$position - 1] ?? null;
-            if ($teamId !== null) {
-                $rounds[$teamId] = $entryRounds['byes']['round'];
+        $rounds = [];
+        foreach ($leagues as $leagueId => $leagueRule) {
+            $ranked = $this->rankedTeams($game, $leagueId);
+
+            foreach ($ranked as $teamId) {
+                $rounds[$teamId] = $leagueRule['default'] ?? 1;
+            }
+
+            foreach ($leagueRule['by_position'] ?? [] as $bye) {
+                $pool = $ranked;
+                if (!empty($bye['skip_reserves'])) {
+                    $pool = array_values(array_filter(
+                        $pool,
+                        fn (string $id) => !isset($reserveLookup[$id]),
+                    ));
+                }
+                foreach ($bye['positions'] as $position) {
+                    $teamId = $pool[$position - 1] ?? null;
+                    if ($teamId !== null) {
+                        $rounds[$teamId] = $bye['round'];
+                    }
+                }
+            }
+
+            // Legacy shape: a single ['byes' => ['positions' => [...], 'round' => N]].
+            $legacyByes = $leagueRule['byes'] ?? null;
+            if (isset($legacyByes['positions'])) {
+                foreach ($legacyByes['positions'] as $position) {
+                    $teamId = $ranked[$position - 1] ?? null;
+                    if ($teamId !== null) {
+                        $rounds[$teamId] = $legacyByes['round'];
+                    }
+                }
             }
         }
 

@@ -337,4 +337,100 @@ class CupDrawPairingTest extends TestCase
             $this->assertEqualsCanonicalizing($teams->all(), $result->all());
         }
     }
+
+    // ---------------------------------------------------------------------
+    // CrossCategoryPairing — geographic proximity (Copa de la Reina early
+    // rounds weigh nearby clubs, per RFEF)
+    // ---------------------------------------------------------------------
+
+    public function test_cross_category_prefers_same_region_opponents(): void
+    {
+        $strategy = new CrossCategoryPairing();
+
+        // 4 upper-half teams (tier 1) + 4 lower-half teams (tier 3), two
+        // regions. Every lower team has exactly one same-region opponent
+        // available, so a region-aware draw pairs them all same-region.
+        $teams = collect(['u_mad1', 'u_mad2', 'u_cat1', 'u_cat2', 'l_mad1', 'l_mad2', 'l_cat1', 'l_cat2']);
+        $tierMap = [
+            'u_mad1' => 1, 'u_mad2' => 1, 'u_cat1' => 1, 'u_cat2' => 1,
+            'l_mad1' => 3, 'l_mad2' => 3, 'l_cat1' => 3, 'l_cat2' => 3,
+        ];
+        $regionMap = [
+            'u_mad1' => 'madrid', 'u_mad2' => 'madrid', 'u_cat1' => 'catalunya', 'u_cat2' => 'catalunya',
+            'l_mad1' => 'madrid', 'l_mad2' => 'madrid', 'l_cat1' => 'catalunya', 'l_cat2' => 'catalunya',
+        ];
+
+        $result = $strategy->pairTeams($teams, $tierMap, [], $regionMap);
+
+        $this->assertCount(8, $result);
+        $this->assertEqualsCanonicalizing($teams->all(), $result->all());
+
+        for ($i = 0; $i < 4; $i++) {
+            $first = $result[$i * 2];
+            $second = $result[$i * 2 + 1];
+
+            $this->assertNotEquals(
+                $tierMap[$first],
+                $tierMap[$second],
+                "Pair {$i}: {$first} vs {$second} should be cross-category"
+            );
+            $this->assertSame(
+                $regionMap[$first],
+                $regionMap[$second],
+                "Pair {$i}: {$first} vs {$second} should be same-region"
+            );
+        }
+    }
+
+    public function test_cross_category_falls_back_gracefully_without_region_map(): void
+    {
+        $strategy = new CrossCategoryPairing();
+
+        // Same pool, no region map: behaves exactly like the plain
+        // cross-category draw (cross-tier pairs, every team retained).
+        $teams = collect(['u_mad1', 'u_mad2', 'u_cat1', 'u_cat2', 'l_mad1', 'l_mad2', 'l_cat1', 'l_cat2']);
+        $tierMap = [
+            'u_mad1' => 1, 'u_mad2' => 1, 'u_cat1' => 1, 'u_cat2' => 1,
+            'l_mad1' => 3, 'l_mad2' => 3, 'l_cat1' => 3, 'l_cat2' => 3,
+        ];
+
+        $result = $strategy->pairTeams($teams, $tierMap);
+
+        $this->assertCount(8, $result);
+        $this->assertEqualsCanonicalizing($teams->all(), $result->all());
+
+        for ($i = 0; $i < 4; $i++) {
+            $this->assertNotEquals(
+                $tierMap[$result[$i * 2]],
+                $tierMap[$result[$i * 2 + 1]],
+                "Pair {$i} should be cross-category"
+            );
+        }
+    }
+
+    public function test_cross_category_region_matching_keeps_odd_team_unpaired(): void
+    {
+        $strategy = new CrossCategoryPairing();
+
+        $teams = collect(['u1', 'u2', 'l1', 'l2', 'l3']);
+        $tierMap = ['u1' => 1, 'u2' => 1, 'l1' => 3, 'l2' => 3, 'l3' => 3];
+        $regionMap = [
+            'u1' => 'madrid', 'u2' => 'catalunya',
+            'l1' => 'madrid', 'l2' => 'catalunya', 'l3' => 'madrid',
+        ];
+
+        $result = $strategy->pairTeams($teams, $tierMap, [], $regionMap);
+
+        $this->assertCount(5, $result);
+        $this->assertEqualsCanonicalizing($teams->all(), $result->all());
+
+        // First two pairs are cross-category; the 5th team stays unpaired.
+        for ($i = 0; $i < 2; $i++) {
+            $this->assertNotEquals(
+                $tierMap[$result[$i * 2]],
+                $tierMap[$result[$i * 2 + 1]],
+                "Pair {$i} should be cross-category"
+            );
+        }
+    }
 }

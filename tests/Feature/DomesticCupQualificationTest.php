@@ -366,17 +366,32 @@ class DomesticCupQualificationTest extends TestCase
     {
         // The whole point of the invariant: round 1 must be even after the
         // supercup teams are bumped to the cup_entry_round (4). The rule
-        // produces exactly the 48-team field; bumping 4 of them leaves 44
-        // in round 1 — an even pool the draw can pair.
+        // produces exactly the 48-team field; with the staggered entry
+        // format, round 1 holds 32 teams (2 relegated from Liga F + the 6
+        // non-promoted Primera qualifiers + 24 from Segunda Federación).
+        // Bumping 4 of them leaves 28 in round 1 — an even pool the draw
+        // can pair.
         config(['countries.ES.cup_qualification.ESPCUP.target_size' => 48]);
 
         $this->runProcessor();
         $this->assertCount(48, $this->cupEntries());
 
+        $round1Before = CompetitionEntry::where('game_id', $this->game->id)
+            ->where('competition_id', 'ESPCUP')
+            ->where('entry_round', 1)
+            ->count();
+        $this->assertSame(32, $round1Before, 'staggered entry puts 32 teams in round 1');
+
         // Simulate the 4-team supercup bump to the cup_entry_round.
+        $round1Ids = CompetitionEntry::where('game_id', $this->game->id)
+            ->where('competition_id', 'ESPCUP')
+            ->where('entry_round', 1)
+            ->limit(4)
+            ->pluck('team_id')
+            ->all();
         CompetitionEntry::where('game_id', $this->game->id)
             ->where('competition_id', 'ESPCUP')
-            ->whereIn('team_id', array_slice($this->cupEntries(), 0, 4))
+            ->whereIn('team_id', $round1Ids)
             ->update(['entry_round' => 4]);
 
         $round1 = CompetitionEntry::where('game_id', $this->game->id)
@@ -384,7 +399,7 @@ class DomesticCupQualificationTest extends TestCase
             ->where('entry_round', 1)
             ->count();
 
-        $this->assertSame(44, $round1);
+        $this->assertSame(28, $round1);
         $this->assertSame(0, $round1 % 2, 'round 1 must be even');
     }
 
@@ -414,11 +429,54 @@ class DomesticCupQualificationTest extends TestCase
             ->map(fn ($round) => (int) $round)
             ->all();
 
-        foreach ($this->teamsByCompetition['ESP1'] as $team) {
-            $this->assertSame(1, $rounds[$team->id], 'tier qualifiers join at round 1');
+        foreach ($this->teamsByCompetition['ESP1'] as $index => $team) {
+            // Staggered entry (Copa de la Reina format): the top 8 skip to
+            // the round of 16 (round 4), positions 9-14 enter at round 3,
+            // the 2 relegated teams start at round 1.
+            $expected = $index < 8 ? 4 : ($index < 14 ? 3 : 1);
+            $this->assertSame(
+                $expected,
+                $rounds[$team->id],
+                'ESP1 pos ' . ($index + 1) . ' enters at round ' . $expected,
+            );
         }
         $this->assertSame(1, $rounds[$earlyGhost->id]);
         $this->assertSame(2, $rounds[$lateGhost->id], 'a ghost keeps its seeded entry round');
+    }
+
+    public function test_entry_rounds_place_esp2_promoted_teams_at_round_3_skipping_reserves(): void
+    {
+        // Make the ESP2 champion a reserve of an ESP1 team — it can't be
+        // promoted, so the round-3 slots go to positions 2 and 3 (the top
+        // 2 non-reserve finishers). The reserve itself never qualifies.
+        $parent = $this->teamsByCompetition['ESP1'][0];
+        $this->teamsByCompetition['ESP2'][0]->update(['parent_team_id' => $parent->id]);
+
+        $this->runProcessor();
+
+        $rounds = CompetitionEntry::where('game_id', $this->game->id)
+            ->where('competition_id', 'ESPCUP')
+            ->pluck('entry_round', 'team_id')
+            ->map(fn ($round) => (int) $round)
+            ->all();
+
+        $esp2 = $this->teamsByCompetition['ESP2'];
+
+        $this->assertArrayNotHasKey($esp2[0]->id, $rounds, 'reserve champion does not qualify');
+
+        // Top 2 non-reserve (positions 2-3) enter at round 3.
+        $this->assertSame(3, $rounds[$esp2[1]->id], 'promoted ESP2 team enters at round 3');
+        $this->assertSame(3, $rounds[$esp2[2]->id], 'promoted ESP2 team enters at round 3');
+
+        // The rest of the top 8 (positions 4-9 after the reserve cascade)
+        // enter at round 1.
+        foreach (array_slice($esp2, 3, 6) as $team) {
+            $this->assertSame(
+                1,
+                $rounds[$team->id],
+                'non-promoted ESP2 qualifier enters at round 1',
+            );
+        }
     }
 
     // =========================================
@@ -540,6 +598,10 @@ class DomesticCupQualificationTest extends TestCase
 
     public function test_without_an_entry_rounds_rule_every_qualifier_enters_at_round_one(): void
     {
+        // The ESPCUP config now carries an entry_rounds rule; strip it for
+        // this test so it still describes the no-rule path.
+        config(['countries.ES.cup_qualification.ESPCUP.entry_rounds' => null]);
+
         $this->runProcessor();
 
         $this->assertSame(

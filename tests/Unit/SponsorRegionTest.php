@@ -140,6 +140,6 @@ class SponsorRegionTest extends TestCase
         $game = $this->gameForTeam('CD Getafe Femenino');
         $names = $this->drawNames($game, 'local');
 
-        $this->assertContains('Panadería familiar del barrio', $names);
+        $this->assertContains('Panadería Navarro', $names);
     }
 }

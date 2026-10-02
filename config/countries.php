@@ -122,8 +122,17 @@ return [
         // - top_per_group: top N teams in each competition at this tier
         //   (including siblings — ESP3A, ESP3B and ESP3C) qualify.
         //
-        // Copa de la Reina (48 clubs): 16 from Liga F + 8 from Primera
-        // Federación + 8 per Segunda Federación group (3 groups) = 48.
+        // Copa de la Reina (48 clubs, formato real RFEF):
+        // - 16 de Liga F (todas)
+        // - 8 de Primera Federación (top 8 no filiales; los filiales no
+        //   juegan la Copa, como en la realidad)
+        // - 8 por grupo de Segunda Federación (3 grupos) = 24
+        // Entrada escalonada (entry_rounds):
+        //   R1 (32): 2 descendidas de Liga F + 6 de Primera + 24 de Segunda
+        //   R2 (16): ganadoras de R1
+        //   R3 (16): ganadoras de R2 + 8 de Liga F (9ª-14ª + 2 ascendidas)
+        //   R4 octavos (16): ganadoras de R3 + 8 mejores de Liga F (1ª-8ª)
+        //   R5 cuartos, R6 semifinales (ida y vuelta), R7 final.
         'cup_qualification' => [
             'ESPCUP' => [
                 'auto_qualify_tiers' => [1],
@@ -136,6 +145,24 @@ return [
                 // round-robin from the top_per_group groups until the field
                 // reaches this number.
                 'target_size' => 48,
+                'entry_rounds' => [
+                    'leagues' => [
+                        'ESP1' => [
+                            'default' => 1,
+                            'by_position' => [
+                                ['positions' => [1, 2, 3, 4, 5, 6, 7, 8], 'round' => 4],
+                                ['positions' => [9, 10, 11, 12, 13, 14], 'round' => 3],
+                            ],
+                        ],
+                        'ESP2' => [
+                            'default' => 1,
+                            'by_position' => [
+                                // Las 2 ascendidas (top 2 no filiales) entran en R3.
+                                ['positions' => [1, 2], 'round' => 3, 'skip_reserves' => true],
+                            ],
+                        ],
+                    ],
+                ],
             ],
         ],
 
