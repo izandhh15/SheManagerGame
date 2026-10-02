@@ -19,7 +19,7 @@ if ($step === 'debug-spain') {
     $game = App\Models\Game::find($gameId);
     if (!$game) { echo "juego no encontrado\n"; exit; }
     echo "juego: {$game->id} | fecha: {$game->current_date} | advancing_at: ".($game->matchday_advancing_at ?? 'null')."\n";
-    echo "pending actions: ".App\Models\GameAction::where('game_id', $gameId)->whereNull('resolved_at')->count()."\n";
+    echo "pending actions: ".($game->hasPendingActions() ? 'SI' : 'no')."\n";
     register_shutdown_function(function () {
         $err = error_get_last();
         if ($err && in_array($err['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR])) {
