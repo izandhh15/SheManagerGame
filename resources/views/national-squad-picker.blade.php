@@ -38,6 +38,12 @@
                 'injured_label' => isset($injured[$p['player_id']])
                     ? __('game.squad_picker_injured_until', ['date' => \Carbon\Carbon::parse($injured[$p['player_id']])->format('d/m/Y')])
                     : null,
+                'season_apps' => $clubStats[$p['player_id']]['apps'] ?? null,
+                'season_goals' => $clubStats[$p['player_id']]['goals'] ?? null,
+                'season_assists' => $clubStats[$p['player_id']]['assists'] ?? null,
+                'has_real_club_stats' => isset($clubStats[$p['player_id']]),
+                'caps' => $nationalStats[$p['player_id']]['caps'] ?? null,
+                'nt_goals' => $nationalStats[$p['player_id']]['goals'] ?? null,
             ])->values();
             $groupLabels = [
                 'Goalkeeper' => __('squad.goalkeepers'),

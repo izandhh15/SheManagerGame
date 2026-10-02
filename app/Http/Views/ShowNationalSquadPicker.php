@@ -151,6 +151,28 @@ final class ShowNationalSquadPicker
             $window['start'] ?? $today,
         );
 
+        // Stats: club season stats (from the dual club game, never invented)
+        // and national-team caps/goals — only in update mode (existing game).
+        $clubStats = [];
+        $nationalStats = [];
+        if ($updateGame) {
+            $statsService = app(\App\Modules\NationalTeam\Services\NationalTeamStatsService::class);
+            $playerIds = $players->pluck('player_id')->all();
+            $clubStats = $statsService->clubStats($updateGame, $playerIds);
+
+            // Map national stats (keyed by game_player_id) to player_id.
+            $gpByPlayerId = \App\Models\GamePlayer::where('game_id', $updateGame->id)
+                ->whereIn('player_id', $playerIds)
+                ->pluck('id', 'player_id')
+                ->all();
+            $rawNational = $statsService->nationalStats($updateGame, $teamId);
+            foreach ($gpByPlayerId as $pid => $gpId) {
+                if (isset($rawNational[$gpId])) {
+                    $nationalStats[$pid] = $rawNational[$gpId];
+                }
+            }
+        }
+
         return view('national-squad-picker', [
             'team' => $team,
             'players' => $players,
@@ -159,6 +181,8 @@ final class ShowNationalSquadPicker
             'updateGame' => $updateGame,
             'injured' => $injured,
             'window' => $window,
+            'clubStats' => $clubStats,
+            'nationalStats' => $nationalStats,
         ]);
     }
 }

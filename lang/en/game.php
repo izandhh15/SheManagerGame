@@ -463,6 +463,8 @@ return [
     'squad_picker_no_results' => 'No players match the filters.',
     'squad_picker_goals_short' => 'g',
     'squad_picker_assists_short' => 'a',
+    'squad_picker_apps_short' => 'apps',
+    'squad_picker_caps_short' => 'caps',
     'mode_dual' => 'Dual career',
     'mode_dual_desc' => 'Manage a club and a national team at once: two linked saves.',
     'mode_affiliate' => 'Affiliate Career',
