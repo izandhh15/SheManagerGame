@@ -61,6 +61,7 @@ class ShowPreseasonSetup
             'acceptedForJs' => $acceptedForJs,
             'familyDerbyOpponent' => $familyDerbyOpponent,
             'tourDestinations' => $this->tourService->destinationOptions(),
+            'tourEligible' => $this->tourService->isEligible($game),
             'preseasonTour' => $game->preseason_tour,
             'preseasonTourName' => $game->preseason_tour
                 ? $this->tourService->destinationName($game->preseason_tour['destination'] ?? '')

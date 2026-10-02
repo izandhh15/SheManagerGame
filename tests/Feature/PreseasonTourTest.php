@@ -46,7 +46,7 @@ class PreseasonTourTest extends TestCase
 
         ClubProfile::create([
             'team_id' => $this->playerTeam->id,
-            'reputation_level' => ClubProfile::REPUTATION_ESTABLISHED,
+            'reputation_level' => ClubProfile::REPUTATION_ELITE,
         ]);
 
         Competition::factory()->league()->create(['id' => 'ESP1', 'country' => 'ES', 'tier' => 1]);
@@ -102,9 +102,43 @@ class PreseasonTourTest extends TestCase
         return $match;
     }
 
-    public function test_organize_tour_charges_cost_records_expense_and_awards_prestige(): void
+    public function test_tour_is_rejected_for_non_elite_clubs(): void
     {
-        $result = app(PreseasonTourService::class)->organize($this->game, 'usa');
+        $service = app(PreseasonTourService::class);
+
+        // The fixture team is elite; a modest club must be refused.
+        $smallTeam = Team::factory()->create(['name' => 'Small Team', 'country' => 'ES']);
+        ClubProfile::create([
+            'team_id' => $smallTeam->id,
+            'reputation_level' => ClubProfile::REPUTATION_MODEST,
+        ]);
+
+        $smallGame = Game::factory()->create([
+            'user_id' => $this->user->id,
+            'team_id' => $smallTeam->id,
+            'competition_id' => 'ESP1',
+            'country' => 'ES',
+            'season' => '2026',
+            'current_date' => '2026-07-01',
+            'pre_season' => true,
+            'preseason_opponents_pending' => true,
+            'setup_completed_at' => now(),
+            'needs_new_season_setup' => false,
+            'needs_welcome' => false,
+        ]);
+
+        $this->assertFalse($service->isEligible($smallGame));
+        $this->assertTrue($service->isEligible($this->game));
+
+        $result = $service->organize($smallGame, 'usa');
+
+        $this->assertFalse($result['ok']);
+        $this->assertSame(__('game.preseason_tour_not_eligible'), $result['message']);
+        $this->assertNull($smallGame->fresh()->preseason_tour);
+    }
+
+    public function test_organize_tour_charges_cost_records_expense_and_awards_prestige(): void
+    {        $result = app(PreseasonTourService::class)->organize($this->game, 'usa');
 
         $this->assertTrue($result['ok']);
         $this->game->refresh();

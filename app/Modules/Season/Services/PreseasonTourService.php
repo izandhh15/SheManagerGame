@@ -40,6 +40,21 @@ class PreseasonTourService
     public const EXPENSE_CATEGORY = FinancialTransaction::CATEGORY_TOUR;
 
     /**
+     * Whether this club may organize a preseason tour.
+     *
+     * Tours are a big-club commercial product: only clubs with an ELITE
+     * base reputation (FC Barcelona, Real Madrid, OL Lyonnes, PSG, Arsenal,
+     * Chelsea, Bayern, Wolfsburg...) get tour offers. Everyone else simply
+     * doesn't see the option.
+     */
+    public function isEligible(Game $game): bool
+    {
+        return ClubProfile::where('team_id', $game->team_id)
+            ->where('reputation_level', ClubProfile::REPUTATION_ELITE)
+            ->exists();
+    }
+
+    /**
      * Organize the tour: charge the cost, add prestige points and persist
      * the tour config on the game.
      *
@@ -51,6 +66,10 @@ class PreseasonTourService
 
         if ($game->isTournamentMode() || ! $game->needsPreseasonOpponentSelection()) {
             return ['ok' => false, 'message' => __('game.preseason_tour_not_available')];
+        }
+
+        if (! $this->isEligible($game)) {
+            return ['ok' => false, 'message' => __('game.preseason_tour_not_eligible')];
         }
 
         if (! isset(self::DESTINATIONS[$key])) {

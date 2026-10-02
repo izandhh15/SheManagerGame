@@ -7,6 +7,7 @@
 /** @var array $acceptedForJs */
 /** @var \App\Models\Team|null $familyDerbyOpponent */
 /** @var array $tourDestinations */
+/** @var bool $tourEligible */
 /** @var array|null $preseasonTour */
 /** @var string|null $preseasonTourName */
 /** @var int $tourBudgetEuros */
@@ -47,6 +48,8 @@ $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
                     </p>
                 </div>
             @else
+                {{-- Tours are an elite-club product: hidden for everyone else --}}
+                @if($tourEligible)
                 <div class="mb-8 bg-surface-800 border border-border-default rounded-xl p-4 md:p-5">
                     <h2 class="text-lg font-bold text-text-primary mb-1">{{ __('game.preseason_tour_title') }}</h2>
                     <p class="text-sm text-text-secondary mb-4">{{ __('game.preseason_tour_subtitle') }}</p>
@@ -83,6 +86,7 @@ $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
                         </div>
                     </form>
                 </div>
+                @endif
             @endif
 
             {{-- Automatic 5th friendly: the club's family derby, scheduled on confirm --}}

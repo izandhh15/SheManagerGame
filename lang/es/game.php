@@ -761,6 +761,7 @@ return [
     'preseason_tour_invalid_destination' => 'Ese destino no está en el mapa de giras.',
     'preseason_tour_no_budget' => 'No tienes presupuesto suficiente para pagar la gira.',
     'preseason_tour_not_available' => 'La gira solo se puede organizar antes de confirmar la pretemporada.',
+    'preseason_tour_not_eligible' => 'Las giras de pretemporada solo están al alcance de los grandes clubes de élite mundial.',
     'preseason_tour_expense_desc' => 'Gira de pretemporada: :destination',
     'preseason_tour_budget_label' => 'Tu presupuesto: :budget €',
     'friendly_submit' => 'Programar amistoso',
