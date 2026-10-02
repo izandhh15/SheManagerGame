@@ -19,19 +19,20 @@ use Illuminate\Support\Facades\DB;
  * club to play a home match at a men's stadium (e.g. Valencia Femenino
  * asking to play at Mestalla, or renting La Cartuja from the city council).
  *
- * NEW MODEL (01-10-2026): the men's club names the price — each club sets
- * its own per-match rental fee in data/mens_stadiums.json (Mestalla costs
- * more than the Ciutat de València, La Cartuja belongs to the Sevilla city
- * council and anyone can rent it). The women's club either pays it or
- * walks away:
+ * RESTRICTED MODEL (02-10-2026): each women's club can ONLY rent its
+ * own men's team's ground ("la casa del equipo masculino") — the rest of
+ * the catalogue is off-limits. Clubs WITHOUT a mapped men's team (e.g.
+ * Madrid CFF) keep the old behaviour: rent any stadium from the
+ * catalogue, paying full price.
+ *
+ * Pricing (unchanged):
  *  - Affiliated club (same entity, womens_team link): "precio de la casa"
  *    (50% of the listed price). On huge nights (importance >= 80) the
  *    house invites: free.
  *  - Any other men's ground or municipal stadium: full listed price.
  *
- * Clubs WITHOUT a linked men's team (e.g. FC Badalona Women, who play at
- * Palamós's ground without being the same entity) can rent any stadium
- * from the catalogue — they just pay the full price.
+ * Clubs WITHOUT a mapped men's team (e.g. Madrid CFF, a women's-only
+ * club) keep the full catalogue — they just pay the full price everywhere.
  *
  * The men's club (AI) still evaluates the match importance (0-100) and may
  * refuse outright for low-profile games:
@@ -91,6 +92,11 @@ class MensStadiumRequestService
      * Full rental catalogue: every men's/municipal ground that can be
      * rented, affiliated first (user's own), then the rest by club.
      *
+     * 02-10-2026: restricted to the affiliated men's ground — if the
+     * women's team has a mapped men's stadium, it is the ONLY one they
+     * can rent ("la casa del equipo masculino"). Clubs without a mapping
+     * keep the old behaviour (full catalogue).
+     *
      * @return list<array>
      */
     public function rentalCatalogue(string $womensTeamName): array
@@ -98,13 +104,46 @@ class MensStadiumRequestService
         $this->loadStadiums();
 
         $mine = $this->affiliatedMap[$womensTeamName] ?? null;
-        $rest = collect($this->stadiumsByName)
-            ->reject(fn (array $s) => $mine !== null && $s['key'] === $mine['key'])
+
+        if ($mine !== null) {
+            return [$mine];
+        }
+
+        return collect($this->stadiumsByName)
             ->sortBy(fn (array $s) => ($s['club'] ?? $s['owner'] ?? $s['stadium']))
             ->values()
             ->all();
+    }
 
-        return $mine !== null ? [$mine, ...$rest] : $rest;
+    /**
+     * Can this women's team rent the stadium with this key? A mapped team
+     * can only ever rent its own affiliated ground; an unmapped team can
+     * rent anything (fallback behaviour).
+     */
+    public function isRentableBy(string $womensTeamName, string $stadiumKey): bool
+    {
+        $this->loadStadiums();
+
+        $mine = $this->affiliatedMap[$womensTeamName] ?? null;
+
+        return $mine === null || $mine['key'] === $stadiumKey;
+    }
+
+    /**
+     * Same-entity check: the stadium belongs to this women's team,
+     * including aliases (first team + B/C teams share the ground).
+     */
+    public function isAffiliated(array $stadium, string $womensTeamName): bool
+    {
+        if ($womensTeamName === '') {
+            return false;
+        }
+
+        if (($stadium['womens_team'] ?? null) === $womensTeamName) {
+            return true;
+        }
+
+        return in_array($womensTeamName, $stadium['womens_teams'] ?? [], true);
     }
 
     public function stadiumByKey(string $key): ?array
@@ -176,8 +215,7 @@ class MensStadiumRequestService
     public function quoteForMatch(GameMatch $match, Game $game, array $stadium): array
     {
         $teamName = $game->team?->name ?? '';
-        $affiliated = ($stadium['womens_team'] ?? null) === $teamName
-            && $teamName !== '';
+        $affiliated = $this->isAffiliated($stadium, $teamName);
 
         $base = [
             'eligible' => true,
@@ -453,8 +491,13 @@ class MensStadiumRequestService
             // key is stadium|owner so each priced entry stays reachable.
             $row['key'] = $row['stadium'] . '|' . ($row['club'] ?? $row['owner'] ?? '');
             $this->stadiumsByName[$row['key']] = $row;
-            if (! empty($row['womens_team'])) {
-                $this->affiliatedMap[$row['womens_team']] = $row;
+            // A men's ground can serve several of the entity's women's
+            // teams: the primary womens_team plus any womens_teams aliases
+            // (first team + B/C squads share the ground).
+            foreach ([$row['womens_team'] ?? null, ...($row['womens_teams'] ?? [])] as $alias) {
+                if (! empty($alias)) {
+                    $this->affiliatedMap[$alias] = $row;
+                }
             }
         }
     }

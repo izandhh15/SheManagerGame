@@ -81,16 +81,21 @@
                 {{-- Capacity upgrades (gradas supletorias + rebuild) --}}
                 @include('club.partials.stadium-upgrades')
 
-                {{-- Men's stadium rental — each owner names their price.
-                     Affiliated club: "precio de la casa". Municipal grounds
-                     (La Cartuja...) rentable by anyone. --}}
+                {{-- Men's stadium rental — restricted to the affiliated
+                     men's ground ("la casa del equipo masculino") when the
+                     team has one mapped; only unmapped clubs see the full
+                     catalogue. --}}
                 @if($nextHomeMatch && !empty($mensRentalCatalogue))
                 <div class="bg-surface-800 border border-border-default rounded-xl p-5">
                     <h4 class="font-heading text-lg font-bold uppercase text-text-primary mb-2">
                         {{ __('game.mens_stadium_rent_title') }}
                     </h4>
                     <p class="text-sm text-text-muted mb-4">
-                        {{ __('game.mens_stadium_rent_desc') }}
+                        @if($mensStadiumRestricted)
+                            {{ __('game.mens_stadium_rent_desc_casa', ['stadium' => $mensRentalCatalogue[0]['stadium']]) }}
+                        @else
+                            {{ __('game.mens_stadium_rent_desc') }}
+                        @endif
                     </p>
 
                     {{-- Pending quote: the owner named their price --}}
@@ -130,15 +135,25 @@
                     <form method="POST" action="{{ route('game.club.stadium.mens-stadium.request', ['gameId' => $game->id]) }}" class="flex flex-col sm:flex-row gap-2">
                         @csrf
                         <input type="hidden" name="match_id" value="{{ $nextHomeMatch->id }}">
-                        <select name="stadium" required
-                                class="flex-1 rounded-lg border border-border-default bg-surface-900 px-3 py-2 text-sm text-text-body focus:outline-none focus:ring-2 focus:ring-accent-blue/50">
-                            @foreach($mensRentalCatalogue as $entry)
-                                <option value="{{ $entry['key'] }}">
-                                    {{ $entry['stadium'] }} — {{ $entry['club'] ?? $entry['owner'] }} ({{ number_format($entry['capacity'], 0, ',', '.') }}) · {{ number_format($entry['rental_price'], 0, ',', '.') }} €
-                                    @if(($entry['womens_team'] ?? '') === ($game->team?->name ?? '') && ($game->team?->name ?? '') !== '')— {{ __('game.mens_stadium_affiliated_badge') }}@elseif(empty($entry['club']))— {{ __('game.mens_stadium_municipal_badge') }}@endif
-                                </option>
-                            @endforeach
-                        </select>
+                        @if($mensStadiumRestricted)
+                            {{-- Only one ground is rentable: show it fixed,
+                                 no catalogue to pick from. --}}
+                            @php $entry = $mensRentalCatalogue[0]; @endphp
+                            <input type="hidden" name="stadium" value="{{ $entry['key'] }}">
+                            <div class="flex-1 rounded-lg border border-accent-gold/40 bg-accent-gold/5 px-3 py-2 text-sm text-text-body">
+                                🏠 {{ $entry['stadium'] }} — {{ $entry['club'] ?? $entry['owner'] }} ({{ number_format($entry['capacity'], 0, ',', '.') }}) · {{ number_format($entry['rental_price'], 0, ',', '.') }} € — {{ __('game.mens_stadium_affiliated_badge') }}
+                            </div>
+                        @else
+                            <select name="stadium" required
+                                    class="flex-1 rounded-lg border border-border-default bg-surface-900 px-3 py-2 text-sm text-text-body focus:outline-none focus:ring-2 focus:ring-accent-blue/50">
+                                @foreach($mensRentalCatalogue as $entry)
+                                    <option value="{{ $entry['key'] }}">
+                                        {{ $entry['stadium'] }} — {{ $entry['club'] ?? $entry['owner'] }} ({{ number_format($entry['capacity'], 0, ',', '.') }}) · {{ number_format($entry['rental_price'], 0, ',', '.') }} €
+                                        @if(empty($entry['club']))— {{ __('game.mens_stadium_municipal_badge') }}@endif
+                                    </option>
+                                @endforeach
+                            </select>
+                        @endif
                         <button type="submit" class="px-4 py-2 bg-accent-600 hover:bg-accent-500 text-white font-semibold rounded-lg text-sm whitespace-nowrap">
                             {{ __('game.mens_stadium_ask_price') }}
                         </button>

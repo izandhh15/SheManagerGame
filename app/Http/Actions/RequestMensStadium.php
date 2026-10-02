@@ -43,12 +43,26 @@ class RequestMensStadium
                 ->with('error', __('game.mens_stadium_not_available'));
         }
 
+        $teamName = $game->team?->name ?? '';
+
+        // Restricted rental: a club with a mapped men's stadium can only
+        // ever rent that one ground. The UI shows a single option, but a
+        // crafted POST could name any catalogue key — reject it here.
+        if (! $this->mensStadiumService->isRentableBy($teamName, $stadium['key'])) {
+            $mine = $this->mensStadiumService->mensStadiumFor($teamName);
+
+            return redirect()->route('game.club.stadium', ['gameId' => $gameId])
+                ->with('error', __('game.mens_stadium_not_yours', [
+                    'stadium' => $stadium['stadium'],
+                    'mine' => $mine['stadium'] ?? '',
+                ]));
+        }
+
         if ($match->neutral_venue_name !== null) {
             return redirect()->route('game.club.stadium', ['gameId' => $gameId])
                 ->with('error', __('game.mens_stadium_already_set'));
         }
 
-        $teamName = $game->team?->name ?? '';
         $quote = $this->mensStadiumService->quoteForMatch($match, $game, $stadium);
 
         if (! $quote['eligible'] || ! $quote['accepted']) {
@@ -80,7 +94,7 @@ class RequestMensStadium
     private function rejectionMessage(array $quote, array $stadium, string $teamName): string
     {
         $reason = $quote['reasons'][0] ?? 'generic';
-        $affiliated = ($stadium['womens_team'] ?? '') === $teamName && $teamName !== '';
+        $affiliated = $this->mensStadiumService->isAffiliated($stadium, $teamName);
         $params = [
             'stadium' => $stadium['stadium'],
             'owner' => $stadium['owner'] ?? $stadium['club'] ?? $stadium['stadium'],
