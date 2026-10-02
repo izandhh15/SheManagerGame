@@ -61,4 +61,20 @@ return [
     'cup_title' => 'Taça',
     'european_title' => 'Europa',
     'supercup_title' => 'Supertaça',
+
+    // Trophy sections
+    'trophy_section_leagues_title' => '🏆 Ligas',
+    'trophy_section_leagues_subtitle' => 'Onde nascem as lendas',
+    'trophy_section_cups_title' => '🏅 Taças',
+    'trophy_section_cups_subtitle' => 'Tudo ou nada',
+    'trophy_section_supercups_title' => '⚡ Supertaças',
+    'trophy_section_supercups_subtitle' => 'O primeiro golpe da época',
+    'trophy_section_international_title' => '🌍 Internacionais',
+    'trophy_section_international_subtitle' => 'A conquistar o continente',
+    'trophy_section_preseason_title' => '☀️ Torneios de pré-época',
+    'trophy_section_preseason_subtitle' => 'A aquecer com estilo',
+    'trophy_section_other_title' => '🎖️ Outros troféus',
+    'trophy_section_other_subtitle' => 'A vitrine das raridades',
+    'friendly_trophy_unnamed' => 'Troféu de pré-época',
+    'unknown_trophy' => 'Troféu desconhecido',
 ];

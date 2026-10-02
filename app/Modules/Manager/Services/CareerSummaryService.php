@@ -75,10 +75,13 @@ class CareerSummaryService
 
         $grouped = [];
         foreach ($trophies as $trophy) {
-            $key = $trophy->competition_id;
+            // Friendly (preseason) trophies have no competition_id: group them
+            // by their custom trophy name so each named trophy shows up on
+            // its own with that name instead of a blank label.
+            $key = $trophy->competition_id ?? 'friendly:'.$trophy->custom_name;
             $grouped[$key] ??= [
                 'competition_id' => $trophy->competition_id,
-                'competition_name' => $trophy->competition?->name ?? $trophy->competition_id,
+                'competition_name' => $trophy->competition?->name ?? $trophy->custom_name ?? $trophy->competition_id,
                 'trophy_type' => $trophy->trophy_type,
                 'count' => 0,
                 'seasons' => [],

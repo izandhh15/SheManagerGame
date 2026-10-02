@@ -61,4 +61,20 @@ return [
     'cup_title' => 'Copa',
     'european_title' => 'Europa',
     'supercup_title' => 'Supercopa',
+
+    // Trophy sections
+    'trophy_section_leagues_title' => '🏆 Ligas',
+    'trophy_section_leagues_subtitle' => 'Donde se forjan las leyendas',
+    'trophy_section_cups_title' => '🏅 Copas',
+    'trophy_section_cups_subtitle' => 'A vida o muerte',
+    'trophy_section_supercups_title' => '⚡ Supercopas',
+    'trophy_section_supercups_subtitle' => 'El primer zarpazo del curso',
+    'trophy_section_international_title' => '🌍 Internacionales',
+    'trophy_section_international_subtitle' => 'Conquistando el continente',
+    'trophy_section_preseason_title' => '☀️ Torneos de pretemporada',
+    'trophy_section_preseason_subtitle' => 'Calentando motores con estilo',
+    'trophy_section_other_title' => '🎖️ Otros trofeos',
+    'trophy_section_other_subtitle' => 'La vitrina de las rarezas',
+    'friendly_trophy_unnamed' => 'Trofeo de pretemporada',
+    'unknown_trophy' => 'Trofeo desconocido',
 ];

@@ -5,11 +5,13 @@ namespace App\Http\Views;
 use App\Models\Game;
 use App\Models\User;
 use App\Modules\Manager\Services\ManagerProfileService;
+use App\Modules\Manager\Services\TrophySectionService;
 
 class ShowManagerProfile
 {
     public function __construct(
         private ManagerProfileService $profileService,
+        private TrophySectionService $sectionService,
     ) {}
 
     public function __invoke(string $username)
@@ -24,9 +26,12 @@ class ShowManagerProfile
 
         $user->setRelation('games', $games);
 
+        $trophies = $this->profileService->getTrophies($user);
+
         return view('profile.show', [
             'user' => $user,
-            'trophies' => $this->profileService->getTrophies($user),
+            'trophies' => $trophies,
+            'trophySections' => $this->sectionService->groupTrophies($trophies),
             'careerStats' => $this->profileService->getCareerStats($user),
         ]);
     }

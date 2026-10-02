@@ -61,4 +61,20 @@ return [
     'cup_title' => 'Pokal',
     'european_title' => 'Europa',
     'supercup_title' => 'Supercup',
+
+    // Trophy sections
+    'trophy_section_leagues_title' => '🏆 Ligen',
+    'trophy_section_leagues_subtitle' => 'Wo Legenden geschmiedet werden',
+    'trophy_section_cups_title' => '🏅 Pokale',
+    'trophy_section_cups_subtitle' => 'Alles oder nichts',
+    'trophy_section_supercups_title' => '⚡ Supercups',
+    'trophy_section_supercups_subtitle' => 'Der erste Streich der Saison',
+    'trophy_section_international_title' => '🌍 International',
+    'trophy_section_international_subtitle' => 'Den Kontinent erobern',
+    'trophy_section_preseason_title' => '☀️ Vorbereitungsturniere',
+    'trophy_section_preseason_subtitle' => 'Stilvoll warm werden',
+    'trophy_section_other_title' => '🎖️ Sonstige Trophäen',
+    'trophy_section_other_subtitle' => 'Die Kuriositäten-Vitrine',
+    'friendly_trophy_unnamed' => 'Vorbereitungstrophäe',
+    'unknown_trophy' => 'Unbekannte Trophäe',
 ];

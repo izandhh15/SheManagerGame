@@ -61,4 +61,20 @@ return [
     'cup_title' => 'Coupe',
     'european_title' => 'Europe',
     'supercup_title' => 'Supercoupe',
+
+    // Trophy sections
+    'trophy_section_leagues_title' => '🏆 Championnats',
+    'trophy_section_leagues_subtitle' => 'Là où naissent les légendes',
+    'trophy_section_cups_title' => '🏅 Coupes',
+    'trophy_section_cups_subtitle' => 'Quitte ou double',
+    'trophy_section_supercups_title' => '⚡ Supercoupes',
+    'trophy_section_supercups_subtitle' => 'Le premier coup de la saison',
+    'trophy_section_international_title' => '🌍 International',
+    'trophy_section_international_subtitle' => 'À la conquête du continent',
+    'trophy_section_preseason_title' => '☀️ Tournois de pré-saison',
+    'trophy_section_preseason_subtitle' => "S'échauffer avec style",
+    'trophy_section_other_title' => '🎖️ Autres trophées',
+    'trophy_section_other_subtitle' => 'La vitrine des curiosités',
+    'friendly_trophy_unnamed' => 'Trophée de pré-saison',
+    'unknown_trophy' => 'Trophée inconnu',
 ];

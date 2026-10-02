@@ -61,4 +61,20 @@ return [
     'cup_title' => 'Cup',
     'european_title' => 'European',
     'supercup_title' => 'Supercup',
+
+    // Trophy sections
+    'trophy_section_leagues_title' => '🏆 Leagues',
+    'trophy_section_leagues_subtitle' => 'Where legends are made',
+    'trophy_section_cups_title' => '🏅 Cups',
+    'trophy_section_cups_subtitle' => 'Do or die',
+    'trophy_section_supercups_title' => '⚡ Supercups',
+    'trophy_section_supercups_subtitle' => 'The first strike of the season',
+    'trophy_section_international_title' => '🌍 International',
+    'trophy_section_international_subtitle' => 'Conquering the continent',
+    'trophy_section_preseason_title' => '☀️ Preseason tournaments',
+    'trophy_section_preseason_subtitle' => 'Warming up in style',
+    'trophy_section_other_title' => '🎖️ Other trophies',
+    'trophy_section_other_subtitle' => 'The cabinet of curiosities',
+    'friendly_trophy_unnamed' => 'Preseason trophy',
+    'unknown_trophy' => 'Unknown trophy',
 ];

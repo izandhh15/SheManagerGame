@@ -63,7 +63,7 @@
                 </x-section-card>
             @endif
 
-            {{-- Trophy Room --}}
+            {{-- Trophy Room: trophies grouped into playful sections --}}
             @if($trophies->isNotEmpty())
                 <x-section-card :title="__('profile.trophy_room')">
                     <x-slot:badge>
@@ -72,38 +72,48 @@
                         </span>
                     </x-slot:badge>
 
-                    <div class="divide-y divide-border-default">
-                        @foreach($trophies as $trophy)
-                            @php
-                                $typeConfig = match($trophy->trophy_type) {
-                                    'league' => ['label' => __('profile.league_title'), 'color' => 'text-accent-gold', 'bg' => 'bg-accent-gold/15'],
-                                    'cup' => ['label' => __('profile.cup_title'), 'color' => 'text-accent-blue', 'bg' => 'bg-accent-blue/15'],
-                                    'european' => ['label' => __('profile.european_title'), 'color' => 'text-accent-green', 'bg' => 'bg-accent-green/15'],
-                                    'supercup' => ['label' => __('profile.supercup_title'), 'color' => 'text-accent-orange', 'bg' => 'bg-accent-orange/15'],
-                                    default => ['label' => $trophy->trophy_type, 'color' => 'text-text-muted', 'bg' => 'bg-surface-700'],
-                                };
-                            @endphp
-                            <div class="px-5 py-3 flex items-center gap-3">
-                                {{-- Trophy icon --}}
-                                <div class="w-8 h-8 rounded-lg {{ $typeConfig['bg'] }} flex items-center justify-center shrink-0">
-                                    <svg class="w-4 h-4 {{ $typeConfig['color'] }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M5.166 2.621v.858c-1.035.148-2.059.33-3.071.543a.75.75 0 0 0-.584.859 6.753 6.753 0 0 0 6.138 5.6 6.73 6.73 0 0 0 2.743 1.346A6.707 6.707 0 0 1 9.279 15H8.54c-1.036 0-1.875.84-1.875 1.875V19.5h-.75a.75.75 0 0 0 0 1.5h12.17a.75.75 0 0 0 0-1.5h-.75v-2.625c0-1.036-.84-1.875-1.875-1.875h-.739a6.707 6.707 0 0 1-1.112-3.173 6.73 6.73 0 0 0 2.743-1.347 6.753 6.753 0 0 0 6.139-5.6.75.75 0 0 0-.585-.858 47.077 47.077 0 0 0-3.07-.543V2.62a.75.75 0 0 0-.658-.744 49.22 49.22 0 0 0-6.093-.377c-2.063 0-4.096.128-6.093.377a.75.75 0 0 0-.657.744Zm0 2.629c0 3.246 2.632 5.88 5.834 5.88 3.203 0 5.834-2.634 5.834-5.88V3.357a47.62 47.62 0 0 0-5.834-.357c-1.993 0-3.948.119-5.834.357v1.893Z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
+                    @foreach($trophySections as $section)
+                        @php
+                            $sectionConfig = match($section['key']) {
+                                'leagues' => ['color' => 'text-accent-gold', 'bg' => 'bg-accent-gold/15'],
+                                'cups' => ['color' => 'text-accent-blue', 'bg' => 'bg-accent-blue/15'],
+                                'supercups' => ['color' => 'text-accent-orange', 'bg' => 'bg-accent-orange/15'],
+                                'international' => ['color' => 'text-accent-green', 'bg' => 'bg-accent-green/15'],
+                                'preseason' => ['color' => 'text-accent-amber', 'bg' => 'bg-accent-amber/15'],
+                                default => ['color' => 'text-text-muted', 'bg' => 'bg-surface-700'],
+                            };
+                        @endphp
 
-                                {{-- Trophy details --}}
-                                <div class="min-w-0 flex-1">
-                                    <p class="text-sm font-medium text-text-primary truncate">{{ __($trophy->competition->name) }}</p>
-                                    <p class="text-xs text-text-muted truncate">{{ $trophy->team->name }} · {{ $trophy->season }}</p>
-                                </div>
-
-                                {{-- Type badge --}}
-                                <span class="text-[10px] font-semibold uppercase tracking-wider {{ $typeConfig['color'] }} {{ $typeConfig['bg'] }} px-2 py-0.5 rounded-full shrink-0">
-                                    {{ $typeConfig['label'] }}
-                                </span>
+                        {{-- Section header --}}
+                        <div class="px-5 pt-4 pb-2 flex items-center justify-between gap-3">
+                            <div class="min-w-0">
+                                <h4 class="font-heading text-sm font-bold text-text-primary">{{ $section['title'] }}</h4>
+                                <p class="text-xs text-text-muted italic">{{ $section['subtitle'] }}</p>
                             </div>
-                        @endforeach
-                    </div>
+                            <span class="text-[10px] font-semibold {{ $sectionConfig['color'] }} {{ $sectionConfig['bg'] }} px-2 py-0.5 rounded-full shrink-0">
+                                {{ $section['count'] }}
+                            </span>
+                        </div>
+
+                        <div class="divide-y divide-border-default">
+                            @foreach($section['trophies'] as $trophy)
+                                <div class="px-5 py-3 flex items-center gap-3">
+                                    {{-- Trophy icon --}}
+                                    <div class="w-8 h-8 rounded-lg {{ $sectionConfig['bg'] }} flex items-center justify-center shrink-0">
+                                        <svg class="w-4 h-4 {{ $sectionConfig['color'] }}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M5.166 2.621v.858c-1.035.148-2.059.33-3.071.543a.75.75 0 0 0-.584.859 6.753 6.753 0 0 0 6.138 5.6 6.73 6.73 0 0 0 2.743 1.346A6.707 6.707 0 0 1 9.279 15H8.54c-1.036 0-1.875.84-1.875 1.875V19.5h-.75a.75.75 0 0 0 0 1.5h12.17a.75.75 0 0 0 0-1.5h-.75v-2.625c0-1.036-.84-1.875-1.875-1.875h-.739a6.707 6.707 0 0 1-1.112-3.173 6.73 6.73 0 0 0 2.743-1.347 6.753 6.753 0 0 0 6.139-5.6.75.75 0 0 0-.585-.858 47.077 47.077 0 0 0-3.07-.543V2.62a.75.75 0 0 0-.658-.744 49.22 49.22 0 0 0-6.093-.377c-2.063 0-4.096.128-6.093.377a.75.75 0 0 0-.657.744Zm0 2.629c0 3.246 2.632 5.88 5.834 5.88 3.203 0 5.834-2.634 5.834-5.88V3.357a47.62 47.62 0 0 0-5.834-.357c-1.993 0-3.948.119-5.834.357v1.893Z" clip-rule="evenodd" />
+                                        </svg>
+                                    </div>
+
+                                    {{-- Trophy details --}}
+                                    <div class="min-w-0 flex-1">
+                                        <p class="text-sm font-medium text-text-primary truncate">{{ $trophy['name'] }}</p>
+                                        <p class="text-xs text-text-muted truncate">{{ $trophy['team'] }} · {{ $trophy['season'] }}</p>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    @endforeach
                 </x-section-card>
             @endif
 
