@@ -180,18 +180,18 @@ return [
             ['name' => 'Air Europa',       'reach' => 'national', 'country' => 'ES', 'stadium' => 'Estadio Air Europa'],
             ['name' => 'Mercadona',        'reach' => 'national', 'country' => 'ES', 'stadium' => 'Estadio Mercadona'],
             ['name' => 'El Corte Inglés',  'reach' => 'national', 'country' => 'ES', 'stadium' => 'Estadio El Corte Inglés'],
-            ['name' => 'Banco Sabadell',   'reach' => 'regional', 'country' => 'ES', 'stadium' => 'Estadio Banco Sabadell'],
-            ['name' => 'Estrella Damm',    'reach' => 'regional', 'country' => 'ES', 'stadium' => 'Estadio Estrella Damm'],
-            ['name' => 'Mahou',            'reach' => 'regional', 'country' => 'ES', 'stadium' => 'Estadio Mahou'],
-            ['name' => 'Cruzcampo',        'reach' => 'regional', 'country' => 'ES', 'stadium' => 'Estadio Cruzcampo'],
-            ['name' => 'Estrella Galicia', 'reach' => 'regional', 'country' => 'ES', 'stadium' => 'Estadio Estrella Galicia'],
-            ['name' => 'Kutxabank',        'reach' => 'regional', 'country' => 'ES', 'stadium' => 'Estadio Kutxabank'],
-            ['name' => 'Ibercaja',         'reach' => 'regional', 'country' => 'ES', 'stadium' => 'Estadio Ibercaja'],
-            ['name' => 'Covirán',          'reach' => 'regional', 'country' => 'ES', 'stadium' => 'Estadio Covirán'],
-            ['name' => 'Calidad Pascual',  'reach' => 'regional', 'country' => 'ES', 'stadium' => 'Estadio Pascual'],
-            ['name' => 'Freixenet',        'reach' => 'regional', 'country' => 'ES', 'stadium' => 'Estadio Freixenet'],
-            ['name' => 'Pikolin',          'reach' => 'regional', 'country' => 'ES', 'stadium' => 'Estadio Pikolín'],
-            ['name' => 'Font Vella',       'reach' => 'regional', 'country' => 'ES', 'stadium' => 'Estadio Font Vella'],
+            ['name' => 'Banco Sabadell',   'reach' => 'regional', 'country' => 'ES', 'region' => 'catalunya',     'stadium' => 'Estadio Banco Sabadell'],
+            ['name' => 'Estrella Damm',    'reach' => 'regional', 'country' => 'ES', 'region' => 'catalunya',     'stadium' => 'Estadio Estrella Damm'],
+            ['name' => 'Mahou',            'reach' => 'regional', 'country' => 'ES', 'region' => 'madrid',        'stadium' => 'Estadio Mahou'],
+            ['name' => 'Cruzcampo',        'reach' => 'regional', 'country' => 'ES', 'region' => 'andalucia',     'stadium' => 'Estadio Cruzcampo'],
+            ['name' => 'Estrella Galicia', 'reach' => 'regional', 'country' => 'ES', 'region' => 'galicia',       'stadium' => 'Estadio Estrella Galicia'],
+            ['name' => 'Kutxabank',        'reach' => 'regional', 'country' => 'ES', 'region' => 'pais-vasco',    'stadium' => 'Estadio Kutxabank'],
+            ['name' => 'Ibercaja',         'reach' => 'regional', 'country' => 'ES', 'region' => 'aragon',        'stadium' => 'Estadio Ibercaja'],
+            ['name' => 'Covirán',          'reach' => 'regional', 'country' => 'ES', 'region' => 'andalucia',     'stadium' => 'Estadio Covirán'],
+            ['name' => 'Calidad Pascual',  'reach' => 'regional', 'country' => 'ES', 'region' => 'castilla-leon', 'stadium' => 'Estadio Pascual'],
+            ['name' => 'Freixenet',        'reach' => 'regional', 'country' => 'ES', 'region' => 'catalunya',     'stadium' => 'Estadio Freixenet'],
+            ['name' => 'Pikolin',          'reach' => 'regional', 'country' => 'ES', 'region' => 'aragon',        'stadium' => 'Estadio Pikolín'],
+            ['name' => 'Font Vella',       'reach' => 'regional', 'country' => 'ES', 'region' => 'catalunya',     'stadium' => 'Estadio Font Vella'],
 
             // ── England (EN) — national & regional ───────────────────────
             ['name' => 'Legal & General',  'reach' => 'national', 'country' => 'EN', 'stadium' => 'Legal & General Stadium'],
@@ -404,14 +404,30 @@ return [
         // Local-tier brand pool (reach = local), per country. Real regional
         // institutions (universities) where known, plus generic descriptive
         // names for neighbourhood businesses — never invented fake brands.
-        // A non-global brand only sponsors clubs in its own country.
+        // A non-global brand only sponsors clubs in its own country; a brand
+        // with `region` only sponsors clubs in its own region (no "Universidad
+        // de Valladolid" on a Getafe shirt — Madrid clubs get Madrid brands).
         'local_sponsors' => [
             'ES' => [
-                ['name' => 'Universidad de Castilla-La Mancha', 'reach' => 'local', 'country' => 'ES'],
-                ['name' => 'Universidad de Oviedo',             'reach' => 'local', 'country' => 'ES'],
-                ['name' => 'Universidad de Zaragoza',           'reach' => 'local', 'country' => 'ES'],
-                ['name' => 'Universidad de Sevilla',            'reach' => 'local', 'country' => 'ES'],
-                ['name' => 'Universidad de Valladolid',         'reach' => 'local', 'country' => 'ES'],
+                ['name' => 'Universidad Complutense de Madrid',       'reach' => 'local', 'country' => 'ES', 'region' => 'madrid'],
+                ['name' => 'Universidad Carlos III de Madrid',        'reach' => 'local', 'country' => 'ES', 'region' => 'madrid'],
+                ['name' => 'Universitat de Barcelona',                'reach' => 'local', 'country' => 'ES', 'region' => 'catalunya'],
+                ['name' => 'Universitat de València',                 'reach' => 'local', 'country' => 'ES', 'region' => 'valencia'],
+                ['name' => 'Universidad del País Vasco',              'reach' => 'local', 'country' => 'ES', 'region' => 'pais-vasco'],
+                ['name' => 'Universidade de Santiago de Compostela',  'reach' => 'local', 'country' => 'ES', 'region' => 'galicia'],
+                ['name' => 'Universidad de Sevilla',                  'reach' => 'local', 'country' => 'ES', 'region' => 'andalucia'],
+                ['name' => 'Universidad de Granada',                  'reach' => 'local', 'country' => 'ES', 'region' => 'andalucia'],
+                ['name' => 'Universidad de Oviedo',                   'reach' => 'local', 'country' => 'ES', 'region' => 'asturias'],
+                ['name' => 'Universidad de Zaragoza',                 'reach' => 'local', 'country' => 'ES', 'region' => 'aragon'],
+                ['name' => 'Universidad de Valladolid',               'reach' => 'local', 'country' => 'ES', 'region' => 'castilla-leon'],
+                ['name' => 'Universidad de Castilla-La Mancha',       'reach' => 'local', 'country' => 'ES', 'region' => 'castilla-la-mancha'],
+                ['name' => 'Universidad de La Laguna',               'reach' => 'local', 'country' => 'ES', 'region' => 'canarias'],
+                ['name' => 'Universidad de Murcia',                   'reach' => 'local', 'country' => 'ES', 'region' => 'murcia'],
+                ['name' => 'Universidad de Navarra',                  'reach' => 'local', 'country' => 'ES', 'region' => 'navarra'],
+                ['name' => 'Universidad de Extremadura',              'reach' => 'local', 'country' => 'ES', 'region' => 'extremadura'],
+                ['name' => 'Universidad de Cantabria',                'reach' => 'local', 'country' => 'ES', 'region' => 'cantabria'],
+                ['name' => 'Universitat de les Illes Balears',        'reach' => 'local', 'country' => 'ES', 'region' => 'baleares'],
+                ['name' => 'Universidad de La Rioja',                 'reach' => 'local', 'country' => 'ES', 'region' => 'la-rioja'],
                 ['name' => 'Quesería artesanal de la zona',     'reach' => 'local', 'country' => 'ES'],
                 ['name' => 'Panadería familiar del barrio',     'reach' => 'local', 'country' => 'ES'],
                 ['name' => 'Taller mecánico de confianza',       'reach' => 'local', 'country' => 'ES'],

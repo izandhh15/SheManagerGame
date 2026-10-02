@@ -120,16 +120,21 @@ class SponsorOfferFactory
     /**
      * The brand pool: the naming-rights sponsors (global/national/regional
      * reach) plus the local-tier pool (universities, neighbourhood shops).
-     * Two gates narrow it:
+     * Three gates narrow it:
      *   1. `reach` must bid for the sponsor tier (a global giant won't chase
      *      a bottom-tier shirt; the corner bakery won't bid for a leader's
      *      chest).
      *   2. a non-global brand only operates in its home market, so it can
      *      only sponsor a club in its own country; global brands sponsor
      *      anywhere.
+     *   3. a brand with a `region` only sponsors clubs from that region
+     *      (config/team_regions.php) — the Universidad de Valladolid can't
+     *      end up on a Getafe shirt; Madrid clubs get Madrid brands.
+     *      Region-less brands (the neighbourhood shops) stay universal, and
+     *      clubs without a mapped region keep the old country-level behaviour.
      * Null when no eligible brand is left.
      *
-     * @return array{name: string, reach: string, country?: string}|null
+     * @return array{name: string, reach: string, country?: string, region?: string}|null
      */
     private function pickAvailableSponsor(Game $game, int $season, string $slot, string $tier): ?array
     {
@@ -143,7 +148,8 @@ class SponsorOfferFactory
 
         $eligibleReaches = (array) config("commercial.sponsor_deals.tier_reach.{$tier}", []);
         $country = $game->country;
-        $pool = array_filter($pool, function (array $sponsor) use ($eligibleReaches, $country) {
+        $teamRegion = $this->teamRegion($game);
+        $pool = array_filter($pool, function (array $sponsor) use ($eligibleReaches, $country, $teamRegion) {
             $reach = $sponsor['reach'] ?? null;
 
             if (! empty($eligibleReaches) && ! in_array($reach, $eligibleReaches, true)) {
@@ -151,7 +157,17 @@ class SponsorOfferFactory
             }
 
             // Global brands are country-agnostic; everyone else is home-market only.
-            return $reach === 'global' || ($sponsor['country'] ?? null) === $country;
+            if ($reach !== 'global' && ($sponsor['country'] ?? null) !== $country) {
+                return false;
+            }
+
+            // Regional brands stay in their region — when we know the club's.
+            $sponsorRegion = $sponsor['region'] ?? null;
+            if ($sponsorRegion !== null && $teamRegion !== null && $sponsorRegion !== $teamRegion) {
+                return false;
+            }
+
+            return true;
         });
 
         // A brand can't bid twice for the same slot in the same season.
@@ -174,6 +190,25 @@ class SponsorOfferFactory
         }
 
         return $available[random_int(0, count($available) - 1)];
+    }
+
+    /**
+     * The club's region (autonomous community) from config/team_regions.php,
+     * keyed by exact team name. Null when the club isn't mapped — those
+     * clubs keep the old country-level behaviour.
+     */
+    private function teamRegion(Game $game): ?string
+    {
+        $teamName = $game->team?->name;
+        if ($teamName === null || $teamName === '') {
+            return null;
+        }
+
+        // Indexed directly (not via dot notation) so team names containing
+        // dots — e.g. "1. FC Köln" — don't break the lookup.
+        $regions = (array) config("team_regions.{$game->country}", []);
+
+        return $regions[$teamName] ?? null;
     }
 
     /**
