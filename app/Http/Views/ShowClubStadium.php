@@ -316,14 +316,12 @@ class ShowClubStadium
         // so the user can see how full the ground actually gets per preset.
         $seasonTicketNoShowRate = (float) config('stadium.season_ticket_noshow_rate', 0.05);
 
-        // Men's stadium rental: restricted to the affiliated men's ground
-        // ("la casa del equipo masculino") when the team has one mapped —
-        // no other ground from the catalogue is rentable. Clubs without a
-        // mapped men's team keep the full catalogue (fallback behaviour).
+        // Men's stadium rental: any ground in the user's own country
+        // (F3); some clubs refuse with excuses, teamless grounds are free
+        // and the rest are paid to the city council (F2).
         $teamName = $game->team?->name ?? '';
         $mensStadium = $this->mensStadiumService->mensStadiumFor($teamName);
-        $mensRentalCatalogue = $this->mensStadiumService->rentalCatalogue($teamName);
-        $mensStadiumRestricted = $mensStadium !== null;
+        $mensRentalCatalogue = $this->mensStadiumService->rentalCatalogue($teamName, $game->team?->country);
         $nextHomeMatch = null;
         if ($mensRentalCatalogue !== []) {
             $nextHomeMatch = GameMatch::where('game_id', $game->id)
@@ -351,7 +349,6 @@ class ShowClubStadium
             'seasonTicketNoShowRate' => $seasonTicketNoShowRate,
             'mensStadium' => $mensStadium,
             'mensRentalCatalogue' => $mensRentalCatalogue,
-            'mensStadiumRestricted' => $mensStadiumRestricted,
             'nextHomeMatch' => $nextHomeMatch,
             'pendingVenueRequests' => $pendingVenueRequests,
             ...$this->stadiumSummaryService->build($game),

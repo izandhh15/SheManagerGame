@@ -44,17 +44,14 @@ class RequestMensStadium
         }
 
         $teamName = $game->team?->name ?? '';
+        $userCountry = $game->team?->country;
 
-        // Restricted rental: a club with a mapped men's stadium can only
-        // ever rent that one ground. The UI shows a single option, but a
-        // crafted POST could name any catalogue key — reject it here.
-        if (! $this->mensStadiumService->isRentableBy($teamName, $stadium['key'])) {
-            $mine = $this->mensStadiumService->mensStadiumFor($teamName);
-
+        // F3: only grounds in the user's own country (except
+        // government-paid friendlies, which pass allowAbroad).
+        if (! $this->mensStadiumService->isRentableBy($teamName, $stadium['key'], $userCountry)) {
             return redirect()->route('game.club.stadium', ['gameId' => $gameId])
-                ->with('error', __('game.mens_stadium_not_yours', [
+                ->with('error', __('game.mens_stadium_not_in_country', [
                     'stadium' => $stadium['stadium'],
-                    'mine' => $mine['stadium'] ?? '',
                 ]));
         }
 
@@ -70,6 +67,11 @@ class RequestMensStadium
                 ->with('error', $this->rejectionMessage($quote, $stadium, $teamName));
         }
 
+        // F2: priced rentals are paid to the CITY COUNCIL, never the club.
+        $ownerLabel = $quote['price'] > 0
+            ? __('game.mens_stadium_council_label')
+            : ($stadium['owner'] ?? $stadium['club'] ?? $stadium['stadium']);
+
         $request->session()->put('mens_quote', [
             'match_id' => $match->id,
             'key' => $stadium['key'],
@@ -79,7 +81,7 @@ class RequestMensStadium
             'affiliated' => $quote['affiliated'],
             'casa_invita' => $quote['casa_invita'],
             'importance' => $quote['importance'],
-            'owner' => $stadium['owner'] ?? $stadium['club'],
+            'owner' => $ownerLabel,
             'opponent' => $match->awayTeam?->name ?? '',
         ]);
 

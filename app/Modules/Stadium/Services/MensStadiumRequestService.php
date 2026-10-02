@@ -89,44 +89,54 @@ class MensStadiumRequestService
     }
 
     /**
-     * Full rental catalogue: every men's/municipal ground that can be
-     * rented, affiliated first (user's own), then the rest by club.
+     * Full rental catalogue: every men's/municipal ground IN THE USER'S
+     * COUNTRY that can be rented, affiliated first (user's own), then the
+     * rest by club.
      *
-     * 02-10-2026: restricted to the affiliated men's ground — if the
-     * women's team has a mapped men's stadium, it is the ONLY one they
-     * can rent ("la casa del equipo masculino"). Clubs without a mapping
-     * keep the old behaviour (full catalogue).
+     * 02-10-2026 (0.3.9): the catalogue is open to any ground in the
+     * user's own country — but some clubs will refuse with excuses (see
+     * isClubDifficult). Only government-paid friendlies (F4) may use
+     * grounds abroad.
      *
      * @return list<array>
      */
-    public function rentalCatalogue(string $womensTeamName): array
+    public function rentalCatalogue(string $womensTeamName, ?string $userCountry = null): array
     {
         $this->loadStadiums();
 
         $mine = $this->affiliatedMap[$womensTeamName] ?? null;
 
+        $list = collect($this->stadiumsByName)
+            ->filter(fn (array $s) => $userCountry === null || ($s['country'] ?? null) === $userCountry);
+
         if ($mine !== null) {
-            return [$mine];
+            $list = $list->sortBy(fn (array $s) => $s['key'] === $mine['key'] ? 0 : 1);
+        } else {
+            $list = $list->sortBy(fn (array $s) => ($s['club'] ?? $s['owner'] ?? $s['stadium']));
         }
 
-        return collect($this->stadiumsByName)
-            ->sortBy(fn (array $s) => ($s['club'] ?? $s['owner'] ?? $s['stadium']))
-            ->values()
-            ->all();
+        return $list->values()->all();
     }
 
     /**
-     * Can this women's team rent the stadium with this key? A mapped team
-     * can only ever rent its own affiliated ground; an unmapped team can
-     * rent anything (fallback behaviour).
+     * Can this women's team rent the stadium with this key? Only grounds
+     * in the user's own country (F3); government-paid friendlies bypass
+     * this via $allowAbroad.
      */
-    public function isRentableBy(string $womensTeamName, string $stadiumKey): bool
+    public function isRentableBy(string $womensTeamName, string $stadiumKey, ?string $userCountry = null, bool $allowAbroad = false): bool
     {
         $this->loadStadiums();
 
-        $mine = $this->affiliatedMap[$womensTeamName] ?? null;
+        $stadium = $this->stadiumsByName[$stadiumKey] ?? null;
+        if ($stadium === null) {
+            return false;
+        }
 
-        return $mine === null || $mine['key'] === $stadiumKey;
+        if (! $allowAbroad && $userCountry !== null && ($stadium['country'] ?? null) !== $userCountry) {
+            return false;
+        }
+
+        return true;
     }
 
     /**
@@ -207,8 +217,39 @@ class MensStadiumRequestService
     }
 
     /**
+     * Deterministic per club+season: does this men's club refuse to lend
+     * its ground this season? ~30% of clubs are "difficult" — the rest
+     * always say yes. Stable within a season so the player can't spam
+     * the request until it flips.
+     */
+    public function isClubDifficult(string $club, string $season): bool
+    {
+        // PHP 32-bit safe: max 7 hex digits.
+        $roll = hexdec(substr(md5('difficult|'.$club.'|'.$season), 0, 7)) % 100;
+
+        return $roll < 30;
+    }
+
+    /**
+     * Deterministic excuse for a difficult club (same club+season always
+     * gives the same excuse).
+     */
+    public function deterministicExcuse(string $club, string $season): string
+    {
+        $excuses = [
+            'excuse_pitch', 'excuse_concert', 'excuse_works', 'excuse_derby', 'excuse_board',
+        ];
+        $idx = hexdec(substr(md5('excuse|'.$club.'|'.$season), 0, 7)) % count($excuses);
+
+        return $excuses[$idx];
+    }
+
+    /**
      * The owner names their price for this match. Returns the quote the
      * user sees before confirming (or the refusal).
+     *
+     * Pricing (0.3.9, Izan's rule): grounds WITHOUT a team are FREE; all
+     * others are paid to the CITY COUNCIL (not the club).
      *
      * @return array{eligible: bool, accepted: bool, importance: int, reasons: list<string>, price: int, affiliated: bool, casa_invita: bool, stadium: array}
      */
@@ -242,41 +283,30 @@ class MensStadiumRequestService
             return $base;
         }
 
-        // Municipal grounds (no men's club attached, e.g. La Cartuja): the
-        // city council rents to whoever pays — no importance evaluation.
+        // Teamless grounds (municipal, no club attached): FREE.
         if (($stadium['club'] ?? null) === null) {
             $base['accepted'] = true;
             $base['importance'] = 50;
-            $base['price'] = (int) ($stadium['rental_price'] ?? 0);
-            $base['reasons'][] = 'municipal';
-
-            return $base;
-        }
-
-        $result = $this->evaluate($match, $game);
-        $base['importance'] = $result['importance'];
-        $base['reasons'] = $result['reasons'];
-
-        if (! $result['accepted']) {
-            $base['reasons'][] = $this->randomExcuse();
-
-            return $base;
-        }
-
-        $base['accepted'] = true;
-        $listPrice = (int) ($stadium['rental_price'] ?? 0);
-
-        if ($affiliated && $result['importance'] >= self::CASA_INVITA_THRESHOLD) {
-            // Big night at home: the men's club invites.
             $base['price'] = 0;
-            $base['casa_invita'] = true;
-            $base['reasons'][] = 'casa_invita';
-        } elseif ($affiliated) {
-            $base['price'] = (int) round($listPrice * self::AFFILIATED_SHARE / 1000) * 1000;
-            $base['reasons'][] = 'precio_casa';
-        } else {
-            $base['price'] = $listPrice;
+            $base['reasons'][] = 'municipal_free';
+
+            return $base;
         }
+
+        // Some clubs just won't lend their ground this season: deterministic
+        // excuse (same club+season => same answer).
+        $season = (string) ($game->season ?? '');
+        if ($this->isClubDifficult($stadium['club'], $season)) {
+            $base['reasons'][] = $this->deterministicExcuse($stadium['club'], $season);
+
+            return $base;
+        }
+
+        // Everyone else rents — paid to the CITY COUNCIL, never to the club.
+        $base['accepted'] = true;
+        $base['importance'] = 60;
+        $base['price'] = (int) ($stadium['rental_price'] ?? 0);
+        $base['reasons'][] = 'council_paid';
 
         return $base;
     }

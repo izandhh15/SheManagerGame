@@ -91,11 +91,7 @@
                         {{ __('game.mens_stadium_rent_title') }}
                     </h4>
                     <p class="text-sm text-text-muted mb-4">
-                        @if($mensStadiumRestricted)
-                            {{ __('game.mens_stadium_rent_desc_casa', ['stadium' => $mensRentalCatalogue[0]['stadium']]) }}
-                        @else
-                            {{ __('game.mens_stadium_rent_desc') }}
-                        @endif
+                        {{ __('game.mens_stadium_rent_desc') }}
                     </p>
 
                     {{-- Pending quote: the owner named their price --}}
@@ -135,25 +131,15 @@
                     <form method="POST" action="{{ route('game.club.stadium.mens-stadium.request', ['gameId' => $game->id]) }}" class="flex flex-col sm:flex-row gap-2">
                         @csrf
                         <input type="hidden" name="match_id" value="{{ $nextHomeMatch->id }}">
-                        @if($mensStadiumRestricted)
-                            {{-- Only one ground is rentable: show it fixed,
-                                 no catalogue to pick from. --}}
-                            @php $entry = $mensRentalCatalogue[0]; @endphp
-                            <input type="hidden" name="stadium" value="{{ $entry['key'] }}">
-                            <div class="flex-1 rounded-lg border border-accent-gold/40 bg-accent-gold/5 px-3 py-2 text-sm text-text-body">
-                                🏠 {{ $entry['stadium'] }} — {{ $entry['club'] ?? $entry['owner'] }} ({{ number_format($entry['capacity'], 0, ',', '.') }}) · {{ number_format($entry['rental_price'], 0, ',', '.') }} € — {{ __('game.mens_stadium_affiliated_badge') }}
-                            </div>
-                        @else
-                            <select name="stadium" required
-                                    class="flex-1 rounded-lg border border-border-default bg-surface-900 px-3 py-2 text-sm text-text-body focus:outline-none focus:ring-2 focus:ring-accent-blue/50">
-                                @foreach($mensRentalCatalogue as $entry)
-                                    <option value="{{ $entry['key'] }}">
-                                        {{ $entry['stadium'] }} — {{ $entry['club'] ?? $entry['owner'] }} ({{ number_format($entry['capacity'], 0, ',', '.') }}) · {{ number_format($entry['rental_price'], 0, ',', '.') }} €
-                                        @if(empty($entry['club']))— {{ __('game.mens_stadium_municipal_badge') }}@endif
-                                    </option>
-                                @endforeach
-                            </select>
-                        @endif
+                        <select name="stadium" required
+                                class="flex-1 rounded-lg border border-border-default bg-surface-900 px-3 py-2 text-sm text-text-body focus:outline-none focus:ring-2 focus:ring-accent-blue/50">
+                            @foreach($mensRentalCatalogue as $entry)
+                                <option value="{{ $entry['key'] }}">
+                                    {{ $entry['stadium'] }} — {{ $entry['club'] ?? $entry['owner'] }} ({{ number_format($entry['capacity'], 0, ',', '.') }}) · {{ number_format($entry['rental_price'], 0, ',', '.') }} €
+                                    @if(empty($entry['club']))— {{ __('game.mens_stadium_municipal_badge') }}@endif
+                                </option>
+                            @endforeach
+                        </select>
                         <button type="submit" class="px-4 py-2 bg-accent-600 hover:bg-accent-500 text-white font-semibold rounded-lg text-sm whitespace-nowrap">
                             {{ __('game.mens_stadium_ask_price') }}
                         </button>

@@ -9,7 +9,8 @@
       "owner": "1. FC Köln",
       "womens_teams": [
         "1. FC Köln II"
-      ]
+      ],
+      "country": "Alemania"
     },
     {
       "capacity": 75923,
@@ -17,7 +18,8 @@
       "stadium": "San Siro",
       "womens_team": "AC Milan",
       "rental_price": 950000,
-      "owner": "AC Milan"
+      "owner": "AC Milan",
+      "country": "Italia"
     },
     {
       "capacity": 11386,
@@ -25,7 +27,8 @@
       "stadium": "Vitality Stadium",
       "womens_team": null,
       "owner": "AFC Bournemouth",
-      "rental_price": 110000
+      "rental_price": 110000,
+      "country": "Inglaterra"
     },
     {
       "capacity": 18523,
@@ -33,7 +36,8 @@
       "stadium": "Stade Louis II",
       "womens_team": null,
       "owner": "AS Monaco",
-      "rental_price": 185000
+      "rental_price": 185000,
+      "country": "Francia"
     },
     {
       "capacity": 68530,
@@ -41,7 +45,8 @@
       "stadium": "Stadio Olimpico",
       "womens_team": "AS Roma",
       "rental_price": 750000,
-      "owner": "AS Roma"
+      "owner": "AS Roma",
+      "country": "Italia"
     },
     {
       "capacity": 55865,
@@ -49,7 +54,8 @@
       "stadium": "Johan Cruijff Arena",
       "womens_team": "Ajax Amsterdam",
       "rental_price": 635000,
-      "owner": "Ajax"
+      "owner": "Ajax",
+      "country": "Países Bajos"
     },
     {
       "capacity": 60704,
@@ -57,7 +63,8 @@
       "stadium": "Emirates Stadium",
       "womens_team": "Arsenal FC",
       "rental_price": 745000,
-      "owner": "Arsenal"
+      "owner": "Arsenal",
+      "country": "Inglaterra"
     },
     {
       "capacity": 42657,
@@ -65,7 +72,8 @@
       "stadium": "Villa Park",
       "womens_team": "Aston Villa LFC",
       "rental_price": 490000,
-      "owner": "Aston Villa"
+      "owner": "Aston Villa",
+      "country": "Inglaterra"
     },
     {
       "capacity": 21747,
@@ -73,7 +81,8 @@
       "stadium": "Gewiss Stadium",
       "womens_team": null,
       "owner": "Atalanta",
-      "rental_price": 205000
+      "rental_price": 205000,
+      "country": "Italia"
     },
     {
       "capacity": 53331,
@@ -84,7 +93,8 @@
       "owner": "Athletic Club",
       "womens_teams": [
         "Athletic Club B"
-      ]
+      ],
+      "country": "España"
     },
     {
       "capacity": 70460,
@@ -95,7 +105,8 @@
       "owner": "Atlético de Madrid",
       "womens_teams": [
         "Atlético de Madrid B"
-      ]
+      ],
+      "country": "España"
     },
     {
       "capacity": 30210,
@@ -103,7 +114,8 @@
       "stadium": "BayArena",
       "womens_team": "Bayer 04 Leverkusen",
       "rental_price": 320000,
-      "owner": "Bayer Leverkusen"
+      "owner": "Bayer Leverkusen",
+      "country": "Alemania"
     },
     {
       "capacity": 75000,
@@ -111,7 +123,8 @@
       "stadium": "Allianz Arena",
       "womens_team": "Bayern München",
       "rental_price": 880000,
-      "owner": "Bayern München"
+      "owner": "Bayern München",
+      "country": "Alemania"
     },
     {
       "capacity": 36462,
@@ -119,7 +132,8 @@
       "stadium": "Renato Dall'Ara",
       "womens_team": null,
       "owner": "Bologna",
-      "rental_price": 425000
+      "rental_price": 425000,
+      "country": "Italia"
     },
     {
       "capacity": 81365,
@@ -127,7 +141,8 @@
       "stadium": "Signal Iduna Park",
       "womens_team": null,
       "owner": "Borussia Dortmund",
-      "rental_price": 815000
+      "rental_price": 815000,
+      "country": "Alemania"
     },
     {
       "capacity": 54057,
@@ -135,7 +150,8 @@
       "stadium": "Borussia-Park",
       "womens_team": null,
       "owner": "Borussia Mönchengladbach",
-      "rental_price": 615000
+      "rental_price": 615000,
+      "country": "Alemania"
     },
     {
       "capacity": 17250,
@@ -143,7 +159,8 @@
       "stadium": "Gtech Community Stadium",
       "womens_team": null,
       "owner": "Brentford",
-      "rental_price": 190000
+      "rental_price": 190000,
+      "country": "Inglaterra"
     },
     {
       "capacity": 31876,
@@ -151,7 +168,8 @@
       "stadium": "Amex Stadium",
       "womens_team": null,
       "owner": "Brighton & Hove Albion",
-      "rental_price": 415000
+      "rental_price": 415000,
+      "country": "Inglaterra"
     },
     {
       "capacity": 12000,
@@ -159,7 +177,8 @@
       "stadium": "El Plantío",
       "womens_team": null,
       "owner": "Burgos CF",
-      "rental_price": 110000
+      "rental_price": 110000,
+      "country": "España"
     },
     {
       "capacity": 21944,
@@ -167,7 +186,8 @@
       "stadium": "Turf Moor",
       "womens_team": null,
       "owner": "Burnley",
-      "rental_price": 205000
+      "rental_price": 205000,
+      "country": "Inglaterra"
     },
     {
       "capacity": 23576,
@@ -178,7 +198,8 @@
       "owner": "CA Osasuna",
       "womens_teams": [
         "CA Osasuna"
-      ]
+      ],
+      "country": "España"
     },
     {
       "capacity": 12450,
@@ -186,7 +207,8 @@
       "stadium": "Butarque",
       "womens_team": null,
       "owner": "CD Leganés",
-      "rental_price": 95000
+      "rental_price": 95000,
+      "country": "España"
     },
     {
       "capacity": 22824,
@@ -197,7 +219,8 @@
       "owner": "CD Tenerife",
       "womens_teams": [
         "CD Tenerife Femenino B"
-      ]
+      ],
+      "country": "España"
     },
     {
       "capacity": 16516,
@@ -205,7 +228,8 @@
       "stadium": "Unipol Domus",
       "womens_team": null,
       "owner": "Cagliari",
-      "rental_price": 195000
+      "rental_price": 195000,
+      "country": "Italia"
     },
     {
       "capacity": 40173,
@@ -213,7 +237,8 @@
       "stadium": "Stamford Bridge",
       "womens_team": "Chelsea LFC",
       "rental_price": 530000,
-      "owner": "Chelsea"
+      "owner": "Chelsea",
+      "country": "Inglaterra"
     },
     {
       "capacity": 25486,
@@ -221,7 +246,8 @@
       "stadium": "Selhurst Park",
       "womens_team": null,
       "owner": "Crystal Palace",
-      "rental_price": 185000
+      "rental_price": 185000,
+      "country": "Inglaterra"
     },
     {
       "capacity": 19840,
@@ -229,7 +255,8 @@
       "stadium": "Mendizorrotza",
       "womens_team": "Deportivo Alavés",
       "rental_price": 195000,
-      "owner": "Deportivo Alavés"
+      "owner": "Deportivo Alavés",
+      "country": "España"
     },
     {
       "capacity": 58000,
@@ -240,7 +267,8 @@
       "owner": "Eintracht Frankfurt",
       "womens_teams": [
         "Eintracht Frankfurt II"
-      ]
+      ],
+      "country": "Alemania"
     },
     {
       "capacity": 31388,
@@ -248,7 +276,8 @@
       "stadium": "Manuel Martínez Valero",
       "womens_team": "Elche CF",
       "rental_price": 270000,
-      "owner": "Elche CF"
+      "owner": "Elche CF",
+      "country": "España"
     },
     {
       "capacity": 52888,
@@ -256,7 +285,8 @@
       "stadium": "Hill Dickinson Stadium",
       "womens_team": "Everton LFC",
       "rental_price": 505000,
-      "owner": "Everton"
+      "owner": "Everton",
+      "country": "Inglaterra"
     },
     {
       "capacity": 30660,
@@ -264,7 +294,8 @@
       "stadium": "WWK Arena",
       "womens_team": null,
       "owner": "FC Augsburg",
-      "rental_price": 360000
+      "rental_price": 360000,
+      "country": "Alemania"
     },
     {
       "capacity": 105000,
@@ -276,7 +307,8 @@
       "womens_teams": [
         "FC Barcelona B",
         "FC Barcelona C"
-      ]
+      ],
+      "country": "España"
     },
     {
       "capacity": 15235,
@@ -284,7 +316,8 @@
       "stadium": "Cartagonova",
       "womens_team": null,
       "owner": "FC Cartagena",
-      "rental_price": 120000
+      "rental_price": 120000,
+      "country": "España"
     },
     {
       "capacity": 35322,
@@ -292,7 +325,8 @@
       "stadium": "Stade de la Beaujoire",
       "womens_team": null,
       "owner": "FC Nantes",
-      "rental_price": 475000
+      "rental_price": 475000,
+      "country": "Francia"
     },
     {
       "capacity": 50033,
@@ -300,7 +334,8 @@
       "stadium": "Estádio do Dragão",
       "womens_team": "FC Porto",
       "rental_price": 540000,
-      "owner": "FC Porto"
+      "owner": "FC Porto",
+      "country": "Portugal"
     },
     {
       "capacity": 29546,
@@ -308,7 +343,8 @@
       "stadium": "Millerntor-Stadion",
       "womens_team": null,
       "owner": "FC St. Pauli",
-      "rental_price": 220000
+      "rental_price": 220000,
+      "country": "Alemania"
     },
     {
       "capacity": 51177,
@@ -316,7 +352,8 @@
       "stadium": "De Kuip",
       "womens_team": "Feyenoord Rotterdam",
       "rental_price": 680000,
-      "owner": "Feyenoord"
+      "owner": "Feyenoord",
+      "country": "Países Bajos"
     },
     {
       "capacity": 43147,
@@ -324,7 +361,8 @@
       "stadium": "Artemio Franchi",
       "womens_team": null,
       "owner": "Fiorentina",
-      "rental_price": 380000
+      "rental_price": 380000,
+      "country": "Italia"
     },
     {
       "capacity": 29600,
@@ -332,7 +370,8 @@
       "stadium": "Craven Cottage",
       "womens_team": null,
       "owner": "Fulham",
-      "rental_price": 270000
+      "rental_price": 270000,
+      "country": "Inglaterra"
     },
     {
       "capacity": 36599,
@@ -340,7 +379,8 @@
       "stadium": "Luigi Ferraris",
       "womens_team": null,
       "owner": "Genoa",
-      "rental_price": 335000
+      "rental_price": 335000,
+      "country": "Italia"
     },
     {
       "capacity": 16500,
@@ -348,7 +388,8 @@
       "stadium": "Coliseum Alfonso Pérez",
       "womens_team": null,
       "owner": "Getafe CF",
-      "rental_price": 165000
+      "rental_price": 165000,
+      "country": "España"
     },
     {
       "capacity": 13500,
@@ -356,7 +397,8 @@
       "stadium": "Montilivi",
       "womens_team": null,
       "owner": "Girona FC",
-      "rental_price": 125000
+      "rental_price": 125000,
+      "country": "España"
     },
     {
       "capacity": 19336,
@@ -367,7 +409,8 @@
       "owner": "Granada CF",
       "womens_teams": [
         "Granada CF B"
-      ]
+      ],
+      "country": "España"
     },
     {
       "capacity": 57000,
@@ -375,7 +418,8 @@
       "stadium": "Volksparkstadion",
       "womens_team": "Hamburger SV",
       "rental_price": 570000,
-      "owner": "Hamburger SV"
+      "owner": "Hamburger SV",
+      "country": "Alemania"
     },
     {
       "capacity": 39211,
@@ -383,7 +427,8 @@
       "stadium": "Marcantonio Bentegodi",
       "womens_team": null,
       "owner": "Hellas Verona",
-      "rental_price": 305000
+      "rental_price": 305000,
+      "country": "Italia"
     },
     {
       "capacity": 74649,
@@ -391,7 +436,8 @@
       "stadium": "Olympiastadion Berlin",
       "womens_team": null,
       "owner": "Hertha BSC",
-      "rental_price": 880000
+      "rental_price": 880000,
+      "country": "Alemania"
     },
     {
       "capacity": 75923,
@@ -399,7 +445,8 @@
       "stadium": "San Siro",
       "womens_team": "Inter",
       "rental_price": 650000,
-      "owner": "Inter"
+      "owner": "Inter",
+      "country": "Italia"
     },
     {
       "capacity": 41507,
@@ -407,7 +454,8 @@
       "stadium": "Allianz Stadium",
       "womens_team": "Juventus Football Club",
       "rental_price": 485000,
-      "owner": "Juventus"
+      "owner": "Juventus",
+      "country": "Italia"
     },
     {
       "capacity": 31533,
@@ -415,7 +463,8 @@
       "stadium": "Via del Mare",
       "womens_team": null,
       "owner": "Lecce",
-      "rental_price": 320000
+      "rental_price": 320000,
+      "country": "Italia"
     },
     {
       "capacity": 37645,
@@ -423,7 +472,8 @@
       "stadium": "Elland Road",
       "womens_team": null,
       "owner": "Leeds United",
-      "rental_price": 460000
+      "rental_price": 460000,
+      "country": "Inglaterra"
     },
     {
       "capacity": 32262,
@@ -431,7 +481,8 @@
       "stadium": "King Power Stadium",
       "womens_team": null,
       "owner": "Leicester City",
-      "rental_price": 275000
+      "rental_price": 275000,
+      "country": "Inglaterra"
     },
     {
       "capacity": 26354,
@@ -442,7 +493,8 @@
       "owner": "Levante UD",
       "womens_teams": [
         "Levante UD"
-      ]
+      ],
+      "country": "España"
     },
     {
       "capacity": 50186,
@@ -450,7 +502,8 @@
       "stadium": "Pierre-Mauroy",
       "womens_team": null,
       "owner": "Lille OSC",
-      "rental_price": 395000
+      "rental_price": 395000,
+      "country": "Francia"
     },
     {
       "capacity": 61276,
@@ -458,7 +511,8 @@
       "stadium": "Anfield",
       "womens_team": "Liverpool LFC",
       "rental_price": 540000,
-      "owner": "Liverpool"
+      "owner": "Liverpool",
+      "country": "Inglaterra"
     },
     {
       "capacity": 33305,
@@ -466,7 +520,8 @@
       "stadium": "Mewa Arena",
       "womens_team": null,
       "owner": "Mainz 05",
-      "rental_price": 385000
+      "rental_price": 385000,
+      "country": "Alemania"
     },
     {
       "capacity": 53400,
@@ -474,7 +529,8 @@
       "stadium": "Etihad Stadium",
       "womens_team": "Manchester City LFC",
       "rental_price": 635000,
-      "owner": "Manchester City"
+      "owner": "Manchester City",
+      "country": "Inglaterra"
     },
     {
       "capacity": 74310,
@@ -482,7 +538,8 @@
       "stadium": "Old Trafford",
       "womens_team": "Manchester United",
       "rental_price": 810000,
-      "owner": "Manchester United"
+      "owner": "Manchester United",
+      "country": "Inglaterra"
     },
     {
       "capacity": 32900,
@@ -490,7 +547,8 @@
       "stadium": "Stade de la Mosson",
       "womens_team": null,
       "owner": "Montpellier HSC",
-      "rental_price": 330000
+      "rental_price": 330000,
+      "country": "Francia"
     },
     {
       "capacity": 30044,
@@ -498,7 +556,8 @@
       "stadium": "La Rosaleda",
       "womens_team": null,
       "owner": "Málaga CF",
-      "rental_price": 405000
+      "rental_price": 405000,
+      "country": "España"
     },
     {
       "capacity": 52305,
@@ -506,7 +565,8 @@
       "stadium": "St James' Park",
       "womens_team": null,
       "owner": "Newcastle United",
-      "rental_price": 525000
+      "rental_price": 525000,
+      "country": "Inglaterra"
     },
     {
       "capacity": 35624,
@@ -514,7 +574,8 @@
       "stadium": "Allianz Riviera",
       "womens_team": null,
       "owner": "OGC Nice",
-      "rental_price": 305000
+      "rental_price": 305000,
+      "country": "Francia"
     },
     {
       "capacity": 59186,
@@ -522,7 +583,8 @@
       "stadium": "Groupama Stadium",
       "womens_team": "OL Lyonnes",
       "rental_price": 545000,
-      "owner": "Olympique Lyonnais"
+      "owner": "Olympique Lyonnais",
+      "country": "Francia"
     },
     {
       "capacity": 67394,
@@ -530,7 +592,8 @@
       "stadium": "Orange Vélodrome",
       "womens_team": "Olympique de Marseille",
       "rental_price": 545000,
-      "owner": "Olympique de Marseille"
+      "owner": "Olympique de Marseille",
+      "country": "Francia"
     },
     {
       "capacity": 35000,
@@ -538,7 +601,8 @@
       "stadium": "Philips Stadion",
       "womens_team": "FCE/PSV",
       "rental_price": 250000,
-      "owner": "PSV Eindhoven"
+      "owner": "PSV Eindhoven",
+      "country": "Países Bajos"
     },
     {
       "capacity": 5938,
@@ -546,7 +610,8 @@
       "stadium": "Nou Estadi de Palamós",
       "womens_team": "FC Badalona Women",
       "owner": "Palamós CF",
-      "rental_price": 80000
+      "rental_price": 80000,
+      "country": "España"
     },
     {
       "capacity": 47926,
@@ -554,7 +619,8 @@
       "stadium": "Parc des Princes",
       "womens_team": "Paris Saint-Germain",
       "rental_price": 415000,
-      "owner": "Paris Saint-Germain"
+      "owner": "Paris Saint-Germain",
+      "country": "Francia"
     },
     {
       "capacity": 27906,
@@ -562,7 +628,8 @@
       "stadium": "Ennio Tardini",
       "womens_team": null,
       "owner": "Parma",
-      "rental_price": 215000
+      "rental_price": 215000,
+      "country": "Italia"
     },
     {
       "capacity": 47069,
@@ -570,7 +637,8 @@
       "stadium": "Red Bull Arena",
       "womens_team": "RB Leipzig",
       "rental_price": 515000,
-      "owner": "RB Leipzig"
+      "owner": "RB Leipzig",
+      "country": "Alemania"
     },
     {
       "capacity": 24870,
@@ -578,7 +646,8 @@
       "stadium": "Balaídos",
       "womens_team": null,
       "owner": "RC Celta",
-      "rental_price": 260000
+      "rental_price": 260000,
+      "country": "España"
     },
     {
       "capacity": 32660,
@@ -589,7 +658,8 @@
       "owner": "RC Deportivo",
       "womens_teams": [
         "Dépor ABANCA B"
-      ]
+      ],
+      "country": "España"
     },
     {
       "capacity": 38223,
@@ -597,7 +667,8 @@
       "stadium": "Stade Bollaert-Delelis",
       "womens_team": "RC Lens",
       "rental_price": 480000,
-      "owner": "RC Lens"
+      "owner": "RC Lens",
+      "country": "Francia"
     },
     {
       "capacity": 40500,
@@ -608,7 +679,8 @@
       "owner": "RCD Espanyol",
       "womens_teams": [
         "RCD Espanyol B"
-      ]
+      ],
+      "country": "España"
     },
     {
       "capacity": 12043,
@@ -616,7 +688,8 @@
       "stadium": "A Malata",
       "womens_team": null,
       "owner": "Racing de Ferrol",
-      "rental_price": 110000
+      "rental_price": 110000,
+      "country": "España"
     },
     {
       "capacity": 22222,
@@ -624,7 +697,8 @@
       "stadium": "El Sardinero",
       "womens_team": "Real Racing Club de Santander",
       "rental_price": 220000,
-      "owner": "Racing de Santander"
+      "owner": "Racing de Santander",
+      "country": "España"
     },
     {
       "capacity": 14708,
@@ -632,7 +706,8 @@
       "stadium": "Vallecas",
       "womens_team": "Rayo Vallecano",
       "rental_price": 130000,
-      "owner": "Rayo Vallecano"
+      "owner": "Rayo Vallecano",
+      "country": "España"
     },
     {
       "capacity": 60720,
@@ -640,7 +715,8 @@
       "stadium": "Benito Villamarín",
       "womens_team": "Real Betis Balompié",
       "rental_price": 715000,
-      "owner": "Real Betis"
+      "owner": "Real Betis",
+      "country": "España"
     },
     {
       "capacity": 81044,
@@ -651,7 +727,8 @@
       "owner": "Real Madrid",
       "womens_teams": [
         "Real Madrid B"
-      ]
+      ],
+      "country": "España"
     },
     {
       "capacity": 30500,
@@ -659,7 +736,8 @@
       "stadium": "Estadio Carlos Tartiere",
       "womens_team": null,
       "owner": "Real Oviedo",
-      "rental_price": 360000
+      "rental_price": 360000,
+      "country": "España"
     },
     {
       "capacity": 40000,
@@ -670,7 +748,8 @@
       "owner": "Real Sociedad",
       "womens_teams": [
         "Real Sociedad B"
-      ]
+      ],
+      "country": "España"
     },
     {
       "capacity": 27618,
@@ -678,7 +757,8 @@
       "stadium": "Estadio José Zorrilla",
       "womens_team": null,
       "owner": "Real Valladolid",
-      "rental_price": 285000
+      "rental_price": 285000,
+      "country": "España"
     },
     {
       "capacity": 33608,
@@ -686,7 +766,8 @@
       "stadium": "La Romareda",
       "womens_team": null,
       "owner": "Real Zaragoza",
-      "rental_price": 385000
+      "rental_price": 385000,
+      "country": "España"
     },
     {
       "capacity": 34700,
@@ -694,7 +775,8 @@
       "stadium": "Europa-Park Stadion",
       "womens_team": "SC Freiburg",
       "rental_price": 370000,
-      "owner": "SC Freiburg"
+      "owner": "SC Freiburg",
+      "country": "Alemania"
     },
     {
       "capacity": 8164,
@@ -705,7 +787,8 @@
       "rental_price": 75000,
       "womens_teams": [
         "SD Eibar B"
-      ]
+      ],
+      "country": "España"
     },
     {
       "capacity": 9100,
@@ -713,7 +796,8 @@
       "stadium": "El Alcoraz",
       "womens_team": null,
       "owner": "SD Huesca",
-      "rental_price": 85000
+      "rental_price": 85000,
+      "country": "España"
     },
     {
       "capacity": 8432,
@@ -721,7 +805,8 @@
       "stadium": "El Toralín",
       "womens_team": null,
       "owner": "SD Ponferradina",
-      "rental_price": 70000
+      "rental_price": 70000,
+      "country": "España"
     },
     {
       "capacity": 64642,
@@ -729,7 +814,8 @@
       "stadium": "Estádio da Luz",
       "womens_team": "SL Benfica",
       "rental_price": 705000,
-      "owner": "SL Benfica"
+      "owner": "SL Benfica",
+      "country": "Portugal"
     },
     {
       "capacity": 68530,
@@ -737,7 +823,8 @@
       "stadium": "Stadio Olimpico",
       "womens_team": "SS Lazio",
       "rental_price": 530000,
-      "owner": "SS Lazio"
+      "owner": "SS Lazio",
+      "country": "Italia"
     },
     {
       "capacity": 54726,
@@ -745,7 +832,8 @@
       "stadium": "Diego Armando Maradona",
       "womens_team": "ASD Napoli Femminile",
       "rental_price": 405000,
-      "owner": "SSC Napoli"
+      "owner": "SSC Napoli",
+      "country": "Italia"
     },
     {
       "capacity": 62271,
@@ -753,7 +841,8 @@
       "stadium": "Veltins-Arena",
       "womens_team": null,
       "owner": "Schalke 04",
-      "rental_price": 640000
+      "rental_price": 640000,
+      "country": "Alemania"
     },
     {
       "capacity": 43883,
@@ -761,7 +850,8 @@
       "stadium": "Ramón Sánchez-Pizjuán",
       "womens_team": "Sevilla FC",
       "rental_price": 435000,
-      "owner": "Sevilla FC"
+      "owner": "Sevilla FC",
+      "country": "España"
     },
     {
       "capacity": 32050,
@@ -769,7 +859,8 @@
       "stadium": "Bramall Lane",
       "womens_team": null,
       "owner": "Sheffield United",
-      "rental_price": 385000
+      "rental_price": 385000,
+      "country": "Inglaterra"
     },
     {
       "capacity": 50095,
@@ -777,7 +868,8 @@
       "stadium": "José Alvalade",
       "womens_team": "Sporting Clube de Portugal",
       "rental_price": 450000,
-      "owner": "Sporting CP"
+      "owner": "Sporting CP",
+      "country": "Portugal"
     },
     {
       "capacity": 29371,
@@ -785,7 +877,8 @@
       "stadium": "El Molinón",
       "womens_team": "Sporting de Gijón",
       "rental_price": 290000,
-      "owner": "Sporting de Gijón"
+      "owner": "Sporting de Gijón",
+      "country": "España"
     },
     {
       "capacity": 29778,
@@ -793,7 +886,8 @@
       "stadium": "Roazhon Park",
       "womens_team": null,
       "owner": "Stade Rennais",
-      "rental_price": 260000
+      "rental_price": 260000,
+      "country": "Francia"
     },
     {
       "capacity": 21029,
@@ -801,7 +895,8 @@
       "stadium": "Stade Auguste-Delaune",
       "womens_team": null,
       "owner": "Stade de Reims",
-      "rental_price": 240000
+      "rental_price": 240000,
+      "country": "Francia"
     },
     {
       "capacity": 49000,
@@ -809,7 +904,8 @@
       "stadium": "Stadium of Light",
       "womens_team": null,
       "owner": "Sunderland",
-      "rental_price": 615000
+      "rental_price": 615000,
+      "country": "Inglaterra"
     },
     {
       "capacity": 30150,
@@ -821,7 +917,8 @@
       "womens_teams": [
         "TSG 1899 Hoffenheim",
         "TSG 1899 Hoffenheim II"
-      ]
+      ],
+      "country": "Alemania"
     },
     {
       "capacity": 27958,
@@ -829,7 +926,8 @@
       "stadium": "Olimpico Grande Torino",
       "womens_team": null,
       "owner": "Torino",
-      "rental_price": 215000
+      "rental_price": 215000,
+      "country": "Italia"
     },
     {
       "capacity": 62850,
@@ -837,7 +935,8 @@
       "stadium": "Tottenham Hotspur Stadium",
       "womens_team": "Tottenham Hotspur LFC",
       "rental_price": 615000,
-      "owner": "Tottenham Hotspur"
+      "owner": "Tottenham Hotspur",
+      "country": "Inglaterra"
     },
     {
       "capacity": 33150,
@@ -845,7 +944,8 @@
       "stadium": "Stadium de Toulouse",
       "womens_team": null,
       "owner": "Toulouse FC",
-      "rental_price": 335000
+      "rental_price": 335000,
+      "country": "Francia"
     },
     {
       "capacity": 25144,
@@ -853,7 +953,8 @@
       "stadium": "Bluenergy Stadium",
       "womens_team": null,
       "owner": "Udinese",
-      "rental_price": 200000
+      "rental_price": 200000,
+      "country": "Italia"
     },
     {
       "capacity": 49440,
@@ -864,7 +965,8 @@
       "owner": "Valencia CF",
       "womens_teams": [
         "Valencia CF B"
-      ]
+      ],
+      "country": "España"
     },
     {
       "capacity": 60058,
@@ -872,7 +974,8 @@
       "stadium": "MHPArena",
       "womens_team": "VfB Stuttgart 1893",
       "rental_price": 510000,
-      "owner": "VfB Stuttgart"
+      "owner": "VfB Stuttgart",
+      "country": "Alemania"
     },
     {
       "capacity": 26000,
@@ -880,7 +983,8 @@
       "stadium": "Vonovia Ruhrstadion",
       "womens_team": null,
       "owner": "VfL Bochum",
-      "rental_price": 250000
+      "rental_price": 250000,
+      "country": "Alemania"
     },
     {
       "capacity": 30000,
@@ -888,7 +992,8 @@
       "stadium": "Volkswagen Arena",
       "womens_team": "VfL Wolfsburg",
       "rental_price": 375000,
-      "owner": "VfL Wolfsburg"
+      "owner": "VfL Wolfsburg",
+      "country": "Alemania"
     },
     {
       "capacity": 23000,
@@ -896,7 +1001,8 @@
       "stadium": "Estadio de la Cerámica",
       "womens_team": "Villarreal CF",
       "rental_price": 245000,
-      "owner": "Villarreal CF"
+      "owner": "Villarreal CF",
+      "country": "España"
     },
     {
       "capacity": 42100,
@@ -904,7 +1010,8 @@
       "stadium": "Weserstadion",
       "womens_team": "Werder Bremen",
       "rental_price": 530000,
-      "owner": "Werder Bremen"
+      "owner": "Werder Bremen",
+      "country": "Alemania"
     },
     {
       "capacity": 62500,
@@ -912,7 +1019,8 @@
       "stadium": "London Stadium",
       "womens_team": "West Ham United LFC",
       "rental_price": 645000,
-      "owner": "West Ham United"
+      "owner": "West Ham United",
+      "country": "Inglaterra"
     },
     {
       "capacity": 31750,
@@ -920,7 +1028,8 @@
       "stadium": "Molineux",
       "womens_team": null,
       "owner": "Wolverhampton Wanderers",
-      "rental_price": 265000
+      "rental_price": 265000,
+      "country": "Inglaterra"
     },
     {
       "capacity": 55926,
@@ -928,7 +1037,8 @@
       "stadium": "Estadi Olímpic Lluís Companys",
       "womens_team": null,
       "owner": "Ajuntament de Barcelona",
-      "rental_price": 450000
+      "rental_price": 450000,
+      "country": "España"
     },
     {
       "capacity": 57619,
@@ -936,7 +1046,8 @@
       "stadium": "La Cartuja",
       "womens_team": null,
       "owner": "Ayuntamiento de Sevilla",
-      "rental_price": 755000
+      "rental_price": 755000,
+      "country": "España"
     },
     {
       "capacity": 12194,
@@ -945,7 +1056,8 @@
       "womens_team": "Burgos CF",
       "womens_teams": [],
       "rental_price": 15000,
-      "owner": "Burgos CF"
+      "owner": "Burgos CF",
+      "country": "España"
     },
     {
       "capacity": 30044,
@@ -954,7 +1066,8 @@
       "womens_team": "Málaga CF",
       "womens_teams": [],
       "rental_price": 25000,
-      "owner": "Málaga CF"
+      "owner": "Málaga CF",
+      "country": "España"
     },
     {
       "capacity": 9128,
@@ -963,7 +1076,8 @@
       "womens_team": "SD Huesca",
       "womens_teams": [],
       "rental_price": 12000,
-      "owner": "SD Huesca"
+      "owner": "SD Huesca",
+      "country": "España"
     },
     {
       "capacity": 22163,
@@ -972,7 +1086,8 @@
       "womens_team": "Parma Calcio 1913",
       "womens_teams": [],
       "rental_price": 20000,
-      "owner": "Parma"
+      "owner": "Parma",
+      "country": "Italia"
     },
     {
       "capacity": 39211,
@@ -981,7 +1096,8 @@
       "womens_team": "Hellas Verona",
       "womens_teams": [],
       "rental_price": 25000,
-      "owner": "Hellas Verona"
+      "owner": "Hellas Verona",
+      "country": "Italia"
     },
     {
       "capacity": 36599,
@@ -990,7 +1106,8 @@
       "womens_team": "Genoa CFC",
       "womens_teams": [],
       "rental_price": 25000,
-      "owner": "Genoa"
+      "owner": "Genoa",
+      "country": "Italia"
     },
     {
       "capacity": 31876,
@@ -999,7 +1116,8 @@
       "womens_team": "Brighton & Hove Albion WFC",
       "womens_teams": [],
       "rental_price": 30000,
-      "owner": "Brighton & Hove Albion"
+      "owner": "Brighton & Hove Albion",
+      "country": "Inglaterra"
     },
     {
       "capacity": 25486,
@@ -1008,7 +1126,8 @@
       "womens_team": "Crystal Palace LFC",
       "womens_teams": [],
       "rental_price": 25000,
-      "owner": "Crystal Palace"
+      "owner": "Crystal Palace",
+      "country": "Inglaterra"
     },
     {
       "capacity": 21844,
@@ -1017,7 +1136,8 @@
       "womens_team": "Burnley",
       "womens_teams": [],
       "rental_price": 20000,
-      "owner": "Burnley"
+      "owner": "Burnley",
+      "country": "Inglaterra"
     },
     {
       "capacity": 32262,
@@ -1026,7 +1146,8 @@
       "womens_team": "Leicester City",
       "womens_teams": [],
       "rental_price": 30000,
-      "owner": "Leicester City"
+      "owner": "Leicester City",
+      "country": "Inglaterra"
     },
     {
       "capacity": 52305,
@@ -1035,7 +1156,8 @@
       "womens_team": "Newcastle United",
       "womens_teams": [],
       "rental_price": 50000,
-      "owner": "Newcastle United"
+      "owner": "Newcastle United",
+      "country": "Inglaterra"
     },
     {
       "capacity": 32125,
@@ -1044,7 +1166,8 @@
       "womens_team": "Sheffield United",
       "womens_teams": [],
       "rental_price": 25000,
-      "owner": "Sheffield United"
+      "owner": "Sheffield United",
+      "country": "Inglaterra"
     },
     {
       "capacity": 49000,
@@ -1053,7 +1176,8 @@
       "womens_team": "Sunderland",
       "womens_teams": [],
       "rental_price": 35000,
-      "owner": "Sunderland"
+      "owner": "Sunderland",
+      "country": "Inglaterra"
     },
     {
       "capacity": 31700,
@@ -1062,7 +1186,8 @@
       "womens_team": "Wolverhampton Wanderers",
       "womens_teams": [],
       "rental_price": 30000,
-      "owner": "Wolverhampton Wanderers"
+      "owner": "Wolverhampton Wanderers",
+      "country": "Inglaterra"
     },
     {
       "capacity": 54042,
@@ -1071,7 +1196,8 @@
       "womens_team": "Borussia Mönchengladbach",
       "womens_teams": [],
       "rental_price": 40000,
-      "owner": "Borussia Mönchengladbach"
+      "owner": "Borussia Mönchengladbach",
+      "country": "Alemania"
     },
     {
       "capacity": 26000,
@@ -1080,7 +1206,8 @@
       "womens_team": "VfL Bochum",
       "womens_teams": [],
       "rental_price": 20000,
-      "owner": "VfL Bochum"
+      "owner": "VfL Bochum",
+      "country": "Alemania"
     },
     {
       "capacity": 74649,
@@ -1089,7 +1216,8 @@
       "womens_team": "Hertha BSC",
       "womens_teams": [],
       "rental_price": 60000,
-      "owner": "Hertha BSC"
+      "owner": "Hertha BSC",
+      "country": "Alemania"
     },
     {
       "capacity": 33305,
@@ -1098,7 +1226,8 @@
       "womens_team": "1. FSV Mainz 05",
       "womens_teams": [],
       "rental_price": 25000,
-      "owner": "Mainz 05"
+      "owner": "Mainz 05",
+      "country": "Alemania"
     },
     {
       "capacity": 50186,
@@ -1107,7 +1236,8 @@
       "womens_team": "LOSC Lille",
       "womens_teams": [],
       "rental_price": 45000,
-      "owner": "Lille OSC"
+      "owner": "Lille OSC",
+      "country": "Francia"
     },
     {
       "capacity": 36178,
@@ -1116,7 +1246,8 @@
       "womens_team": "OGC Nice",
       "womens_teams": [],
       "rental_price": 30000,
-      "owner": "OGC Nice"
+      "owner": "OGC Nice",
+      "country": "Francia"
     },
     {
       "capacity": 22412,
@@ -1125,7 +1256,8 @@
       "womens_team": "Montpellier FC",
       "womens_teams": [],
       "rental_price": 20000,
-      "owner": "Montpellier HSC"
+      "owner": "Montpellier HSC",
+      "country": "Francia"
     },
     {
       "capacity": 33150,
@@ -1134,7 +1266,8 @@
       "womens_team": "Toulouse FC",
       "womens_teams": [],
       "rental_price": 25000,
-      "owner": "Toulouse FC"
+      "owner": "Toulouse FC",
+      "country": "Francia"
     },
     {
       "capacity": 35322,
@@ -1143,7 +1276,8 @@
       "womens_team": "FC Nantes",
       "womens_teams": [],
       "rental_price": 30000,
-      "owner": "FC Nantes"
+      "owner": "FC Nantes",
+      "country": "Francia"
     },
     {
       "capacity": 16500,
@@ -1152,7 +1286,8 @@
       "womens_team": "CD Getafe Femenino",
       "womens_teams": [],
       "rental_price": 15000,
-      "owner": "Getafe CF"
+      "owner": "Getafe CF",
+      "country": "España"
     }
   ]
 }
