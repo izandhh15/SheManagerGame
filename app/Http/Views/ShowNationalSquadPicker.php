@@ -51,7 +51,7 @@ final class ShowNationalSquadPicker
             $updateGame = \App\Models\Game::where('id', $teamId)
                 ->where('user_id', $request->user()->id)
                 ->first();
-            if ($updateGame) {
+            if ($updateGame?->team) {
                 $team = $updateGame->team;
                 $teamId = $team->id;
             }

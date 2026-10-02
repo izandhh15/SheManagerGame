@@ -59,7 +59,11 @@ $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
                             @endforeach
                         </select>
                     @endif
-                    <x-primary-button type="submit" @disabled($recentSignings->isEmpty()) class="w-full text-xs">{{ __('game.club_social_publish') }}</x-primary-button>
+                    @if($recentSignings->isEmpty())
+                        <x-primary-button type="submit" disabled class="w-full text-xs">{{ __('game.club_social_publish') }}</x-primary-button>
+                    @else
+                        <x-primary-button type="submit" class="w-full text-xs">{{ __('game.club_social_publish') }}</x-primary-button>
+                    @endif
                 </form>
                 {{-- Sale (recent sales only) --}}
                 <form method="POST" action="{{ route('game.club-social.announce', $game->id) }}" class="p-3 rounded-lg border border-border-default bg-surface-700">
@@ -77,7 +81,11 @@ $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
                         </select>
                     @endif
                     <input type="text" name="destination" maxlength="100" placeholder="{{ __('game.club_social_destination') }}" class="w-full mb-2 text-sm rounded-lg bg-surface-800 border-border-default text-text-primary placeholder:text-text-faint">
-                    <x-primary-button type="submit" @disabled($recentSales->isEmpty()) class="w-full text-xs">{{ __('game.club_social_publish') }}</x-primary-button>
+                    @if($recentSales->isEmpty())
+                        <x-primary-button type="submit" disabled class="w-full text-xs">{{ __('game.club_social_publish') }}</x-primary-button>
+                    @else
+                        <x-primary-button type="submit" class="w-full text-xs">{{ __('game.club_social_publish') }}</x-primary-button>
+                    @endif
                 </form>
                 {{-- Injury report --}}
                 <form method="POST" action="{{ route('game.club-social.announce', $game->id) }}" class="p-3 rounded-lg border border-border-default bg-surface-700">

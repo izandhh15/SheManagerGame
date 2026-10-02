@@ -489,7 +489,7 @@
                                         <p class="text-lg font-bold text-green-400 mt-1" x-text="agreedFormatted"></p>
                                     </div>
                                     <p class="text-sm font-semibold text-text-primary mb-2">{{ __('termination.payment_title') }}</p>
-                                    <p class="text-xs text-text-muted mb-3">{{ __('termination.payment_intro', ['amount' => '__A__', 'player' => $gamePlayer->name]).replace('__A__', agreedFormatted) }}</p>
+                                    <p class="text-xs text-text-muted mb-3" x-text="'{{ __('termination.payment_intro', ['amount' => '__A__', 'player' => $gamePlayer->name]) }}'.replace('__A__', agreedFormatted)"></p>
                                     <form method="POST" :action="completeUrl" class="space-y-2">
                                         @csrf
                                         <template x-for="method in paymentMethods" :key="method.key">
