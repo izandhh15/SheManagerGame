@@ -200,6 +200,8 @@ return [
 
     // Academy
     'academy' => 'Cantera',
+    'academy_jewel' => 'Joya',
+    'academy_jewel_tooltip' => 'Joya de la cantera: una canterana de 16 años con potencial de élite.',
     'promote_to_first_team' => 'Subir al Primer Equipo',
     'academy_tier' => 'Nivel de Cantera',
     'academy_players' => 'Jugadoras',

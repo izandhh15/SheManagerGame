@@ -88,15 +88,45 @@ class YouthAcademyService
     ) {}
 
     /**
+     * Per-season chance (%) that the academy produces a "jewel" — a
+     * standout 16-year-old with elite potential. Higher tiers find them
+     * more often; even a bare-bones academy can get lucky.
+     */
+    private const JEWEL_CHANCE_PER_TIER = [
+        0 => 10,
+        1 => 20,
+        2 => 35,
+        3 => 50,
+        4 => 65,
+    ];
+
+    /**
+     * Jewel trait bands. The game engine only models ability as a single
+     * overall score (no granular technical/physical/mental stats), so the
+     * "position-based attributes" live in the position-specific overall
+     * sampling and the position-aware market valuation below.
+     */
+    private const JEWEL_AGE = 16;
+    private const JEWEL_OVERALL_MEAN = 65;
+    private const JEWEL_OVERALL_MIN = 58;
+    private const JEWEL_OVERALL_MAX = 74;
+    private const JEWEL_POTENTIAL_MIN = 78;
+    private const JEWEL_POTENTIAL_MAX = 92;
+
+    /**
      * Generate a batch of new academy prospects at season start.
      *
      * For filial games (clubs with a reserve team), prospects are created as
      * full GamePlayers on the reserve squad — no AcademyPlayer rows. For
      * non-filial games, prospects land in the AcademyPlayer pool as before.
      *
+     * Each season there is also a periodic chance (see JEWEL_CHANCE_PER_TIER)
+     * of the academy producing a "jewel": a 16-year-old standout with elite
+     * potential. Pass $forceJewel to guarantee one (used by tests / QA).
+     *
      * @return Collection<int, AcademyPlayer|GamePlayer>
      */
-    public function generateSeasonBatch(Game $game): Collection
+    public function generateSeasonBatch(Game $game, bool $forceJewel = false): Collection
     {
         $tier = $game->currentInvestment->youth_academy_tier ?? 0;
 
@@ -121,7 +151,74 @@ class YouthAcademyService
             $prospects->push($prospect);
         }
 
+        // Periodic jewel: non-filial games keep jewels in the academy pool so
+        // the user can spot them (badge) and promote them when ready.
+        if (! $isFilial && ($forceJewel || rand(1, 100) <= self::getJewelChance($tier))) {
+            $jewel = $this->generateJewel($game, $excludedNames);
+            $prospects->push($jewel);
+        }
+
         return $prospects;
+    }
+
+    /**
+     * Generate one "jewel of the academy": a 16-year-old with standout
+     * overall for her age and elite potential, persisted as an AcademyPlayer
+     * flagged with is_jewel so the UI can badge her.
+     *
+     * @param  array<int, string>  $excludedNames
+     */
+    public function generateJewel(Game $game, array $excludedNames = []): AcademyPlayer
+    {
+        $position = $this->selectPosition();
+
+        $overallScore = $this->sampler->sampleAbility(
+            self::JEWEL_OVERALL_MEAN,
+            self::ABILITY_STD_DEV,
+            self::JEWEL_OVERALL_MIN,
+            self::JEWEL_OVERALL_MAX,
+        );
+
+        $potential = rand(self::JEWEL_POTENTIAL_MIN, self::JEWEL_POTENTIAL_MAX);
+        $potentialLow = max(60, $potential - rand(2, 5));
+        $potentialHigh = min(99, $potential + rand(2, 6));
+
+        $dateOfBirth = $game->current_date->copy()->subYears(self::JEWEL_AGE)->subDays(rand(0, 364));
+
+        $teamName = $game->team->name;
+        $nationalityFilter = self::CANTERA_TEAMS[$teamName] ?? null;
+        $teamCountry = $nationalityFilter ? null : $game->team->country;
+        $region = TeamRegionalOrigins::regionFor($teamName);
+        $identity = $this->playerGenerator->pickRandomIdentity(
+            $nationalityFilter,
+            $teamCountry,
+            $excludedNames,
+            $region,
+        );
+
+        $jewel = $this->persistAsAcademyPlayer($game, [
+            'position' => $position,
+            'age' => self::JEWEL_AGE,
+            'dateOfBirth' => $dateOfBirth,
+            'overallScore' => $overallScore,
+            'potential' => $potential,
+            'potentialLow' => $potentialLow,
+            'potentialHigh' => $potentialHigh,
+            'name' => $identity['name'],
+            'nationality' => $identity['nationality'],
+        ]);
+
+        $jewel->update(['is_jewel' => true]);
+
+        return $jewel->fresh();
+    }
+
+    /**
+     * Per-season jewel chance (%) for an academy tier.
+     */
+    public static function getJewelChance(int $tier): int
+    {
+        return self::JEWEL_CHANCE_PER_TIER[$tier] ?? self::JEWEL_CHANCE_PER_TIER[0];
     }
 
     /**

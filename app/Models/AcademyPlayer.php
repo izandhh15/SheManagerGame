@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $potential_high
  * @property \Illuminate\Support\Carbon $appeared_at
  * @property bool $is_on_loan
+ * @property bool $is_jewel
  * @property int|null $joined_season
  * @property int|null $initial_overall
  * @property-read \App\Models\Game $game
@@ -67,6 +68,7 @@ class AcademyPlayer extends Model
         'potential_high',
         'appeared_at',
         'is_on_loan',
+        'is_jewel',
         'joined_season',
         'initial_overall',
     ];
@@ -80,6 +82,7 @@ class AcademyPlayer extends Model
         'potential_low' => 'integer',
         'potential_high' => 'integer',
         'is_on_loan' => 'boolean',
+        'is_jewel' => 'boolean',
         'joined_season' => 'integer',
         'initial_overall' => 'integer',
     ];

@@ -61,6 +61,7 @@ class GameNotification extends Model
     public const TYPE_COMPETITION_ELIMINATION = 'competition_elimination';
     public const TYPE_ACADEMY_PROSPECT = 'academy_prospect';
     public const TYPE_ACADEMY_BATCH = 'academy_batch';
+    public const TYPE_ACADEMY_JEWEL = 'academy_jewel';
     public const TYPE_TRANSFER_COMPLETE = 'transfer_complete';
     public const TYPE_TRANSFER_FAILED = 'transfer_failed';
     public const TYPE_LOAN_REQUEST_RESULT = 'loan_request_result';
@@ -83,6 +84,7 @@ class GameNotification extends Model
     public const TYPE_SQUAD_REGISTRATION_REQUIRED = 'squad_registration_required';
     public const TYPE_JOB_OFFER_RECEIVED = 'job_offer_received';
     public const TYPE_PLAYER_LEFT_VIA_RELEASE_CLAUSE = 'player_left_via_release_clause';
+    public const TYPE_AWARDS_GALA = 'awards_gala';
 
     // Priorities
     public const PRIORITY_MILESTONE = 'milestone';
@@ -111,6 +113,7 @@ class GameNotification extends Model
         self::TYPE_COMPETITION_ELIMINATION => 'competition',
         self::TYPE_ACADEMY_PROSPECT => 'academy',
         self::TYPE_ACADEMY_BATCH => 'academy',
+        self::TYPE_ACADEMY_JEWEL => 'academy',
         self::TYPE_TRANSFER_COMPLETE => 'squad',
         self::TYPE_TRANSFER_FAILED => 'transfers',
         self::TYPE_LOAN_REQUEST_RESULT => 'scouting',
@@ -186,6 +189,7 @@ class GameNotification extends Model
         // Academy
         self::TYPE_ACADEMY_PROSPECT => self::DEPARTMENT_ACADEMY,
         self::TYPE_ACADEMY_BATCH => self::DEPARTMENT_ACADEMY,
+        self::TYPE_ACADEMY_JEWEL => self::DEPARTMENT_ACADEMY,
         // Board / finance
         self::TYPE_BUDGET_LOAN => self::DEPARTMENT_BOARD,
         self::TYPE_STADIUM => self::DEPARTMENT_BOARD,
@@ -480,7 +484,7 @@ class GameNotification extends Model
                 'icon_bg' => 'bg-rose-500/10',
                 'icon_text' => 'text-rose-500',
             ],
-            self::TYPE_ACADEMY_PROSPECT, self::TYPE_ACADEMY_BATCH => [
+            self::TYPE_ACADEMY_PROSPECT, self::TYPE_ACADEMY_BATCH, self::TYPE_ACADEMY_JEWEL => [
                 'icon_bg' => 'bg-lime-500/10',
                 'icon_text' => 'text-lime-500',
             ],

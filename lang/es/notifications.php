@@ -112,6 +112,8 @@ return [
     // Academy
     'academy_batch_title' => 'Nuevas canteranas',
     'academy_batch_message' => ':count nuevas jugadoras han llegado a la cantera.',
+    'academy_jewel_title' => '💎 ¡Joya de la cantera!',
+    'academy_jewel_message' => ':player (:position), de 16 años, destaca en la cantera: su potencial es de élite. ¡No la pierdas de vista!',
     'academy_overage_promoted_title' => 'Graduadas de la cantera',
     'academy_overage_promoted_message' => ':count canteranas de 21+ años han sido promocionadas al primer equipo.',
     'academy_gap_promoted_title' => 'Canteranas promocionadas',

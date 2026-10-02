@@ -22,5 +22,11 @@ class GenerateInitialAcademyBatch
         if ($batch->isNotEmpty()) {
             $this->notificationService->notifyAcademyBatch($game, $batch->count());
         }
+
+        $jewel = $batch->first(fn ($prospect) => $prospect instanceof \App\Models\AcademyPlayer && $prospect->is_jewel);
+
+        if ($jewel) {
+            $this->notificationService->notifyAcademyJewel($game, $jewel);
+        }
     }
 }

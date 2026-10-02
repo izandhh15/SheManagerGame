@@ -115,6 +115,9 @@
                                         <div class="flex-1 min-w-0">
                                             <div class="flex items-center gap-2">
                                                 <span class="text-sm font-medium text-text-primary truncate">{{ $prospect->name }}</span>
+                                                @if($prospect->is_jewel)
+                                                    <span class="inline-flex items-center gap-0.5 text-[10px] font-semibold text-amber-300 bg-amber-400/10 border border-amber-400/30 px-1.5 py-px rounded-full shrink-0" title="{{ __('squad.academy_jewel_tooltip') }}">💎 {{ __('squad.academy_jewel') }}</span>
+                                                @endif
                                                 <span class="text-[10px] text-text-faint">{{ $prospect->age }}</span>
                                             </div>
                                         </div>
@@ -134,6 +137,9 @@
                                             <img src="{{ Storage::disk('assets')->url('flags/' . $prospect->nationality_flag['code'] . '.svg') }}" class="w-4 h-3 rounded-xs shadow-xs shrink-0" title="{{ $prospect->nationality_flag['name'] }}">
                                         @endif
                                         <span class="text-sm font-medium text-text-primary truncate">{{ $prospect->name }}</span>
+                                        @if($prospect->is_jewel)
+                                            <span class="inline-flex items-center gap-0.5 text-[10px] font-semibold text-amber-300 bg-amber-400/10 border border-amber-400/30 px-1.5 py-px rounded-full shrink-0" title="{{ __('squad.academy_jewel_tooltip') }}">💎 {{ __('squad.academy_jewel') }}</span>
+                                        @endif
                                     </div>
                                     {{-- Age --}}
                                     <span class="text-xs text-text-secondary text-center tabular-nums">{{ $prospect->age }}</span>

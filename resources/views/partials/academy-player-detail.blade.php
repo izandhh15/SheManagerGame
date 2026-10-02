@@ -43,6 +43,9 @@
             </div>
             <div class="text-[11px] text-text-faint mt-1">{{ \App\Support\PositionMapper::toDisplayName($academyPlayer->position) }}</div>
 
+            @if($academyPlayer->is_jewel)
+                <span class="inline-block mt-2 text-[10px] font-semibold text-amber-300 bg-amber-400/10 border border-amber-400/30 px-2 py-0.5 rounded-full" title="{{ __('squad.academy_jewel_tooltip') }}">💎 {{ __('squad.academy_jewel') }} — {{ __('squad.academy_jewel_tooltip') }}</span>
+            @endif
             @if($academyPlayer->is_on_loan)
                 <span class="inline-block mt-2 text-[10px] font-semibold bg-violet-500/10 text-violet-400 px-2 py-0.5 rounded-full">{{ __('squad.academy_on_loan') }}</span>
             @endif

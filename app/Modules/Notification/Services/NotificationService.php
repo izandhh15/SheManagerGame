@@ -707,6 +707,24 @@ class NotificationService
         );
     }
 
+    /**
+     * Create a notification for a "jewel of the academy": a standout
+     * 16-year-old prospect with elite potential.
+     */
+    public function notifyAcademyJewel(Game $game, \App\Models\AcademyPlayer $jewel): GameNotification
+    {
+        return $this->create(
+            game: $game,
+            type: GameNotification::TYPE_ACADEMY_JEWEL,
+            title: __('notifications.academy_jewel_title'),
+            message: __('notifications.academy_jewel_message', [
+                'player' => $jewel->name,
+                'position' => \App\Support\PositionMapper::toDisplayName($jewel->position),
+            ]),
+            priority: GameNotification::PRIORITY_MILESTONE,
+        );
+    }
+
     // ==========================================
     // AI Transfer Market Notifications
     // ==========================================
