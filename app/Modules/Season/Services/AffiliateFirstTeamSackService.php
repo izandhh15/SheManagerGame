@@ -37,6 +37,19 @@ class AffiliateFirstTeamSackService
      */
     private const OBJECTIVE_MISS_MARGIN = 5;
 
+    /**
+     * Mid-season sack: the board only pulls the trigger once the season is
+     * under way (at least this many league matches played)…
+     */
+    public const MIDSEASON_MIN_PLAYED = 8;
+
+    /**
+     * …and the bar is higher than at season end, so it doesn't fire every
+     * season: relegation zone, or further than this many positions below the
+     * board's objective.
+     */
+    private const MIDSEASON_OBJECTIVE_MISS_MARGIN = 8;
+
     public function __construct(
         private readonly CountryConfig $countryConfig,
         private readonly SeasonGoalService $seasonGoalService,
@@ -48,38 +61,13 @@ class AffiliateFirstTeamSackService
      */
     public function evaluate(Game $game): ?AffiliateSackDecision
     {
-        if ($game->pair_mode !== 'affiliate') {
+        $context = $this->affiliateContext($game);
+        if (! $context) {
             return null;
         }
+        [$reserve, $parent] = $context;
 
-        // Legacy two-save affiliate pairs (with a linked partner) keep the
-        // old behaviour; only the new single-save careers use the sack rule.
-        if ($game->dualPartner() !== null) {
-            return null;
-        }
-
-        $reserve = Team::find($game->team_id);
-        if (! $reserve || $reserve->parent_team_id === null) {
-            // Already managing the first team (post-promotion) or invalid.
-            return null;
-        }
-
-        $parent = Team::find($reserve->parent_team_id);
-        if (! $parent) {
-            return null;
-        }
-
-        // Final standing of the season that just ended: during the closing
-        // pipeline the standings table still holds the old season. Prefer
-        // the domestic league (a club in a UEFA league phase has two
-        // league-role standings rows).
-        $standing = GameStanding::where('game_id', $game->id)
-            ->where('team_id', $parent->id)
-            ->whereHas('competition', fn ($q) => $q->where('role', Competition::ROLE_LEAGUE))
-            ->with('competition')
-            ->get()
-            ->sortByDesc(fn ($s) => $s->competition->scope === Competition::SCOPE_DOMESTIC ? 1 : 0)
-            ->first();
+        $standing = $this->parentDomesticStanding($game, $parent);
 
         if (! $standing || $standing->position === null) {
             return null;
@@ -116,6 +104,121 @@ class AffiliateFirstTeamSackService
             reason: $reason,
             newLeagueId: $this->resolveNewLeagueId($game, $parent, $league->id),
         );
+    }
+
+    /**
+     * Mid-season evaluation, run after every simulated matchday once the
+     * season is under way. Same sack rule as the season-end check but with a
+     * higher bar (relegation zone or clearly adrift of the board's objective
+     * after at least MIDSEASON_MIN_PLAYED matches), so the board only acts
+     * when the situation is genuinely dramatic.
+     *
+     * Returns a sack decision when the board fires the coach mid-season and
+     * hands the first team to the user "para salvar al equipo", null
+     * otherwise. Never fires twice: the game is flagged on the first sack.
+     */
+    public function evaluateMidSeason(Game $game): ?AffiliateSackDecision
+    {
+        $context = $this->affiliateContext($game);
+        if (! $context) {
+            return null;
+        }
+        [$reserve, $parent] = $context;
+
+        $standing = $this->parentDomesticStanding($game, $parent);
+
+        if (! $standing || $standing->position === null) {
+            return null;
+        }
+
+        // Season still too young: the board waits before judging.
+        if ((int) ($standing->played ?? 0) < self::MIDSEASON_MIN_PLAYED) {
+            return null;
+        }
+
+        $league = $standing->competition;
+        $position = (int) $standing->position;
+
+        $relegatedPositions = $this->relegatedPositions($game->country, $league->id);
+        $inRelegationZone = in_array($position, $relegatedPositions, true);
+
+        $goal = $this->seasonGoalService->determineGoalForTeam($parent, $league, $game);
+        $target = $this->seasonGoalService->getTargetPosition($goal, $league);
+        $farFromObjective = $position > $target + self::MIDSEASON_OBJECTIVE_MISS_MARGIN;
+
+        if (! $inRelegationZone && ! $farFromObjective) {
+            return null;
+        }
+
+        return new AffiliateSackDecision(
+            parentTeam: $parent,
+            reserveTeam: $reserve,
+            coachName: $parent->manager_name,
+            finalPosition: $position,
+            boardTargetPosition: $target,
+            boardGoal: $goal,
+            reason: $inRelegationZone
+                ? AffiliateSackDecision::REASON_RELEGATION_ZONE
+                : AffiliateSackDecision::REASON_MISSED_OBJECTIVE,
+            // Mid-season there is no "next season" yet: the user takes over
+            // the first team in its current league.
+            newLeagueId: $league->id,
+        );
+    }
+
+    /**
+     * Shared guards for both evaluations. Returns [reserve, parent] when the
+     * save is an affiliate career where the user still manages the reserve
+     * side and no mid-season sack has fired yet, null otherwise.
+     *
+     * @return array{Team, Team}|null
+     */
+    private function affiliateContext(Game $game): ?array
+    {
+        if ($game->pair_mode !== 'affiliate') {
+            return null;
+        }
+
+        // A mid-season sack already happened on this save: never evaluate again.
+        if ($game->affiliate_midseason_sack) {
+            return null;
+        }
+
+        // Legacy two-save affiliate pairs (with a linked partner) keep the
+        // old behaviour; only the new single-save careers use the sack rule.
+        if ($game->dualPartner() !== null) {
+            return null;
+        }
+
+        $reserve = Team::find($game->team_id);
+        if (! $reserve || $reserve->parent_team_id === null) {
+            // Already managing the first team (post-promotion) or invalid.
+            return null;
+        }
+
+        $parent = Team::find($reserve->parent_team_id);
+        if (! $parent) {
+            return null;
+        }
+
+        return [$reserve, $parent];
+    }
+
+    /**
+     * The first team's current domestic-league standing. During the season
+     * the standings table holds the live table; at the closing pipeline it
+     * holds the final one. Prefer the domestic league (a club in a UEFA
+     * league phase has two league-role standings rows).
+     */
+    private function parentDomesticStanding(Game $game, Team $parent): ?GameStanding
+    {
+        return GameStanding::where('game_id', $game->id)
+            ->where('team_id', $parent->id)
+            ->whereHas('competition', fn ($q) => $q->where('role', Competition::ROLE_LEAGUE))
+            ->with('competition')
+            ->get()
+            ->sortByDesc(fn ($s) => $s->competition->scope === Competition::SCOPE_DOMESTIC ? 1 : 0)
+            ->first();
     }
 
     /**

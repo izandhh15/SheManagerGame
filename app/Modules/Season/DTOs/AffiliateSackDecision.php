@@ -24,7 +24,11 @@ class AffiliateSackDecision
         public readonly string $boardGoal,
         /** One of the REASON_* constants. */
         public readonly string $reason,
-        /** League competition the first team will play in next season. */
+        /**
+         * League competition the first team will play in next season — or its
+         * current league, for a mid-season takeover (there is no next season
+         * yet).
+         */
         public readonly string $newLeagueId,
     ) {}
 }

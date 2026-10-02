@@ -9,6 +9,7 @@ use App\Models\GameMatch;
 use App\Modules\Match\DTOs\MatchdayAdvanceResult;
 use App\Modules\Match\Services\MatchdayOrchestrator;
 use App\Modules\Season\Services\ActivationTracker;
+use App\Modules\Season\Services\AffiliateMidSeasonSackService;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -48,8 +49,11 @@ class ProcessMatchdayAdvance implements ShouldQueue, ShouldBeUnique
         return ['game:' . $this->gameId];
     }
 
-    public function handle(MatchdayOrchestrator $orchestrator, ActivationTracker $activationTracker): ?MatchdayAdvanceResult
-    {
+    public function handle(
+        MatchdayOrchestrator $orchestrator,
+        ActivationTracker $activationTracker,
+        AffiliateMidSeasonSackService $midSeasonSack,
+    ): ?MatchdayAdvanceResult {
         $game = Game::find($this->gameId);
 
         if (! $game || ! $game->isAdvancingMatchday()) {
@@ -60,6 +64,7 @@ class ProcessMatchdayAdvance implements ShouldQueue, ShouldBeUnique
             $result = $orchestrator->advance($game, fastForward: $this->fastForward);
 
             $game->refresh();
+            $this->maybeTriggerAffiliateMidSeasonSack($game, $result, $midSeasonSack);
             $this->dispatchSeasonCompletedIfDone($game, $result);
             $this->recordActivationEvents($game, $activationTracker);
 
@@ -91,6 +96,31 @@ class ProcessMatchdayAdvance implements ShouldQueue, ShouldBeUnique
             'error' => $exception?->getMessage(),
             'trace' => $exception?->getTraceAsString(),
         ]);
+    }
+
+    /**
+     * Affiliate career ("Carrera con Filiales"): after every simulated
+     * matchday the first-team board may sack its coach mid-season and hand
+     * the job to the user. Skipped when nothing was simulated, when the
+     * season just ended (the season-end sack evaluation owns that moment),
+     * and when a live match awaits the user's click — switching teams would
+     * yank the dugout from under them mid-flow, so it waits for the next
+     * advance instead.
+     */
+    private function maybeTriggerAffiliateMidSeasonSack(
+        Game $game,
+        MatchdayAdvanceResult $result,
+        AffiliateMidSeasonSackService $midSeasonSack,
+    ): void {
+        if (in_array($result->type, ['blocked', 'live_match', 'season_complete'], true)) {
+            return;
+        }
+
+        if ($game->pending_finalization_match_id) {
+            return;
+        }
+
+        $midSeasonSack->trigger($game);
     }
 
     /**
