@@ -45,6 +45,7 @@ return [
 
     // Individual awards
     'individual_awards' => 'Premios Individuales',
+    'gala_title' => 'Gala de premios',
     'pichichi' => 'Pichichi (Máxima Goleadora)',
     'top_scorer' => 'Máxima Goleadora',
     'goals' => 'goles',

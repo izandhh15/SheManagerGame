@@ -15,6 +15,8 @@ use Illuminate\Database\Eloquent\Collection;
  *   supercup        -> Supercopas
  *   european        -> Internacionales (continental/world competitions)
  *   friendly_trophy -> Torneos de pretemporada (shows the custom trophy name)
+ *   award           -> Premios individuales (Balón de Oro, Pichichi, Zamora,
+ *                      MVP — shows the award name stored in custom_name)
  *   anything else   -> Otros
  *
  * Within each section trophies keep the order they were given in
@@ -34,6 +36,7 @@ class TrophySectionService
         'supercups' => ['types' => ['supercup']],
         'international' => ['types' => ['european']],
         'preseason' => ['types' => ['friendly_trophy']],
+        'awards' => ['types' => ['award']],
         'other' => ['types' => []],
     ];
 
@@ -87,13 +90,13 @@ class TrophySectionService
     }
 
     /**
-     * Display name for a trophy row. Preseason (friendly) trophies show
-     * their custom trophy name (e.g. "Trofeu TM"); everything else shows
-     * the competition name.
+     * Display name for a trophy row. Preseason (friendly) trophies and
+     * individual awards show their custom name (e.g. "Trofeu TM",
+     * "Pichichi"); everything else shows the competition name.
      */
     public function displayName(ManagerTrophy $trophy): string
     {
-        if ($trophy->trophy_type === 'friendly_trophy') {
+        if ($trophy->trophy_type === 'friendly_trophy' || $trophy->trophy_type === 'award') {
             return (string) ($trophy->custom_name ?: __('profile.friendly_trophy_unnamed'));
         }
 

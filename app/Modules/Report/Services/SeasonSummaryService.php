@@ -15,6 +15,7 @@ use App\Models\SimulatedSeason;
 use App\Models\Team;
 use App\Models\TeamReputation;
 use App\Modules\Competition\Promotions\PromotionRelegationQuery;
+use App\Modules\Season\Services\AwardsGalaService;
 use App\Modules\Season\Services\SeasonGoalService;
 
 class SeasonSummaryService
@@ -24,6 +25,7 @@ class SeasonSummaryService
         private readonly CompetitionSummaryService $competitionSummaryService,
         private readonly SeasonGoalService $seasonGoalService,
         private readonly PromotionRelegationQuery $promotionRelegationQuery,
+        private readonly AwardsGalaService $awardsGalaService,
     ) {}
 
     public function buildSeasonSummary(Game $game): array
@@ -93,6 +95,10 @@ class SeasonSummaryService
 
         $simulatedResults = $this->buildSimulatedResults($game->id, $game->season);
 
+        // Awards gala: official winners of the season, computed live from
+        // the simulated data (persisted by AwardsGalaProcessor at close).
+        $galaWinners = $this->awardsGalaService->computeWinners($game);
+
         return [
             'competition' => $competition,
             'standings' => $standings,
@@ -120,6 +126,7 @@ class SeasonSummaryService
             'transferBalance' => $transferBalance,
             'simulatedResults' => $simulatedResults,
             'reputationData' => $reputationData,
+            'galaWinners' => $galaWinners,
         ];
     }
 

@@ -45,6 +45,7 @@ return [
 
     // Individual awards
     'individual_awards' => 'Individual Awards',
+    'gala_title' => 'Awards gala',
     'pichichi' => 'Pichichi (Top Scorer)',
     'top_scorer' => 'Top Scorer',
     'goals' => 'goals',

@@ -410,6 +410,11 @@ return [
 
     // Dashboard
     'your_games' => 'Tus Partidas',
+    'broken_save_title' => '¡Ay, madre! Una partida se ha lesionado',
+    'broken_save_desc' => 'No se han podido cargar :count partida(s) porque sus datos están dañados. Tu carrera sigue en pie: las partidas sanas están aquí abajo. Si la dañada no tiene arreglo, bórrala para liberar el hueco.',
+    'broken_save_item' => 'Partida «:label»: no se pudo cargar',
+    'broken_save_delete' => 'Borrar y liberar hueco',
+    'save_load_failed' => '¡Vaya por Dios! Esa partida está tocada y no se puede abrir. Tus otras partidas siguen en forma.',
     'game_slots_used' => ':count de :max partidas',
     'last_played' => 'Última vez: :time',
     'delete_game' => 'Eliminar Partida',
@@ -737,6 +742,25 @@ return [
     'preseason_family_derby_banner_body' => 'El club ya lo ha programado todo: al confirmar jugarás un amistoso extra contra :team. Es el día de probar canteranas, inventos tácticos y locuras… aquí perder no duele.',
     'preseason_family_derby_round' => 'Derbi de la casa 🏠',
     'preseason_family_derby_trophy' => 'Derbi de la casa: ¡a probar cosas! 🏠',
+    // Giras de pretemporada (club)
+    'preseason_tour_title' => '✈️ Gira de pretemporada',
+    'preseason_tour_subtitle' => 'Saca al equipo de gira: cuesta un pico en viajes y logística, pero los amistosos de casa llenan la taquilla y el club gana prestigio. Solo se puede organizar una por pretemporada.',
+    'preseason_tour_dest_usa' => 'Estados Unidos',
+    'preseason_tour_dest_mexico' => 'México',
+    'preseason_tour_dest_england' => 'Inglaterra',
+    'preseason_tour_dest_germany' => 'Alemania',
+    'preseason_tour_cost_label' => 'Coste: :cost €',
+    'preseason_tour_revenue_label' => 'Taquilla de los amistosos: ×:mult',
+    'preseason_tour_prestige_label' => 'Prestigio: +:points',
+    'preseason_tour_organize' => 'Organizar la gira',
+    'preseason_tour_organized' => '¡Gira a :destination organizada! Los amistosos de casa darán más taquilla y el club gana prestigio. 🛫',
+    'preseason_tour_organized_badge' => 'Gira confirmada: :destination ✈️',
+    'preseason_tour_already_organized' => 'Ya tienes una gira organizada esta pretemporada.',
+    'preseason_tour_invalid_destination' => 'Ese destino no está en el mapa de giras.',
+    'preseason_tour_no_budget' => 'No tienes presupuesto suficiente para pagar la gira.',
+    'preseason_tour_not_available' => 'La gira solo se puede organizar antes de confirmar la pretemporada.',
+    'preseason_tour_expense_desc' => 'Gira de pretemporada: :destination',
+    'preseason_tour_budget_label' => 'Tu presupuesto: :budget €',
     'friendly_submit' => 'Programar amistoso',
     'friendly_window_slots' => ':used/:max amistosos programados',
     'friendly_scheduled' => 'Amistoso programado: :team el :date en :stadium.',
@@ -879,5 +903,12 @@ return [
     // Matchday pricing
     'matchday_pricing_saved' => 'Precios de taquilla actualizados.',
     'matchday_revenue_line' => ':label contra :opponent: :amount € (#:match_id)',
+    'matchday_revenue_line_tour' => ':label contra :opponent (gira): :amount € (#:match_id)',
     'lineup_unavailable' => 'Alineación no disponible.',
+
+    // Gala de premios (season awards)
+    'gala_award_ballon_dor' => 'Balón de Oro',
+    'gala_award_pichichi' => 'Pichichi',
+    'gala_award_zamora' => 'Zamora',
+    'gala_award_mvp' => 'MVP',
 ];

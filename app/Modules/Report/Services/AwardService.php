@@ -95,6 +95,40 @@ class AwardService
     }
 
     /**
+     * Zamora winner: goalkeeper with the fewest goals conceded per match
+     * among those meeting the minimum appearances bar (the real Zamora
+     * criterion). Contrast with getTopGoalkeepers(), which ranks by clean
+     * sheets for the season-end sidebar.
+     */
+    public function getZamoraWinner(string $gameId, Collection|array|null $teamIds = null, int $minAppearances = 3): ?GamePlayer
+    {
+        $keepers = GamePlayer::with(['team', 'matchState'])
+            ->joinMatchState()
+            ->where('game_players.game_id', $gameId)
+            ->when($teamIds, fn ($q) => $q->whereIn('team_id', $teamIds))
+            ->where('position', 'Goalkeeper')
+            ->whereMatchStat('appearances', '>=', $minAppearances)
+            ->get();
+
+        // NOTE: sortBy() calls a closure criterion as a ($a, $b) comparator,
+        // not as a value extractor, so the ratio is materialised first.
+        foreach ($keepers as $keeper) {
+            $keeper->setAttribute(
+                '_goals_conceded_per_match',
+                $keeper->appearances > 0
+                    ? $keeper->goals_conceded / $keeper->appearances
+                    : 999
+            );
+        }
+
+        return $keepers->sortBy([
+            ['_goals_conceded_per_match', 'asc'],
+            ['clean_sheets', 'desc'],
+            ['goals_conceded', 'asc'],
+        ])->first();
+    }
+
+    /**
      * @return Collection<int, GamePlayer>
      */
     public function getTeamSquadStats(string $gameId, string $teamId): Collection

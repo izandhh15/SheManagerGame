@@ -75,6 +75,8 @@ return [
     'trophy_section_preseason_subtitle' => 'Calentando motores con estilo',
     'trophy_section_other_title' => '🎖️ Otros trofeos',
     'trophy_section_other_subtitle' => 'La vitrina de las rarezas',
+    'trophy_section_awards_title' => '🌟 Premios individuales',
+    'trophy_section_awards_subtitle' => 'Las reinas de la temporada',
     'friendly_trophy_unnamed' => 'Trofeo de pretemporada',
     'unknown_trophy' => 'Trofeo desconocido',
 ];

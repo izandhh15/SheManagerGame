@@ -45,6 +45,7 @@ use App\Http\Actions\ExitFastMode;
 use App\Http\Actions\SimulateTournament;
 use App\Http\Actions\ScheduleFriendly;
 use App\Http\Actions\SaveTrainingStage;
+use App\Http\Actions\SavePreseasonTour;
 use App\Http\Actions\OrganizeNationalVenue;
 use App\Http\Actions\CancelLoanSearch;
 use App\Http\Actions\CancelScoutSearch;

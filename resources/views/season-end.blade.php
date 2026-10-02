@@ -263,6 +263,43 @@ $getZoneClass = function($position) use ($standingsZones, $borderColorMap) {
                             {{ __('season.individual_awards') }}
                         </h3>
 
+                        {{-- Awards gala — official season winners --}}
+                        @if(!empty($galaWinners))
+                        <div class="border border-accent-gold/40 rounded-lg overflow-hidden">
+                            <div class="px-4 py-2.5 bg-gradient-to-r from-accent-gold/20 to-accent-gold/5 border-b border-accent-gold/30">
+                                <div class="text-xs font-semibold text-accent-gold uppercase tracking-wide">
+                                    ✨ {{ __('season.gala_title') }}
+                                </div>
+                            </div>
+                            <div class="p-3 space-y-2.5">
+                                @foreach(['ballon_dor' => '🌟', 'pichichi' => '👟', 'zamora' => '🧤', 'mvp' => '⭐'] as $awardKey => $emoji)
+                                    @if(isset($galaWinners[$awardKey]))
+                                        @php
+                                            $winner = $galaWinners[$awardKey];
+                                            $winnerPlayer = $winner['player'];
+                                            $winnerDetail = $winner['detail'];
+                                            $isPlayerTeam = $winnerPlayer->team_id === $game->team_id;
+                                            $winnerStat = match($awardKey) {
+                                                'pichichi' => $winnerDetail['goals'] . ' ' . __('season.goals'),
+                                                'zamora' => number_format($winnerDetail['goals_conceded_per_match'], 2) . ' ' . __('season.goals_per_game'),
+                                                'mvp' => $winnerDetail['mvp_awards'] . ' ' . __('game.mvp'),
+                                                default => $winnerDetail['goals'] . ' ' . __('season.goals') . ' · ' . $winnerDetail['assists'] . ' ' . __('season.assists'),
+                                            };
+                                        @endphp
+                                        <div class="flex items-center gap-2 text-sm @if($isPlayerTeam) bg-accent-blue/10 -mx-1 px-1 py-0.5 rounded-sm @endif">
+                                            <span class="w-5 text-center">{{ $emoji }}</span>
+                                            <x-team-crest :team="$winnerPlayer->team" class="w-4 h-4 shrink-0" />
+                                            <span class="flex-1 min-w-0">
+                                                <span class="block truncate font-medium @if($isPlayerTeam) text-text-primary @endif">{{ $winnerPlayer->name }}</span>
+                                                <span class="block text-[11px] text-text-muted">{{ __("game.gala_award_{$awardKey}") }} · {{ $winnerStat }}</span>
+                                            </span>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
+                        </div>
+                        @endif
+
                         {{-- Pichichi — Top Scorer --}}
                         <div class="border border-border-default rounded-lg overflow-hidden">
                             <div class="px-4 py-2.5 bg-accent-gold/10 border-b border-accent-gold/20">

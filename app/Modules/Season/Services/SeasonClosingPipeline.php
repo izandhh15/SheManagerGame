@@ -7,6 +7,7 @@ use App\Modules\Manager\Processors\TrophyRecordingProcessor;
 use App\Modules\Season\Contracts\SeasonProcessor;
 use App\Modules\Season\DTOs\SeasonTransitionData;
 use App\Modules\Season\Processors\AgreedTransferCompletionProcessor;
+use App\Modules\Season\Processors\AwardsGalaProcessor;
 use App\Modules\Season\Processors\AIFreeAgentSigningProcessor;
 use App\Modules\Season\Processors\AIReserveCallUpProcessor;
 use App\Modules\Season\Processors\ClubWorldCupQualificationProcessor;
@@ -81,6 +82,7 @@ class SeasonClosingPipeline
         UefaQualificationProcessor $uefaQualification,
         ClubWorldCupQualificationProcessor $clubWorldCupQualification,
         AffiliateFirstTeamSackProcessor $affiliateFirstTeamSack,
+        AwardsGalaProcessor $awardsGala,
     ) {
         $this->processors = [
             $reserveOveragePromotion,
@@ -114,6 +116,7 @@ class SeasonClosingPipeline
             $uefaQualification,
             $clubWorldCupQualification,
             $affiliateFirstTeamSack,
+            $awardsGala,
         ];
 
         usort($this->processors, fn ($a, $b) => $a->priority() <=> $b->priority());

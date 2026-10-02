@@ -410,6 +410,11 @@ return [
 
     // Dashboard
     'your_games' => 'Your Games',
+    'broken_save_title' => 'Uh oh! One of your saves has pulled a hamstring',
+    'broken_save_desc' => ':count save(s) could not be loaded because their data is damaged. Your career is safe: the healthy saves are below. If the damaged one is beyond repair, delete it to free the slot.',
+    'broken_save_item' => 'Save ":label": could not be loaded',
+    'broken_save_delete' => 'Delete and free the slot',
+    'save_load_failed' => 'Oops! That save is damaged and cannot be opened. Your other saves are fine.',
     'game_slots_used' => ':count of :max games',
     'last_played' => 'Last played: :time',
     'delete_game' => 'Delete Game',
@@ -843,5 +848,31 @@ return [
     // Matchday pricing
     'matchday_pricing_saved' => 'Matchday prices updated.',
     'matchday_revenue_line' => ':label vs :opponent: €:amount (#:match_id)',
+    'matchday_revenue_line_tour' => ':label vs :opponent (tour): €:amount (#:match_id)',
+    // Preseason tours (club mode)
+    'preseason_tour_title' => '✈️ Preseason tour',
+    'preseason_tour_subtitle' => 'Take the club on tour: it costs money in travel and logistics, but home friendlies pack the gate and the club gains prestige. One tour per preseason.',
+    'preseason_tour_dest_usa' => 'United States',
+    'preseason_tour_dest_mexico' => 'Mexico',
+    'preseason_tour_dest_england' => 'England',
+    'preseason_tour_dest_germany' => 'Germany',
+    'preseason_tour_cost_label' => 'Cost: €:cost',
+    'preseason_tour_revenue_label' => 'Friendly gate: ×:mult',
+    'preseason_tour_prestige_label' => 'Prestige: +:points',
+    'preseason_tour_organize' => 'Organize the tour',
+    'preseason_tour_organized' => 'Tour to :destination organized! Home friendlies will earn extra gate revenue and the club gains prestige. 🛫',
+    'preseason_tour_organized_badge' => 'Tour confirmed: :destination ✈️',
+    'preseason_tour_already_organized' => 'You already organized a tour this preseason.',
+    'preseason_tour_invalid_destination' => 'That destination is not on the tour map.',
+    'preseason_tour_no_budget' => 'You do not have enough budget to pay for the tour.',
+    'preseason_tour_not_available' => 'The tour can only be organized before confirming preseason.',
+    'preseason_tour_expense_desc' => 'Preseason tour: :destination',
+    'preseason_tour_budget_label' => 'Your budget: €:budget',
     'lineup_unavailable' => 'Lineup not available.',
+
+    // Awards gala
+    'gala_award_ballon_dor' => 'Ballon d\'Or',
+    'gala_award_pichichi' => 'Pichichi',
+    'gala_award_zamora' => 'Zamora',
+    'gala_award_mvp' => 'MVP',
 ];
