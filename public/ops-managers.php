@@ -20,6 +20,15 @@ if ($step === 'migrate') {
     exit;
 }
 
+if ($step === 'diag') {
+    $rows = DB::table('teams')->where('type', 'national')
+        ->where(function($q){ $q->whereNull('fifa_code')->orWhere('fifa_code',''); })
+        ->get(['id','name','fifa_code','manager_name']);
+    echo "national teams with empty fifa_code: ".$rows->count()."\n";
+    foreach ($rows as $r) echo " - {$r->name} | manager: ".($r->manager_name ?? '(null)')."\n";
+    exit;
+}
+
 if ($step === 'names') {
     $base = __DIR__.'/../data/2026';
     $updated = 0; $missing = 0; $files = 0;
@@ -43,8 +52,12 @@ if ($step === 'names') {
         $mn = $c['managerName'] ?? null;
         if (!$mn) continue;
         $fc = $c['fifa_code'] ?? null;
-        if (!$fc) continue;
-        $n = DB::table('teams')->where('type', 'national')->where('fifa_code', $fc)->update(['manager_name' => $mn]);
+        if ($fc) {
+            $n = DB::table('teams')->where('type', 'national')->where('fifa_code', $fc)->update(['manager_name' => $mn]);
+        } else {
+            // Youth teams have no fifa_code: match by exact name.
+            $n = DB::table('teams')->where('type', 'national')->where('name', $c['name'])->update(['manager_name' => $mn]);
+        }
         if ($n) $natUp++; else $natMiss++;
     }
     echo "club files: $files | clubs updated: $updated | clubs not found: $missing\n";
