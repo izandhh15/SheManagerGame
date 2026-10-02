@@ -20,6 +20,12 @@ if ($step === 'debug-spain') {
     if (!$game) { echo "juego no encontrado\n"; exit; }
     echo "juego: {$game->id} | fecha: {$game->current_date} | advancing_at: ".($game->matchday_advancing_at ?? 'null')."\n";
     echo "pending actions: ".App\Models\GameAction::where('game_id', $gameId)->whereNull('resolved_at')->count()."\n";
+    register_shutdown_function(function () {
+        $err = error_get_last();
+        if ($err && in_array($err['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR])) {
+            file_put_contents('/tmp/spain-err.txt', $err['message'].' @ '.$err['file'].':'.$err['line']);
+        }
+    });
     try {
         $coordinator = app(App\Modules\Match\Services\MatchdayAdvanceCoordinator::class);
         $result = $coordinator->runSync($gameId);
@@ -31,6 +37,11 @@ if ($step === 'debug-spain') {
         $trace = explode("\n", $e->getTraceAsString());
         echo "TRACE:\n".implode("\n", array_slice($trace, 0, 25))."\n";
     }
+    exit;
+}
+
+if ($step === 'read-err') {
+    echo file_exists('/tmp/spain-err.txt') ? file_get_contents('/tmp/spain-err.txt') : "sin error fatal\n";
     exit;
 }
 
