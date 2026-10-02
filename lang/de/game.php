@@ -410,6 +410,11 @@ return [
 
     // Dashboard
     'your_games' => 'Deine Spielstände',
+    'broken_save_title' => 'Autsch! Ein Spielstand hat sich verletzt',
+    'broken_save_desc' => ':count Spielstand/Spielstände konnten nicht geladen werden, weil die Daten beschädigt sind. Deine Karriere ist sicher: Die intakten Spielstände siehst du unten. Lässt sich der beschädigte nicht retten, lösche ihn, um den Platz freizugeben.',
+    'broken_save_item' => 'Spielstand „:label“: konnte nicht geladen werden',
+    'broken_save_delete' => 'Löschen und Platz freigeben',
+    'save_load_failed' => 'Ups! Dieser Spielstand ist beschädigt und lässt sich nicht öffnen. Deine anderen Spielstände sind in Ordnung.',
     'game_slots_used' => ':count von :max Spielständen',
     'last_played' => 'Zuletzt gespielt: :time',
     'delete_game' => 'Spielstand löschen',

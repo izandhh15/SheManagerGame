@@ -410,6 +410,11 @@ return [
 
     // Dashboard
     'your_games' => 'Tes parties',
+    'broken_save_title' => 'Aïe ! Une de tes parties s’est blessée',
+    'broken_save_desc' => ':count partie(s) n’ont pas pu être chargées car leurs données sont endommagées. Ta carrière est sauve : les parties saines sont ci-dessous. Si la partie endommagée est irrécupérable, supprime-la pour libérer la place.',
+    'broken_save_item' => 'Partie « :label » : impossible à charger',
+    'broken_save_delete' => 'Supprimer et libérer la place',
+    'save_load_failed' => 'Zut ! Cette partie est endommagée et ne peut pas être ouverte. Tes autres parties vont bien.',
     'game_slots_used' => ':count parties sur :max',
     'last_played' => 'Dernière fois : :time',
     'delete_game' => 'Supprimer la partie',

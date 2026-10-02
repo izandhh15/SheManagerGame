@@ -15,6 +15,7 @@ use App\Models\CupTie;
 use App\Models\Game;
 use App\Models\GameMatch;
 use App\Models\GameStanding;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class ShowGame
 {
@@ -31,7 +32,31 @@ class ShowGame
 
     public function __invoke(string $gameId)
     {
+        try {
+            return $this->show($gameId);
+        } catch (ModelNotFoundException $e) {
+            // Unknown game id: stays a 404, not a dashboard redirect.
+            throw $e;
+        } catch (\Throwable $e) {
+            // Corrupt save (orphaned team, unreadable JSON or dates…) must
+            // never 500 the entry route: bounce to the dashboard with the
+            // same quarantine notice the dashboard itself shows.
+            report($e);
+
+            return redirect()->route('dashboard')->with('warning', __('game.save_load_failed'));
+        }
+    }
+
+    private function show(string $gameId)
+    {
         $game = Game::with('team')->findOrFail($gameId);
+
+        if (! $game->team) {
+            // The team row this save points at is gone (deleted reference
+            // data, half-finished deletion…): treat it as corrupt rather
+            // than blowing up on a null relation below.
+            throw new \RuntimeException("Game {$gameId} has no team.");
+        }
 
         // Redirect to welcome tutorial if not yet completed (new games only)
         if ($game->needsWelcome()) {

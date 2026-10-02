@@ -29,6 +29,36 @@
         @endif
 
         <x-flash-message type="success" :message="session('success')" class="mb-4" />
+        <x-flash-message type="warning" :message="session('warning')" class="mb-4" />
+
+            {{-- Corrupt saves: quarantined instead of 500ing the page. The
+                 manager can delete them here to free the slot. --}}
+            @if($brokenGames->isNotEmpty())
+                <div class="mb-6 rounded-xl border border-accent-red/40 bg-accent-red/10 p-4 md:p-5">
+                    <p class="font-heading font-bold uppercase tracking-wide text-accent-red text-sm md:text-base">
+                        🚑 {{ __('game.broken_save_title') }}
+                    </p>
+                    <p class="text-sm text-text-secondary mt-1">
+                        {{ __('game.broken_save_desc', ['count' => $brokenGames->count()]) }}
+                    </p>
+                    <ul class="mt-3 space-y-2">
+                        @foreach($brokenGames as $broken)
+                            <li class="flex items-center justify-between gap-3 rounded-lg bg-surface-800 border border-border-default px-4 py-2.5">
+                                <span class="text-sm text-text-secondary truncate">
+                                    {{ __('game.broken_save_item', ['label' => $broken['label']]) }}
+                                </span>
+                                <form method="POST" action="{{ route('game.destroy', $broken['id']) }}" class="shrink-0">
+                                    @csrf
+                                    @method('DELETE')
+                                    <x-danger-button type="submit" class="text-xs">
+                                        {{ __('game.broken_save_delete') }}
+                                    </x-danger-button>
+                                </form>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
             {{-- Affiliate-mode CTA: two dugouts, one career. Deep-links to the
                  new-game screen with the affiliate mode preselected. --}}

@@ -21,6 +21,25 @@ class Dashboard
             return redirect()->route('select-team');
         }
 
+        // Resilience: a corrupt save (orphaned team_id, unreadable dates or
+        // JSON…) must never 500 the whole dashboard. Each save is probed the
+        // same way the view consumes it; broken ones are skipped from the
+        // grid and listed separately with a recovery option.
+        $healthyGames = collect();
+        $brokenGames = collect();
+        foreach ($games as $game) {
+            try {
+                self::assertGameRenders($game);
+                $healthyGames->push($game);
+            } catch (\Throwable $e) {
+                $brokenGames->push([
+                    'id' => $game->getKey(),
+                    'label' => self::brokenGameLabel($game),
+                ]);
+                report($e);
+            }
+        }
+
         $maxGames = 3;
 
         // Same limit semantics as InitGame/InitDualGame/SelectTeam: only
@@ -44,16 +63,58 @@ class Dashboard
 
         return view('dashboard', [
             'user' => $request->user(),
-            'games' => $games,
+            'games' => $healthyGames,
+            'brokenGames' => $brokenGames,
             'canCreateGame' => $primaryCount < $maxGames,
             // Only users who already have a career from an older data season
             // need telling that saves keep the squads they started with.
-            'hasLegacySaves' => $games->contains(
+            'hasLegacySaves' => $healthyGames->contains(
                 fn (Game $game) => ! $game->isTournamentMode() && $game->isFromPastBaseSeason()
             ),
             'gameCount' => $primaryCount,
             'maxGames' => $maxGames,
             'showAffiliateCta' => $showAffiliateCta,
         ]);
+    }
+
+    /**
+     * Touch everything the dashboard card for one save relies on. Anything
+     * that throws here would 500 the whole page, so the save is quarantined
+     * instead.
+     *
+     * @throws \Throwable when the save cannot be rendered.
+     */
+    private static function assertGameRenders(Game $game): void
+    {
+        if (! $game->team?->name) {
+            throw new \RuntimeException('Game ' . $game->getKey() . ' has no team.');
+        }
+
+        $game->isTournamentMode();
+        $game->isFromPastBaseSeason();
+
+        // Accessors / casts the view consumes: a corrupt date or a broken
+        // JSON column throws on read, which is exactly what we want to catch.
+        $game->nextLeagueMatchday;
+        $game->pending_actions;
+        $game->updated_at->diffForHumans();
+
+        if ($game->current_date) {
+            $game->current_date->format('d/m/Y');
+        }
+    }
+
+    /**
+     * A human-readable label for a quarantined save, built from raw
+     * attributes only (casts may be the very thing that's broken).
+     */
+    private static function brokenGameLabel(Game $game): string
+    {
+        $raw = $game->getAttributes();
+        $shortId = substr((string) $game->getKey(), 0, 8);
+
+        return ! empty($raw['player_name'])
+            ? $raw['player_name'] . ' (' . $shortId . ')'
+            : $shortId;
     }
 }

@@ -410,6 +410,11 @@ return [
 
     // Painel
     'your_games' => 'As Tuas Partidas',
+    'broken_save_title' => 'Ai! Uma das tuas partidas lesionou-se',
+    'broken_save_desc' => 'Não foi possível carregar :count partida(s) porque os dados estão danificados. A tua carreira está a salvo: as partidas saudáveis estão abaixo. Se a danificada não tiver conserto, apaga-a para libertar o lugar.',
+    'broken_save_item' => 'Partida «:label»: não foi possível carregar',
+    'broken_save_delete' => 'Apagar e libertar lugar',
+    'save_load_failed' => 'Ups! Essa partida está danificada e não pode ser aberta. As tuas outras partidas estão bem.',
     'game_slots_used' => ':count de :max partidas',
     'last_played' => 'Última vez: :time',
     'delete_game' => 'Eliminar Partida',
