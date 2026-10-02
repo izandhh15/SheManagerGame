@@ -219,8 +219,8 @@ return [
             'ESP1' => [
                 'UCL' => [1],
                 'UCLQ' => [2, 3],
-                'UEL' => [4],
-                'UELQ' => [5],
+                // Spain sends nobody directly to the Europa Cup — Spanish
+                // teams only reach it by dropping from the UWCL playoff.
             ],
         ],
 

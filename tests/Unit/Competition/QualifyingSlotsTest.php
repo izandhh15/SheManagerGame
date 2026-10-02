@@ -22,8 +22,10 @@ class QualifyingSlotsTest extends TestCase
 
         $this->assertSame([1], $slots['UCL'] ?? null);
         $this->assertSame([2, 3], $slots['UCLQ'] ?? null);
-        $this->assertSame([4], $slots['UEL'] ?? null);
-        $this->assertSame([5], $slots['UELQ'] ?? null);
+        // Spain sends nobody directly to the Europa Cup — Spanish teams
+        // only reach it by dropping from the UWCL playoff.
+        $this->assertArrayNotHasKey('UEL', $slots);
+        $this->assertArrayNotHasKey('UELQ', $slots);
     }
 
     public function test_big_leagues_follow_spain_pattern(): void

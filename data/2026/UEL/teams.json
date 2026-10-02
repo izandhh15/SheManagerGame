@@ -22,12 +22,6 @@
       "pot": 1
     },
     {
-      "id": "44",
-      "name": "Athletic Club",
-      "country": "ES",
-      "pot": 1
-    },
-    {
       "id": "4585",
       "name": "FCE/PSV",
       "country": "NL",
@@ -122,6 +116,11 @@
       "name": "Czarni Sosnowiec",
       "country": "PL",
       "pot": 4
+    },
+    {
+      "id": "8657",
+      "name": "BK Häcken",
+      "country": "SE"
     }
   ]
 }
