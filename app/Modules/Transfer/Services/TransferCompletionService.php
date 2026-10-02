@@ -34,6 +34,16 @@ class TransferCompletionService
         private readonly NotificationService $notificationService,
     ) {}
     /**
+     * Let the fictional newsroom cover a completed deal involving the user.
+     * Silent no-op when the game has no seeded journalists.
+     */
+    private function journalistTransferNews(Game $game, string $playerName, string $fromTeam, string $toTeam, string $kind): void
+    {
+        app(\App\Modules\Media\Services\JournalistService::class)
+            ->postTransferNews($game, $playerName, $fromTeam, $toTeam, $kind);
+    }
+
+    /**
      * Complete an outgoing transfer (user's player sold to AI team).
      */
     public function completeOutgoingTransfer(TransferOffer $offer, Game $game): void
@@ -123,6 +133,15 @@ class TransferCompletionService
         // Loans preserve ownership so the record is left intact.
         if (! $isLoan) {
             UserSquadCareerRecord::where('game_player_id', $player->id)->delete();
+
+            // The newsroom covers permanent departures (not loans).
+            $this->journalistTransferNews(
+                $game,
+                $playerName,
+                $game->team?->name ?? 'tu club',
+                $buyerName,
+                'out',
+            );
         }
     }
 
@@ -188,6 +207,15 @@ class TransferCompletionService
 
         // Remove from shortlist to free up scouting slot
         ShortlistedPlayer::removeForPlayer($game->id, $player->id);
+
+        // A star leaving on a free is front-page news too.
+        $this->journalistTransferNews(
+            $game,
+            $playerName,
+            $game->team?->name ?? 'tu club',
+            $buyerName,
+            'out',
+        );
     }
 
     /**
@@ -307,6 +335,15 @@ class TransferCompletionService
         // Remove from shortlist to free up scouting slot
         ShortlistedPlayer::removeForPlayer($game->id, $player->id);
 
+        // The newsroom announces the new signing.
+        $this->journalistTransferNews(
+            $game,
+            $playerName,
+            $sellerName,
+            $game->team?->name ?? 'tu club',
+            'in',
+        );
+
         return true;
     }
 
@@ -357,6 +394,15 @@ class TransferCompletionService
         );
 
         ShortlistedPlayer::removeForPlayer($game->id, $player->id);
+
+        // The newsroom loves a bargain: free-agent signings get a tweet too.
+        $this->journalistTransferNews(
+            $game,
+            $player->name,
+            app()->getLocale() === 'es' ? 'la agencia libre' : 'free agency',
+            $game->team?->name ?? (app()->getLocale() === 'es' ? 'tu club' : 'your club'),
+            'free',
+        );
     }
 
     /**

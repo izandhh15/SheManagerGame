@@ -35,6 +35,7 @@ class ShowSocialFeed
             'positiveCount' => $positiveCount,
             'boardConfidence' => $game->board_confidence ?? 70,
             'haterReplies' => $this->socialMedia->haterReplyOptions(),
+            'likedPosts' => session()->get("liked_posts:{$game->id}", []),
         ]);
     }
 }

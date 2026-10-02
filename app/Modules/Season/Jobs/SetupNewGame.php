@@ -159,6 +159,12 @@ class SetupNewGame implements ShouldQueue, ShouldBeUnique
             $this->markStep(self::PREP_STEPS + 1);
         }
 
+        // Seed the fictional newsroom for the in-game social network and let
+        // the journalists introduce themselves. Idempotent on re-runs.
+        $journalists = app(\App\Modules\Media\Services\JournalistService::class);
+        $journalists->seedFor($game->refresh());
+        $journalists->publishWelcome($game->refresh());
+
         // Mark setup as complete
         Game::where('id', $this->gameId)->update([
             'setup_completed_at' => now(),

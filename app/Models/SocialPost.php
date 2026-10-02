@@ -14,6 +14,7 @@ class SocialPost extends Model
         'game_id',
         'author_name',
         'author_handle',
+        'journalist_id',
         'text',
         'sentiment',
         'likes',
@@ -31,5 +32,10 @@ class SocialPost extends Model
     public function game(): BelongsTo
     {
         return $this->belongsTo(Game::class);
+    }
+
+    public function journalist(): BelongsTo
+    {
+        return $this->belongsTo(GameJournalist::class, 'journalist_id');
     }
 }

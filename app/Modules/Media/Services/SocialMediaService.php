@@ -316,6 +316,11 @@ class SocialMediaService
                 'context' => 'board_warning',
             ]);
         }
+
+        // A fictional journalist picks up the rumour too (no-op if the
+        // game's newsroom was never seeded).
+        app(\App\Modules\Media\Services\JournalistService::class)
+            ->postBoardRumor($game, $game->team?->name ?? ($es ? 'tu club' : 'your club'));
     }
 
     private function generateSackingPosts(Game $game): void

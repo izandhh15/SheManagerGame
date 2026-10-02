@@ -50,14 +50,21 @@
             @forelse($posts as $post)
                 <div class="p-4 rounded-xl bg-surface-800 border {{ $post->sentiment < 0 ? 'border-red-500/30' : ($post->sentiment > 0 ? 'border-green-500/30' : 'border-border-default') }}">
                     <div class="flex items-center gap-2 mb-2">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white font-bold">
+                        <div class="w-10 h-10 rounded-full {{ $post->journalist_id ? 'bg-gradient-to-br from-sky-500 to-blue-700' : 'bg-gradient-to-br from-purple-500 to-pink-500' }} flex items-center justify-center text-white font-bold">
                             {{ substr($post->author_name, 0, 1) }}
                         </div>
                         <div class="flex-1">
-                            <div class="font-semibold text-text-primary text-sm">{{ $post->author_name }}</div>
+                            <div class="font-semibold text-text-primary text-sm">
+                                {{ $post->author_name }}
+                                @if($post->journalist_id)
+                                    <span class="text-sky-400" title="Cuenta verificada de la redacción">✓</span>
+                                @endif
+                            </div>
                             <div class="text-text-faint text-xs">{{ $post->author_handle }}</div>
                         </div>
-                        @if($post->sentiment > 0)
+                        @if($post->journalist_id)
+                            <span class="text-[10px] font-bold uppercase tracking-wide text-sky-400 bg-sky-500/10 border border-sky-500/30 rounded-full px-2 py-0.5">🎙️ Periodista</span>
+                        @elseif($post->sentiment > 0)
                             <span class="text-green-500 text-lg">👍</span>
                         @elseif($post->sentiment < 0)
                             <span class="text-red-500 text-lg">👎</span>
@@ -65,12 +72,19 @@
                     </div>
                     <p class="text-text-primary text-sm leading-relaxed">{{ $post->text }}</p>
                     <div class="flex items-center gap-4 mt-2 text-xs text-text-faint">
-                        <span>❤️ {{ $post->likes }}</span>
+                        <form method="POST" action="{{ route('game.social.like', [$game->id, $post->id]) }}" class="inline">
+                            @csrf
+                            <button type="submit" class="hover:scale-110 transition-transform" title="Me gusta">
+                                {{ in_array($post->id, $likedPosts ?? []) ? '❤️' : '🤍' }} {{ $post->likes }}
+                            </button>
+                        </form>
                         <span>{{ $post->created_at->diffForHumans() }}</span>
                         @if($post->context === 'sacked')
                             <span class="font-bold text-red-500 uppercase">Destitución</span>
                         @elseif($post->context === 'board_warning')
                             <span class="font-bold text-yellow-500 uppercase">Rumor</span>
+                        @elseif($post->journalist_id)
+                            <span class="font-bold text-sky-400 uppercase">Noticia</span>
                         @endif
                     </div>
 

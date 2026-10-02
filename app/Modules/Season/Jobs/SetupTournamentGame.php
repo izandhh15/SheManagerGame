@@ -154,6 +154,12 @@ class SetupTournamentGame implements ShouldQueue
             $teamName = $nationalTeams->firstWhere('id', $this->teamId)?->getRawOriginal('name') ?? '';
             $notificationService->notifyTournamentWelcome($game, self::COMPETITION_ID, $teamName);
 
+            // Seed the fictional newsroom for the in-game social network.
+            $freshGame = Game::find($this->gameId);
+            if ($freshGame) {
+                app(\App\Modules\Media\Services\JournalistService::class)->seedFor($freshGame);
+            }
+
             // Mark setup as complete
             Game::where('id', $this->gameId)->update(['setup_completed_at' => now()]);
 

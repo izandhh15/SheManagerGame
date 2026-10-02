@@ -193,6 +193,12 @@ class MatchFinalizationService
         // 7. Custom pre-season trophy (e.g. Trofeo Joan Gamper): if this friendly
         // was designated as a trophy match and the user's team won, record it.
         $this->recordCustomTrophy($result->match, $result->game);
+
+        // 8. Journalist match report: a fictional reporter tweets the final
+        // score when the manager's team played. Silent no-op for AI-vs-AI
+        // matches and for games whose newsroom was never seeded.
+        app(\App\Modules\Media\Services\JournalistService::class)
+            ->postMatchReport($result->game->refresh(), $result->match, $result->competition);
     }
 
     /**
