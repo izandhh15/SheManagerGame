@@ -133,8 +133,9 @@ class SocialMediaService
 
         // Generate 6-10 fan posts.
         $count = rand(6, 10);
+        $usedFans = [];
         for ($i = 0; $i < $count; $i++) {
-            $this->generatePost($game, $match, $result, $targetName, $statementKey);
+            $this->generatePost($game, $match, $result, $targetName, $statementKey, $usedFans);
         }
 
         // Update board confidence.
@@ -195,7 +196,7 @@ class SocialMediaService
         };
     }
 
-    private function generatePost(Game $game, GameMatch $match, array $result, ?string $targetName, string $statementKey): void
+    private function generatePost(Game $game, GameMatch $match, array $result, ?string $targetName, string $statementKey, array &$usedFans = []): void
     {
         $mood = $result['mood'];
         // Mixed mood: randomize each post's sentiment.
@@ -204,7 +205,7 @@ class SocialMediaService
         $templates = $this->templatesFor($sentiment, $statementKey, $targetName);
         $text = $templates[array_rand($templates)];
 
-        [$name, $handle] = $this->randomFan();
+        [$name, $handle] = $this->randomFan($usedFans);
 
         SocialPost::create([
             'game_id' => $game->id,
@@ -231,29 +232,86 @@ class SocialMediaService
                 "El míster tiene razón, quien no lo vea es ciego.",
                 "Por eso es el entrenador y tú estás en el sofá 😂",
                 "Bien dicho. A seguir trabajando 💪",
+                "Así se defiende a las tuyas. Chapó.",
+                "Por fin un entrenador con criterio en este club.",
+                "Que hablen en el campo, como dice el míster.",
+                "Me gusta este discurso, sin paños calientes.",
+                "El míster lo tiene clarísimo. A por el siguiente partido.",
+                "Ojalá más entrenadores así de directos.",
+                "Se nota que conoce al vestuario. Confianza plena.",
+                "Esto es liderazgo, lo demás son tonterías.",
             ] : [
                 "The gaffer is absolutely right 👏",
                 "Finally someone telling it like it is.",
                 "Back the manager. Always.",
                 "Spot on from the boss.",
                 "This is why he's the manager 💪",
+                "Well said. On to the next one.",
+                "That's leadership right there.",
+                "Finally a manager with a clear idea.",
+                "Love this honesty. More of this please.",
+                "He knows his squad. Full trust.",
             ];
         }
 
         // Negative templates, some reference the statement type.
         $specific = match ($statementKey) {
             'praise_star' => $es
-                ? ["¿Elogiar a {$name}? ¿Pero qué partido ha visto este tío?", "Míster, creo que te has equivocado de jugadora..."]
-                : ["Praise for {$name}? What game was he watching?", "Wrong player, gaffer..."],
+                ? [
+                    "¿Elogiar a {$name}? ¿Pero qué partido ha visto este tío?",
+                    "Míster, creo que te has equivocado de jugadora...",
+                    "¿Pero quién le ha dicho que {$name} ha hecho un partidazo? ¿Su representante?",
+                    "Elogiar a {$name} después de eso es de traca.",
+                    "Si {$name} ha sido la mejor, apaga y vámonos.",
+                ]
+                : [
+                    "Praise for {$name}? What game was he watching?",
+                    "Wrong player, gaffer...",
+                    "If {$name} was the best out there, we're in trouble.",
+                    "Praising {$name} after that is unreal.",
+                ],
             'criticize_flop' => $es
-                ? ["Así no, míster. A {$name} no se la deja tirada en público.", "Señalar a {$name} delante de todos... muy feo."]
-                : ["Not like this, gaffer. You don't throw {$name} under the bus.", "Calling out {$name} publicly... classless."],
+                ? [
+                    "Así no, míster. A {$name} no se la deja tirada en público.",
+                    "Señalar a {$name} delante de todos... muy feo.",
+                    "Cargar contra {$name} en público dice mucho de él y nada bueno.",
+                    "A {$name} se la defiende, no se la señala.",
+                    "Qué fácil es culpar a {$name} en vez de mirar el banquillo.",
+                ]
+                : [
+                    "Not like this, gaffer. You don't throw {$name} under the bus.",
+                    "Calling out {$name} publicly... classless.",
+                    "Blaming {$name} in public says a lot about him.",
+                    "You protect {$name}, you don't single her out.",
+                ],
             'blame_referee' => $es
-                ? ["Siempre la culpa es del árbitro, nunca del planteamiento 🙄", "Excusas, excusas y más excusas."]
-                : ["Always the ref's fault, never the tactics 🙄", "Excuses, excuses."],
+                ? [
+                    "Siempre la culpa es del árbitro, nunca del planteamiento 🙄",
+                    "Excusas, excusas y más excusas.",
+                    "El árbitro no ha fallado los pases, míster.",
+                    "Siempre igual: si perdemos, la culpa es del de negro.",
+                    "Que mire la repetición del partido en vez del acta.",
+                ]
+                : [
+                    "Always the ref's fault, never the tactics 🙄",
+                    "Excuses, excuses.",
+                    "The ref didn't misplace those passes, gaffer.",
+                    "Blame the ref again, why don't you.",
+                ],
             'defend_tactics' => $es
-                ? ["Defender esto es de ser muy terco. #MisterOut", "El planteamiento fue un desastre y lo sabe todo el mundo menos él."]
-                : ["Defending this is pure stubbornness. #GafferOut", "The tactics were a disaster and everyone knows it but him."],
+                ? [
+                    "Defender esto es de ser muy terco. #MisterOut",
+                    "El planteamiento fue un desastre y lo sabe todo el mundo menos él.",
+                    "Si esto era el plan, el plan era perder.",
+                    "Defender lo indefendible, capítulo 47.",
+                    "Con este sistema no marcamos ni en un entrenamiento.",
+                ]
+                : [
+                    "Defending this is pure stubbornness. #GafferOut",
+                    "The tactics were a disaster and everyone knows it but him.",
+                    "If that was the plan, the plan was to lose.",
+                    "Defending the indefensible again.",
+                ],
             default => [],
         };
 
@@ -265,6 +323,27 @@ class SocialMediaService
             "Nos está hundiendo y encima raja. Increíble.",
             "Dimisión ya. Esto no da para más.",
             "Que alguien le quite el micrófono 🎤❌",
+            "Otra rueda de prensa para enmarcar... en la pared de los horrores.",
+            "Este hombre vive en una realidad paralela.",
+            "Que devuelva el carnet de entrenador.",
+            "Con este planteamiento no ganamos ni al filial.",
+            "Rueda de prensa tras rueda de prensa y ninguna autocrítica.",
+            "El vestuario tiene que estar hasta las narices.",
+            "A ver si la directiva espabila de una vez.",
+            "Menudo vendehumos nos han colado.",
+            "Yo ya ni me enfado, me da pena.",
+            "Cada partido la misma historia.",
+            "Si esto es un proyecto deportivo, yo soy astronauta.",
+            "Que alguien revise su contrato, tiene que haber una cláusula de escape.",
+            "Habla como si fuéramos líderes. Míster, mire la clasificación.",
+            "Ni en pretemporada se veía algo tan malo.",
+            "Directiva, ¿a qué esperáis? #FueraYa",
+            "Este tío confundiría un fuera de juego con un fuera de serie.",
+            "Vergüenza de rueda de prensa.",
+            "Que se dedique a otra cosa, por favor.",
+            "Lo único que defiende bien son sus excusas.",
+            "Da igual el rival, el discurso es el mismo de siempre.",
+            "El fútbol femenino merece mejores entrenadores que este.",
         ] : [
             "This guy has no clue.",
             "Get out of our club. #GafferOut",
@@ -272,23 +351,84 @@ class SocialMediaService
             "How is he still in charge?",
             "He's sinking us and still talking. Unbelievable.",
             "Resign now. This can't go on.",
+            "Someone take the mic away from him 🎤❌",
+            "Living in a parallel universe, this man.",
+            "Hand in your coaching badge, mate.",
+            "No self-criticism, ever. Just excuses.",
+            "The dressing room must be sick of this.",
+            "Same story every single week.",
+            "If this is a project, I'm an astronaut.",
+            "He talks like we're top of the league. Check the table.",
+            "Shameful press conference.",
+            "The only thing he defends well is his excuses.",
+            "Women's football deserves better managers than this.",
+            "Board, what are you waiting for? #OutNow",
+            "Take up another profession, please.",
+            "Every game the same tired speech.",
         ];
 
         return array_merge($specific, $generic);
     }
 
-    private function randomFan(): array
+    /**
+     * A random fictional fan. $used tracks "name|handle" combos already
+     * handed out in the current batch so the same person doesn't post
+     * twice in a row with two different handles.
+     *
+     * @param array<string, bool> $used
+     * @return array{0:string, 1:string}
+     */
+    private function randomFan(array &$used = []): array
     {
         $es = app()->getLocale() === 'es';
 
         $names = $es
-            ? ['Lucía G.', 'Marta R.', 'Carmen S.', 'Paula M.', 'Sofía L.', 'Elena V.', 'Irene T.', 'Nerea B.', 'Ainhoa Z.', 'Laia P.', 'Jordi C.', 'Marc V.', 'Pol F.', 'Oriol D.']
-            : ['Lucy G.', 'Martha R.', 'Carmen S.', 'Paula M.', 'Sophie L.', 'Elena V.', 'Irene T.', 'Nerea B.', 'Ainhoa Z.', 'Laia P.'];
+            ? [
+                'Lucía G.', 'Marta R.', 'Carmen S.', 'Paula M.', 'Sofía L.', 'Elena V.', 'Irene T.', 'Nerea B.',
+                'Ainhoa Z.', 'Laia P.', 'Jordi C.', 'Marc V.', 'Pol F.', 'Oriol D.',
+                'Júlia F.', 'Aina V.', 'Carla R.', 'Núria S.', 'Mar B.', 'Jana L.', 'Ona T.', 'Clàudia M.',
+                'Abril G.', 'Martina P.', 'Laia S.', 'Anna R.', 'Mireia C.', 'Joana V.', 'Teresa B.', 'Blanca L.',
+                'Alba F.', 'Irene G.', 'Sara M.', 'Noa P.', 'Vega S.', 'Iria C.',
+                'Uxue L.', 'Maialen R.', 'Naroa V.', 'June B.', 'Haizea M.', 'Ane L.', 'Izaro P.', 'Garazi S.',
+                'Nil B.', 'Arnau V.', 'Quim R.', 'Roger M.', 'Biel S.', 'Jan F.', 'Èric L.', 'Martí G.',
+                'Àlex P.', 'Sergi V.', 'Dani R.', 'Pau M.', 'Hugo S.', 'Leo F.', 'Teo B.', 'Gala N.',
+                'Rut C.', 'Júlia B.', 'Ona R.', 'Aina S.', 'Carla V.', 'Núria F.', 'Mar R.', 'Jana P.',
+            ]
+            : [
+                'Lucy G.', 'Martha R.', 'Carmen S.', 'Paula M.', 'Sophie L.', 'Elena V.', 'Irene T.', 'Nerea B.',
+                'Ainhoa Z.', 'Laia P.',
+                'Emily W.', 'Jessica H.', 'Chloe D.', 'Olivia K.', 'Amelia N.', 'Isla B.', 'Ruby T.', 'Grace M.',
+                'Lily P.', 'Evie S.', 'Daisy R.', 'Freya L.', 'Hannah W.', 'Millie B.', 'Poppy D.',
+                'Archie K.', 'Alfie M.', 'Freddie P.', 'George R.', 'Harry S.', 'Jack T.', 'Oliver W.',
+                'Charlie B.', 'Theo D.', 'Ollie F.', 'Louie M.',
+            ];
 
-        $handles = ['@futbolfem_', '@woso_fan', '@grada_', '@forofa_', '@hincha_', '@ultra_'];
+        $prefixes = [
+            '@futbolfem_', '@woso_fan', '@grada_', '@forofa_', '@hincha_', '@ultra_',
+            '@tribuna_', '@futfem_', '@woso_', '@gol_', '@banquillo_', '@corner_',
+            '@delantera_', '@elonce_', '@minuto90_', '@fondo_',
+        ];
+        $words = ['gol', 'corner', 'grada', 'woso', 'futbol', 'banquillo', 'tribuna', 'once', 'fuera', 'area'];
 
-        $name = $names[array_rand($names)];
-        $handle = $handles[array_rand($handles)] . rand(10, 99);
+        for ($attempt = 0; $attempt < 25; $attempt++) {
+            $name = $names[array_rand($names)];
+
+            if (rand(1, 100) <= 35) {
+                // Handle built from the fan's first name: @laia_gol23.
+                $first = strtolower(explode(' ', $name)[0]);
+                $first = iconv('UTF-8', 'ASCII//TRANSLIT', $first) ?: $first;
+                $first = preg_replace('/[^a-z]/', '', $first);
+                $handle = '@' . $first . '_' . $words[array_rand($words)] . rand(2, 99);
+            } else {
+                $handle = $prefixes[array_rand($prefixes)] . rand(100, 999);
+            }
+
+            $key = $name . '|' . $handle;
+            if (! isset($used[$key])) {
+                $used[$key] = true;
+                return [$name, $handle];
+            }
+        }
 
         return [$name, $handle];
     }
@@ -304,8 +444,9 @@ class SocialMediaService
             "Reports say the board is already discussing a possible change in the dugout.",
         ];
 
+        $usedFans = [];
         foreach ($texts as $text) {
-            [$name, $handle] = $this->randomFan();
+            [$name, $handle] = $this->randomFan($usedFans);
             SocialPost::create([
                 'game_id' => $game->id,
                 'author_name' => $name,
@@ -336,8 +477,9 @@ class SocialMediaService
             "It was only a matter of time.",
         ];
 
+        $usedFans = [];
         foreach ($texts as $text) {
-            [$name, $handle] = $this->randomFan();
+            [$name, $handle] = $this->randomFan($usedFans);
             SocialPost::create([
                 'game_id' => $game->id,
                 'author_name' => $name,
@@ -551,11 +693,12 @@ class SocialMediaService
         ];
 
         $count = rand(2, 4);
+        $usedFans = [];
         for ($i = 0; $i < $count; $i++) {
             $isPositive = rand(1, 100) <= $positiveChance;
             $pool = $isPositive ? $positive : $negative;
 
-            [$name, $handle] = $this->randomFan();
+            [$name, $handle] = $this->randomFan($usedFans);
 
             SocialPost::create([
                 'game_id' => $game->id,
