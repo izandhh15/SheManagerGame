@@ -4,6 +4,7 @@ namespace App\Http\Actions;
 
 use App\Models\Game;
 use App\Modules\Government\Services\GovernmentFriendlyService;
+use App\Modules\Government\Services\GovernmentVenueService;
 use App\Modules\Match\Services\MatchdayAdvanceCoordinator;
 use App\Modules\Season\Services\DualTurnService;
 
@@ -13,6 +14,7 @@ class AdvanceMatchday
         private readonly MatchdayAdvanceCoordinator $coordinator,
         private readonly DualTurnService $dualTurn,
         private readonly GovernmentFriendlyService $governmentFriendly,
+        private readonly GovernmentVenueService $governmentVenue,
     ) {}
 
     public function __invoke(string $gameId)
@@ -50,6 +52,9 @@ class AdvanceMatchday
         // F4: national teams without a competition in progress may receive
         // a government-paid friendly offer (via in-game mail).
         $this->governmentFriendly->maybeOffer($game->fresh());
+
+        // F5: governments occasionally offer a venue for the next home match.
+        $this->governmentVenue->maybeOffer($game->fresh());
 
         return redirect()->route('show-game', $gameId);
     }

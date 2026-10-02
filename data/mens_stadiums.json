@@ -1288,6 +1288,28 @@
       "rental_price": 15000,
       "owner": "Getafe CF",
       "country": "España"
+    },
+    {
+      "stadium": "Castalia",
+      "club": "CD Castellón",
+      "owner": "CD Castellón",
+      "capacity": 15500,
+      "rental_price": 150000,
+      "country": "España",
+      "womens_team": null,
+      "womens_teams": [],
+      "key": "Castalia|CD Castellón"
+    },
+    {
+      "stadium": "José Rico Pérez",
+      "club": "Hércules CF",
+      "owner": "Hércules CF",
+      "capacity": 29500,
+      "rental_price": 290000,
+      "country": "España",
+      "womens_team": null,
+      "womens_teams": [],
+      "key": "José Rico Pérez|Hércules CF"
     }
   ]
 }

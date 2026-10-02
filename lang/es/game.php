@@ -940,4 +940,17 @@ return [
     'gov_friendly_rejected_flash' => 'Oferta rechazada. El gobierno buscará otra selección.',
     'gov_friendly_already_answered' => 'Esta oferta ya fue respondida.',
     'gov_friendly_invalid' => 'La oferta ya no es válida.',
+    // Government venue offers (F5)
+    'gov_venue_badge' => 'Sede ofrecida',
+    'gov_venue_offer_title' => ':government te ofrece una sede',
+    'gov_venue_offer_body' => ':government pone a tu disposición estos estadios para el partido contra :opponent: :stadiums. ¡Gratis, cortesía de la casa!',
+    'gov_venue_free' => 'Gratis',
+    'gov_venue_accept' => 'Jugar aquí',
+    'gov_venue_reject' => 'Rechazar',
+    'gov_venue_no_offer' => 'No tienes ninguna oferta de sede pendiente.',
+    'gov_venue_accepted_flash' => '¡Sede confirmada! Jugarás en :stadium.',
+    'gov_venue_rejected_flash' => 'Oferta rechazada.',
+    'gov_venue_already_answered' => 'Esta oferta ya fue respondida.',
+    'gov_venue_invalid' => 'La oferta ya no es válida.',
+    'gov_venue_invalid_stadium' => 'Ese estadio no está en la oferta.',
 ];
