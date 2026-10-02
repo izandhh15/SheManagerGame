@@ -2,11 +2,13 @@
 
 namespace Tests\Feature;
 
+use App\Models\ClubProfile;
 use App\Models\Game;
 use App\Models\GamePlayer;
 use App\Models\GameTransfer;
 use App\Models\SocialPost;
 use App\Models\Team;
+use App\Models\TeamReputation;
 use App\Models\TransferOffer;
 use App\Models\User;
 use App\Modules\Media\Services\SocialMediaService;
@@ -62,6 +64,16 @@ class WinterTransferWindowTest extends TestCase
             'country' => 'ES',
             'season' => '2026',
             'current_date' => '2027-01-10',
+        ]);
+
+        // The AI club needs a continental reputation so the tier gate lets it
+        // sign the tier-3 free agents (a local club is capped at tier 2).
+        TeamReputation::create([
+            'game_id' => $game->id,
+            'team_id' => $aiTeam->id,
+            'reputation_level' => ClubProfile::REPUTATION_CONTINENTAL,
+            'base_reputation_level' => ClubProfile::REPUTATION_CONTINENTAL,
+            'reputation_points' => 0,
         ]);
 
         // AI roster with room to sign: 20 players, thin up front.
@@ -150,7 +162,7 @@ class WinterTransferWindowTest extends TestCase
 
     public function test_schedule_friendly_page_shows_organize_stage_button(): void
     {
-        $user = User::factory()->create();
+        $user = User::factory()->create(['locale' => 'es']);
         $nationalTeam = Team::factory()->create([
             'name' => 'España',
             'country' => 'ES',

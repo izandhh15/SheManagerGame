@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\Competition;
+use App\Models\CupTie;
 use App\Models\Game;
 use App\Models\GameMatch;
 use App\Models\GamePlayer;
@@ -191,7 +192,10 @@ class PressConferenceTest extends TestCase
 
     public function test_cannot_answer_twice_for_the_same_match(): void
     {
+        app()->setLocale('es');
+
         [$game, $user, $match, $player] = $this->buildScenario(
+            locale: 'es',
             homeCountry: 'ES',
             awayCountry: 'ES',
             roundNumber: 5,
@@ -286,11 +290,12 @@ class PressConferenceTest extends TestCase
         bool $cupTie = false,
         bool $withStandings = false,
         bool $withPlayer = false,
+        string $locale = 'en',
     ): array {
-        $user = User::factory()->create();
+        $user = User::factory()->create(['locale' => $locale]);
         $home = Team::factory()->create(['country' => $homeCountry]);
         $away = Team::factory()->create(['country' => $awayCountry]);
-        $competition ??= Competition::factory()->league();
+        $competition ??= Competition::factory()->league()->create();
 
         $game = Game::factory()->create([
             'user_id' => $user->id,
@@ -299,13 +304,21 @@ class PressConferenceTest extends TestCase
             'board_confidence' => 70,
         ]);
 
+        $cupTieId = null;
+        if ($cupTie) {
+            $cupTieId = CupTie::factory()->forGame($game)->between($home, $away)->create([
+                'competition_id' => $competition->id,
+                'round_number' => $roundNumber,
+            ])->id;
+        }
+
         $match = GameMatch::factory()->forGame($game)->create([
             'competition_id' => $competition->id,
             'home_team_id' => $home->id,
             'away_team_id' => $away->id,
             'round_number' => $roundNumber,
             'round_name' => $roundName,
-            'cup_tie_id' => $cupTie ? Str::uuid()->toString() : null,
+            'cup_tie_id' => $cupTieId,
             'played' => false,
         ]);
 

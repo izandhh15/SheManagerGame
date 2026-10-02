@@ -36,12 +36,12 @@ class ClubWorldCupTest extends TestCase
     {
         parent::setUp();
 
-        Competition::factory()->groupStageCup()->create([
+        Competition::updateOrCreate(['id' => 'CWC'], Competition::factory()->groupStageCup()->make([
             'id' => 'CWC',
             'name' => 'Mundial de Clubes',
             'country' => 'XX',
             'season' => '2026',
-        ]);
+        ])->toArray());
 
         $this->userTeam = Team::factory()->create(['country' => 'ES', 'type' => 'club']);
 
