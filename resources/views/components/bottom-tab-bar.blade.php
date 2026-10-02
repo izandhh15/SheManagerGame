@@ -337,7 +337,7 @@
                 {{-- Copyright --}}
                 <div class="border-t border-border-default/50 mt-2 pt-3 px-4 pb-2">
                     <p class="text-[10px] text-text-faint text-center">
-                        &copy; {{ date('Y') }} Izan Delgado &middot; <a href="{{ route('legal') }}" class="hover:text-text-muted transition-colors">Aviso Legal</a> &middot; <a href="https://instagram.com/izandhh" target="_blank" rel="noopener" class="hover:text-text-muted transition-colors">Instagram</a>
+                        &copy; {{ date('Y') }} Izan Delgado &middot; <a href="{{ route('legal') }}" class="hover:text-text-muted transition-colors">Aviso Legal</a> &middot; <a href="https://instagram.com/shemanagergame" target="_blank" rel="noopener" class="hover:text-text-muted transition-colors">Instagram</a>
                         @if(auth()->user()?->is_admin)
                             &middot; <a href="{{ route('admin.dashboard') }}" class="hover:text-text-muted transition-colors">Admin</a>
                         @endif

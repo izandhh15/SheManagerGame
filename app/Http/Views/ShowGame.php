@@ -220,7 +220,7 @@ class ShowGame
         if ($nextMatch) {
             $isHome = $nextMatch->home_team_id === $game->team_id;
 
-            $viewData['narratives'] = $this->narrativeService->generate(
+            $viewData['narratives'] = $this->narrativeService->generateWithPressure(
                 $game,
                 $nextMatch,
                 $isHome ? $viewData['homeStanding'] : $viewData['awayStanding'],

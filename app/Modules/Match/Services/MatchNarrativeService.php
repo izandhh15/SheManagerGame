@@ -12,11 +12,13 @@ use App\Models\TransferOffer;
 use App\Modules\Competition\Contracts\HasSeasonGoals;
 use App\Modules\Match\DTOs\MatchNarrative;
 use App\Modules\Media\Services\MediaOutletService;
+use App\Modules\Media\Services\ManagerPressureService;
 
 class MatchNarrativeService
 {
     public function __construct(
-        private readonly MediaOutletService $mediaOutlets,
+        private readonly ?MediaOutletService $mediaOutlets = null,
+        private readonly ?ManagerPressureService $managerPressure = null,
     ) {}
     /**
      * Categories whose selected line already names and frames THIS fixture, so a
@@ -64,6 +66,44 @@ class MatchNarrativeService
         }
 
         return $this->selectTop($candidates, $nextMatch->round_number ?? 1, $limit, $game);
+    }
+
+    /**
+     * Full generate() wrapper used by the dashboard: snippets plus the press
+     * rumour mill (managers on the ropes get full media articles).
+     *
+     * @return array<MatchNarrative>
+     */
+    public function generateWithPressure(
+        Game $game,
+        GameMatch $nextMatch,
+        ?GameStanding $playerStanding,
+        ?GameStanding $opponentStanding,
+        array $playerForm,
+        array $opponentForm,
+        int $limit = 2,
+    ): array {
+        $narratives = $this->generate(
+            $game,
+            $nextMatch,
+            $playerStanding,
+            $opponentStanding,
+            $playerForm,
+            $opponentForm,
+            $limit,
+        );
+
+        // Press rumour mill: managers on the ropes get full media articles
+        // ("El entrenador del X podría ser cesado"). Kept out of tournament
+        // mode, where the news feed stays focused on the competition.
+        if (! $game->isTournamentMode() && $this->managerPressure) {
+            $narratives = [
+                ...$narratives,
+                ...array_slice($this->managerPressure->pressureArticles($game, $nextMatch), 0, 2),
+            ];
+        }
+
+        return $narratives;
     }
 
     // ═══════════════════════════════════════════════════════════════════
@@ -872,7 +912,7 @@ class MatchNarrativeService
         return new MatchNarrative(
             text: __("narrative.{$variantKey}", $candidate['params']),
             category: $candidate['category'],
-            source: $game ? $this->mediaOutlets->randomOutlet($game) : null,
+            source: ($game && $this->mediaOutlets) ? $this->mediaOutlets->randomOutlet($game) : null,
             headline: $headline,
         );
     }

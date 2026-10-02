@@ -173,7 +173,7 @@
             <div class="flex items-center gap-4 text-xs text-text-muted">
                 <span>{{ __('landing.footer_data') }}</span>
                 <a href="https://github.com/izandhh15/SheManagerGame" target="_blank" rel="noopener" class="hover:text-text-secondary">GitHub</a>
-                <a href="https://instagram.com/izandhh" target="_blank" rel="noopener" class="hover:text-text-secondary">Instagram</a>
+                <a href="https://instagram.com/shemanagergame" target="_blank" rel="noopener" class="hover:text-text-secondary">Instagram</a>
             </div>
         </div>
     </footer>

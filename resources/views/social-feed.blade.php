@@ -29,6 +29,12 @@
             </div>
         @endif
 
+        @if(session('reply_done'))
+            <div class="mb-4 p-3 rounded-lg bg-accent-blue/10 border border-accent-blue/30 text-sm text-text-primary">
+                Tu respuesta ya está circulando por la red...
+            </div>
+        @endif
+
         @if($boardConfidence < 30)
             <div class="mb-4 p-4 rounded-lg bg-red-500/10 border border-red-500/40">
                 <p class="font-bold text-red-500">⚠️ {{ __('game.board_warning', [], 'es') === 'game.board_warning' ? 'La directiva está perdiendo la paciencia. ¡Cuidado con lo que dices!' : __('game.board_warning') }}</p>
@@ -67,6 +73,40 @@
                             <span class="font-bold text-yellow-500 uppercase">Rumor</span>
                         @endif
                     </div>
+
+                    {{-- Manager reply to haters --}}
+                    @if(!empty($post->manager_reply_text))
+                        <div class="mt-3 ml-6 p-3 rounded-lg bg-accent-blue/10 border border-accent-blue/30">
+                            <div class="flex items-center gap-2 mb-1">
+                                <div class="w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold">TÚ</div>
+                                <span class="text-xs font-semibold text-text-primary">Tu respuesta</span>
+                            </div>
+                            <p class="text-text-primary text-sm">{{ $post->manager_reply_text }}</p>
+                        </div>
+                    @elseif($post->sentiment < 0)
+                        <div class="mt-3">
+                            <button type="button"
+                                    onclick="document.getElementById('reply-form-{{ $post->id }}').classList.toggle('hidden')"
+                                    class="text-xs font-semibold text-accent-blue hover:underline">
+                                💬 Responder al hater
+                            </button>
+                            <form id="reply-form-{{ $post->id }}" method="POST"
+                                  action="{{ route('game.social.reply', [$game->id, $post->id]) }}"
+                                  class="hidden mt-2 p-3 rounded-lg bg-surface-700/50 border border-border-default space-y-2">
+                                @csrf
+                                @foreach($haterReplies as $reply)
+                                    <label class="flex items-start gap-2 text-sm text-text-primary cursor-pointer hover:bg-surface-700 rounded px-2 py-1">
+                                        <input type="radio" name="reply_key" value="{{ $reply['key'] }}" class="mt-1" {{ $loop->first ? 'checked' : '' }}>
+                                        <span>{{ $reply['label'] }}</span>
+                                    </label>
+                                @endforeach
+                                <button type="submit"
+                                        class="mt-1 px-3 py-1.5 rounded-lg bg-accent-blue text-white text-xs font-bold hover:opacity-90">
+                                    Publicar respuesta
+                                </button>
+                            </form>
+                        </div>
+                    @endif
                 </div>
             @empty
                 <div class="p-8 text-center rounded-xl bg-surface-800 border border-border-default">

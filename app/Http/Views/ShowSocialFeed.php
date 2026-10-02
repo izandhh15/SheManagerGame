@@ -4,9 +4,14 @@ namespace App\Http\Views;
 
 use App\Models\Game;
 use App\Models\SocialPost;
+use App\Modules\Media\Services\SocialMediaService;
 
 class ShowSocialFeed
 {
+    public function __construct(
+        private readonly SocialMediaService $socialMedia,
+    ) {}
+
     public function __invoke(string $gameId)
     {
         $game = Game::with('team')->findOrFail($gameId);
@@ -29,6 +34,7 @@ class ShowSocialFeed
             'negativeCount' => $negativeCount,
             'positiveCount' => $positiveCount,
             'boardConfidence' => $game->board_confidence ?? 70,
+            'haterReplies' => $this->socialMedia->haterReplyOptions(),
         ]);
     }
 }

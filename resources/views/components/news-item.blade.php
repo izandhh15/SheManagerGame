@@ -35,6 +35,13 @@
             <p class="text-sm font-bold leading-snug text-text-primary">{{ $narrative->headline }}</p>
         @endif
         <p class="text-sm leading-relaxed text-text-secondary">{{ $narrative->text }}</p>
+        @if(!empty($narrative->body))
+            <div class="mt-2 space-y-2 border-l-2 border-border-default pl-3">
+                @foreach($narrative->body as $paragraph)
+                    <p class="text-sm leading-relaxed text-text-secondary">{{ $paragraph }}</p>
+                @endforeach
+            </div>
+        @endif
     </div>
 
     @if($clickable)

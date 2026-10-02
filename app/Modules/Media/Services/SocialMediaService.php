@@ -29,6 +29,35 @@ class SocialMediaService
     ];
 
     /**
+     * Predefined replies the manager can fire back at haters with.
+     *
+     * Each entry: [label_es, label_en, board_delta, morale_delta, tone]
+     * tone = 'firm'|'calm'|'spicy' — drives how fans react to the comeback.
+     */
+    public const HATER_REPLIES = [
+        'results_talk' => [
+            '«Los resultados hablarán en el campo.»',
+            '"Results will do the talking on the pitch."',
+            2, 3, 'firm',
+        ],
+        'respect_opinions' => [
+            '«Respeto todas las opiniones. Yo, a lo mío.»',
+            '"I respect every opinion. I\'ll keep doing my thing."',
+            3, 1, 'calm',
+        ],
+        'patience_project' => [
+            '«Paciencia: estamos construyendo algo grande.»',
+            '"Patience: we\'re building something big."',
+            1, 2, 'calm',
+        ],
+        'sofa_critic' => [
+            '«Es muy fácil criticar desde el sofá.»',
+            '"It\'s very easy to criticise from the sofa."',
+            -3, -2, 'spicy',
+        ],
+    ];
+
+    /**
      * Generate the press-conference options after a match.
      *
      * @return array{key: string, label: string, player?: array{id: string, name: string, rating: float}}
@@ -352,6 +381,114 @@ class SocialMediaService
             return ($match->home_score ?? 0) < ($match->away_score ?? 0);
         }
         return ($match->away_score ?? 0) < ($match->home_score ?? 0);
+    }
+
+    /**
+     * The manager fires back at a hater post with one of the predefined
+     * replies. Applies small effects (board confidence, squad morale),
+     * stores the reply on the post and generates fan reactions to it.
+     *
+     * @throws \InvalidArgumentException on unknown reply key
+     */
+    public function replyToHater(Game $game, SocialPost $post, string $replyKey): SocialPost
+    {
+        if (! isset(self::HATER_REPLIES[$replyKey])) {
+            throw new \InvalidArgumentException("Unknown hater reply: {$replyKey}");
+        }
+
+        [$labelEs, $labelEn, $boardDelta, $moraleDelta, $tone] = self::HATER_REPLIES[$replyKey];
+        $es = app()->getLocale() === 'es';
+        $replyText = $es ? $labelEs : $labelEn;
+
+        $post->manager_reply_key = $replyKey;
+        $post->manager_reply_text = $replyText;
+        $post->save();
+
+        // Board confidence effect.
+        $game->board_confidence = max(0, min(100, ($game->board_confidence ?? 70) + $boardDelta));
+        $game->save();
+
+        // Squad morale effect (clamped 0-100, single query).
+        if ($moraleDelta !== 0) {
+            $delta = (int) $moraleDelta;
+            \DB::table('game_player_match_state')
+                ->where('game_id', $game->id)
+                ->whereIn('game_player_id', fn ($q) => $q->select('id')->from('game_players')
+                    ->where('game_id', $game->id)
+                    ->where('team_id', $game->team_id))
+                ->update(['morale' => \DB::raw("LEAST(100, GREATEST(0, morale + {$delta}))")]);
+        }
+
+        // Fans react to the comeback.
+        $this->generateReplyReactions($game, $post, $tone, $es);
+
+        return $post->refresh();
+    }
+
+    /**
+     * Localized reply options for the reply picker UI.
+     *
+     * @return list<array{key: string, label: string}>
+     */
+    public function haterReplyOptions(): array
+    {
+        $es = app()->getLocale() === 'es';
+        $options = [];
+
+        foreach (self::HATER_REPLIES as $key => [$labelEs, $labelEn]) {
+            $options[] = ['key' => $key, 'label' => $es ? $labelEs : $labelEn];
+        }
+
+        return $options;
+    }
+
+    private function generateReplyReactions(Game $game, SocialPost $post, string $tone, bool $es): void
+    {
+        // Spicy comebacks split the fanbase; firm/calm ones mostly land well.
+        $positiveChance = $tone === 'spicy' ? 35 : ($tone === 'firm' ? 75 : 60);
+
+        $positive = $es ? [
+            'Jajaja, bien dicho míster 🔥',
+            'Así se responde. A por ellos.',
+            'El míster tiene carácter, me gusta.',
+            'Por fin alguien que no se esconde.',
+        ] : [
+            'Haha, well said gaffer 🔥',
+            'That\'s how you answer. Let\'s go.',
+            'The gaffer has character, I like it.',
+            'Finally someone who doesn\'t hide.',
+        ];
+
+        $negative = $es ? [
+            'Chulería en vez de resultados... mal vamos.',
+            'Menos tuits y más entrenar.',
+            'Esto no lo arregla con frases.',
+            'Que se centre en el campo y calle.',
+        ] : [
+            'Sass instead of results... not good.',
+            'Less tweeting, more training.',
+            'He won\'t fix this with quotes.',
+            'Focus on the pitch and stay quiet.',
+        ];
+
+        $count = rand(2, 4);
+        for ($i = 0; $i < $count; $i++) {
+            $isPositive = rand(1, 100) <= $positiveChance;
+            $pool = $isPositive ? $positive : $negative;
+
+            [$name, $handle] = $this->randomFan();
+
+            SocialPost::create([
+                'game_id' => $game->id,
+                'author_name' => $name,
+                'author_handle' => $handle,
+                'text' => $pool[array_rand($pool)],
+                'sentiment' => $isPositive ? 1 : -1,
+                'likes' => rand(5, 300),
+                'context' => 'manager_reply',
+                'match_id' => $post->match_id,
+            ]);
+        }
     }
 
     /**

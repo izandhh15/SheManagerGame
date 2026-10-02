@@ -136,6 +136,7 @@ use App\Http\Views\ShowSocialFeed;
 use App\Http\Views\ShowPressConference;
 use App\Http\Views\ShowYouthScouting;
 use App\Http\Actions\SubmitPressStatement;
+use App\Http\Actions\ReplyToHater;
 use App\Http\Actions\PoachYouthPlayer;
 use App\Http\Views\ShowScoutReportResults;
 use App\Http\Views\ShowExplore;
@@ -279,6 +280,7 @@ Route::middleware('auth')->group(function () {
 
         // Fake social network + press conferences
         Route::get('/game/{gameId}/social', ShowSocialFeed::class)->name('game.social');
+        Route::post('/game/{gameId}/social/{postId}/reply', ReplyToHater::class)->name('game.social.reply');
         Route::get('/game/{gameId}/press/{matchId}', ShowPressConference::class)->name('game.press');
         Route::post('/game/{gameId}/press/{matchId}', SubmitPressStatement::class)->name('game.press.submit');
 
