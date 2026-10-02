@@ -28,8 +28,9 @@ class ShowNationalVenues
         $pending = $this->orgService->pendingMatches($game);
         $awaitingClub = $this->orgService->pendingClubDecisions($game);
 
-        // National stadiums grouped by country for the picker.
-        $stadiumList = $this->venueService->nationalStadiums();
+        // National (federation) stadiums: only the national team's own
+        // country (Spain → Spanish grounds, default La Cartuja).
+        $stadiumList = $this->venueService->federationStadiums($userTeam);
         $stadiums = (clone $stadiumList)->groupBy('country')->sortKeys();
         $defaultStadium = $this->venueService->defaultNationalStadium($stadiumList, $userTeam);
 

@@ -74,7 +74,9 @@ class NationalVenueRequestService
             return null;
         }
 
-        $teamName = strtolower(trim((string) ($nationalTeam?->name ?? '')));
+        // Raw DB name: the `name` accessor translates national teams
+        // (Spain → España), but the catalogue is keyed by the raw name.
+        $teamName = strtolower(trim((string) ($nationalTeam?->getRawOriginal('name') ?? '')));
         if ($teamName !== '') {
             $home = $stadiums->first(
                 fn (array $s) => strtolower($s['country']) === $teamName && $s['national_team']
@@ -88,6 +90,29 @@ class NationalVenueRequestService
 
         return $stadiums->first(fn (array $s) => $s['national_team'])
             ?? $stadiums->first();
+    }
+
+    /**
+     * Federation stadiums for a national team: ONLY grounds from the
+     * team's own country (Spain → Spanish stadiums, default La Cartuja).
+     * Falls back to the full catalogue when the country has none.
+     *
+     * @return Collection<int, array{stadium: string, city: ?string, capacity: int, country: string, national_team: bool}>
+     */
+    public function federationStadiums(?Team $nationalTeam): Collection
+    {
+        $all = $this->nationalStadiums();
+        $country = strtolower(trim((string) ($nationalTeam?->getRawOriginal('name') ?? '')));
+
+        if ($country === '') {
+            return $all;
+        }
+
+        $filtered = $all
+            ->filter(fn (array $s) => strtolower($s['country']) === $country)
+            ->values();
+
+        return $filtered->isNotEmpty() ? $filtered : $all;
     }
 
     /**
@@ -107,11 +132,14 @@ class NationalVenueRequestService
             ->get(['id', 'name', 'country', 'stadium_name', 'stadium_seats'])
             ->map(fn (Team $t) => [
                 'team_id' => $t->id,
-                'team_name' => $t->name,
+                'team_name' => $t->getRawOriginal('name'),
                 'stadium' => $t->stadium_name,
                 'capacity' => (int) $t->stadium_seats,
                 'country' => $t->country,
-            ]);
+            ])
+            // Defensive: never show the same club twice (stale duplicate rows).
+            ->unique('team_name')
+            ->values();
     }
 
     /**

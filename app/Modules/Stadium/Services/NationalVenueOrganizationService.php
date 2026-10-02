@@ -173,7 +173,7 @@ class NationalVenueOrganizationService
 
     private function organizeNational(Game $game, GameMatch $match, array $selection): array
     {
-        $stadiums = $this->venueService->nationalStadiums();
+        $stadiums = $this->venueService->federationStadiums($game->team);
         $stadium = $stadiums->firstWhere('stadium', $selection['stadium'] ?? null);
         if (! $stadium) {
             return $this->fail('game.friendly_invalid_stadium');
@@ -269,7 +269,7 @@ class NationalVenueOrganizationService
             return [
                 'ok' => false,
                 'message' => __('game.venue_org_rejected', [
-                    'stadium' => $clubTeam->stadium_name,
+                    'club' => $clubTeam->name,
                     'excuse' => __($decision['excuse']),
                 ]),
                 'accepted' => false,
@@ -352,7 +352,7 @@ class NationalVenueOrganizationService
             return [
                 'ok' => false,
                 'message' => __('game.venue_org_rejected', [
-                    'stadium' => $mens['stadium'],
+                    'club' => $mens['club'] ?? $owner,
                     'excuse' => __($decision['excuse']),
                 ]),
                 'accepted' => false,
