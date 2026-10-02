@@ -45,7 +45,7 @@ class MensStadiumRentalPricingTest extends TestCase
         $this->assertNull($stadium['club']);
 
         $user = User::factory()->create();
-        $team = Team::factory()->create(['country' => 'España']);
+        $team = Team::factory()->create(['country' => 'ES']);
         $game = Game::factory()->create([
             'user_id' => $user->id, 'team_id' => $team->id, 'season' => '2026',
             'current_date' => '2026-09-01',
@@ -68,7 +68,7 @@ class MensStadiumRentalPricingTest extends TestCase
 
         // Find a Spanish club ground that is NOT difficult this season.
         $candidates = array_filter(
-            $service->rentalCatalogue('Valencia CF Femenino', 'España'),
+            $service->rentalCatalogue('Valencia CF Femenino', 'ES'),
             fn (array $s) => ($s['club'] ?? null) !== null
                 && ! $service->isClubDifficult($s['club'], '2026')
         );
@@ -76,7 +76,7 @@ class MensStadiumRentalPricingTest extends TestCase
         $stadium = array_values($candidates)[0];
 
         $user = User::factory()->create();
-        $team = Team::factory()->create(['country' => 'España']);
+        $team = Team::factory()->create(['country' => 'ES']);
         $game = Game::factory()->create([
             'user_id' => $user->id, 'team_id' => $team->id, 'season' => '2026',
             'current_date' => '2026-09-01',
@@ -98,7 +98,7 @@ class MensStadiumRentalPricingTest extends TestCase
     {
         $service = $this->service();
 
-        $es = $service->rentalCatalogue('Valencia CF Femenino', 'España');
+        $es = $service->rentalCatalogue('Valencia CF Femenino', 'ES');
         $this->assertNotEmpty($es);
         foreach ($es as $s) {
             $this->assertSame('España', $s['country'], $s['stadium']);
@@ -108,8 +108,8 @@ class MensStadiumRentalPricingTest extends TestCase
         $this->assertEmpty(array_filter($es, fn (array $s) => ($s['country'] ?? null) === 'Inglaterra'));
 
         // Cross-country rental is rejected.
-        $this->assertFalse($service->isRentableBy('Valencia CF Femenino', 'Emirates Stadium|Arsenal', 'España'));
-        $this->assertTrue($service->isRentableBy('Valencia CF Femenino', 'Mestalla|Valencia CF', 'España'));
+        $this->assertFalse($service->isRentableBy('Valencia CF Femenino', 'Emirates Stadium|Arsenal', 'ES'));
+        $this->assertTrue($service->isRentableBy('Valencia CF Femenino', 'Mestalla|Valencia CF', 'ES'));
     }
 
     public function test_difficult_clubs_refuse_with_deterministic_excuse(): void
@@ -118,7 +118,7 @@ class MensStadiumRentalPricingTest extends TestCase
 
         // Find a difficult Spanish club this season.
         $difficult = null;
-        foreach ($service->rentalCatalogue('Valencia CF Femenino', 'España') as $s) {
+        foreach ($service->rentalCatalogue('Valencia CF Femenino', 'ES') as $s) {
             if (($s['club'] ?? null) !== null && $service->isClubDifficult($s['club'], '2026')) {
                 $difficult = $s;
                 break;
@@ -135,14 +135,14 @@ class MensStadiumRentalPricingTest extends TestCase
 
         // Not ALL clubs are difficult.
         $easy = array_filter(
-            $service->rentalCatalogue('Valencia CF Femenino', 'España'),
+            $service->rentalCatalogue('Valencia CF Femenino', 'ES'),
             fn (array $s) => ($s['club'] ?? null) !== null && ! $service->isClubDifficult($s['club'], '2026')
         );
         $this->assertNotEmpty($easy);
 
         // The quote carries the refusal.
         $user = User::factory()->create();
-        $team = Team::factory()->create(['country' => 'España']);
+        $team = Team::factory()->create(['country' => 'ES']);
         $game = Game::factory()->create([
             'user_id' => $user->id, 'team_id' => $team->id, 'season' => '2026',
             'current_date' => '2026-09-01',

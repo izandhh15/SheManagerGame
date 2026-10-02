@@ -89,6 +89,22 @@ class MensStadiumRequestService
     }
 
     /**
+     * Convert a team country (ISO code like 'ES', or a full name) to the
+     * full country name used in the stadium catalogue.
+     */
+    private function countryName(?string $country): ?string
+    {
+        if ($country === null || $country === '') {
+            return null;
+        }
+
+        // Already a full name (or unknown code): use as-is.
+        $name = config('countries.'.$country.'.name');
+
+        return $name ?? $country;
+    }
+
+    /**
      * Full rental catalogue: every men's/municipal ground IN THE USER'S
      * COUNTRY that can be rented, affiliated first (user's own), then the
      * rest by club.
@@ -105,9 +121,10 @@ class MensStadiumRequestService
         $this->loadStadiums();
 
         $mine = $this->affiliatedMap[$womensTeamName] ?? null;
+        $countryName = $this->countryName($userCountry);
 
         $list = collect($this->stadiumsByName)
-            ->filter(fn (array $s) => $userCountry === null || ($s['country'] ?? null) === $userCountry);
+            ->filter(fn (array $s) => $countryName === null || ($s['country'] ?? null) === $countryName);
 
         if ($mine !== null) {
             $list = $list->sortBy(fn (array $s) => $s['key'] === $mine['key'] ? 0 : 1);
@@ -132,7 +149,7 @@ class MensStadiumRequestService
             return false;
         }
 
-        if (! $allowAbroad && $userCountry !== null && ($stadium['country'] ?? null) !== $userCountry) {
+        if (! $allowAbroad && $userCountry !== null && ($stadium['country'] ?? null) !== $this->countryName($userCountry)) {
             return false;
         }
 
