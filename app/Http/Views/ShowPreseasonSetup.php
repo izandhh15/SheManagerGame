@@ -35,6 +35,10 @@ class ShowPreseasonSetup
         $invitations = $this->invitationService->pendingFor($game);
         $acceptedInvitations = $this->invitationService->acceptedFor($game);
 
+        // The club's automatic 5th friendly (first team vs. filial): shown as
+        // a locked preview — it gets scheduled when pre-season is confirmed.
+        $familyDerbyOpponent = $this->opponentService->familyDerbyOpponent($game);
+
         // Accepted invitations as locked slots for the Alpine picker.
         $acceptedForJs = $acceptedInvitations->map(fn ($inv) => [
             'slot' => $inv->slot,
@@ -53,6 +57,7 @@ class ShowPreseasonSetup
             'invitations' => $invitations,
             'acceptedInvitations' => $acceptedInvitations,
             'acceptedForJs' => $acceptedForJs,
+            'familyDerbyOpponent' => $familyDerbyOpponent,
         ]);
     }
 }

@@ -5,6 +5,7 @@
 /** @var \Illuminate\Support\Collection $invitations */
 /** @var \Illuminate\Support\Collection $acceptedInvitations */
 /** @var array $acceptedForJs */
+/** @var \App\Models\Team|null $familyDerbyOpponent */
 $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
 @endphp
 
@@ -27,6 +28,23 @@ $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
 
             <x-flash-message type="error" :message="session('error')" class="mb-6" />
             <x-flash-message type="info" :message="session('info')" class="mb-6" />
+
+            {{-- Automatic 5th friendly: the club's family derby, scheduled on confirm --}}
+            @if($familyDerbyOpponent)
+                <div class="mb-8 bg-amber-950/40 border border-amber-600/30 rounded-xl p-4">
+                    <div class="flex items-center gap-3">
+                        <x-team-crest :team="$familyDerbyOpponent" class="w-10 h-10 shrink-0" />
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-semibold text-amber-300">
+                                {{ __('game.preseason_family_derby_banner_title') }}
+                            </p>
+                            <p class="text-xs text-text-secondary mt-1">
+                                {{ __('game.preseason_family_derby_banner_body', ['team' => $familyDerbyOpponent->name]) }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            @endif
 
             {{-- AI Invitations: the machine invites you to friendlies/trophies --}}
             @if($invitations->isNotEmpty())

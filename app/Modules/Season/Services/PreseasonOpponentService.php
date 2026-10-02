@@ -32,6 +32,15 @@ class PreseasonOpponentService
 
     public const NUM_SLOTS = 4;
 
+    /**
+     * The 5th, automatic friendly: first team vs. its own filial (the "derbi
+     * de la casa"). It always goes last, after the four player-chosen slots.
+     */
+    public const FAMILY_DERBY_ROUND_NUMBER = 5;
+
+    /** Fixed date (day/month) for the automatic family derby. */
+    private const FAMILY_DERBY_DATE = ['day' => 17, 'month' => 8];
+
     /** Fixed fixture dates (day/month) for the four pre-season slots. */
     private const SCHEDULE = [
         ['day' => 12, 'month' => 7],
@@ -64,6 +73,11 @@ class PreseasonOpponentService
      * excluded (club friendlies only); the user's own teams are excluded so
      * you can't play yourself. Sorted by name for a stable picker.
      *
+     * Rivals adapt to your level: only teams from leagues within ±1 tier of
+     * yours show up — no 2ª RFEF side drawing OL Lyonnes for a friendly.
+     * Teams whose league tier can't be determined are kept, so the picker
+     * never ends up empty for lack of data.
+     *
      * Note: unlike transferMarketEligible() (which drops reserve teams because
      * they never buy/sell on the market), friendlies have no such restriction.
      *
@@ -75,12 +89,85 @@ class PreseasonOpponentService
             ->distinct()
             ->pluck('team_id');
 
-        return Team::where('type', '!=', 'national')
+        $teams = Team::where('type', '!=', 'national')
             ->whereIn('id', $teamIds)
             ->whereNotIn('id', $game->userTeamIds())
             ->whereHas('competitions', fn (Builder $q) => $q->where('role', '!=', Competition::ROLE_DOMESTIC_CUP))
             ->orderBy('name')
             ->get();
+
+        return $this->filterByCategory($game, $teams);
+    }
+
+    /**
+     * Keep only teams whose league tier is within ±1 of the user's league
+     * tier. League tiers come from this game's competition entries, so they
+     * reflect promotions and relegations, not stale reference data.
+     *
+     * @param  Collection<int, Team>  $teams
+     * @return Collection<int, Team>
+     */
+    private function filterByCategory(Game $game, Collection $teams): Collection
+    {
+        if ($teams->isEmpty()) {
+            return $teams;
+        }
+
+        $userTier = (int) ($game->competition?->tier ?? 1);
+        $tiers = $this->leagueTiersFor($game, $teams->pluck('id'));
+
+        return $teams->filter(
+            fn (Team $team) => ! isset($tiers[$team->id])
+                || abs($tiers[$team->id] - $userTier) <= 1
+        )->values();
+    }
+
+    /**
+     * League tier per team for this game (lowest league tier wins when a team
+     * holds several entries). Teams with no league entry are absent from the
+     * map.
+     *
+     * @param  Collection<int, string>  $teamIds
+     * @return array<string, int>
+     */
+    private function leagueTiersFor(Game $game, Collection $teamIds): array
+    {
+        if ($teamIds->isEmpty()) {
+            return [];
+        }
+
+        return CompetitionEntry::query()
+            ->join('competitions as c', 'c.id', '=', 'competition_entries.competition_id')
+            ->where('competition_entries.game_id', $game->id)
+            ->where('c.role', Competition::ROLE_LEAGUE)
+            ->whereIn('competition_entries.team_id', $teamIds->all())
+            ->groupBy('competition_entries.team_id')
+            ->selectRaw('competition_entries.team_id as team_id, MIN(c.tier) as tier')
+            ->pluck('tier', 'team_id')
+            ->map(fn ($tier) => (int) $tier)
+            ->all();
+    }
+
+    /**
+     * The linked side for the automatic family derby: if the user manages a
+     * filial (academy career), its first team; if the user manages a first
+     * team, its own filial. Null when the club has no linked side.
+     */
+    public function familyDerbyOpponent(Game $game): ?Team
+    {
+        $userTeam = Team::find($game->team_id);
+
+        if (! $userTeam) {
+            return null;
+        }
+
+        // Filial career: the derby is against your own first team.
+        if ($userTeam->isReserveTeam()) {
+            return $userTeam->parentTeam;
+        }
+
+        // First-team career: the derby is against your own filial.
+        return $userTeam->reserveTeam;
     }
 
     /**
@@ -159,11 +246,64 @@ class PreseasonOpponentService
                 'preseason_opponents_pending' => false,
             ]);
 
+            // The club always organises its own extra derby on top.
+            $this->scheduleFamilyDerby($game);
+
             return;
         }
 
         // No friendlies chosen — the deliberate replacement for the old skip.
         $this->skipPreSeason($game);
+    }
+
+    /**
+     * Schedule the automatic 5th friendly: the "derbi de la casa", first team
+     * vs. its own filial — the lab match for trying out academy players and
+     * wild tactics. Idempotent per season: never schedules it twice.
+     *
+     * @return GameMatch|null the created derby, or null when the club has no
+     *                       linked side (or the derby is already scheduled)
+     */
+    public function scheduleFamilyDerby(Game $game): ?GameMatch
+    {
+        $opponent = $this->familyDerbyOpponent($game);
+
+        if (! $opponent || $opponent->id === $game->team_id) {
+            return null;
+        }
+
+        $seasonYear = (int) $game->season;
+
+        $alreadyScheduled = GameMatch::where('game_id', $game->id)
+            ->where('competition_id', self::PRESEASON_COMPETITION_ID)
+            ->where('round_number', self::FAMILY_DERBY_ROUND_NUMBER)
+            ->whereYear('scheduled_date', $seasonYear)
+            ->exists();
+
+        if ($alreadyScheduled) {
+            return null;
+        }
+
+        $userTeam = Team::findOrFail($game->team_id);
+        $date = Carbon::createFromDate(
+            $seasonYear,
+            self::FAMILY_DERBY_DATE['month'],
+            self::FAMILY_DERBY_DATE['day']
+        );
+
+        return GameMatch::create([
+            'id' => Str::uuid()->toString(),
+            'game_id' => $game->id,
+            'competition_id' => self::PRESEASON_COMPETITION_ID,
+            'round_number' => self::FAMILY_DERBY_ROUND_NUMBER,
+            'round_name' => 'game.preseason_family_derby_round',
+            'trophy_name' => __('game.preseason_family_derby_trophy'),
+            'stadium_name' => $userTeam->stadium_name,
+            'home_team_id' => $game->team_id,
+            'away_team_id' => $opponent->id,
+            'scheduled_date' => $date->toDateString(),
+            'played' => false,
+        ]);
     }
 
     /**
@@ -239,6 +379,10 @@ class PreseasonOpponentService
      */
     private function skipPreSeason(Game $game): void
     {
+        // The club's automatic derby happens even when the player skips their
+        // own picks: it's the club's match, not the player's.
+        $this->scheduleFamilyDerby($game);
+
         $earliestMatch = GameMatch::where('game_id', $game->id)
             ->where('played', false)
             ->orderBy('scheduled_date')

@@ -57,7 +57,8 @@ class PreseasonInvitationService
         }
 
         // 6-8 invitations across the 4 slots (multiple per slot, user picks one).
-        $count = min(8, max(6, $candidates->count()));
+        // Small pools just invite everybody instead of crashing random().
+        $count = min(8, $candidates->count());
         $picked = $candidates->random($count);
 
         $slot = 0;
@@ -152,8 +153,9 @@ class PreseasonInvitationService
     }
 
     /**
-     * Clubs that can invite: from the friendly candidate pool, preferring
-     * bigger clubs (higher reputation) for trophy invitations.
+     * Clubs that can invite: from the friendly candidate pool (already adapted
+     * to the user's category), excluding reserve teams — a filial never
+     * invites you to a friendly; its first team does. Shuffled for variety.
      *
      * @return Collection<int, Team>
      */
@@ -162,8 +164,7 @@ class PreseasonInvitationService
         $opponentService = app(PreseasonOpponentService::class);
         $pool = $opponentService->candidatePool($game);
 
-        // Prefer clubs (not reserve teams) as inviters; shuffle for variety.
-        return $pool->shuffle();
+        return $pool->reject(fn (Team $team) => $team->isReserveTeam())->shuffle()->values();
     }
 
     /**
