@@ -216,7 +216,7 @@
                         </button>
                         @endif
 
-                        {{-- Affiliate mode card (first team + reserve team, linked saves) --}}
+                        {{-- Affiliate mode card (start at the reserve side, earn the first team) --}}
                         @if($hasCareerAccess && $affiliateClubs->isNotEmpty())
                         <button type="button"
                                 @click="mode = 'affiliate'"
@@ -470,8 +470,8 @@
                     </div>
                 @endif
 
-                {{-- ===================== AFFILIATE MODE: first team + its filial =====================
-                     Step 1: pick the first team (only clubs with a playable filial are
+                {{-- ===================== AFFILIATE MODE: start at the filial =====================
+                     Step 1: pick the club (only clubs with a playable filial are
                      listed). The submit button posts to the affiliate endpoint with
                      club_id via formaction, so both halves are created in one step. --}}
                 @if($hasCareerAccess && $affiliateClubs->isNotEmpty())

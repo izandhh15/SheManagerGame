@@ -62,7 +62,7 @@ class SeasonPipelineOrderingTest extends TestCase
     {
         // If either count changes, update docs/game-systems/season-lifecycle.md
         // in the same commit — the tables there are the source of truth.
-        $this->assertCount(29, app(SeasonClosingPipeline::class)->getProcessors());
+        $this->assertCount(30, app(SeasonClosingPipeline::class)->getProcessors());
         $this->assertCount(14, app(SeasonSetupPipeline::class)->getProcessors());
     }
 }

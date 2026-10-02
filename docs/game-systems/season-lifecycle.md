@@ -22,7 +22,7 @@ Season transitions run two pipelines sequentially: `SeasonClosingPipeline` close
 
 The tables are the source of truth for ordering. `tests/Unit/SeasonPipelineOrderingTest.php` pins the processor counts and the ordering the transfer domain relies on, so they cannot drift from the code without a failing test.
 
-### SeasonClosingPipeline (29 processors — transitions only)
+### SeasonClosingPipeline (30 processors — transitions only)
 
 | Priority | Processor | What it does |
 |---------:|-----------|--------------|
@@ -55,6 +55,7 @@ The tables are the source of truth for ordering. `tests/Unit/SeasonPipelineOrder
 | 92 | `FanLoyaltyUpdateProcessor` (Stadium) | Nudges fan loyalty from season outcomes |
 | 95 | `YouthAcademyClosingProcessor` | Develops academy players and returns academy loans |
 | 100 | `UefaQualificationProcessor` | Determines UEFA competition qualifiers |
+| 101 | `AffiliateFirstTeamSackProcessor` | Affiliate careers: if the AI-managed first team was relegated, finished in the relegation zone, or ended far below the board's objective, the board sacks its coach and hands the first team to the user |
 
 The transfer domain depends on the 5 → 20 → 30 → 35 → 42 → 70 chain: loans return before contracts expire, expiry leaves locked players in place, the two completion processors move them, replenishment runs only once every deal has settled, and the market is cleared last. See [Transfer Market](transfer-market.md#locked-players).
 
@@ -92,7 +93,7 @@ php artisan app:unstick-season-transition {gameId} [--dry-run]  # repair divisio
 
 | File | Purpose |
 |------|---------|
-| `app/Modules/Season/Services/SeasonClosingPipeline.php` | Orchestrates the 29 closing processors |
+| `app/Modules/Season/Services/SeasonClosingPipeline.php` | Orchestrates the 30 closing processors |
 | `app/Modules/Season/Services/SeasonSetupPipeline.php` | Orchestrates the 15 setup processors |
 | `app/Modules/Season/Jobs/ProcessSeasonTransition.php` | Runs both pipelines with checkpoint/resume |
 | `app/Modules/Season/Processors/` | Individual processor implementations |

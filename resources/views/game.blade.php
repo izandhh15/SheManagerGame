@@ -73,6 +73,15 @@
                 </x-primary-button>
             </form>
         </div>
+        {{-- Affiliate career (single save, no linked partner): no switcher —
+             just show which dugout the manager is in charge of. --}}
+        @elseif($game->pair_mode === 'affiliate')
+        <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 rounded-xl border border-accent-gold/30 bg-accent-gold/5 px-4 py-3">
+            <span class="text-[10px] font-semibold uppercase tracking-widest text-accent-gold">{{ __('game.affiliate_mode') }}</span>
+            <span class="text-sm text-text-body">
+                {{ $game->team->parent_team_id ? __('game.affiliate_managing_reserve', ['team' => $game->team->name]) : __('game.affiliate_managing_first', ['team' => $game->team->name]) }}
+            </span>
+        </div>
         @endif
 
         {{-- ⚡ Acciones rápidas: atajos a lo que más se usa, sin pasar por los menús --}}

@@ -29,6 +29,7 @@ use App\Modules\Season\Processors\StadiumLoanBillingProcessor;
 use App\Modules\Season\Processors\StatsResetProcessor;
 use App\Modules\Season\Processors\UserSquadCareerSnapshotProcessor;
 use App\Modules\Season\Processors\SupercupQualificationProcessor;
+use App\Modules\Season\Processors\AffiliateFirstTeamSackProcessor;
 use App\Modules\Season\Processors\TransferMarketResetProcessor;
 use App\Modules\Season\Processors\UefaQualificationProcessor;
 use App\Modules\Season\Processors\YouthAcademyClosingProcessor;
@@ -77,6 +78,7 @@ class SeasonClosingPipeline
         FanLoyaltyUpdateProcessor $fanLoyaltyUpdate,
         YouthAcademyClosingProcessor $youthAcademyClosing,
         UefaQualificationProcessor $uefaQualification,
+        AffiliateFirstTeamSackProcessor $affiliateFirstTeamSack,
     ) {
         $this->processors = [
             $reserveOveragePromotion,
@@ -108,6 +110,7 @@ class SeasonClosingPipeline
             $fanLoyaltyUpdate,
             $youthAcademyClosing,
             $uefaQualification,
+            $affiliateFirstTeamSack,
         ];
 
         usort($this->processors, fn ($a, $b) => $a->priority() <=> $b->priority());
