@@ -207,6 +207,7 @@ return [
     'category_budget_loan' => 'Préstamo Presupuestario',
     'category_loan_repayment' => 'Devolución de Préstamo',
     'category_venue_rent' => 'Alquiler de estadio',
+    'category_tour_cost' => 'Gira de pretemporada',
     'category_matchday_tickets' => 'Taquilla: entradas',
     'category_matchday_shirts' => 'Taquilla: camisetas',
     'category_matchday_merch' => 'Taquilla: merchandising',

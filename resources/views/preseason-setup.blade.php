@@ -6,6 +6,10 @@
 /** @var \Illuminate\Support\Collection $acceptedInvitations */
 /** @var array $acceptedForJs */
 /** @var \App\Models\Team|null $familyDerbyOpponent */
+/** @var array $tourDestinations */
+/** @var array|null $preseasonTour */
+/** @var string|null $preseasonTourName */
+/** @var int $tourBudgetEuros */
 $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
 @endphp
 
@@ -28,6 +32,58 @@ $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
 
             <x-flash-message type="error" :message="session('error')" class="mb-6" />
             <x-flash-message type="info" :message="session('info')" class="mb-6" />
+            <x-flash-message type="success" :message="session('success')" class="mb-6" />
+
+            {{-- Preseason tour: organize before confirming the friendlies --}}
+            @if($preseasonTour)
+                <div class="mb-8 bg-sky-950/40 border border-sky-600/30 rounded-xl p-4">
+                    <p class="text-sm font-semibold text-sky-300">
+                        ✈️ {{ __('game.preseason_tour_organized_badge', ['destination' => $preseasonTourName]) }}
+                    </p>
+                    <p class="text-xs text-text-secondary mt-1">
+                        {{ __('game.preseason_tour_revenue_label', ['mult' => $preseasonTour['revenue_multiplier'] ?? 1]) }}
+                        ·
+                        {{ __('game.preseason_tour_prestige_label', ['points' => '+' . ($preseasonTour['prestige_points'] ?? 0)]) }}
+                    </p>
+                </div>
+            @else
+                <div class="mb-8 bg-surface-800 border border-border-default rounded-xl p-4 md:p-5">
+                    <h2 class="text-lg font-bold text-text-primary mb-1">{{ __('game.preseason_tour_title') }}</h2>
+                    <p class="text-sm text-text-secondary mb-4">{{ __('game.preseason_tour_subtitle') }}</p>
+
+                    <form action="{{ route('game.preseason-setup.tour', $game->id) }}" method="POST">
+                        @csrf
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                            @foreach($tourDestinations as $destination)
+                                <label class="flex items-start gap-3 p-3 rounded-lg border border-border-default bg-surface-700 hover:border-accent-blue/40 cursor-pointer transition-colors">
+                                    <input type="radio" name="destination" value="{{ $destination['key'] }}"
+                                           class="mt-1 accent-sky-500" required>
+                                    <span class="flex-1 min-w-0">
+                                        <span class="block text-sm font-semibold text-text-primary">{{ $destination['name'] }}</span>
+                                        <span class="block text-xs text-text-secondary mt-1">
+                                            {{ __('game.preseason_tour_cost_label', ['cost' => number_format($destination['cost'], 0, ',', '.')]) }}
+                                        </span>
+                                        <span class="block text-xs text-emerald-400 mt-0.5">
+                                            {{ __('game.preseason_tour_revenue_label', ['mult' => $destination['revenue_multiplier']]) }}
+                                            ·
+                                            {{ __('game.preseason_tour_prestige_label', ['points' => '+' . $destination['prestige_points']]) }}
+                                        </span>
+                                    </span>
+                                </label>
+                            @endforeach
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+                            <x-primary-button type="submit" class="sm:w-auto">
+                                {{ __('game.preseason_tour_organize') }}
+                            </x-primary-button>
+                            <p class="text-xs text-text-muted">
+                                {{ __('game.preseason_tour_budget_label', ['budget' => number_format($tourBudgetEuros, 0, ',', '.')]) }}
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            @endif
 
             {{-- Automatic 5th friendly: the club's family derby, scheduled on confirm --}}
             @if($familyDerbyOpponent)

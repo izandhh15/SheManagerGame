@@ -203,6 +203,7 @@ return [
     'category_budget_loan' => 'Budget Loan',
     'category_loan_repayment' => 'Loan Repayment',
     'category_venue_rent' => 'Stadium rental',
+    'category_tour_cost' => 'Preseason tour',
     'category_matchday_tickets' => 'Gate: tickets',
     'category_matchday_shirts' => 'Gate: shirts',
     'category_matchday_merch' => 'Gate: merch',

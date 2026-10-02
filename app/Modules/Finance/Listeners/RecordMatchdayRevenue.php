@@ -7,6 +7,7 @@ use App\Models\Game;
 use App\Models\GameMatch;
 use App\Models\MatchAttendance;
 use App\Modules\Match\Events\MatchFinalized;
+use App\Modules\Season\Services\PreseasonTourService;
 use App\Modules\Stadium\Services\MatchdayPricingService;
 use Illuminate\Support\Facades\DB;
 
@@ -24,6 +25,7 @@ class RecordMatchdayRevenue
 {
     public function __construct(
         private readonly MatchdayPricingService $pricing,
+        private readonly PreseasonTourService $tours,
     ) {}
 
     public function handle(MatchFinalized $event): void
@@ -43,6 +45,17 @@ class RecordMatchdayRevenue
         $prices = $this->pricing->prices($game);
         $revenue = $this->pricing->revenueForAttendance((int) $attendanceRow->attendance, $prices);
 
+        // Preseason tour dates: home friendlies organized as part of a tour
+        // (the "derbi de la casa" excluded) pack the gate and attract tour
+        // sponsors — multiply every matchday line.
+        $tourMultiplier = $this->tours->tourRevenueMultiplier($game, $match);
+        $isTourMatch = $tourMultiplier > 1.0;
+        if ($isTourMatch) {
+            foreach ($revenue as $key => $value) {
+                $revenue[$key] = (int) round($value * $tourMultiplier);
+            }
+        }
+
         $lines = [
             FinancialTransaction::CATEGORY_MATCHDAY_TICKETS => $revenue['tickets'],
             FinancialTransaction::CATEGORY_MATCHDAY_SHIRTS => $revenue['shirts'],
@@ -52,7 +65,7 @@ class RecordMatchdayRevenue
 
         $totalCents = 0;
 
-        DB::transaction(function () use ($game, $match, $lines, &$totalCents) {
+        DB::transaction(function () use ($game, $match, $lines, $isTourMatch, &$totalCents) {
             foreach ($lines as $category => $euros) {
                 // Skip duplicates: a match is booked exactly once per line.
                 $already = FinancialTransaction::where('game_id', $game->id)
@@ -71,7 +84,7 @@ class RecordMatchdayRevenue
                     gameId: $game->id,
                     category: $category,
                     amount: $cents,
-                    description: $this->describe($category, $match, $euros),
+                    description: $this->describe($category, $match, $euros, $isTourMatch),
                     transactionDate: $game->current_date->toDateString(),
                 );
             }
@@ -100,7 +113,7 @@ class RecordMatchdayRevenue
         return $game->currentInvestment !== null;
     }
 
-    private function describe(string $category, GameMatch $match, int $euros): string
+    private function describe(string $category, GameMatch $match, int $euros, bool $isTourMatch = false): string
     {
         $label = match ($category) {
             FinancialTransaction::CATEGORY_MATCHDAY_TICKETS => __('finances.category_matchday_tickets'),
@@ -112,7 +125,7 @@ class RecordMatchdayRevenue
 
         $opponent = $match->awayTeam?->name ?? '';
 
-        return __('game.matchday_revenue_line', [
+        return __($isTourMatch ? 'game.matchday_revenue_line_tour' : 'game.matchday_revenue_line', [
             'label' => $label,
             'opponent' => $opponent,
             'amount' => number_format($euros, 0, ',', '.'),

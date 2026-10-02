@@ -5,12 +5,14 @@ namespace App\Http\Views;
 use App\Models\Game;
 use App\Modules\Season\Services\PreseasonOpponentService;
 use App\Modules\Season\Services\PreseasonInvitationService;
+use App\Modules\Season\Services\PreseasonTourService;
 
 class ShowPreseasonSetup
 {
     public function __construct(
         private readonly PreseasonOpponentService $opponentService,
         private readonly PreseasonInvitationService $invitationService,
+        private readonly PreseasonTourService $tourService,
     ) {}
 
     public function __invoke(string $gameId)
@@ -58,6 +60,12 @@ class ShowPreseasonSetup
             'acceptedInvitations' => $acceptedInvitations,
             'acceptedForJs' => $acceptedForJs,
             'familyDerbyOpponent' => $familyDerbyOpponent,
+            'tourDestinations' => $this->tourService->destinationOptions(),
+            'preseasonTour' => $game->preseason_tour,
+            'preseasonTourName' => $game->preseason_tour
+                ? $this->tourService->destinationName($game->preseason_tour['destination'] ?? '')
+                : null,
+            'tourBudgetEuros' => (int) (($game->currentInvestment?->transfer_budget ?? 0) / 100),
         ]);
     }
 }

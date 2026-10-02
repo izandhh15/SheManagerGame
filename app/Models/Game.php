@@ -30,6 +30,7 @@ use Illuminate\Database\Eloquent\Builder;
  * @property bool $needs_welcome
  * @property bool $pre_season
  * @property bool $preseason_opponents_pending
+ * @property array|null $preseason_tour
  * @property bool $squad_registration_enabled
  * @property bool $release_clauses_enabled
  * @property string|null $season_goal
@@ -156,6 +157,7 @@ class Game extends Model
         'manager_reputation_points',
         'linked_game_id',
         'training_stage',
+        'preseason_tour',
         'federation_budget',
         'board_confidence',
         'pair_mode',
@@ -190,6 +192,7 @@ class Game extends Model
         'deleting_at' => 'datetime',
         'manager_reputation_points' => 'integer',
         'training_stage' => 'array',
+        'preseason_tour' => 'array',
         'federation_budget' => 'integer',
         'ticket_price' => 'integer',
         'shirt_price' => 'integer',
