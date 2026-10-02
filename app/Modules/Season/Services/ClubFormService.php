@@ -63,8 +63,8 @@ final class ClubFormService
             default => ['g' => 0.0, 'a' => 0.02], // Goalkeeper
         };
         $nineties = $minutes / 90;
-        $goals = (int) round($nineties * $per90['g'] * (0.5 + $quality) + $rand(0, 2) * $quality);
-        $assists = (int) round($nineties * $per90['a'] * (0.5 + $quality) + $rand(0, 2) * $quality);
+        $goals = max(0, (int) round($nineties * $per90['g'] * (0.5 + $quality) + $rand(0, 2) * $quality));
+        $assists = max(0, (int) round($nineties * $per90['a'] * (0.5 + $quality) + $rand(0, 2) * $quality));
 
         // Clean sheets for GK/DEF (share of appearances).
         $csRate = match ($positionGroup) {

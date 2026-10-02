@@ -28,9 +28,9 @@ final class ShowNationalSquadPicker
     {
         return match ($position) {
             'Goalkeeper' => 'Goalkeeper',
-            'Centre-Back', 'Left-Back', 'Right-Back', 'Defender' => 'Defender',
+            'Centre-Back', 'Left-Back', 'Right-Back', 'Defender', 'Defence' => 'Defender',
             'Defensive Midfield', 'Central Midfield', 'Attacking Midfield',
-            'Left Midfield', 'Right Midfield', 'Midfielder' => 'Midfielder',
+            'Left Midfield', 'Right Midfield', 'Midfielder', 'Midfield' => 'Midfielder',
             'Left Winger', 'Right Winger', 'Centre-Forward', 'Second Striker',
             'Striker', 'Forward' => 'Forward',
             default => 'Midfielder',
