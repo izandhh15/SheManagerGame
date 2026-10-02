@@ -166,6 +166,7 @@ class Game extends Model
         'shirt_price',
         'merch_price',
         'bar_price',
+        'social_hype',
     ];
 
     protected $casts = [
@@ -198,6 +199,7 @@ class Game extends Model
         'shirt_price' => 'integer',
         'merch_price' => 'integer',
         'bar_price' => 'integer',
+        'social_hype' => 'integer',
     ];
 
     /**

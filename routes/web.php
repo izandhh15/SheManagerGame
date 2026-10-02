@@ -144,6 +144,7 @@ use App\Http\Views\ShowMatchSummary;
 use App\Http\Views\ShowIncomingTransfers;
 use App\Http\Views\ShowScoutingHub;
 use App\Http\Views\ShowSocialFeed;
+use App\Http\Views\ShowClubSocial;
 use App\Http\Views\ShowPreMatchPress;
 use App\Http\Views\ShowPressConference;
 use App\Http\Views\ShowYouthScouting;
@@ -151,6 +152,7 @@ use App\Http\Actions\SubmitPreMatchPress;
 use App\Http\Actions\SubmitPressStatement;
 use App\Http\Actions\ReplyToHater;
 use App\Http\Actions\LikeSocialPost;
+use App\Http\Actions\AnnounceClubPost;
 use App\Http\Actions\PoachYouthPlayer;
 use App\Http\Views\ShowScoutReportResults;
 use App\Http\Views\ShowExplore;
@@ -306,6 +308,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/game/{gameId}/social', ShowSocialFeed::class)->name('game.social');
         Route::post('/game/{gameId}/social/{postId}/reply', ReplyToHater::class)->name('game.social.reply');
         Route::post('/game/{gameId}/social/{postId}/like', LikeSocialPost::class)->name('game.social.like');
+        // Club's official social media (managed by the player)
+        Route::get('/game/{gameId}/club-social', ShowClubSocial::class)->name('game.club-social');
+        Route::post('/game/{gameId}/club-social/announce', AnnounceClubPost::class)->name('game.club-social.announce');
         Route::get('/game/{gameId}/press/{matchId}', ShowPressConference::class)->name('game.press');
         Route::post('/game/{gameId}/press/{matchId}', SubmitPressStatement::class)->name('game.press.submit');
         // Pre-match press conference: before big matches (derby, final, european night, direct rival)

@@ -59,12 +59,35 @@ class MatchAttendanceService
             return null;
         }
 
-        return MatchAttendance::create([
+        $row = MatchAttendance::create([
             'game_id' => $game->id,
             'game_match_id' => $match->id,
             'attendance' => $computed['attendance'],
             'capacity_at_match' => $computed['capacity'],
         ]);
+
+        $this->consumeHype($game, $match);
+
+        return $row;
+    }
+
+    /**
+     * Burn social hype after a real home game of the user's club: the buzz
+     * from official announcements fades as matches go by.
+     */
+    public function consumeHype(Game $game, GameMatch $match): void
+    {
+        if ($game->isTournamentMode() || $match->home_team_id !== $game->team_id) {
+            return;
+        }
+
+        $hype = (int) ($game->social_hype ?? 0);
+        if ($hype <= 0) {
+            return;
+        }
+
+        $game->social_hype = max(0, $hype - \App\Modules\Media\Services\ClubSocialService::HYPE_DECAY_PER_HOME_GAME);
+        $game->save();
     }
 
     /**
@@ -169,6 +192,14 @@ class MatchAttendanceService
 
         if (! empty($rows)) {
             MatchAttendance::insert($rows);
+
+            // Burn hype once per batch if the user's club played at home.
+            foreach ($remaining as $match) {
+                if (! $game->isTournamentMode() && $match->home_team_id === $game->team_id) {
+                    $this->consumeHype($game, $match);
+                    break;
+                }
+            }
         }
     }
 
@@ -262,6 +293,13 @@ class MatchAttendanceService
         // crowd down, cheap entry warms it up. Only for the user's own home
         // games in club mode (neutral venues and other teams are untouched).
         if (! $game->isTournamentMode() && $match->home_team_id === $game->team_id) {
+            // Social hype: exciting official announcements fill the stadium.
+            // The meter decays as home games consume it (see consumeHype()).
+            $hype = min(100, max(0, (int) ($game->social_hype ?? 0)));
+            if ($hype > 0) {
+                $attendance = (int) round($attendance * (1 + $hype / \App\Modules\Media\Services\ClubSocialService::HYPE_ATTENDANCE_DIVISOR));
+            }
+
             $factor = $this->pricing->attendanceFactor(
                 (int) ($game->ticket_price ?? MatchdayPricingService::DEFAULT_TICKET)
             );

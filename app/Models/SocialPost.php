@@ -20,6 +20,7 @@ class SocialPost extends Model
         'likes',
         'context',
         'match_id',
+        'parent_post_id',
         'manager_reply_key',
         'manager_reply_text',
     ];

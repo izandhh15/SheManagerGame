@@ -387,7 +387,7 @@ class SocialMediaService
      * @param array<string, bool> $used
      * @return array{0:string, 1:string}
      */
-    private function randomFan(array &$used = []): array
+    public function randomFan(array &$used = []): array
     {
         $es = app()->getLocale() === 'es';
 
