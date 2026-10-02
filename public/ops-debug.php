@@ -45,6 +45,34 @@ if ($step === 'read-err') {
     exit;
 }
 
+if ($step === 'resume-valencia') {
+    $gameId = '63095934-6523-4255-941c-521b700de747';
+    $game = App\Models\Game::find($gameId);
+    if (!$game) { echo "juego no encontrado\n"; exit; }
+    echo "reanudando setup desde step: ".var_export($game->season_transition_step, true)."\n";
+    try {
+        $job = new App\Modules\Season\Jobs\SetupNewGame(
+            gameId: $game->id,
+            teamId: $game->team_id,
+            competitionId: $game->competition_id,
+            season: (string) $game->season,
+            gameMode: $game->game_mode,
+        );
+        app()->call([$job, 'handle']);
+        echo "SETUP OK\n";
+    } catch (\Throwable $e) {
+        echo "EXCEPCION: ".get_class($e)."\n";
+        echo "MENSAJE: ".$e->getMessage()."\n";
+        echo "ARCHIVO: ".$e->getFile().":".$e->getLine()."\n";
+        $trace = explode("\n", $e->getTraceAsString());
+        echo "TRACE:\n".implode("\n", array_slice($trace, 0, 20))."\n";
+    }
+    $game->refresh();
+    echo "step tras reanudar: ".var_export($game->season_transition_step, true)." | completed: ".var_export($game->setup_completed_at, true)."\n";
+    echo "partidos: ".App\Models\GameMatch::where('game_id', $gameId)->count()."\n";
+    exit;
+}
+
 if ($step === 'debug-valencia') {
     $gameId = '63095934-6523-4255-941c-521b700de747';
     $game = App\Models\Game::find($gameId);

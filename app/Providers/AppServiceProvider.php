@@ -17,6 +17,7 @@ use App\Modules\Match\Events\GameDateAdvanced;
 use App\Modules\Match\Events\LeaguePhaseCompleted;
 use App\Modules\Match\Events\MatchFinalized;
 use App\Modules\Match\Handlers\GroupStageCupHandler;
+use App\Modules\Match\Handlers\FriendlyHandler;
 use App\Modules\Match\Handlers\KnockoutCupHandler;
 use App\Modules\Match\Handlers\LeagueHandler;
 use App\Modules\Match\Handlers\LeagueWithPlayoffHandler;
@@ -87,6 +88,7 @@ class AppServiceProvider extends ServiceProvider
             $resolver->register($app->make(SwissFormatHandler::class));
             $resolver->register($app->make(GroupStageCupHandler::class));
             $resolver->register($app->make(PreSeasonHandler::class));
+            $resolver->register($app->make(FriendlyHandler::class));
 
             return $resolver;
         });
