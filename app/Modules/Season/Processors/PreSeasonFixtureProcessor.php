@@ -29,7 +29,10 @@ class PreSeasonFixtureProcessor implements SeasonProcessor
             return $data;
         }
 
-        $game->update(['preseason_opponents_pending' => true]);
+        // M28: el tour de la temporada anterior no se reseteaba: bloqueaba
+        // organizar uno nuevo y su multiplicador de ingresos se aplicaba a
+        // los amistosos de todas las pretemporadas futuras.
+        $game->update(['preseason_opponents_pending' => true, 'preseason_tour' => null]);
 
         return $data;
     }
