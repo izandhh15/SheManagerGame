@@ -247,4 +247,11 @@ return [
 
     // i18n-b review: poach youth player social buzz
     'poach_buzz' => '🚨 :team \'rouba\' a pérola :player (:potential pot.) à academia rival.',
-];
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'naming_rights_offer_rejected' => 'Oferta de :sponsor descartada. Nem vão saber.',
+    'sponsor_deal_accepted' => 'Negócio feito! :sponsor vai patrocinar :slot. Hora de encaixar.',
+    'sponsor_deal_rejected' => 'Oferta de :sponsor descartada. Vamos à próxima.',
+    'sponsor_offer_unavailable' => 'Essa oferta de patrocínio já não está disponível.',
+    'sponsor_deal_active' => 'Já tens um patrocinador ativo nesse espaço. Espera que o contrato expire.',
+

@@ -247,4 +247,11 @@ return [
 
     // i18n-b review: poach youth player social buzz
     'poach_buzz' => '🚨 :team \'vole\' la pépite :player (:potential de potentiel) à un centre rival.',
-];
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'naming_rights_offer_rejected' => 'Offre de :sponsor écartée. Ils ne le sauront jamais.',
+    'sponsor_deal_accepted' => 'Marché conclu ! :sponsor sponsorisera :slot. À la caisse.',
+    'sponsor_deal_rejected' => 'Offre de :sponsor écartée. Passons à autre chose.',
+    'sponsor_offer_unavailable' => 'Cette offre de sponsoring n\'est plus disponible.',
+    'sponsor_deal_active' => 'Tu as déjà un sponsor actif sur cet emplacement. Attends l\'expiration du contrat.',
+

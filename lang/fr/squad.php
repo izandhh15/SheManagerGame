@@ -409,4 +409,8 @@ return [
     'lineup_slot_player_not_in_lineup' => 'Poste attribué à une joueuse qui n\'est pas dans la composition.',
     'injury_ligament_damage' => 'Lésion ligamentaire',
     'injury_knee_injury' => 'Blessure au genou',
-];
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'academy_jewel' => 'Pépite',
+    'academy_jewel_tooltip' => 'Pépite du centre de formation : une joueuse de 16 ans au potentiel élite.',
+

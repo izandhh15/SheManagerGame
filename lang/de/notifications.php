@@ -233,4 +233,12 @@ return [
     'injury_ligament_damage' => 'Bänderverletzung',
     'injury_knee_injury' => 'Knieverletzung',
     'injury_unknown_injury' => 'eine Verletzung',
-];
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'academy_jewel_title' => '💎 Juwel aus der Nachwuchsarbeit!',
+    'academy_jewel_message' => ':player (:position), 16 Jahre alt, sticht in der Nachwuchsarbeit hervor: Ihr Potenzial ist erstklassig. Behalte sie im Auge!',
+    'sponsor_offers_arrived_title' => 'Es regnet Sponsoringangebote!',
+    'sponsor_offers_arrived_message' => '{1} Eine Marke will das Team sponsern: Schau auf der kommerziellen Seite vorbei, um das Angebot zu sehen.|[2,*] :count Marken wollen das Team sponsern: Schau auf der kommerziellen Seite vorbei, um die Angebote zu sehen.',
+    'cwc_qualified_title' => '🌍 Auf zur Klub-WM!',
+    'cwc_qualified_message' => 'Dein Team gehört zu den besten Clubs seiner Konföderation und hat sich für die Klub-Weltmeisterschaft qualifiziert. 32 Teams, eine Trophäe … hol dir den größten Pokal der Welt, Coach!',
+

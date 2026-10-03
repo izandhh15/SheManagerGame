@@ -212,4 +212,7 @@ Parabéns, campeãs! 🎉',
     'gala_headline_zamora' => ':conceded golos/jogo',
     'gala_headline_mvp' => ':count MVP do jogo',
     'gala_headline_default' => ':goals golos e :assists assistências',
-];
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'gala_title' => 'Gala de prémios',
+

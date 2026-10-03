@@ -247,4 +247,11 @@ return [
 
     // i18n-b review: poach youth player social buzz
     'poach_buzz' => '🚨 :team \'stiehlt\' das Talent :player (:potential Pot.) aus einer rivalisierenden Akademie.',
-];
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'naming_rights_offer_rejected' => 'Angebot von :sponsor verworfen. Die werden es nie erfahren.',
+    'sponsor_deal_accepted' => 'Deal! :sponsor sponsert :slot. Zeit zum Kassieren.',
+    'sponsor_deal_rejected' => 'Angebot von :sponsor verworfen. Weiter geht\'s.',
+    'sponsor_offer_unavailable' => 'Dieses Sponsoringangebot ist nicht mehr verfügbar.',
+    'sponsor_deal_active' => 'Du hast bereits einen aktiven Sponsor auf diesem Platz. Warte, bis der Vertrag ausläuft.',
+

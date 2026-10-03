@@ -212,4 +212,7 @@ Félicitations, championnes ! 🎉',
     'gala_headline_zamora' => ':conceded buts/match',
     'gala_headline_mvp' => ':count fois MVP du match',
     'gala_headline_default' => ':goals buts et :assists passes décisives',
-];
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'gala_title' => 'Gala des trophées',
+

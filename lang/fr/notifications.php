@@ -233,4 +233,12 @@ return [
     'injury_ligament_damage' => 'lésion ligamentaire',
     'injury_knee_injury' => 'blessure au genou',
     'injury_unknown_injury' => 'une blessure',
-];
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'academy_jewel_title' => '💎 Pépite du centre de formation !',
+    'academy_jewel_message' => ':player (:position), 16 ans, se distingue au centre de formation : son potentiel est élite. Garde un œil sur elle !',
+    'sponsor_offers_arrived_title' => 'Il pleut des offres de sponsoring !',
+    'sponsor_offers_arrived_message' => '{1} Une marque veut sponsoriser l\'équipe : passe par la page Commercial pour voir l\'offre.|[2,*] :count marques veulent sponsoriser l\'équipe : passe par la page Commercial pour voir les offres.',
+    'cwc_qualified_title' => '🌍 En route pour la Coupe du monde des clubs !',
+    'cwc_qualified_message' => 'Ton équipe fait partie des meilleurs clubs de sa confédération et s\'est qualifiée pour la Coupe du monde des clubs. 32 équipes, un seul trophée… va chercher la plus grande coupe de la planète, coach !',
+

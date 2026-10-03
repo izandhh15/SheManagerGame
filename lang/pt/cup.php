@@ -76,4 +76,8 @@ return [
     'knockout_playoff_round_return' => 'Playoff de eliminação (2.ª mão)',
     'playoff_semi_finals_return' => 'Meia-final do playoff (2.ª mão)',
     'playoff_final_return' => 'Final do playoff (2.ª mão)',
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'bye' => 'Isento',
+
 ];

@@ -409,4 +409,8 @@ return [
     'lineup_slot_player_not_in_lineup' => 'Position einer Spielerin zugewiesen, die nicht in der Aufstellung steht.',
     'injury_ligament_damage' => 'Bänderverletzung',
     'injury_knee_injury' => 'Knieverletzung',
-];
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'academy_jewel' => 'Juwel',
+    'academy_jewel_tooltip' => 'Juwel der Nachwuchsarbeit: eine 16-jährige Nachwuchsspielerin mit erstklassigem Potenzial.',
+

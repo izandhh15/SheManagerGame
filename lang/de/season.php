@@ -212,4 +212,7 @@ Glückwunsch, Champions! 🎉',
     'gala_headline_zamora' => ':conceded Gegentore/Spiel',
     'gala_headline_mvp' => ':count Mal Spielerin des Spiels',
     'gala_headline_default' => ':goals Tore und :assists Vorlagen',
-];
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'gala_title' => 'Preisgala',
+
