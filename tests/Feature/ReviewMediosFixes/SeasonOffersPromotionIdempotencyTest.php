@@ -50,10 +50,10 @@ class SeasonOffersPromotionIdempotencyTest extends TestCase
         $academy->shouldReceive('rollForPromotion')->andReturn($promotionTarget);
 
         return new ShowSeasonOffers(
-            $this->createMock(SeasonSummaryService::class),
-            $this->createMock(JobOfferService::class),
-            $this->createMock(MatchFinalizationService::class),
-            $this->createMock(PlayoffGeneratorFactory::class),
+            $this->createStub(SeasonSummaryService::class),
+            $this->createStub(JobOfferService::class),
+            $this->createStub(MatchFinalizationService::class),
+            $this->createStub(PlayoffGeneratorFactory::class),
             $academy,
         );
     }
