@@ -313,7 +313,7 @@ return [
                 // Teams needed for European competitions — rosters reused from
                 // tiers + transfer_pool where possible, gaps filled from EUR pool
                 'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
-                'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UEL' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UCLQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UELQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
             ],
@@ -465,7 +465,7 @@ return [
             ],
             'continental' => [
                 'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
-                'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UEL' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UCLQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UELQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
             ],
@@ -617,7 +617,7 @@ return [
             ],
             'continental' => [
                 'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
-                'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UEL' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UCLQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UELQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
             ],
@@ -792,7 +792,7 @@ return [
             ],
             'continental' => [
                 'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
-                'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UEL' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UCLQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UELQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
             ],
@@ -929,7 +929,7 @@ return [
             ],
             'continental' => [
                 'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
-                'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UEL' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UCLQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UELQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
             ],
@@ -1076,7 +1076,7 @@ return [
             ],
             'continental' => [
                 'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
-                'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UEL' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UCLQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UELQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
             ],
@@ -1212,7 +1212,7 @@ return [
             ],
             'continental' => [
                 'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
-                'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UEL' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UCLQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UELQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
             ],
@@ -1275,7 +1275,7 @@ return [
             ],
             'continental' => [
                 'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
-                'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UEL' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UCLQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UELQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
             ],

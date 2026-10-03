@@ -7,97 +7,252 @@
       "id": "2307",
       "name": "Club YLA",
       "country": "BE",
-      "pot": 2
+      "pot": 2,
+      "entryRound": 1
     },
     {
       "id": "614",
       "name": "Hibernian LFC",
       "country": "GB-SCT",
-      "pot": 2
+      "pot": 2,
+      "entryRound": 1
     },
     {
       "id": "6981",
       "name": "Beşiktaş JK",
       "country": "TR",
-      "pot": 2
+      "pot": 2,
+      "entryRound": 1
     },
     {
       "id": "9522",
       "name": "Fenerbahçe SK",
       "country": "TR",
-      "pot": 2
+      "pot": 2,
+      "entryRound": 1
     },
     {
       "id": "378",
       "name": "UMF Stjarnan",
       "country": "IS",
-      "pot": 2
+      "pot": 2,
+      "entryRound": 1
     },
     {
       "id": "7556",
       "name": "GKS Gieksa Katowice",
       "country": "PL",
-      "pot": 2
+      "pot": 2,
+      "entryRound": 1
     },
     {
       "id": "8184",
       "name": "Aarhus GF",
       "country": "DK",
-      "pot": 1
+      "pot": 1,
+      "entryRound": 1
     },
     {
       "id": "213",
       "name": "Lillestrøm SK Kvinner",
       "country": "NO",
-      "pot": 1
+      "pot": 1,
+      "entryRound": 1
     },
     {
       "id": "760",
       "name": "Standard Femina",
       "country": "BE",
-      "pot": 1
+      "pot": 1,
+      "entryRound": 1
     },
     {
       "id": "5867",
       "name": "ZNK Split",
       "country": "HR",
-      "pot": 2
+      "pot": 2,
+      "entryRound": 1
     },
     {
       "id": "5685",
       "name": "Dinamo Zagreb",
       "country": "HR",
-      "pot": 1
+      "pot": 1,
+      "entryRound": 1
     },
     {
       "id": "4289",
       "name": "Lyn Fotball",
       "country": "NO",
-      "pot": 1
+      "pot": 1,
+      "entryRound": 1
     },
     {
       "id": "326",
       "name": "Stabæk Fotball",
       "country": "NO",
-      "pot": 1
+      "pot": 1,
+      "entryRound": 1
     },
     {
       "id": "4332",
       "name": "FC Slovan Liberec",
       "country": "CZ",
-      "pot": 1
+      "pot": 1,
+      "entryRound": 1
     },
     {
       "id": "740",
       "name": "Shamrock Rovers",
       "country": "IE",
-      "pot": 1
+      "pot": 1,
+      "entryRound": 1
     },
     {
       "id": "6223",
       "name": "Shelbourne",
       "country": "IE",
-      "pot": 2
+      "pot": 2,
+      "entryRound": 1
+    },
+    {
+      "id": "6997",
+      "name": "Czarni Sosnowiec",
+      "country": "PL",
+      "pot": 4,
+      "entryRound": 1
+    },
+    {
+      "id": "74",
+      "name": "Breidablik",
+      "country": "IS",
+      "pot": 2,
+      "entryRound": 1
+    },
+    {
+      "id": "401",
+      "name": "Valur Reykjavik",
+      "country": "IS",
+      "pot": 2,
+      "entryRound": 1
+    },
+    {
+      "id": "154",
+      "name": "Glasgow City LFC",
+      "country": "GB-SCT",
+      "pot": 2,
+      "entryRound": 1
+    },
+    {
+      "id": "1793",
+      "name": "Celtic Ladies",
+      "country": "GB-SCT",
+      "pot": 3,
+      "entryRound": 1
+    },
+    {
+      "id": "2090",
+      "name": "Glasgow Rangers LFC",
+      "country": "GB-SCT",
+      "pot": 4,
+      "entryRound": 1
+    },
+    {
+      "id": "576",
+      "name": "FC Zürich",
+      "country": "CH",
+      "pot": 2,
+      "entryRound": 1
+    },
+    {
+      "id": "77",
+      "name": "BSC YB Frauen",
+      "country": "CH",
+      "pot": 3,
+      "entryRound": 1
+    },
+    {
+      "id": "157",
+      "name": "Grasshopper Club Zürich",
+      "country": "CH",
+      "pot": 4,
+      "entryRound": 2
+    },
+    {
+      "id": "14990",
+      "name": "FC København",
+      "country": "DK",
+      "pot": 1,
+      "entryRound": 2
+    },
+    {
+      "id": "143",
+      "name": "Fortuna Hjørring",
+      "country": "DK",
+      "pot": 2,
+      "entryRound": 2
+    },
+    {
+      "id": "322",
+      "name": "AC Sparta Praha",
+      "country": "CZ",
+      "pot": 3,
+      "entryRound": 2
+    },
+    {
+      "id": "4585",
+      "name": "FCE/PSV",
+      "country": "NL",
+      "pot": 1,
+      "entryRound": 2
+    },
+    {
+      "id": "7383",
+      "name": "Rosenborg BK Trondheim",
+      "country": "NO",
+      "pot": 2,
+      "entryRound": 2
+    },
+    {
+      "id": "8657",
+      "name": "BK Häcken",
+      "country": "SE",
+      "entryRound": 2
+    },
+    {
+      "id": "6224",
+      "name": "Sporting Clube de Portugal",
+      "country": "PT",
+      "pot": 1,
+      "entryRound": 2
+    },
+    {
+      "id": "6952",
+      "name": "AS Roma",
+      "country": "IT",
+      "pot": 1,
+      "entryRound": 2
+    },
+    {
+      "id": "56",
+      "name": "Bayer 04 Leverkusen",
+      "country": "DE",
+      "pot": 1,
+      "entryRound": 2
+    },
+    {
+      "id": "4696",
+      "name": "Olympique de Marseille",
+      "country": "FR",
+      "pot": 1,
+      "entryRound": 2
+    },
+    {
+      "id": "990",
+      "name": "Manchester City LFC",
+      "country": "EN",
+      "pot": 1,
+      "entryRound": 2
     }
   ]
 }
