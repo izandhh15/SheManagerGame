@@ -3,7 +3,6 @@
 namespace App\Http\Views;
 
 use App\Models\Game;
-use App\Modules\Match\Services\MatchFinalizationService;
 use App\Modules\Report\Services\SeasonSummaryService;
 use Illuminate\Support\Facades\Log;
 
@@ -11,7 +10,6 @@ class ShowSeasonEnd
 {
     public function __construct(
         private readonly SeasonSummaryService $seasonSummaryService,
-        private readonly MatchFinalizationService $finalizationService,
     ) {}
 
     public function __invoke(string $gameId)
@@ -32,28 +30,11 @@ class ShowSeasonEnd
 
     private function show(string $gameId)
     {
-        // Finalize any match abandoned on the live screen before summarizing
-        // the season — otherwise the summary reads stale standings.
-        // Best-effort: if the DB connection drops mid-transaction, log it
-        // but don't take the page down with it.
-        try {
-            $this->finalizationService->finalizePendingIfAny($gameId);
-        } catch (\Throwable $e) {
-            Log::warning('ShowSeasonEnd: finalizePendingIfAny failed (non-fatal)', [
-                'game_id' => $gameId,
-                'error' => $e->getMessage(),
-            ]);
-            // The failed transaction may have left the PDO connection dead.
-            // Force a fresh connection so the summary queries below don't hang.
-            try {
-                \Illuminate\Support\Facades\DB::reconnect();
-            } catch (\Throwable $reconnectError) {
-                Log::warning('ShowSeasonEnd: DB reconnect failed', [
-                    'game_id' => $gameId,
-                    'error' => $reconnectError->getMessage(),
-                ]);
-            }
-        }
+        // NOTE: finalizePendingIfAny intentionally NOT called here. At season
+        // end all matches are verified played, so a stale pending flag is
+        // harmless — and the transactional finalize was killing the DB
+        // connection on Wasmer Edge (SQLSTATE "no connection to the server"),
+        // hanging the page. The flag gets cleared on next season setup.
 
         $game = Game::with('team')->findOrFail($gameId);
         abort_if($game->isTournamentMode(), 404);

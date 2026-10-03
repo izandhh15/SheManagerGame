@@ -5,7 +5,6 @@ namespace App\Http\Actions;
 use App\Modules\Competition\Enums\PlayoffState;
 use App\Modules\Competition\Playoffs\PlayoffGeneratorFactory;
 use App\Modules\Manager\Services\JobOfferService;
-use App\Modules\Match\Services\MatchFinalizationService;
 use App\Modules\Season\Jobs\ProcessSeasonTransition;
 use App\Models\Game;
 use Illuminate\Support\Facades\Log;
@@ -14,7 +13,6 @@ class StartNewSeason
 {
     public function __construct(
         private readonly PlayoffGeneratorFactory $playoffFactory,
-        private readonly MatchFinalizationService $finalizationService,
         private readonly JobOfferService $jobOfferService,
     ) {}
 
@@ -39,28 +37,11 @@ class StartNewSeason
 
     private function startSeason(string $gameId)
     {
-        // End-of-season entry point: finalize any match the user abandoned on
-        // the live-match screen. Without this, its standings stay unapplied and
-        // the closing pipeline reads a stale league table (off-by-one games),
-        // which cascades into promotion/relegation imbalance errors.
-        // Best-effort: a dropped DB connection here must not block the season
-        // transition; the unplayed-matches guard below catches a truly stale table.
-        try {
-            $this->finalizationService->finalizePendingIfAny($gameId);
-        } catch (\Throwable $e) {
-            Log::warning('StartNewSeason: finalizePendingIfAny failed (non-fatal)', [
-                'game_id' => $gameId,
-                'error' => $e->getMessage(),
-            ]);
-            try {
-                \Illuminate\Support\Facades\DB::reconnect();
-            } catch (\Throwable $reconnectError) {
-                Log::warning('StartNewSeason: DB reconnect failed', [
-                    'game_id' => $gameId,
-                    'error' => $reconnectError->getMessage(),
-                ]);
-            }
-        }
+        // NOTE: finalizePendingIfAny intentionally NOT called here. The
+        // unplayed-matches guard below verifies the season is truly complete,
+        // so a stale pending flag is harmless — and the transactional finalize
+        // was killing the DB connection on Wasmer Edge, hanging the request.
+        // The flag gets cleared on next season setup.
 
         $game = Game::findOrFail($gameId);
 
