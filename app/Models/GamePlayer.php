@@ -990,8 +990,12 @@ class GamePlayer extends Model
     /**
      * Get player's age based on a reference date (typically the game's current date).
      */
-    public function age(Carbon|\DateTimeInterface $currentDate): int
+    public function age(Carbon|\DateTimeInterface $currentDate): ?int
     {
+        if ($this->date_of_birth === null) {
+            return null;
+        }
+
         return (int) $this->date_of_birth->diffInYears($currentDate);
     }
 
@@ -1091,7 +1095,9 @@ class GamePlayer extends Model
      */
     public function developmentStatus(Carbon|\DateTimeInterface $currentDate): string
     {
-        return PlayerAge::developmentStatus($this->age($currentDate));
+        // Unknown DOB (nullable column) has no development phase; 'peak' is
+        // the neutral label so views indexing $devLabels by status keep working.
+        return PlayerAge::developmentStatus($this->age($currentDate) ?? PlayerAge::PRIME_END);
     }
 
     /**

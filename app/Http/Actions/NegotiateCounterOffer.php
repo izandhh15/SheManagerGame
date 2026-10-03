@@ -56,11 +56,11 @@ class NegotiateCounterOffer
     private function handleStart(Game $game, TransferOffer $offer): JsonResponse
     {
         $player = $offer->gamePlayer;
-        $buyerName = $offer->offeringTeam->name;
+        $buyerName = $offer->offeringTeam?->name ?? '—';
 
         // Extend expiry to prevent mid-negotiation timeout
         if ($offer->expires_at && $game->current_date->diffInDays($offer->expires_at) < 14) {
-            $offer->update(['expires_at' => $game->current_date->addDays(14)]);
+            $offer->update(['expires_at' => $game->current_date->copy()->addDays(14)]);
         }
 
         // Check for existing negotiation to resume
@@ -118,7 +118,7 @@ class NegotiateCounterOffer
         ]);
 
         $userAskingCents = $validated['bid'] * 100;
-        $buyerName = $offer->offeringTeam->name;
+        $buyerName = $offer->offeringTeam?->name ?? '—';
         $player = $offer->gamePlayer;
 
         // If user submits the same amount as the AI's offer, treat as acceptance

@@ -8,6 +8,7 @@ use App\Modules\Season\Services\PreseasonInvitationService;
 use App\Modules\Season\Services\PreseasonTourService;
 use App\Modules\Season\Services\TrainingStageService;
 use App\Support\CountryNames;
+use Illuminate\Support\Facades\DB;
 
 class ShowPreseasonSetup
 {
@@ -33,7 +34,9 @@ class ShowPreseasonSetup
         }
 
         // The machine invites you: generate AI invitations (idempotent).
-        $this->invitationService->generateFor($game);
+        // A GET-side write: run it in a transaction so concurrent visits
+        // can't interleave the generation.
+        DB::transaction(fn () => $this->invitationService->generateFor($game));
 
         $teams = $this->opponentService->candidateTeamsGroupedByCountry($game);
         $slots = $this->opponentService->fixtureSlots($game);

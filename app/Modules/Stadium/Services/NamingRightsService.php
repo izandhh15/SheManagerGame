@@ -234,24 +234,28 @@ class NamingRightsService
             throw new InvalidArgumentException('messages.naming_rights_search_unaffordable');
         }
 
-        if ($fee > 0) {
-            $this->chargeSearchFee($game, $fee);
-        }
-
-        // Top the board up to the cap with fresh offers (one per remaining
-        // slot; the loop stops early only if the sponsor pool is exhausted).
-        $minted = [];
-        for ($slot = $pending; $slot < $cap; $slot++) {
-            $deal = $this->offerFactory->createOffer($game, $tier);
-            if ($deal === null) {
-                break;
+        // Mint the offers BEFORE charging the fee, inside one transaction:
+        // if minting throws, the fee is never charged. The cooldown is
+        // stamped on every completed search (even when the sponsor pool is
+        // exhausted and nothing was minted).
+        return DB::transaction(function () use ($game, $tier, $fee, $pending, $cap) {
+            $minted = [];
+            for ($slot = $pending; $slot < $cap; $slot++) {
+                $deal = $this->offerFactory->createOffer($game, $tier);
+                if ($deal === null) {
+                    break;
+                }
+                $minted[] = $deal;
             }
-            $minted[] = $deal;
-        }
 
-        $this->stampLastSought($game);
+            if ($fee > 0) {
+                $this->chargeSearchFee($game, $fee);
+            }
 
-        return $minted;
+            $this->stampLastSought($game);
+
+            return $minted;
+        });
     }
 
     /**

@@ -46,6 +46,10 @@ class SeasonArchiveProcessor implements SeasonProcessor
         if ($existingArchive) {
             $data->setMetadata('seasonAwards', $existingArchive->season_awards);
             $this->captureEuropeanWinners($game, $data);
+            // The events were already captured into the archive's
+            // match_events_archive on the first run; purge them here too,
+            // otherwise they linger and contaminate next season's archive.
+            DB::table('match_events')->where('game_id', $game->id)->delete();
             return $data;
         }
 

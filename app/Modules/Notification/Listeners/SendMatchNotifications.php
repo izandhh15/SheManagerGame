@@ -63,7 +63,7 @@ class SendMatchNotifications
 
     private function notifyRedCard(MatchFinalized $event, GamePlayer $player, MatchEvent $matchEvent): void
     {
-        $competitionId = $event->competition->id ?? $event->match->competition_id;
+        $competitionId = $event->competition?->id ?? $event->match->competition_id;
         $suspension = PlayerSuspension::forPlayerInCompetition($player->id, $competitionId);
 
         if (! $suspension || $suspension->matches_remaining <= 0) {
@@ -75,7 +75,7 @@ class SendMatchNotifications
             $player,
             $suspension->matches_remaining,
             __('notifications.reason_red_card'),
-            $event->competition->name,
+            $event->competition?->name ?? $event->match->competition?->name ?? '',
         );
     }
 
@@ -100,7 +100,7 @@ class SendMatchNotifications
 
     private function notifyYellowCardAccumulation(MatchFinalized $event, GamePlayer $player): void
     {
-        $competitionId = $event->competition->id ?? $event->match->competition_id;
+        $competitionId = $event->competition?->id ?? $event->match->competition_id;
         $suspension = PlayerSuspension::forPlayerInCompetition($player->id, $competitionId);
 
         if (! $suspension || $suspension->matches_remaining <= 0) {
@@ -112,7 +112,7 @@ class SendMatchNotifications
             $player,
             $suspension->matches_remaining,
             __('notifications.reason_yellow_accumulation'),
-            $event->competition->name,
+            $event->competition?->name ?? $event->match->competition?->name ?? '',
         );
     }
 }

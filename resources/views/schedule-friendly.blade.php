@@ -31,7 +31,7 @@
                             <x-team-crest :team="$match->awayTeam" class="w-8 h-8" />
                             <div class="flex-1 min-w-0">
                                 <p class="text-sm font-semibold text-text-body truncate">{{ $userTeam->name }} vs {{ $match->awayTeam->name }}</p>
-                                <p class="text-xs text-text-muted">{{ $match->scheduled_date->format('d/m/Y') }} · {{ $match->neutral_venue_name }}</p>
+                                <p class="text-xs text-text-muted">{{ $match->scheduled_date?->format('d/m/Y') }} · {{ $match->neutral_venue_name }}</p>
                                 @if($match->venue_status === 'pending_club')
                                     <p class="text-xs text-accent-orange mt-0.5">⏳ {{ __('game.friendly_venue_pending') }}</p>
                                 @elseif($match->venue_status === 'rejected')

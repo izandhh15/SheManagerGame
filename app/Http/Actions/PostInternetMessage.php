@@ -6,6 +6,7 @@ use App\Models\Game;
 use App\Models\SocialPost;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 /**
  * The manager posts on the Internet feed. Rate-limited: 5 posts/day per game.
@@ -27,28 +28,40 @@ class PostInternetMessage
             'text' => ['required', 'string', 'max:' . self::MAX_LENGTH],
         ]);
 
-        $postedToday = SocialPost::where('game_id', $game->id)
-            ->where('context', 'manager_post')
-            ->where('created_at', '>=', now()->startOfDay())
-            ->count();
+        // The daily limit is enforced under a game-row lock: without it, a
+        // double submit can race the count() and slip a 6th post through.
+        $result = DB::transaction(function () use ($game, $gameId, $request, $validated) {
+            Game::whereKey($game->id)->lockForUpdate()->first();
 
-        if ($postedToday >= self::DAILY_LIMIT) {
+            $postedToday = SocialPost::where('game_id', $game->id)
+                ->where('context', 'manager_post')
+                ->where('created_at', '>=', now()->startOfDay())
+                ->count();
+
+            if ($postedToday >= self::DAILY_LIMIT) {
+                return 'limit';
+            }
+
+            $user = $request->user();
+            $name = $user->username ?? $user->name ?? 'Míster';
+            $handle = '@' . strtolower(preg_replace('/[^a-z0-9]/i', '', $name));
+
+            SocialPost::create([
+                'game_id' => $game->id,
+                'author_name' => $name,
+                'author_handle' => $handle,
+                'text' => trim($validated['text']),
+                'sentiment' => 0,
+                'likes' => rand(50, 800),
+                'context' => 'manager_post',
+            ]);
+
+            return 'posted';
+        });
+
+        if ($result === 'limit') {
             return redirect()->back()->with('error', __('game.internet_limit_reached', ['limit' => self::DAILY_LIMIT]));
         }
-
-        $user = $request->user();
-        $name = $user->username ?? $user->name ?? 'Míster';
-        $handle = '@' . strtolower(preg_replace('/[^a-z0-9]/i', '', $name));
-
-        SocialPost::create([
-            'game_id' => $game->id,
-            'author_name' => $name,
-            'author_handle' => $handle,
-            'text' => trim($validated['text']),
-            'sentiment' => 0,
-            'likes' => rand(50, 800),
-            'context' => 'manager_post',
-        ]);
 
         return redirect()->route('game.internet', ['gameId' => $gameId, 'tab' => 'mister'])
             ->with('success', __('game.internet_posted'));

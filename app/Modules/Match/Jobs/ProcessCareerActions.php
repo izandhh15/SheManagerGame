@@ -25,6 +25,14 @@ class ProcessCareerActions implements ShouldQueue, ShouldBeUnique
     public function __construct(
         public string $gameId,
         public int $ticks,
+        /**
+         * Timestamp the dispatcher stamped on career_actions_processing_at
+         * for this run. The job only clears the flag when it still holds
+         * this value — a newer dispatch may have legitimately set a fresh
+         * flag (e.g. after the stuck-flag safety net cleared a stale one
+         * while this job was still running), and must not be wiped.
+         */
+        public ?string $flagAt = null,
     ) {
         $this->onQueue('gameplay');
     }
@@ -79,7 +87,9 @@ class ProcessCareerActions implements ShouldQueue, ShouldBeUnique
             }
         }
 
-        Game::where('id', $this->gameId)->update(['career_actions_processing_at' => null]);
+        // Clear the flag only if this job set it (see $flagAt): never wipe
+        // a fresher flag left by a newer dispatch.
+        $this->clearOwnFlag();
 
         if (QueryProfiler::enabled()) {
             Log::info("[CareerActions {$this->gameId}] job summary", [
@@ -95,12 +105,29 @@ class ProcessCareerActions implements ShouldQueue, ShouldBeUnique
 
     public function failed(?\Throwable $exception): void
     {
-        Game::where('id', $this->gameId)->update(['career_actions_processing_at' => null]);
+        $this->clearOwnFlag();
 
         Log::error('Career actions processing failed', [
             'game_id' => $this->gameId,
             'error' => $exception?->getMessage(),
             'trace' => $exception?->getTraceAsString(),
         ]);
+    }
+
+    /**
+     * Clear career_actions_processing_at only when it still holds the
+     * timestamp this run stamped. Without the guard, a slow job finishing
+     * late would wipe a fresher flag left by a newer dispatch, unblocking
+     * matchday advancement while that newer run is still queued.
+     */
+    private function clearOwnFlag(): void
+    {
+        $query = Game::where('id', $this->gameId);
+
+        if ($this->flagAt !== null) {
+            $query->where('career_actions_processing_at', $this->flagAt);
+        }
+
+        $query->update(['career_actions_processing_at' => null]);
     }
 }

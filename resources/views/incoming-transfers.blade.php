@@ -238,7 +238,7 @@
                                                     @endif
                                                 </div>
                                                 <div class="text-xs text-text-secondary mt-0.5">
-                                                    {{ __('transfers.returns') }}: {{ $loan->return_at->format('M j, Y') }}
+                                                    {{ __('transfers.returns') }}: {{ $loan->return_at?->format('M j, Y') }}
                                                 </div>
                                             </div>
                                         </div>
@@ -266,7 +266,7 @@
                                                 </span>
                                             </div>
                                             <div class="flex items-center gap-3 md:text-right">
-                                                <span class="text-xs text-text-muted">{{ $transfer->resolved_at->format('d M Y') }}</span>
+                                                <span class="text-xs text-text-muted">{{ $transfer->resolved_at?->format('d M Y') }}</span>
                                                 <span class="font-semibold text-accent-green">{{ $transfer->formatted_transfer_fee }}</span>
                                             </div>
                                         </div>

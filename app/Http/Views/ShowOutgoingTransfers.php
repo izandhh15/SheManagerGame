@@ -12,6 +12,7 @@ use App\Models\GamePlayer;
 use App\Models\RenewalNegotiation;
 use App\Models\TransferListing;
 use App\Models\TransferOffer;
+use Illuminate\Support\Facades\DB;
 
 class ShowOutgoingTransfers
 {
@@ -28,8 +29,9 @@ class ShowOutgoingTransfers
         $game = Game::with(['team', 'finances'])->findOrFail($gameId);
         abort_if($game->isTournamentMode(), 404);
 
-        // Expire any old offers first
-        $this->transferService->expireOffers($game);
+        // Expire any old offers first (a GET-side write: wrap it in a
+        // transaction so it can't interleave with offer mutations).
+        DB::transaction(fn () => $this->transferService->expireOffers($game));
 
         // Get all pending offers for user's players
         $pendingOffers = TransferOffer::with(['gamePlayer.team', 'gamePlayer.activeLoan.parentTeam', 'offeringTeam'])

@@ -131,7 +131,7 @@ class YouthAcademyService
     {
         $tier = $game->currentInvestment->youth_academy_tier ?? 0;
 
-        $config = self::TIER_CONFIG[$tier];
+        $config = self::TIER_CONFIG[$tier] ?? self::TIER_CONFIG[0];
         [$minArrivals, $maxArrivals] = $config;
 
         $count = rand($minArrivals, $maxArrivals);
@@ -521,8 +521,11 @@ class YouthAcademyService
     ): array {
         $position = $this->selectPosition();
 
-        // Ability mean = academy base quality + team context bonus
-        $abilityMean = self::ACADEMY_BASE_QUALITY[$academyTier] + self::TEAM_CONTEXT_BONUS[$teamMedianTier];
+        // Ability mean = academy base quality + team context bonus.
+        // Defensive fallbacks: an out-of-range tier degrades to tier 0
+        // quality and a neutral (0) team bonus instead of a 500.
+        $abilityMean = (self::ACADEMY_BASE_QUALITY[$academyTier] ?? self::ACADEMY_BASE_QUALITY[0])
+            + (self::TEAM_CONTEXT_BONUS[$teamMedianTier] ?? 0);
 
         $age = rand(17, 19);
         $ageCap = match ($age) {
