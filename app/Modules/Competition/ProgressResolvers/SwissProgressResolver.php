@@ -10,14 +10,14 @@ class SwissProgressResolver implements ProgressResolver
 {
     /**
      * League-phase qualification cuts per swiss-format competition, keyed by
-     * competition id. UCL runs 28 teams (1–8 direct to R16, 9–24 playoff,
-     * 25–28 eliminated); UEL runs 20 (1–12 direct to R16, 13–20 playoff,
-     * nobody eliminated at the league-phase cut — 12 + 4 playoff winners
-     * make a clean 16-team R16). Unknown ids fall back to the UCL cuts.
+     * competition id. Only the UWCL still runs a league phase (28 teams:
+     * 1–8 direct to R16, 9–24 playoff, 25–28 eliminated); the Europa Cup is
+     * a pure knockout since 2026-27 and never reaches this resolver (the
+     * factory keys resolvers by handler_type). Unknown ids fall back to the
+     * UCL cuts.
      */
     private const CUTS = [
         'UCL' => ['direct' => 8, 'playoff' => 24],
-        'UEL' => ['direct' => 12, 'playoff' => 20],
     ];
 
     public function resolve(string $gameId, string $competitionId, GameStanding $standing): ?QualificationOutcome

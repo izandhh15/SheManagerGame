@@ -4,12 +4,21 @@ namespace App\Modules\Competition\Configs;
 
 use App\Modules\Competition\Contracts\CompetitionConfig;
 
+/**
+ * Config for the UEFA Women's Europa Cup (UWEC), played since 2026-27 as a
+ * pure two-legged knockout from the round of 16 — no league phase:
+ * R16 → QF → SF → F. The 16 teams are the winners of the two UELQ
+ * qualifying rounds (12 round-1 winners + 12 direct round-2 entrants +
+ * 8 UWCL qualifying losers, halved twice); nobody enters the Europa Cup
+ * directly. The winner takes a UWCL place for the following season.
+ */
 class EuropaLeagueConfig implements CompetitionConfig
 {
     /**
      * UWEC knockout prize money (in cents), real figures from UEFA circular
-     * 50/2026 (Q1 €60K, Q2 €65K, R16 €70K, QF €70K, SF €75K, runner-up €75K,
-     * champion €80K — €5.6M pool). Paid per round WON (accumulative).
+     * 50/2026 adapted to the four knockout rounds (R16 €70K, QF €70K,
+     * SF €75K, runner-up €75K, champion €80K). Paid per round WON
+     * (accumulative).
      * Keyed by rounds remaining after the one won: 0 is the final.
      */
     private const KNOCKOUT_PRIZE_MONEY = [
@@ -17,30 +26,18 @@ class EuropaLeagueConfig implements CompetitionConfig
         1 => 7_500_000,    // €75K — win SF = reach Final (runner-up)
         2 => 7_500_000,    // €75K — win QF = reach SF
         3 => 7_000_000,    // €70K — win R16 = reach QF
-        4 => 7_000_000,    // €70K — win Knockout Playoff = reach R16
     ];
 
     public function getTvRevenue(int $position): int|float
     {
-        // UEFA Women's Europa Cup: €65K base per club + €1K/position ranking
-        // (circular 50/2026), extended across the 20 in-game league-phase
-        // teams (data/2026/UEL).
-        $base = 6_500_000; // €65K floor
-        $positionBonus = max(0, 21 - $position) * 100_000; // €1K per position
-
-        return $base + $positionBonus;
+        // No league phase, no TV ranking money: the knockout prizes and
+        // the UWCL place for the winner are the reward.
+        return 0;
     }
 
     public function getPositionFactor(int $position): float
     {
-        if ($position <= 8) {
-            return 1.10;
-        }
-        if ($position <= 24) {
-            return 1.0;
-        }
-
-        return 0.90;
+        return 1.0;
     }
 
     public function getTopScorerAwardName(): string
@@ -60,34 +57,12 @@ class EuropaLeagueConfig implements CompetitionConfig
 
     public function getLeaguePhaseQualificationBonus(int $position): int
     {
-        if ($position <= 12) {
-            return 7_000_000; // €70K — direct R16, skips the €70K playoff prize
-        }
-        if ($position <= 20) {
-            return 0; // these teams earn the €70K reach-R16 prize by winning the playoff
-        }
-
-        return 0; // Eliminated
+        return 0;
     }
 
     public function getStandingsZones(): array
     {
-        return [
-            [
-                'minPosition' => 1,
-                'maxPosition' => 12,
-                'borderColor' => 'orange-500',
-                'bgColor' => 'bg-orange-500',
-                'label' => 'game.uel_direct_knockout',
-            ],
-            [
-                'minPosition' => 13,
-                'maxPosition' => 20,
-                'borderColor' => 'yellow-500',
-                'bgColor' => 'bg-yellow-500',
-                'label' => 'game.uel_knockout_playoff',
-            ],
-        ];
+        return [];
     }
 
 }

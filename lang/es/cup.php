@@ -69,8 +69,13 @@ return [
     'knockout_playoff_round' => 'Playoff de eliminación',
     'playoff_semi_finals' => 'Playoff Semifinal',
     'playoff_final' => 'Playoff Final',
+    'qualifying_playoff' => 'Primera ronda de clasificación',
+    'qualifying_second_round' => 'Segunda ronda de clasificación',
 
     // Second leg variants
+    'qualifying_playoff_return' => 'Primera ronda de clasificación (Vuelta)',
+    'qualifying_second_round_return' => 'Segunda ronda de clasificación (Vuelta)',
+    'final_return' => 'Final (Vuelta)',
     'semi_finals_return' => 'Semifinal (Vuelta)',
     'round_of_16_return' => 'Octavos de final (Vuelta)',
     'quarter_finals_return' => 'Cuartos de final (Vuelta)',

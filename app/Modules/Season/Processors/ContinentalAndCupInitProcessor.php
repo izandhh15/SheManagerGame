@@ -56,9 +56,14 @@ class ContinentalAndCupInitProcessor implements SeasonProcessor
         $swissPotData = $data->getMetadata(SeasonTransitionData::META_SWISS_POT_DATA, []);
 
         foreach ($swissIds as $competitionId) {
-            // UCL/UEL league phases are DEFERRED until the qualifying playoffs
+            // The UWCL league phase is DEFERRED until the qualifying playoffs
             // (UCLQ/UELQ) complete — their winners/losers fill the remaining
-            // slots. RouteQualifyingResultsListener initializes them then.
+            // slots. RouteQualifyingResultsListener initializes it then.
+            // (The Europa Cup used to be deferred the same way; as a pure
+            // knockout cup its round of 16 is drawn by
+            // RouteQualifyingResultsListener once UELQ completes, so it no
+            // longer reaches this branch — the in_array keeps it deferred
+            // while any swiss_format UEL seed data still exists.)
             if (in_array($competitionId, ['UCL', 'UEL'], true)) {
                 Log::info("[SeasonInit] {$competitionId}: deferred until qualifying playoffs complete");
                 continue;

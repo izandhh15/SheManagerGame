@@ -5,6 +5,7 @@ namespace App\Modules\Season\Processors;
 use App\Modules\Season\Contracts\SeasonProcessor;
 use App\Modules\Season\DTOs\SeasonTransitionData;
 use App\Modules\Competition\Services\SwissKnockoutGenerator;
+use App\Modules\Competition\Services\LeagueFixtureGenerator;
 use App\Modules\Manager\Services\PerformanceHistoryService;
 use App\Models\CompetitionEntry;
 use App\Models\CupTie;
@@ -123,9 +124,16 @@ class SeasonArchiveProcessor implements SeasonProcessor
 
     private function resolveCompetitionWinner(Game $game, string $competitionId): ?string
     {
+        // The final's round number comes from the season's schedule data:
+        // the Europa Cup's pure-knockout final is round 4, the UWCL's is
+        // round 5. Fall back to the Swiss-format final round when the
+        // schedule declares no knockout rounds (e.g. minimal test datasets).
+        $finalRound = LeagueFixtureGenerator::finalKnockoutRound($competitionId, (string) $game->base_season)
+            ?? SwissKnockoutGenerator::ROUND_FINAL;
+
         $final = CupTie::where('game_id', $game->id)
             ->where('competition_id', $competitionId)
-            ->where('round_number', SwissKnockoutGenerator::ROUND_FINAL)
+            ->where('round_number', $finalRound)
             ->where('completed', true)
             ->first();
 

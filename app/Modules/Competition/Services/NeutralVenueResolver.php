@@ -13,13 +13,15 @@ use App\Models\Team;
  *   every round): the Copa del Rey final at La Cartuja, every game of the
  *   Spanish Supercup's final four at Estadio Castalia, FA Cup semi-finals and
  *   final at Wembley.
- * - The UCL and UEL finals rotate across top-tier European grounds (>=50k):
+ * - The UCL final rotates across top-tier European grounds (>=50k):
  *   we sample a random club stadium from the Team table, excluding the two
  *   finalists to guarantee the venue is genuinely neutral. If no eligible
  *   stadium is found we fall back to a guaranteed neutral venue rather than
  *   silently yielding none (which would leak the home club's capacity into
  *   the final). The UEFA Super Cup (UEFASUP) deliberately gets no neutral
- *   venue — its processor stages it without one.
+ *   venue — its processor stages it without one. Neither does the Europa
+ *   Cup final: it is two-legged (home and away), so there is nothing
+ *   neutral to pick.
  */
 class NeutralVenueResolver
 {
@@ -32,7 +34,7 @@ class NeutralVenueResolver
         'capacity' => 90000,
     ];
 
-    private const EUROPEAN_FINAL_COMPETITIONS = ['UCL', 'UEL'];
+    private const EUROPEAN_FINAL_COMPETITIONS = ['UCL'];
     private const FINAL_ROUND = 'cup.final';
     private const MIN_CAPACITY = 50000;
 

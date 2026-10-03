@@ -8,11 +8,13 @@ use App\Modules\Competition\ProgressResolvers\SwissProgressResolver;
 use Tests\TestCase;
 
 /**
- * BAJA review: SwissProgressResolver hardcoded the 8/24 cuts as class
- * constants (wrong for the 20-team UEL: 21st+ doesn't exist, and nobody is
- * eliminated at the league-phase cut) and `null <= 8` evaluated to true,
- * marking an unordered standing as "advanced". Cuts are now per
- * competition and a null position resolves to null.
+ * SwissProgressResolver cuts for the UWCL league phase (28 teams: 1-8 direct
+ * to R16, 9-24 knockout playoff, 25-28 eliminated). A null position resolves
+ * to null (`null <= 8` used to evaluate to true, marking an unordered
+ * standing as "advanced").
+ *
+ * The Europa Cup has no cuts here: since 2026-27 it is a pure knockout and
+ * never reaches this resolver (the factory keys resolvers by handler_type).
  */
 class SwissProgressResolverTest extends TestCase
 {
@@ -29,7 +31,7 @@ class SwissProgressResolverTest extends TestCase
         $resolver = app(SwissProgressResolver::class);
 
         $this->assertNull($resolver->resolve('game-1', 'UCL', $this->standing(null)));
-        $this->assertNull($resolver->resolve('game-1', 'UEL', $this->standing(null)));
+        $this->assertNull($resolver->resolve('game-1', 'NOPE', $this->standing(null)));
     }
 
     public function test_ucl_cuts_28_teams(): void
@@ -40,21 +42,6 @@ class SwissProgressResolverTest extends TestCase
         $this->assertSame(QualificationStatus::Playoff, $resolver->resolve('g', 'UCL', $this->standing(9))->status);
         $this->assertSame(QualificationStatus::Playoff, $resolver->resolve('g', 'UCL', $this->standing(24))->status);
         $this->assertSame(QualificationStatus::Eliminated, $resolver->resolve('g', 'UCL', $this->standing(25))->status);
-    }
-
-    public function test_uel_cuts_20_teams_with_no_eliminations(): void
-    {
-        $resolver = app(SwissProgressResolver::class);
-
-        // 20-team UEL: 1-12 direct to R16 (12 + 4 playoff winners = clean 16),
-        // 13-20 knockout playoff, nobody eliminated at the league-phase cut.
-        $this->assertSame(QualificationStatus::Advanced, $resolver->resolve('g', 'UEL', $this->standing(8))->status);
-        $this->assertSame(QualificationStatus::Advanced, $resolver->resolve('g', 'UEL', $this->standing(12))->status);
-        $this->assertSame(QualificationStatus::Playoff, $resolver->resolve('g', 'UEL', $this->standing(13))->status);
-        // 20th still makes the playoff; the old shared 24-cut is gone.
-        $this->assertSame(QualificationStatus::Playoff, $resolver->resolve('g', 'UEL', $this->standing(20))->status);
-        // Past the 20-team field the old code still said playoff (cut at 24).
-        $this->assertSame(QualificationStatus::Eliminated, $resolver->resolve('g', 'UEL', $this->standing(21))->status);
     }
 
     public function test_unknown_competition_falls_back_to_ucl_cuts(): void

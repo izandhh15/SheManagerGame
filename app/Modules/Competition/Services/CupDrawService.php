@@ -428,6 +428,21 @@ class CupDrawService
 
         $completedPreviousTies = (clone $previousRoundQuery)->where('completed', true)->count();
 
+        // UELQ round 2 has a cross-competition dependency: the 8 UCLQ losers
+        // only drop into UELQ once every UCLQ tie is decided. Drawing early
+        // would lock a short round 2 and strand the late arrivals, so the
+        // round waits for UCLQ even when its own previous round is done.
+        if ($competitionId === 'UELQ' && $roundNumber === 2) {
+            $uclqUndecided = CupTie::where('game_id', $gameId)
+                ->where('competition_id', 'UCLQ')
+                ->where('completed', false)
+                ->exists();
+
+            if ($uclqUndecided) {
+                return false;
+            }
+        }
+
         return $totalPreviousTies === $completedPreviousTies;
     }
 

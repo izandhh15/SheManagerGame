@@ -74,7 +74,8 @@ class QualifyingResultsListenerFixTest extends TestCase
         ]);
 
         // Otra eliminatoria aún sin decidir: evita que el listener intente
-        // inicializar las fases de liga UCL/UEL (no es objeto de este test).
+        // sortear la R2 de la UELQ o la R16 de la UEL (no es objeto de este
+        // test).
         CupTie::factory()->create([
             'game_id' => $this->game->id,
             'competition_id' => 'UELQ',
@@ -88,9 +89,9 @@ class QualifyingResultsListenerFixTest extends TestCase
     {
         $this->handleTieResolved();
 
-        // El ganador pasa a la UEL...
-        $this->assertTrue($this->hasEntry($this->winner->id, 'UEL'));
-        $this->assertFalse($this->hasEntry($this->winner->id, 'UELQ'));
+        // El ganador de la R1 se queda en la UELQ (su entry ya cubre la R2)...
+        $this->assertTrue($this->hasEntry($this->winner->id, 'UELQ'));
+        $this->assertFalse($this->hasEntry($this->winner->id, 'UEL'));
 
         // ...y el perdedor queda fuera: sin entry en UELQ ni en UEL.
         $this->assertFalse($this->hasEntry($this->loser->id, 'UELQ'), 'el perdedor conserva su entry UELQ');

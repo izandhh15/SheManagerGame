@@ -86,6 +86,26 @@ class UefaQualificationTest extends TestCase
             'scope' => Competition::SCOPE_CONTINENTAL,
             'handler_type' => 'swiss_format',
         ]);
+        // Qualifying playoffs (seedInitialContinentalEntries writes entries
+        // for them from the configured continental_slots).
+        Competition::factory()->create([
+            'id' => 'UCLQ',
+            'name' => 'UWCL Qualifying',
+            'country' => 'EU',
+            'type' => 'cup',
+            'role' => Competition::ROLE_EUROPEAN,
+            'scope' => Competition::SCOPE_CONTINENTAL,
+            'handler_type' => 'knockout_cup',
+        ]);
+        Competition::factory()->create([
+            'id' => 'UELQ',
+            'name' => 'Europa Cup Qualifying',
+            'country' => 'EU',
+            'type' => 'cup',
+            'role' => Competition::ROLE_EUROPEAN,
+            'scope' => Competition::SCOPE_CONTINENTAL,
+            'handler_type' => 'knockout_cup',
+        ]);
         $user = User::factory()->create();
         $userTeam = Team::factory()->create(['name' => 'User Team', 'country' => 'ES']);
 
