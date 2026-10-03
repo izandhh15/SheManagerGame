@@ -13,6 +13,13 @@ use Illuminate\Support\Str;
 
 class SaveSquadSelection
 {
+    /**
+     * Maximum tournament squad size. Shared with ShowSquadSelection (which
+     * auto-selects when candidates fit) and the squad-selection UI
+     * (Alpine maxPlayers + "/ N" counters) — change it in one place.
+     */
+    public const MAX_SQUAD_SIZE = 26;
+
     public function __construct(
         private readonly PlayerDevelopmentService $developmentService,
     ) {}
@@ -26,7 +33,7 @@ class SaveSquadSelection
         }
 
         $request->validate([
-            'player_ids' => 'required|array|min:18|max:26',
+            'player_ids' => 'required|array|min:18|max:'.self::MAX_SQUAD_SIZE,
             'player_ids.*' => 'required|string|distinct',
         ]);
 

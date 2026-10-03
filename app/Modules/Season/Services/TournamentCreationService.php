@@ -246,17 +246,35 @@ class TournamentCreationService
 
     /**
      * Federation venue-organization budget (euros) for a national team.
+     *
+     * Top-tier lookup is by FIFA code (stable across locales), never by
+     * the display name — team names are localized in the UI.
      */
     public function budgetForNation(Team $team): int
     {
-        $top = [
-            'Spain', 'United States', 'England', 'Germany', 'France', 'Brazil',
-            'Japan', 'Netherlands', 'Sweden', 'Canada', 'Australia', 'Norway',
-            'Denmark', 'Italy', 'Iceland', 'South Korea',
+        $topFifaCodes = [
+            'ESP', 'USA', 'ENG', 'GER', 'FRA', 'BRA',
+            'JPN', 'NED', 'SWE', 'CAN', 'AUS', 'NOR',
+            'DEN', 'ITA', 'ISL', 'KOR',
         ];
-        if (in_array($team->name, $top, true)) {
+        if ($team->fifa_code !== null && in_array($team->fifa_code, $topFifaCodes, true)) {
             return 15_000_000;
         }
+
+        // Legacy seeds may lack a fifa_code: fall back to the English
+        // display names only in that case. Compare the RAW name — the
+        // `name` accessor localizes national-team names per locale.
+        if ($team->fifa_code === null) {
+            $topNames = [
+                'Spain', 'United States', 'England', 'Germany', 'France', 'Brazil',
+                'Japan', 'Netherlands', 'Sweden', 'Canada', 'Australia', 'Norway',
+                'Denmark', 'Italy', 'Iceland', 'South Korea',
+            ];
+            if (in_array($team->getRawOriginal('name'), $topNames, true)) {
+                return 15_000_000;
+            }
+        }
+
         if ($team->confederation === 'UEFA') {
             return 8_000_000;
         }

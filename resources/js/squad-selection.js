@@ -13,7 +13,7 @@ export default function squadSelection(config) {
         selectedIds: [],
         activeTab: 'goalkeepers',
         players: config.players,
-        maxPlayers: 26,
+        maxPlayers: config.maxPlayers,
         groupLabels: config.groupLabels,
         teamName: config.teamName,
         teamCrestUrl: config.teamCrestUrl,

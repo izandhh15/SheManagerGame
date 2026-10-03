@@ -86,4 +86,54 @@ class NationalTeamEvolutionTest extends TestCase
             $this->assertLessThanOrEqual(23, $age);
         }
     }
+
+    /**
+     * BAJA review: evolveSquad() used to pass generic position groups
+     * ('Defender', 'Midfielder', 'Forward') straight into
+     * buildYouthPlayerData(), which stores $position verbatim on the
+     * player. Prospects must spawn with a concrete on-pitch position
+     * (via YouthAcademyPromotionProcessor::GROUP_REPRESENTATIVE), not
+     * the generic group name.
+     */
+    public function test_rollover_spawns_concrete_positions_not_generic_groups(): void
+    {
+        \Illuminate\Support\Facades\Queue::fake();
+
+        $user = User::factory()->create();
+        $spain = Team::factory()->create(['name' => 'Spain', 'type' => 'national']);
+        \App\Models\Competition::factory()->create(['id' => 'WNL']);
+        \App\Models\Competition::factory()->create(['id' => 'WQUEFA']);
+
+        $game = Game::factory()->create([
+            'user_id' => $user->id,
+            'team_id' => $spain->id,
+            'competition_id' => 'WNL',
+            'season' => '2026',
+            'setup_completed_at' => now(),
+            'current_date' => '2026-07-01',
+        ]);
+
+        // Empty squad → youth intake generates 24 prospects across random
+        // groups, so every group mapping is exercised.
+        app(NationalTeamRolloverService::class)->rollover($game);
+
+        $prospects = GamePlayer::where('game_id', $game->id)
+            ->where('team_id', $spain->id)
+            ->where('is_squad_member', true)
+            ->get();
+
+        $this->assertNotEmpty($prospects);
+
+        $genericGroups = ['Defender', 'Midfielder', 'Forward'];
+        $concretePositions = ['Goalkeeper', 'Centre-Back', 'Central Midfield', 'Centre-Forward'];
+
+        foreach ($prospects as $prospect) {
+            $this->assertNotContains(
+                $prospect->position,
+                $genericGroups,
+                "Prospect {$prospect->name} spawned with generic group '{$prospect->position}' instead of a concrete position."
+            );
+            $this->assertContains($prospect->position, $concretePositions);
+        }
+    }
 }

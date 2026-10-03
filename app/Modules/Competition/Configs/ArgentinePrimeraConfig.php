@@ -37,7 +37,9 @@ class ArgentinePrimeraConfig implements CompetitionConfig, HasSeasonGoals
 
     private const SEASON_GOALS = [
         Game::GOAL_TITLE => ['targetPosition' => 1, 'label' => 'game.goal_title'],
-        Game::GOAL_EUROPA_LEAGUE => ['targetPosition' => 3, 'label' => 'game.goal_europa_league'],
+        // Copa Libertadores is this confederation's continental competition
+        // (UEFA Women's Europa Cup does not exist here).
+        Game::GOAL_LIBERTADORES => ['targetPosition' => 2, 'label' => 'game.goal_libertadores'],
         Game::GOAL_TOP_HALF => ['targetPosition' => 8, 'label' => 'game.goal_top_half'],
         Game::GOAL_SURVIVAL => ['targetPosition' => 14, 'label' => 'game.goal_survival'],
     ];
@@ -45,7 +47,7 @@ class ArgentinePrimeraConfig implements CompetitionConfig, HasSeasonGoals
     private const REPUTATION_TO_GOAL = [
         ClubProfile::REPUTATION_ELITE => Game::GOAL_TITLE,
         ClubProfile::REPUTATION_CONTINENTAL => Game::GOAL_TITLE,
-        ClubProfile::REPUTATION_ESTABLISHED => Game::GOAL_EUROPA_LEAGUE,
+        ClubProfile::REPUTATION_ESTABLISHED => Game::GOAL_LIBERTADORES,
         ClubProfile::REPUTATION_MODEST => Game::GOAL_TOP_HALF,
         ClubProfile::REPUTATION_LOCAL => Game::GOAL_SURVIVAL,
     ];
@@ -100,14 +102,22 @@ class ArgentinePrimeraConfig implements CompetitionConfig, HasSeasonGoals
 
     public function getStandingsZones(): array
     {
-        return [
-            [
-                'minPosition' => 15,
-                'maxPosition' => 16,
-                'borderColor' => 'red-500',
-                'bgColor' => 'bg-red-500',
-                'label' => 'game.relegation',
-            ],
-        ];
+        $slots = config('countries.AR.continental_slots.ARG1', []);
+
+        $zones = [];
+
+        if (!empty($slots['LIBERTADORES'])) {
+            $zones[] = [
+                'minPosition' => min($slots['LIBERTADORES']),
+                'maxPosition' => max($slots['LIBERTADORES']),
+                'borderColor' => 'blue-500',
+                'bgColor' => 'bg-blue-500',
+                'label' => 'game.libertadores',
+            ];
+        }
+
+        // No relegation zone: the Primera División has no lower division in the game,
+        // so no relegation is modeled (see config/countries.php promotions).
+        return $zones;
     }
 }

@@ -1129,16 +1129,24 @@ class MatchResimulationService
 
         // Pair assists with their goals. Key includes phase + stoppage so an
         // assist on a 90+3' goal isn't confused with an unrelated 90' event.
-        $assists = $events
+        // Grouped, not keyBy: two goals sharing the same "90+2'" must not
+        // both take the LAST assist — each goal consumes the earliest
+        // still-unpaired assist for its key, ordered by event id so the
+        // pairing is deterministic.
+        $assistsByKey = $events
             ->filter(fn ($e) => $e->event_type === 'assist')
-            ->keyBy(fn ($e) => $e->phase->value.':'.$e->minute.':'.($e->stoppage_minute ?? 0).':'.$e->team_id);
+            ->sortBy('id')
+            ->groupBy(fn ($e) => $e->phase->value.':'.$e->minute.':'.($e->stoppage_minute ?? 0).':'.$e->team_id)
+            ->map(fn ($group) => $group->values()->all())
+            ->all();
 
-        return array_map(function ($event) use ($assists) {
+        return array_map(function ($event) use (&$assistsByKey) {
             if ($event['type'] === 'goal') {
                 $key = $event['phase'].':'.$event['baseMinute'].':'.($event['stoppageMinute'] ?? 0).':'.$event['teamId'];
-                if (isset($assists[$key])) {
-                    $event['assistPlayerName'] = $assists[$key]->gamePlayer->name ?? null;
-                    $event['assistPlayerId'] = $assists[$key]->game_player_id;
+                if (! empty($assistsByKey[$key])) {
+                    $assist = array_shift($assistsByKey[$key]);
+                    $event['assistPlayerName'] = $assist->gamePlayer->name ?? null;
+                    $event['assistPlayerId'] = $assist->game_player_id;
                 }
             }
 

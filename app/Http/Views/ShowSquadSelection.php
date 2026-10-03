@@ -37,9 +37,9 @@ class ShowSquadSelection
 
         $candidates = $this->loadCandidates($game);
 
-        // If the roster has 26 or fewer players, auto-select all and skip the UI
+        // If the roster fits the max squad size, auto-select all and skip the UI
         $totalCandidates = array_sum(array_map('count', $candidates));
-        if ($totalCandidates <= 26) {
+        if ($totalCandidates <= SaveSquadSelection::MAX_SQUAD_SIZE) {
             $allTmIds = [];
             $positionByTmId = [];
             foreach ($candidates as $group) {
@@ -63,6 +63,7 @@ class ShowSquadSelection
         return view('squad-selection', [
             'game' => $game,
             'candidatesByGroup' => $candidates,
+            'maxSquadSize' => SaveSquadSelection::MAX_SQUAD_SIZE,
         ]);
     }
 

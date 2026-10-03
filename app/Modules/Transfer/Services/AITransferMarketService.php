@@ -520,6 +520,19 @@ class AITransferMarketService
                 break;
             }
 
+            // Hardening (latent today by execution order): the free-agent
+            // list was loaded up-front and $alreadyTransferredSet is written
+            // below but never read in this method — skip anyone already
+            // taken, and re-check on fresh data that she is still unattached
+            // (e.g. signed by the user since the load) before queueing the
+            // batched update.
+            if (isset($alreadyTransferredSet[$freeAgent->id])) {
+                continue;
+            }
+            if (GamePlayer::whereKey($freeAgent->id)->value('team_id') !== null) {
+                continue;
+            }
+
             $bestTeam = $this->findBestTeamForFreeAgent($freeAgent, $teamRosters, $teamAverages, $teams, $reputationLevels);
 
             if (! $bestTeam) {

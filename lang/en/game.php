@@ -66,6 +66,8 @@ return [
     'pts_abbr' => 'Pts',
     'last_5' => 'Last 5',
     'champions_league' => 'UWCL',
+    'libertadores' => 'Libertadores',
+    'concachampions' => 'Concachampions',
     'europa_league' => 'UEFA Women\'s Europa Cup',
     'relegation' => 'Relegation',
     'world_cup_qualified' => 'Qualified for World Cup 2027',
@@ -545,6 +547,8 @@ return [
     // Season Goals
     'goal_title' => 'Win the League',
     'goal_europa_league' => 'Qualify for the UEFA Women\'s Europa Cup',
+    'goal_libertadores' => 'Qualify for the Copa Libertadores',
+    'goal_concachampions' => 'Qualify for the Concacaf W Champions Cup',
     'goal_top_half' => 'Finish in the top half',
     'goal_survival' => 'Avoid relegation',
     'goal_promotion' => 'Direct promotion',

@@ -692,7 +692,7 @@ class UefaQualificationProcessor implements SeasonProcessor
 
         // European team pool: teams registered in any competition with country='EU',
         // excluding teams already in the target competition and teams from configured countries.
-        $europeanTeamPool = CompetitionTeam::query()
+        $poolRows = CompetitionTeam::query()
             ->join('competitions', 'competition_teams.competition_id', '=', 'competitions.id')
             ->join('teams', 'competition_teams.team_id', '=', 'teams.id')
             ->where('competitions.country', 'EU')
@@ -703,8 +703,14 @@ class UefaQualificationProcessor implements SeasonProcessor
             ->whereNotIn('competition_teams.team_id', $usedTeamIds)
             ->whereNotIn('teams.country', $configuredCountries)
             ->distinct()
-            ->pluck('competition_teams.team_id')
+            ->pluck('competition_teams.competition_id', 'competition_teams.team_id')
             ->toArray();
+
+        // Deterministic filler order: best domestic-league finish first —
+        // continental fillers should be the strongest remaining sides — with
+        // team id as the tiebreak so the pick never depends on physical row
+        // order (the old array_slice over an unordered pool did).
+        $europeanTeamPool = $this->orderPoolByDomesticFinish($game, $poolRows);
 
         $fillerTeams = array_slice($europeanTeamPool, 0, $needed);
 
@@ -728,5 +734,31 @@ class UefaQualificationProcessor implements SeasonProcessor
         if (count($fillerTeams) < $needed) {
             Log::warning("[UEFA] {$userCompetitionId}: need {$needed} fillers but only " . count($fillerTeams) . ' available in European pool');
         }
+    }
+
+    /**
+     * Order a team pool deterministically by domestic-league finishing
+     * position (best first), tie-broken by team id. Teams with no
+     * standings row sort last.
+     *
+     * @param  array<string, string>  $teamIdToCompetitionId
+     * @return list<string>
+     */
+    private function orderPoolByDomesticFinish(Game $game, array $teamIdToCompetitionId): array
+    {
+        $standingsCache = [];
+        $bestPosition = [];
+
+        foreach ($teamIdToCompetitionId as $teamId => $competitionId) {
+            $standingsCache[$competitionId] ??= $this->getLeagueStandings($game, $competitionId);
+            $position = array_search($teamId, $standingsCache[$competitionId], true);
+            $bestPosition[$teamId] = $position === false ? PHP_INT_MAX : $position;
+        }
+
+        $teamIds = array_keys($teamIdToCompetitionId);
+        usort($teamIds, fn (string $a, string $b) =>
+            [$bestPosition[$a], $a] <=> [$bestPosition[$b], $b]);
+
+        return $teamIds;
     }
 }

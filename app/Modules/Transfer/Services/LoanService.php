@@ -410,15 +410,21 @@ class LoanService
 
     /**
      * Return a single loan - player goes back to parent team.
+     *
+     * Only the first-team roster uses squad numbers: a return to the
+     * reserve team (filial) or to an AI club nulls the number by design —
+     * the reserve's number=null invariant is assigned on call-up instead
+     * (see ReserveTeamService::callUpToFirstTeam()).
      */
     public function returnLoan(Loan $loan): void
     {
         $gamePlayer = $loan->gamePlayer;
-        $isUserTeam = $loan->parent_team_id === $gamePlayer->game->team_id;
+        $game = $gamePlayer->game;
+        $returnsToFirstTeam = $loan->parent_team_id === $game->team_id;
         $gamePlayer->update([
             'team_id' => $loan->parent_team_id,
-            'number' => $isUserTeam
-                ? $this->squadNumberService->assignNumberForNewPlayer($gamePlayer->game, $gamePlayer)
+            'number' => $returnsToFirstTeam
+                ? $this->squadNumberService->assignNumberForNewPlayer($game, $gamePlayer)
                 : null,
         ]);
 

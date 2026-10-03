@@ -245,7 +245,13 @@ class SubstitutionService
             $lineupIds[] = $sub['playerInId'];
         }
 
-        return GamePlayer::with(['matchState'])->whereIn('id', $lineupIds)->get();
+        // Scope by game_id: player UUIDs are globally unique today, but the
+        // lineup ids must resolve within this match's game, never leak a
+        // same-id row from another game (e.g. a stale lineup reference).
+        return GamePlayer::with(['matchState'])
+            ->where('game_id', $match->game_id)
+            ->whereIn('id', $lineupIds)
+            ->get();
     }
 
     /**

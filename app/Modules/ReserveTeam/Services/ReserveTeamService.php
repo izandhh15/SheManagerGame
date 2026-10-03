@@ -164,6 +164,25 @@ class ReserveTeamService
     ];
 
     /**
+     * Per-group stand-in distribution targets for the reserve squad.
+     * Keys match GamePlayer::position_group values.
+     *
+     * Deliberately LOCAL to this service: SquadMinimumService::
+     * POSITION_GROUP_MINIMUMS is empty by design (only the total squad
+     * minimum applies to user-driven removals). Stand-ins, however, exist
+     * purely to keep the simulation engine fed with a balanced filler
+     * squad — filling the whole deficit with midfielders leaves the
+     * reserve without a goalkeeper. The values sum to
+     * SquadMinimumService::MIN_SQUAD_SIZE (17).
+     */
+    private const STAND_IN_GROUP_MINIMUMS = [
+        'Goalkeeper' => 2,
+        'Defender' => 5,
+        'Midfielder' => 5,
+        'Forward' => 5,
+    ];
+
+    /**
      * Cover any reserve-squad deficit below the composition minimum with
      * fictional stand-in players (the "C team" stepping in).
      *
@@ -192,7 +211,7 @@ class ReserveTeamService
         if ($totalDeficit > 0) {
             // Distribute the total deficit across groups proportionally to
             // their minimums so the filler squad stays balanced.
-            $groupMinimums = SquadMinimumService::POSITION_GROUP_MINIMUMS;
+            $groupMinimums = self::STAND_IN_GROUP_MINIMUMS;
             $totalMin = array_sum($groupMinimums);
             foreach ($groupMinimums as $group => $min) {
                 $needed[$group] = (int) round($totalDeficit * $min / $totalMin);
@@ -205,7 +224,7 @@ class ReserveTeamService
         }
 
         // Per-group deficits (after accounting for the total fill above).
-        foreach (SquadMinimumService::POSITION_GROUP_MINIMUMS as $group => $min) {
+        foreach (self::STAND_IN_GROUP_MINIMUMS as $group => $min) {
             $groupCount = $allPlayers->filter(
                 fn (GamePlayer $p) => $p->position_group === $group
             )->count() + ($needed[$group] ?? 0);
@@ -273,8 +292,8 @@ class ReserveTeamService
      * Keeps just enough stand-ins to hold the squad at the minimum (plus a
      * small margin); the rest "return to the C team".
      *
-     * Called after sendBackToReserve() — real players coming back may make
-     * filler unnecessary.
+     * Called after sendBackToReserve() and sendDownToReserve() — real
+     * players coming back (or down) may make filler unnecessary.
      *
      * @return int number of stand-in players removed
      */
@@ -419,6 +438,11 @@ class ReserveTeamService
                 season: $game->season,
                 window: TransferWindowType::currentValue($game->current_date),
             );
+
+            // A real player arriving makes filler unnecessary — same as
+            // sendBackToReserve(): prune the excess stand-ins so they
+            // "return to the C team".
+            $this->pruneExcessStandIns($game);
         });
     }
 

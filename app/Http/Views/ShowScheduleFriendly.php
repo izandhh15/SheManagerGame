@@ -126,7 +126,7 @@ class ShowScheduleFriendly
             'stageConfig' => $stageConfig,
             'stageCost' => $stageCost,
             'stageLines' => $stageLines,
-            'federationBudget' => $game->federation_budget ?? 2000000,
+            'federationBudget' => $game->federation_budget ?? Game::DEFAULT_FEDERATION_BUDGET,
             'stageDurations' => TrainingStageService::DURATIONS,
             'stageIntensities' => TrainingStageService::INTENSITIES,
             'stageFocuses' => TrainingStageService::FOCUSES,

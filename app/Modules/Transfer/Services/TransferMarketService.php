@@ -80,7 +80,10 @@ class TransferMarketService
     {
         // Remove expired listings
         TransferListing::where('game_id', $game->id)
-            ->where('team_id', '!=', $game->team_id)
+            // Filial-aware: the user's reserve-team listings are the user's
+            // listings too — the sweep only cleans the AI market, exactly
+            // like the AI-listing count below.
+            ->whereNotIn('team_id', $game->userTeamIds())
             ->where('status', TransferListing::STATUS_LISTED)
             ->whereNotNull('asking_price')
             ->where('listed_at', '<', $game->current_date->copy()->subDays(self::LISTING_EXPIRY_DAYS))

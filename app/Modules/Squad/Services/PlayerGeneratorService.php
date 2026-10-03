@@ -18,6 +18,7 @@ use App\Modules\Player\Services\InjuryService;
 use App\Modules\Player\Services\PlayerDevelopmentService;
 use App\Modules\Player\Services\PlayerTierService;
 use App\Support\PositionSlotMapper;
+use App\Support\PositionMapper;
 use App\Modules\Player\Services\PlayerValuationService;
 
 /**
@@ -626,14 +627,25 @@ class PlayerGeneratorService
     }
 
     /**
-     * Generate a realistic height string (e.g. "1,78m").
-     * Outfield players range 168–196cm; goalkeepers are taller (185–200cm).
+     * Generate a realistic height string (e.g. "1,78m") for women's football.
+     *
+     * Ranges measured from the real-player dataset (data-raw, 3,315 players
+     * with heights, Oct 2026): GK 160–191cm, DEF 149–187cm, MID 141–188cm,
+     * FWD 146–185cm. Unknown/null positions fall back to the Midfielder
+     * range (same default as PositionMapper::getPositionGroup()).
      */
     private function generateHeight(?string $position = null): string
     {
-        $cm = $position === 'GK'
-            ? rand(185, 200)
-            : rand(168, 196);
+        $group = $position === null
+            ? 'Midfielder'
+            : PositionMapper::getPositionGroup($position);
+
+        $cm = match ($group) {
+            'Goalkeeper' => rand(160, 191),
+            'Defender' => rand(149, 187),
+            'Forward' => rand(146, 185),
+            default => rand(141, 188),
+        };
         $meters = intdiv($cm, 100);
         $remainder = $cm % 100;
 

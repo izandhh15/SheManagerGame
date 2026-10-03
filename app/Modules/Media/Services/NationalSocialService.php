@@ -138,9 +138,10 @@ class NationalSocialService
             return ['ok' => false, 'message' => __('game.national_social_no_squad')];
         }
 
-        // Star names for the announcement (top 3 by overall).
+        // Star names for the announcement (top 3 by overall). Templates are
+        // keyed by season — use the game's current season, not a hardcoded one.
         $names = DB::table('game_player_templates')
-            ->where('season', '2026')
+            ->where('season', $game->season)
             ->whereIn('player_id', array_slice($playerIds, 0, 23))
             ->orderByDesc('overall_score')
             ->limit(3)
