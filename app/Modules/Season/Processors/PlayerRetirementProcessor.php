@@ -78,7 +78,7 @@ class PlayerRetirementProcessor implements SeasonProcessor
                 'age' => $player->age($game->current_date),
                 'position' => $player->position,
                 'teamId' => $player->team_id,
-                'teamName' => $player->team?->name ?? 'Unknown',
+                'teamName' => $player->team?->name ?? __('game.unknown'),
                 'wasUserTeam' => $player->team_id === $game->team_id,
             ];
             $retiringIds[] = $player->id;
@@ -122,7 +122,7 @@ class PlayerRetirementProcessor implements SeasonProcessor
                 'age' => $player->age($game->current_date),
                 'position' => $player->position,
                 'teamId' => $player->team_id,
-                'teamName' => $player->team?->name ?? 'Unknown',
+                'teamName' => $player->team?->name ?? __('game.unknown'),
                 'wasUserTeam' => $player->team_id === $game->team_id,
             ];
             $announcedIds[] = $player->id;

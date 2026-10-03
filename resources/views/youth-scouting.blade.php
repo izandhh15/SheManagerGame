@@ -8,12 +8,10 @@
     <div class="max-w-7xl mx-auto px-4 pb-8">
         <div class="mt-6 mb-4">
             <h2 class="font-heading text-2xl lg:text-3xl font-bold uppercase tracking-wide text-text-primary">
-                🔍 {{ app()->getLocale() === 'es' ? 'Ojeador de canteras' : 'Academy scout' }}
+                🔍 {{ __('game.youth_scout_title') }}
             </h2>
             <p class="text-sm text-text-secondary mt-1">
-                {{ app()->getLocale() === 'es'
-                    ? 'Tus ojeadores han localizado estas perlas en canteras rivales. Puedes intentar "robarlas" pagando una compensación.'
-                    : 'Your scouts found these wonderkids in rival academies. You can try to "steal" them for a compensation fee.' }}
+                {{ __('game.youth_scout_subtitle') }}
             </p>
         </div>
 
@@ -46,13 +44,13 @@
 
                     <div class="flex gap-3 text-xs text-text-secondary mb-3">
                         <span>{{ $prospect->position }}</span>
-                        <span>{{ $prospect->age }} {{ app()->getLocale() === 'es' ? 'años' : 'yrs' }}</span>
-                        <span>{{ $prospect->overall_score }} {{ app()->getLocale() === 'es' ? 'media' : 'ovr' }}</span>
+                        <span>{{ $prospect->age }} {{ __('game.youth_scout_age_unit') }}</span>
+                        <span>{{ $prospect->overall_score }} {{ __('game.youth_scout_ovr_unit') }}</span>
                     </div>
 
                     <div class="mb-3">
                         <div class="flex justify-between text-[10px] text-text-faint mb-1">
-                            <span>Potencial</span>
+                            <span>{{ __('game.youth_scout_potential') }}</span>
                             <span>{{ $prospect->potential_low }} - {{ $prospect->potential_high }}</span>
                         </div>
                         <div class="h-2 rounded-full bg-surface-700 overflow-hidden">
@@ -64,7 +62,7 @@
                     <form method="POST" action="{{ route('game.scouting.youth.poach', [$game->id, $prospect->id]) }}">
                         @csrf
                         <button type="submit" class="w-full px-3 py-2 rounded-lg bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold uppercase tracking-wide transition-colors">
-                            🎯 {{ app()->getLocale() === 'es' ? 'Intentar fichaje' : 'Try to sign' }}
+                            🎯 {{ __('game.youth_scout_try_sign') }}
                         </button>
                     </form>
                 </div>
@@ -72,9 +70,7 @@
                 <div class="col-span-full p-8 text-center rounded-xl bg-surface-800 border border-border-default">
                     <p class="text-4xl mb-2">🔍</p>
                     <p class="text-text-secondary">
-                        {{ app()->getLocale() === 'es'
-                            ? 'Tus ojeadores no han encontrado perlas en canteras rivales todavía.'
-                            : 'Your scouts haven\'t found wonderkids in rival academies yet.' }}
+                        {{ __('game.youth_scout_empty') }}
                     </p>
                 </div>
             @endforelse

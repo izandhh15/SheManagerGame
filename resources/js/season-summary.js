@@ -21,6 +21,7 @@ export default function seasonSummary(config) {
         awayRecord: config.awayRecord,
         otherCompetitions: config.otherCompetitions,
         labels: config.labels,
+        tagline: config.tagline,
 
         async downloadSeasonImage() {
             const { canvas, ctx, width, padding, contentWidth } = createCanvasContext(800, 1400);
@@ -140,7 +141,7 @@ export default function seasonSummary(config) {
                 }
             }
 
-            y = drawBrandFooter(ctx, width, y, { tagline: 'Dirige a tu club en shemanager.wasmer.app' });
+            y = drawBrandFooter(ctx, width, y, { tagline: this.tagline });
             trimAndDownload(canvas, y, this.teamName.replace(/[^a-zA-Z0-9]/g, '_') + '_season.png');
         },
     };

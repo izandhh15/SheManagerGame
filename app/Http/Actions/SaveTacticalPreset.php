@@ -164,6 +164,6 @@ class SaveTacticalPreset
         ]);
 
         return redirect()->route('show-game', $game->id)
-            ->with('message', 'Lineup confirmed! Click Continue to play the match.');
+            ->with('message', __('messages.lineup_confirmed'));
     }
 }

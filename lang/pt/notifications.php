@@ -228,4 +228,9 @@ return [
     'squad_registration_required_message' => 'Tens :count jogadoras por inscrever. Regista o teu plantel antes do início da época — as jogadoras não inscritas não poderão ser convocadas.',
     'unenrolled_before_window_close_title' => 'Jogadoras por inscrever — fecha a janela de :window',
     'unenrolled_before_window_close_message' => 'Tens :count jogadoras por inscrever. Esta é a tua última jornada para as registar antes do fecho da janela de transferências — sem dorsal não poderão ser convocadas.',
+
+    // i18n-b review: missing injury types for AI-generated injuries
+    'injury_ligament_damage' => 'lesão ligamentar',
+    'injury_knee_injury' => 'lesão no joelho',
+    'injury_unknown_injury' => 'uma lesão',
 ];

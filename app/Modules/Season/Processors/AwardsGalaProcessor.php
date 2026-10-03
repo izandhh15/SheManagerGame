@@ -130,8 +130,6 @@ class AwardsGalaProcessor implements SeasonProcessor
 
     private function notifyGala(Game $game, array $winners): void
     {
-        $es = app()->getLocale() === 'es';
-
         $lines = [];
         foreach (SeasonAward::AWARD_KEYS as $awardKey) {
             if (! isset($winners[$awardKey])) {
@@ -139,22 +137,19 @@ class AwardsGalaProcessor implements SeasonProcessor
             }
 
             $player = $winners[$awardKey]['player'];
-            $lines[] = ($es ? '🏆 ' : '🏆 ')
+            $lines[] = '🏆 '
                 . SeasonAward::displayName($awardKey) . ': '
                 . $player->name
                 . ' (' . ($player->team?->name ?? '') . ') — '
-                . $this->headlineFor($awardKey, $winners[$awardKey]['detail'], $es);
+                . $this->headlineFor($awardKey, $winners[$awardKey]['detail']);
         }
 
-        $title = $es
-            ? "🎉 ¡Gala de premios {$game->season}!"
-            : "🎉 Awards gala {$game->season}!";
+        $title = __('season.gala_notification_title', ['season' => $game->season]);
 
-        $message = $es
-            ? "¡Alfombra roja y focos! La temporada {$game->season} ya tiene a sus reinas:\n"
-                . implode("\n", $lines)
-            : "Red carpet and spotlights! The {$game->season} season has its queens:\n"
-                . implode("\n", $lines);
+        $message = __('season.gala_notification_message', [
+            'season' => $game->season,
+            'lines' => implode("\n", $lines),
+        ]);
 
         $this->notificationService->create(
             $game,
@@ -169,7 +164,6 @@ class AwardsGalaProcessor implements SeasonProcessor
 
     private function postGalaNews(Game $game, array $winners): void
     {
-        $es = app()->getLocale() === 'es';
         $outlet = $this->mediaOutletService->randomOutlet($game);
 
         $parts = [];
@@ -189,11 +183,10 @@ class AwardsGalaProcessor implements SeasonProcessor
                 . $player->name . ' (' . ($player->team?->name ?? '') . ')';
         }
 
-        $text = $es
-            ? "✨ GALA DE PREMIOS {$game->season} ✨\n" . implode("\n", $parts)
-                . "\n\n¡Enhorabuena, campeonas! 🎉"
-            : "✨ AWARDS GALA {$game->season} ✨\n" . implode("\n", $parts)
-                . "\n\nCongratulations, champions! 🎉";
+        $text = __('season.gala_news_text', [
+            'season' => $game->season,
+            'parts' => implode("\n", $parts),
+        ]);
 
         SocialPost::create([
             'game_id' => $game->id,
@@ -206,21 +199,16 @@ class AwardsGalaProcessor implements SeasonProcessor
         ]);
     }
 
-    private function headlineFor(string $awardKey, array $detail, bool $es): string
+    private function headlineFor(string $awardKey, array $detail): string
     {
         return match ($awardKey) {
-            SeasonAward::AWARD_PICHICHI => $es
-                ? "{$detail['goals']} goles"
-                : "{$detail['goals']} goals",
-            SeasonAward::AWARD_ZAMORA => $es
-                ? "{$detail['goals_conceded_per_match']} goles/partido"
-                : "{$detail['goals_conceded_per_match']} goals/match",
-            SeasonAward::AWARD_MVP => $es
-                ? "{$detail['mvp_awards']} MVP del partido"
-                : "{$detail['mvp_awards']} match MVPs",
-            default => $es
-                ? "{$detail['goals']} goles y {$detail['assists']} asistencias"
-                : "{$detail['goals']} goals and {$detail['assists']} assists",
+            SeasonAward::AWARD_PICHICHI => __('season.gala_headline_pichichi', ['goals' => $detail['goals']]),
+            SeasonAward::AWARD_ZAMORA => __('season.gala_headline_zamora', ['conceded' => $detail['goals_conceded_per_match']]),
+            SeasonAward::AWARD_MVP => __('season.gala_headline_mvp', ['count' => $detail['mvp_awards']]),
+            default => __('season.gala_headline_default', [
+                'goals' => $detail['goals'],
+                'assists' => $detail['assists'],
+            ]),
         };
     }
 }

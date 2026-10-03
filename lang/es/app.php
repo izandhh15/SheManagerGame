@@ -93,4 +93,7 @@ return [
     'data_attribution_prefix' => 'Datos: ',
     'data_attribution_suffix' => ' y clubes',
 
+
+    // i18n-b review: legal notice label
+    'legal_notice' => 'Aviso Legal',
 ];

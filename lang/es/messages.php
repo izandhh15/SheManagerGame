@@ -241,4 +241,16 @@ return [
     'sponsor_deal_rejected' => 'Oferta de :sponsor descartada. A otra cosa.',
     'sponsor_offer_unavailable' => 'Esa oferta de patrocinio ya no está disponible.',
     'sponsor_deal_active' => 'Ya tienes un patrocinador activo en ese espacio. Espera a que expire el contrato.',
+
+    // i18n-b review: poach youth player + generic error flashes
+    'poach_not_enough_budget' => 'No tienes suficiente presupuesto (:fee€ necesarios).',
+    'poach_player_gone' => ':name ya no está disponible.',
+    'poach_refused' => ':team se niega a negociar por :name. El acercamiento ha costado :cost€ en ojeo.',
+    'poach_success' => '¡:name se une a tu cantera!',
+    'season_summary_load_error' => 'No se ha podido cargar el resumen de la temporada. Inténtalo de nuevo.',
+    'new_season_start_error' => 'No se ha podido iniciar la nueva temporada. Inténtalo de nuevo.',
+    'lineup_confirmed' => '¡Alineación confirmada! Pulsa Continuar para jugar el partido.',
+
+    // i18n-b review: poach youth player social buzz
+    'poach_buzz' => '🚨 :team \'roba\' a la perla :player (:potential pot.) de la cantera rival.',
 ];

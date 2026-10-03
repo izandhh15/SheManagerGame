@@ -33,8 +33,8 @@ class RollNationalTeamEvents
             $this->notificationService->create(
                 game: $game,
                 type: GameNotification::TYPE_NATIONAL_TEAM_INJURY,
-                title: "🚨 {$injury['player_name']} se ha lesionado",
-                message: "{$injury['player_name']} es baja para esta ventana. Necesitas convocar una sustituta.",
+                title: __('game.national_team_injury_title', ['name' => $injury['player_name']]),
+                message: __('game.national_team_injury_message', ['name' => $injury['player_name']]),
                 priority: GameNotification::PRIORITY_WARNING,
                 metadata: ['player_id' => $injury['player_id'], 'position' => $injury['position']]
             );
@@ -48,8 +48,8 @@ class RollNationalTeamEvents
                 $this->notificationService->create(
                     game: $game,
                     type: GameNotification::TYPE_NATIONAL_TEAM_RESIGNATION,
-                    title: "📢 {$resignation['player_name']} se retira",
-                    message: "{$resignation['player_name']} ha anunciado su retirada de la selección.",
+                    title: __('game.national_team_resignation_title', ['name' => $resignation['player_name']]),
+                    message: __('game.national_team_resignation_message', ['name' => $resignation['player_name']]),
                     priority: GameNotification::PRIORITY_INFO,
                     metadata: ['player_id' => $resignation['player_id']]
                 );

@@ -228,4 +228,9 @@ return [
     'squad_registration_required_message' => 'Tu as :count joueuses non enregistrées. Enregistre ton effectif avant le début de la saison — les joueuses non enregistrées ne pourront pas être convoquées.',
     'unenrolled_before_window_close_title' => 'Joueuses non enregistrées — fermeture du mercato de :window',
     'unenrolled_before_window_close_message' => 'Tu as :count joueuses non enregistrées. C\'est ta dernière journée pour les enregistrer avant la fermeture du mercato — sans numéro, elles ne pourront pas être convoquées.',
+
+    // i18n-b review: missing injury types for AI-generated injuries
+    'injury_ligament_damage' => 'lésion ligamentaire',
+    'injury_knee_injury' => 'blessure au genou',
+    'injury_unknown_injury' => 'une blessure',
 ];

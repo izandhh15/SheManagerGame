@@ -19,6 +19,7 @@ export default function tournamentSummary(config) {
         squadByGroup: config.squadByGroup,
         groupLabels: config.groupLabels,
         statLabels: config.statLabels,
+        tagline: config.tagline,
 
         async downloadTournamentImage() {
             const { canvas, ctx, width, padding, contentWidth } = createCanvasContext(800, 2000);
@@ -98,7 +99,7 @@ export default function tournamentSummary(config) {
                 y += 4;
             }
 
-            y = drawBrandFooter(ctx, width, y);
+            y = drawBrandFooter(ctx, width, y, { tagline: this.tagline });
             trimAndDownload(canvas, y, 'shemanager_' + this.gameId + '.png');
         },
     };

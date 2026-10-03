@@ -25,19 +25,19 @@
 
         @if(session('press_done'))
             <div class="mb-4 p-3 rounded-lg bg-accent-blue/10 border border-accent-blue/30 text-sm text-text-primary">
-                {{ __('game.press_published', [], 'es') === 'game.press_published' ? 'Tus declaraciones ya están circulando por la red...' : __('game.press_published') }}
+                {{ __('game.press_published') }}
             </div>
         @endif
 
         @if(session('reply_done'))
             <div class="mb-4 p-3 rounded-lg bg-accent-blue/10 border border-accent-blue/30 text-sm text-text-primary">
-                Tu respuesta ya está circulando por la red...
+                {{ __('game.social_reply_circulating') }}
             </div>
         @endif
 
         @if($boardConfidence < 30)
             <div class="mb-4 p-4 rounded-lg bg-red-500/10 border border-red-500/40">
-                <p class="font-bold text-red-500">⚠️ {{ __('game.board_warning', [], 'es') === 'game.board_warning' ? 'La directiva está perdiendo la paciencia. ¡Cuidado con lo que dices!' : __('game.board_warning') }}</p>
+                <p class="font-bold text-red-500">⚠️ {{ __('game.board_warning') }}</p>
             </div>
         @endif
 
@@ -57,13 +57,13 @@
                             <div class="font-semibold text-text-primary text-sm">
                                 {{ $post->author_name }}
                                 @if($post->journalist_id)
-                                    <span class="text-sky-400" title="Cuenta verificada de la redacción">✓</span>
+                                    <span class="text-sky-400" title="{{ __('game.social_verified_newsroom') }}">✓</span>
                                 @endif
                             </div>
                             <div class="text-text-faint text-xs">{{ $post->author_handle }}</div>
                         </div>
                         @if($post->journalist_id)
-                            <span class="text-[10px] font-bold uppercase tracking-wide text-sky-400 bg-sky-500/10 border border-sky-500/30 rounded-full px-2 py-0.5">🎙️ Periodista</span>
+                            <span class="text-[10px] font-bold uppercase tracking-wide text-sky-400 bg-sky-500/10 border border-sky-500/30 rounded-full px-2 py-0.5">🎙️ {{ __('game.social_badge_journalist') }}</span>
                         @elseif($post->sentiment > 0)
                             <span class="text-green-500 text-lg">👍</span>
                         @elseif($post->sentiment < 0)
@@ -74,17 +74,17 @@
                     <div class="flex items-center gap-4 mt-2 text-xs text-text-faint">
                         <form method="POST" action="{{ route('game.social.like', [$game->id, $post->id]) }}" class="inline">
                             @csrf
-                            <button type="submit" class="hover:scale-110 transition-transform" title="Me gusta">
+                            <button type="submit" class="hover:scale-110 transition-transform" title="{{ __('game.social_like') }}">
                                 {{ in_array($post->id, $likedPosts ?? []) ? '❤️' : '🤍' }} {{ $post->likes }}
                             </button>
                         </form>
                         <span>{{ $post->created_at->diffForHumans() }}</span>
                         @if($post->context === 'sacked')
-                            <span class="font-bold text-red-500 uppercase">Destitución</span>
+                            <span class="font-bold text-red-500 uppercase">{{ __('game.social_tag_sacked') }}</span>
                         @elseif($post->context === 'board_warning')
-                            <span class="font-bold text-yellow-500 uppercase">Rumor</span>
+                            <span class="font-bold text-yellow-500 uppercase">{{ __('game.social_tag_rumor') }}</span>
                         @elseif($post->journalist_id)
-                            <span class="font-bold text-sky-400 uppercase">Noticia</span>
+                            <span class="font-bold text-sky-400 uppercase">{{ __('game.social_tag_news') }}</span>
                         @endif
                     </div>
 
@@ -92,8 +92,8 @@
                     @if(!empty($post->manager_reply_text))
                         <div class="mt-3 ml-6 p-3 rounded-lg bg-accent-blue/10 border border-accent-blue/30">
                             <div class="flex items-center gap-2 mb-1">
-                                <div class="w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold">TÚ</div>
-                                <span class="text-xs font-semibold text-text-primary">Tu respuesta</span>
+                                <div class="w-7 h-7 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold">{{ __('game.social_you_badge') }}</div>
+                                <span class="text-xs font-semibold text-text-primary">{{ __('game.social_your_reply') }}</span>
                             </div>
                             <p class="text-text-primary text-sm">{{ $post->manager_reply_text }}</p>
                         </div>
@@ -102,7 +102,7 @@
                             <button type="button"
                                     onclick="document.getElementById('reply-form-{{ $post->id }}').classList.toggle('hidden')"
                                     class="text-xs font-semibold text-accent-blue hover:underline">
-                                💬 Responder al hater
+                                💬 {{ __('game.social_reply_hater') }}
                             </button>
                             <form id="reply-form-{{ $post->id }}" method="POST"
                                   action="{{ route('game.social.reply', [$game->id, $post->id]) }}"
@@ -116,7 +116,7 @@
                                 @endforeach
                                 <button type="submit"
                                         class="mt-1 px-3 py-1.5 rounded-lg bg-accent-blue text-white text-xs font-bold hover:opacity-90">
-                                    Publicar respuesta
+                                    {{ __('game.social_publish_reply') }}
                                 </button>
                             </form>
                         </div>
@@ -126,7 +126,7 @@
                 <div class="p-8 text-center rounded-xl bg-surface-800 border border-border-default">
                     <p class="text-4xl mb-2">🐦</p>
                     <p class="text-text-secondary">
-                        {{ __('game.social_empty', [], 'es') === 'game.social_empty' ? 'Aún no hay actividad. Juega partidos y atiende a la prensa para que la afición hable de ti.' : __('game.social_empty') }}
+                        {{ __('game.social_empty') }}
                     </p>
                 </div>
             @endforelse

@@ -93,6 +93,11 @@ class InjuryService
         'Metatarsal fracture' => 'squad.injury_metatarsal_fracture',
         'ACL tear' => 'squad.injury_acl_tear',
         'Achilles rupture' => 'squad.injury_achilles_rupture',
+        // AI-generated injuries (AIMatchResolver) not covered above.
+        'Ligament damage' => 'squad.injury_ligament_damage',
+        'Knee injury' => 'squad.injury_knee_injury',
+        // Fallback used when event metadata lacks the injury type.
+        'Unknown injury' => 'squad.injured_generic',
     ];
 
     private const INJURY_TYPES = [

@@ -199,4 +199,17 @@ return [
     'your_squad_stats' => 'Statistiken deines Kaders',
     'download_season' => 'Saison herunterladen',
     'download_summary' => 'Zusammenfassung herunterladen',
+
+    // i18n-b review: awards gala notification/news texts
+    'gala_notification_title' => '🎉 Gala :season!',
+    'gala_notification_message' => 'Roter Teppich und Scheinwerfer! Die Saison :season hat ihre Königinnen:
+:lines',
+    'gala_news_text' => '✨ GALA :season ✨
+:parts
+
+Glückwunsch, Champions! 🎉',
+    'gala_headline_pichichi' => ':goals Tore',
+    'gala_headline_zamora' => ':conceded Gegentore/Spiel',
+    'gala_headline_mvp' => ':count Mal Spielerin des Spiels',
+    'gala_headline_default' => ':goals Tore und :assists Vorlagen',
 ];

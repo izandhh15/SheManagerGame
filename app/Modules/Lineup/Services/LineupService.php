@@ -119,12 +119,12 @@ class LineupService
         $errors = [];
 
         if (count($playerIds) !== 11) {
-            $errors[] = 'You must select exactly 11 players.';
+            $errors[] = __('squad.lineup_must_select_11');
             return $errors;
         }
 
         if (count($playerIds) !== count(array_unique($playerIds))) {
-            $errors[] = 'Duplicate players detected.';
+            $errors[] = __('squad.lineup_duplicate_players');
             return $errors;
         }
 
@@ -146,11 +146,11 @@ class LineupService
             $slotIds = array_column($slots, 'id');
             foreach ($slotAssignments as $slotId => $playerId) {
                 if (!in_array((int) $slotId, $slotIds, true)) {
-                    $errors[] = 'Invalid slot assignment.';
+                    $errors[] = __('squad.lineup_invalid_slot');
                     break;
                 }
                 if (!in_array($playerId, $playerIds, true)) {
-                    $errors[] = 'Slot assigned to player not in lineup.';
+                    $errors[] = __('squad.lineup_slot_player_not_in_lineup');
                     break;
                 }
             }
