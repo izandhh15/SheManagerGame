@@ -1613,6 +1613,13 @@ class ContractService
         Game $buyingClubGame,
         ?int $requestedClauseCents = null,
     ): array {
+        // Defense in depth: the offer must belong to the buying club's game.
+        // The actions already scope their queries by game_id; this guards
+        // future callers against cross-game offer confusion.
+        if ($offer->game_id !== $buyingClubGame->id) {
+            abort(422, 'Offer does not belong to this game.');
+        }
+
         $player = $offer->gamePlayer;
         $buyingClubFloor = $this->getMinimumWageForTeam($buyingClubGame->team);
 

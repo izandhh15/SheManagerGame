@@ -17,7 +17,9 @@ class RequestBudgetLoan
         $game = Game::findOrFail($gameId);
 
         $validated = $request->validate([
-            'amount' => 'required|numeric|min:1',
+            // 32-bit: keep the *100 to cents within exact float/integer range;
+            // euros are capped at 99999999.
+            'amount' => 'required|numeric|min:1|max:99999999',
         ]);
 
         $amountInCents = (int) round($validated['amount'] * 100);

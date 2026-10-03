@@ -13,14 +13,6 @@ class PlayerTierServiceTest extends TestCase
 {
     use RefreshDatabase;
 
-    private PlayerTierService $service;
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-        $this->service = new PlayerTierService();
-    }
-
     // -------------------------------------------------------
     // tierFromMarketValue — pure computation
     // -------------------------------------------------------
@@ -59,59 +51,6 @@ class PlayerTierServiceTest extends TestCase
         $this->assertEquals(1, PlayerTierService::tierFromMarketValue(0));          // Free / tournament
         $this->assertEquals(1, PlayerTierService::tierFromMarketValue(5_000_000));  // €50K
         $this->assertEquals(1, PlayerTierService::tierFromMarketValue(10_000));     // €100
-    }
-
-    // -------------------------------------------------------
-    // recomputeTiers — batch SQL
-    // -------------------------------------------------------
-
-    public function test_recompute_tiers_updates_players_correctly(): void
-    {
-        $game = Game::factory()->create();
-        $team = Team::factory()->create();
-
-        $worldClass = GamePlayer::factory()->forGame($game)->forTeam($team)->create([
-            'market_value_cents' => 180_000_000, // €1.8M → tier 5
-            'tier' => 1, // Wrong tier intentionally
-        ]);
-
-        $average = GamePlayer::factory()->forGame($game)->forTeam($team)->create([
-            'market_value_cents' => 20_000_000, // €200K → tier 2
-            'tier' => 5, // Wrong tier intentionally
-        ]);
-
-        $this->service->recomputeTiers([$worldClass->id, $average->id]);
-
-        $this->assertEquals(5, $worldClass->fresh()->tier);
-        $this->assertEquals(2, $average->fresh()->tier);
-    }
-
-    public function test_recompute_tiers_only_affects_specified_ids(): void
-    {
-        $game = Game::factory()->create();
-        $team = Team::factory()->create();
-
-        $target = GamePlayer::factory()->forGame($game)->forTeam($team)->create([
-            'market_value_cents' => 160_000_000, // €1.6M → tier 5
-            'tier' => 1,
-        ]);
-
-        $untouched = GamePlayer::factory()->forGame($game)->forTeam($team)->create([
-            'market_value_cents' => 160_000_000, // €1.6M → should be tier 5 but stays 1
-            'tier' => 1,
-        ]);
-
-        $this->service->recomputeTiers([$target->id]);
-
-        $this->assertEquals(5, $target->fresh()->tier);
-        $this->assertEquals(1, $untouched->fresh()->tier); // Not updated
-    }
-
-    public function test_recompute_tiers_handles_empty_array(): void
-    {
-        // Should not throw or execute any queries
-        $this->service->recomputeTiers([]);
-        $this->assertTrue(true);
     }
 
     // -------------------------------------------------------

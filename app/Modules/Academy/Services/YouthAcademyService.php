@@ -297,23 +297,31 @@ class YouthAcademyService
     private function bulkUpdateGrowth(array $updates): void
     {
         $ids = array_keys($updates);
-        $idList = "'" . implode("','", $ids) . "'";
 
         $scoreCases = [];
+        $scoreBindings = [];
         $progressCases = [];
+        $progressBindings = [];
         foreach ($updates as $id => $growth) {
-            $scoreCases[] = "WHEN id = '{$id}' THEN " . (int) $growth['overall_score'];
+            $scoreCases[] = 'WHEN id = ? THEN ?';
+            $scoreBindings[] = $id;
+            $scoreBindings[] = (int) $growth['overall_score'];
+            $progressCases[] = 'WHEN id = ? THEN ?';
+            $progressBindings[] = $id;
             // Small positive float: fixed decimals keep the round trip
             // through SQL exact enough to avoid drift.
-            $progressCases[] = "WHEN id = '{$id}' THEN " . number_format((float) $growth['growth_progress'], 6, '.', '');
+            $progressBindings[] = number_format((float) $growth['growth_progress'], 6, '.', '');
         }
 
-        \Illuminate\Support\Facades\DB::statement("
-            UPDATE academy_players
-            SET overall_score = CASE " . implode(' ', $scoreCases) . " ELSE overall_score END,
-                growth_progress = CASE " . implode(' ', $progressCases) . " ELSE growth_progress END
-            WHERE id IN ({$idList})
-        ");
+        $placeholders = implode(',', array_fill(0, count($ids), '?'));
+
+        \Illuminate\Support\Facades\DB::statement(
+            'UPDATE academy_players
+             SET overall_score = CASE ' . implode(' ', $scoreCases) . ' ELSE overall_score END,
+                 growth_progress = CASE ' . implode(' ', $progressCases) . ' ELSE growth_progress END
+             WHERE id IN (' . $placeholders . ')',
+            array_merge($scoreBindings, $progressBindings, array_values($ids))
+        );
     }
 
     /**

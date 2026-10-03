@@ -22,7 +22,7 @@ class CommitStadiumRebuild
         $game = Game::with('team')->findOrFail($gameId);
         abort_if($game->isTournamentMode(), 404);
         $validated = $request->validate([
-            'capacity' => 'required|integer|min:1',
+            'capacity' => 'required|integer|min:1|max:150000',
             'financing' => ['required', Rule::enum(StadiumProjectFinancing::class)],
         ]);
 

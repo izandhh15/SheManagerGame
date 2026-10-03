@@ -314,15 +314,21 @@ class TrainingStageService
         $fitness = (int) $effects['fitness'];
         $morale = (int) $effects['morale'];
         if ($fitness !== 0 || $morale !== 0) {
-            $idList = "'" . implode("','", $playerIds) . "'";
             $sets = [];
+            $bindings = [];
             if ($fitness !== 0) {
-                $sets[] = "fitness = LEAST(100, GREATEST(0, fitness + {$fitness}))";
+                $sets[] = 'fitness = LEAST(100, GREATEST(0, fitness + ?))';
+                $bindings[] = $fitness;
             }
             if ($morale !== 0) {
-                $sets[] = "morale = LEAST(100, GREATEST(0, morale + {$morale}))";
+                $sets[] = 'morale = LEAST(100, GREATEST(0, morale + ?))';
+                $bindings[] = $morale;
             }
-            DB::statement('UPDATE game_player_match_state SET ' . implode(', ', $sets) . " WHERE game_player_id IN ({$idList})");
+            $placeholders = implode(',', array_fill(0, count($playerIds), '?'));
+            DB::statement(
+                'UPDATE game_player_match_state SET ' . implode(', ', $sets) . " WHERE game_player_id IN ({$placeholders})",
+                array_merge($bindings, array_values($playerIds))
+            );
         }
 
         // Injury rolls.

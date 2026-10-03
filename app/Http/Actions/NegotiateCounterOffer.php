@@ -114,7 +114,9 @@ class NegotiateCounterOffer
     private function handleCounter(Request $request, Game $game, TransferOffer $offer): JsonResponse
     {
         $validated = $request->validate([
-            'bid' => ['required', 'integer', 'min:1'],
+            // 32-bit: keep the *100 to cents within exact float/integer range;
+            // euros are capped at 99999999.
+            'bid' => ['required', 'integer', 'min:1', 'max:99999999'],
         ]);
 
         $userAskingCents = $validated['bid'] * 100;

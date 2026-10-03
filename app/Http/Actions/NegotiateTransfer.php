@@ -58,7 +58,14 @@ class NegotiateTransfer
 
     // ── Club Fee Negotiation ──
 
-    private function handleStart(Game $game, GamePlayer $player): JsonResponse
+    /**
+     * Eligibility guards shared by every fee-negotiation step (defense in
+     * depth: a direct POST to offer/accept_counter/start_terms must not
+     * bypass the checks that handleStart applies).
+     *
+     * @return JsonResponse|null the 422 error response when the player is not negotiable
+     */
+    private function guardNegotiablePlayer(Game $game, GamePlayer $player): ?JsonResponse
     {
         if ($player->isUserOwned($game)) {
             return response()->json([
@@ -72,6 +79,15 @@ class NegotiateTransfer
                 'status' => 'error',
                 'message' => __('transfers.player_on_loan_unavailable'),
             ], 422);
+        }
+
+        return null;
+    }
+
+    private function handleStart(Game $game, GamePlayer $player): JsonResponse
+    {
+        if ($guard = $this->guardNegotiablePlayer($game, $player)) {
+            return $guard;
         }
 
         // Check for existing countered offer to resume
@@ -200,8 +216,14 @@ class NegotiateTransfer
     private function handleOffer(Request $request, Game $game, GamePlayer $player): JsonResponse
     {
         $validated = $request->validate([
-            'bid' => ['required', 'integer', 'min:1'],
+            // 32-bit: keep the *100 to cents within exact float/integer range;
+            // euros are capped at 99999999.
+            'bid' => ['required', 'integer', 'min:1', 'max:99999999'],
         ]);
+
+        if ($guard = $this->guardNegotiablePlayer($game, $player)) {
+            return $guard;
+        }
 
         $bidCents = $validated['bid'] * 100;
         $teamName = $player->team?->name ?? 'Unknown';
@@ -310,6 +332,10 @@ class NegotiateTransfer
 
     private function handleAcceptCounter(Game $game, GamePlayer $player): JsonResponse
     {
+        if ($guard = $this->guardNegotiablePlayer($game, $player)) {
+            return $guard;
+        }
+
         $offer = TransferOffer::where('game_id', $game->id)
             ->where('game_player_id', $player->id)
             ->where('offering_team_id', $game->team_id)
@@ -357,6 +383,10 @@ class NegotiateTransfer
 
     private function handleStartTerms(Game $game, GamePlayer $player): JsonResponse
     {
+        if ($guard = $this->guardNegotiablePlayer($game, $player)) {
+            return $guard;
+        }
+
         $offer = TransferOffer::where('game_id', $game->id)
             ->where('game_player_id', $player->id)
             ->where('offering_team_id', $game->team_id)
@@ -466,7 +496,9 @@ class NegotiateTransfer
     private function handleOfferTerms(Request $request, Game $game, GamePlayer $player): JsonResponse
     {
         $validated = $request->validate([
-            'wage' => ['required', 'integer', 'min:1'],
+            // 32-bit: keep the *100 to cents within exact float/integer range;
+            // euros are capped at 99999999.
+            'wage' => ['required', 'integer', 'min:1', 'max:99999999'],
             'years' => ['required', 'integer', 'min:1', 'max:5'],
             'clause' => ['nullable', 'integer', 'min:0'],
         ]);

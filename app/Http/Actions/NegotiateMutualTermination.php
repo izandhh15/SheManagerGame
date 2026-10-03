@@ -120,7 +120,9 @@ class NegotiateMutualTermination
     private function handleOffer(Request $request, Game $game, GamePlayer $player): JsonResponse
     {
         $validated = $request->validate([
-            'amount' => ['required', 'integer', 'min:0'], // euros
+            // 32-bit: keep the *100 to cents within exact float/integer range;
+            // euros are capped at 99999999.
+            'amount' => ['required', 'integer', 'min:0', 'max:99999999'], // euros
         ]);
 
         $negotiation = $this->activeNegotiation($player);
