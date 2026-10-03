@@ -230,6 +230,14 @@ class StandingsCalculator
             ->orderByDesc('points')
             ->orderByRaw('(goals_for - goals_against) DESC')
             ->orderByDesc('goals_for')
+            // Deterministic final tiebreak (B24): with identical points, goal
+            // difference and goals scored there is no head-to-head or fair-play
+            // criterion implemented, so the order falls back to team_id ASC.
+            // This is NOT sporting merit — it only guarantees the same order on
+            // every run instead of Postgres' arbitrary physical row order,
+            // which matters when a full tie lands exactly on a promotion or
+            // relegation cut.
+            ->orderBy('team_id')
             ->get();
 
         if ($standings->isEmpty()) {

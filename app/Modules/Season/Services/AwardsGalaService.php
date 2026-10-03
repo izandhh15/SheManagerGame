@@ -51,7 +51,10 @@ class AwardsGalaService
         $winners = [];
 
         $pichichi = $this->awardService
-            ->getTopScorers($game->id, $teamIds, limit: 1)
+            // League-only goals: game_player_match_state mixes every
+            // competition, so the pichichi is counted from the league's match
+            // events (B26), mirroring the MVP's competition_id filtering.
+            ->getTopScorers($game->id, $teamIds, limit: 1, competitionId: $game->competition_id)
             ->first();
         if ($pichichi) {
             $winners[SeasonAward::AWARD_PICHICHI] = [
