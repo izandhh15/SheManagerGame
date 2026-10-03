@@ -15,7 +15,7 @@ class PoachYouthPlayer
 {
     public function __invoke(Request $request, string $gameId, string $playerId)
     {
-        $game = Game::with(['team', 'finances'])->findOrFail($gameId);
+        $game = Game::with(['team'])->findOrFail($gameId);
 
         if ((int) $game->user_id !== (int) $request->user()->id) {
             abort(403);
@@ -26,15 +26,21 @@ class PoachYouthPlayer
             ->where('team_id', '!=', $game->team_id)
             ->firstOrFail();
 
-        // Compensation fee: scales with potential.
-        $fee = $this->compensationFee($prospect);
+        // Compensation fee: scales with potential (euros).
+        $feeEuros = $this->compensationFee($prospect);
 
-        $budget = $game->finances?->transfer_budget ?? 0;
-        if ($budget < $fee) {
+        // The transfer budget lives on the current season's investment
+        // (game_investments.transfer_budget, in cents) — Game::finances()
+        // is a HasMany (Collection) and game_finances has no such column.
+        $investment = $game->currentInvestment;
+        $budget = $investment?->transfer_budget ?? 0;
+        $feeCents = $feeEuros * 100;
+
+        if ($budget < $feeCents) {
             return redirect()->back()->with('error',
                 app()->getLocale() === 'es'
-                    ? "No tienes suficiente presupuesto ({$fee}€ necesarios)."
-                    : "Not enough budget ({$fee}€ needed).");
+                    ? "No tienes suficiente presupuesto ({$feeEuros}€ necesarios)."
+                    : "Not enough budget ({$feeEuros}€ needed).");
         }
 
         // Rival club decision: higher potential = more likely to refuse.
@@ -52,11 +58,8 @@ class PoachYouthPlayer
         $prospect->team_id = $game->team_id;
         $prospect->save();
 
-        // Deduct from budget (via finances if available).
-        if ($game->finances) {
-            $game->finances->transfer_budget = max(0, $budget - $fee);
-            $game->finances->save();
-        }
+        // Success: deduct fee from the transfer budget (cents).
+        $investment?->decrement('transfer_budget', $feeCents);
 
         // Social media buzz.
         \App\Models\SocialPost::create([
@@ -77,9 +80,12 @@ class PoachYouthPlayer
                 : "{$prospect->name} joins your academy!");
     }
 
+    /**
+     * Compensation fee in EUROS (converted to cents against the budget).
+     * Base on potential: 60 pot = €50k, 90 pot = €450k.
+     */
     private function compensationFee(AcademyPlayer $prospect): int
     {
-        // Base on potential: 60 pot = 50k, 90 pot = 2M
         $base = 50000;
         $multiplier = max(1, ($prospect->potential - 60) / 10);
 
