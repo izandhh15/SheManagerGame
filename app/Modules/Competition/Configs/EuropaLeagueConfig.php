@@ -7,13 +7,10 @@ use App\Modules\Competition\Contracts\CompetitionConfig;
 class EuropaLeagueConfig implements CompetitionConfig
 {
     /**
-     * UEL knockout round prize money (in cents).
-     */
-    /** Keyed by rounds remaining after the one won: 0 is the final. */
-    /**
      * UWEC knockout prize money (in cents), real figures from UEFA circular
      * 50/2026 (Q1 €60K, Q2 €65K, R16 €70K, QF €70K, SF €75K, runner-up €75K,
      * champion €80K — €5.6M pool). Paid per round WON (accumulative).
+     * Keyed by rounds remaining after the one won: 0 is the final.
      */
     private const KNOCKOUT_PRIZE_MONEY = [
         0 => 8_000_000,    // €80K — win Final (champion)

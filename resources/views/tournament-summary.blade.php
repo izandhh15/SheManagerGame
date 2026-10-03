@@ -14,6 +14,7 @@
 /** @var array $topAssisters */
 /** @var array $topGoalkeepers */
 /** @var array $yourSquadStats */
+/** @var string|null $competitionName */
 /** @var array $topMvps */
 /** @var array $mvpCounts */
 /** @var array $groupStandings */

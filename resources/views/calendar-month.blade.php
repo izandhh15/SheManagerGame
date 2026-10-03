@@ -43,7 +43,7 @@
                     $matches = $byDay[$dateKey] ?? [];
                     $isToday = $dateKey === $today;
                 @endphp
-                <div class="min-h-[64px] sm:min-h-[96px] rounded-lg p-1 sm:p-1.5 {{ $isToday ? 'bg-accent-blue/15 ring-1 ring-accent-blue' : 'bg-surface-800/60' }} {{ count($matches) ? '' : '' }}">
+                <div class="min-h-[64px] sm:min-h-[96px] rounded-lg p-1 sm:p-1.5 {{ $isToday ? 'bg-accent-blue/15 ring-1 ring-accent-blue' : 'bg-surface-800/60' }}">
                     <div class="text-[10px] sm:text-xs font-bold {{ $isToday ? 'text-accent-blue' : 'text-text-muted' }}">{{ $day }}</div>
                     <div class="space-y-1 mt-0.5">
                         @foreach($matches as $match)

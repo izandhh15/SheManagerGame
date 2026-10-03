@@ -75,8 +75,6 @@ return [
     'trophy_section_preseason_subtitle' => 'Warming up in style',
     'trophy_section_other_title' => '🎖️ Other trophies',
     'trophy_section_other_subtitle' => 'The cabinet of curiosities',
-    'trophy_section_awards_title' => '🌟 Individual awards',
-    'trophy_section_awards_subtitle' => 'The queens of the season',
     'friendly_trophy_unnamed' => 'Preseason trophy',
     'unknown_trophy' => 'Unknown trophy',
 ];

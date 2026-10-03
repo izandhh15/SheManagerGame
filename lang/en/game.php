@@ -559,7 +559,6 @@ return [
     'knockout_not_started' => 'The knockout phase has not started yet',
     'knockout_not_started_desc' => 'The knockout phase will be generated automatically when the group stage is finished.',
     'knockout_generating' => 'Generating knockout bracket...',
-    'knockout_qualified' => 'Qualified for the knockout stage',
 
     // UEFA Swiss Format - League Phase
     'league_phase' => 'League Phase',

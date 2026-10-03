@@ -95,11 +95,6 @@ class WSLRelegationPlayoffGenerator implements PlayoffGenerator
             : 'cup.relegation_playoff';
     }
 
-    public function getTriggerMatchday(): int
-    {
-        return $this->triggerMatchday;
-    }
-
     public function getTotalRounds(): int
     {
         return 1;

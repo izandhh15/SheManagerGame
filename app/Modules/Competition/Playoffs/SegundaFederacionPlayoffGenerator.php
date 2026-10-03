@@ -60,11 +60,6 @@ class SegundaFederacionPlayoffGenerator implements PlayoffGenerator
         return [1];
     }
 
-    public function getTriggerMatchday(): int
-    {
-        return $this->triggerMatchday;
-    }
-
     public function getTotalRounds(): int
     {
         return 2;

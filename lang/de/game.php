@@ -526,7 +526,6 @@ return [
     'knockout_not_started' => 'Die K.-o.-Phase hat noch nicht begonnen',
     'knockout_not_started_desc' => 'Die K.-o.-Phase wird automatisch nach der Gruppenphase erstellt.',
     'knockout_generating' => 'K.-o.-Tableau wird erstellt...',
-    'knockout_qualified' => 'Für die K.-o.-Phase qualifiziert',
 
     // UEFA Swiss Format - League Phase
     'league_phase' => 'Ligaphase',

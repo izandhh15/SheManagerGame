@@ -58,18 +58,8 @@ return [
     'youth_academy' => 'Nachwuchsakademie',
 
     'medical' => 'Medizinische Abteilung',
-    'medical_tier_0' => 'Minimalbesetzung — Basis-Regeneration',
-    'medical_tier_1' => 'Basisversorgung — Standard-Regeneration',
-    'medical_tier_2' => 'Gute Ausstattung — 15 % schneller',
-    'medical_tier_3' => 'Elite-Personal — 30 % schneller, weniger Verletzungen',
-    'medical_tier_4' => 'Weltklasse — 50 % schneller, Prävention',
 
     'scouting' => 'Scouting',
-    'scouting_tier_0' => 'Minimale Scouts — begrenzte Reichweite',
-    'scouting_tier_1' => 'Basisnetzwerk — nur nationaler Markt',
-    'scouting_tier_2' => 'Erweitertes Netzwerk — national, mehr Ergebnisse und Präzision',
-    'scouting_tier_3' => 'Internationale Reichweite — schnelle und präzise Suchen',
-    'scouting_tier_4' => 'Globales Netzwerk — maximale Geschwindigkeit, Ergebnisse und Präzision',
 
     // Budget flow tooltips
     'tooltip_tv_rights' => 'TV-Verteilung basierend auf deiner endgültigen Ligaplatzierung. Je höher du landest, desto größer dein Anteil.',

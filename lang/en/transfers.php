@@ -405,7 +405,6 @@ return [
     'mood_willing_sell' => 'Willing to sell',
     'mood_open_sell' => 'Open to offers',
     'mood_reluctant_sell' => 'Reluctant to sell',
-    'negotiate' => 'Negotiate',
     'chat_terms_transition' => 'Fee agreed! Now negotiate personal terms with the player.',
     'chat_player_demand_transfer' => ':player\'s agent wants :wage/year for :years years.',
     'chat_player_counter_transfer' => ':player\'s agent insists on :wage/year for :years years.',

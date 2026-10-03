@@ -154,15 +154,6 @@ class PrimeiraLigaConfig implements CompetitionConfig, HasSeasonGoals
             ];
         }
 
-        if (!empty($slots['UECL'])) {
-            $zones[] = [
-                'minPosition' => min($slots['UECL']),
-                'maxPosition' => max($slots['UECL']),
-                'borderColor' => 'green-500',
-                'bgColor' => 'bg-green-500',
-                'label' => 'game.conference_league',
-            ];
-        }
 
         // Liga BPI is the only playable Portuguese tier (10 teams, no second
         // division in countries.PT), so there is no relegation zone to

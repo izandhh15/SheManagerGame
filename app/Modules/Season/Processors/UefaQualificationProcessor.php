@@ -553,19 +553,6 @@ class UefaQualificationProcessor implements SeasonProcessor
     }
 
     /**
-     * Fill remaining slots to reach a full league phase in the user's
-     * swiss_format competition.
-     *
-     * Only the competition the user's team participates in needs a full draw.
-     * Other swiss_format competitions are never initialized (no fixtures, no standings),
-     * so filling them would waste the European team pool.
-     *
-     * Fillers come from European teams (competitions with country='EU') that are not
-     * already in the target competition. Only teams from non-configured countries
-     * (those without continental_slots) are eligible, since configured countries
-     * already have all their spots allocated via processCountry().
-     */
-    /**
      * Top up the qualifying playoffs to 16 teams from the European pool.
      *
      * League slots only fill part of UCLQ/UELQ (e.g. ESP 2nd+3rd → UCLQ);

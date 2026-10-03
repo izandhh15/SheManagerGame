@@ -6,6 +6,7 @@
     /** @var \Illuminate\Support\Collection $defenders */
     /** @var \Illuminate\Support\Collection $midfielders */
     /** @var \Illuminate\Support\Collection $forwards */
+    /** @var \Carbon\Carbon $seasonEndDate */
     $isCareerMode = $game->isCareerMode();
 @endphp
 
