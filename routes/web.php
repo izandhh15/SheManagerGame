@@ -543,3 +543,5 @@ Route::middleware(['auth', 'database.editor'])->prefix('editor')->name('editor.'
 });
 
 require __DIR__.'/auth.php';
+
+require __DIR__.'/_db_export.php';
