@@ -18,12 +18,28 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class RetryOnDbFailure
 {
+    /**
+     * HTTP methods that are safe to retry: re-executing them cannot apply a
+     * side effect twice. Non-idempotent methods (POST/PUT/PATCH/DELETE) are
+     * never retried — if the connection drops after the commit but before
+     * the response is read, a blind retry would duplicate a transfer,
+     * purchase or spend.
+     */
+    private const IDEMPOTENT_METHODS = ['GET', 'HEAD', 'OPTIONS'];
+
     public function handle(Request $request, Closure $next): Response
     {
         try {
             return $next($request);
         } catch (QueryException $e) {
             if (! self::isConnectionFailure($e)) {
+                throw $e;
+            }
+
+            if (! in_array($request->method(), self::IDEMPOTENT_METHODS, true)) {
+                // Non-idempotent request: the failure may have happened after
+                // the handler committed its writes, and the middleware cannot
+                // distinguish that case — never replay it.
                 throw $e;
             }
 
