@@ -1127,4 +1127,5 @@ return [
     'national_social_convocatoria_text_plain' => '📋 OFFIZIELLER KADER! Das sind unsere :count Nominierten für das :window-Fenster. Auf geht\'s! :flag #Kadernominierung',
     'national_social_sede_text' => '🏟️ SPIELSTÄTTE BESTÄTIGT! Wir spielen zu Hause in :venue (:capacity Zuschauer). Füllen wir die Ränge! 🎟️',
     'national_social_entradas_text' => '🎟️ TICKETS IM VERKAUF! :tier: :price€ für die normale Karte. Wir sehen uns im Stadion! :flag',
+    'squad_picker_club_form_estimated' => 'Schätzung',
 ];

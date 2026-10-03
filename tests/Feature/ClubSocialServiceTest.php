@@ -72,6 +72,7 @@ class ClubSocialServiceTest extends TestCase
 
     public function test_signing_announcement_creates_post_replies_and_hype(): void
     {
+        srand(20261003); // fanReplies() usa rand() sin semilla: fijarla para que el test sea determinista
         $player = $this->starPlayer();
 
         $result = app(ClubSocialService::class)->announce($this->game, 'signing', $player->id);

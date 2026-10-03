@@ -9,7 +9,7 @@
     $canSendDownToReserve = $canSendDownToReserve ?? false;
     $incomingPreContract = $incomingPreContract ?? false;
     $canRenew = $canRenew ?? false;
-    $renewalNegotiation = $renewalNegotiation ?? false;
+    $renewalNegotiation = $renewalNegotiation ?? null;
     $renewalCooldown = $renewalCooldown ?? false;
 
     // Transfer listing belongs to the player's owning club. For a pre-contract
