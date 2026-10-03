@@ -31,10 +31,10 @@ The tables are the source of truth for ordering. `tests/Unit/SeasonPipelineOrder
 | 6 | `AIReserveCallUpProcessor` | AI parent clubs promote their best young reserve prospects |
 | 10 | `TrophyRecordingProcessor` (Manager) | Records trophies the manager won this season |
 | 15 | `LeaderboardStatsProcessor` | Increments the manager's seasons-completed counter |
+| 18 | `SeasonArchiveProcessor` | Archives the season before stats are reset — before expirations free players, so leavers stay in the archive |
+| 19 | `AwardsGalaProcessor` | Runs the end-of-season awards gala (Balón de Oro, Pichichi, Zamora, MVP) before expirations free players and before stats are wiped |
 | 20 | `SnapshotManagerSeasonRecordProcessor` (Manager) | Snapshots the finished season into the manager's record |
 | 20 | `ContractExpirationProcessor` | Frees expired contracts to the pool (user) or auto-renews (AI); never frees a player held by a locking deal |
-| 20 | `AwardsGalaProcessor` | Runs the end-of-season awards gala (Balón de Oro, Pichichi, Zamora, MVP) before stats are wiped |
-| 25 | `SeasonArchiveProcessor` | Archives the season before stats are reset |
 | 30 | `PreContractTransferProcessor` | Completes agreed pre-contracts, in both directions |
 | 35 | `AgreedTransferCompletionProcessor` | Completes agreed transfers that missed the last window |
 | 35 | `ContractRenewalProcessor` | Applies pending renewal wages |

@@ -23,8 +23,10 @@ use Illuminate\Support\Str;
  * trophies in the manager's palmarés for winners from the user's team, and
  * announces the gala with a notification and a media social post.
  *
- * Runs before SeasonArchiveProcessor and StatsResetProcessor so it reads
- * the season's stats before they are wiped.
+ * Runs before ContractExpirationProcessor (20) frees expired contracts and
+ * before StatsResetProcessor (65) wipes the season's stats, so it reads the
+ * season as it was played — including players who leave on a free — and the
+ * ordering is deterministic (no shared priority with the expiration step).
  */
 class AwardsGalaProcessor implements SeasonProcessor
 {
@@ -36,7 +38,7 @@ class AwardsGalaProcessor implements SeasonProcessor
 
     public function priority(): int
     {
-        return 20;
+        return 19;
     }
 
     public function process(Game $game, SeasonTransitionData $data): SeasonTransitionData

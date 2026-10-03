@@ -18,6 +18,10 @@ use Illuminate\Support\Facades\Log;
  * Handles players whose contracts have expired.
  * Priority: 20 (runs early, before contract renewals are applied)
  *
+ * Runs AFTER SeasonArchiveProcessor (18) and AwardsGalaProcessor (19):
+ * both read the season with team_id still set, so a player who leaves on
+ * a free is archived and eligible for awards with the team she played for.
+ *
  * Players with contract_until <= June 30 of the ending season:
  * - User's team: become free agents (team_id = null)
  * - AI teams: veterans (> PRIME_END) have a tunable chance of non-renewal;

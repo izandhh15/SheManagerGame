@@ -20,12 +20,17 @@ use Illuminate\Support\Facades\DB;
  * Archives season data before stats are reset.
  * Runs before player development and the stats reset, so the archive
  * captures the season as it was played.
+ *
+ * Priority 18: runs BEFORE ContractExpirationProcessor (20) frees expired
+ * contracts — a top scorer who leaves on a free must still be archived (and
+ * crowned) with the team she played the season for, not excluded for having
+ * team_id = null.
  */
 class SeasonArchiveProcessor implements SeasonProcessor
 {
     public function priority(): int
     {
-        return 25;
+        return 18;
     }
 
     public function process(Game $game, SeasonTransitionData $data): SeasonTransitionData
