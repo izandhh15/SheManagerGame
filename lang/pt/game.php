@@ -1127,4 +1127,4 @@ return [
     'national_social_convocatoria_text_plain' => '📋 LISTA OFICIAL! Estas são as nossas :count convocadas para a janela de :window. Vamos a elas! :flag #Convocatória',
     'national_social_sede_text' => '🏟️ RECINTO CONFIRMADO! Jogamos em casa em :venue (:capacity espetadores). Vamos encher as bancadas! 🎟️',
     'national_social_entradas_text' => '🎟️ BILHETES À VENDA! :tier: :price€ o bilhete geral. Vemo-nos no estádio! :flag',
-
+];

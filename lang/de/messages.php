@@ -254,4 +254,4 @@ return [
     'sponsor_deal_rejected' => 'Angebot von :sponsor verworfen. Weiter geht\'s.',
     'sponsor_offer_unavailable' => 'Dieses Sponsoringangebot ist nicht mehr verfügbar.',
     'sponsor_deal_active' => 'Du hast bereits einen aktiven Sponsor auf diesem Platz. Warte, bis der Vertrag ausläuft.',
-
+];

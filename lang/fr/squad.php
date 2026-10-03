@@ -413,4 +413,4 @@ return [
     // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
     'academy_jewel' => 'Pépite',
     'academy_jewel_tooltip' => 'Pépite du centre de formation : une joueuse de 16 ans au potentiel élite.',
-
+];

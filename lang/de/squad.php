@@ -413,4 +413,4 @@ return [
     // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
     'academy_jewel' => 'Juwel',
     'academy_jewel_tooltip' => 'Juwel der Nachwuchsarbeit: eine 16-jährige Nachwuchsspielerin mit erstklassigem Potenzial.',
-
+];

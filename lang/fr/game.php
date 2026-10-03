@@ -1127,4 +1127,4 @@ return [
     'national_social_convocatoria_text_plain' => '📋 LISTE OFFICIELLE ! Voici nos :count convoquées pour la fenêtre de :window. Allez, on fonce ! :flag #Convocation',
     'national_social_sede_text' => '🏟️ STADE CONFIRMÉ ! Nous jouerons à domicile à :venue (:capacity spectateurs). Remplissons les tribunes ! 🎟️',
     'national_social_entradas_text' => '🎟️ BILLETS EN VENTE ! :tier : :price€ la place générale. On se voit au stade ! :flag',
-
+];

@@ -241,4 +241,4 @@ return [
     'sponsor_offers_arrived_message' => '{1} Une marque veut sponsoriser l\'équipe : passe par la page Commercial pour voir l\'offre.|[2,*] :count marques veulent sponsoriser l\'équipe : passe par la page Commercial pour voir les offres.',
     'cwc_qualified_title' => '🌍 En route pour la Coupe du monde des clubs !',
     'cwc_qualified_message' => 'Ton équipe fait partie des meilleurs clubs de sa confédération et s\'est qualifiée pour la Coupe du monde des clubs. 32 équipes, un seul trophée… va chercher la plus grande coupe de la planète, coach !',
-
+];

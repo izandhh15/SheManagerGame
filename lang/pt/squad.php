@@ -412,4 +412,4 @@ return [
     // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
     'academy_jewel' => 'Joia',
     'academy_jewel_tooltip' => 'Joia da formação: uma jogadora de 16 anos com potencial de elite.',
-
+];

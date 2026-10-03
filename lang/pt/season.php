@@ -215,4 +215,4 @@ Parabéns, campeãs! 🎉',
 
     // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
     'gala_title' => 'Gala de prémios',
-
+];

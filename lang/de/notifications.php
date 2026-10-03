@@ -241,4 +241,4 @@ return [
     'sponsor_offers_arrived_message' => '{1} Eine Marke will das Team sponsern: Schau auf der kommerziellen Seite vorbei, um das Angebot zu sehen.|[2,*] :count Marken wollen das Team sponsern: Schau auf der kommerziellen Seite vorbei, um die Angebote zu sehen.',
     'cwc_qualified_title' => '🌍 Auf zur Klub-WM!',
     'cwc_qualified_message' => 'Dein Team gehört zu den besten Clubs seiner Konföderation und hat sich für die Klub-Weltmeisterschaft qualifiziert. 32 Teams, eine Trophäe … hol dir den größten Pokal der Welt, Coach!',
-
+];

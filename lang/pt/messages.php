@@ -254,4 +254,4 @@ return [
     'sponsor_deal_rejected' => 'Oferta de :sponsor descartada. Vamos à próxima.',
     'sponsor_offer_unavailable' => 'Essa oferta de patrocínio já não está disponível.',
     'sponsor_deal_active' => 'Já tens um patrocinador ativo nesse espaço. Espera que o contrato expire.',
-
+];

@@ -241,4 +241,4 @@ return [
     'sponsor_offers_arrived_message' => '{1} Uma marca quer patrocinar a equipa: passa pela página Comercial para ver a oferta.|[2,*] :count marcas querem patrocinar a equipa: passa pela página Comercial para ver as ofertas.',
     'cwc_qualified_title' => '🌍 Vamos ao Mundial de Clubes!',
     'cwc_qualified_message' => 'A tua equipa está entre os melhores clubes da sua confederação e qualificou-se para o Mundial de Clubes. 32 equipas, um só troféu… vai buscar a maior taça do planeta, míster!',
-
+];
