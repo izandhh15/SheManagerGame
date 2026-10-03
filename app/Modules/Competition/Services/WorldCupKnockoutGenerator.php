@@ -352,6 +352,9 @@ class WorldCupKnockoutGenerator
             $match['away'] ?? '?',
         );
     }
+
+    /**
+     * Generate third-place or final matchup directly from semi-final results.
      *
      * Third place = SF losers, Final = SF winners. Competitions without a
      * third-place entry in their bracket (e.g. WEURO) return no matchups.
