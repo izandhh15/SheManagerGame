@@ -47,6 +47,7 @@ return [
     'release_remaining_contract' => 'Remaining contract',
     'release_years_remaining' => ':years year(s)',
     'release_confirm_button' => 'Confirm Release',
+    'mutual_terminate' => 'Terminate by mutual agreement',
     'loan_searching' => 'Searching for loan destination',
     'contract_expiring' => 'Contract expiring',
 
@@ -199,6 +200,8 @@ return [
 
     // Academy
     'academy' => 'Academy',
+    'academy_jewel' => 'Jewel',
+    'academy_jewel_tooltip' => 'Academy jewel: a 16-year-old academy player with elite potential.',
     'promote_to_first_team' => 'Promote to First Team',
     'academy_tier' => 'Academy Tier',
     'academy_players' => 'Players',
