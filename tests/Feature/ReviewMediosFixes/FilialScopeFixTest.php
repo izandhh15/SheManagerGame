@@ -33,6 +33,7 @@ class FilialScopeFixTest extends TestCase
 
     public function test_ai_renewals_ignore_the_filial_but_still_run_for_ai_clubs(): void
     {
+        srand(20261004); // el roll de renovación es probabilístico (35‰): fijar semilla para determinismo
         [$game, $parent, $filial] = $this->filialGame();
         $aiClub = Team::factory()->create(['name' => 'AI Club WFC', 'country' => 'ES']);
 
