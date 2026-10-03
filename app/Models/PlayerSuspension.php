@@ -84,16 +84,24 @@ class PlayerSuspension extends Model
     /**
      * Create or update a suspension for a player in a competition.
      *
+     * Sanctions accumulate: a new ban is ADDED to any matches still
+     * remaining from a previous one instead of overwriting it.
+     *
      * The (game_player_id, competition_id) pair is already unique (game_player_id
      * is globally unique via UUID), so game_id is set only on insert and kept
      * out of the lookup keys.
      */
     public static function applySuspension(string $gamePlayerId, string $gameId, string $competitionId, int $matches): self
     {
-        return self::updateOrCreate(
+        $record = self::firstOrCreate(
             ['game_player_id' => $gamePlayerId, 'competition_id' => $competitionId],
-            ['game_id' => $gameId, 'matches_remaining' => $matches],
+            ['game_id' => $gameId, 'matches_remaining' => 0, 'yellow_cards' => 0],
         );
+
+        $record->increment('matches_remaining', $matches);
+        $record->refresh();
+
+        return $record;
     }
 
     /**
@@ -214,7 +222,10 @@ class PlayerSuspension extends Model
     /**
      * Batch apply suspensions for multiple records in a single query.
      *
-     * @param  array<string, int>  $suspensionsByRecordId  [suspension_record_id => matches_remaining]
+     * Like applySuspension(), new bans accumulate on top of any matches still
+     * remaining instead of overwriting them.
+     *
+     * @param  array<string, int>  $suspensionsByRecordId  [suspension_record_id => new_matches_to_add]
      */
     public static function batchApplySuspensions(array $suspensionsByRecordId): void
     {
@@ -227,7 +238,7 @@ class PlayerSuspension extends Model
 
         $cases = [];
         foreach ($suspensionsByRecordId as $recordId => $matches) {
-            $cases[] = "WHEN id = '{$recordId}' THEN {$matches}";
+            $cases[] = "WHEN id = '{$recordId}' THEN matches_remaining + {$matches}";
         }
 
         \Illuminate\Support\Facades\DB::statement(
