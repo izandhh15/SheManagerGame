@@ -6,6 +6,7 @@ use App\Models\Game;
 use App\Modules\Government\Services\GovernmentFriendlyService;
 use App\Modules\Government\Services\GovernmentVenueService;
 use App\Modules\Match\Services\MatchdayAdvanceCoordinator;
+use App\Modules\Media\Services\JournalistService;
 use App\Modules\Season\Services\DualTurnService;
 
 class AdvanceMatchday
@@ -15,6 +16,7 @@ class AdvanceMatchday
         private readonly DualTurnService $dualTurn,
         private readonly GovernmentFriendlyService $governmentFriendly,
         private readonly GovernmentVenueService $governmentVenue,
+        private readonly JournalistService $journalists,
     ) {}
 
     public function __invoke(string $gameId)
@@ -55,6 +57,10 @@ class AdvanceMatchday
 
         // F5: governments occasionally offer a venue for the next home match.
         $this->governmentVenue->maybeOffer($game->fresh());
+
+        // National press: preview of the upcoming national-team match
+        // (no-op for club saves or when already posted).
+        $this->journalists->maybePostNationalPreview($game->fresh());
 
         return redirect()->route('show-game', $gameId);
     }

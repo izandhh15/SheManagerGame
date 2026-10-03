@@ -45,6 +45,7 @@ class ShowNationalVenues
             'userTeam' => $userTeam,
             'pending' => $pending,
             'awaitingClub' => $awaitingClub,
+            'calendarMonths' => $this->buildCalendar($game, $pending),
             'stadiums' => $stadiums,
             'defaultStadium' => $defaultStadium,
             'clubStadiums' => $clubStadiums,
@@ -55,6 +56,61 @@ class ShowNationalVenues
             'rebateMinOffer' => NationalVenueOrganizationService::REBATE_MIN_OFFER,
             'rebateShare' => NationalVenueOrganizationService::REBATE_SHARE,
         ]);
+    }
+
+    /**
+     * Two-month calendar (current + next) for picking which match to request
+     * a stadium for. Each month: label + weeks of days; days carry the
+     * pending matches scheduled on them.
+     *
+     * @return list<array{label: string, weeks: list<list<array{date: string, day: int, inMonth: bool, isToday: bool, matches: list}>}>
+     */
+    private function buildCalendar(Game $game, $pending): array
+    {
+        $byDate = [];
+        foreach ($pending as $match) {
+            $key = \Carbon\Carbon::parse($match->scheduled_date)->format('Y-m-d');
+            $byDate[$key][] = [
+                'id' => $match->id,
+                'rival' => $match->awayTeam?->name ?? '',
+                'round' => $match->round_name ?? '',
+            ];
+        }
+
+        $today = ($game->current_date ? \Carbon\Carbon::parse($game->current_date) : \Carbon\Carbon::today())->startOfDay();
+        $months = [];
+
+        for ($m = 0; $m < 2; $m++) {
+            $first = $today->copy()->addMonthsNoOverflow($m)->startOfMonth();
+            // Monday-first grid.
+            $start = $first->copy()->startOfWeek(\Carbon\Carbon::MONDAY);
+            $end = $first->copy()->endOfMonth()->endOfWeek(\Carbon\Carbon::SUNDAY);
+
+            $weeks = [];
+            $cursor = $start->copy();
+            while ($cursor <= $end) {
+                $week = [];
+                for ($d = 0; $d < 7; $d++) {
+                    $key = $cursor->format('Y-m-d');
+                    $week[] = [
+                        'date' => $key,
+                        'day' => (int) $cursor->format('j'),
+                        'inMonth' => $cursor->format('Y-m') === $first->format('Y-m'),
+                        'isToday' => $key === $today->format('Y-m-d'),
+                        'matches' => $byDate[$key] ?? [],
+                    ];
+                    $cursor->addDay();
+                }
+                $weeks[] = $week;
+            }
+
+            $months[] = [
+                'label' => ucfirst($first->translatedFormat('F Y')),
+                'weeks' => $weeks,
+            ];
+        }
+
+        return $months;
     }
 
     private function countryCodeToNameMap(): array

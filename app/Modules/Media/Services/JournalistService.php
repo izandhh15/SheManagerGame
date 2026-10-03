@@ -139,6 +139,121 @@ class JournalistService
     }
 
     /**
+     * National-team match preview: a journalist tweets the upcoming fixture.
+     * Only posts for national-team saves; idempotent per match (the caller
+     * should use maybePostNationalPreview() to avoid double-posting).
+     */
+    public function postMatchPreview(Game $game, GameMatch $match): ?SocialPost
+    {
+        $journalist = $this->pick($game, 'cronicas');
+        if (! $journalist) {
+            return null;
+        }
+
+        $team = $game->team;
+        if (! $team || ($team->type ?? 'club') !== 'national') {
+            return null;
+        }
+
+        $home = Team::find($match->home_team_id)?->name ?? ($this->isEs() ? 'Local' : 'Home');
+        $away = Team::find($match->away_team_id)?->name ?? ($this->isEs() ? 'Visitante' : 'Away');
+        $userTeam = $team->name;
+        $rival = $match->home_team_id === $team->id ? $away : $home;
+        $isHome = $match->home_team_id === $team->id;
+
+        $competition = $match->competition;
+        $comp = $competition?->name;
+        $isFriendly = $competition && $competition->handler_type === 'friendly';
+
+        $venue = $match->stadium_name ?: $match->neutral_venue_name;
+        $date = $match->scheduled_date
+            ? ucfirst($match->scheduled_date->translatedFormat('D d M'))
+            : '';
+
+        $es = $this->isEs();
+        if ($es) {
+            $headline = "🔜 PREVIA | {$home} vs {$away}";
+            $meta = implode(' · ', array_filter([
+                $comp ? "🏆 {$comp}" : null,
+                $date ? "📅 {$date}" : null,
+                $venue ? "🏟️ {$venue}" : null,
+            ]));
+            $storylines = $isFriendly
+                ? [
+                    "Amistoso de prestigio para la {$userTeam}: minutos, pruebas y ritmo antes de lo serio.",
+                    "La {$userTeam} aprovecha el parón para probarse ante {$rival}. Sin puntos en juego, pero con mucho que ganar.",
+                ]
+                : [
+                    "La {$userTeam} vuelve al parón con todo en juego. " . ($isHome ? "El {$venue} aprieta desde la grada." : "Toca sufrir fuera de casa."),
+                    "Duelo {$home} vs {$away} con aroma a grande. La {$userTeam}, a por todas.",
+                    "Prueba de fuego para la {$userTeam} ante {$rival}. Que ruede el balón ⚽",
+                ];
+            $text = $headline . "\n" . $meta . "\n\n" . $storylines[array_rand($storylines)];
+        } else {
+            $headline = "🔜 PREVIEW | {$home} vs {$away}";
+            $meta = implode(' · ', array_filter([
+                $comp ? "🏆 {$comp}" : null,
+                $date ? "📅 {$date}" : null,
+                $venue ? "🏟️ {$venue}" : null,
+            ]));
+            $storylines = $isFriendly
+                ? [
+                    "Prestige friendly for {$userTeam}: minutes, experiments and rhythm before the real stuff.",
+                    "{$userTeam} use the break to test themselves against {$rival}. No points at stake, but plenty to gain.",
+                ]
+                : [
+                    "{$userTeam} return to international duty with everything on the line.",
+                    "{$home} vs {$away} has all the makings of a classic. {$userTeam} going all in.",
+                    "A real test for {$userTeam} against {$rival}. Let the ball roll ⚽",
+                ];
+            $text = $headline . "\n" . $meta . "\n\n" . $storylines[array_rand($storylines)];
+        }
+
+        return $this->post($game, $journalist, $text, 'journalist_preview', $match->id);
+    }
+
+    /**
+     * Post a preview for the user's national team upcoming match (within
+     * 3 days) if none was posted yet. Silent no-op for club saves.
+     */
+    public function maybePostNationalPreview(Game $game): ?SocialPost
+    {
+        $team = $game->team;
+        if (! $team || ($team->type ?? 'club') !== 'national') {
+            return null;
+        }
+
+        $now = $game->current_date ?? now();
+        $teamId = $team->id;
+
+        $match = GameMatch::where('game_id', $game->id)
+            ->where('played', false)
+            ->where(function ($q) use ($teamId) {
+                $q->where('home_team_id', $teamId)
+                    ->orWhere('away_team_id', $teamId);
+            })
+            ->where('scheduled_date', '>=', $now->copy()->startOfDay())
+            ->where('scheduled_date', '<=', $now->copy()->addDays(3)->endOfDay())
+            ->orderBy('scheduled_date')
+            ->first();
+
+        if (! $match) {
+            return null;
+        }
+
+        $already = SocialPost::where('game_id', $game->id)
+            ->where('match_id', $match->id)
+            ->where('context', 'journalist_preview')
+            ->exists();
+
+        if ($already) {
+            return null;
+        }
+
+        return $this->postMatchPreview($game, $match);
+    }
+
+    /**
      * Transfer news: 'in' (user buys), 'out' (user sells), 'free' (free agent).
      */
     public function postTransferNews(Game $game, string $playerName, string $fromTeam, string $toTeam, string $kind): ?SocialPost

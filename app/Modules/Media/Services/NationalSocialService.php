@@ -67,6 +67,57 @@ class NationalSocialService
         });
     }
 
+    /**
+     * Automatic announcement when a match venue is confirmed (federation
+     * stadium, neutral, men's ground, or a club accepting the request).
+     * Idempotent per match: never announces the same fixture twice.
+     */
+    public function announceVenueConfirmed(Game $game, GameMatch $match): ?SocialPost
+    {
+        if ($game->team?->type !== 'national') {
+            return null;
+        }
+
+        $venue = $match->stadium_name ?? $match->neutral_venue_name;
+        if (! $venue) {
+            return null;
+        }
+
+        $already = SocialPost::where('game_id', $game->id)
+            ->where('match_id', $match->id)
+            ->where('context', 'national_official')
+            ->exists();
+        if ($already) {
+            return null;
+        }
+
+        $home = $match->homeTeam?->name ?? $game->team?->name ?? '';
+        $away = $match->awayTeam?->name ?? '';
+        $date = $match->scheduled_date
+            ? ucfirst($match->scheduled_date->translatedFormat('l d \\d\\e F'))
+            : '';
+        $comp = $match->competition?->name;
+
+        $es = $this->isEs();
+        $text = $es
+            ? "🏟️ ¡OFICIAL! El {$home} vs {$away}" . ($date ? " del {$date}" : '') . " se jugará en {$venue}." . ($comp ? " ({$comp})" : '') . " ¡Nos vemos en la grada! 🎟️"
+            : "🏟️ OFFICIAL! {$home} vs {$away}" . ($date ? " on {$date}" : '') . " will be played at {$venue}." . ($comp ? " ({$comp})" : '') . " See you in the stands! 🎟️";
+
+        $capacity = (int) ($match->neutral_venue_capacity ?? 0);
+        $post = $this->officialPost($game, $text, $capacity >= 30000 ? rand(1500, 5000) : rand(400, 1500));
+        $post->match_id = $match->id;
+        $post->save();
+
+        $this->fanReplies(
+            $game,
+            $post,
+            $es ? $this->sedeTemplatesEs($capacity >= 30000) : $this->sedeTemplatesEn($capacity >= 30000),
+            $capacity >= 30000 ? 85 : 55,
+        );
+
+        return $post;
+    }
+
     private function announceConvocatoria(Game $game): array
     {
         $playerIds = $game->national_squad_player_ids ?? [];
@@ -315,7 +366,7 @@ class NationalSocialService
     public function feed(Game $game, int $limit = 30)
     {
         $posts = SocialPost::where('game_id', $game->id)
-            ->where('context', 'national_official')
+            ->whereIn('context', ['national_official', 'journalist_preview', 'journalist_match'])
             ->whereNull('parent_post_id')
             ->orderByDesc('created_at')
             ->limit($limit)

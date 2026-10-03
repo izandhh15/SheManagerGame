@@ -5,6 +5,7 @@ namespace App\Http\Actions;
 use App\Models\Game;
 use App\Modules\Match\Services\MatchdayAdvanceCoordinator;
 use App\Modules\Match\Services\MatchdayService;
+use App\Modules\Media\Services\JournalistService;
 use App\Modules\Season\Services\DualTurnService;
 use Illuminate\Http\Request;
 
@@ -25,6 +26,7 @@ class AdvanceBothMatchdays
         private readonly MatchdayAdvanceCoordinator $coordinator,
         private readonly MatchdayService $matchdayService,
         private readonly DualTurnService $dualTurn,
+        private readonly JournalistService $journalists,
     ) {}
 
     public function __invoke(Request $request, string $gameId)
@@ -40,6 +42,7 @@ class AdvanceBothMatchdays
         if (! $partner) {
             // Not a dual save after all: same behaviour as AdvanceMatchday.
             $this->coordinator->runSync($gameId);
+            $this->journalists->maybePostNationalPreview($game->fresh());
 
             return redirect()->route('show-game', $gameId);
         }
@@ -82,6 +85,7 @@ class AdvanceBothMatchdays
         if ($nextA && (! $nextB || $dateA < $dateB)) {
             // Club (or whichever is earlier) goes first.
             $this->coordinator->runSync($game->id);
+            $this->journalists->maybePostNationalPreview($game->fresh());
 
             return redirect()->route('show-game', $game->id);
         }
@@ -89,6 +93,7 @@ class AdvanceBothMatchdays
         if ($nextB && (! $nextA || $dateB < $dateA)) {
             // Partner's match is earlier.
             $this->coordinator->runSync($partner->id);
+            $this->journalists->maybePostNationalPreview($partner->fresh());
 
             return redirect()->route('show-game', $partner->id);
         }
@@ -96,6 +101,10 @@ class AdvanceBothMatchdays
         // Same day (or neither has a next match): advance both in lockstep.
         $this->coordinator->runSync($game->id);
         $this->coordinator->runSync($partner->id);
+
+        // National press previews for whichever half is a national team.
+        $this->journalists->maybePostNationalPreview($game->fresh());
+        $this->journalists->maybePostNationalPreview($partner->fresh());
 
         return redirect()->route('show-game', $gameId);
     }

@@ -4,6 +4,7 @@ namespace App\Http\Actions;
 
 use App\Models\Game;
 use App\Models\GameMatch;
+use App\Modules\Media\Services\NationalSocialService;
 use App\Modules\Stadium\Services\NationalVenueOrganizationService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -12,6 +13,7 @@ class OrganizeNationalVenue
 {
     public function __construct(
         private readonly NationalVenueOrganizationService $orgService,
+        private readonly NationalSocialService $nationalSocial,
     ) {}
 
     public function __invoke(Request $request, string $gameId): RedirectResponse
@@ -49,6 +51,12 @@ class OrganizeNationalVenue
             ],
             (int) ($validated['offer'] ?? 0),
         );
+
+        // Venue confirmed (not a pending club request): announce it on the
+        // national team's social feed.
+        if (($result['ok'] ?? false) && ($result['accepted'] ?? false)) {
+            $this->nationalSocial->announceVenueConfirmed($game->fresh(), $match->fresh());
+        }
 
         return redirect()
             ->route('game.national-venues', $gameId)

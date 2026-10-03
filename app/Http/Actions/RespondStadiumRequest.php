@@ -5,6 +5,7 @@ namespace App\Http\Actions;
 use App\Models\Game;
 use App\Models\GameMatch;
 use App\Models\GameNotification;
+use App\Modules\Media\Services\NationalSocialService;
 use App\Modules\Notification\Services\NotificationService;
 use App\Modules\Stadium\Services\NationalVenueRequestService;
 use Illuminate\Http\RedirectResponse;
@@ -24,6 +25,7 @@ class RespondStadiumRequest
     public function __construct(
         private readonly NationalVenueRequestService $venueService,
         private readonly NotificationService $notifications,
+        private readonly NationalSocialService $nationalSocial,
     ) {}
 
     public function __invoke(Request $request, string $gameId, string $matchId): RedirectResponse
@@ -113,6 +115,12 @@ class RespondStadiumRequest
                 $clubTeam->stadium_name ?? '',
                 $accepted ? null : $match->venue_request_excuse,
             );
+
+            // Accepted: announce on the national team's social feed that the
+            // match will be played at the club's stadium.
+            if ($accepted) {
+                $this->nationalSocial->announceVenueConfirmed($nationalGame->fresh(), $match->fresh());
+            }
         }
 
         return redirect()

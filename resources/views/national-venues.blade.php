@@ -44,6 +44,44 @@
             </div>
         @endif
 
+        {{-- Calendar: pick which match to request a stadium for --}}
+        @if($pending->isNotEmpty())
+            <div class="mb-8 rounded-xl border border-border-default bg-surface-800 p-5">
+                <h3 class="text-sm font-semibold uppercase tracking-wide text-text-secondary mb-1">📅 {{ __('game.venue_org_calendar_title') }}</h3>
+                <p class="text-xs text-text-muted mb-4">{{ __('game.venue_org_calendar_hint') }}</p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    @foreach($calendarMonths as $month)
+                        <div>
+                            <p class="text-sm font-bold text-text-primary text-center mb-2">{{ $month['label'] }}</p>
+                            <div class="grid grid-cols-7 gap-1 text-center text-[11px] font-semibold text-text-muted mb-1">
+                                <span>{{ __('game.cal_mon') }}</span><span>{{ __('game.cal_tue') }}</span><span>{{ __('game.cal_wed') }}</span><span>{{ __('game.cal_thu') }}</span><span>{{ __('game.cal_fri') }}</span><span>{{ __('game.cal_sat') }}</span><span>{{ __('game.cal_sun') }}</span>
+                            </div>
+                            @foreach($month['weeks'] as $week)
+                                <div class="grid grid-cols-7 gap-1">
+                                    @foreach($week as $day)
+                                        @if($day['inMonth'])
+                                            @if(count($day['matches']) > 0)
+                                                <a href="#match-{{ $day['matches'][0]['id'] }}"
+                                                   title="{{ $day['matches'][0]['rival'] }}"
+                                                   class="relative rounded-lg border-2 border-accent-blue bg-accent-blue/15 px-1 py-1.5 text-sm font-bold text-text-primary hover:bg-accent-blue/30 transition">
+                                                    {{ $day['day'] }}
+                                                    <span class="absolute -top-1.5 -right-1.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-accent-blue px-1 text-[10px] font-bold text-white">{{ count($day['matches']) }}</span>
+                                                </a>
+                                            @else
+                                                <span class="rounded-lg px-1 py-1.5 text-sm {{ $day['isToday'] ? 'border border-accent-green text-accent-green font-bold' : 'text-text-muted' }}">{{ $day['day'] }}</span>
+                                            @endif
+                                        @else
+                                            <span></span>
+                                        @endif
+                                    @endforeach
+                                </div>
+                            @endforeach
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        @endif
+
         @if($pending->isEmpty())
             <div class="rounded-xl border border-border-default bg-surface-800 p-8 text-center">
                 <p class="text-4xl mb-3">🏟️</p>
@@ -55,7 +93,8 @@
             <div class="space-y-6">
                 @foreach($pending as $match)
                     <form method="POST" action="{{ route('game.national-venues.store', $game->id) }}"
-                          class="rounded-xl border border-border-default bg-surface-800 p-5 space-y-4"
+                          id="match-{{ $match->id }}"
+                          class="rounded-xl border border-border-default bg-surface-800 p-5 space-y-4 scroll-mt-24"
                           x-data="{ venueType: 'national', offer: 0, maxBudget: {{ $federationBudget }} }">
                         @csrf
                         <input type="hidden" name="match_id" value="{{ $match->id }}">
