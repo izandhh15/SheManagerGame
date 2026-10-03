@@ -6,6 +6,7 @@ use App\Models\Game;
 use App\Models\GameMatch;
 use App\Models\GamePlayer;
 use App\Models\GameStanding;
+use App\Models\GameTransfer;
 use App\Models\MatchEvent;
 use App\Models\ShortlistedPlayer;
 use App\Models\SocialPost;
@@ -14,6 +15,7 @@ use App\Models\TransferOffer;
 use App\Modules\Match\DTOs\MatchNarrative;
 use App\Modules\Player\Services\PlayerHistoryService;
 use Carbon\Carbon;
+use Illuminate\Support\Collection;
 
 /**
  * Press newsroom: full media articles for the dashboard news feed.
@@ -99,32 +101,56 @@ class PressNewsService
         $outlet = $this->outlet($game, $game->id . 'preview' . $round);
         $teamName = $game->team?->name ?? ($es ? 'tu equipo' : 'your team');
         $oppName = $opponent->name;
-        $venue = $userIsHome
-            ? ($es ? 'en casa' : 'at home')
-            : ($es ? 'a domicilio' : 'away');
         $fixture = $userIsHome ? "{$teamName} - {$oppName}" : "{$oppName} - {$teamName}";
         $competition = $match->competition?->shortName() ?? '';
+        // R-review-medios: the old template said "El X recibe a domicilio al Y"
+        // when playing away — a literal contradiction ("recibe" + "a domicilio").
+        // Home and away now get their own lede; the stadium name is used when
+        // the match resolves one (neutral venue or the home side's ground).
+        $venueName = $match->venueName();
         $homecoming = $this->homecomingLine($game, $match, $es);
 
         if ($es) {
             $headline = $match->isCupMatch()
                 ? "Previa: {$fixture}, con aroma a copa"
                 : "Previa: {$fixture}, duelo por todo lo alto";
+            if ($userIsHome) {
+                $lede = $venueName
+                    ? "El {$teamName} recibe al {$oppName} en {$venueName}, en un partido que promete. {$competition}"
+                    : "El {$teamName} recibe en casa al {$oppName} en un partido que promete. {$competition}";
+                $dressingRoom = 'el vestuario local afronta la cita con confianza pero sin confianzas.';
+            } else {
+                $lede = $venueName
+                    ? "El {$teamName} visita al {$oppName} en {$venueName}, en un partido que promete. {$competition}"
+                    : "El {$teamName} juega a domicilio ante el {$oppName} en un partido que promete. {$competition}";
+                $dressingRoom = 'el vestuario visitante afronta la cita con confianza pero sin confianzas.';
+            }
             $body = [
-                "El {$teamName} recibe {$venue} al {$oppName} en un partido que promete. {$competition}",
+                $lede,
                 $this->previewFormLine($es, $game, $userStanding, $oppStanding, $teamName, $oppName),
                 'Los focos estarán puestos en las estrellas de ambos equipos: se espera un duelo de alto voltaje.',
-                "Según ha podido saber {$outlet}, el vestuario local afronta la cita con confianza pero sin confianzas.",
+                "Según ha podido saber {$outlet}, {$dressingRoom}",
             ];
         } else {
             $headline = $match->isCupMatch()
                 ? "Preview: {$fixture}, cup fever in the air"
                 : "Preview: {$fixture}, a top-of-the-table clash";
+            if ($userIsHome) {
+                $lede = $venueName
+                    ? "{$teamName} host {$oppName} at {$venueName} in a hugely promising fixture. {$competition}"
+                    : "{$teamName} host {$oppName} at home in a hugely promising fixture. {$competition}";
+                $dressingRoom = 'the home dressing room approaches the tie with quiet confidence.';
+            } else {
+                $lede = $venueName
+                    ? "{$teamName} travel to face {$oppName} at {$venueName} in a hugely promising fixture. {$competition}"
+                    : "{$teamName} face {$oppName} away from home in a hugely promising fixture. {$competition}";
+                $dressingRoom = 'the away dressing room approaches the tie with quiet confidence.';
+            }
             $body = [
-                "{$teamName} face {$oppName} {$venue} in a hugely promising fixture. {$competition}",
+                $lede,
                 $this->previewFormLine($es, $game, $userStanding, $oppStanding, $teamName, $oppName),
                 'All eyes will be on both sides\' star players: a high-voltage duel is expected.',
-                "According to {$outlet}, the home dressing room approaches the tie with quiet confidence.",
+                "According to {$outlet}, {$dressingRoom}",
             ];
         }
 
@@ -145,6 +171,12 @@ class PressNewsService
      * "Vuelve a casa": if a player from either squad faces a former club,
      * the previa highlights the reunion. Deterministic: the highest-rated
      * returner (name as tie-break).
+     *
+     * R-review-medios: the old code called
+     * PlayerHistoryService::returnsHomeAgainst() per player, which runs one
+     * game_transfers query each (N+1 on every feed render). Now both squads
+     * and all of their transfers load in 2 queries total and the
+     * former-club check runs in memory.
      */
     private function homecomingLine(Game $game, GameMatch $match, bool $es): ?string
     {
@@ -153,14 +185,31 @@ class PressNewsService
             ? $match->away_team_id
             : $match->home_team_id;
 
+        // Both squads in one query, ordered so the first returner found per
+        // side is the highest-rated (name as tie-break), like before.
+        $players = GamePlayer::where('game_id', $game->id)
+            ->whereIn('team_id', [$userTeamId, $opponentId])
+            ->orderByDesc('overall_score')
+            ->orderBy('name')
+            ->get();
+
+        if ($players->isEmpty()) {
+            return null;
+        }
+
+        // ONE shared transfers query for the whole render.
+        $transfersByPlayer = GameTransfer::where('game_id', $game->id)
+            ->whereIn('game_player_id', $players->pluck('id'))
+            ->orderBy('season')
+            ->get()
+            ->groupBy('game_player_id');
+
         $stories = [];
         foreach ([$userTeamId => $opponentId, $opponentId => $userTeamId] as $teamId => $rivalId) {
-            $returner = GamePlayer::where('game_id', $game->id)
-                ->where('team_id', $teamId)
-                ->orderByDesc('overall_score')
-                ->orderBy('name')
-                ->get()
-                ->first(fn (GamePlayer $p) => $this->playerHistory->returnsHomeAgainst($game, $p, $rivalId));
+            $returner = $players->first(fn (GamePlayer $p) =>
+                $p->team_id === $teamId
+                && $this->facesFormerClub($p, $rivalId, $transfersByPlayer->get($p->id, collect()))
+            );
             if ($returner) {
                 $stories[] = $returner;
             }
@@ -176,6 +225,64 @@ class PressNewsService
         return $es
             ? "El morbo estará en el reencuentro: {$star->name} vuelve a casa frente a su ex-equipo."
             : "The subplot writes itself: {$star->name} returns home to face her former club.";
+    }
+
+    /**
+     * In-memory equivalent of PlayerHistoryService::returnsHomeAgainst():
+     * the rival appears anywhere in the player's transfer chain before the
+     * current stint. The transfers are preloaded once per render (see
+     * homecomingLine()), so this runs zero queries. The chain-walk mirrors
+     * PlayerHistoryService::clubHistory() step by step (season-ordered
+     * from->to links, cycle guard, current club closing the history).
+     */
+    private function facesFormerClub(GamePlayer $player, string $rivalId, Collection $transfers): bool
+    {
+        if ($player->team_id === $rivalId) {
+            return false;
+        }
+
+        if ($transfers->isEmpty()) {
+            return false;
+        }
+
+        $next = [];
+        $toTeams = [];
+        foreach ($transfers as $t) {
+            if ($t->from_team_id) {
+                $next[$t->from_team_id] = $t->to_team_id;
+            }
+            $toTeams[] = $t->to_team_id;
+        }
+
+        $start = null;
+        foreach ($transfers as $t) {
+            if ($t->from_team_id && ! in_array($t->from_team_id, $toTeams, true)) {
+                $start = $t->from_team_id;
+                break;
+            }
+        }
+        if ($start === null) {
+            $first = $transfers->first();
+            $start = $first->from_team_id ?? $first->to_team_id;
+        }
+
+        $history = [$start];
+        $seen = [$start => true];
+        $guard = 0;
+        while (isset($next[end($history)]) && ! isset($seen[$next[end($history)]]) && $guard++ < 50) {
+            $nextTeam = $next[end($history)];
+            $history[] = $nextTeam;
+            $seen[$nextTeam] = true;
+        }
+
+        if ($player->team_id && end($history) !== $player->team_id) {
+            $history[] = $player->team_id;
+        }
+
+        // Former clubs = the chain minus the current stint (the last entry).
+        array_pop($history);
+
+        return in_array($rivalId, $history, true);
     }
 
     private function previewFormLine(
@@ -566,20 +673,30 @@ class PressNewsService
         $playerName = $offer->gamePlayer->name;
         $clubName = $offer->offeringTeam->name;
         $teamName = $game->team?->name ?? ($es ? 'el club' : 'the club');
+        // R-review-medios: pre-contracts have a €0 fee — printing it reads as
+        // "ha puesto € 0 sobre la mesa". They stay in the rumour mill (a
+        // pre-contract is real news) but get a figure-less lede instead.
+        $isPreContract = $offer->offer_type === TransferOffer::TYPE_PRE_CONTRACT;
         $fee = $offer->formatted_transfer_fee;
 
         if ($es) {
             $headline = "El {$clubName} va en serio a por {$playerName}";
+            $lede = $isPreContract
+                ? "El {$clubName} quiere atar a {$playerName}, del {$teamName}, con un precontrato para cuando quede libre."
+                : "El {$clubName} ha puesto {$fee} sobre la mesa por {$playerName}, del {$teamName}.";
             $body = [
-                "El {$clubName} ha puesto {$fee} sobre la mesa por {$playerName}, del {$teamName}.",
+                $lede,
                 'La jugadora no ha querido hacer declaraciones, pero su entorno no desmiente el interés.',
                 "Según ha podido saber {$outlet}, la oferta ha llegado a las oficinas y se estudiará en los próximos días.",
                 'La afición cruza los dedos: es una de las piezas clave del proyecto.',
             ];
         } else {
             $headline = "{$clubName} make their move for {$playerName}";
+            $lede = $isPreContract
+                ? "{$clubName} want to tie down {$playerName} of {$teamName} on a pre-contract for when she becomes a free agent."
+                : "{$clubName} have put {$fee} on the table for {$playerName} of {$teamName}.";
             $body = [
-                "{$clubName} have put {$fee} on the table for {$playerName} of {$teamName}.",
+                $lede,
                 'The player declined to comment, but her camp is not denying the interest.',
                 "According to {$outlet}, the bid has landed on the board's desk and will be studied in the coming days.",
                 'The fans are holding their breath: she is a key piece of the project.',
