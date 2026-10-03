@@ -38,7 +38,6 @@ class SecondeLigueConfig implements CompetitionConfig, HasSeasonGoals
      */
     private const SEASON_GOALS = [
         Game::GOAL_PROMOTION => ['targetPosition' => 2, 'label' => 'game.goal_promotion'],
-        Game::GOAL_PLAYOFF => ['targetPosition' => 4, 'label' => 'game.goal_playoff'],
         Game::GOAL_TOP_HALF => ['targetPosition' => 6, 'label' => 'game.goal_top_half'],
         Game::GOAL_SURVIVAL => ['targetPosition' => 9, 'label' => 'game.goal_survival'],
     ];
@@ -49,7 +48,9 @@ class SecondeLigueConfig implements CompetitionConfig, HasSeasonGoals
     private const REPUTATION_TO_GOAL = [
         ClubProfile::REPUTATION_ELITE => Game::GOAL_PROMOTION,
         ClubProfile::REPUTATION_CONTINENTAL => Game::GOAL_PROMOTION,
-        ClubProfile::REPUTATION_ESTABLISHED => Game::GOAL_PLAYOFF,
+        // No promotion playoff in the Seconde Ligue (playoff_count=0):
+        // established clubs aim for direct promotion instead.
+        ClubProfile::REPUTATION_ESTABLISHED => Game::GOAL_PROMOTION,
         ClubProfile::REPUTATION_MODEST => Game::GOAL_TOP_HALF,
         ClubProfile::REPUTATION_LOCAL => Game::GOAL_SURVIVAL,
     ];
