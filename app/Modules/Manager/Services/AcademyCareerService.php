@@ -55,12 +55,18 @@ class AcademyCareerService
     /**
      * Find the lowest (deepest) filial in the chain.
      * E.g. Barça → B → C returns C.
+     *
+     * Returns null when the club has no filial at all: getFilialChain()
+     * always contains the first team itself, so `->last()` on a lone club
+     * would hand back the first team and silently start an "academy
+     * career" at the senior side (M37). The null lets InitGame reject
+     * the request with `messages.club_has_no_filial`.
      */
     public function findLowestFilial(Team $firstTeam): ?Team
     {
         $chain = $this->getFilialChain($firstTeam);
 
-        return $chain->last();
+        return $chain->count() > 1 ? $chain->last() : null;
     }
 
     /**

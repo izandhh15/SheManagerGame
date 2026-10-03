@@ -29,9 +29,12 @@ use Tests\TestCase;
  *
  * Women's pyramid (config/countries.php): Liga F (ESP1, 16 teams, league),
  * Primera Federación (ESP2, 14 teams, 1 direct + 4-team playoff),
- * Segunda Federación (ESP3A/ESP3B/ESP3C, 14 teams each, group champions
- * promoted directly with no playoff — split-format branch). Relegation:
- * ESP1 drops positions [15,16], ESP2 drops [12,13,14].
+ * Segunda Federación (ESP3A/ESP3B/ESP3C, 14 teams each: group champions
+ * promoted directly plus 1 ESP3PO playoff winner — split-format branch
+ * with playoff_count = 1; when the playoff was never played the planner
+ * promotes a standings stand-in instead). Relegation:
+ * ESP1 drops positions [15,16], ESP2 drops [11,12,13,14] (four down
+ * because four come up — exact tier sizes are enforced).
  */
 class PromotionRelegationProcessorTest extends TestCase
 {
@@ -48,6 +51,9 @@ class PromotionRelegationProcessorTest extends TestCase
         Competition::factory()->league()->create(['id' => 'ESP3A', 'tier' => 3, 'handler_type' => 'league']);
         Competition::factory()->league()->create(['id' => 'ESP3B', 'tier' => 3, 'handler_type' => 'league']);
         Competition::factory()->league()->create(['id' => 'ESP3C', 'tier' => 3, 'handler_type' => 'league']);
+        // The ESP3PO playoff bracket lives in its own competition id; the
+        // cup_ties FK requires the row to exist when tests seed playoff ties.
+        Competition::factory()->knockoutCup()->create(['id' => 'ESP3PO', 'name' => 'Playoff Ascenso Segunda Federación']);
 
         $user = User::factory()->create();
         $team = Team::factory()->create(['country' => 'ES']);
@@ -300,11 +306,16 @@ class PromotionRelegationProcessorTest extends TestCase
     }
 
     /**
-     * Segunda Federación has no promotion playoff: the champion of each of
-     * the three groups (ESP3A/ESP3B/ESP3C) is promoted directly to ESP2.
-     * This locks in the split-format branch of the planner
-     * (playoff_count = 0) and replaces the deleted ESP3PO bracket-winner
-     * regression test — there is no bracket to win anymore.
+     * Segunda Federación promotion under the current design (ESP3PO
+     * playoff, wired since 0ad5f19): the champion of each of the three
+     * groups (ESP3A/ESP3B/ESP3C) is promoted directly to ESP2, and a
+     * FOURTH team comes up through the ESP3PO bracket (3 runners-up +
+     * best third, single final → 1 winner).
+     *
+     * When the playoff was never played (PlayoffState::NotStarted), the
+     * planner's documented fallback promotes the next eligible team in
+     * source-group order — the ESP3A runner-up — instead of leaving the
+     * slot empty.
      */
     public function test_esp3_champions_are_promoted_directly_to_esp2(): void
     {
@@ -332,8 +343,19 @@ class PromotionRelegationProcessorTest extends TestCase
             );
         }
 
-        // Runners-up stay: there is no playoff to win.
-        foreach ([$esp3a[2], $esp3b[2], $esp3c[2]] as $team) {
+        // Playoff never played → stand-in fallback: the ESP3A runner-up
+        // takes the fourth slot (sources are walked in ESP3A/ESP3B/ESP3C
+        // order, skipping the direct-promotion slots).
+        $this->assertTrue(
+            CompetitionEntry::where('game_id', $this->game->id)
+                ->where('competition_id', 'ESP2')
+                ->where('team_id', $esp3a[2]->id)
+                ->exists(),
+            'ESP3A runner-up should take the unplayed-playoff stand-in slot',
+        );
+
+        // The other runners-up stay down: only one stand-in slot exists.
+        foreach ([$esp3b[2], $esp3c[2]] as $team) {
             $this->assertFalse(
                 CompetitionEntry::where('game_id', $this->game->id)
                     ->where('competition_id', 'ESP2')
@@ -342,6 +364,62 @@ class PromotionRelegationProcessorTest extends TestCase
                 "ESP3 runner-up {$team->id} must remain in ESP3",
             );
         }
+
+        // ESP3A lost two teams (champion + stand-in) and received two
+        // relegated sides: tier sizes are preserved everywhere.
+        $this->assertSame(14, CompetitionEntry::where('game_id', $this->game->id)->where('competition_id', 'ESP2')->count());
+        $this->assertSame(14, CompetitionEntry::where('game_id', $this->game->id)->where('competition_id', 'ESP3A')->count());
+        $this->assertSame(14, CompetitionEntry::where('game_id', $this->game->id)->where('competition_id', 'ESP3B')->count());
+        $this->assertSame(14, CompetitionEntry::where('game_id', $this->game->id)->where('competition_id', 'ESP3C')->count());
+    }
+
+    /**
+     * When the ESP3PO final WAS played, its winner — not a standings
+     * stand-in — takes the fourth promotion slot to ESP2. Uses a winner
+     * that is neither a group champion nor the natural stand-in, so a
+     * planner that ignored CupTie winners would fail this test.
+     */
+    public function test_esp3po_winner_takes_fourth_promotion_slot(): void
+    {
+        $this->seedSimulatedTier('ESP1', 16);
+        $this->seedRealTier('ESP2', 14, userPosition: 11);
+        $esp3a = $this->seedRealTier('ESP3A', 14);
+        $esp3b = $this->seedRealTier('ESP3B', 14);
+        $esp3c = $this->seedRealTier('ESP3C', 14);
+
+        // ESP3PO final (round 2): ESP3C runner-up beats ESP3B third.
+        CupTie::factory()->forGame($this->game)->inRound(2)
+            ->between($esp3b[3], $esp3c[2])
+            ->completed($esp3c[2], 'aggregate')
+            ->create(['competition_id' => 'ESP3PO', 'bracket_position' => 1]);
+
+        $processor = app(PromotionRelegationProcessor::class);
+        $processor->process($this->game, new SeasonTransitionData(
+            oldSeason: '2025',
+            newSeason: '2026',
+            competitionId: 'ESP2',
+        ));
+
+        // Champions plus the playoff winner go up.
+        foreach ([$esp3a[1], $esp3b[1], $esp3c[1], $esp3c[2]] as $team) {
+            $this->assertTrue(
+                CompetitionEntry::where('game_id', $this->game->id)
+                    ->where('competition_id', 'ESP2')
+                    ->where('team_id', $team->id)
+                    ->exists(),
+                "ESP3 team {$team->id} should be promoted to ESP2",
+            );
+        }
+
+        // The natural stand-in (ESP3A runner-up) stays down when the
+        // playoff produced a real winner.
+        $this->assertFalse(
+            CompetitionEntry::where('game_id', $this->game->id)
+                ->where('competition_id', 'ESP2')
+                ->where('team_id', $esp3a[2]->id)
+                ->exists(),
+            'ESP3A runner-up must not take the slot when ESP3PO was played',
+        );
     }
 
     /**
@@ -389,11 +467,12 @@ class PromotionRelegationProcessorTest extends TestCase
     }
 
     /**
-     * Locks in Rule 2: exactly three teams (positions 12-14) relegate from
+     * Locks in Rule 2: exactly four teams (positions 11-14) relegate from
      * Primera Federación to Segunda Federación, distributed across
-     * ESP3A/ESP3B/ESP3C.
+     * ESP3A/ESP3B/ESP3C. Four go down because four come up (3 champions +
+     * 1 ESP3PO winner/stand-in) — the planner enforces exact tier sizes.
      */
-    public function test_esp2_bottom_three_are_relegated_to_esp3(): void
+    public function test_esp2_bottom_four_are_relegated_to_esp3(): void
     {
         $this->seedRealTier('ESP1', 16);
         $esp2 = $this->seedRealTier('ESP2', 14, userPosition: 11);
@@ -401,7 +480,7 @@ class PromotionRelegationProcessorTest extends TestCase
         $this->seedSimulatedTier('ESP3B', 14);
         $this->seedSimulatedTier('ESP3C', 14);
 
-        $relegated = [$esp2[12], $esp2[13], $esp2[14]];
+        $relegated = [$esp2[11], $esp2[12], $esp2[13], $esp2[14]];
 
         $processor = app(PromotionRelegationProcessor::class);
         $processor->process($this->game, new SeasonTransitionData(
@@ -415,8 +494,17 @@ class PromotionRelegationProcessorTest extends TestCase
                 ->whereIn('competition_id', ['ESP3A', 'ESP3B', 'ESP3C'])
                 ->where('team_id', $team->id)
                 ->value('competition_id');
-            $this->assertNotNull($landedIn, "ESP2 bottom-three team {$team->id} should land in ESP3A, ESP3B or ESP3C");
+            $this->assertNotNull($landedIn, "ESP2 bottom-four team {$team->id} should land in ESP3A, ESP3B or ESP3C");
         }
+
+        // Position 10 stays in ESP2.
+        $this->assertTrue(
+            CompetitionEntry::where('game_id', $this->game->id)
+                ->where('competition_id', 'ESP2')
+                ->where('team_id', $esp2[10]->id)
+                ->exists(),
+            'ESP2 position 10 should remain in ESP2',
+        );
 
         $this->assertSame(14, CompetitionEntry::where('game_id', $this->game->id)->where('competition_id', 'ESP2')->count());
         $this->assertSame(14, CompetitionEntry::where('game_id', $this->game->id)->where('competition_id', 'ESP3A')->count());
@@ -427,10 +515,11 @@ class PromotionRelegationProcessorTest extends TestCase
     /**
      * End-to-end invariant covering the women's Spanish cycle: after a full
      * season closing, exactly 2 teams move into ESP1 (1 direct from ESP2 +
-     * 1 ESP2 playoff winner), exactly 3 teams move into ESP2 (the three
-     * ESP3 group champions), and tier sizes are preserved.
+     * 1 ESP2 playoff winner), exactly 4 teams move into ESP2 (the three
+     * ESP3 group champions + the ESP3PO playoff winner), and tier sizes are
+     * preserved.
      */
-    public function test_full_spanish_cycle_promotes_2_to_esp1_and_3_to_esp2(): void
+    public function test_full_spanish_cycle_promotes_2_to_esp1_and_4_to_esp2(): void
     {
         $esp1 = $this->seedRealTier('ESP1', 16);
         $esp2 = $this->seedRealTier('ESP2', 14, userPosition: 11);
@@ -446,6 +535,13 @@ class PromotionRelegationProcessorTest extends TestCase
             ->between($esp2[5], $esp2[4])
             ->completed($esp2[4], 'aggregate')
             ->create(['competition_id' => 'ESP2', 'bracket_position' => 1]);
+
+        // ESP3PO final (round 2): ESP3B runner-up beats ESP3C third. The
+        // winner is the fourth team promoted to ESP2.
+        CupTie::factory()->forGame($this->game)->inRound(2)
+            ->between($esp3c[3], $esp3b[2])
+            ->completed($esp3b[2], 'aggregate')
+            ->create(['competition_id' => 'ESP3PO', 'bracket_position' => 1]);
 
         $processor = app(PromotionRelegationProcessor::class);
         $processor->process($this->game, new SeasonTransitionData(
@@ -477,14 +573,15 @@ class PromotionRelegationProcessorTest extends TestCase
             );
         }
 
-        // Promoted to ESP2: the three ESP3 group champions, directly.
-        foreach ([$esp3a[1], $esp3b[1], $esp3c[1]] as $team) {
+        // Promoted to ESP2: the three ESP3 group champions, directly, plus
+        // the ESP3PO playoff winner (the fourth slot).
+        foreach ([$esp3a[1], $esp3b[1], $esp3c[1], $esp3b[2]] as $team) {
             $this->assertTrue(
                 CompetitionEntry::where('game_id', $this->game->id)
                     ->where('competition_id', 'ESP2')
                     ->where('team_id', $team->id)
                     ->exists(),
-                "Segunda Federación champion {$team->id} should be promoted to ESP2",
+                "Segunda Federación team {$team->id} should be promoted to ESP2",
             );
         }
 
@@ -499,8 +596,9 @@ class PromotionRelegationProcessorTest extends TestCase
             );
         }
 
-        // Relegated from ESP2: positions 12-14 land in ESP3A, ESP3B or ESP3C.
-        foreach ([$esp2[12], $esp2[13], $esp2[14]] as $team) {
+        // Relegated from ESP2: positions 11-14 land in ESP3A, ESP3B or ESP3C
+        // (four down to balance the four promoted from ESP3).
+        foreach ([$esp2[11], $esp2[12], $esp2[13], $esp2[14]] as $team) {
             $landed = CompetitionEntry::where('game_id', $this->game->id)
                 ->whereIn('competition_id', ['ESP3A', 'ESP3B', 'ESP3C'])
                 ->where('team_id', $team->id)

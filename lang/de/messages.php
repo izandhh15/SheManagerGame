@@ -166,6 +166,8 @@ return [
     'invalid_pro_manager_team' => 'Wähle einen der angezeigten Clubs — Pro Manager beginnt in der Primera Federación.',
     'invalid_academy_club' => 'Der gewählte Akademie-Club ist ungültig.',
     'club_has_no_filial' => 'Dieser Club hat keine verfügbare zweite Mannschaft.',
+    'team_has_no_competition_link' => 'Dieses Team ist mit keinem Wettbewerb verknüpft: Der Spielstand kann nicht erstellt werden.',
+    'team_squad_too_small' => 'Dieses Team hat nur :count Spielerinnen im Kader (mindestens :minimum): Der Spielstand kann nicht erstellt werden.',
     'cannot_apply_to_own_club' => 'Du kannst dich nicht bei deinem eigenen Club bewerben.',
 
     // Pre-match confirmation

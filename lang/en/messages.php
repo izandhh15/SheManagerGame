@@ -104,6 +104,10 @@ return [
     'academy_player_dismissed' => ':player has been dismissed from the academy.',
     'academy_player_loaned' => ':player has been loaned out.',
     'academy_must_decide_21' => 'Players aged 21+ will be automatically promoted to the first team.',
+    'invalid_academy_club' => 'The selected academy club is not valid.',
+    'club_has_no_filial' => 'This club has no available reserve team.',
+    'team_has_no_competition_link' => 'This team is not linked to any competition: the save cannot be created.',
+    'team_squad_too_small' => 'This team only has :count players in its squad (minimum :minimum): the save cannot be created.',
 
     // Reserve team (filial)
     'reserve_player_called_up' => ':player has been called up to the first team.',
