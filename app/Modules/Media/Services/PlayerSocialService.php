@@ -21,10 +21,13 @@ class PlayerSocialService
      */
     public function postMatchReaction(Game $game, GameMatch $match): ?SocialPost
     {
-        $teamId = $game->team_id;
-        $involved = in_array($match->home_team_id, [$teamId, $game->reserve_team_id], true)
-            || in_array($match->away_team_id, [$teamId, $game->reserve_team_id], true);
-        if (! $involved || ! $match->played) {
+        // Which of the user's teams actually played (main or reserve)?
+        $teamId = $match->home_team_id === $game->team_id || $match->away_team_id === $game->team_id
+            ? $game->team_id
+            : ($game->reserve_team_id && ($match->home_team_id === $game->reserve_team_id || $match->away_team_id === $game->reserve_team_id)
+                ? $game->reserve_team_id
+                : null);
+        if (! $teamId || ! $match->played) {
             return null;
         }
 
