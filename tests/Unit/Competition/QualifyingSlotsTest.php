@@ -34,8 +34,10 @@ class QualifyingSlotsTest extends TestCase
             $slots = $this->slots($country, $league);
             $this->assertSame([1], $slots['UCL'] ?? null, "{$country} UCL");
             $this->assertSame([2, 3], $slots['UCLQ'] ?? null, "{$country} UCLQ");
-            $this->assertSame([4], $slots['UEL'] ?? null, "{$country} UEL");
-            $this->assertSame([5], $slots['UELQ'] ?? null, "{$country} UELQ");
+            // Nobody enters the UEL directly: its field comes entirely from
+            // UELQ. 5th starts in qualifying round 1, 4th in round 2.
+            $this->assertArrayNotHasKey('UEL', $slots, "{$country} UEL");
+            $this->assertSame([5 => 1, 4 => 2], $slots['UELQ'] ?? null, "{$country} UELQ");
         }
     }
 
@@ -45,8 +47,8 @@ class QualifyingSlotsTest extends TestCase
 
         $this->assertSame([1], $slots['UCL'] ?? null);
         $this->assertSame([2], $slots['UCLQ'] ?? null);
-        $this->assertSame([3], $slots['UEL'] ?? null);
-        $this->assertSame([4], $slots['UELQ'] ?? null);
+        $this->assertArrayNotHasKey('UEL', $slots);
+        $this->assertSame([4 => 1, 3 => 1], $slots['UELQ'] ?? null);
     }
 
     public function test_qualifying_competitions_are_knockout_not_swiss(): void
@@ -56,7 +58,8 @@ class QualifyingSlotsTest extends TestCase
         $this->assertSame('knockout_cup', $es['UCLQ']['handler'] ?? null);
         $this->assertSame('knockout_cup', $es['UELQ']['handler'] ?? null);
         $this->assertSame('swiss_format', $es['UCL']['handler'] ?? null);
-        $this->assertSame('swiss_format', $es['UEL']['handler'] ?? null);
+        // The Europa Cup is pure knockout since the 2026-27 real-format rebuild.
+        $this->assertSame('knockout_cup', $es['UEL']['handler'] ?? null);
     }
 
     public function test_qualifying_has_own_config_class(): void
