@@ -8,15 +8,13 @@
     <div class="max-w-2xl mx-auto px-4 pb-8">
         <div class="mt-6 mb-4">
             <h2 class="font-heading text-2xl lg:text-3xl font-bold uppercase tracking-wide text-text-primary">
-                🎤 {{ app()->getLocale() === 'es' ? 'Rueda de prensa' : 'Press conference' }}
+                🎤 {{ __('game.press_conference_title') }}
             </h2>
             <p class="text-sm text-text-secondary mt-1">
                 {{ $match->homeTeam?->name }} {{ $match->home_score }} - {{ $match->away_score }} {{ $match->awayTeam?->name }}
             </p>
             <p class="text-xs text-text-faint mt-1">
-                {{ app()->getLocale() === 'es'
-                    ? 'Cuidado con lo que dices: la afición está en las redes y la directiva también las lee.'
-                    : 'Watch what you say: the fans are on social media, and so is the board.' }}
+                {{ __('game.press_postmatch_hint') }}
             </p>
         </div>
 
@@ -24,10 +22,10 @@
             <div class="p-6 rounded-xl bg-surface-800 border border-border-default text-center">
                 <p class="text-4xl mb-2">✅</p>
                 <p class="text-text-primary font-semibold">
-                    {{ app()->getLocale() === 'es' ? 'Ya atendiste a la prensa tras este partido.' : 'You already faced the press after this match.' }}
+                    {{ __('game.press_already_done_postmatch') }}
                 </p>
                 <a href="{{ route('game.social', $game->id) }}" class="inline-block mt-4 px-4 py-2 rounded-lg bg-accent-blue text-white text-sm font-semibold">
-                    🐦 {{ app()->getLocale() === 'es' ? 'Ver reacciones' : 'See reactions' }}
+                    🐦 {{ __('game.press_see_reactions') }}
                 </a>
             </div>
         @else
@@ -52,10 +50,10 @@
 
                 <div class="flex gap-3 pt-2">
                     <button type="submit" class="flex-1 px-4 py-3 rounded-xl bg-accent-blue text-white font-bold uppercase tracking-wide">
-                        {{ app()->getLocale() === 'es' ? 'Hacer declaraciones' : 'Make statement' }}
+                        {{ __('game.press_make_statement') }}
                     </button>
                     <a href="{{ route('show-game', $game->id) }}" class="px-4 py-3 rounded-xl bg-surface-700 text-text-secondary font-semibold">
-                        {{ app()->getLocale() === 'es' ? 'Pasar' : 'Skip' }}
+                        {{ __('game.press_skip') }}
                     </a>
                 </div>
             </form>

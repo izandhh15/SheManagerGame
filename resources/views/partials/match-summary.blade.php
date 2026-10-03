@@ -11,7 +11,8 @@
     $isFull = $mode === MatchSummaryPresenter::MODE_FULL;
 
     // Show press conference CTA if the player's team played and no statement yet.
-    $showPressCta = $game && $isFull && !\App\Models\PressStatement::where('game_id', $game->id)->where('match_id', $match->id)->exists();
+    // The exists() check lives in the presenter, not inline in the view.
+    $showPressCta = app(MatchSummaryPresenter::class)->shouldShowPressCta($game, $match, $mode);
 @endphp
 
 <div class="rounded-xl border border-border-default bg-surface-800 overflow-hidden">
@@ -112,10 +113,10 @@
         <div class="border-t border-border-default px-4 py-4 bg-accent-blue/5">
             <a href="{{ route('game.press', [$game->id, $match->id]) }}"
                class="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl bg-accent-blue text-white font-bold uppercase tracking-wide hover:opacity-90 transition-opacity">
-                🎤 {{ app()->getLocale() === 'es' ? 'Atender a la prensa' : 'Face the press' }}
+                🎤 {{ __('game.press_face_button') }}
             </a>
             <p class="text-xs text-text-faint text-center mt-2">
-                {{ app()->getLocale() === 'es' ? 'Tus declaraciones generarán reacciones en la red social...' : 'Your statements will spark reactions on social media...' }}
+                {{ __('game.press_statements_hint') }}
             </p>
         </div>
     @endif

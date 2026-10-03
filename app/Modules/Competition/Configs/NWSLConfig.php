@@ -37,7 +37,9 @@ class NWSLConfig implements CompetitionConfig, HasSeasonGoals
 
     private const SEASON_GOALS = [
         Game::GOAL_TITLE => ['targetPosition' => 1, 'label' => 'game.goal_title'],
-        Game::GOAL_EUROPA_LEAGUE => ['targetPosition' => 3, 'label' => 'game.goal_europa_league'],
+        // Concacaf W Champions Cup is this confederation's continental competition
+        // (UEFA Women's Europa Cup does not exist here).
+        Game::GOAL_CONCACHAMPIONS => ['targetPosition' => 3, 'label' => 'game.goal_concachampions'],
         Game::GOAL_TOP_HALF => ['targetPosition' => 8, 'label' => 'game.goal_top_half'],
         Game::GOAL_SURVIVAL => ['targetPosition' => 14, 'label' => 'game.goal_survival'],
     ];
@@ -45,7 +47,7 @@ class NWSLConfig implements CompetitionConfig, HasSeasonGoals
     private const REPUTATION_TO_GOAL = [
         ClubProfile::REPUTATION_ELITE => Game::GOAL_TITLE,
         ClubProfile::REPUTATION_CONTINENTAL => Game::GOAL_TITLE,
-        ClubProfile::REPUTATION_ESTABLISHED => Game::GOAL_EUROPA_LEAGUE,
+        ClubProfile::REPUTATION_ESTABLISHED => Game::GOAL_CONCACHAMPIONS,
         ClubProfile::REPUTATION_MODEST => Game::GOAL_TOP_HALF,
         ClubProfile::REPUTATION_LOCAL => Game::GOAL_SURVIVAL,
     ];
@@ -100,9 +102,23 @@ class NWSLConfig implements CompetitionConfig, HasSeasonGoals
 
     public function getStandingsZones(): array
     {
+        $slots = config('countries.US.continental_slots.USA1', []);
+
+        $zones = [];
+
+        if (!empty($slots['CONCACHAMPIONS'])) {
+            $zones[] = [
+                'minPosition' => min($slots['CONCACHAMPIONS']),
+                'maxPosition' => max($slots['CONCACHAMPIONS']),
+                'borderColor' => 'blue-500',
+                'bgColor' => 'bg-blue-500',
+                'label' => 'game.concachampions',
+            ];
+        }
+
         // NWSL has no relegation (no relegated_positions in countries.US),
         // so no relegation zone is painted. The old 15-16 range was
         // fictitious.
-        return [];
+        return $zones;
     }
 }

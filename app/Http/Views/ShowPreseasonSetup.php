@@ -8,6 +8,7 @@ use App\Modules\Season\Services\PreseasonInvitationService;
 use App\Modules\Season\Services\PreseasonTourService;
 use App\Modules\Season\Services\TrainingStageService;
 use App\Support\CountryNames;
+use Illuminate\Support\Facades\DB;
 
 class ShowPreseasonSetup
 {
@@ -33,7 +34,9 @@ class ShowPreseasonSetup
         }
 
         // The machine invites you: generate AI invitations (idempotent).
-        $this->invitationService->generateFor($game);
+        // A GET-side write: run it in a transaction so concurrent visits
+        // can't interleave the generation.
+        DB::transaction(fn () => $this->invitationService->generateFor($game));
 
         $teams = $this->opponentService->candidateTeamsGroupedByCountry($game);
         $slots = $this->opponentService->fixtureSlots($game);
@@ -62,6 +65,13 @@ class ShowPreseasonSetup
             $stageConfig = null;
         }
 
+        // Summary lines for the already-organized stage block (computed here,
+        // not in the blade).
+        $clubStageCost = $stageConfig['cost'] ?? 0;
+        $clubStageLines = $stageConfig
+            ? $this->stageService->effectSummaryLines($stageConfig['effects'] ?? [])
+            : [];
+
         return view('preseason-setup', [
             'game' => $game,
             'teams' => $teams,
@@ -77,8 +87,9 @@ class ShowPreseasonSetup
                 ? $this->tourService->destinationName($game->preseason_tour['destination'] ?? '')
                 : null,
             'tourBudgetEuros' => (int) (($game->currentInvestment?->transfer_budget ?? 0) / 100),
-            'stageService' => $this->stageService,
             'clubStageConfig' => $stageConfig,
+            'clubStageCost' => $clubStageCost,
+            'clubStageLines' => $clubStageLines,
             'stageDurations' => TrainingStageService::DURATIONS,
             'stageIntensities' => TrainingStageService::INTENSITIES,
             'stageFocuses' => TrainingStageService::FOCUSES,

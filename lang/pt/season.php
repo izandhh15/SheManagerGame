@@ -199,4 +199,20 @@ return [
     'your_squad_stats' => 'Estatísticas do teu plantel',
     'download_season' => 'Descarregar época',
     'download_summary' => 'Descarregar resumo',
+
+    // i18n-b review: awards gala notification/news texts
+    'gala_notification_title' => '🎉 Gala de prémios :season!',
+    'gala_notification_message' => 'Tapete vermelho e holofotes! A época :season já tem as suas rainhas:
+:lines',
+    'gala_news_text' => '✨ GALA DE PRÉMIOS :season ✨
+:parts
+
+Parabéns, campeãs! 🎉',
+    'gala_headline_pichichi' => ':goals golos',
+    'gala_headline_zamora' => ':conceded golos/jogo',
+    'gala_headline_mvp' => ':count MVP do jogo',
+    'gala_headline_default' => ':goals golos e :assists assistências',
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'gala_title' => 'Gala de prémios',
 ];

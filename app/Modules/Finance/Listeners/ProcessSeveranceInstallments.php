@@ -8,6 +8,7 @@ use App\Models\SeverancePaymentPlan;
 use App\Modules\Match\Events\GameDateAdvanced;
 use App\Modules\Notification\Services\NotificationService;
 use App\Support\Money;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Cobra la cuota mensual de los planes de pago de indemnizaciones
@@ -34,6 +35,16 @@ class ProcessSeveranceInstallments
     }
 
     private function chargeInstallment($game, SeverancePaymentPlan $plan, $date): void
+    {
+        // All four writes (budget decrement, plan counters, status/date,
+        // ledger entry, completion notice) go in one transaction so a
+        // failure can't leave a half-charged installment behind.
+        DB::transaction(function () use ($game, $plan, $date) {
+            $this->doChargeInstallment($game, $plan, $date);
+        });
+    }
+
+    private function doChargeInstallment($game, SeverancePaymentPlan $plan, $date): void
     {
         $amount = min($plan->monthly_amount, $plan->remaining_amount);
 

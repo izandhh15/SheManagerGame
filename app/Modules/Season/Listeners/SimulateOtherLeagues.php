@@ -55,8 +55,14 @@ class SimulateOtherLeagues
      * the top of the pair is ESP1 (preferred — what gets promoted into the
      * user's view) but ESP3A/B also share a rule.
      */
-    private function pickOtherCompetition(string $country, string $competitionId): ?string
+    private function pickOtherCompetition(?string $country, string $competitionId): ?string
     {
+        // Game::country is nullable; without a country there is no
+        // promotion/relegation rule to read the "other" league from.
+        if ($country === null) {
+            return null;
+        }
+
         foreach ($this->countryConfig->promotions($country) as $rule) {
             $top = $rule['top_division'];
             $bottom = $rule['bottom_division'];

@@ -200,4 +200,17 @@ return [
     'your_squad_stats' => 'Your Squad Stats',
     'download_season' => 'Download season',
     'download_summary' => 'Download summary',
+
+    // i18n-b review: awards gala notification/news texts
+    'gala_notification_title' => '🎉 Awards gala :season!',
+    'gala_notification_message' => 'Red carpet and spotlights! The :season season has its queens:
+:lines',
+    'gala_news_text' => '✨ AWARDS GALA :season ✨
+:parts
+
+Congratulations, champions! 🎉',
+    'gala_headline_pichichi' => ':goals goals',
+    'gala_headline_zamora' => ':conceded goals/match',
+    'gala_headline_mvp' => ':count match MVPs',
+    'gala_headline_default' => ':goals goals and :assists assists',
 ];

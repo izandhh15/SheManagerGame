@@ -13,6 +13,7 @@ use App\Models\TransferOffer;
 use App\Modules\Competition\Services\CountryConfig;
 use App\Support\CountryCodeMapper;
 use App\Support\PositionMapper;
+use App\Support\SqlLike;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
@@ -310,7 +311,8 @@ class ExploreService
             ->with(['team', 'activeLoan.parentTeam']);
 
         if (!empty($filters['name']) && mb_strlen($filters['name']) >= 2) {
-            $needle = mb_strtolower($filters['name']);
+            // Escape LIKE wildcards so the input is matched literally.
+            $needle = SqlLike::escape(mb_strtolower($filters['name']));
             $query->whereRaw('LOWER(game_players.name) LIKE ?', ['%' . $needle . '%']);
         }
 

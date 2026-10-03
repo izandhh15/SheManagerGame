@@ -206,9 +206,13 @@ class FrontendSmokeTest extends TestCase
         $this->get('/legal')->assertOk();
     }
 
-    public function test_design_system_page_loads(): void
+    public function test_design_system_page_requires_auth(): void
     {
-        $this->get('/design-system')->assertOk();
+        // Internal design guide: guests are redirected to login...
+        $this->get('/design-system')->assertRedirect('/login');
+
+        // ...authenticated users can still open it.
+        $this->actingAs($this->user)->get('/design-system')->assertOk();
     }
 
     // =============================================

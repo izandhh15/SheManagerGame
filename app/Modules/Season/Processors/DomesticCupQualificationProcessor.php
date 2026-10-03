@@ -14,7 +14,7 @@ use App\Models\Team;
 use Illuminate\Support\Facades\Log;
 
 /**
- * Rebuilds domestic cup participants (Copa del Rey, FA Cup, EFL Cup…) at
+ * Rebuilds domestic cup participants (Copa de la Reina, FA Cup, EFL Cup…) at
  * the end of each season based on each country's `cup_qualification` rules.
  *
  * Runs before PromotionRelegationProcessor (priority 85) so that this
@@ -40,7 +40,7 @@ use Illuminate\Support\Facades\Log;
  *  5. If after step 4 the field is still smaller than `target_size`,
  *     throw — the cup is the parity invariant (an even round-1 pool
  *     after the supercup bump), and silent shortfalls are what produced
- *     the 93 broken Copa del Rey draws in production.
+ *     the 93 broken Copa de la Reina draws in production.
  *
  * Qualifiers from a playable tier are written at round 1, unless the cup
  * declares an `entry_rounds` rule — Serie A joins the Coppa at the first
@@ -98,7 +98,7 @@ class DomesticCupQualificationProcessor implements SeasonProcessor
      *
      * If after step 4 the field still has fewer than target_size teams,
      * throw — the cup is the parity invariant and silent shortfalls are
-     * what produced the 93 broken Copa del Rey draws in production.
+     * what produced the 93 broken Copa de la Reina draws in production.
      *
      * @param  array{auto_qualify_tiers?: int[], top_per_group?: array<int, int>, target_size?: int, entry_rounds?: array{league: string, default: int, byes?: array{positions: int[], round: int}}}  $rule
      * @param  string[]  $reserveTeamIdsForCountry

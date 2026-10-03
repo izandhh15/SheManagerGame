@@ -7,6 +7,8 @@ use App\Events\SeasonStarted;
 use App\Events\TournamentCompleted;
 use App\Events\TournamentEnded;
 use App\Http\View\Composers\TacticalGuideComposer;
+use App\Http\View\Composers\GameHeaderComposer;
+use App\Http\View\Composers\TransfersHeaderComposer;
 use App\Modules\Academy\Listeners\GenerateInitialAcademyBatch;
 use App\Modules\Competition\Services\CompetitionHandlerResolver;
 use App\Modules\Finance\Listeners\ActivateCompletedStadiumProjects;
@@ -109,6 +111,16 @@ class AppServiceProvider extends ServiceProvider
         // so view actions that include the partial don't rebuild it on every
         // request.
         View::composer('partials.tactical-guide-modal', TacticalGuideComposer::class);
+
+        // The game header renders on every game page: its queries
+        // (competitions, notifications, critical alerts) are composed once
+        // per game per request instead of running inline in the blade.
+        View::composer('components.game-header', GameHeaderComposer::class);
+
+        // Shared transfers header (5 tabs): the committed-budget aggregate
+        // is composed once per game per request instead of being queried
+        // inline in the partial.
+        View::composer('partials.transfers-header', TransfersHeaderComposer::class);
 
         RateLimiter::for('game-creation', fn (Request $request) => Limit::perMinute(5)->by($request->user()?->id ?: $request->ip()));
         RateLimiter::for('tournament-simulation', fn (Request $request) => Limit::perMinute(3)->by($request->user()?->id ?: $request->ip()));

@@ -107,7 +107,7 @@ class SaveLineup
 
         // Redirect to game page - user clicks Continue to advance
         return redirect()->route('show-game', $gameId)
-            ->with('message', 'Lineup confirmed! Click Continue to play the match.');
+            ->with('message', __('messages.lineup_confirmed'));
     }
 
     /**

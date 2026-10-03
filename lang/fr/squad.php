@@ -401,4 +401,16 @@ return [
     'registration_readonly' => 'Tu peux inscrire des joueuses et modifier les numéros uniquement pendant les mercatos.',
     'u23_badge_label' => 'Moins de 23 ans',
     'u23_badge_tooltip' => 'Éligible pour un numéro du centre de formation — moins de 24 ans au 1er janvier de la saison.',
+
+    // i18n-b review: lineup validation errors + missing injury types
+    'lineup_must_select_11' => 'Tu dois sélectionner exactement 11 joueuses.',
+    'lineup_duplicate_players' => 'Joueuses en double détectées.',
+    'lineup_invalid_slot' => 'Attribution de poste invalide.',
+    'lineup_slot_player_not_in_lineup' => 'Poste attribué à une joueuse qui n\'est pas dans la composition.',
+    'injury_ligament_damage' => 'Lésion ligamentaire',
+    'injury_knee_injury' => 'Blessure au genou',
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'academy_jewel' => 'Pépite',
+    'academy_jewel_tooltip' => 'Pépite du centre de formation : une joueuse de 16 ans au potentiel élite.',
 ];

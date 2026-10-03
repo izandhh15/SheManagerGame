@@ -223,6 +223,41 @@ class ApplyPendingTeamSwitchProcessorTest extends TestCase
         return [$processor, $game, $newTeam, $offer, $espTwo, $espThreeB];
     }
 
+    /**
+     * Regression: the processor must ignore an offer that belongs to another
+     * game. Without the game_id guard, a forged pending_team_switch id could
+     * apply another game's accepted offer to this game.
+     */
+    public function test_rejects_offer_from_another_game(): void
+    {
+        [$processor, $game, $newTeam, $offer] = $this->buildScenario(
+            offerCompetitionId: 'ESP2',
+            actualEntryCompetitionId: 'ESP2',
+        );
+
+        $otherGame = Game::factory()->create([
+            'user_id' => User::factory()->create()->id,
+            'game_mode' => Game::MODE_CAREER_PRO,
+            'team_id' => $newTeam->id,
+        ]);
+        $offer->update(['game_id' => $otherGame->id]);
+
+        $data = new SeasonTransitionData(
+            oldSeason: '2027',
+            newSeason: '2028',
+            competitionId: $game->competition_id,
+        );
+
+        $processor->process($game->refresh(), $data);
+
+        $game->refresh();
+        $this->assertNotSame($newTeam->id, $game->team_id,
+            'A foreign offer must not switch the team.');
+        $this->assertNull($game->pending_team_switch,
+            'The foreign pending switch must be cleared.');
+        $this->assertNull($data->getMetadata(SeasonTransitionData::META_PRO_MANAGER_TEAM_SWITCHED));
+    }
+
     protected function tearDown(): void
     {
         Mockery::close();

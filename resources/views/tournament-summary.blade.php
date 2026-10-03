@@ -14,6 +14,7 @@
 /** @var array $topAssisters */
 /** @var array $topGoalkeepers */
 /** @var array $yourSquadStats */
+/** @var string|null $competitionName */
 /** @var array $topMvps */
 /** @var array $mvpCounts */
 /** @var array $groupStandings */
@@ -115,6 +116,7 @@ $awayGoalLines = $formatGoalGroup($awayGoals);
             'goals' => __('squad.goals'),
             'assists' => __('squad.assists'),
         ]),
+        tagline: @js(__('game.image_tagline_squad')),
     })">
 
         {{-- ============================================ --}}

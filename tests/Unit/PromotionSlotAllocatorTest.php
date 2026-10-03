@@ -10,6 +10,7 @@ use App\Models\SimulatedSeason;
 use App\Models\Team;
 use App\Models\User;
 use App\Modules\Competition\Promotions\PromotionSlotAllocator;
+use App\Modules\Competition\Promotions\StandingsReader;
 use App\Modules\Competition\Services\ReserveTeamFilter;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use PHPUnit\Framework\Attributes\DataProvider;
@@ -68,7 +69,7 @@ class PromotionSlotAllocatorTest extends TestCase
 
     private function allocator(): PromotionSlotAllocator
     {
-        return new PromotionSlotAllocator(new ReserveTeamFilter);
+        return new PromotionSlotAllocator(new ReserveTeamFilter, new StandingsReader);
     }
 
     /**
@@ -561,5 +562,97 @@ class PromotionSlotAllocatorTest extends TestCase
             $direct,
             'Direct slots slide down to the next eligible teams.',
         );
+    }
+
+    // ──────────────────────────────────────────────────
+    // Standings source semantics (delegated to StandingsReader)
+    // ──────────────────────────────────────────────────
+
+    /**
+     * BAJA review: loadOrderedTeams() used GameStanding rows without a
+     * played > 0 filter, so placeholder position-99 rows (played = 0) were
+     * consumed as real standings. They must be skipped in favour of the
+     * SimulatedSeason fallback.
+     */
+    public function test_placeholder_position_99_rows_are_skipped_in_favour_of_simulated_season(): void
+    {
+        $teams = [];
+        for ($i = 0; $i < 4; $i++) {
+            $team = Team::factory()->create();
+            $teams[] = $team;
+            CompetitionEntry::create([
+                'game_id' => $this->game->id,
+                'competition_id' => self::BOTTOM_DIVISION,
+                'team_id' => $team->id,
+                'entry_round' => 1,
+            ]);
+        }
+
+        // Placeholder rows from an earlier unsplit move: never played.
+        // Inserted in REVERSE sim order so the old unfiltered read would
+        // hand the slots to the wrong teams.
+        foreach (array_reverse($teams) as $team) {
+            GameStanding::create([
+                'game_id' => $this->game->id,
+                'competition_id' => self::BOTTOM_DIVISION,
+                'team_id' => $team->id,
+                'position' => 99,
+                'played' => 0,
+            ]);
+        }
+
+        SimulatedSeason::create([
+            'game_id' => $this->game->id,
+            'season' => '2025',
+            'competition_id' => self::BOTTOM_DIVISION,
+            'results' => array_map(fn ($t) => $t->id, $teams),
+        ]);
+
+        $allocation = $this->allocator()->allocate($this->game, self::BOTTOM_DIVISION, 2, 0);
+
+        $this->assertSame(
+            [$teams[0]->id, $teams[1]->id],
+            $this->teamIds($allocation->directPromotions),
+            'Placeholders must not feed promotion slots; the sim order wins.',
+        );
+    }
+
+    /**
+     * BAJA review: loadOrderedTeams() read SimulatedSeason.results raw,
+     * without the stale-roster reconciliation. A drifted sim row must be
+     * reconciled before slots are handed out.
+     */
+    public function test_drifted_simulated_season_is_reconciled_before_allocating(): void
+    {
+        $teamA = Team::factory()->create();
+        $teamB = Team::factory()->create();
+        $teamC = Team::factory()->create();
+        $stale = Team::factory()->create();
+
+        foreach ([$teamA, $teamB, $teamC] as $team) {
+            CompetitionEntry::create([
+                'game_id' => $this->game->id,
+                'competition_id' => self::BOTTOM_DIVISION,
+                'team_id' => $team->id,
+                'entry_round' => 1,
+            ]);
+        }
+
+        // Sim row drifted: $stale left the competition, $teamB joined it.
+        SimulatedSeason::create([
+            'game_id' => $this->game->id,
+            'season' => '2025',
+            'competition_id' => self::BOTTOM_DIVISION,
+            'results' => [$teamA->id, $stale->id, $teamC->id],
+        ]);
+
+        $allocation = $this->allocator()->allocate($this->game, self::BOTTOM_DIVISION, 2, 0);
+
+        $this->assertSame(
+            [$teamA->id, $teamB->id],
+            $this->teamIds($allocation->directPromotions),
+            'The stale team must be swapped for the missing entry team.',
+        );
+        $this->assertNotContains($stale->id, $this->teamIds($allocation->directPromotions));
     }
 }

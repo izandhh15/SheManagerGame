@@ -758,6 +758,13 @@ class TransferService
      */
     public function acceptOffer(TransferOffer $offer): bool
     {
+        // Defense in depth: only a pending offer can be accepted. The actions
+        // already filter by status; this makes a stray or replayed call a
+        // no-op instead of an illegal state transition.
+        if ($offer->status !== TransferOffer::STATUS_PENDING) {
+            return false;
+        }
+
         $player = $offer->gamePlayer;
         $game = $offer->game;
 
@@ -828,6 +835,11 @@ class TransferService
      */
     public function rejectOffer(TransferOffer $offer): void
     {
+        // Defense in depth: rejecting an already-resolved offer is a no-op.
+        if (!TransferOffer::canTransition($offer->status, TransferOffer::STATUS_REJECTED)) {
+            return;
+        }
+
         $offer->transitionTo(TransferOffer::STATUS_REJECTED, $offer->game->current_date);
     }
 
@@ -1324,6 +1336,12 @@ class TransferService
     public function acceptIncomingOffer(TransferOffer $offer): bool
     {
         $game = $offer->game;
+
+        // Defense in depth: only an offer that can legally reach AGREED may
+        // be accepted (the action already scopes to FEE_AGREED).
+        if (!TransferOffer::canTransition($offer->status, TransferOffer::STATUS_AGREED)) {
+            return false;
+        }
 
         // Park as agreed regardless of window state. Completion is handled
         // by CompleteAgreedTransfersOnMatchPlayed (intra-window) or

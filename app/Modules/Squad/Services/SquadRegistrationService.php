@@ -18,6 +18,7 @@ class SquadRegistrationService
     public function save(Game $game, Collection $assignments): void
     {
         $this->validateNoDuplicateNumbers($assignments);
+        $this->validateNumberRange($assignments);
         $this->validateFirstTeamLimit($assignments);
         $this->validatePlayersExist($game, $assignments);
         $this->validateAcademyAgeLimit($game, $assignments);
@@ -51,6 +52,24 @@ class SquadRegistrationService
 
         if ($numbers->count() !== $numbers->unique()->count()) {
             throw RegistrationException::duplicateNumber();
+        }
+    }
+
+    /**
+     * Shirt numbers must be in the 1–99 range (a direct POST could
+     * otherwise persist 0, 999 or non-numeric values).
+     */
+    private function validateNumberRange(Collection $assignments): void
+    {
+        foreach ($assignments as $assignment) {
+            $number = $assignment['number'] ?? null;
+            if (!is_int($number) && !(is_string($number) && ctype_digit($number))) {
+                throw RegistrationException::invalidNumber();
+            }
+            $number = (int) $number;
+            if ($number < 1 || $number > 99) {
+                throw RegistrationException::invalidNumber();
+            }
         }
     }
 

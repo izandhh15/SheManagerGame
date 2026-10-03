@@ -19,8 +19,11 @@
             <span x-text="p.season_apps"></span> {{ __('game.squad_picker_apps_short') }} · <span x-text="p.season_goals"></span>{{ __('game.squad_picker_goals_short') }} · <span x-text="p.season_assists"></span>{{ __('game.squad_picker_assists_short') }}
             <span x-show="p.caps" class="text-text-muted">| <span x-text="p.nt_flag"></span> <span x-text="p.caps"></span> {{ __('game.squad_picker_caps_short') }} · <span x-text="p.nt_goals"></span>{{ __('game.squad_picker_goals_short') }}</span>
         </p>
+        {{-- Synthetic club form (no real club stats): labelled as an estimation
+             so it never reads as recorded data. --}}
         <p x-show="!p.has_real_club_stats && p.club_form" class="text-[11px] text-text-secondary mt-0.5 truncate">
             <span x-text="p.club_form.minutes"></span>' · <span x-text="p.club_form.goals"></span>{{ __('game.squad_picker_goals_short') }} · <span x-text="p.club_form.assists"></span>{{ __('game.squad_picker_assists_short') }} <span class="text-text-muted">(<span x-text="p.club_form.rating"></span>)</span>
+            <span class="italic text-text-faint">· {{ __('game.squad_picker_club_form_estimated') }}</span>
             <span x-show="p.caps" class="text-text-muted">| <span x-text="p.nt_flag"></span> <span x-text="p.caps"></span> {{ __('game.squad_picker_caps_short') }} · <span x-text="p.nt_goals"></span>{{ __('game.squad_picker_goals_short') }}</span>
         </p>
         <p x-show="p.injured_label" class="text-[11px] font-semibold text-red-400 mt-0.5" x-text="p.injured_label"></p>

@@ -10,7 +10,9 @@ use App\Http\Actions\JoinWaitlist;
 use Illuminate\Support\Facades\Route;
 
 Route::post('/waitlist', JoinWaitlist::class)->middleware('throttle:6,1');
-Route::post('/webhooks/ko-fi', HandlePaymentWebhook::class);
+// Token verification is fail-closed, but without a throttle the endpoint
+// admits anonymous floods (each attempt still parses input + logs).
+Route::post('/webhooks/ko-fi', HandlePaymentWebhook::class)->middleware('throttle:30,1');
 
 // Federation between platform instances (Wasmer <-> Vercel). Public
 // directory + HMAC-signed cross-instance friend requests. Silently

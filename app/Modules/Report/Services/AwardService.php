@@ -146,7 +146,7 @@ class AwardService
     /**
      * Build MVP rankings: top MVPs and the user's team MVP leader.
      *
-     * @return array{Collection, ?object} [$topMvps, $teamMvpLeader]
+     * @return array{Collection, ?object, Collection} [$topMvps, $teamMvpLeader, $mvpCounts]
      */
     public function getMvpRankings(string $gameId, ?string $competitionId, string $teamId, int $limit = 5): array
     {

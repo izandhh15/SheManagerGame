@@ -8,6 +8,7 @@ use App\Modules\Finance\Services\SalaryCapService;
 use App\Models\FinancialTransaction;
 use App\Models\Game;
 use App\Models\GamePlayer;
+use Illuminate\Support\Facades\DB;
 
 class ShowFinances
 {
@@ -26,9 +27,10 @@ class ShowFinances
         $finances = $game->currentFinances;
         $investment = $game->currentInvestment;
 
-        // Generate projections if not exists
+        // Generate projections if not exists (a GET-side write: run it in a
+        // transaction so concurrent first visits can't interleave it).
         if (!$finances) {
-            $finances = $this->projectionService->generateProjections($game);
+            $finances = DB::transaction(fn () => $this->projectionService->generateProjections($game));
         }
 
         // Calculate current squad metrics (value + headcount in a single query)

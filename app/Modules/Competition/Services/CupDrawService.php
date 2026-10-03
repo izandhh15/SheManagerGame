@@ -4,7 +4,6 @@ namespace App\Modules\Competition\Services;
 
 use App\Modules\Competition\Contracts\CupDrawPairingStrategy;
 use App\Modules\Competition\DTOs\PlayoffRoundConfig;
-use App\Modules\Competition\Exceptions\OddCupDrawPoolException;
 use App\Modules\Competition\Services\Draw\RandomPairing;
 use App\Models\Competition;
 use App\Models\CompetitionEntry;
@@ -334,14 +333,13 @@ class CupDrawService
     }
 
     /**
-     * Walk an ordered team list 2-by-2 into pairs, raising if the count is
-     * odd. The earlier `for ($i + 1 < $count; $i += 2)` form silently
-     * dropped the trailing team and produced 93 broken Copa del Rey
-     * draws in production — better to fail loudly here so the upstream
-     * cause surfaces.
+     * Walk an ordered team list 2-by-2 into pairs. An odd pool grants the
+     * trailing team a bye (a single-element pair [teamId, null], which the
+     * draw treats as an automatic advance). Legacy games drawn before the
+     * bye rule may still throw OddCupDrawPoolException, caught upstream.
      *
      * @param  Collection<int, string>  $orderedTeams
-     * @return Collection<int, array{0: string, 1: string}>
+     * @return Collection<int, array{0: string, 1: string|null}>
      */
     private function chunkIntoPairs(Collection $orderedTeams, string $competitionId, int $roundNumber): Collection
     {

@@ -58,18 +58,8 @@ return [
     'youth_academy' => 'Centre de Formation',
 
     'medical' => 'Médical',
-    'medical_tier_0' => 'Personnel minimal - récupération de base',
-    'medical_tier_1' => 'Soins de base - récupération standard',
-    'medical_tier_2' => 'Bonnes installations - 15 % plus rapide',
-    'medical_tier_3' => 'Personnel d\'élite - 30 % plus rapide, moins de blessures',
-    'medical_tier_4' => 'Classe mondiale - 50 % plus rapide, prévention',
 
     'scouting' => 'Recruteurs',
-    'scouting_tier_0' => 'Recruteurs minimaux - portée limitée',
-    'scouting_tier_1' => 'Réseau de base - marché national uniquement',
-    'scouting_tier_2' => 'Réseau élargi - national, plus de résultats et de précision',
-    'scouting_tier_3' => 'Portée internationale - recherches rapides et précises',
-    'scouting_tier_4' => 'Réseau mondial - vitesse, résultats et précision maximales',
 
     // Budget flow tooltips
     'tooltip_tv_rights' => 'Répartition télévisuelle basée sur ta position finale en championnat. Plus tu termines haut, plus ta part sera importante.',
@@ -198,7 +188,7 @@ return [
     'category_severance' => 'Indemnité',
     'category_infrastructure' => 'Infrastructures',
     'category_stadium' => 'Stade',
-    'category_venue_fee' => 'Venue fee (national team)',
+    'category_venue_fee' => 'Location du stade (sélection nationale)',
     'category_agent_fee' => 'Commission d\'agent',
     'category_budget_loan' => 'Prêt Budgétaire',
     'category_loan_repayment' => 'Remboursement de Prêt',
@@ -262,4 +252,17 @@ return [
     'severance_method_installments_detail' => ':monthly/mois pendant :months mois (total :total avec intérêts).',
     'severance_method_bank_loan' => 'Emprunter à la banque',
     'severance_method_bank_loan_detail' => 'La banque te prête :amount et tu le rembourses en fin de saison (:repayment avec intérêts).',
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'shirt_sponsor' => 'Sponsor du maillot',
+    'ad_board' => 'Panneaux publicitaires',
+    'tooltip_shirt_sponsor' => 'Recettes du logo du sponsor sur le maillot. Montant annuel fixe pour la durée du contrat.',
+    'tooltip_ad_board' => 'Recettes des panneaux publicitaires du stade. Montant annuel fixe pour la durée du contrat.',
+    'category_venue_rent' => 'Location du stade',
+    'category_tour_cost' => 'Tournée de pré-saison',
+    'category_matchday_tickets' => 'Billetterie : billets',
+    'category_matchday_shirts' => 'Billetterie : maillots',
+    'category_matchday_merch' => 'Billetterie : merchandising',
+    'category_matchday_bars' => 'Billetterie : bars',
+
 ];

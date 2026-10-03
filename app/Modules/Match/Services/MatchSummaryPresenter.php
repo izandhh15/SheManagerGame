@@ -2,9 +2,11 @@
 
 namespace App\Modules\Match\Services;
 
+use App\Models\Game;
 use App\Models\GameMatch;
 use App\Models\GamePlayerMatchRating;
 use App\Models\MatchEvent;
+use App\Models\PressStatement;
 use App\Modules\Match\DTOs\MatchLineupsViewModel;
 use App\Modules\Match\DTOs\MatchSummaryViewModel;
 use App\Support\LiveMatchLineupPresenter;
@@ -52,6 +54,21 @@ class MatchSummaryPresenter
             mvp: $this->buildMvp($match),
             lineups: $this->buildLineups($match),
         );
+    }
+
+    /**
+     * Whether the press-conference CTA shows for this match: the player's
+     * team played, the summary renders in full mode, and no statement exists
+     * yet. (Used to be an inline PressStatement::where()->exists() in the
+     * partial.)
+     */
+    public function shouldShowPressCta(?Game $game, GameMatch $match, string $mode): bool
+    {
+        return $game !== null
+            && $mode === self::MODE_FULL
+            && ! PressStatement::where('game_id', $game->id)
+                ->where('match_id', $match->id)
+                ->exists();
     }
 
     /**

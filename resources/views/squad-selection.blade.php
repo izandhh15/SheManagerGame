@@ -18,6 +18,8 @@ $tabs = [
         teamCrestUrl: @js($game->team->image),
         fifaCode: @js(strtolower($game->team->fifa_code ?? 'team')),
         gameId: @js($game->id),
+        tagline: @js(__('game.image_tagline_squad')),
+        maxPlayers: @js($maxSquadSize),
     })" class="min-h-screen pb-0 md:pb-24">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
 
@@ -162,7 +164,7 @@ $tabs = [
                         <span class="font-bold transition-colors"
                               :class="canConfirm ? 'text-emerald-600' : 'text-text-body'"
                               x-text="totalSelected"></span>
-                        <span class="text-text-secondary">/ 26</span>
+                        <span class="text-text-secondary">/ {{ $maxSquadSize }}</span>
                     </div>
 
                     {{-- Download --}}
@@ -184,7 +186,7 @@ $tabs = [
                         </template>
                         <x-primary-button color="emerald" x-bind:disabled="!canConfirm" class="w-full md:w-auto">
                             {{ __('squad.confirm_squad') }}
-                            <span x-show="!canConfirm" class="ml-1" x-text="'(' + totalSelected + '/26)'"></span>
+                            <span x-show="!canConfirm" class="ml-1" x-text="'(' + totalSelected + '/{{ $maxSquadSize }})'"></span>
                         </x-primary-button>
                     </form>
                 </div>

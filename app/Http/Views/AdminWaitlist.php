@@ -3,6 +3,7 @@
 namespace App\Http\Views;
 
 use App\Models\WaitlistEntry;
+use App\Support\SqlLike;
 use Illuminate\Http\Request;
 
 class AdminWaitlist
@@ -15,7 +16,7 @@ class AdminWaitlist
 
         if ($search) {
             $query->where(function ($q) use ($search) {
-                $searchLower = mb_strtolower($search);
+                $searchLower = SqlLike::escape(mb_strtolower($search));
                 $q->whereRaw('LOWER(name) LIKE ?', ["%{$searchLower}%"])
                   ->orWhereRaw('LOWER(email) LIKE ?', ["%{$searchLower}%"]);
             });

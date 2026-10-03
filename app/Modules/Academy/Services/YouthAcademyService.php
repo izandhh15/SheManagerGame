@@ -131,7 +131,7 @@ class YouthAcademyService
     {
         $tier = $game->currentInvestment->youth_academy_tier ?? 0;
 
-        $config = self::TIER_CONFIG[$tier];
+        $config = self::TIER_CONFIG[$tier] ?? self::TIER_CONFIG[0];
         [$minArrivals, $maxArrivals] = $config;
 
         $count = rand($minArrivals, $maxArrivals);
@@ -297,44 +297,52 @@ class YouthAcademyService
     private function bulkUpdateGrowth(array $updates): void
     {
         $ids = array_keys($updates);
-        $idList = "'" . implode("','", $ids) . "'";
 
         $scoreCases = [];
+        $scoreBindings = [];
         $progressCases = [];
+        $progressBindings = [];
         foreach ($updates as $id => $growth) {
-            $scoreCases[] = "WHEN id = '{$id}' THEN " . (int) $growth['overall_score'];
+            $scoreCases[] = 'WHEN id = ? THEN ?';
+            $scoreBindings[] = $id;
+            $scoreBindings[] = (int) $growth['overall_score'];
+            $progressCases[] = 'WHEN id = ? THEN ?';
+            $progressBindings[] = $id;
             // Small positive float: fixed decimals keep the round trip
             // through SQL exact enough to avoid drift.
-            $progressCases[] = "WHEN id = '{$id}' THEN " . number_format((float) $growth['growth_progress'], 6, '.', '');
+            $progressBindings[] = number_format((float) $growth['growth_progress'], 6, '.', '');
         }
 
-        \Illuminate\Support\Facades\DB::statement("
-            UPDATE academy_players
-            SET overall_score = CASE " . implode(' ', $scoreCases) . " ELSE overall_score END,
-                growth_progress = CASE " . implode(' ', $progressCases) . " ELSE growth_progress END
-            WHERE id IN ({$idList})
-        ");
+        $placeholders = implode(',', array_fill(0, count($ids), '?'));
+
+        \Illuminate\Support\Facades\DB::statement(
+            'UPDATE academy_players
+             SET overall_score = CASE ' . implode(' ', $scoreCases) . ' ELSE overall_score END,
+                 growth_progress = CASE ' . implode(' ', $progressCases) . ' ELSE growth_progress END
+             WHERE id IN (' . $placeholders . ')',
+            array_merge($scoreBindings, $progressBindings, array_values($ids))
+        );
     }
 
     /**
      * Apply a full season of off-screen development to loaned players.
      * Called at season end when loans return.
+     *
+     * Single UPDATE instead of one per player: the growth formula is a pure
+     * function of the row's own columns
+     * (min(potential, round(overall + (potential - overall) * rate))).
      */
     public function developLoanedPlayers(Game $game): void
     {
-        $loanedPlayers = AcademyPlayer::where('game_id', $game->id)
+        \Illuminate\Support\Facades\DB::table('academy_players')
+            ->where('game_id', $game->id)
             ->where('team_id', $game->team_id)
             ->where('is_on_loan', true)
-            ->get();
-
-        foreach ($loanedPlayers as $player) {
-            // Apply full season growth at loan rate
-            $growth = ($player->potential - $player->overall_score) * self::GROWTH_RATE_LOAN;
-
-            $player->update([
-                'overall_score' => min($player->potential, (int) round($player->overall_score + $growth)),
+            ->update([
+                'overall_score' => \Illuminate\Support\Facades\DB::raw(
+                    'LEAST(potential, ROUND(overall_score + (potential - overall_score) * '.((float) self::GROWTH_RATE_LOAN).'))'
+                ),
             ]);
-        }
     }
 
     /**
@@ -521,8 +529,11 @@ class YouthAcademyService
     ): array {
         $position = $this->selectPosition();
 
-        // Ability mean = academy base quality + team context bonus
-        $abilityMean = self::ACADEMY_BASE_QUALITY[$academyTier] + self::TEAM_CONTEXT_BONUS[$teamMedianTier];
+        // Ability mean = academy base quality + team context bonus.
+        // Defensive fallbacks: an out-of-range tier degrades to tier 0
+        // quality and a neutral (0) team bonus instead of a 500.
+        $abilityMean = (self::ACADEMY_BASE_QUALITY[$academyTier] ?? self::ACADEMY_BASE_QUALITY[0])
+            + (self::TEAM_CONTEXT_BONUS[$teamMedianTier] ?? 0);
 
         $age = rand(17, 19);
         $ageCap = match ($age) {

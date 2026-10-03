@@ -20,7 +20,7 @@ class CancelLoanSearch
         $game = Game::findOrFail($gameId);
         $player = GamePlayer::where('id', $playerId)
             ->where('game_id', $gameId)
-            ->where('team_id', $game->team_id)
+            ->whereIn('team_id', $game->userTeamIds())
             ->whereHas('transferListing', fn ($q) => $q->where('status', TransferListing::STATUS_LOAN_SEARCH))
             ->firstOrFail();
 

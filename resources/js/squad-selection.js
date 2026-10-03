@@ -13,12 +13,13 @@ export default function squadSelection(config) {
         selectedIds: [],
         activeTab: 'goalkeepers',
         players: config.players,
-        maxPlayers: 26,
+        maxPlayers: config.maxPlayers,
         groupLabels: config.groupLabels,
         teamName: config.teamName,
         teamCrestUrl: config.teamCrestUrl,
         fifaCode: config.fifaCode,
         gameId: config.gameId,
+        tagline: config.tagline,
 
         togglePlayer(id) {
             const idx = this.selectedIds.indexOf(id);
@@ -87,7 +88,7 @@ export default function squadSelection(config) {
                 y += 20;
             }
 
-            y = drawBrandFooter(ctx, width, y);
+            y = drawBrandFooter(ctx, width, y, { tagline: this.tagline });
             trimAndDownload(canvas, y, `shemanager_${this.fifaCode}_${this.gameId}.png`);
         },
     };

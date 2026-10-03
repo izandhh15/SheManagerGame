@@ -38,7 +38,7 @@ class PlayoffGeneratorFactory
                 $targetCompetitionId = $rule['playoff_competition'] ?? $rule['bottom_division'];
 
                 // Derive the trigger matchday from the feeder league's team
-                // count. For Primera RFEF's two groups of 20 this is 38.
+                // count. For Segunda Federación's three groups of 14 this is 26.
                 $firstSource = $triggerDivisions[0];
                 $tierConfig = collect($flattenedTiers)->first(fn ($t) => $t['competition'] === $firstSource);
                 $teamCount = $tierConfig['teams'] ?? 22;

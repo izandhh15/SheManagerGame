@@ -153,15 +153,6 @@ class PremierLeagueConfig implements CompetitionConfig, HasSeasonGoals
             ];
         }
 
-        if (!empty($slots['UECL'])) {
-            $zones[] = [
-                'minPosition' => min($slots['UECL']),
-                'maxPosition' => max($slots['UECL']),
-                'borderColor' => 'green-500',
-                'bgColor' => 'bg-green-500',
-                'label' => 'game.conference_league',
-            ];
-        }
 
         // WSL has 14 teams: the 14th goes down directly and the 13th faces
         // the WSL2 runners-up in the ENGPO relegation playoff

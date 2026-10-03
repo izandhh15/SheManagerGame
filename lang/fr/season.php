@@ -199,4 +199,20 @@ return [
     'your_squad_stats' => 'Statistiques de ton effectif',
     'download_season' => 'Télécharger la saison',
     'download_summary' => 'Télécharger le résumé',
+
+    // i18n-b review: awards gala notification/news texts
+    'gala_notification_title' => '🎉 Gala des trophées :season !',
+    'gala_notification_message' => 'Tapis rouge et projecteurs ! La saison :season a ses reines :
+:lines',
+    'gala_news_text' => '✨ GALA DES TROPHÉES :season ✨
+:parts
+
+Félicitations, championnes ! 🎉',
+    'gala_headline_pichichi' => ':goals buts',
+    'gala_headline_zamora' => ':conceded buts/match',
+    'gala_headline_mvp' => ':count fois MVP du match',
+    'gala_headline_default' => ':goals buts et :assists passes décisives',
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'gala_title' => 'Gala des trophées',
 ];

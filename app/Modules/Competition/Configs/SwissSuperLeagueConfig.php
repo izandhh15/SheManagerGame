@@ -141,14 +141,8 @@ class SwissSuperLeagueConfig implements CompetitionConfig, HasSeasonGoals
             ];
         }
 
-        $zones[] = [
-            'minPosition' => 9,
-            'maxPosition' => 10,
-            'borderColor' => 'red-500',
-            'bgColor' => 'bg-red-500',
-            'label' => 'game.relegation',
-        ];
-
+        // No relegation zone: the Women's Super League has no lower division in the game,
+        // so no relegation is modeled (see config/countries.php promotions).
         return $zones;
     }
 }

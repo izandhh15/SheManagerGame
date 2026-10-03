@@ -16,7 +16,7 @@ return [
     'tv_rights' => 'Direitos de TV',
     'matchday' => 'Dia de Jogo',
     'commercial' => 'Comercial',
-    'naming_rights' => 'Naming rights',
+    'naming_rights' => 'Direitos de nome',
     'solidarity_funds' => 'Apoios FPF/UEFA',
     'public_subsidy' => 'Subvenções Públicas',
     'total_revenue' => 'Receitas Totais',
@@ -58,18 +58,8 @@ return [
     'youth_academy' => 'Academia',
 
     'medical' => 'Médico',
-    'medical_tier_0' => 'Pessoal mínimo - recuperação básica',
-    'medical_tier_1' => 'Cuidados básicos - recuperação padrão',
-    'medical_tier_2' => 'Boas instalações - 15% mais rápido',
-    'medical_tier_3' => 'Pessoal de elite - 30% mais rápido, menos lesões',
-    'medical_tier_4' => 'Classe mundial - 50% mais rápido, prevenção',
 
     'scouting' => 'Olheiros',
-    'scouting_tier_0' => 'Olheiros mínimos - alcance limitado',
-    'scouting_tier_1' => 'Rede básica - só mercado nacional',
-    'scouting_tier_2' => 'Rede alargada - nacional, mais resultados e precisão',
-    'scouting_tier_3' => 'Alcance internacional - procuras rápidas e precisas',
-    'scouting_tier_4' => 'Rede global - máxima velocidade, resultados e precisão',
 
     // Budget flow tooltips
     'tooltip_tv_rights' => 'Distribuição televisiva com base na tua classificação final na liga. Quanto mais acima terminares, maior será a tua fatia.',
@@ -198,7 +188,7 @@ return [
     'category_severance' => 'Indemnização',
     'category_infrastructure' => 'Infraestrutura',
     'category_stadium' => 'Estádio',
-    'category_venue_fee' => 'Venue fee (national team)',
+    'category_venue_fee' => 'Aluguer do estádio (seleção)',
     'category_agent_fee' => 'Comissão de agência',
     'category_budget_loan' => 'Empréstimo Orçamental',
     'category_loan_repayment' => 'Devolução de Empréstimo',
@@ -262,4 +252,17 @@ return [
     'severance_method_installments_detail' => ':monthly/mês durante :months meses (total :total com juros).',
     'severance_method_bank_loan' => 'Pedir empréstimo ao banco',
     'severance_method_bank_loan_detail' => 'O banco empresta-te :amount e devolves no final da época (:repayment com juros).',
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'shirt_sponsor' => 'Patrocinador da camisola',
+    'ad_board' => 'Painéis publicitários',
+    'tooltip_shirt_sponsor' => 'Receitas do logótipo do patrocinador na camisola. Taxa anual fixa durante o contrato.',
+    'tooltip_ad_board' => 'Receitas dos painéis publicitários do estádio. Taxa anual fixa durante o contrato.',
+    'category_venue_rent' => 'Aluguer do estádio',
+    'category_tour_cost' => 'Digressão de pré-época',
+    'category_matchday_tickets' => 'Bilheteira: bilhetes',
+    'category_matchday_shirts' => 'Bilheteira: camisolas',
+    'category_matchday_merch' => 'Bilheteira: merchandising',
+    'category_matchday_bars' => 'Bilheteira: bares',
+
 ];

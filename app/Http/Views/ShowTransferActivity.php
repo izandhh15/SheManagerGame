@@ -65,7 +65,7 @@ class ShowTransferActivity
             $toInLeague = in_array($transfer->to_team_id, $leagueTeamIds);
             $isFreeAgent = $transfer->type === GameTransfer::TYPE_FREE_AGENT;
 
-            $playerName = $transfer->gamePlayer->name ?? 'Unknown';
+            $playerName = $transfer->gamePlayer->name ?? __('game.unknown');
             $position = $transfer->gamePlayer->position ?? null;
             $fee = $transfer->transfer_fee;
             $formattedFee = $isFreeAgent ? __('transfers.free_transfer') : Money::format($fee);
@@ -124,7 +124,7 @@ class ShowTransferActivity
         foreach ($leagueTeamActivity as $teamId => &$activity) {
             $team = $teams->get($teamId);
             $activity['teamId'] = $teamId;
-            $activity['teamName'] = $team?->name ?? 'Unknown';
+            $activity['teamName'] = $team?->name ?? __('game.unknown');
             $activity['in'] = $activity['in'] ?? [];
             $activity['out'] = $activity['out'] ?? [];
 
@@ -176,7 +176,7 @@ class ShowTransferActivity
         foreach ($restOfWorldTeamActivity as $teamId => &$activity) {
             $team = $teams->get($teamId);
             $activity['teamId'] = $teamId;
-            $activity['teamName'] = $team?->name ?? 'Unknown';
+            $activity['teamName'] = $team?->name ?? __('game.unknown');
             $activity['in'] = $activity['in'] ?? [];
             $activity['out'] = $activity['out'] ?? [];
             usort($activity['out'], fn ($a, $b) => $b['fee'] <=> $a['fee']);

@@ -325,28 +325,6 @@ class JournalistService
     }
 
     /**
-     * Occasional transfer rumour to keep the timeline alive between windows.
-     */
-    public function postTransferRumor(Game $game, string $playerName, string $linkedTeam): ?SocialPost
-    {
-        $journalist = $this->pick($game, 'mercado');
-        if (! $journalist) {
-            return null;
-        }
-
-        $es = $this->isEs();
-        $texts = $es ? [
-            "🔥 RUMOR: {$linkedTeam} sigue muy de cerca a {$playerName}. Aún no hay oferta, pero el interés es REAL. Atentos...",
-            "👀 Ojo con esto: me dicen que {$playerName} gusta, y mucho, en {$linkedTeam}. El mercado se calienta 🔥",
-        ] : [
-            "🔥 RUMOUR: {$linkedTeam} are closely tracking {$playerName}. No bid yet, but the interest is REAL. Stay tuned...",
-            "👀 One to watch: I'm told {$playerName} is highly rated at {$linkedTeam}. The market is heating up 🔥",
-        ];
-
-        return $this->post($game, $journalist, $texts[array_rand($texts)], 'journalist_rumor');
-    }
-
-    /**
      * Pick an active journalist for the game, preferring a specialty.
      */
     public function pick(Game $game, ?string $specialty = null): ?GameJournalist

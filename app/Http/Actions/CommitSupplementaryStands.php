@@ -19,7 +19,7 @@ class CommitSupplementaryStands
     {
         $game = Game::with('team')->findOrFail($gameId);
         abort_if($game->isTournamentMode(), 404);
-        $validated = $request->validate(['seats' => 'required|integer|min:1']);
+        $validated = $request->validate(['seats' => 'required|integer|min:1|max:150000']);
 
         if ($redirect = $this->safeCommit($gameId, fn () => $this->stadiumUpgradeService->commitSupplementary($game, (int) $validated['seats']))) {
             return $redirect;

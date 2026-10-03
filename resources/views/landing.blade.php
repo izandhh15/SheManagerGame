@@ -72,23 +72,23 @@
         </div>
     </section>
 
-    {{-- Stats --}}
+    {{-- Stats (computed from real game data via LandingStats, cached) --}}
     <section class="border-y border-border-default bg-surface-800/50">
         <div class="max-w-7xl mx-auto px-4 py-10 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
             <div>
-                <p class="font-heading text-4xl sm:text-5xl font-extrabold text-purple-400">12</p>
+                <p class="font-heading text-4xl sm:text-5xl font-extrabold text-purple-400">{{ \Illuminate\Support\Number::format($landingStats['countries']) }}</p>
                 <p class="mt-1 text-sm text-text-muted uppercase tracking-widest">{{ __('landing.stats_countries') }}</p>
             </div>
             <div>
-                <p class="font-heading text-4xl sm:text-5xl font-extrabold text-purple-400">50+</p>
+                <p class="font-heading text-4xl sm:text-5xl font-extrabold text-purple-400">{{ \Illuminate\Support\Number::format($landingStats['competitions']) }}+</p>
                 <p class="mt-1 text-sm text-text-muted uppercase tracking-widest">{{ __('landing.stats_competitions') }}</p>
             </div>
             <div>
-                <p class="font-heading text-4xl sm:text-5xl font-extrabold text-purple-400">670+</p>
+                <p class="font-heading text-4xl sm:text-5xl font-extrabold text-purple-400">{{ \Illuminate\Support\Number::format($landingStats['teams']) }}+</p>
                 <p class="mt-1 text-sm text-text-muted uppercase tracking-widest">{{ __('landing.stats_teams') }}</p>
             </div>
             <div>
-                <p class="font-heading text-4xl sm:text-5xl font-extrabold text-purple-400">9.000+</p>
+                <p class="font-heading text-4xl sm:text-5xl font-extrabold text-purple-400">{{ \Illuminate\Support\Number::format($landingStats['players']) }}+</p>
                 <p class="mt-1 text-sm text-text-muted uppercase tracking-widest">{{ __('landing.stats_players') }}</p>
             </div>
         </div>

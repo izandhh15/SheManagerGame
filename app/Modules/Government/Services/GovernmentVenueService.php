@@ -8,6 +8,7 @@ use App\Models\Game;
 use App\Models\GameMatch;
 use App\Models\GameNotification;
 use App\Modules\Notification\Services\NotificationService;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Government venue offers (F5, 0.3.9): regional/national governments
@@ -97,40 +98,50 @@ class GovernmentVenueService
      * Accept the offer for a specific stadium: the next home match moves
      * there, free of charge (the government foots the bill).
      *
+     * The notification row is locked inside a transaction so two concurrent
+     * accepts can't both pass the 'pending' check (double-accept race).
+     *
      * @return array{ok: bool, error: string|null}
      */
     public function accept(GameNotification $notification, string $stadiumName): array
     {
-        $meta = $notification->metadata ?? [];
-        if (($meta['status'] ?? null) !== 'pending') {
-            return ['ok' => false, 'error' => 'game.gov_venue_already_answered'];
-        }
+        return DB::transaction(function () use ($notification, $stadiumName) {
+            $locked = GameNotification::whereKey($notification->id)->lockForUpdate()->first();
+            if ($locked === null) {
+                return ['ok' => false, 'error' => 'game.gov_venue_invalid'];
+            }
 
-        if (! in_array($stadiumName, $meta['stadiums'] ?? [], true)) {
-            return ['ok' => false, 'error' => 'game.gov_venue_invalid_stadium'];
-        }
+            $meta = $locked->metadata ?? [];
+            if (($meta['status'] ?? null) !== 'pending') {
+                return ['ok' => false, 'error' => 'game.gov_venue_already_answered'];
+            }
 
-        $match = GameMatch::where('game_id', $notification->game_id)
-            ->where('id', $meta['match_id'] ?? null)
-            ->where('played', false)
-            ->first();
-        if ($match === null) {
-            return ['ok' => false, 'error' => 'game.gov_venue_invalid'];
-        }
+            if (! in_array($stadiumName, $meta['stadiums'] ?? [], true)) {
+                return ['ok' => false, 'error' => 'game.gov_venue_invalid_stadium'];
+            }
 
-        $stadium = $this->stadiumByName($stadiumName);
+            $match = GameMatch::where('game_id', $locked->game_id)
+                ->where('id', $meta['match_id'] ?? null)
+                ->where('played', false)
+                ->first();
+            if ($match === null) {
+                return ['ok' => false, 'error' => 'game.gov_venue_invalid'];
+            }
 
-        $match->update([
-            'neutral_venue_name' => $stadiumName,
-            'neutral_venue_capacity' => $stadium['capacity'] ?? null,
-            'government_sponsored' => true,
-        ]);
+            $stadium = $this->stadiumByName($stadiumName);
 
-        $meta['status'] = 'accepted';
-        $meta['chosen_stadium'] = $stadiumName;
-        $notification->update(['metadata' => $meta, 'read_at' => now()]);
+            $match->update([
+                'neutral_venue_name' => $stadiumName,
+                'neutral_venue_capacity' => $stadium['capacity'] ?? null,
+                'government_sponsored' => true,
+            ]);
 
-        return ['ok' => true, 'error' => null];
+            $meta['status'] = 'accepted';
+            $meta['chosen_stadium'] = $stadiumName;
+            $locked->update(['metadata' => $meta, 'read_at' => now()]);
+
+            return ['ok' => true, 'error' => null];
+        });
     }
 
     public function reject(GameNotification $notification): void

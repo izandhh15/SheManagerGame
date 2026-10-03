@@ -118,10 +118,10 @@ class ScoutSearchQueryBuilder
     private function applyValueFilter(Builder $query, array $filters): void
     {
         if (! empty($filters['value_min'])) {
-            $query->where('market_value_cents', '>=', $filters['value_min'] * 100);
+            $query->where('market_value_cents', '>=', (int) $filters['value_min'] * 100);
         }
         if (! empty($filters['value_max'])) {
-            $query->where('market_value_cents', '<=', $filters['value_max'] * 100);
+            $query->where('market_value_cents', '<=', (int) $filters['value_max'] * 100);
         }
     }
 

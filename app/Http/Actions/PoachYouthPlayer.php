@@ -39,9 +39,7 @@ class PoachYouthPlayer
 
         if ($investment === null || (int) $investment->transfer_budget < $feeCents) {
             return redirect()->back()->with('error',
-                app()->getLocale() === 'es'
-                    ? "No tienes suficiente presupuesto ({$feeEuros}€ necesarios)."
-                    : "Not enough budget ({$feeEuros}€ needed).");
+                __('messages.poach_not_enough_budget', ['fee' => $feeEuros]));
         }
 
         // The budget check above is only a fast path: the authoritative
@@ -88,9 +86,11 @@ class PoachYouthPlayer
                 'game_id' => $game->id,
                 'author_name' => 'Fichajes Fem',
                 'author_handle' => '@fichajesfem',
-                'text' => app()->getLocale() === 'es'
-                    ? "🚨 {$game->team?->name} 'roba' a la perla {$fresh->name} ({$fresh->potential} pot.) de la cantera rival."
-                    : "🚨 {$game->team?->name} 'steals' wonderkid {$fresh->name} ({$fresh->potential} pot.) from a rival academy.",
+                'text' => __('messages.poach_buzz', [
+                    'team' => $game->team?->name,
+                    'player' => $fresh->name,
+                    'potential' => $fresh->potential,
+                ]),
                 'sentiment' => 1,
                 'likes' => rand(100, 800),
                 'context' => 'youth_poach',
@@ -103,31 +103,27 @@ class PoachYouthPlayer
             $player = $result['player'];
 
             return redirect()->route('game.scouting.youth', $game->id)->with('success',
-                app()->getLocale() === 'es'
-                    ? "¡{$player->name} se une a tu cantera!"
-                    : "{$player->name} joins your academy!");
+                __('messages.poach_success', ['name' => $player->name]));
         }
 
         if (($result['reason'] ?? null) === 'budget') {
             return redirect()->back()->with('error',
-                app()->getLocale() === 'es'
-                    ? "No tienes suficiente presupuesto ({$feeEuros}€ necesarios)."
-                    : "Not enough budget ({$feeEuros}€ needed).");
+                __('messages.poach_not_enough_budget', ['fee' => $feeEuros]));
         }
 
         if (($result['reason'] ?? null) === 'gone') {
             return redirect()->back()->with('error',
-                app()->getLocale() === 'es'
-                    ? "{$prospect->name} ya no está disponible."
-                    : "{$prospect->name} is no longer available.");
+                __('messages.poach_player_gone', ['name' => $prospect->name]));
         }
 
         $costEuros = number_format((int) (($result['cost'] ?? 0) / 100), 0, ',', '.');
 
         return redirect()->back()->with('error',
-            app()->getLocale() === 'es'
-                ? "{$prospect->team?->name} se niega a negociar por {$prospect->name}. El acercamiento ha costado {$costEuros}€ en ojeo."
-                : "{$prospect->team?->name} refuses to negotiate for {$prospect->name}. The approach cost {$costEuros}€ in scouting.");
+            __('messages.poach_refused', [
+                'team' => $prospect->team?->name,
+                'name' => $prospect->name,
+                'cost' => $costEuros,
+            ]));
     }
 
     /**

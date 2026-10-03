@@ -677,6 +677,20 @@ class MatchSimulator
             return;
         }
 
+        // Position lookup for sent-off players, built from data already in
+        // memory: every player involved in the match sits in one of these
+        // collections, so the old GamePlayer::find() fallback (a DB hit in
+        // the hot path) is never needed.
+        $knownPositions = $homePlayers->mapWithKeys(fn ($p) => [$p->id => $p->position])
+            ->merge($awayPlayers->mapWithKeys(fn ($p) => [$p->id => $p->position]));
+        foreach ([$homeBench, $awayBench] as $bench) {
+            if ($bench !== null) {
+                $knownPositions = $knownPositions->merge(
+                    $bench->mapWithKeys(fn ($p) => [$p->id => $p->position])
+                );
+            }
+        }
+
         $maxSubs = SubstitutionService::MAX_SUBSTITUTIONS;
         $maxWindows = SubstitutionService::MAX_WINDOWS;
 
@@ -693,6 +707,7 @@ class MatchSimulator
                     $redCard, $subMinute, $maxSubs, $maxWindows,
                     $homeTeamId, $homePlayers, $homeBench, $homeEntryMinutes,
                     $homeSubsUsed, $homeWindowsUsed, $allEvents,
+                    $knownPositions,
                 );
             } else {
                 if ($isUserTeam) {
@@ -703,6 +718,7 @@ class MatchSimulator
                     $redCard, $subMinute, $maxSubs, $maxWindows,
                     $awayTeamId, $awayPlayers, $awayBench, $awayEntryMinutes,
                     $awaySubsUsed, $awayWindowsUsed, $allEvents,
+                    $knownPositions,
                 );
             }
         }
@@ -723,15 +739,13 @@ class MatchSimulator
         int &$subsUsed,
         int &$windowsUsed,
         Collection $allEvents,
+        Collection $knownPositions,
     ): void {
         // Remove the red-carded player from the lineup — they're off the pitch
         $sentOffPlayer = $players->firstWhere('id', $redCard->gamePlayerId);
-        $sentOffPosition = $sentOffPlayer?->position;
-
-        if (! $sentOffPosition) {
-            $playerModel = GamePlayer::find($redCard->gamePlayerId);
-            $sentOffPosition = $playerModel?->position ?? 'Central Midfield';
-        }
+        $sentOffPosition = $sentOffPlayer?->position
+            ?? $knownPositions->get($redCard->gamePlayerId)
+            ?? 'Central Midfield';
 
         $players = $players->reject(fn ($p) => $p->id === $redCard->gamePlayerId)->values();
 
@@ -1218,7 +1232,9 @@ class MatchSimulator
             }
 
             return match ($event->type) {
-                'goal' => MatchEventData::goal($event->teamId, $replacement->id, $event->minute),
+                // Preserve the original metadata (e.g. is_penalty): only the
+                // scorer changes, not how the goal was scored.
+                'goal' => new MatchEventData($event->teamId, $replacement->id, $event->minute, 'goal', $event->metadata),
                 'assist' => MatchEventData::assist($event->teamId, $replacement->id, $event->minute),
                 'yellow_card' => MatchEventData::yellowCard($event->teamId, $replacement->id, $event->minute),
                 // Reassigned reds can't carry a "second yellow" narrative because
@@ -2535,8 +2551,9 @@ class MatchSimulator
             return [$subEvents, $lineup, $bench];
         }
 
-        // Create substitution event at injury minute + 1
-        $subMinute = min($injury->minute + 1, 93);
+        // Create substitution event at injury minute + 1, clamped to the
+        // regulation event-generation range (see REGULATION_UPPER_BOUND).
+        $subMinute = min($injury->minute + 1, self::REGULATION_UPPER_BOUND);
         $subEvents->push(MatchEventData::substitution($teamId, $injuredPlayer->id, $replacement->id, $subMinute));
 
         // Update lineup: remove injured, add replacement

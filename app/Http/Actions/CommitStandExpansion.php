@@ -22,7 +22,7 @@ class CommitStandExpansion
         $game = Game::with('team')->findOrFail($gameId);
         abort_if($game->isTournamentMode(), 404);
         $validated = $request->validate([
-            'seats' => 'required|integer|min:1',
+            'seats' => 'required|integer|min:1|max:150000',
             'financing' => ['required', Rule::enum(StadiumProjectFinancing::class)],
         ]);
 

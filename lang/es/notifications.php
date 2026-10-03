@@ -237,4 +237,9 @@ return [
     // Mundial de Clubes
     'cwc_qualified_title' => '🌍 ¡Nos vamos al Mundial de Clubes!',
     'cwc_qualified_message' => 'Tu equipo está entre los mejores clubes de su confederación y se ha clasificado para el Mundial de Clubes. 32 equipos, un solo trofeo… ¡a por la copa más grande del planeta, míster!',
+
+    // i18n-b review: missing injury types for AI-generated injuries
+    'injury_ligament_damage' => 'daño en los ligamentos',
+    'injury_knee_injury' => 'lesión de rodilla',
+    'injury_unknown_injury' => 'una lesión',
 ];

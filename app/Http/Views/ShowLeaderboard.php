@@ -24,9 +24,8 @@ class ShowLeaderboard
 
         $cacheKey = "leaderboard:{$sort}:{$country}:{$province}:{$mode}:{$page}";
 
-        $cached = Cache::remember($cacheKey, self::CACHE_TTL, function () use ($country, $province, $sort, $mode, $request) {
-            $managers = $this->leaderboardService->getRankings($sort, $country, $province, $mode)
-                ->appends($request->query());
+        $cached = Cache::remember($cacheKey, self::CACHE_TTL, function () use ($country, $province, $sort, $mode) {
+            $managers = $this->leaderboardService->getRankings($sort, $country, $province, $mode);
 
             $provinces = $country
                 ? $this->leaderboardService->getProvincesForCountry($country, $mode)
@@ -39,6 +38,11 @@ class ShowLeaderboard
                 ...$this->leaderboardService->getAggregateStats($mode),
             ];
         });
+
+        // Pagination links must carry THIS request's query string. Doing it
+        // inside the Cache::remember closure baked the first visitor's params
+        // into the cached paginator for everyone else.
+        $cached['managers']->appends($request->query());
 
         return view('leaderboard', [
             ...$cached,

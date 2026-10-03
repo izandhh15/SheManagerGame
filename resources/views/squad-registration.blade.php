@@ -162,7 +162,7 @@
                                         <template x-if="getPlayer({{ $i }}).is_u23">
                                             <x-u23-badge />
                                         </template>
-                                        <span class="text-xs text-text-muted tabular-nums shrink-0" x-text="getPlayer({{ $i }}).age + ' {{ __('squad.years_abbr') }}'"></span>
+                                        <span class="text-xs text-text-muted tabular-nums shrink-0" x-text='getPlayer({{ $i }}).age + " " + @js(__("squad.years_abbr"))'></span>
 
                                         <div class="rating-badge w-7 h-7 rounded-md text-xs flex items-center justify-center shrink-0"
                                              :class="ratingBadgeClass(getPlayer({{ $i }}).overall)">
@@ -228,7 +228,7 @@
                                     <template x-if="players[entry.id].is_u23">
                                         <x-u23-badge />
                                     </template>
-                                    <span class="text-xs text-text-muted tabular-nums shrink-0" x-text="players[entry.id].age + ' {{ __('squad.years_abbr') }}'"></span>
+                                    <span class="text-xs text-text-muted tabular-nums shrink-0" x-text='players[entry.id].age + " " + @js(__("squad.years_abbr"))'></span>
 
                                     <div class="rating-badge w-7 h-7 rounded-md text-xs flex items-center justify-center shrink-0"
                                          :class="ratingBadgeClass(players[entry.id].overall)">
@@ -254,7 +254,7 @@
                 <div class="lg:sticky lg:top-4 lg:self-start">
                     <x-section-card :title="__('squad.unregistered_players')">
                         <x-slot name="badge">
-                            <span class="text-xs text-text-muted" x-text="unregisteredIds.length + ' {{ __('squad.players_count') }}'"></span>
+                            <span class="text-xs text-text-muted" x-text='unregisteredIds.length + " " + @js(__("squad.players_count"))'></span>
                         </x-slot>
 
                         <div data-unregistered-zone
@@ -284,7 +284,7 @@
                                     <template x-if="players[playerId].is_u23">
                                         <x-u23-badge />
                                     </template>
-                                    <span class="text-xs text-text-muted tabular-nums shrink-0" x-text="players[playerId].age + ' {{ __('squad.years_abbr') }}'"></span>
+                                    <span class="text-xs text-text-muted tabular-nums shrink-0" x-text='players[playerId].age + " " + @js(__("squad.years_abbr"))'></span>
 
                                     <div class="rating-badge w-7 h-7 rounded-md text-xs flex items-center justify-center shrink-0"
                                          :class="ratingBadgeClass(players[playerId].overall)">

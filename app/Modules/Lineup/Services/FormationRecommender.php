@@ -26,6 +26,11 @@ class FormationRecommender
      *                         them — keeps a tired specialist (e.g. DM whose
      *                         secondary is CM) from automatically beating a
      *                         fresher player whose primary is a good fit.
+     *   Pass 5 — Force:      force-place any remaining unused players into any
+     *                         remaining empty slots, regardless of compatibility
+     *                         (a Centre-Forward can end up in a CM slot with
+     *                         compat 0 — still better than leaving a selected
+     *                         player off the pitch entirely).
      *   Pass 6 — Improve:     after all slots are filled, swap any placed player
      *                         for a higher-rated bench player who is a natural
      *                         (compat 100) fit for that slot — catches cases

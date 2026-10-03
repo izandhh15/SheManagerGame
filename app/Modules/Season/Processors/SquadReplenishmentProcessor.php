@@ -127,6 +127,7 @@ class SquadReplenishmentProcessor implements SeasonProcessor
                 'overall_score',
                 'number',
                 'date_of_birth',
+                'contract_until',
                 'name as player_name',
             ])
             ->get()
@@ -168,8 +169,16 @@ class SquadReplenishmentProcessor implements SeasonProcessor
             $projectedSize = $currentSquadSize + $youthCount;
             $toRelease = max(0, $projectedSize - self::YOUTH_INTAKE_SQUAD_CAP);
             if ($toRelease > 0) {
+                // The trim never cuts a player under contract to hit the cap:
+                // only expired-contract players are eligible. (Contract
+                // expirations run in an earlier processor; anyone still
+                // contracted here is a real squad member and stays.)
+                $releasable = $players
+                    ->reject(fn ($p) => isset($lockedPlayerIds[$p->id]))
+                    ->filter(fn ($p) => $p->contract_until !== null
+                        && Carbon::parse($p->contract_until)->lt($game->current_date));
                 $candidates = $this->getReleaseCandidates(
-                    $players->reject(fn ($p) => isset($lockedPlayerIds[$p->id])),
+                    $releasable,
                     $game->current_date,
                     $toRelease,
                 );
@@ -356,6 +365,10 @@ class SquadReplenishmentProcessor implements SeasonProcessor
 
     /**
      * Pick players to release down to a target squad size.
+     *
+     * Callers must pre-filter to players who may actually be released —
+     * the trim only ever receives expired-contract players (never anyone
+     * under contract).
      *
      * Retirement-age players are preferred (lowest-rated first), then any other
      * player by ability ascending. GROUP_MINIMUMS are respected so a release

@@ -19,11 +19,6 @@ interface PlayoffGenerator
     public function getDirectPromotionPositions(): array;
 
     /**
-     * After which matchday should playoffs be triggered
-     */
-    public function getTriggerMatchday(): int;
-
-    /**
      * Get configuration for a specific round.
      * Reads dates from schedule.json, year-adjusted for the current game season.
      */

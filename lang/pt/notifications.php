@@ -228,4 +228,17 @@ return [
     'squad_registration_required_message' => 'Tens :count jogadoras por inscrever. Regista o teu plantel antes do início da época — as jogadoras não inscritas não poderão ser convocadas.',
     'unenrolled_before_window_close_title' => 'Jogadoras por inscrever — fecha a janela de :window',
     'unenrolled_before_window_close_message' => 'Tens :count jogadoras por inscrever. Esta é a tua última jornada para as registar antes do fecho da janela de transferências — sem dorsal não poderão ser convocadas.',
+
+    // i18n-b review: missing injury types for AI-generated injuries
+    'injury_ligament_damage' => 'lesão ligamentar',
+    'injury_knee_injury' => 'lesão no joelho',
+    'injury_unknown_injury' => 'uma lesão',
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'academy_jewel_title' => '💎 Joia da formação!',
+    'academy_jewel_message' => ':player (:position), de 16 anos, destaca-se na formação: o seu potencial é de elite. Não a percas de vista!',
+    'sponsor_offers_arrived_title' => 'Chovem ofertas de patrocínio!',
+    'sponsor_offers_arrived_message' => '{1} Uma marca quer patrocinar a equipa: passa pela página Comercial para ver a oferta.|[2,*] :count marcas querem patrocinar a equipa: passa pela página Comercial para ver as ofertas.',
+    'cwc_qualified_title' => '🌍 Vamos ao Mundial de Clubes!',
+    'cwc_qualified_message' => 'A tua equipa está entre os melhores clubes da sua confederação e qualificou-se para o Mundial de Clubes. 32 equipas, um só troféu… vai buscar a maior taça do planeta, míster!',
 ];

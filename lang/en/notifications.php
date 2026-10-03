@@ -229,4 +229,9 @@ return [
     'unenrolled_before_window_close_message' => 'You have :count unenrolled players. This is your last matchday to register them before the transfer window closes — without a squad number they cannot be selected for matches.',
     'cwc_qualified_title' => '🌍 We\'re off to the Club World Cup!',
     'cwc_qualified_message' => 'Your team is among the best clubs in its confederation and has qualified for the Club World Cup. 32 teams, one trophy… go for the biggest cup on the planet, boss!',
+
+    // i18n-b review: missing injury types for AI-generated injuries
+    'injury_ligament_damage' => 'ligament damage',
+    'injury_knee_injury' => 'knee injury',
+    'injury_unknown_injury' => 'an injury',
 ];

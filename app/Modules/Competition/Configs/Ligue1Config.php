@@ -145,15 +145,6 @@ class Ligue1Config implements CompetitionConfig, HasSeasonGoals
             ];
         }
 
-        if (!empty($slots['UECL'])) {
-            $zones[] = [
-                'minPosition' => min($slots['UECL']),
-                'maxPosition' => max($slots['UECL']),
-                'borderColor' => 'green-500',
-                'bgColor' => 'bg-green-500',
-                'label' => 'game.conference_league',
-            ];
-        }
 
         // Première Ligue has 12 teams; 11th and 12th go down
         // (countries.FR promotions). The old 16-18 range was copied from

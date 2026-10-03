@@ -104,7 +104,7 @@
                     <div class="flex items-center gap-2.5">
                         <div class="w-8 h-8 bg-surface-600 rounded-lg shrink-0"></div>
                         <div>
-                            <span class="font-heading font-semibold text-sm text-text-primary uppercase tracking-wide">Real Madrid</span>
+                            <span class="font-heading font-semibold text-sm text-text-primary uppercase tracking-wide">Real Madrid Femenino</span>
                             <p class="text-[10px] text-text-muted uppercase tracking-widest">Season 2025/26</p>
                         </div>
                     </div>

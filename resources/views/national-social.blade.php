@@ -10,7 +10,6 @@
 /** @var bool $hasSquad */
 /** @var int $squadCount */
 /** @var array $ticketTiers */
-$assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
 @endphp
 
 <x-app-layout>

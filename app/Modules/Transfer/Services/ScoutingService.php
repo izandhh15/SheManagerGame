@@ -906,7 +906,14 @@ class ScoutingService
         $investment = $game->currentInvestment;
         $availableBudget = $this->availableTransferBudget($game);
         $canAffordFee = $askingPrice <= $availableBudget;
-        $canAffordLoan = $isFreeAgent || $wageDemand <= $availableBudget;
+        // Display-only heuristic, labelled honestly: the game has no
+        // wage-budget scalar (wages are governed by the revenue-based club
+        // wage level in WageModelService), so loan affordability is proxied
+        // by comparing the ANNUAL wage demand against the available TRANSFER
+        // budget. A large transfer budget does not guarantee wage room and
+        // vice versa — this flag only gates the dossier's loan affordance,
+        // never a real transaction.
+        $canAffordLoanVsTransferBudget = $isFreeAgent || $wageDemand <= $availableBudget;
 
         return [
             'player' => $player,
@@ -919,7 +926,7 @@ class ScoutingService
             'pre_contract_wage_demand' => $preContractWageDemand,
             'importance' => $importance,
             'can_afford_fee' => $canAffordFee,
-            'can_afford_loan' => $canAffordLoan,
+            'can_afford_loan' => $canAffordLoanVsTransferBudget,
             'available_budget' => $availableBudget,
             'transfer_budget' => $investment->transfer_budget ?? 0,
             'formatted_transfer_budget' => $investment ? $investment->formatted_transfer_budget : '€ 0',

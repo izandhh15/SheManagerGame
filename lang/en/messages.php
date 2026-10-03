@@ -238,4 +238,16 @@ return [
     'sponsor_deal_rejected' => 'Offer from :sponsor discarded. On to the next one.',
     'sponsor_offer_unavailable' => 'That sponsorship offer is no longer available.',
     'sponsor_deal_active' => 'You already have an active sponsor in that slot. Wait for the contract to expire.',
+
+    // i18n-b review: poach youth player + generic error flashes
+    'poach_not_enough_budget' => 'Not enough budget (:fee€ needed).',
+    'poach_player_gone' => ':name is no longer available.',
+    'poach_refused' => ':team refuses to negotiate for :name. The approach cost :cost€ in scouting.',
+    'poach_success' => ':name joins your academy!',
+    'season_summary_load_error' => 'Could not load the season summary. Please try again.',
+    'new_season_start_error' => 'Could not start the new season. Please try again.',
+    'lineup_confirmed' => 'Lineup confirmed! Click Continue to play the match.',
+
+    // i18n-b review: poach youth player social buzz
+    'poach_buzz' => '🚨 :team \'steals\' wonderkid :player (:potential pot.) from a rival academy.',
 ];

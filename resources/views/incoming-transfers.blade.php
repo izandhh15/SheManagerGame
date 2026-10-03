@@ -97,7 +97,7 @@
                                                 @endif
                                                 <div>
                                                     <div class="font-semibold text-text-primary">
-                                                        {{ $offer->gamePlayer->name }} &larr; {{ $offer->selling_team_name ?? 'Unknown' }}
+                                                        {{ $offer->gamePlayer->name }} &larr; {{ $offer->selling_team_name ?? __('game.unknown') }}
                                                     </div>
                                                     <div class="text-sm text-text-secondary">
                                                         {{ $offer->gamePlayer->position_name }} &middot; {{ $offer->gamePlayer->age($game->current_date) }} {{ __('app.years') }}
@@ -187,7 +187,7 @@
                                                 @endif
                                                 <div>
                                                     <div class="font-semibold text-text-primary">
-                                                        {{ $transfer->gamePlayer->name }} &larr; {{ $transfer->selling_team_name ?? 'Unknown' }}
+                                                        {{ $transfer->gamePlayer->name }} &larr; {{ $transfer->selling_team_name ?? __('game.unknown') }}
                                                     </div>
                                                     <div class="text-sm text-text-secondary">
                                                         {{ $transfer->gamePlayer->position_name }} &middot; {{ $transfer->gamePlayer->age($game->current_date) }} {{ __('app.years') }}
@@ -238,7 +238,7 @@
                                                     @endif
                                                 </div>
                                                 <div class="text-xs text-text-secondary mt-0.5">
-                                                    {{ __('transfers.returns') }}: {{ $loan->return_at->format('M j, Y') }}
+                                                    {{ __('transfers.returns') }}: {{ $loan->return_at?->format('M j, Y') }}
                                                 </div>
                                             </div>
                                         </div>
@@ -266,7 +266,7 @@
                                                 </span>
                                             </div>
                                             <div class="flex items-center gap-3 md:text-right">
-                                                <span class="text-xs text-text-muted">{{ $transfer->resolved_at->format('d M Y') }}</span>
+                                                <span class="text-xs text-text-muted">{{ $transfer->resolved_at?->format('d M Y') }}</span>
                                                 <span class="font-semibold text-accent-green">{{ $transfer->formatted_transfer_fee }}</span>
                                             </div>
                                         </div>

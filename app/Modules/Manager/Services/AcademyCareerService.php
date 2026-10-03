@@ -164,8 +164,8 @@ class AcademyCareerService
      * The probability is influenced by season performance:
      * - Won the league: 70% chance
      * - Top 3: 50% chance
-     * - Mid-table: 25% chance
-     * - Bottom/relegated: 5% chance (but you might get fired instead!)
+     * - Mid-table: 30% chance
+     * - Bottom/relegated: 10% chance (but you might get fired instead!)
      *
      * If already at the first team, always returns null.
      */

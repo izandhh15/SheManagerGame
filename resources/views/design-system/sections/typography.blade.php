@@ -21,7 +21,7 @@
 
         {{-- Team / header name --}}
         <div>
-            <span class="font-heading font-semibold text-base leading-none tracking-wide text-text-primary">Real Madrid CF</span>
+            <span class="font-heading font-semibold text-base leading-none tracking-wide text-text-primary">Real Madrid Femenino</span>
             <div class="mt-2">
                 <code class="text-[10px] bg-surface-700 px-1.5 py-0.5 rounded-sm text-text-body">font-heading font-semibold text-base leading-none tracking-wide text-text-primary</code>
             </div>

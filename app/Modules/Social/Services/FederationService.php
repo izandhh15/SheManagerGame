@@ -298,6 +298,16 @@ class FederationService
      */
     public function handleIncomingRequest(array $data): array
     {
+        // Guard against malformed payloads: the keys below are read
+        // unconditionally further down.
+        if (!isset($data['to_username'], $data['from_username'], $data['from_instance'])
+            || !is_string($data['to_username'])
+            || !is_string($data['from_username'])
+            || !is_string($data['from_instance'])
+        ) {
+            return ['ok' => false, 'error' => 'invalid_payload'];
+        }
+
         $to = User::where('username', $data['to_username'])->first();
 
         if (! $to) {

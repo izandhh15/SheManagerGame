@@ -195,12 +195,14 @@ $uefaCompletionLabel           = $upgrade['uefa_completion_label'];
                   min: @js($supplementaryMin),
                   max: @js($supplementaryMax),
                   perSeat: @js($supplementaryPerSeat),
+                  appLocale: @js(\App\Support\LocaleFormat::jsLocale()),
+                  fmtEurCompact(v) { return new Intl.NumberFormat(this.appLocale, { style: 'currency', currency: 'EUR', notation: 'compact', maximumFractionDigits: 1 }).format(v); },
                   fillPercent() {
                       if (this.max <= this.min) return 0;
                       return ((this.seats - this.min) / (this.max - this.min)) * 100;
                   },
                   costLabel() {
-                      return '€ ' + ((this.seats * this.perSeat) / 100_000_000).toFixed(1) + 'M';
+                      return this.fmtEurCompact((this.seats * this.perSeat) / 100);
                   }
               }"
               class="p-6 space-y-4">
@@ -271,6 +273,8 @@ $uefaCompletionLabel           = $upgrade['uefa_completion_label'];
                   cashMax: @js($standExpansionCashMax),
                   loanMax: @js($standExpansionLoanMax),
                   perSeat: @js($standExpansionPerSeat),
+                  appLocale: @js(\App\Support\LocaleFormat::jsLocale()),
+                  fmtEurCompact(v) { return new Intl.NumberFormat(this.appLocale, { style: 'currency', currency: 'EUR', notation: 'compact', maximumFractionDigits: 1 }).format(v); },
                   effectiveMax() {
                       return this.financing === 'cash' ? this.cashMax : this.loanMax;
                   },
@@ -280,7 +284,7 @@ $uefaCompletionLabel           = $upgrade['uefa_completion_label'];
                       return ((this.seats - this.min) / (max - this.min)) * 100;
                   },
                   costCents() { return this.seats * this.perSeat; },
-                  costLabel() { return '€ ' + (this.costCents() / 100_000_000).toFixed(1) + 'M'; },
+                  costLabel() { return this.fmtEurCompact(this.costCents() / 100); },
                   cashAffordable() { return this.cashMax >= this.min; },
                   loanAffordable() { return this.loanMax >= this.min; }
               }"
@@ -404,6 +408,9 @@ $uefaCompletionLabel           = $upgrade['uefa_completion_label'];
                   maxLoan: @js($rebuildMaxCapacity),
                   maxCash: @js($rebuildMaxCash),
                   bands: @js($rebuildBands),
+                  appLocale: @js(\App\Support\LocaleFormat::jsLocale()),
+                  fmtEurCompact(v) { return new Intl.NumberFormat(this.appLocale, { style: 'currency', currency: 'EUR', notation: 'compact', maximumFractionDigits: 1 }).format(v); },
+                  fmtEur(v) { return new Intl.NumberFormat(this.appLocale, { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(v); },
                   effectiveMax() {
                       return this.financing === 'cash'
                           ? Math.min(this.maxLoan, this.maxCash)
@@ -435,7 +442,7 @@ $uefaCompletionLabel           = $upgrade['uefa_completion_label'];
                       }
                       return cost;
                   },
-                  costLabel() { return '€ ' + (this.costCents() / 100_000_000).toFixed(1) + 'M'; },
+                  costLabel() { return this.fmtEurCompact(this.costCents() / 100); },
                   // Marginal per-seat rate at the current capacity — surfaces
                   // when crossing a band boundary so the user can see why the
                   // slope just got steeper.
@@ -449,7 +456,7 @@ $uefaCompletionLabel           = $upgrade['uefa_completion_label'];
                       }
                       return this.bands[this.bands.length - 1].per_seat_cents;
                   },
-                  marginalLabel() { return '€ ' + (this.marginalPerSeat() / 100).toLocaleString('es-ES', {maximumFractionDigits: 0}); },
+                  marginalLabel() { return this.fmtEur(this.marginalPerSeat() / 100); },
                   cashAffordable() { return this.maxCash >= this.min; }
               }"
               x-effect="if (capacity > effectiveMax()) capacity = effectiveMax()"

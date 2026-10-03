@@ -92,7 +92,7 @@ class NationalTeamEventService
                     'player_id' => $victim->player_id,
                     'event_type' => 'injury',
                     'window_start' => $windowStart,
-                    'description' => "{$victim->name} se ha lesionado y es baja para esta ventana.",
+                    'description' => __('game.national_squad_event_injury', ['name' => $victim->name]),
                     'created_at' => now(),
                     'updated_at' => now(),
                 ]);
@@ -151,7 +151,7 @@ class NationalTeamEventService
             'player_id' => $candidate->player_id,
             'event_type' => 'resignation',
             'window_start' => $window['start'] ?? now()->format('Y-m-d'),
-            'description' => "{$candidate->name} ha anunciado su retirada de la selección.",
+            'description' => __('game.national_squad_event_resignation', ['name' => $candidate->name]),
             'created_at' => now(),
             'updated_at' => now(),
         ]);

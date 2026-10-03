@@ -82,7 +82,8 @@ final class FifaInternationalBreaks
     }
 
     /**
-     * The next window starting at or after $date, however far away.
+     * The first window ending at or after $date, however far away
+     * (it may already be in progress).
      * Null when the season has no more windows.
      *
      * @return array{start: string, end: string, label: string}|null

@@ -235,4 +235,23 @@ return [
     'naming_rights_search_cooldown' => 'Deine Handelsagentur sondiert noch den Markt. Warte ein paar Tage, bevor du erneut suchst.',
     'naming_rights_search_unaffordable' => 'Du hast kein Budget für die Provision der Handelsagentur.',
     'naming_rights_board_full' => 'Du hast bereits die maximale Anzahl an Angeboten auf dem Tisch. Nimm eines an oder lehne sie ab, bevor du weiter suchst.',
+
+    // i18n-b review: poach youth player + generic error flashes
+    'poach_not_enough_budget' => 'Nicht genug Budget (:fee€ nötig).',
+    'poach_player_gone' => ':name ist nicht mehr verfügbar.',
+    'poach_refused' => ':team weigert sich, über :name zu verhandeln. Der Versuch hat :cost€ an Scouting gekostet.',
+    'poach_success' => ':name schließt sich deiner Akademie an!',
+    'season_summary_load_error' => 'Die Saisonübersicht konnte nicht geladen werden. Bitte versuche es erneut.',
+    'new_season_start_error' => 'Die neue Saison konnte nicht gestartet werden. Bitte versuche es erneut.',
+    'lineup_confirmed' => 'Aufstellung bestätigt! Klicke auf Weiter, um das Spiel zu starten.',
+
+    // i18n-b review: poach youth player social buzz
+    'poach_buzz' => '🚨 :team \'stiehlt\' das Talent :player (:potential Pot.) aus einer rivalisierenden Akademie.',
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'naming_rights_offer_rejected' => 'Angebot von :sponsor verworfen. Die werden es nie erfahren.',
+    'sponsor_deal_accepted' => 'Deal! :sponsor sponsert :slot. Zeit zum Kassieren.',
+    'sponsor_deal_rejected' => 'Angebot von :sponsor verworfen. Weiter geht\'s.',
+    'sponsor_offer_unavailable' => 'Dieses Sponsoringangebot ist nicht mehr verfügbar.',
+    'sponsor_deal_active' => 'Du hast bereits einen aktiven Sponsor auf diesem Platz. Warte, bis der Vertrag ausläuft.',
 ];

@@ -58,18 +58,8 @@ return [
     'youth_academy' => 'Nachwuchsakademie',
 
     'medical' => 'Medizinische Abteilung',
-    'medical_tier_0' => 'Minimalbesetzung — Basis-Regeneration',
-    'medical_tier_1' => 'Basisversorgung — Standard-Regeneration',
-    'medical_tier_2' => 'Gute Ausstattung — 15 % schneller',
-    'medical_tier_3' => 'Elite-Personal — 30 % schneller, weniger Verletzungen',
-    'medical_tier_4' => 'Weltklasse — 50 % schneller, Prävention',
 
     'scouting' => 'Scouting',
-    'scouting_tier_0' => 'Minimale Scouts — begrenzte Reichweite',
-    'scouting_tier_1' => 'Basisnetzwerk — nur nationaler Markt',
-    'scouting_tier_2' => 'Erweitertes Netzwerk — national, mehr Ergebnisse und Präzision',
-    'scouting_tier_3' => 'Internationale Reichweite — schnelle und präzise Suchen',
-    'scouting_tier_4' => 'Globales Netzwerk — maximale Geschwindigkeit, Ergebnisse und Präzision',
 
     // Budget flow tooltips
     'tooltip_tv_rights' => 'TV-Verteilung basierend auf deiner endgültigen Ligaplatzierung. Je höher du landest, desto größer dein Anteil.',
@@ -198,7 +188,7 @@ return [
     'category_severance' => 'Abfindung',
     'category_infrastructure' => 'Infrastruktur',
     'category_stadium' => 'Stadion',
-    'category_venue_fee' => 'Venue fee (national team)',
+    'category_venue_fee' => 'Stadionmiete (Nationalmannschaft)',
     'category_agent_fee' => 'Agenturprovision',
     'category_budget_loan' => 'Budgetdarlehen',
     'category_loan_repayment' => 'Darlehensrückzahlung',
@@ -262,4 +252,17 @@ return [
     'severance_method_installments_detail' => ':monthly/Monat über :months Monate (gesamt :total mit Zinsen).',
     'severance_method_bank_loan' => 'Bankdarlehen aufnehmen',
     'severance_method_bank_loan_detail' => 'Die Bank leiht dir :amount und du zahlst es am Saisonende zurück (:repayment mit Zinsen).',
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'shirt_sponsor' => 'Trikotsponsor',
+    'ad_board' => 'Werbebanden',
+    'tooltip_shirt_sponsor' => 'Einnahmen aus dem Sponsorlogo auf dem Trikot. Feste Jahresgebühr für die Vertragslaufzeit.',
+    'tooltip_ad_board' => 'Einnahmen aus den Stadionwerbebanden. Feste Jahresgebühr für die Vertragslaufzeit.',
+    'category_venue_rent' => 'Stadionmiete',
+    'category_tour_cost' => 'Saisonvorbereitungstour',
+    'category_matchday_tickets' => 'Tageskasse: Tickets',
+    'category_matchday_shirts' => 'Tageskasse: Trikots',
+    'category_matchday_merch' => 'Tageskasse: Merchandising',
+    'category_matchday_bars' => 'Tageskasse: Bars',
+
 ];

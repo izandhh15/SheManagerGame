@@ -25,4 +25,9 @@ class RegistrationException extends RuntimeException
     {
         return new self(__('squad.too_many_first_team'));
     }
+
+    public static function invalidNumber(): self
+    {
+        return new self(__('squad.number_invalid'));
+    }
 }

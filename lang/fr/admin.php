@@ -242,4 +242,7 @@ return [
     'live_device_desktop' => 'Ordinateur',
     'live_device_mobile' => 'Mobile',
     'live_device_tablet' => 'Tablette',
+
+    // i18n-b review: admin badge
+    'admin_badge' => 'Admin',
 ];

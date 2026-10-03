@@ -401,4 +401,16 @@ return [
     'registration_readonly' => 'Du kannst Spielerinnen nur während der Transferfenster melden und Nummern ändern.',
     'u23_badge_label' => 'U23',
     'u23_badge_tooltip' => 'Berechtigt für Akademie-Nummer — unter 24 am 1. Januar der Saison.',
+
+    // i18n-b review: lineup validation errors + missing injury types
+    'lineup_must_select_11' => 'Du musst genau 11 Spielerinnen auswählen.',
+    'lineup_duplicate_players' => 'Doppelte Spielerinnen erkannt.',
+    'lineup_invalid_slot' => 'Ungültige Positionszuweisung.',
+    'lineup_slot_player_not_in_lineup' => 'Position einer Spielerin zugewiesen, die nicht in der Aufstellung steht.',
+    'injury_ligament_damage' => 'Bänderverletzung',
+    'injury_knee_injury' => 'Knieverletzung',
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'academy_jewel' => 'Juwel',
+    'academy_jewel_tooltip' => 'Juwel der Nachwuchsarbeit: eine 16-jährige Nachwuchsspielerin mit erstklassigem Potenzial.',
 ];

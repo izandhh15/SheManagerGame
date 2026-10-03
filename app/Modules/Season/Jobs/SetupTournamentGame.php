@@ -376,6 +376,31 @@ class SetupTournamentGame implements ShouldQueue
     }
 
     /**
+     * Real final-tournament years, used to date the fallback group-stage
+     * fixtures when data/2026/{id}/schedule.json has no league dates.
+     * The month/day skeleton mirrors the real World Cup 2027 dates; only
+     * the year moves per tournament (a 2028 Olympics / 2029 Euros dated
+     * in 2027 would corrupt the season calendar).
+     */
+    private const FINAL_TOURNAMENT_YEARS = [
+        'WWCU27' => 2027,
+        'WOLYMP' => 2028,
+        'WEURO' => 2029,
+    ];
+
+    /**
+     * Fallback group-stage dates for a final tournament, per tournament year.
+     *
+     * @return list<string>
+     */
+    private function finalGroupFallbackDates(string $competitionId): array
+    {
+        $year = self::FINAL_TOURNAMENT_YEARS[$competitionId] ?? 2027;
+
+        return ["{$year}-06-24", "{$year}-06-29", "{$year}-07-04"];
+    }
+
+    /**
      * Create the group-stage fixtures: 3 matchdays of single
      * round-robin per group, dated from the competition's schedule.json.
      */
@@ -385,7 +410,7 @@ class SetupTournamentGame implements ShouldQueue
             return;
         }
 
-        $dates = ['2027-06-24', '2027-06-29', '2027-07-04'];
+        $dates = $this->finalGroupFallbackDates($competitionId);
         $schedulePath = base_path("data/2026/{$competitionId}/schedule.json");
         if (file_exists($schedulePath)) {
             $leagueDates = array_column(json_decode(file_get_contents($schedulePath), true)['league'] ?? [], 'date');

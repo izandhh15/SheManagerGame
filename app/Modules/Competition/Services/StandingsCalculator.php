@@ -75,16 +75,19 @@ class StandingsCalculator
         }
 
         $ids = $standingIds->values()->toArray();
-        $idList = "'" . implode("','", $ids) . "'";
+        $placeholders = implode(',', array_fill(0, count($ids), '?'));
         $columns = ['played', 'won', 'drawn', 'lost', 'goals_for', 'goals_against', 'points'];
         $setClauses = [];
+        $bindings = [];
 
         foreach ($columns as $column) {
             $cases = [];
             foreach ($standingIds as $teamId => $standingId) {
                 $amount = $increments[$teamId][$column] ?? 0;
                 if ($amount !== 0) {
-                    $cases[] = "WHEN id = '{$standingId}' THEN {$column} + {$amount}";
+                    $cases[] = "WHEN id = ? THEN {$column} + ?";
+                    $bindings[] = $standingId;
+                    $bindings[] = (int) $amount;
                 }
             }
             if (! empty($cases)) {
@@ -93,7 +96,10 @@ class StandingsCalculator
         }
 
         if (! empty($setClauses)) {
-            DB::statement('UPDATE game_standings SET ' . implode(', ', $setClauses) . " WHERE id IN ({$idList})");
+            DB::statement(
+                'UPDATE game_standings SET ' . implode(', ', $setClauses) . " WHERE id IN ({$placeholders})",
+                array_merge($bindings, array_values($ids))
+            );
         }
 
         // Append form characters (W/D/L) for each team
@@ -119,13 +125,19 @@ class StandingsCalculator
 
         if (! empty($formUpdates)) {
             $cases = [];
+            $bindings = [];
             $updateIds = [];
             foreach ($formUpdates as $id => $form) {
-                $cases[] = "WHEN id = '{$id}' THEN '{$form}'";
-                $updateIds[] = "'{$id}'";
+                $cases[] = 'WHEN id = ? THEN ?';
+                $bindings[] = $id;
+                $bindings[] = $form;
+                $updateIds[] = $id;
             }
-            $updateIdList = implode(',', $updateIds);
-            DB::statement('UPDATE game_standings SET form = CASE ' . implode(' ', $cases) . " END WHERE id IN ({$updateIdList})");
+            $placeholders = implode(',', array_fill(0, count($updateIds), '?'));
+            DB::statement(
+                'UPDATE game_standings SET form = CASE ' . implode(' ', $cases) . " END WHERE id IN ({$placeholders})",
+                array_merge($bindings, array_values($updateIds))
+            );
         }
     }
 
@@ -203,13 +215,6 @@ class StandingsCalculator
         $standing->save();
     }
 
-    /**
-     * Recalculate positions for all teams in a competition.
-     * Uses a single bulk UPDATE with CASE WHEN instead of per-row updates.
-     *
-     * When standings have group_label set (e.g. World Cup), positions are
-     * recalculated within each group separately.
-     */
     /**
      * Recalculate positions for all teams in a competition.
      * Uses a single bulk UPDATE with CASE WHEN instead of per-row updates.

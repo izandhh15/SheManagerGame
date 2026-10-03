@@ -123,12 +123,12 @@
                                     @if(isset($committedPlayerIds[$player->id]))
                                         {{-- A committed deal completes from where he sits; no squad moves until then. --}}
                                     @elseif($isCalledUp)
-                                        <form method="POST" action="{{ route('game.reserve.send-back', [$game->id, $player->id]) }}" onsubmit="return confirm('{{ __('squad.send_back_to_reserve') }}?')">
+                                        <form method="POST" action="{{ route('game.reserve.send-back', [$game->id, $player->id]) }}" onsubmit='return confirm(@js(__("squad.send_back_to_reserve") . "?"))'>
                                             @csrf
                                             <button type="submit" class="text-amber-400 hover:text-amber-300 px-2" title="{{ __('squad.send_back_to_reserve') }}">↓</button>
                                         </form>
                                     @else
-                                        <form method="POST" action="{{ route('game.reserve.call-up', [$game->id, $player->id]) }}" onsubmit="return confirm('{{ __('squad.call_up_to_first_team') }}?')">
+                                        <form method="POST" action="{{ route('game.reserve.call-up', [$game->id, $player->id]) }}" onsubmit='return confirm(@js(__("squad.call_up_to_first_team") . "?"))'>
                                             @csrf
                                             <button type="submit" class="text-accent-green hover:text-emerald-400 px-2" title="{{ __('squad.call_up_to_first_team') }}">↑</button>
                                         </form>

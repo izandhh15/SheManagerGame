@@ -28,9 +28,8 @@ class ShowTournamentLeaderboard
 
         $cacheKey = "leaderboard:tournament:{$sort}:{$country}:{$team}:{$page}";
 
-        $cached = Cache::remember($cacheKey, self::CACHE_TTL, function () use ($country, $team, $sort, $request) {
-            $rankings = $this->service->getRankings($sort, $country, $team)
-                ->appends($request->query());
+        $cached = Cache::remember($cacheKey, self::CACHE_TTL, function () use ($country, $team, $sort) {
+            $rankings = $this->service->getRankings($sort, $country, $team);
 
             return [
                 'rankings' => $rankings,
@@ -39,6 +38,11 @@ class ShowTournamentLeaderboard
                 ...$this->service->getAggregateStats(),
             ];
         });
+
+        // Pagination links must carry THIS request's query string. Doing it
+        // inside the Cache::remember closure baked the first visitor's params
+        // into the cached paginator for everyone else.
+        $cached['rankings']->appends($request->query());
 
         return view('leaderboard.tournament', [
             ...$cached,

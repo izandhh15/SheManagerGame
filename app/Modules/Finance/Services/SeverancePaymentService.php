@@ -62,10 +62,13 @@ class SeverancePaymentService
                 ];
             }
 
-            // Préstamo bancario: solo si no hay otro préstamo activo.
-            if ($this->budgetLoanService->activeLoan($game) === null && $game->currentInvestment) {
+            // Préstamo bancario: solo si no hay otro préstamo activo y el
+            // importe respeta los límites de requestLoan() (mínimo 500K,
+            // máximo 10% de los ingresos proyectados).
+            if ($this->budgetLoanService->canRequestLoan($game)) {
+                $minimum = config('finances.loan.minimum', 50_000_000);
                 $maxLoan = $this->budgetLoanService->maxLoanAmount($game);
-                if ($maxLoan >= $severance) {
+                if ($severance >= $minimum && $maxLoan >= $severance) {
                     $interestRate = config('finances.loan.interest_rate', 1500);
                     $repayment = (int) ($severance * (1 + $interestRate / 10000));
                     $methods[] = [
@@ -171,14 +174,23 @@ class SeverancePaymentService
 
     private function payWithBankLoan(Game $game, ?GamePlayer $player, string $playerName, int $severance): array
     {
-        if ($this->budgetLoanService->activeLoan($game) !== null) {
-            return ['error' => __('messages.severance_loan_active')];
+        // Same eligibility and limits as a regular budget loan
+        // (BudgetLoanService::requestLoan()): no active loan, transfer
+        // window open, minimum €500K and at most 10% of projected revenue.
+        if (!$this->budgetLoanService->canRequestLoan($game)) {
+            return ['error' => __('messages.severance_loan_unavailable')];
+        }
+
+        $minimum = config('finances.loan.minimum', 50_000_000);
+        if ($severance < $minimum) {
+            return ['error' => __('messages.loan_below_minimum')];
+        }
+
+        if ($severance > $this->budgetLoanService->maxLoanAmount($game)) {
+            return ['error' => __('messages.loan_exceeds_maximum')];
         }
 
         $investment = $game->currentInvestment;
-        if (!$investment) {
-            return ['error' => __('messages.severance_loan_unavailable')];
-        }
 
         $interestRate = config('finances.loan.interest_rate', 1500); // basis points
         $repaymentAmount = (int) ($severance * (1 + $interestRate / 10000));

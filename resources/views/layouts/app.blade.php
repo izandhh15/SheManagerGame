@@ -186,7 +186,7 @@
                             <div class="flex flex-col items-center md:items-start gap-3">
                                 <a href="{{ route('dashboard') }}" class="font-heading font-bold text-lg uppercase tracking-wide text-text-primary">SheManager<span class="text-purple-400">Game</span></a>
                                 <p class="text-xs text-text-faint">
-                                    &copy; {{ date('Y') }} Izan Delgado &middot; <a href="https://github.com/izandhh15/SheManagerGame" target="_blank" class="hover:text-text-muted transition-colors">Proyecto Open Source</a> &middot; <a href="{{ route('legal') }}" class="hover:text-text-muted transition-colors">Aviso Legal</a> &middot; <a href="https://instagram.com/shemanagergame" target="_blank" rel="noopener" class="hover:text-text-muted transition-colors">Instagram</a>
+                                    &copy; {{ date('Y') }} Izan Delgado &middot; <a href="https://github.com/izandhh15/SheManagerGame" target="_blank" class="hover:text-text-muted transition-colors">Proyecto Open Source</a> &middot; <a href="{{ route('legal') }}" class="hover:text-text-muted transition-colors">{{ __('app.legal_notice') }}</a> &middot; <a href="https://instagram.com/shemanagergame" target="_blank" rel="noopener" class="hover:text-text-muted transition-colors">Instagram</a>
                                 </p>
                                 <p class="text-xs text-text-faint">
                                     {{ __('app.data_attribution_prefix') }} <a href="https://www.soccerdonna.de" target="_blank" rel="noopener" class="hover:text-text-muted transition-colors">Soccerdonna</a>{{ __('app.data_attribution_suffix') }}

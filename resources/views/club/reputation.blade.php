@@ -7,10 +7,6 @@
 
 $currentLevel = $summary['current_level'];
 $tierIndex = $summary['tier_index'];
-$pointsInTier = $summary['points_in_tier'];
-$tierSpan = $summary['tier_span'];
-
-$tierProgressPercent = $tierSpan > 0 ? (int) round(min(100, ($pointsInTier / $tierSpan) * 100)) : 0;
 
 $allTiers = \App\Models\ClubProfile::REPUTATION_TIERS;
 

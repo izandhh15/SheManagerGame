@@ -4,7 +4,9 @@ namespace App\Http\Actions;
 
 use App\Models\Game;
 use App\Modules\Transfer\Services\ScoutingService;
+use App\Support\PositionMapper;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class SubmitScoutSearch
 {
@@ -30,7 +32,12 @@ class SubmitScoutSearch
         }
 
         $validated = $request->validate([
-            'position' => 'required|string',
+            // Position must be one of the game's real scout filters
+            // (group keys gk/def/mid/fwd, any_* groups, or slot codes).
+            'position' => ['required', 'string', Rule::in(array_merge(
+                ['gk', 'def', 'mid', 'fwd', 'any_defender', 'any_midfielder', 'any_forward'],
+                array_keys(PositionMapper::getFilterOptions())
+            ))],
             'scope' => 'nullable|array',
             'scope.*' => 'in:domestic,international',
             'age_min' => 'nullable|integer|min:16|max:45',

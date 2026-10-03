@@ -6,6 +6,7 @@ use App\Http\Actions\SaveSquadSelection;
 use App\Models\Game;
 use App\Models\GamePlayerTemplate;
 use App\Support\PositionMapper;
+use Illuminate\Support\Facades\DB;
 
 class ShowSquadSelection
 {
@@ -36,9 +37,9 @@ class ShowSquadSelection
 
         $candidates = $this->loadCandidates($game);
 
-        // If the roster has 26 or fewer players, auto-select all and skip the UI
+        // If the roster fits the max squad size, auto-select all and skip the UI
         $totalCandidates = array_sum(array_map('count', $candidates));
-        if ($totalCandidates <= 26) {
+        if ($totalCandidates <= SaveSquadSelection::MAX_SQUAD_SIZE) {
             $allTmIds = [];
             $positionByTmId = [];
             foreach ($candidates as $group) {
@@ -48,8 +49,12 @@ class ShowSquadSelection
                 }
             }
 
-            SaveSquadSelection::createTournamentGamePlayers($game->id, $game->team_id, $allTmIds, $positionByTmId);
-            $game->completeNewSeasonSetup();
+            // GET-side writes (tournament player creation + setup completion):
+            // one transaction so a double submit can't create the squad twice.
+            DB::transaction(function () use ($game, $allTmIds, $positionByTmId) {
+                SaveSquadSelection::createTournamentGamePlayers($game->id, $game->team_id, $allTmIds, $positionByTmId);
+                $game->completeNewSeasonSetup();
+            });
 
             return redirect()->route('show-game', $game->id)
                 ->with('success', __('squad.squad_confirmed'));
@@ -58,6 +63,7 @@ class ShowSquadSelection
         return view('squad-selection', [
             'game' => $game,
             'candidatesByGroup' => $candidates,
+            'maxSquadSize' => SaveSquadSelection::MAX_SQUAD_SIZE,
         ]);
     }
 

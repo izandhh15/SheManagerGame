@@ -7,13 +7,10 @@ use App\Modules\Competition\Contracts\CompetitionConfig;
 class EuropaLeagueConfig implements CompetitionConfig
 {
     /**
-     * UEL knockout round prize money (in cents).
-     */
-    /** Keyed by rounds remaining after the one won: 0 is the final. */
-    /**
      * UWEC knockout prize money (in cents), real figures from UEFA circular
      * 50/2026 (Q1 €60K, Q2 €65K, R16 €70K, QF €70K, SF €75K, runner-up €75K,
      * champion €80K — €5.6M pool). Paid per round WON (accumulative).
+     * Keyed by rounds remaining after the one won: 0 is the final.
      */
     private const KNOCKOUT_PRIZE_MONEY = [
         0 => 8_000_000,    // €80K — win Final (champion)
@@ -26,9 +23,10 @@ class EuropaLeagueConfig implements CompetitionConfig
     public function getTvRevenue(int $position): int|float
     {
         // UEFA Women's Europa Cup: €65K base per club + €1K/position ranking
-        // (circular 50/2026), extended across the 36 in-game league-phase slots.
+        // (circular 50/2026), extended across the 20 in-game league-phase
+        // teams (data/2026/UEL).
         $base = 6_500_000; // €65K floor
-        $positionBonus = max(0, 37 - $position) * 100_000; // €1K per position
+        $positionBonus = max(0, 21 - $position) * 100_000; // €1K per position
 
         return $base + $positionBonus;
     }
@@ -84,17 +82,10 @@ class EuropaLeagueConfig implements CompetitionConfig
             ],
             [
                 'minPosition' => 9,
-                'maxPosition' => 24,
+                'maxPosition' => 20,
                 'borderColor' => 'yellow-500',
                 'bgColor' => 'bg-yellow-500',
                 'label' => 'game.uel_knockout_playoff',
-            ],
-            [
-                'minPosition' => 25,
-                'maxPosition' => 36,
-                'borderColor' => 'red-500',
-                'bgColor' => 'bg-red-500',
-                'label' => 'game.uel_eliminated',
             ],
         ];
     }

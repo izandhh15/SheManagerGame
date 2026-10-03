@@ -154,15 +154,6 @@ class EredivisieConfig implements CompetitionConfig, HasSeasonGoals
             ];
         }
 
-        if (!empty($slots['UECL'])) {
-            $zones[] = [
-                'minPosition' => min($slots['UECL']),
-                'maxPosition' => max($slots['UECL']),
-                'borderColor' => 'green-500',
-                'bgColor' => 'bg-green-500',
-                'label' => 'game.conference_league',
-            ];
-        }
 
         // Eredivisie Vrouwen is the only playable Dutch tier (10 teams, no
         // second division in countries.NL), so there is no relegation zone

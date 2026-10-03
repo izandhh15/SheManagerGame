@@ -41,7 +41,8 @@ class ComputeSlotAssignments
 
         $validated = $request->validate([
             'formation' => ['required', 'string', new Enum(Formation::class)],
-            'player_ids' => ['required', 'array', 'min:1'],
+            // A formation has 11 slots: cap the array to bound the whereIn.
+            'player_ids' => ['required', 'array', 'min:1', 'max:11'],
             'player_ids.*' => ['required', 'string', 'uuid'],
             'manual_assignments' => ['nullable', 'array'],
             'manual_assignments.*' => ['nullable', 'string', 'uuid'],

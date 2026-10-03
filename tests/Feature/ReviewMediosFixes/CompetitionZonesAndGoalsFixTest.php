@@ -69,8 +69,13 @@ class CompetitionZonesAndGoalsFixTest extends TestCase
     public function test_nwsl_and_ligamx_have_no_relegation_zone(): void
     {
         // USA1 (16) y MEX1 (18) no tienen relegated_positions en la config.
-        $this->assertSame([], (new NWSLConfig())->getStandingsZones());
-        $this->assertSame([], (new LigaMXFemenilConfig())->getStandingsZones());
+        // (La zona continental CONCACAF sí se pinta desde el fix BAJA.)
+        foreach ([new NWSLConfig(), new LigaMXFemenilConfig()] as $config) {
+            $zones = $config->getStandingsZones();
+            foreach ($zones as $zone) {
+                $this->assertNotSame('game.relegation', $zone['label']);
+            }
+        }
     }
 
     public function test_wsl2_has_no_relegation_zone_but_playoff_zone_for_2nd(): void

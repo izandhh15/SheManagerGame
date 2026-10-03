@@ -403,4 +403,12 @@ return [
     'registration_readonly' => 'You can register players and modify shirt numbers only during transfer windows.',
     'u23_badge_label' => 'U-23',
     'u23_badge_tooltip' => 'Eligible for academy slot — under 24 on January 1 of the season.',
+
+    // i18n-b review: lineup validation errors + missing injury types
+    'lineup_must_select_11' => 'You must select exactly 11 players.',
+    'lineup_duplicate_players' => 'Duplicate players detected.',
+    'lineup_invalid_slot' => 'Invalid slot assignment.',
+    'lineup_slot_player_not_in_lineup' => 'Slot assigned to a player not in the lineup.',
+    'injury_ligament_damage' => 'Ligament damage',
+    'injury_knee_injury' => 'Knee injury',
 ];

@@ -35,9 +35,12 @@ export async function toggleShortlist(url) {
 }
 
 // Remove a player from the shortlist (dossier modal). Announces the removal
-// using the known playerId; resolves with the server payload.
+// using the known playerId, but only when the server confirms success;
+// resolves with the server payload.
 export async function removeFromShortlist(url, playerId) {
     const data = await post(url);
-    announce({ action: 'removed', playerId });
+    if (data.success) {
+        announce({ action: 'removed', playerId });
+    }
     return data;
 }

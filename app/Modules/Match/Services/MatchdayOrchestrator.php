@@ -19,6 +19,7 @@ use App\Models\GamePlayerMatchState;
 use App\Models\GameStanding;
 use App\Models\PlayerSuspension;
 use Carbon\Carbon;
+use Illuminate\Bus\UniqueLock;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -329,6 +330,12 @@ class MatchdayOrchestrator
 
     /**
      * Atomically set a processing flag and dispatch a career actions job.
+     *
+     * The job is ShouldBeUnique: if its lock is held (a run is queued or
+     * still running) this dispatch would be silently discarded — so the
+     * flag must not be set in that case, or it would be stuck at now()
+     * with no job behind it. The flag timestamp is passed to the job so it
+     * only clears the flag it set itself.
      */
     private function dispatchCareerActions(string $gameId, int $ticks): void
     {
@@ -336,15 +343,26 @@ class MatchdayOrchestrator
             return;
         }
 
+        $probe = new ProcessCareerActions($gameId, $ticks);
+        $probeLock = Cache::lock(UniqueLock::getKey($probe), 10);
+        if (! $probeLock->acquire()) {
+            return;
+        }
+        $probeLock->release();
+
+        $flagAt = now()->toDateTimeString();
+
         $updated = Game::where('id', $gameId)
             ->whereNull('career_actions_processing_at')
-            ->update(['career_actions_processing_at' => now()]);
+            ->update(['career_actions_processing_at' => $flagAt]);
 
         if ($updated) {
             try {
-                ProcessCareerActions::dispatch($gameId, $ticks);
+                ProcessCareerActions::dispatch($gameId, $ticks, $flagAt);
             } catch (\Throwable $e) {
-                Game::where('id', $gameId)->update(['career_actions_processing_at' => null]);
+                Game::where('id', $gameId)
+                    ->where('career_actions_processing_at', $flagAt)
+                    ->update(['career_actions_processing_at' => null]);
             }
         }
     }

@@ -11,8 +11,9 @@
 /** @var array|null $preseasonTour */
 /** @var string|null $preseasonTourName */
 /** @var int $tourBudgetEuros */
-/** @var \App\Modules\Season\Services\TrainingStageService $stageService */
 /** @var array|null $clubStageConfig */
+/** @var int $clubStageCost */
+/** @var array $clubStageLines */
 /** @var array $stageDurations */
 /** @var array $stageIntensities */
 /** @var array $stageFocuses */
@@ -57,10 +58,7 @@ $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
                 <p class="text-sm text-text-secondary mb-4">{{ __('game.stage_club_subtitle') }}</p>
 
                 @if($clubStageConfig)
-                    @php
-                        $clubStageCost = $clubStageConfig['cost'] ?? 0;
-                        $clubStageLines = $stageService->effectSummaryLines($clubStageConfig['effects'] ?? []);
-                    @endphp
+                    {{-- $clubStageCost / $clubStageLines los calcula ShowPreseasonSetup. --}}
                     <div class="rounded-lg border border-emerald-600/40 bg-emerald-950/30 p-4">
                         <p class="font-bold text-text-primary mb-1">✅ {{ __('game.stage_organized_title') }}</p>
                         <p class="text-sm text-text-secondary mb-2">{{ __('game.stage_organized_in', ['destination' => $clubStageConfig['destination'] ?? '']) }}</p>

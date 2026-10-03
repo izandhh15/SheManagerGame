@@ -119,12 +119,12 @@ class LineupService
         $errors = [];
 
         if (count($playerIds) !== 11) {
-            $errors[] = 'You must select exactly 11 players.';
+            $errors[] = __('squad.lineup_must_select_11');
             return $errors;
         }
 
         if (count($playerIds) !== count(array_unique($playerIds))) {
-            $errors[] = 'Duplicate players detected.';
+            $errors[] = __('squad.lineup_duplicate_players');
             return $errors;
         }
 
@@ -146,13 +146,26 @@ class LineupService
             $slotIds = array_column($slots, 'id');
             foreach ($slotAssignments as $slotId => $playerId) {
                 if (!in_array((int) $slotId, $slotIds, true)) {
-                    $errors[] = 'Invalid slot assignment.';
+                    $errors[] = __('squad.lineup_invalid_slot');
                     break;
                 }
                 if (!in_array($playerId, $playerIds, true)) {
-                    $errors[] = 'Slot assigned to player not in lineup.';
+                    $errors[] = __('squad.lineup_slot_player_not_in_lineup');
                     break;
                 }
+            }
+
+            // Require full 1:1 coverage: every one of the formation's slots
+            // must be assigned, and each of the 11 selected players must
+            // occupy exactly one slot. A partial map is not a valid lineup.
+            $assignedSlotIds = array_map('intval', array_keys($slotAssignments));
+            $assignedPlayerIds = array_values($slotAssignments);
+            if (count($assignedSlotIds) !== count($slotIds)
+                || count($assignedSlotIds) !== count(array_unique($assignedSlotIds))
+                || count($assignedPlayerIds) !== 11
+                || count($assignedPlayerIds) !== count(array_unique($assignedPlayerIds))
+            ) {
+                $errors[] = __('squad.invalid_selection');
             }
 
             return $errors;
