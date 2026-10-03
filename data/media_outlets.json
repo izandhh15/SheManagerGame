@@ -399,6 +399,62 @@
     "Andorra Esportiu": {
       "logo": null,
       "color": "#C60B1E"
+    },
+    "RTVE": {
+      "logo": null,
+      "color": "#FF0000"
+    },
+    "Antena 3 Noticias": {
+      "logo": null,
+      "color": "#FF6B00"
+    },
+    "laSexta Deportes": {
+      "logo": null,
+      "color": "#00A651"
+    },
+    "El Desmarque": {
+      "logo": null,
+      "color": "#003DA5"
+    },
+    "Cuatro Deportes": {
+      "logo": null,
+      "color": "#E30613"
+    },
+    "Telecinco Deportes": {
+      "logo": null,
+      "color": "#003DA5"
+    },
+    "Canal Sur": {
+      "logo": null,
+      "color": "#009444"
+    },
+    "À Punt": {
+      "logo": null,
+      "color": "#E30613"
+    },
+    "Telemadrid": {
+      "logo": null,
+      "color": "#E30613"
+    },
+    "TVG": {
+      "logo": null,
+      "color": "#009FE3"
+    },
+    "ETB": {
+      "logo": null,
+      "color": "#E30613"
+    },
+    "Aragón TV": {
+      "logo": null,
+      "color": "#E30613"
+    },
+    "IB3": {
+      "logo": null,
+      "color": "#009FE3"
+    },
+    "7RM": {
+      "logo": null,
+      "color": "#E30613"
     }
   },
   "countries": {
@@ -432,7 +488,22 @@
       "AS",
       "SPORT",
       "Mundo Deportivo",
-      "Relevo"
+      "Relevo",
+      "RTVE",
+      "Antena 3 Noticias",
+      "laSexta Deportes",
+      "El Desmarque",
+      "El Chiringuito",
+      "Cuatro Deportes",
+      "Telecinco Deportes",
+      "Canal Sur",
+      "À Punt",
+      "Telemadrid",
+      "TVG",
+      "ETB",
+      "Aragón TV",
+      "IB3",
+      "7RM"
     ],
     "FRA": [
       "L'Équipe",
