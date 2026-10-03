@@ -84,10 +84,10 @@
             @if(!empty($pressConference['needed']))
                 @php
                     $pcReasonLabels = [
-                        'final' => app()->getLocale() === 'es' ? 'la final' : 'the final',
-                        'derby' => app()->getLocale() === 'es' ? 'el derbi' : 'the derby',
-                        'european' => app()->getLocale() === 'es' ? 'la noche europea' : 'the European night',
-                        'rival' => app()->getLocale() === 'es' ? 'el duelo contra un rival directo' : 'the clash with a direct rival',
+                        'final' => app()->getLocale() === 'es' ? 'de la final' : 'the final',
+                        'derby' => app()->getLocale() === 'es' ? 'del derbi' : 'the derby',
+                        'european' => app()->getLocale() === 'es' ? 'de la noche europea' : 'the European night',
+                        'rival' => app()->getLocale() === 'es' ? 'del duelo contra un rival directo' : 'the clash with a direct rival',
                     ];
                     $pcReason = $pcReasonLabels[$pressConference['reasons'][0] ?? 'rival'] ?? '';
                 @endphp
@@ -95,7 +95,7 @@
                     <div class="text-3xl">🎤</div>
                     <div class="flex-1">
                         <p class="font-semibold text-text-primary">
-                            {{ app()->getLocale() === 'es' ? 'Rueda de prensa antes de ' . $pcReason : 'Press conference before ' . $pcReason }}
+                            {{ app()->getLocale() === 'es' ? 'Rueda de prensa antes ' . $pcReason : 'Press conference before ' . $pcReason }}
                         </p>
                         <p class="text-sm text-text-secondary">
                             {{ app()->getLocale() === 'es'

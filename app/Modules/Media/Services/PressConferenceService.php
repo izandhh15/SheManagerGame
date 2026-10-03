@@ -140,7 +140,7 @@ class PressConferenceService
         $reasons = [];
         $roundName = strtolower($match->round_name ?? '');
 
-        if ($match->isCupMatch() && str_contains($roundName, 'final') && ! str_contains($roundName, 'semi')) {
+        if ($match->isCupMatch() && str_contains($roundName, 'final') && ! str_contains($roundName, 'semi') && ! str_contains($roundName, 'quarter')) {
             $reasons[] = 'final';
         }
 

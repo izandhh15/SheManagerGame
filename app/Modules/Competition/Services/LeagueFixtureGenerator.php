@@ -100,7 +100,16 @@ class LeagueFixtureGenerator
 
         if ($gameSeason !== null) {
             $yearDiff = (int) $gameSeason - (int) $baseSeason;
-            if ($yearDiff !== 0) {
+            // National-team competitions use absolute calendar dates in their
+            // schedule.json (unified multi-year calendar). Shifting by yearDiff
+            // would push knockouts to the wrong year (e.g., WWCU27 knockouts
+            // showing 2029 instead of 2027).
+            $isNational = in_array(
+                $competitionId,
+                \App\Modules\Season\Services\TournamentCreationService::NATIONAL_TEAM_COMPETITION_IDS,
+                true,
+            );
+            if ($yearDiff !== 0 && ! $isNational) {
                 $configs = self::adjustKnockoutYears($configs, $yearDiff);
             }
         }
