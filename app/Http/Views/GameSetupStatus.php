@@ -4,10 +4,10 @@ namespace App\Http\Views;
 
 use App\Models\Game;
 use App\Modules\Match\Jobs\ProcessMatchdayAdvance;
-use App\Modules\Season\Jobs\ProcessSeasonTransition;
 use App\Modules\Season\Jobs\SetupNewGame;
 use App\Modules\Season\Services\SeasonClosingPipeline;
 use App\Modules\Season\Services\SeasonSetupPipeline;
+use App\Modules\Season\Services\SeasonTransitionChunkService;
 use Illuminate\Http\JsonResponse;
 
 class GameSetupStatus
@@ -15,16 +15,20 @@ class GameSetupStatus
     public function __construct(
         private readonly SeasonClosingPipeline $closingPipeline,
         private readonly SeasonSetupPipeline $setupPipeline,
+        private readonly SeasonTransitionChunkService $chunkService,
     ) {}
 
     public function __invoke(string $gameId): JsonResponse
     {
         $game = Game::findOrFail($gameId);
 
-        // Recovery: re-dispatch if season transition is stuck for > 2 minutes
+        // Recovery: run a time-boxed transition chunk if the season
+        // transition is stuck for > 2 minutes. (Re-dispatching the full
+        // sync job was tried before and just timed out again on
+        // serverless; chunks of ~25s always fit in HTTP timeouts.)
         if ($game->isTransitioningSeason() && $game->season_transitioning_at->lt(now()->subMinutes(2))) {
-            ProcessSeasonTransition::dispatch($game->id);
-            // Reset timer to prevent re-dispatching every 2s polling cycle
+            $this->chunkService->runChunk($game, 25.0);
+            // Reset timer to prevent re-running every 2s polling cycle
             $game->update(['season_transitioning_at' => now()]);
         }
 

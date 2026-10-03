@@ -79,6 +79,17 @@ class MediaOutletService
     }
 
     /**
+     * Deterministic outlet pick for a given seed (e.g. game id + round), so
+     * the news feed doesn't flicker across page loads.
+     */
+    public function deterministicOutlet(Game $game, string $seed): string
+    {
+        $outlets = $this->outletsFor($game);
+
+        return $outlets[crc32($seed) % max(1, count($outlets))] ?? 'EFE Deportes';
+    }
+
+    /**
      * Branding info for an outlet: logo URL (local file) + brand colour.
      * Outlets without a downloaded logo fall back to a coloured text badge.
      *

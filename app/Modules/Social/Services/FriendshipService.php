@@ -13,6 +13,25 @@ use Illuminate\Database\Eloquent\Collection;
  */
 class FriendshipService
 {
+    public function __construct(
+        private readonly FederationService $federation,
+    ) {}
+
+    /**
+     * Whether the given user is the recipient of the request (the one who
+     * may accept or reject it). For federated rows the local user is always
+     * user_id; is_remote_sender tells whether they received it.
+     */
+    private function isRecipient(Friendship $friendship, User $user): bool
+    {
+        if ($friendship->isFederated()) {
+            return (int) $friendship->user_id === (int) $user->id
+                && (bool) $friendship->is_remote_sender;
+        }
+
+        return (int) $friendship->friend_id === (int) $user->id;
+    }
+
     /**
      * Send a friend request to another user by username.
      *
@@ -56,7 +75,7 @@ class FriendshipService
     {
         $friendship = Friendship::find($friendshipId);
 
-        if (! $friendship || (int) $friendship->friend_id !== (int) $user->id) {
+        if (! $friendship || ! $this->isRecipient($friendship, $user)) {
             return ['ok' => false, 'message' => __('friends.not_found')];
         }
 
@@ -65,6 +84,10 @@ class FriendshipService
         }
 
         $friendship->update(['status' => Friendship::STATUS_ACCEPTED]);
+
+        if ($friendship->isFederated()) {
+            $this->federation->propagateAccept($friendship);
+        }
 
         return ['ok' => true, 'message' => __('friends.request_accepted')];
     }
@@ -76,11 +99,16 @@ class FriendshipService
     {
         $friendship = Friendship::find($friendshipId);
 
-        if (! $friendship || (int) $friendship->friend_id !== (int) $user->id) {
+        if (! $friendship || ! $this->isRecipient($friendship, $user)) {
             return ['ok' => false, 'message' => __('friends.not_found')];
         }
 
+        $wasFederated = $friendship->isFederated();
         $friendship->delete();
+
+        if ($wasFederated) {
+            $this->federation->propagateReject($friendship);
+        }
 
         return ['ok' => true, 'message' => __('friends.request_rejected')];
     }
@@ -99,7 +127,19 @@ class FriendshipService
             return ['ok' => false, 'message' => __('friends.not_found')];
         }
 
+        $wasFederated = $friendship->isFederated();
+        $wasAccepted = $friendship->isAccepted();
         $friendship->delete();
+
+        if ($wasFederated) {
+            if ($wasAccepted) {
+                $this->federation->propagateRemove($friendship);
+            } else {
+                // Cancelling a pending federated request: tell the peer to
+                // drop its mirror row too.
+                $this->federation->propagateReject($friendship);
+            }
+        }
 
         return ['ok' => true, 'message' => __('friends.removed')];
     }

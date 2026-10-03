@@ -6,6 +6,8 @@ use App\Models\Game;
 use App\Modules\Season\Services\PreseasonOpponentService;
 use App\Modules\Season\Services\PreseasonInvitationService;
 use App\Modules\Season\Services\PreseasonTourService;
+use App\Modules\Season\Services\TrainingStageService;
+use App\Support\CountryNames;
 
 class ShowPreseasonSetup
 {
@@ -13,6 +15,7 @@ class ShowPreseasonSetup
         private readonly PreseasonOpponentService $opponentService,
         private readonly PreseasonInvitationService $invitationService,
         private readonly PreseasonTourService $tourService,
+        private readonly TrainingStageService $stageService,
     ) {}
 
     public function __invoke(string $gameId)
@@ -52,6 +55,13 @@ class ShowPreseasonSetup
             'invitationId' => $inv->id,
         ])->values()->all();
 
+        // Club training stage (concentración): one per season, charged to the
+        // transfer budget. Only the current season's config counts.
+        $stageConfig = $game->training_stage;
+        if (! is_array($stageConfig) || ($stageConfig['season'] ?? null) !== $game->season) {
+            $stageConfig = null;
+        }
+
         return view('preseason-setup', [
             'game' => $game,
             'teams' => $teams,
@@ -67,6 +77,14 @@ class ShowPreseasonSetup
                 ? $this->tourService->destinationName($game->preseason_tour['destination'] ?? '')
                 : null,
             'tourBudgetEuros' => (int) (($game->currentInvestment?->transfer_budget ?? 0) / 100),
+            'stageService' => $this->stageService,
+            'clubStageConfig' => $stageConfig,
+            'stageDurations' => TrainingStageService::DURATIONS,
+            'stageIntensities' => TrainingStageService::INTENSITIES,
+            'stageFocuses' => TrainingStageService::FOCUSES,
+            'stageCountries' => CountryNames::STAGE_DESTINATIONS,
+            'stageHomeCountry' => CountryNames::name($game->team?->country),
+            'stageBudgetEuros' => (int) (($game->currentInvestment?->transfer_budget ?? 0) / 100),
         ]);
     }
 }

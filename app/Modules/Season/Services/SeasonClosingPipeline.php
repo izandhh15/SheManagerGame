@@ -127,9 +127,11 @@ class SeasonClosingPipeline
      *
      * @param  int  $startFromStep  Global step index to resume from (skip steps <= this value)
      * @param  SeasonTransitionData|null  $existingData  Restored DTO from a previous checkpoint
+     * @param  float|null  $maxSeconds  Time budget; break early when exceeded (checkpoint already saved, safe to resume)
      */
-    public function run(Game $game, int $startFromStep = -1, ?SeasonTransitionData $existingData = null): SeasonTransitionData
+    public function run(Game $game, int $startFromStep = -1, ?SeasonTransitionData $existingData = null, ?float $maxSeconds = null): SeasonTransitionData
     {
+        $chunkStart = microtime(true);
         $oldSeason = $game->season;
         $newSeason = $this->incrementSeason($oldSeason);
 
@@ -171,6 +173,12 @@ class SeasonClosingPipeline
                 'season_transition_step' => $index,
                 'season_transition_data' => $data,
             ]);
+
+            // Time-boxed execution: stop here if the budget is spent. The
+            // checkpoint above makes it safe to resume in a later chunk.
+            if ($maxSeconds !== null && (microtime(true) - $chunkStart) >= $maxSeconds) {
+                break;
+            }
         }
 
         return $data;

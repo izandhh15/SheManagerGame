@@ -41,24 +41,62 @@
             return {
                 progress: null,
                 startPolling() {
-                    const pollUrl = '{{ route("game.setup-status", $game->id) }}';
+                    @if($game->isTransitioningSeason())
+                        // Season transition: actively drive it in time-boxed
+                        // chunks via the advance endpoint (each ~25s, safe
+                        // for serverless timeouts). Chain calls until done.
+                        this.driveTransition();
+                    @else
+                        const pollUrl = '{{ route("game.setup-status", $game->id) }}';
 
-                    const interval = setInterval(async () => {
+                        const interval = setInterval(async () => {
+                            try {
+                                const response = await fetch(pollUrl);
+                                const data = await response.json();
+                                if (data.progress !== null && data.progress !== undefined) {
+                                    this.progress = data.progress;
+                                }
+                                if (data.ready) {
+                                    this.progress = 100;
+                                    clearInterval(interval);
+                                    window.location.reload();
+                                }
+                            } catch (e) {
+                                // Silently retry on network error
+                            }
+                        }, 2000);
+                    @endif
+                },
+                async driveTransition() {
+                    const advanceUrl = '{{ route("game.season-transition.advance", $game->id) }}';
+                    const csrf = document.querySelector('meta[name="csrf-token"]')?.content;
+
+                    while (true) {
                         try {
-                            const response = await fetch(pollUrl);
+                            const response = await fetch(advanceUrl, {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'X-CSRF-TOKEN': csrf ?? '',
+                                    'Accept': 'application/json',
+                                },
+                            });
                             const data = await response.json();
                             if (data.progress !== null && data.progress !== undefined) {
                                 this.progress = data.progress;
                             }
-                            if (data.ready) {
+                            if (data.done) {
                                 this.progress = 100;
-                                clearInterval(interval);
                                 window.location.reload();
+                                return;
                             }
+                            // Brief pause between chunks to let the DB settle.
+                            await new Promise(r => setTimeout(r, 1000));
                         } catch (e) {
-                            // Silently retry on network error
+                            // On network error, wait a bit and retry.
+                            await new Promise(r => setTimeout(r, 5000));
                         }
-                    }, 2000);
+                    }
                 }
             };
         }

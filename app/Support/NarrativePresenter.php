@@ -31,6 +31,12 @@ class NarrativePresenter
             'form' => ['icon' => 'trending-up', 'bg' => 'bg-emerald-500/10', 'text' => 'text-emerald-500', 'route' => null],
             'mood' => ['icon' => 'injury', 'bg' => 'bg-violet-500/10', 'text' => 'text-violet-500', 'route' => null],
             'pressure' => ['icon' => 'megaphone', 'bg' => 'bg-red-500/10', 'text' => 'text-red-500', 'route' => null],
+            'sale_rumor' => ['icon' => 'transfer', 'bg' => 'bg-orange-500/10', 'text' => 'text-orange-500', 'route' => 'game.transfers.outgoing'],
+            'signing_rumor' => ['icon' => 'transfer_complete', 'bg' => 'bg-emerald-500/10', 'text' => 'text-emerald-500', 'route' => 'game.transfers'],
+            'preview' => ['icon' => 'clock', 'bg' => 'bg-blue-500/10', 'text' => 'text-blue-500', 'route' => null],
+            'chronicle' => ['icon' => 'megaphone', 'bg' => 'bg-violet-500/10', 'text' => 'text-violet-500', 'route' => null],
+            'injury' => ['icon' => 'injury', 'bg' => 'bg-red-500/10', 'text' => 'text-red-500', 'route' => null],
+            'injury_rumor' => ['icon' => 'injury', 'bg' => 'bg-amber-500/10', 'text' => 'text-amber-500', 'route' => null],
             default => ['icon' => 'megaphone', 'bg' => 'bg-slate-500/10', 'text' => 'text-slate-400', 'route' => null],
         };
     }

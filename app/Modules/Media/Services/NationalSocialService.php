@@ -240,6 +240,7 @@ class NationalSocialService
             'author_name' => $game->team?->name ?? 'Selección',
             'author_handle' => $this->nationalHandle($game),
             'text' => $text,
+            'image_url' => $this->federationPoster($game),
             'sentiment' => 0,
             'likes' => $likes,
             'context' => 'national_official',
@@ -332,6 +333,25 @@ class NationalSocialService
         }
 
         return '@' . substr($slug, 0, 18) . '_oficial';
+    }
+
+    /**
+     * The federation's official "comunicado" poster image URL from
+     * config/federation_posters.php (verified one by one). Null when
+     * unmapped: views fall back to the generic local poster.
+     */
+    public function federationPoster(Game $game): ?string
+    {
+        // Raw DB name: the `name` accessor translates national teams
+        // (Spain → España), but the config is keyed by the raw name.
+        $teamName = $game->team?->getRawOriginal('name');
+        if ($teamName === null || $teamName === '') {
+            return null;
+        }
+
+        $map = (array) config('federation_posters', []);
+
+        return $map[$teamName] ?? null;
     }
 
     /**

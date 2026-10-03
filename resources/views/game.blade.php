@@ -258,7 +258,7 @@
                      prose in the next-match card. Leads the column on quiet
                      matchdays when the inbox is empty and hidden. --}}
                 @if($showNews)
-                    <x-news :narratives="$narratives" :game="$game" />
+                    <x-news :narratives="$narratives" :game="$game" :limit="6" />
                 @endif
             </div>
         </div>

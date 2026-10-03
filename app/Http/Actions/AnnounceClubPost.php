@@ -24,7 +24,7 @@ class AnnounceClubPost
         $validated = $request->validate([
             'type' => ['required', 'string', 'in:' . implode(',', ClubSocialService::TYPES)],
             'player_id' => ['nullable', 'string'],
-            'destination' => ['nullable', 'string', 'max:100'],
+            'match_id' => ['nullable', 'string'],
             'weeks' => ['nullable', 'integer', 'min:1', 'max:52'],
         ]);
 
@@ -33,7 +33,7 @@ class AnnounceClubPost
             $validated['type'],
             $validated['player_id'] ?? null,
             [
-                'destination' => $validated['destination'] ?? null,
+                'match_id' => $validated['match_id'] ?? null,
                 'weeks' => $validated['weeks'] ?? null,
             ],
         );

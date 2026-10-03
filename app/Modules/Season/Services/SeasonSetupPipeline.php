@@ -82,9 +82,11 @@ class SeasonSetupPipeline
      *
      * @param  int  $stepOffset  Global step offset (closing pipeline processor count)
      * @param  int  $startFromStep  Global step index to resume from (skip steps <= this value)
+     * @param  float|null  $maxSeconds  Time budget; break early when exceeded (checkpoint already saved, safe to resume)
      */
-    public function run(Game $game, SeasonTransitionData $data, int $stepOffset = 0, int $startFromStep = -1): SeasonTransitionData
+    public function run(Game $game, SeasonTransitionData $data, int $stepOffset = 0, int $startFromStep = -1, ?float $maxSeconds = null): SeasonTransitionData
     {
+        $chunkStart = microtime(true);
         foreach ($this->processors as $index => $processor) {
             $globalStep = $stepOffset + $index;
 
@@ -119,6 +121,12 @@ class SeasonSetupPipeline
                 'season_transition_step' => $globalStep,
                 'season_transition_data' => $data,
             ]);
+
+            // Time-boxed execution: stop here if the budget is spent. The
+            // checkpoint above makes it safe to resume in a later chunk.
+            if ($maxSeconds !== null && (microtime(true) - $chunkStart) >= $maxSeconds) {
+                break;
+            }
         }
 
         return $data;

@@ -83,7 +83,8 @@ class SeasonTransitionGuardTest extends TestCase
 
         $this->game->refresh();
         $this->assertNotNull($this->game->season_transitioning_at);
-        Queue::assertPushed(ProcessSeasonTransition::class);
+        // The transition is driven by time-boxed chunks via polling, not a dispatched job.
+        Queue::assertNotPushed(ProcessSeasonTransition::class);
     }
 
     public function test_start_new_season_dispatches_when_no_playoffs_exist(): void
@@ -100,6 +101,7 @@ class SeasonTransitionGuardTest extends TestCase
 
         $this->game->refresh();
         $this->assertNotNull($this->game->season_transitioning_at);
-        Queue::assertPushed(ProcessSeasonTransition::class);
+        // The transition is driven by time-boxed chunks via polling, not a dispatched job.
+        Queue::assertNotPushed(ProcessSeasonTransition::class);
     }
 }

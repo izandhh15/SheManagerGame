@@ -5,7 +5,6 @@ namespace App\Http\Actions;
 use App\Modules\Competition\Enums\PlayoffState;
 use App\Modules\Competition\Playoffs\PlayoffGeneratorFactory;
 use App\Modules\Manager\Services\JobOfferService;
-use App\Modules\Season\Jobs\ProcessSeasonTransition;
 use App\Models\Game;
 use Illuminate\Support\Facades\Log;
 
@@ -85,8 +84,10 @@ class StartNewSeason
             return redirect()->route('show-game', $gameId);
         }
 
-        ProcessSeasonTransition::dispatch($gameId);
-
+        // Do NOT dispatch the transition job synchronously: the full
+        // transition takes minutes, far beyond serverless HTTP timeouts.
+        // The game-loading screen polls the season-transition/advance
+        // endpoint, which runs the transition in ~25s time-boxed chunks.
         return redirect()->route('show-game', $gameId);
     }
 }

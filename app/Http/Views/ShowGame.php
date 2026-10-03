@@ -9,7 +9,7 @@ use App\Modules\Match\Services\MatchdayService;
 use App\Modules\Match\Services\MatchFinalizationService;
 use App\Modules\Match\Services\MatchNarrativeService;
 use App\Modules\Notification\Services\NotificationService;
-use App\Modules\Season\Jobs\ProcessSeasonTransition;
+use App\Modules\Season\Services\SeasonTransitionChunkService;
 use App\Modules\Season\Services\DualTurnService;
 use App\Models\CupTie;
 use App\Models\Game;
@@ -28,6 +28,7 @@ class ShowGame
         private readonly MatchFinalizationService $finalizationService,
         private readonly DualTurnService $dualTurn,
         private readonly \App\Modules\Stadium\Services\NationalVenueOrganizationService $venueOrg,
+        private readonly SeasonTransitionChunkService $transitionChunks,
     ) {}
 
     public function __invoke(string $gameId)
@@ -84,9 +85,11 @@ class ShowGame
 
         // Show loading screen while season transition runs in background
         if ($game->isTransitioningSeason()) {
-            // Re-dispatch if stuck for > 2 minutes
+            // Recovery: run a time-boxed chunk if stuck for > 2 minutes.
+            // (Re-dispatching the full sync job just timed out again on
+            // serverless; chunks of ~25s always fit in HTTP timeouts.)
             if ($game->season_transitioning_at->lt(now()->subMinutes(2))) {
-                ProcessSeasonTransition::dispatch($game->id);
+                $this->transitionChunks->runChunk($game, 25.0);
                 $game->update(['season_transitioning_at' => now()]);
             }
             $isTournament = $game->isTournamentMode();
