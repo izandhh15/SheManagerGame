@@ -5,6 +5,7 @@ namespace App\Http\Views;
 use App\Models\Game;
 use App\Modules\Match\Services\MatchFinalizationService;
 use App\Modules\Report\Services\SeasonSummaryService;
+use Illuminate\Support\Facades\Log;
 
 class ShowSeasonEnd
 {
@@ -14,6 +15,22 @@ class ShowSeasonEnd
     ) {}
 
     public function __invoke(string $gameId)
+    {
+        try {
+            return $this->show($gameId);
+        } catch (\Throwable $e) {
+            Log::error('ShowSeasonEnd failed', [
+                'game_id' => $gameId,
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
+            ]);
+
+            return redirect()->route('show-game', $gameId)
+                ->with('error', 'Error loading season summary: ' . $e->getMessage());
+        }
+    }
+
+    private function show(string $gameId)
     {
         // Finalize any match abandoned on the live screen before summarizing
         // the season — otherwise the summary reads stale standings.

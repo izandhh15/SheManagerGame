@@ -8,6 +8,7 @@ use App\Modules\Manager\Services\JobOfferService;
 use App\Modules\Match\Services\MatchFinalizationService;
 use App\Modules\Season\Jobs\ProcessSeasonTransition;
 use App\Models\Game;
+use Illuminate\Support\Facades\Log;
 
 class StartNewSeason
 {
@@ -18,6 +19,25 @@ class StartNewSeason
     ) {}
 
     public function __invoke(string $gameId)
+    {
+        try {
+            return $this->startSeason($gameId);
+        } catch (\Throwable $e) {
+            Log::error('StartNewSeason failed', [
+                'game_id' => $gameId,
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
+            ]);
+
+            // Clear the transition flag so the user isn't stuck.
+            Game::where('id', $gameId)->update(['season_transitioning_at' => null]);
+
+            return redirect()->route('show-game', $gameId)
+                ->with('error', 'Error starting the new season: ' . $e->getMessage());
+        }
+    }
+
+    private function startSeason(string $gameId)
     {
         // End-of-season entry point: finalize any match the user abandoned on
         // the live-match screen. Without this, its standings stay unapplied and

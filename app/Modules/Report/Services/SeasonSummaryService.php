@@ -54,7 +54,7 @@ class SeasonSummaryService
 
         $managerEvaluation = $this->seasonGoalService->evaluatePerformance(
             $game,
-            $playerStanding->position ?? 20,
+            $playerStanding?->position ?? 20,
             $userTeamPromoted
         );
 
