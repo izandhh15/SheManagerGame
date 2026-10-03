@@ -53,6 +53,12 @@ class YouthAcademyPromotionProcessor implements SeasonProcessor
             return $data;
         }
 
+        // R9: national-team games must not run the academy lifecycle —
+        // academy players would be invented (PROHIBIDO inventar).
+        if (($game->team?->type ?? null) !== 'club') {
+            return $data;
+        }
+
         // Phase 1: Promote overage academy players (mandatory — they must leave)
         $overagePromoted = $this->youthAcademyService->promoteOveragePlayers($game);
 

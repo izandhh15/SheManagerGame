@@ -49,6 +49,17 @@ class ManagerReputationService
     }
 
     /**
+     * R3: current manager reputation tier (local..elite) for this game,
+     * derived from the stored manager_reputation_points via
+     * ManagerReputation::levelFromPoints(). Defaults to 0 points (local)
+     * for games that never accumulated reputation.
+     */
+    public function getReputationLevel(Game $game): string
+    {
+        return ManagerReputation::levelFromPoints((int) ($game->manager_reputation_points ?? 0));
+    }
+
+    /**
      * Compute the points delta for a season's performance. Exposed for
      * tests and previews (e.g. surfacing the prospective change on the
      * end-of-season screen) without mutating any state.

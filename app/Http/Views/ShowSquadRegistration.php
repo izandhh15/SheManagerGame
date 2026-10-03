@@ -43,8 +43,11 @@ class ShowSquadRegistration
                 'position_group' => $gp->position_group,
                 'position_abbreviation' => PositionMapper::toAbbreviation($gp->position),
                 'overall' => $gp->effective_rating,
-                'age' => $gp->age($game->current_date),
-                'is_u23' => $gp->date_of_birth->greaterThanOrEqualTo($u23BirthCutoff),
+                // R17: date_of_birth is nullable — guard it (ShowPlayerDetail
+                // already does) so a player without one renders '—' instead
+                // of 500ing via GamePlayer::age().
+                'age' => $gp->date_of_birth !== null ? $gp->age($game->current_date) : '—',
+                'is_u23' => $gp->date_of_birth !== null && $gp->date_of_birth->greaterThanOrEqualTo($u23BirthCutoff),
             ];
 
             $players[$gp->id] = $dto;

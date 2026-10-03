@@ -163,7 +163,10 @@ class ManagerPressureService
         }
 
         // Deterministic template variant per round so the feed doesn't flicker.
-        $variant = crc32($game->id.'pv'.$round.$team->id) % 2;
+        // R20: mask crc32 to 32-bit-safe non-negative before the modulo
+        // (on 32-bit PHP crc32() can return a negative int and % 2 then
+        // yields -1, hiding variant 2 in production).
+        $variant = (crc32($game->id.'pv'.$round.$team->id) & 0x7FFFFFFF) % 2;
         if ($variant === 1) {
             // Swap the closing quote for a second variant.
             $body[3] = $es

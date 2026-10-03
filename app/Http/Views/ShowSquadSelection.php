@@ -117,7 +117,7 @@ class ShowSquadSelection
                 'position_abbreviation' => $positionDisplay['abbreviation'],
                 'position_bg' => $positionDisplay['bg'],
                 'position_text' => $positionDisplay['text'],
-                'age' => $template->date_of_birth->age,
+                'age' => $template->date_of_birth?->age ?? '—',
                 'height' => $jp['height'] ?? null,
                 'overall' => $overall,
                 'club_name' => $tournamentInfo?->club_name,
