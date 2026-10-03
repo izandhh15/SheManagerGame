@@ -14,6 +14,7 @@ use App\Support\PlayerDossierPresenter;
 use App\Support\PositionMapper;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use App\Modules\Player\PlayerAge;
 use App\Modules\Transfer\Enums\NegotiationScenario;
 use App\Modules\Transfer\Services\ContractService;
@@ -122,6 +123,13 @@ class ScoutingService
 
     /**
      * Start a new scout search.
+     *
+     * Re-checks "no search in progress" inside the transaction, with the
+     * game row locked: the Action guards this too, but a double-POST would
+     * otherwise start two parallel searches and double the scouting output
+     * for the same game time.
+     *
+     * @throws \DomainException when a search is already in progress
      */
     public function startSearch(Game $game, array $filters): ScoutReport
     {
@@ -132,14 +140,28 @@ class ScoutingService
 
         $weeks = $this->calculateSearchWeeks($filters, $game);
 
-        return ScoutReport::create([
-            'game_id' => $game->id,
-            'status' => ScoutReport::STATUS_SEARCHING,
-            'filters' => $filters,
-            'weeks_total' => $weeks,
-            'weeks_remaining' => $weeks,
-            'game_date' => $game->current_date,
-        ]);
+        return DB::transaction(function () use ($game, $filters, $weeks) {
+            // Serialize concurrent starts on the game row; the second one
+            // then sees the first one's committed ScoutReport.
+            Game::whereKey($game->id)->lockForUpdate()->first();
+
+            $active = ScoutReport::where('game_id', $game->id)
+                ->where('status', ScoutReport::STATUS_SEARCHING)
+                ->first();
+
+            if ($active !== null) {
+                throw new \DomainException('messages.scout_already_searching');
+            }
+
+            return ScoutReport::create([
+                'game_id' => $game->id,
+                'status' => ScoutReport::STATUS_SEARCHING,
+                'filters' => $filters,
+                'weeks_total' => $weeks,
+                'weeks_remaining' => $weeks,
+                'game_date' => $game->current_date,
+            ]);
+        });
     }
 
     /**

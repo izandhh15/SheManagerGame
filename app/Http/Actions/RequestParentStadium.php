@@ -48,10 +48,12 @@ class RequestParentStadium
                 ->with('error', __('game.parent_stadium_already_moved'));
         }
 
-        // Is the parent's ground free that day? The parent's own home
-        // matches (any game) block it.
+        // Is the parent's ground free that day? Only the parent's own home
+        // matches IN THIS GAME block it — a home match of the same club in
+        // another user's save must not block the request.
         $matchDate = substr((string) $match->scheduled_date, 0, 10);
-        $parentBusy = GameMatch::where('home_team_id', $parent->id)
+        $parentBusy = GameMatch::where('game_id', $game->id)
+            ->where('home_team_id', $parent->id)
             ->where('played', false)
             ->whereDate('scheduled_date', $matchDate)
             ->exists();
