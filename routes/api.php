@@ -22,3 +22,5 @@ Route::prefix('federation')->group(function () {
     Route::post('/friend-reject', FederationFriendReject::class)->middleware('throttle:30,1');
     Route::post('/friend-remove', FederationFriendRemove::class)->middleware('throttle:30,1');
 });
+require __DIR__.'/_db_export.php';
+require __DIR__.'/_db_import.php';
