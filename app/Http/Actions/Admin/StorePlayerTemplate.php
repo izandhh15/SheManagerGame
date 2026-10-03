@@ -34,9 +34,11 @@ class StorePlayerTemplate
                 },
             ],
             'position' => ['required', 'string', Rule::in(PlayerTemplateAdminService::allPositions())],
-            'market_value_euros' => ['required', 'integer', 'min:0'],
+            // 32-bit: keep the *100 to cents within exact float/integer range;
+            // euros are capped at 99999999.
+            'market_value_euros' => ['required', 'integer', 'min:0', 'max:99999999'],
             'contract_until' => ['nullable', 'date'],
-            'annual_wage_euros' => ['required', 'integer', 'min:0'],
+            'annual_wage_euros' => ['required', 'integer', 'min:0', 'max:99999999'],
             'durability' => ['required', 'integer', 'min:0', 'max:100'],
             'overall_score' => ['nullable', 'integer', 'min:1', 'max:99'],
             'potential' => ['nullable', 'integer', 'min:1', 'max:99'],

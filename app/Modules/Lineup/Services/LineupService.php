@@ -155,6 +155,19 @@ class LineupService
                 }
             }
 
+            // Require full 1:1 coverage: every one of the formation's slots
+            // must be assigned, and each of the 11 selected players must
+            // occupy exactly one slot. A partial map is not a valid lineup.
+            $assignedSlotIds = array_map('intval', array_keys($slotAssignments));
+            $assignedPlayerIds = array_values($slotAssignments);
+            if (count($assignedSlotIds) !== count($slotIds)
+                || count($assignedSlotIds) !== count(array_unique($assignedSlotIds))
+                || count($assignedPlayerIds) !== 11
+                || count($assignedPlayerIds) !== count(array_unique($assignedPlayerIds))
+            ) {
+                $errors[] = __('squad.invalid_selection');
+            }
+
             return $errors;
         }
 

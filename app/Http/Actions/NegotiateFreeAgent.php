@@ -145,7 +145,9 @@ class NegotiateFreeAgent
     private function handleOfferTerms(Request $request, Game $game, GamePlayer $player): JsonResponse
     {
         $validated = $request->validate([
-            'wage' => ['required', 'integer', 'min:1'],
+            // 32-bit: keep the *100 to cents within exact float/integer range;
+            // euros are capped at 99999999.
+            'wage' => ['required', 'integer', 'min:1', 'max:99999999'],
             'years' => ['required', 'integer', 'min:1', 'max:5'],
             'clause' => ['nullable', 'integer', 'min:0'],
         ]);

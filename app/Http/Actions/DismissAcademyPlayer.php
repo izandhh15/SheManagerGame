@@ -19,6 +19,7 @@ class DismissAcademyPlayer
         $academy = AcademyPlayer::where('id', $playerId)
             ->where('game_id', $gameId)
             ->where('team_id', $game->team_id)
+            ->where('is_on_loan', false)
             ->firstOrFail();
 
         $playerName = $academy->name;
