@@ -52,7 +52,7 @@ class AITransferMarketService
     ];
 
     /** Minimum squad size below which a team will not sell */
-    private const MIN_SQUAD_SIZE = 20;
+    private const MIN_SQUAD_SIZE = 17;
 
     /** Maximum squad size — buyers can't exceed this */
     private const MAX_SQUAD_SIZE = 30;

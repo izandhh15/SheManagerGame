@@ -248,15 +248,24 @@ class MensStadiumRequestService
     }
 
     /**
-     * Deterministic excuse for a difficult club (same club+season always
-     * gives the same excuse).
+     * Deterministic excuse for a difficult club (same club+season+month
+     * always gives the same excuse).
+     *
+     * Month-aware: the "decisive stretch" pitch excuse only makes sense in
+     * March-May. In any other month (e.g. December) it would be nonsense,
+     * so it is excluded from the pool.
      */
-    public function deterministicExcuse(string $club, string $season): string
+    public function deterministicExcuse(string $club, string $season, ?int $month = null): string
     {
         $excuses = [
             'excuse_pitch', 'excuse_concert', 'excuse_works', 'excuse_derby', 'excuse_board',
         ];
-        $idx = hexdec(substr(md5('excuse|'.$club.'|'.$season), 0, 7)) % count($excuses);
+
+        if ($month !== null && ! in_array($month, [3, 4, 5], true)) {
+            $excuses = array_values(array_diff($excuses, ['excuse_pitch']));
+        }
+
+        $idx = hexdec(substr(md5('excuse|'.$club.'|'.$season.'|'.($month ?? 0)), 0, 7)) % count($excuses);
 
         return $excuses[$idx];
     }
@@ -311,10 +320,11 @@ class MensStadiumRequestService
         }
 
         // Some clubs just won't lend their ground this season: deterministic
-        // excuse (same club+season => same answer).
+        // excuse (same club+season+month => same answer).
         $season = (string) ($game->season ?? '');
         if ($this->isClubDifficult($stadium['club'], $season)) {
-            $base['reasons'][] = $this->deterministicExcuse($stadium['club'], $season);
+            $month = $game->current_date ? (int) \Carbon\Carbon::parse($game->current_date)->month : null;
+            $base['reasons'][] = $this->deterministicExcuse($stadium['club'], $season, $month);
 
             return $base;
         }
