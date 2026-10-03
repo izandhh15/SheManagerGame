@@ -205,7 +205,6 @@ use App\Http\Actions\SkipMatchToEnd;
 use App\Http\Actions\StartNewSeason;
 use App\Http\Actions\AdvanceSeasonTransition;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Schema;
 
 Route::get('/', function () {
     // Landing page for guests; authenticated users go to their dashboard.
@@ -545,12 +544,3 @@ Route::middleware(['auth', 'database.editor'])->prefix('editor')->name('editor.'
 
 require __DIR__.'/auth.php';
 
-
-// TEMP-DIAG: verificar tabla cache en Neon (eliminar tras comprobar)
-Route::get('/diag-cache-table', function () {
-    return response()->json([
-        'cache_table' => Schema::hasTable('cache'),
-        'cache_locks_table' => Schema::hasTable('cache_locks'),
-        'cache_driver' => config('cache.default'),
-    ]);
-});
