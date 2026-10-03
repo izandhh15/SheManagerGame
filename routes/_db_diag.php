@@ -49,6 +49,19 @@ Route::get('/_db-diag/{token}', function (string $token) {
         } catch (\Throwable $e) {
             $createError = $e->getMessage();
         }
+
+        // Try the same inside a transaction (like Laravel does)
+        $txError = null;
+        try {
+            $pdo->beginTransaction();
+            $pdo->exec('CREATE TABLE "users_tx" ("id" bigserial PRIMARY KEY, "name" varchar(255) NOT NULL, "email" varchar(255) NOT NULL)');
+            $pdo->exec('ALTER TABLE "users_tx" ADD CONSTRAINT "users_tx_email_unique" UNIQUE ("email")');
+            $pdo->commit();
+            $pdo->exec('DROP TABLE "users_tx"');
+        } catch (\Throwable $e) {
+            $txError = $e->getMessage();
+            try { $pdo->rollBack(); } catch (\Throwable) {}
+        }
         
         return response()->json([
             'migrations_run' => count($migrations),
@@ -56,6 +69,7 @@ Route::get('/_db-diag/{token}', function (string $token) {
             'users_constraints' => $constraints,
             'direct_alter_error' => $directError,
             'create_test_error' => $createError,
+            'transaction_test_error' => $txError,
         ]);
     } catch (\Throwable $e) {
         return response()->json(['error' => $e->getMessage()], 500);
