@@ -1,6 +1,6 @@
 [package]
 name = "izandhh15/shemanager"
-version = "0.3.60"
+version = "0.3.61"
 
 [dependencies]
 "php/php" = "=8.3.403"
