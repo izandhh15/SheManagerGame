@@ -230,7 +230,7 @@ class NationalSquadService
 
             // Same column list as SetupTournamentGame::createQualifierPlayers.
             DB::insert(
-                <<<'SQL'
+                <<<SQL
                 INSERT INTO game_players (
                     id, game_id, player_id,
                     transfermarkt_id, sofascore_id, fc26_id, name, date_of_birth, nationality, height, foot,
