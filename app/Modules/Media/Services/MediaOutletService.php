@@ -45,10 +45,14 @@ class MediaOutletService
             }
         }
 
-        // 2. Country outlets.
+        // 2. Country outlets. The JSON keys are FIFA 3-letter codes (ESP, ENG)
+        // while the game carries ISO 2-letter (es, ad) — map them.
         $country = $this->countryCode($game);
-        if ($country && isset($data['countries'][$country])) {
-            $outlets = array_merge($outlets, $data['countries'][$country]);
+        $fifa = $country ? ($this->fifaMap()[$country] ?? null) : null;
+        foreach ([$country, $fifa] as $key) {
+            if ($key && isset($data['countries'][$key])) {
+                $outlets = array_merge($outlets, $data['countries'][$key]);
+            }
         }
 
         // 3. International/digital media (433, OneFootball, ...).
@@ -101,6 +105,19 @@ class MediaOutletService
         } catch (\Throwable) {
             return null;
         }
+    }
+
+    /**
+     * ISO 2-letter (game) → FIFA 3-letter (media_outlets.json keys).
+     */
+    private function fifaMap(): array
+    {
+        return [
+            'ES' => 'ESP', 'AD' => 'AND', 'AR' => 'ARG', 'BR' => 'BRA',
+            'DE' => 'DEU', 'GB-ENG' => 'ENG', 'FR' => 'FRA', 'IT' => 'ITA',
+            'MX' => 'MEX', 'NL' => 'NED', 'PT' => 'POR', 'CH' => 'SUI',
+            'US' => 'USA',
+        ];
     }
 
     private function countryCode(Game $game): ?string

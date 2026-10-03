@@ -383,6 +383,22 @@
     "Fabrizio Romano": {
       "logo": null,
       "color": "#1D9BF0"
+    },
+    "Diari d'Andorra": {
+      "logo": null,
+      "color": "#C60B1E"
+    },
+    "El Periòdic d'Andorra": {
+      "logo": null,
+      "color": "#C60B1E"
+    },
+    "Bondia": {
+      "logo": null,
+      "color": "#C60B1E"
+    },
+    "Andorra Esportiu": {
+      "logo": null,
+      "color": "#C60B1E"
     }
   },
   "countries": {
@@ -459,6 +475,12 @@
       "The Athletic",
       "CBS Sports",
       "NWSLsoccer.com"
+    ],
+    "AND": [
+      "Diari d'Andorra",
+      "El Periòdic d'Andorra",
+      "Bondia",
+      "Andorra Esportiu"
     ]
   },
   "teams": {
