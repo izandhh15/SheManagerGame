@@ -22,7 +22,7 @@ Season transitions run two pipelines sequentially: `SeasonClosingPipeline` close
 
 The tables are the source of truth for ordering. `tests/Unit/SeasonPipelineOrderingTest.php` pins the processor counts and the ordering the transfer domain relies on, so they cannot drift from the code without a failing test.
 
-### SeasonClosingPipeline (30 processors — transitions only)
+### SeasonClosingPipeline (32 processors — transitions only)
 
 | Priority | Processor | What it does |
 |---------:|-----------|--------------|
@@ -33,6 +33,7 @@ The tables are the source of truth for ordering. `tests/Unit/SeasonPipelineOrder
 | 15 | `LeaderboardStatsProcessor` | Increments the manager's seasons-completed counter |
 | 20 | `SnapshotManagerSeasonRecordProcessor` (Manager) | Snapshots the finished season into the manager's record |
 | 20 | `ContractExpirationProcessor` | Frees expired contracts to the pool (user) or auto-renews (AI); never frees a player held by a locking deal |
+| 20 | `AwardsGalaProcessor` | Runs the end-of-season awards gala (Balón de Oro, Pichichi, Zamora, MVP) before stats are wiped |
 | 25 | `SeasonArchiveProcessor` | Archives the season before stats are reset |
 | 30 | `PreContractTransferProcessor` | Completes agreed pre-contracts, in both directions |
 | 35 | `AgreedTransferCompletionProcessor` | Completes agreed transfers that missed the last window |
@@ -55,11 +56,12 @@ The tables are the source of truth for ordering. `tests/Unit/SeasonPipelineOrder
 | 92 | `FanLoyaltyUpdateProcessor` (Stadium) | Nudges fan loyalty from season outcomes |
 | 95 | `YouthAcademyClosingProcessor` | Develops academy players and returns academy loans |
 | 100 | `UefaQualificationProcessor` | Determines UEFA competition qualifiers |
+| 101 | `ClubWorldCupQualificationProcessor` | Determines the 32-team Club World Cup entrants |
 | 101 | `AffiliateFirstTeamSackProcessor` | Affiliate careers: if the AI-managed first team was relegated, finished in the relegation zone, or ended far below the board's objective, the board sacks its coach and hands the first team to the user |
 
 The transfer domain depends on the 5 → 20 → 30 → 35 → 42 → 70 chain: loans return before contracts expire, expiry leaves locked players in place, the two completion processors move them, replenishment runs only once every deal has settled, and the market is cleared last. See [Transfer Market](transfer-market.md#locked-players).
 
-### SeasonSetupPipeline (14 processors — new games and transitions)
+### SeasonSetupPipeline (16 processors — new games and transitions)
 
 | Priority | Processor | What it does |
 |---------:|-----------|--------------|
@@ -70,7 +72,9 @@ The transfer domain depends on the 5 → 20 → 30 → 35 → 42 → 70 chain: l
 | 104 | `SeedInitialNamingDealProcessor` | Materialises a club's real-world naming deal on first setup |
 | 105 | `GenerateNamingRightsOffersProcessor` | Rolls naming-rights deals over: expiry, renewal offers, cleanup |
 | 106 | `ContinentalAndCupInitProcessor` | Initialises Swiss competitions, draws the first cup rounds, finalises `current_date` |
+| 106 | `GenerateSponsorOffersProcessor` | Rolls shirt/ad-board sponsor deals over and seeds the first offer board |
 | 107 | `BudgetProjectionProcessor` | Generates the new season's budget projections |
+| 107 | `ClubWorldCupInitProcessor` | Draws the women's Club World Cup groups and generates the group-stage fixtures |
 | 108 | `PreSeasonFixtureProcessor` | Flags career games as needing pre-season opponent selection |
 | 109 | `DefaultInvestmentProcessor` | Applies the default investment allocation |
 | 109 | `SquadRegistrationEnforcementProcessor` | Enables squad registration and enforces squad numbers |
@@ -93,8 +97,8 @@ php artisan app:unstick-season-transition {gameId} [--dry-run]  # repair divisio
 
 | File | Purpose |
 |------|---------|
-| `app/Modules/Season/Services/SeasonClosingPipeline.php` | Orchestrates the 30 closing processors |
-| `app/Modules/Season/Services/SeasonSetupPipeline.php` | Orchestrates the 15 setup processors |
+| `app/Modules/Season/Services/SeasonClosingPipeline.php` | Orchestrates the 32 closing processors |
+| `app/Modules/Season/Services/SeasonSetupPipeline.php` | Orchestrates the 16 setup processors |
 | `app/Modules/Season/Jobs/ProcessSeasonTransition.php` | Runs both pipelines with checkpoint/resume |
 | `app/Modules/Season/Processors/` | Individual processor implementations |
 | `app/Modules/Match/Services/MatchdayService.php` | Matchday advancement logic |
