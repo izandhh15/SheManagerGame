@@ -66,7 +66,7 @@ class InitNationalGame
                 $request->user()->id,
                 now()->format('Y-m-d'),
             ));
-            $playerIds = NationalSquadService::provisionalSquad($team->id, $injuredIds);
+            $playerIds = NationalSquadService::provisionalSquad($team->id, $injuredIds, $request->user()->id);
         }
         if (count($playerIds) !== NationalSquadService::SQUAD_SIZE) {
             return back()->withErrors(['player_ids' => __('game.squad_picker_need_23')]);

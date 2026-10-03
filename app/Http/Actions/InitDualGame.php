@@ -96,7 +96,7 @@ class InitDualGame
                 $request->user()->id,
                 now()->format('Y-m-d'),
             ));
-            $playerIds = NationalSquadService::provisionalSquad($nationalTeam->id, $injuredIds);
+            $playerIds = NationalSquadService::provisionalSquad($nationalTeam->id, $injuredIds, $request->user()->id);
         }
         if (count($playerIds) !== NationalSquadService::SQUAD_SIZE) {
             return back()->withErrors(['player_ids' => __('game.squad_picker_need_23')]);

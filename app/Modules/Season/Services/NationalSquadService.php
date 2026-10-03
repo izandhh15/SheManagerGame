@@ -171,25 +171,46 @@ class NationalSquadService
      * real convocatoria).
      *
      * @param  array<string> $excludePlayerIds template player_ids to skip (injured)
+     * @param  string|int|null $userId when given, retired players are only
+     *         excluded based on the user's own saves (a retirement in
+     *         another user's game must not affect this user's squad)
      * @return list<string>
      */
-    public static function provisionalSquad(string $teamId, array $excludePlayerIds = []): array
+    public static function provisionalSquad(string $teamId, array $excludePlayerIds = [], string|int|null $userId = null): array
     {
-        // Exclude retired players (they're tracked in game_players, but for
-        // provisional we check the templates joined with game state)
         $query = DB::table('game_player_templates as t')
-            ->leftJoin('game_players as gp', function ($join) use ($teamId) {
-                $join->on('gp.player_id', '=', 't.player_id')
-                     ->where('gp.team_id', '=', $teamId);
-            })
             ->where('t.season', self::TEMPLATE_SEASON)
             ->where('t.team_id', $teamId)
-            ->where(function ($q) {
-                $q->whereNull('gp.retired_from_national')
-                  ->orWhere('gp.retired_from_national', false);
-            })
             ->orderByDesc('t.overall_score')
             ->limit(self::SQUAD_SIZE);
+
+        // Exclude retired players (they're tracked in game_players, but for
+        // provisional we check the templates joined with game state).
+        //
+        // This is deliberately a correlated anti-join, NOT a leftJoin: the
+        // old leftJoin multiplied each template row by every matching
+        // game_players row across ALL saves of the nation, so
+        // pluck()->limit(23) returned duplicated player_ids (23 rows with
+        // ~13 unique) and creation failed the "exactly 23" check as soon as
+        // 2+ saves of the nation existed (A16).
+        //
+        // Retirement is per-save state, so when the user is known the check
+        // is scoped to their own non-deleted saves — a retirement in
+        // another user's game must not remove the player from this user's
+        // provisional squad.
+        $query->whereNotExists(function ($q) use ($teamId, $userId) {
+            $q->select(DB::raw(1))
+                ->from('game_players as gp')
+                ->whereColumn('gp.player_id', 't.player_id')
+                ->where('gp.team_id', $teamId)
+                ->where('gp.retired_from_national', true);
+
+            if ($userId !== null) {
+                $q->join('games as g', 'g.id', '=', 'gp.game_id')
+                    ->where('g.user_id', $userId)
+                    ->whereNull('g.deleting_at');
+            }
+        });
 
         if ($excludePlayerIds !== []) {
             $query->whereNotIn('t.player_id', $excludePlayerIds);
