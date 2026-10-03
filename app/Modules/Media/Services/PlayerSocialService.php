@@ -107,7 +107,9 @@ class PlayerSocialService
             ->where('team_id', $game->team_id)
             ->inRandomOrder()
             ->first();
-        if (! $player) {
+        if (! $player || trim((string) $player->name) === '') {
+            // No attributable author: 'author_name' is NOT NULL and we must
+            // not invent a placeholder name. Skip the post silently.
             return null;
         }
 
