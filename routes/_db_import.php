@@ -40,9 +40,7 @@ Route::post('/_db-import/{token}', function (string $token, \Illuminate\Http\Req
     }
 
     try {
-        DB::connection()->getPdo()->exec("SET session_replication_role = 'replica';");
         DB::unprepared($sql);
-        DB::connection()->getPdo()->exec("SET session_replication_role = 'origin';");
         return response()->json(['ok' => true, 'bytes' => strlen($sql)]);
     } catch (\Throwable $e) {
         return response()->json([
