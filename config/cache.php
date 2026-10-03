@@ -46,6 +46,16 @@ return [
             'lock_table' => env('DB_CACHE_LOCK_TABLE'),
         ],
 
+        // Same as "database" but without SELECT ... FOR UPDATE in
+        // increment/decrement: the Neon pooler aborts transactions that
+        // run FOR UPDATE (SQLSTATE[25P02]), which 500s Cache::increment().
+        'neon-database' => [
+            'driver' => 'neon-database',
+            'connection' => env('DB_CACHE_CONNECTION'),
+            'table' => env('DB_CACHE_TABLE', 'cache'),
+            'prefix' => env('CACHE_PREFIX', ''),
+        ],
+
         'file' => [
             'driver' => 'file',
             'path' => storage_path('framework/cache/data'),

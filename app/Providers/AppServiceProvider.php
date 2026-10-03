@@ -58,6 +58,7 @@ use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Queue\Events\JobFailed;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
@@ -103,6 +104,17 @@ class AppServiceProvider extends ServiceProvider
     {
         Gate::define('viewPulse', function ($user) {
             return $user->is_admin;
+        });
+
+        // Cache driver without SELECT ... FOR UPDATE: the Neon pooler
+        // silently aborts transactions that run FOR UPDATE, which 500s
+        // Cache::increment() (login RateLimiter). See NeonSafeDatabaseStore.
+        Cache::extend('neon-database', function ($app, $config) {
+            return Cache::repository(new \App\Cache\NeonSafeDatabaseStore(
+                $app['db']->connection($config['connection'] ?? null),
+                $config['table'] ?? 'cache',
+                $config['prefix'] ?? $app['config']['cache.prefix'],
+            ));
         });
 
         Number::useLocale(config('app.locale'));
