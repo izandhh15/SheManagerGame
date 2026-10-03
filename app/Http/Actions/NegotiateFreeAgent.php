@@ -52,25 +52,8 @@ class NegotiateFreeAgent
 
     private function handleStart(Game $game, GamePlayer $player): JsonResponse
     {
-        if ($player->isUserOwned($game)) {
-            return response()->json([
-                'status' => 'error',
-                'message' => __('transfers.cannot_target_own_player'),
-            ], 422);
-        }
-
-        if ($player->team_id !== null) {
-            return response()->json([
-                'status' => 'error',
-                'message' => __('messages.not_free_agent'),
-            ], 422);
-        }
-
-        if (! $this->dispositionService->canSignFreeAgent($player, $game->id, $game->team_id)) {
-            return response()->json([
-                'status' => 'error',
-                'message' => __('messages.free_agent_reputation_too_low'),
-            ], 422);
+        if ($error = $this->eligibilityError($game, $player)) {
+            return $error;
         }
 
         $wageFloorEuros = (int) ($this->contractService->getMinimumWageForTeam($game->team) / 100);
@@ -167,6 +150,13 @@ class NegotiateFreeAgent
             'clause' => ['nullable', 'integer', 'min:0'],
         ]);
 
+        // A1: direct POSTs to offer_terms skipped every start guard, letting
+        // anyone sign a contracted player for free. Re-run the eligibility
+        // checks here before any offer is created.
+        if ($error = $this->eligibilityError($game, $player)) {
+            return $error;
+        }
+
         // Salary cap: block the offer before the player can accept it.
         $offerWageCents = $validated['wage'] * 100;
         if (! $this->salaryCapService->canCommitWage($game, $offerWageCents)) {
@@ -239,6 +229,13 @@ class NegotiateFreeAgent
             ], 422);
         }
 
+        // A1: the pending countered offer was found without validating the
+        // player — the eligibility guards may have stopped passing since
+        // the offer was opened (e.g. the player is no longer a free agent).
+        if ($error = $this->eligibilityError($game, $player)) {
+            return $error;
+        }
+
         // Salary cap: re-check against the wage the player is holding out for.
         if (! $this->salaryCapService->canCommitWage($game, (int) $offer->wage_counter_offer)) {
             return response()->json([
@@ -278,6 +275,40 @@ class NegotiateFreeAgent
     }
 
     // ── Helpers ──
+
+    /**
+     * The "can I even talk to this player?" guards from handleStart.
+     *
+     * Direct POSTs to offer_terms / accept_terms_counter used to skip them,
+     * so a contracted player could be signed for free with no bid at all
+     * (A1). Every action re-runs them: returns a 422 JsonResponse when the
+     * player is ineligible, null when the negotiation may proceed.
+     */
+    private function eligibilityError(Game $game, GamePlayer $player): ?JsonResponse
+    {
+        if ($player->isUserOwned($game)) {
+            return response()->json([
+                'status' => 'error',
+                'message' => __('transfers.cannot_target_own_player'),
+            ], 422);
+        }
+
+        if ($player->team_id !== null) {
+            return response()->json([
+                'status' => 'error',
+                'message' => __('messages.not_free_agent'),
+            ], 422);
+        }
+
+        if (! $this->dispositionService->canSignFreeAgent($player, $game->id, $game->team_id)) {
+            return response()->json([
+                'status' => 'error',
+                'message' => __('messages.free_agent_reputation_too_low'),
+            ], 422);
+        }
+
+        return null;
+    }
 
     private function findPendingFreeAgentOffer(Game $game, GamePlayer $player, ?string $termsStatus = null): ?TransferOffer
     {

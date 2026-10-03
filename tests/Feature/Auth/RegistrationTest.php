@@ -11,35 +11,35 @@ class RegistrationTest extends TestCase
 {
     use RefreshDatabase;
 
-    // --- Registration is invite-only ---
+    // --- Registration is open (invite code optional since df1aed1) ---
 
-    public function test_registration_without_invite_redirects_to_login(): void
+    public function test_registration_without_invite_renders_register_screen(): void
     {
         config()->set('beta.enabled', false);
 
         $response = $this->get('/register');
 
-        $response->assertRedirect(route('login'));
+        $response->assertStatus(200);
     }
 
-    // --- Beta registration (BETA_MODE=true) ---
+    // --- Beta registration (BETA_MODE=true): screen renders without a valid invite ---
 
-    public function test_beta_registration_requires_invite_code(): void
+    public function test_beta_registration_renders_without_invite_code(): void
     {
         config()->set('beta.enabled', true);
 
         $response = $this->get('/register');
 
-        $response->assertRedirect(route('login'));
+        $response->assertStatus(200);
     }
 
-    public function test_beta_registration_rejects_invalid_invite(): void
+    public function test_beta_registration_renders_with_invalid_invite(): void
     {
         config()->set('beta.enabled', true);
 
         $response = $this->get('/register?invite=INVALID');
 
-        $response->assertRedirect(route('login'));
+        $response->assertStatus(200);
     }
 
     public function test_beta_registration_screen_rendered_with_valid_invite(): void

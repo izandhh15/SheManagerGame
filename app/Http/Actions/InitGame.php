@@ -69,7 +69,11 @@ class InitGame
 
             if ($academyClubId) {
                 $club = Team::find($academyClubId);
-                if (!$club || $club->isReserveTeam()) {
+                // A national side has no filials: findLowestFilial() would
+                // return the national team itself and the career pipeline
+                // would brick the save (A17). Academy careers start at a
+                // real club's lowest filial, never at a national team.
+                if (!$club || $club->isReserveTeam() || $club->type === 'national') {
                     return back()->withErrors(['academy_club_id' => __('messages.invalid_academy_club')]);
                 }
 
@@ -115,6 +119,17 @@ class InitGame
             $this->activationTracker->record($request->user()->id, ActivationEvent::EVENT_GAME_CREATED, $game->id, Game::MODE_TOURNAMENT);
 
             return redirect()->route('show-game', $game->id);
+        }
+
+        // A17: the career pipeline only handles clubs — national-team
+        // templates are skipped during setup, so a national team_id bricks
+        // the save (setup_completed_at stays null forever: endless
+        // "preparing season" screen). Reject it here with a clear error
+        // BEFORE anything is created. National sides are created through
+        // InitNationalGame / InitDualGame instead.
+        $careerTeam = Team::where('type', '!=', 'national')->find($request->get('team_id'));
+        if (! $careerTeam) {
+            return back()->withErrors(['team_id' => __('game.dual_invalid_club')]);
         }
 
         $game = $this->gameCreationService->create(

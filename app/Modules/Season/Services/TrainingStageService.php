@@ -2,6 +2,7 @@
 
 namespace App\Modules\Season\Services;
 
+use App\Models\FinancialTransaction;
 use App\Models\Game;
 use App\Models\GamePlayer;
 use App\Models\GamePlayerMatchState;
@@ -128,6 +129,21 @@ class TrainingStageService
 
         DB::transaction(function () use ($game, $investment, $config, $cost, $effects) {
             $investment->decrement('transfer_budget', $cost * 100);
+
+            // A5 residual: el coste del stage salía del presupuesto sin
+            // apunte en el ledger, así que reaparecía en el carry-over.
+            // Se registra como tour_cost (la categoría ya la resta
+            // BudgetProjectionService::MIDSEASON_EXPENSE_CATEGORIES).
+            FinancialTransaction::recordExpense(
+                gameId: $game->id,
+                category: FinancialTransaction::CATEGORY_TOUR,
+                amount: $cost * 100,
+                description: __('game.preseason_tour_expense_desc', [
+                    'destination' => $config['destination'] ?? '',
+                ]),
+                transactionDate: ($game->current_date ?? Carbon::now())->toDateString(),
+            );
+
             $game->update([
                 'training_stage' => array_merge($config, [
                     'cost' => $cost,

@@ -52,38 +52,8 @@ class NegotiatePreContract
 
     private function handleStart(Game $game, GamePlayer $player): JsonResponse
     {
-        if ($player->isUserOwned($game)) {
-            return response()->json([
-                'status' => 'error',
-                'message' => __('transfers.cannot_target_own_player'),
-            ], 422);
-        }
-
-        // Validate pre-contract eligibility
-        if (!$game->isPreContractPeriod()) {
-            return response()->json([
-                'status' => 'error',
-                'message' => __('messages.pre_contract_not_available'),
-            ], 422);
-        }
-
-        $isExpiring = $player->contract_until && $player->contract_until <= $game->getSeasonEndDate();
-        if (!$isExpiring) {
-            return response()->json([
-                'status' => 'error',
-                'message' => __('messages.pre_contract_not_available'),
-            ], 422);
-        }
-
-        // Reputation gate: high-profile players refuse lower-reputation clubs outright.
-        // Same tier-vs-reputation floor the free-agent flow uses — without this check
-        // the wage-flexibility disposition alone lets a full-wage offer pass regardless
-        // of how large the reputation gap is.
-        if (!$this->dispositionService->canSignPreContract($player, $game->id, $game->team_id)) {
-            return response()->json([
-                'status' => 'error',
-                'message' => __('transfers.pre_contract_player_not_interested', ['player' => $player->name]),
-            ], 422);
+        if ($error = $this->eligibilityError($game, $player)) {
+            return $error;
         }
 
         // Check for existing countered offer to resume
@@ -186,6 +156,13 @@ class NegotiatePreContract
             'clause' => ['nullable', 'integer', 'min:0'],
         ]);
 
+        // A1: direct POSTs to offer_terms skipped every start guard (pre-
+        // contract period, expiring contract, reputation gate), letting
+        // anyone sign a contracted player for free. Re-run them here.
+        if ($error = $this->eligibilityError($game, $player)) {
+            return $error;
+        }
+
         // Salary cap: block the offer before the player can accept it. A
         // pre-contract wage starts next season, so it is gated on next
         // season's bill (see SalaryCapService::canCommitNextSeasonWage).
@@ -267,6 +244,13 @@ class NegotiatePreContract
             ], 422);
         }
 
+        // A1: the pending countered offer was found without validating the
+        // player — the eligibility guards may have stopped passing since
+        // the offer was opened (e.g. the pre-contract window closed).
+        if ($error = $this->eligibilityError($game, $player)) {
+            return $error;
+        }
+
         // Salary cap: re-check against the wage the player is holding out for.
         if (! $this->salaryCapService->canCommitNextSeasonWage($game, (int) $offer->wage_counter_offer)) {
             return response()->json([
@@ -301,6 +285,54 @@ class NegotiatePreContract
     }
 
     // ── Helpers ──
+
+    /**
+     * The pre-contract eligibility guards from handleStart.
+     *
+     * Direct POSTs to offer_terms / accept_terms_counter used to skip them,
+     * so a player with a long-running contract could be signed for free at
+     * any time of year (A1). Every action re-runs them: returns a 422
+     * JsonResponse when the player is ineligible, null when the negotiation
+     * may proceed.
+     */
+    private function eligibilityError(Game $game, GamePlayer $player): ?JsonResponse
+    {
+        if ($player->isUserOwned($game)) {
+            return response()->json([
+                'status' => 'error',
+                'message' => __('transfers.cannot_target_own_player'),
+            ], 422);
+        }
+
+        // Validate pre-contract eligibility
+        if (! $game->isPreContractPeriod()) {
+            return response()->json([
+                'status' => 'error',
+                'message' => __('messages.pre_contract_not_available'),
+            ], 422);
+        }
+
+        $isExpiring = $player->contract_until && $player->contract_until <= $game->getSeasonEndDate();
+        if (! $isExpiring) {
+            return response()->json([
+                'status' => 'error',
+                'message' => __('messages.pre_contract_not_available'),
+            ], 422);
+        }
+
+        // Reputation gate: high-profile players refuse lower-reputation clubs outright.
+        // Same tier-vs-reputation floor the free-agent flow uses — without this check
+        // the wage-flexibility disposition alone lets a full-wage offer pass regardless
+        // of how large the reputation gap is.
+        if (! $this->dispositionService->canSignPreContract($player, $game->id, $game->team_id)) {
+            return response()->json([
+                'status' => 'error',
+                'message' => __('transfers.pre_contract_player_not_interested', ['player' => $player->name]),
+            ], 422);
+        }
+
+        return null;
+    }
 
     private function agentMessage(string $type, array $content, ?array $options = null): array
     {

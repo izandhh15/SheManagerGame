@@ -11,9 +11,7 @@ use App\Modules\Commercial\Services\SponsorService;
 use App\Modules\Stadium\Services\SeasonTicketPricingService;
 use App\Models\BudgetLoan;
 use App\Models\FinancialTransaction;
-use App\Models\TeamReputation;
 use App\Models\Game;
-use App\Models\GameMatch;
 use App\Models\GamePlayer;
 use App\Models\GameSponsorDeal;
 use App\Models\GameStanding;
@@ -164,70 +162,38 @@ class SeasonSettlementProcessor implements SeasonProcessor
     }
 
     /**
-     * Sum actual matchday revenue across every played home fixture of the
-     * season, using the per-fixture MatchAttendance row. Rows that are missing
-     * (saves that span the Phase 1a upgrade) are backfilled in place via the
-     * idempotent MatchAttendanceService, so the formula sees uniform coverage.
+     * Sum the ACTUAL matchday revenue booked to the ledger this season.
      *
-     * Attending season-ticket holders are subtracted from each match's
-     * attendance before the per-seat rate applies — they already paid up front
-     * via the season ticket sale, so counting them again would inflate revenue.
-     * Holders attend at (1 − noshow), matching how MatchAttendanceService
-     * composes the gate (attending holders + walk-ups), so subtracting the
-     * attending count recovers exactly the walk-up buyers and keeps this in
-     * lockstep with the budget projection. The remainder represents walk-up /
-     * single-ticket buyers and concessions, which is what `revenue_per_seat` is
-     * calibrated to capture.
+     * RecordMatchdayRevenue books four income lines per finalized home
+     * fixture (matchday_tickets, matchday_shirts, matchday_merch,
+     * matchday_bars) using the manager's own ticket prices, and credits
+     * every cent to the spendable transfer budget. The settlement must
+     * sum those same ledger rows instead of re-estimating with the legacy
+     * per-seat rate from VirtuaFC — otherwise the season-end books (and
+     * the carried surplus) are computed on a fictional gate while the
+     * manager has already received and spent the real money mid-season.
      *
-     * `revenue_per_seat` is a per-seat per-SEASON rate. To spread it across
-     * the fixture list we divide by the count of league home games — cup and
-     * European home ties then add bonus revenue on top at the same seat rate,
-     * which lines up with the demand curve already weighting those fixtures.
+     * Windowed to the current season (July 1 -> June 30) because the Game
+     * row persists across seasons and accumulates transactions: without
+     * the window, earlier seasons' gate would be double-counted. Mirrors
+     * the season scoping of calculateNetTransferResult().
      */
     private function calculateMatchdayRevenue(Game $game): int
     {
-        $team = $game->team;
-        $reputation = TeamReputation::resolveLevel($game->id, $team->id);
-        $league = $game->competition;
+        $seasonYear = (int) $game->season;
+        $seasonStart = Carbon::createFromDate($seasonYear, 7, 1);
+        $seasonEnd = Carbon::createFromDate($seasonYear + 1, 6, 30);
 
-        $leagueHomeMatchCount = GameMatch::where('game_id', $game->id)
-            ->where('competition_id', $league->id)
-            ->where('home_team_id', $team->id)
-            ->where('played', true)
-            ->count();
-
-        if ($leagueHomeMatchCount === 0) {
-            return 0;
-        }
-
-        $perSeatSeasonRate = (int) config("stadium.revenue_per_seat.{$reputation}", 15_000);
-        $perSeatMatchRate = $perSeatSeasonRate / $leagueHomeMatchCount;
-
-        $seasonTicketHolders = $this->seasonTicketPricingService->soldSeasonTicketsForGame($game);
-
-        // Only attending holders occupy seats that would otherwise be walk-up,
-        // so subtract that count (not the full holder count) to isolate the
-        // genuine gate. Mirrors MatchAttendanceService::composeSeasonTicketAttendance.
-        $noShowRate = (float) config('stadium.season_ticket_noshow_rate', 0.05);
-        $attendingHolders = (int) round($seasonTicketHolders * (1.0 - $noShowRate));
-
-        $homeMatches = GameMatch::where('game_id', $game->id)
-            ->where('home_team_id', $team->id)
-            ->where('played', true)
-            ->get();
-
-        $total = 0.0;
-        foreach ($homeMatches as $match) {
-            $attendance = $this->matchAttendanceService->resolveForMatch($match, $game);
-            if ($attendance === null) {
-                // Neutral-venue finals don't feed the home club's matchday revenue.
-                continue;
-            }
-            $walkup = max(0, $attendance->attendance - $attendingHolders);
-            $total += $walkup * $perSeatMatchRate;
-        }
-
-        return (int) $total;
+        return (int) FinancialTransaction::where('game_id', $game->id)
+            ->whereBetween('transaction_date', [$seasonStart, $seasonEnd])
+            ->whereIn('category', [
+                FinancialTransaction::CATEGORY_MATCHDAY_TICKETS,
+                FinancialTransaction::CATEGORY_MATCHDAY_SHIRTS,
+                FinancialTransaction::CATEGORY_MATCHDAY_MERCH,
+                FinancialTransaction::CATEGORY_MATCHDAY_BARS,
+            ])
+            ->where('type', FinancialTransaction::TYPE_INCOME)
+            ->sum('amount');
     }
 
     /**

@@ -237,8 +237,8 @@ class YouthAcademyService
             return;
         }
 
-        // Compute growth in memory, batch update changed players in a single query
-        $updates = []; // [id => overall_score]
+        // Compute growth in memory, batch persist changed players in a single query
+        $updates = []; // [id => ['overall_score' => int, 'growth_progress' => float]]
         foreach ($players as $player) {
             $computed = $this->computeGrowth($player, self::GROWTH_RATE_ACADEMY);
             if ($computed !== null) {
@@ -247,45 +247,70 @@ class YouthAcademyService
         }
 
         if (! empty($updates)) {
-            $this->bulkUpdateAbilities($updates);
+            $this->bulkUpdateGrowth($updates);
         }
     }
 
     /**
      * Compute one matchday of growth for a player (pure calculation, no DB).
      *
-     * @return int|null New overall_score, or null if unchanged
+     * Fractional growth accumulates in `growth_progress`; whole points are
+     * applied to `overall_score` once the accumulated progress crosses 1.0.
+     * Rounding each matchday's tiny increment (0.07–0.13) to an integer
+     * always produced 0, so academy players never developed.
+     *
+     * @return array{overall_score: int, growth_progress: float}|null Growth to persist, or null if nothing changed
      */
-    private function computeGrowth(AcademyPlayer $player, float $seasonRate): ?int
+    private function computeGrowth(AcademyPlayer $player, float $seasonRate): ?array
     {
-        $growth = max(0, ($player->potential - $player->overall_score) * $seasonRate / self::ESTIMATED_MATCHDAYS);
-        $newOverall = (int) round(min($player->potential, $player->overall_score + $growth));
+        $gap = $player->potential - $player->overall_score;
 
-        if ($newOverall === $player->overall_score) {
-            return null;
+        if ($gap <= 0) {
+            // Already at (or above) potential: nothing left to grow,
+            // drop any stale accumulated progress.
+            return (float) ($player->growth_progress ?? 0) > 0
+                ? ['overall_score' => $player->overall_score, 'growth_progress' => 0.0]
+                : null;
         }
 
-        return $newOverall;
+        $progress = (float) ($player->growth_progress ?? 0)
+            + $gap * $seasonRate / self::ESTIMATED_MATCHDAYS;
+
+        $whole = (int) floor($progress);
+        $applied = min($whole, $gap);
+
+        return [
+            'overall_score' => $player->overall_score + $applied,
+            // Only consume the progress that was actually applied; any
+            // remainder (e.g. capped by potential) stays for next time.
+            'growth_progress' => $progress - $applied,
+        ];
     }
 
     /**
-     * Bulk update abilities using CASE WHEN (1 query instead of N).
+     * Bulk update growth (overall_score + growth_progress) using CASE WHEN
+     * (1 query instead of N).
      *
-     * @param  array<string, int>  $updates  [id => new overall_score]
+     * @param  array<string, array{overall_score: int, growth_progress: float}>  $updates  [id => growth]
      */
-    private function bulkUpdateAbilities(array $updates): void
+    private function bulkUpdateGrowth(array $updates): void
     {
         $ids = array_keys($updates);
         $idList = "'" . implode("','", $ids) . "'";
 
-        $cases = [];
-        foreach ($updates as $id => $value) {
-            $cases[] = "WHEN id = '{$id}' THEN {$value}";
+        $scoreCases = [];
+        $progressCases = [];
+        foreach ($updates as $id => $growth) {
+            $scoreCases[] = "WHEN id = '{$id}' THEN " . (int) $growth['overall_score'];
+            // Small positive float: fixed decimals keep the round trip
+            // through SQL exact enough to avoid drift.
+            $progressCases[] = "WHEN id = '{$id}' THEN " . number_format((float) $growth['growth_progress'], 6, '.', '');
         }
 
         \Illuminate\Support\Facades\DB::statement("
             UPDATE academy_players
-            SET overall_score = CASE " . implode(' ', $cases) . " ELSE overall_score END
+            SET overall_score = CASE " . implode(' ', $scoreCases) . " ELSE overall_score END,
+                growth_progress = CASE " . implode(' ', $progressCases) . " ELSE growth_progress END
             WHERE id IN ({$idList})
         ");
     }

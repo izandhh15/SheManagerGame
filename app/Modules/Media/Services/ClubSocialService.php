@@ -871,21 +871,36 @@ class ClubSocialService
         return (float) ($avg ?? 70);
     }
 
-    private function alreadyAnnounced(Game $game, string $type, string $playerName): bool
+    private function alreadyAnnounced(Game $game, string $type, ?string $playerName): bool
     {
+        // A12: game_players.name is nullable. With no name there is nothing
+        // to match on, so skip the duplicate check instead of throwing a
+        // TypeError (or matching every post with a LIKE '%%' pattern).
+        if (! $playerName) {
+            return false;
+        }
+
+        // A10: the duplicate check must be scoped to the announcement type:
+        // announcing a signing must not block the injury report or the sale
+        // announcement for the same player.
         return SocialPost::where('game_id', $game->id)
             ->where('context', 'club_official')
             ->whereNull('parent_post_id')
+            ->where('post_kind', $type)
             ->where('text', 'like', '%' . $playerName . '%')
             ->exists();
     }
 
     private function alreadyAnnouncedTickets(Game $game): bool
     {
+        // A9: only season-ticket posts block the campaign. Other
+        // announcements (ticket sales, discounts, venue confirmations) also
+        // use the 🎟️ emoji, so filtering by text alone blocks the campaign
+        // forever after any of them is published.
         return SocialPost::where('game_id', $game->id)
             ->where('context', 'club_official')
             ->whereNull('parent_post_id')
-            ->where('text', 'like', '%🎟️%')
+            ->where('post_kind', self::TYPE_SEASON_TICKETS)
             ->exists();
     }
 
@@ -899,7 +914,7 @@ class ClubSocialService
     // ------------------------------------------------------------------
 
     /** @return array{0:list<string>, 1:list<string>} */
-    private function signingTemplates(string $name, bool $es): array
+    private function signingTemplates(?string $name, bool $es): array
     {
         $positive = $es ? [
             "VAMOOOOS, qué fichajazo 🔥",
@@ -930,7 +945,7 @@ class ClubSocialService
     }
 
     /** @return array{0:list<string>, 1:list<string>} */
-    private function saleTemplates(string $name, bool $isStar, bool $es): array
+    private function saleTemplates(?string $name, bool $isStar, bool $es): array
     {
         if ($es) {
             $positive = $isStar
@@ -956,7 +971,7 @@ class ClubSocialService
     }
 
     /** @return array{0:list<string>, 1:list<string>} */
-    private function injuryTemplates(string $name, bool $es): array
+    private function injuryTemplates(?string $name, bool $es): array
     {
         $positive = $es ? [
             "Mucho ánimo, {$name} 💪 Volverás más fuerte.",

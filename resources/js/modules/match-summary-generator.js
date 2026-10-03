@@ -267,7 +267,7 @@ export function generateMatchSummary(config) {
     sentences.push(buildOpening(t, replacements, {
         isDraw, isGoalless, isBlowout, isNarrowWin,
         isCup, isKnockoutDecisive, isHighStakes, isFinal,
-        hasExtraTime, penaltyResult,
+        hasExtraTime, penaltyResult, hasHomeAdvantage,
         winnerId, homeTeamId,
     }));
 
@@ -333,7 +333,7 @@ function buildOpening(t, replacements, ctx) {
     const {
         isDraw, isGoalless, isBlowout, isNarrowWin,
         isCup, isKnockoutDecisive, isHighStakes, isFinal,
-        hasExtraTime, penaltyResult,
+        hasExtraTime, penaltyResult, hasHomeAdvantage,
         winnerId, homeTeamId,
     } = ctx;
 
