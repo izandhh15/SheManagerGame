@@ -1011,14 +1011,20 @@ class ScoutingService
 
         $candidates = GamePlayer::where('game_id', $game->id)
             ->whereNotNull('team_id')
-            ->where('team_id', '!=', $game->team_id)
+            // R-review-medios: exclude ALL of the user's teams (first team +
+            // filial via userTeamIds()) — the radar was flagging the user's
+            // own reserve players as poachable targets.
+            ->whereNotIn('team_id', $game->userTeamIds())
             ->whereNotNull('contract_until')
             ->where('contract_until', '<=', $cutoff)
-            ->with(['team', 'transferOffers'])
+            ->with(['team', 'transferOffers', 'activeLoan'])
             ->get()
             ->filter(function (GamePlayer $gp) use ($game) {
-                // Effectively the user's player (loaned in).
-                if ($gp->isLoanedIn($game->team_id)) {
+                // Effectively the user's player (loaned in to the first team
+                // or the filial). R-review-medios: ownsTeam() covers the
+                // reserve side too; activeLoan is eager-loaded above so this
+                // is a flag read, not a per-player query.
+                if ($gp->activeLoan && $game->ownsTeam($gp->activeLoan->loan_team_id)) {
                     return false;
                 }
 
