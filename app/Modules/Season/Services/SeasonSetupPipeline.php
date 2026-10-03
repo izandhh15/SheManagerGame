@@ -74,7 +74,14 @@ class SeasonSetupPipeline
             $sponsorOffers,
         ];
 
-        usort($this->processors, fn ($a, $b) => $a->priority() <=> $b->priority());
+        // usort() is not guaranteed stable: break priority ties by the original
+        // registration order so the pipeline order is fully deterministic
+        // (several processors share priorities, e.g. 107).
+        $processors = $this->processors;
+        $order = array_keys($processors);
+        usort($order, fn ($i, $j) =>
+            [$processors[$i]->priority(), $i] <=> [$processors[$j]->priority(), $j]);
+        $this->processors = array_map(fn ($i) => $processors[$i], $order);
     }
 
     /**
