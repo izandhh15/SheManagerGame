@@ -159,7 +159,7 @@ class NotificationService
      */
     public function cleanupOldNotifications(Game $game): int
     {
-        $cutoffDate = $game->current_date->subDays(self::CLEANUP_DAYS);
+        $cutoffDate = $game->current_date?->subDays(self::CLEANUP_DAYS);
 
         return GameNotification::where('game_id', $game->id)
             ->read()

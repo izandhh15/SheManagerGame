@@ -670,7 +670,7 @@
                                                     {{ __('transfers.loaned_to', ['team_a' => $loan->loanTeam->nameWithA()]) }}
                                                 </div>
                                                 <div class="text-xs text-text-secondary mt-0.5">
-                                                    {{ __('transfers.returns') }}: {{ $loan->return_at->format('M j, Y') }}
+                                                    {{ __('transfers.returns') }}: {{ $loan->return_at?->format('M j, Y') }}
                                                 </div>
                                             </div>
                                         </div>

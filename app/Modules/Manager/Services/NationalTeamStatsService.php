@@ -105,7 +105,7 @@ class NationalTeamStatsService
 
                 foreach ($squadStats as $player) {
                     $playerId = $player['player_id'] ?? null;
-                    $playerName = $player['player_name'];
+                    $playerName = $player['player_name'] ?? '?';
 
                     if ($playerId) {
                         // If we previously aggregated this player by name, merge into the ID key
@@ -123,7 +123,7 @@ class NationalTeamStatsService
                     if (!isset($playerAgg[$key])) {
                         $playerAgg[$key] = [
                             'player_name' => $playerName,
-                            'position' => $player['position'],
+                            'position' => $player['position'] ?? '?',
                             'times_selected' => 0,
                             'total_appearances' => 0,
                             'total_goals' => 0,

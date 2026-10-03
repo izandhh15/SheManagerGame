@@ -65,6 +65,13 @@ class ShowFastMode
         // Focus the standings panel on the competition just played; fall
         // back to the primary league when there's no last match yet.
         $focalCompetition = $lastMatch?->competition ?? $game->competition;
+
+        // A game without any competition can't render the panel (it is
+        // typed non-nullable); bail to the dashboard instead of a TypeError.
+        if ($focalCompetition === null) {
+            return redirect()->route('show-game', $gameId);
+        }
+
         $panelData = $this->buildPanelData($game, $focalCompetition, $lastMatch);
 
         return view('fast-mode', [

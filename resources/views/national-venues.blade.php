@@ -35,7 +35,7 @@
                             <x-team-crest :team="$match->awayTeam" class="w-8 h-8" />
                             <div class="flex-1 min-w-0">
                                 <p class="text-sm font-semibold text-text-body truncate">{{ $userTeam->name }} vs {{ $match->awayTeam->name }}</p>
-                                <p class="text-xs text-text-muted">{{ \Carbon\Carbon::parse($match->scheduled_date)->format('d/m/Y') }} · {{ $match->round_name }}</p>
+                                <p class="text-xs text-text-muted">{{ $match->scheduled_date?->format('d/m/Y') }} · {{ $match->round_name }}</p>
                                 <p class="text-xs text-accent-orange mt-0.5">{{ __('game.venue_org_awaiting_hint') }}</p>
                             </div>
                         </div>
@@ -104,7 +104,7 @@
                             <div class="flex-1 min-w-0">
                                 <p class="text-base font-bold text-text-primary">{{ $userTeam->name }} vs {{ $match->awayTeam->name }}</p>
                                 <p class="text-xs text-text-muted">
-                                    {{ \Carbon\Carbon::parse($match->scheduled_date)->format('d/m/Y') }} ·
+                                    {{ $match->scheduled_date?->format('d/m/Y') }} ·
                                     {{ $match->round_name }}
                                 </p>
                             </div>

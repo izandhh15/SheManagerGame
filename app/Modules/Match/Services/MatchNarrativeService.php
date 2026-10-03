@@ -236,9 +236,9 @@ class MatchNarrativeService
     {
         $candidates = [];
 
-        $opponentName = $match->home_team_id === $game->team_id
-            ? $match->awayTeam->name
-            : $match->homeTeam->name;
+        $opponentName = ($match->home_team_id === $game->team_id
+            ? $match->awayTeam?->name
+            : $match->homeTeam?->name) ?? '';
 
         // Group stage: opponent position in group
         if ($opponentStanding && !$match->isCupMatch()) {
@@ -828,13 +828,13 @@ class MatchNarrativeService
      *
      * @return array<string, string>
      */
-    private function teamParams(string $prefix, Team $team): array
+    private function teamParams(string $prefix, ?Team $team): array
     {
         return [
-            $prefix => $team->name,
-            "{$prefix}_el" => $team->nameWithEl(),
-            "{$prefix}_a" => $team->nameWithA(),
-            "{$prefix}_de" => $team->nameWithDe(),
+            $prefix => $team?->name ?? '',
+            "{$prefix}_el" => $team?->nameWithEl() ?? '',
+            "{$prefix}_a" => $team?->nameWithA() ?? '',
+            "{$prefix}_de" => $team?->nameWithDe() ?? '',
         ];
     }
 

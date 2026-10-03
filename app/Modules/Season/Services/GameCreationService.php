@@ -34,6 +34,7 @@ class GameCreationService
             ?? CompetitionTeam::forCurrentSeason()->where('team_id', $teamId)->first();
 
         $team = Team::with('reserveTeam')->find($teamId);
+        abort_if($team === null, 404);
 
         // Resolve competition ID: use competition_team lookup, fall back to
         // tier 1 of the team's country from config

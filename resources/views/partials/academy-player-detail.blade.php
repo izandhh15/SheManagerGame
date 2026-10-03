@@ -79,7 +79,7 @@
             </div>
             <div class="flex items-center justify-between">
                 <span class="text-[11px] text-text-muted uppercase tracking-wide">{{ __('squad.discovered') }}</span>
-                <span class="text-xs font-semibold text-text-primary">{{ $academyPlayer->appeared_at->format('d M Y') }}</span>
+                <span class="text-xs font-semibold text-text-primary">{{ $academyPlayer->appeared_at?->format('d M Y') }}</span>
             </div>
             <div class="flex items-center justify-between">
                 <span class="text-[11px] text-text-muted uppercase tracking-wide">{{ __('squad.academy') }}</span>
