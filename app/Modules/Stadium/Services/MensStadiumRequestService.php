@@ -156,12 +156,16 @@ class MensStadiumRequestService
         return $this->stadiumsByName[$key] ?? null;
     }
 
+    /**
+     * Rentals used this season. Counts ONLY matches flagged as men's-stadium
+     * rentals: neutral cup finals (CupDrawService) also set
+     * neutral_venue_name, but they must not eat the MAX_PER_SEASON quota.
+     */
     public function usesThisSeason(Game $game): int
     {
         return GameMatch::where('game_id', $game->id)
             ->where('home_team_id', $game->team_id)
-            ->whereNotNull('neutral_venue_name')
-            ->where('neutral_venue_name', '!=', '')
+            ->where('mens_stadium_rental', true)
             ->count();
     }
 
@@ -279,6 +283,13 @@ class MensStadiumRequestService
      * Confirm a quoted request: charge the club (if priced) and move the
      * match to the stadium.
      *
+     * The per-season limit (MAX_PER_SEASON) is re-validated INSIDE the
+     * transaction: the step-1 check in quoteForMatch() may be stale by the
+     * time the user confirms, and parallel quotes could otherwise all pass
+     * it and land 4 rentals in the same season. The budget is likewise
+     * re-read under a row lock so two concurrent confirmations can't spend
+     * the same euros twice (TOCTOU).
+     *
      * @param array{price: int, stadium: array} $quote
      * @return array{ok: bool, error: string|null}
      */
@@ -300,32 +311,65 @@ class MensStadiumRequestService
                 return ['ok' => false, 'error' => 'game.mens_stadium_cant_afford'];
             }
 
-            DB::transaction(function () use ($game, $investment, $match, $stadium, $price, $priceCents) {
-                $investment->update(['transfer_budget' => $investment->transfer_budget - $priceCents]);
+            try {
+                DB::transaction(function () use ($game, $investment, $match, $stadium, $price, $priceCents) {
+                    $locked = GameInvestment::whereKey($investment->id)->lockForUpdate()->first();
+                    if ($locked === null) {
+                        throw new \DomainException('game.mens_stadium_no_budget');
+                    }
 
-                FinancialTransaction::recordExpense(
-                    gameId: $game->id,
-                    category: FinancialTransaction::CATEGORY_VENUE_RENT,
-                    amount: $priceCents,
-                    description: __('game.mens_stadium_rent_tx_desc', [
-                        'stadium' => $stadium['stadium'],
-                        'opponent' => $match->awayTeam?->name ?? '',
-                    ]),
-                    transactionDate: $game->current_date->toDateString(),
-                );
+                    if (! $this->canRequest($game)) {
+                        throw new \DomainException('game.mens_stadium_limit_reached');
+                    }
 
-                $match->update([
-                    'neutral_venue_name' => $stadium['stadium'],
-                    'neutral_venue_capacity' => (int) $stadium['capacity'],
-                ]);
-            });
+                    $freshAvailable = $locked->transfer_budget - TransferOffer::committedBudget($game->id);
+                    if ($priceCents > $freshAvailable) {
+                        throw new \DomainException('game.mens_stadium_cant_afford');
+                    }
+
+                    $locked->update(['transfer_budget' => $locked->transfer_budget - $priceCents]);
+
+                    FinancialTransaction::recordExpense(
+                        gameId: $game->id,
+                        category: FinancialTransaction::CATEGORY_VENUE_RENT,
+                        amount: $priceCents,
+                        description: __('game.mens_stadium_rent_tx_desc', [
+                            'stadium' => $stadium['stadium'],
+                            'opponent' => $match->awayTeam?->name ?? '',
+                        ]),
+                        transactionDate: $game->current_date->toDateString(),
+                    );
+
+                    $match->update([
+                        'neutral_venue_name' => $stadium['stadium'],
+                        'neutral_venue_capacity' => (int) $stadium['capacity'],
+                        'mens_stadium_rental' => true,
+                    ]);
+                });
+            } catch (\DomainException $e) {
+                $key = $e->getMessage();
+
+                return ['ok' => false, 'error' => $key === 'game.mens_stadium_limit_reached'
+                    ? __('game.mens_stadium_limit_reached', ['max' => self::MAX_PER_SEASON])
+                    : $key];
+            }
 
             return ['ok' => true, 'error' => null];
+        }
+
+        // Free (municipal) rentals still consume the per-season quota: the
+        // step-1 check may be stale by confirm time.
+        if (! $this->canRequest($game)) {
+            return [
+                'ok' => false,
+                'error' => __('game.mens_stadium_limit_reached', ['max' => self::MAX_PER_SEASON]),
+            ];
         }
 
         $match->update([
             'neutral_venue_name' => $stadium['stadium'],
             'neutral_venue_capacity' => (int) $stadium['capacity'],
+            'mens_stadium_rental' => true,
         ]);
 
         return ['ok' => true, 'error' => null];
