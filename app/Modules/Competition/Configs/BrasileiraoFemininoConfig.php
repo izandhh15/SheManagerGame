@@ -100,14 +100,8 @@ class BrasileiraoFemininoConfig implements CompetitionConfig, HasSeasonGoals
 
     public function getStandingsZones(): array
     {
-        return [
-            [
-                'minPosition' => 15,
-                'maxPosition' => 16,
-                'borderColor' => 'red-500',
-                'bgColor' => 'bg-red-500',
-                'label' => 'game.relegation',
-            ],
-        ];
+        // No relegation zone: the Brasileirão Feminino has no lower division in the game,
+        // so no relegation is modeled (see config/countries.php promotions).
+        return [];
     }
 }

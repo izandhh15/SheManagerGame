@@ -139,14 +139,8 @@ class SecondeLigueConfig implements CompetitionConfig, HasSeasonGoals
             ];
         }
 
-        $zones[] = [
-            'minPosition' => 10,
-            'maxPosition' => 11,
-            'borderColor' => 'red-500',
-            'bgColor' => 'bg-red-500',
-            'label' => 'game.relegation',
-        ];
-
+        // No relegation zone: the Seconde Ligue has no lower division in the game,
+        // so no relegation is modeled (see config/countries.php promotions).
         return $zones;
     }
 }

@@ -142,14 +142,8 @@ class ZweiteFrauenBundesligaConfig implements CompetitionConfig, HasSeasonGoals
             ];
         }
 
-        $zones[] = [
-            'minPosition' => 12,
-            'maxPosition' => 14,
-            'borderColor' => 'red-500',
-            'bgColor' => 'bg-red-500',
-            'label' => 'game.relegation',
-        ];
-
+        // No relegation zone: the 2. Frauen-Bundesliga has no lower division in the game,
+        // so no relegation is modeled (see config/countries.php promotions).
         return $zones;
     }
 }
