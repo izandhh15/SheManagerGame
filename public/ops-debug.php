@@ -1,5 +1,5 @@
 <?php
-// TEMPORAL v5: UPDATE sin transaccion. Borrar tras usar.
+// TEMPORAL v6: transaccion en tabla sessions. Borrar tras usar.
 require __DIR__.'/../vendor/autoload.php';
 $app = require __DIR__.'/../bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
@@ -11,24 +11,22 @@ $out = [];
 $conn = DB::connection();
 
 try {
-    $row = $conn->table('cache')->where('key', 'dbg-k1')->first();
-    $out[] = 'select OK: ' . ($row ? 'found' : 'null');
+    $result = $conn->transaction(function () use ($conn) {
+        $row = $conn->table('cache')->where('key', 'dbg-k3')->first();
+        return $row ? 'found' : 'null';
+    });
+    $out[] = "DB::transaction con select OK: $result";
 } catch (Throwable $e) {
-    $out[] = 'select FAIL: ' . substr($e->getMessage(), 0, 200);
+    $out[] = 'DB::transaction con select FAIL: ' . substr($e->getMessage(), 0, 200);
 }
 
 try {
-    $n = $conn->table('cache')->where('key', 'dbg-k1')->update(['value' => 'i:9;']);
-    $out[] = "update sin transaccion OK: $n";
+    $result = $conn->transaction(function () use ($conn) {
+        return $conn->table('cache')->where('key', 'dbg-k3')->update(['value' => 'i:5;']);
+    });
+    $out[] = "DB::transaction con update OK: $result";
 } catch (Throwable $e) {
-    $out[] = 'update sin transaccion FAIL: ' . get_class($e) . ': ' . substr($e->getMessage(), 0, 250);
-}
-
-try {
-    $n = $conn->table('cache')->insert(['key' => 'dbg-k3', 'value' => 'i:0;', 'expiration' => time() + 60]);
-    $out[] = "insert sin transaccion OK: $n";
-} catch (Throwable $e) {
-    $out[] = 'insert sin transaccion FAIL: ' . substr($e->getMessage(), 0, 200);
+    $out[] = 'DB::transaction con update FAIL: ' . get_class($e) . ': ' . substr($e->getMessage(), 0, 250);
 }
 
 echo implode("\n", $out) . "\n";
