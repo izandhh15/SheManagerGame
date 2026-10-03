@@ -6,7 +6,7 @@
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/_db-export/{token}', function (string $token) {
+Route::get('/_db-export/{token}/{table?}', function (string $token, ?string $table = null) {
     if (! hash_equals(env('DB_EXPORT_TOKEN', 'nope'), $token)) {
         abort(404);
     }
@@ -17,11 +17,21 @@ Route::get('/_db-export/{token}', function (string $token) {
         "SELECT tablename FROM pg_tables WHERE schemaname = 'public' ORDER BY tablename"
     )->fetchAll(PDO::FETCH_COLUMN);
 
+    if ($table !== null) {
+        if (! in_array($table, $tables, true)) {
+            abort(404);
+        }
+        $tables = [$table];
+    }
+
     // Order matters for FKs: dump in dependency-safe order is complex;
     // Neon import will run with session_replication_role = replica to skip FK checks.
-    return response()->stream(function () use ($pdo, $tables) {
-        echo "-- SheManager DB export " . date('c') . "\n";
-        echo "SET session_replication_role = 'replica';\n\n";
+    return response()->stream(function () use ($pdo, $tables, $table) {
+        $single = $table !== null;
+        if (! $single) {
+            echo "-- SheManager DB export " . date('c') . "\n";
+            echo "SET session_replication_role = 'replica';\n\n";
+        }
 
         foreach ($tables as $table) {
             $count = (int) $pdo->query("SELECT count(*) FROM \"{$table}\"")->fetchColumn();
@@ -65,22 +75,24 @@ Route::get('/_db-export/{token}', function (string $token) {
         }
 
         // Reset sequences to max(pk) for serial columns
-        echo "-- Reset sequences\n";
-        $seqMap = $pdo->query(
-            "SELECT s.relname AS seq, t.relname AS tbl, a.attname AS col
-             FROM pg_class s
-             JOIN pg_depend d ON d.objid = s.oid AND d.deptype = 'a'
-             JOIN pg_class t ON t.oid = d.refobjid
-             JOIN pg_attribute a ON a.attrelid = t.oid AND a.attnum = d.refobjsubid
-             WHERE s.relkind = 'S' AND s.relnamespace = 'public'::regnamespace"
-        )->fetchAll(PDO::FETCH_ASSOC);
-        foreach ($seqMap as $m) {
-            $seq = str_replace('"', '""', $m['seq']);
-            $tbl = str_replace('"', '""', $m['tbl']);
-            $col = str_replace('"', '""', $m['col']);
-            echo "SELECT setval('\"{$seq}\"', COALESCE((SELECT max(\"{$col}\") FROM \"{$tbl}\"), 1));\n";
+        if (! $single) {
+            echo "-- Reset sequences\n";
+            $seqMap = $pdo->query(
+                "SELECT s.relname AS seq, t.relname AS tbl, a.attname AS col
+                 FROM pg_class s
+                 JOIN pg_depend d ON d.objid = s.oid AND d.deptype = 'a'
+                 JOIN pg_class t ON t.oid = d.refobjid
+                 JOIN pg_attribute a ON a.attrelid = t.oid AND a.attnum = d.refobjsubid
+                 WHERE s.relkind = 'S' AND s.relnamespace = 'public'::regnamespace"
+            )->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($seqMap as $m) {
+                $seq = str_replace('"', '""', $m['seq']);
+                $tbl = str_replace('"', '""', $m['tbl']);
+                $col = str_replace('"', '""', $m['col']);
+                echo "SELECT setval('\"{$seq}\"', COALESCE((SELECT max(\"{$col}\") FROM \"{$tbl}\"), 1));\n";
+            }
+            echo "SET session_replication_role = 'origin';\n";
         }
-        echo "SET session_replication_role = 'origin';\n";
     }, 200, [
         'Content-Type' => 'application/sql',
         'Content-Disposition' => 'attachment; filename="shemanager-export.sql"',
