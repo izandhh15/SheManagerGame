@@ -586,7 +586,12 @@ class PromotionSlotAllocatorTest extends TestCase
                 'team_id' => $team->id,
                 'entry_round' => 1,
             ]);
-            // Placeholder row from an earlier unsplit move: never played.
+        }
+
+        // Placeholder rows from an earlier unsplit move: never played.
+        // Inserted in REVERSE sim order so the old unfiltered read would
+        // hand the slots to the wrong teams.
+        foreach (array_reverse($teams) as $team) {
             GameStanding::create([
                 'game_id' => $this->game->id,
                 'competition_id' => self::BOTTOM_DIVISION,
