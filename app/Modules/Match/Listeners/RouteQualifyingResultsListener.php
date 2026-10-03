@@ -45,7 +45,14 @@ class RouteQualifyingResultsListener
             Log::info("[Qualifying] UCLQ: {$winnerId} → UCL, {$loserId} → UEL (game {$gameId})");
         } else {
             $this->moveEntry($gameId, $winnerId, 'UELQ', 'UEL');
-            Log::info("[Qualifying] UELQ: {$winnerId} → UEL (game {$gameId})");
+            // UELQ loser is out (see class docblock): drop their entry so
+            // they no longer count as "qualified" in
+            // strongestUnqualifiedEuropeanTeams() and future draws.
+            CompetitionEntry::where('game_id', $gameId)
+                ->where('competition_id', 'UELQ')
+                ->where('team_id', $loserId)
+                ->delete();
+            Log::info("[Qualifying] UELQ: {$winnerId} → UEL, {$loserId} out (game {$gameId})");
         }
 
         $this->maybeInitializeEuropeanLeaguePhases($event->game);
