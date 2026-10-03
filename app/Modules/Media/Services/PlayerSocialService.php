@@ -59,7 +59,7 @@ class PlayerSocialService
         $won = $winnerId === $teamId;
 
         $es = app()->getLocale() === 'es';
-        $handle = '@' . strtolower(preg_replace('/[^a-z0-9]/i', '', str_replace(' ', '', $name)));
+        $handle = $this->playerHandle($player);
 
         if ($es) {
             $texts = $won
@@ -131,7 +131,7 @@ class PlayerSocialService
         }
 
         $es = app()->getLocale() === 'es';
-        $handle = '@' . strtolower(preg_replace('/[^a-z0-9]/i', '', str_replace(' ', '', $player->name)));
+        $handle = $this->playerHandle($player);
 
         $texts = $es ? [
             "Entreno completado ✅ La semana se presenta intensa 💪",
@@ -152,6 +152,26 @@ class PlayerSocialService
             'likes' => rand(500, 6000),
             'context' => 'player_lifestyle',
         ]);
+    }
+
+    /**
+     * Build a sane author handle for a player.
+     *
+     * Same fallback pattern as clubHandle()/nationalHandle(): an emoji-only
+     * name leaves an empty body after sanitising, so fall back to a
+     * '@jugadora_<id>' handle instead of a bare '@'. The result never
+     * exceeds 255 chars (varchar of social_posts.author_handle).
+     */
+    private function playerHandle(GamePlayer $player): string
+    {
+        $body = strtolower(preg_replace('/[^a-z0-9]/i', '', str_replace(' ', '', (string) $player->name)));
+
+        if ($body === '') {
+            // Short id suffix keeps handles reasonably unique per player.
+            $body = 'jugadora_' . substr(str_replace('-', '', (string) $player->id), 0, 8);
+        }
+
+        return '@' . mb_substr($body, 0, 254);
     }
 
     private function bestPlayer(Game $game, GameMatch $match, string $teamId): ?GamePlayer
