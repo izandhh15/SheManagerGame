@@ -839,6 +839,11 @@ class ContractService
      * Apply pending wage increases (called at end of season).
      * Returns array of players whose wages were updated.
      *
+     * Uses the same ownership criterion as the listing
+     * (getPlayersWithPendingRenewals): ownedByTeam() includes players loaned
+     * out, whose agreed renewals must also be applied — team_id alone would
+     * leave their pending_annual_wage stale forever.
+     *
      * @param Game $game
      * @return Collection<GamePlayer>
      */
@@ -846,14 +851,14 @@ class ContractService
     {
         // Fetch affected players first (for return value / metadata)
         $players = GamePlayer::where('game_id', $game->id)
-            ->where('team_id', $game->team_id)
+            ->ownedByTeam($game->team_id)
             ->whereNotNull('pending_annual_wage')
             ->get();
 
         // Single bulk update: copy pending_annual_wage → annual_wage, then clear
         if ($players->isNotEmpty()) {
             GamePlayer::where('game_id', $game->id)
-                ->where('team_id', $game->team_id)
+                ->ownedByTeam($game->team_id)
                 ->whereNotNull('pending_annual_wage')
                 ->update([
                     'annual_wage' => DB::raw('pending_annual_wage'),
@@ -1370,58 +1375,66 @@ class ContractService
         // Calculate severance
         $severance = $this->calculateSeverance($game, $player);
 
-        // Pay using the chosen method (records the financial transaction).
-        $paymentResult = app(\App\Modules\Finance\Services\SeverancePaymentService::class)
-            ->paySeverance($game, $player, $playerName, $severance, $paymentMethod);
+        // Pay + release must be atomic: money paid without freeing the
+        // player (or vice versa) would corrupt the squad and the books.
+        try {
+            return DB::transaction(function () use ($game, $player, $playerName, $severance, $paymentMethod) {
+                // Pay using the chosen method (records the financial transaction).
+                $paymentResult = app(\App\Modules\Finance\Services\SeverancePaymentService::class)
+                    ->paySeverance($game, $player, $playerName, $severance, $paymentMethod);
 
-        if ($paymentResult['error'] ?? false) {
-            return ['error' => $paymentResult['error']];
+                if ($paymentResult['error'] ?? false) {
+                    throw new \DomainException($paymentResult['error']);
+                }
+
+                // Release the player to the free agent pool
+                TransferListing::where('game_player_id', $player->id)->delete();
+                $player->update([
+                    'team_id' => null,
+                    'number' => null,
+                    // Free agent → no contract → no release clause (non-null ⟺ under
+                    // contract). Mirrors the contract-expiry free-agent path.
+                    'release_clause' => null,
+                ]);
+
+                // Cancel any active renewal negotiations
+                $activeNegotiation = $player->activeRenewalNegotiation;
+                if ($activeNegotiation) {
+                    $activeNegotiation->update(['status' => RenewalNegotiation::STATUS_EXPIRED]);
+                }
+
+                // Expire all pending sale/loan offers for her: she is a free agent now,
+                // so the bids can never be accepted. Rejected (not expired) siblings
+                // are what acceptOffer leaves behind; here EXPIRED is the right
+                // terminal state because the market, not the club, killed them.
+                TransferOffer::transitionAll(
+                    TransferOffer::where('game_id', $game->id)
+                        ->where('game_player_id', $player->id)
+                        ->pending(),
+                    TransferOffer::STATUS_EXPIRED,
+                    $game->current_date,
+                );
+
+                // We do not retain history for ex-players.
+                UserSquadCareerRecord::where('game_player_id', $player->id)->delete();
+
+                // Send notification
+                app(NotificationService::class)->notifyPlayerReleased(
+                    $game,
+                    $playerName,
+                    $severance,
+                );
+
+                return [
+                    'playerName' => $playerName,
+                    'severance' => $severance,
+                    'formattedSeverance' => Money::format($severance),
+                    'paymentMethod' => $paymentResult['method'] ?? $paymentMethod,
+                ];
+            });
+        } catch (\DomainException $e) {
+            return ['error' => $e->getMessage()];
         }
-
-        // Release the player to the free agent pool
-        TransferListing::where('game_player_id', $player->id)->delete();
-        $player->update([
-            'team_id' => null,
-            'number' => null,
-            // Free agent → no contract → no release clause (non-null ⟺ under
-            // contract). Mirrors the contract-expiry free-agent path.
-            'release_clause' => null,
-        ]);
-
-        // Cancel any active renewal negotiations
-        $activeNegotiation = $player->activeRenewalNegotiation;
-        if ($activeNegotiation) {
-            $activeNegotiation->update(['status' => RenewalNegotiation::STATUS_EXPIRED]);
-        }
-
-        // Expire all pending sale/loan offers for her: she is a free agent now,
-        // so the bids can never be accepted. Rejected (not expired) siblings
-        // are what acceptOffer leaves behind; here EXPIRED is the right
-        // terminal state because the market, not the club, killed them.
-        TransferOffer::transitionAll(
-            TransferOffer::where('game_id', $game->id)
-                ->where('game_player_id', $player->id)
-                ->pending(),
-            TransferOffer::STATUS_EXPIRED,
-            $game->current_date,
-        );
-
-        // We do not retain history for ex-players.
-        UserSquadCareerRecord::where('game_player_id', $player->id)->delete();
-
-        // Send notification
-        app(NotificationService::class)->notifyPlayerReleased(
-            $game,
-            $playerName,
-            $severance,
-        );
-
-        return [
-            'playerName' => $playerName,
-            'severance' => $severance,
-            'formattedSeverance' => Money::format($severance),
-            'paymentMethod' => $paymentResult['method'] ?? $paymentMethod,
-        ];
     }
 
     /**

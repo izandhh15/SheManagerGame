@@ -13,6 +13,7 @@ use App\Modules\Squad\Services\SquadMinimumService;
 use App\Support\Money;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Validation\Rule;
 
 /**
@@ -63,65 +64,73 @@ class CompleteMutualTermination
             return redirect()->back()->with('error', $error);
         }
 
-        // Pagar con el método elegido.
-        $result = $this->severancePaymentService->paySeverance(
-            $game,
-            $player,
-            $playerName,
-            $amount,
-            $validated['payment_method'],
-        );
+        // Pagar con el método elegido y liberar a la jugadora, en una sola
+        // transacción: dinero pagado sin liberar (o viceversa) corrompería
+        // plantilla y contabilidad.
+        try {
+            return DB::transaction(function () use ($game, $player, $negotiation, $playerName, $amount, $validated) {
+                $result = $this->severancePaymentService->paySeverance(
+                    $game,
+                    $player,
+                    $playerName,
+                    $amount,
+                    $validated['payment_method'],
+                );
 
-        if ($result['error'] ?? false) {
-            return redirect()->back()->with('error', $result['error']);
+                if ($result['error'] ?? false) {
+                    throw new \DomainException($result['error']);
+                }
+
+                // Liberar a la jugadora (igual que releasePlayer pero sin recalcular).
+                TransferListing::where('game_player_id', $player->id)->delete();
+                $player->update([
+                    'team_id' => null,
+                    'number' => null,
+                    'release_clause' => null,
+                ]);
+
+                $activeNegotiation = $player->activeRenewalNegotiation;
+                if ($activeNegotiation) {
+                    $activeNegotiation->update(['status' => \App\Models\RenewalNegotiation::STATUS_EXPIRED]);
+                }
+
+                // Expire pending sale/loan offers for her (B1): she is a free agent
+                // now, so the bids can never be accepted; leaving them pending would
+                // die in abort(403) if the manager later tried to accept one.
+                \App\Models\TransferOffer::transitionAll(
+                    \App\Models\TransferOffer::where('game_id', $game->id)
+                        ->where('game_player_id', $player->id)
+                        ->pending(),
+                    \App\Models\TransferOffer::STATUS_EXPIRED,
+                    $game->current_date,
+                );
+
+                // We do not retain history for ex-players (B3).
+                UserSquadCareerRecord::where('game_player_id', $player->id)->delete();
+
+                $negotiation->update(['status' => MutualTerminationNegotiation::STATUS_COMPLETED]);
+
+                $this->notificationService->create(
+                    game: $game,
+                    type: \App\Models\GameNotification::TYPE_PLAYER_RELEASED,
+                    title: __('notifications.mutual_termination_title', ['player' => $playerName]),
+                    message: __('notifications.mutual_termination_message', [
+                        'player' => $playerName,
+                        'amount' => Money::format($amount),
+                    ]),
+                    priority: \App\Models\GameNotification::PRIORITY_INFO,
+                );
+
+                return redirect()
+                    ->back()
+                    ->with('success', __('messages.mutual_termination_completed', [
+                        'player' => $playerName,
+                        'amount' => Money::format($amount),
+                    ]));
+            });
+        } catch (\DomainException $e) {
+            return redirect()->back()->with('error', $e->getMessage());
         }
-
-        // Liberar a la jugadora (igual que releasePlayer pero sin recalcular).
-        TransferListing::where('game_player_id', $player->id)->delete();
-        $player->update([
-            'team_id' => null,
-            'number' => null,
-            'release_clause' => null,
-        ]);
-
-        $activeNegotiation = $player->activeRenewalNegotiation;
-        if ($activeNegotiation) {
-            $activeNegotiation->update(['status' => \App\Models\RenewalNegotiation::STATUS_EXPIRED]);
-        }
-
-        // Expire pending sale/loan offers for her (B1): she is a free agent
-        // now, so the bids can never be accepted; leaving them pending would
-        // die in abort(403) if the manager later tried to accept one.
-        \App\Models\TransferOffer::transitionAll(
-            \App\Models\TransferOffer::where('game_id', $game->id)
-                ->where('game_player_id', $player->id)
-                ->pending(),
-            \App\Models\TransferOffer::STATUS_EXPIRED,
-            $game->current_date,
-        );
-
-        // We do not retain history for ex-players (B3).
-        UserSquadCareerRecord::where('game_player_id', $player->id)->delete();
-
-        $negotiation->update(['status' => MutualTerminationNegotiation::STATUS_COMPLETED]);
-
-        $this->notificationService->create(
-            game: $game,
-            type: \App\Models\GameNotification::TYPE_PLAYER_RELEASED,
-            title: __('notifications.mutual_termination_title', ['player' => $playerName]),
-            message: __('notifications.mutual_termination_message', [
-                'player' => $playerName,
-                'amount' => Money::format($amount),
-            ]),
-            priority: \App\Models\GameNotification::PRIORITY_INFO,
-        );
-
-        return redirect()
-            ->back()
-            ->with('success', __('messages.mutual_termination_completed', [
-                'player' => $playerName,
-                'amount' => Money::format($amount),
-            ]));
     }
 
     /**
