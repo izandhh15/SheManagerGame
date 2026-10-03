@@ -299,7 +299,8 @@ class SegundaFederacionPlayoffGenerator implements PlayoffGenerator
 
     /**
      * Fallback ordering for groups without real standings: lazily simulate
-     * the group season (same pattern as PrimeraRFEFPlayoffGenerator).
+     * the group season (same simulated-season fallback pattern used
+     * across group playoff generators).
      *
      * @return array<int, string> Team UUIDs ordered 1st..last.
      */

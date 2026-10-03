@@ -27,10 +27,12 @@ use Illuminate\Support\Facades\Log;
  * Qualification slots are defined in config/countries.php under
  * each country's 'continental_slots' and 'cup_winner_slot' keys.
  *
- * A country may declare more than one cup winner slot — England's FA Cup pays
- * a Europa League place and its EFL Cup a Conference League one. They are
+ * A country may declare cup winner slots in 'cup_winner_slot'; they are
  * applied in declaration order, best competition first, so a later cascade
- * sees what an earlier one handed out.
+ * sees what an earlier one handed out. By design the slot is empty today:
+ * women's domestic cups carry no European place, so 'cup_winner_slot' is
+ * [] in every country of config/countries.php and qualification comes from
+ * league slots (plus the holder rules below).
  *
  * Cup winner cascade rules, per slot:
  * - If the cup winner is NOT already qualified via league position, they take
