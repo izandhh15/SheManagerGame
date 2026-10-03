@@ -4,6 +4,7 @@ namespace App\Modules\Squad\Services;
 
 use App\Models\Game;
 use App\Models\GamePlayer;
+use App\Modules\Squad\Exceptions\NoSquadNumberAvailableException;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 
@@ -40,6 +41,9 @@ class SquadNumberService
      * Over-23 players get slots 1-25 (bumping the youngest under-23 if needed).
      * Under-23 players get slots 1-25 if available, otherwise 26-99.
      * Returns null only when there are already 25+ over-23 players (unresolvable).
+     *
+     * @throws NoSquadNumberAvailableException when 1-25 is full, a youngster
+     *         would need bumping, but the 26-99 academy slots are full too.
      */
     public function assignNumberForNewPlayer(Game $game, GamePlayer $player): ?int
     {
@@ -84,6 +88,16 @@ class SquadNumberService
         }
 
         $academySlot = $this->firstAvailable(self::FIRST_TEAM_MAX + 1, 99, $takenNumbers);
+
+        if ($academySlot === null) {
+            // Nowhere to bump the youngster to: the academy is full too.
+            // Throwing is the only safe option — nulling her number would
+            // silently unenroll her (a null number means "deliberately
+            // unenrolled by the user" per reassignNumbers' docblock) with no
+            // user action, so the signing must fail loudly instead.
+            throw new NoSquadNumberAvailableException();
+        }
+
         $freedSlot = $bumpCandidate->number;
 
         $bumpCandidate->update(['number' => $academySlot]);

@@ -11,14 +11,15 @@ use App\Models\Team;
  * - Domestic cups declare their neutral grounds in config/countries.php
  *   (`domestic_cups.<cup>.neutral_venues`, keyed by round name, '*' for
  *   every round): the Copa del Rey final at La Cartuja, every game of the
- *   Spanish Supercup's final four in Saudi Arabia, FA Cup semi-finals and
+ *   Spanish Supercup's final four at Estadio Castalia, FA Cup semi-finals and
  *   final at Wembley.
- * - UEFA finals (UCL/UEL/UECL) and the UEFA Super Cup (UEFASUP) rotate
- *   across top-tier European grounds (>=50k), so we sample a random club
- *   stadium from the Team table, excluding the two finalists to guarantee
- *   the venue is genuinely neutral. If no eligible stadium is found we fall
- *   back to a guaranteed neutral venue rather than silently yielding none
- *   (which would leak the home club's capacity into the final).
+ * - The UCL and UEL finals rotate across top-tier European grounds (>=50k):
+ *   we sample a random club stadium from the Team table, excluding the two
+ *   finalists to guarantee the venue is genuinely neutral. If no eligible
+ *   stadium is found we fall back to a guaranteed neutral venue rather than
+ *   silently yielding none (which would leak the home club's capacity into
+ *   the final). The UEFA Super Cup (UEFASUP) deliberately gets no neutral
+ *   venue — its processor stages it without one.
  */
 class NeutralVenueResolver
 {

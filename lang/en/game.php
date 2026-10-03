@@ -448,6 +448,7 @@ return [
     'squad_picker_subtitle' => 'Pick 23 players for the qualifying campaign.',
     'squad_picker_confirm' => 'Confirm squad',
     'squad_picker_need_23' => 'You must call up exactly 23 players.',
+    'squad_number_no_slots_available' => 'No squad numbers available: the first-team slots are full and the academy (26-99) is full too.',
     'squad_picker_invalid' => 'Some player is not eligible for this national team.',
     'squad_picker_injured_error' => 'One of the selected players is injured and cannot be called up until she recovers.',
     'squad_picker_injured_until' => 'Injured until :date',

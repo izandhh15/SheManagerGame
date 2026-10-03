@@ -472,6 +472,7 @@ return [
     'squad_picker_subtitle' => 'Elige 23 jugadoras para la fase de clasificación.',
     'squad_picker_confirm' => 'Confirmar convocatoria',
     'squad_picker_need_23' => 'Tienes que convocar exactamente 23 jugadoras.',
+    'squad_number_no_slots_available' => 'No hay dorsales disponibles: la primera plantilla está completa y la cantera (26-99) también está llena.',
     'squad_picker_invalid' => 'Alguna jugadora no es elegible para esta selección.',
     'squad_picker_injured_error' => 'Alguna de las jugadoras elegidas está lesionada y no puede ser convocada hasta recuperarse.',
     'squad_picker_injured_until' => 'Lesionada hasta el :date',

@@ -470,6 +470,7 @@ return [
     'squad_picker_subtitle' => 'Choisis 23 joueuses pour la phase de qualification.',
     'squad_picker_confirm' => 'Confirmer la convocation',
     'squad_picker_need_23' => 'Tu dois convoquer exactement 23 joueuses.',
+    'squad_number_no_slots_available' => 'Aucun numéro de maillot disponible : la première équipe est complète et l\'académie (26-99) est pleine aussi.',
     'squad_picker_invalid' => 'Une joueuse n\'est pas éligible pour cette sélection.',
     'squad_picker_injured_error' => 'L\'une des joueuses choisies est blessée et ne peut pas être convoquée avant son rétablissement.',
     'squad_picker_injured_until' => 'Blessée jusqu\'au :date',

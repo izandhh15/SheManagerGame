@@ -68,9 +68,11 @@
         </div>
 
         {{-- Sent --}}
-        @if($sent->isNotEmpty())
-            <div class="mb-6">
-                <h3 class="text-sm font-semibold uppercase tracking-wide text-text-secondary mb-3">📤 {{ __('friends.sent_title') }} ({{ $sent->count() }})</h3>
+        <div class="mb-6">
+            <h3 class="text-sm font-semibold uppercase tracking-wide text-text-secondary mb-3">📤 {{ __('friends.sent_title') }} ({{ $sent->count() }})</h3>
+            @if($sent->isEmpty())
+                <p class="text-xs text-text-muted">{{ __('friends.no_sent') }}</p>
+            @else
                 <div class="space-y-2">
                     @foreach($sent as $req)
                         <div class="flex items-center gap-3 rounded-lg border border-border-default bg-surface-800 px-4 py-3">
@@ -87,8 +89,8 @@
                         </div>
                     @endforeach
                 </div>
-            </div>
-        @endif
+            @endif
+        </div>
 
         {{-- Friends list --}}
         <div class="mb-6">

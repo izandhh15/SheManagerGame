@@ -210,6 +210,9 @@ class PressNewsService
             ->where('played', true)
             ->where(fn ($q) => $q->whereIn('home_team_id', $teamIds)->orWhereIn('away_team_id', $teamIds))
             ->orderByDesc('scheduled_date')
+            // B13: desempate determinista — si dos partidos (club + filial)
+            // comparten fecha, el orden ya no depende del físico de la BD.
+            ->orderByDesc('id')
             ->first();
 
         if (! $last) {
@@ -267,6 +270,10 @@ class PressNewsService
                 "Analysis on {$outlet}: the dressing room is already thinking about the next fixture.",
             ];
         }
+
+        // B12: la crónica empezaba en minúscula ("victoria del X…"). Capitalizar
+        // el primer cuerpo de forma multibyte-segura, en ambos idiomas.
+        $body[0] = mb_strtoupper(mb_substr($body[0], 0, 1)) . mb_substr($body[0], 1);
 
         return new MatchNarrative(
             text: $body[0],

@@ -51,7 +51,7 @@
                 <div class="p-4 rounded-xl bg-surface-800 border {{ $post->sentiment < 0 ? 'border-red-500/30' : ($post->sentiment > 0 ? 'border-green-500/30' : 'border-border-default') }}">
                     <div class="flex items-center gap-2 mb-2">
                         <div class="w-10 h-10 rounded-full {{ $post->journalist_id ? 'bg-gradient-to-br from-sky-500 to-blue-700' : 'bg-gradient-to-br from-purple-500 to-pink-500' }} flex items-center justify-center text-white font-bold">
-                            {{ substr($post->author_name, 0, 1) }}
+                            {{ mb_substr($post->author_name, 0, 1) }}
                         </div>
                         <div class="flex-1">
                             <div class="font-semibold text-text-primary text-sm">

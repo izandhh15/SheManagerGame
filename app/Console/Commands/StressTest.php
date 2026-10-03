@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Modules\Match\Services\FastModeService;
 use App\Modules\Match\Services\MatchdayAdvanceCoordinator;
+use App\Modules\Season\Jobs\SetupNewGame;
 use App\Modules\Season\Services\GameCreationService;
 use App\Models\Game;
 use App\Models\GameMatch;
@@ -132,7 +133,25 @@ class StressTest extends Command
                 teamId: $team->id,
             );
 
-            // Process the setup job synchronously
+            // GameCreationService dispatches SetupNewGame with
+            // ->afterResponse(): in a console command the dispatch is deferred
+            // to the app's terminating callbacks, i.e. it only happens after
+            // this command ends — so draining the queue below would never see
+            // the job and the setup would never complete. Run it synchronously
+            // here instead (console-only; the HTTP flow keeps its
+            // afterResponse dispatch untouched). The job's handle is
+            // idempotent (early return when the setup is already complete),
+            // so the deferred dispatch firing at process termination is a
+            // harmless no-op.
+            app()->call([new SetupNewGame(
+                gameId: $game->id,
+                teamId: $team->id,
+                competitionId: $game->competition_id,
+                season: $game->season,
+                gameMode: $game->game_mode ?? Game::MODE_CAREER,
+            ), 'handle']);
+
+            // Process any other queued jobs synchronously
             $this->processQueuedJobs();
 
             $game->refresh();
@@ -397,10 +416,12 @@ class StressTest extends Command
 
     private function processQueuedJobs(): void
     {
-        // Process queue jobs synchronously by running the queue worker
+        // Process queue jobs synchronously by running the queue worker.
+        // The setup queue is drained too: SetupNewGame declares
+        // onQueue('setup'), so a default-only drain would never pick it up.
         $this->callSilently('queue:work', [
             '--once' => true,
-            '--queue' => 'default',
+            '--queue' => 'setup,default',
         ]);
     }
 

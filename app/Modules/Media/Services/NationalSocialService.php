@@ -90,12 +90,15 @@ class NationalSocialService
 
         $home = $match->homeTeam?->name ?? $game->team?->name ?? '';
         $away = $match->awayTeam?->name ?? '';
+        $es = $this->isEs();
+        // B10: the literal "de" is only correct in Spanish — with locale en
+        // it rendered espanglish ("Saturday 10 de October").
+        $dateFormat = $es ? 'l d \d\e F' : 'l d F';
         $date = $match->scheduled_date
-            ? ucfirst($match->scheduled_date->translatedFormat('l d \\d\\e F'))
+            ? ucfirst($match->scheduled_date->copy()->locale(app()->getLocale())->translatedFormat($dateFormat))
             : '';
         $comp = $match->competition?->name;
 
-        $es = $this->isEs();
         $text = $es
             ? "🏟️ ¡OFICIAL! El {$home} vs {$away}" . ($date ? " del {$date}" : '') . " se jugará en {$venue}." . ($comp ? " ({$comp})" : '') . " ¡Nos vemos en la grada! 🎟️"
             : "🏟️ OFFICIAL! {$home} vs {$away}" . ($date ? " on {$date}" : '') . " will be played at {$venue}." . ($comp ? " ({$comp})" : '') . " See you in the stands! 🎟️";
@@ -408,7 +411,9 @@ class NationalSocialService
     public function followers(Game $game): string
     {
         $count = 1_200_000;
-        if (($game->team?->name ?? '') === 'Spain') {
+        // B11: the `name` accessor translates national teams (Spain → España
+        // in es), so compare the RAW db name — same as mappedSocial().
+        if (($game->team?->getRawOriginal('name') ?? '') === 'Spain') {
             $count = 850_000;
         }
 

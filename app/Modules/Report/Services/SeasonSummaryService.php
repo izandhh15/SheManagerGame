@@ -59,8 +59,11 @@ class SeasonSummaryService
             $userTeamPromoted
         );
 
-        // League awards
-        $topScorers = $this->awardService->getTopScorers($game->id, $competitionTeamIds, limit: 3);
+        // League awards — league-only scoring (B26): the pichichi table must
+        // not mix in cup goals, mirroring the MVP's competition_id filtering.
+        $topScorers = $this->awardService->getTopScorers(
+            $game->id, $competitionTeamIds, limit: 3, competitionId: $game->competition_id
+        );
         $bestGoalkeeper = $this->awardService->getTopGoalkeepers(
             $game->id, $competitionTeamIds, minAppearances: 19, limit: 1
         )->first();

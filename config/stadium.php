@@ -5,11 +5,11 @@ return [
 
     // Matchday revenue per seat per season by reputation level (in cents).
     'revenue_per_seat' => [
-        'elite'        => 7_000, // €7/seat
-        'continental'  => 4_400, // €4.40/seat
-        'established'  => 3_100, // €3.10/seat
-        'modest'       => 2_100, // €2.10/seat
-        'local'        =>   900, // €0.90/seat
+        'elite'        => 7_000, // €70/seat
+        'continental'  => 4_400, // €44/seat
+        'established'  => 3_100, // €31/seat
+        'modest'       => 2_100, // €21/seat
+        'local'        =>   900, // €9/seat
     ],
 
     // ── Season tickets ─────────────────────────────────────────────────

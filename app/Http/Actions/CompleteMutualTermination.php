@@ -6,6 +6,7 @@ use App\Models\Game;
 use App\Models\GamePlayer;
 use App\Models\MutualTerminationNegotiation;
 use App\Models\TransferListing;
+use App\Models\UserSquadCareerRecord;
 use App\Modules\Finance\Services\SeverancePaymentService;
 use App\Modules\Notification\Services\NotificationService;
 use App\Modules\Squad\Services\SquadMinimumService;
@@ -87,6 +88,20 @@ class CompleteMutualTermination
         if ($activeNegotiation) {
             $activeNegotiation->update(['status' => \App\Models\RenewalNegotiation::STATUS_EXPIRED]);
         }
+
+        // Expire pending sale/loan offers for her (B1): she is a free agent
+        // now, so the bids can never be accepted; leaving them pending would
+        // die in abort(403) if the manager later tried to accept one.
+        \App\Models\TransferOffer::transitionAll(
+            \App\Models\TransferOffer::where('game_id', $game->id)
+                ->where('game_player_id', $player->id)
+                ->pending(),
+            \App\Models\TransferOffer::STATUS_EXPIRED,
+            $game->current_date,
+        );
+
+        // We do not retain history for ex-players (B3).
+        UserSquadCareerRecord::where('game_player_id', $player->id)->delete();
 
         $negotiation->update(['status' => MutualTerminationNegotiation::STATUS_COMPLETED]);
 

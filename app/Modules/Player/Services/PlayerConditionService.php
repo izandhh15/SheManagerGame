@@ -128,6 +128,7 @@ class PlayerConditionService
                     $isHome ? $awayWon : $homeWon,
                     $eventsByPlayer[$player->id] ?? [],
                     $isHome ? $homeDelta : $awayDelta,
+                    $currentDate,
                 );
 
                 // Sidelined players are allowed below MIN_FITNESS so a long
@@ -310,7 +311,8 @@ class PlayerConditionService
         bool $teamWon,
         bool $teamLost,
         array $playerEvents,
-        float $teamPointsDelta = 0.0
+        float $teamPointsDelta = 0.0,
+        ?Carbon $currentDate = null
     ): int {
         $change = 0;
 
@@ -347,7 +349,10 @@ class PlayerConditionService
         // Bench frustration: players who don't get game time gradually lose morale
         // regardless of team results. Offsets the win bonus for non-playing players.
         // Better players get more frustrated — star players have higher expectations.
-        if (!$playedMatch) {
+        // Long-term injured players are exempt (mirror of the injured carve-out in
+        // calculateFitnessChange): they can't play, so treating them as frustrated
+        // bench players is a bug, not a feature.
+        if (!$playedMatch && ! $player->isInjured($currentDate)) {
             $ability = $player->overall_score;
             // Multiplier ranges from ~0.3x (ability 20) to ~1.0x (ability 100)
             $frustrationMultiplier = 0.3 + ($ability / 100.0) * 0.7;

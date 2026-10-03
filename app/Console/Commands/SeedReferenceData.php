@@ -173,7 +173,7 @@ class SeedReferenceData extends Command
         // Step 1c: Seed promotion playoff competitions (e.g. Primera RFEF's
         // ESP3PO). These are bare knockout_cup competition rows with no
         // pre-populated teams — per-game entries are populated dynamically by
-        // PrimeraRFEFPlayoffGenerator when the regular season ends.
+        // SegundaFederacionPlayoffGenerator when the regular season ends.
         $promotionPlayoffs = $config['promotion_playoffs'] ?? [];
         if (!empty($promotionPlayoffs)) {
             $this->line("  Step 1c: Seeding " . count($promotionPlayoffs) . " promotion playoff(s)...");
@@ -639,7 +639,7 @@ class SeedReferenceData extends Command
      *
      * Promotion playoffs have no pre-seeded teams or players — their
      * CompetitionEntry rows are created dynamically at the end of the
-     * Primera RFEF regular season by PrimeraRFEFPlayoffGenerator. Only the
+     * Primera RFEF regular season by SegundaFederacionPlayoffGenerator. Only the
      * competition row itself needs to exist so cup ties / matches can point
      * at it.
      */

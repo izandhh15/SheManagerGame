@@ -119,7 +119,7 @@ $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
                         <div class="mt-3 ml-4 p-3 rounded-lg bg-surface-700/60 border {{ $reply->sentiment < 0 ? 'border-red-500/20' : 'border-green-500/20' }}">
                             <div class="flex items-center gap-2 mb-1">
                                 <div class="w-7 h-7 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white text-xs font-bold">
-                                    {{ substr($reply->author_name, 0, 1) }}
+                                    {{ mb_substr($reply->author_name, 0, 1) }}
                                 </div>
                                 <div>
                                     <span class="text-xs font-semibold text-text-primary">{{ $reply->author_name }}</span>

@@ -102,6 +102,14 @@ class FriendshipService
 
         $friendship->update(['status' => Friendship::STATUS_ACCEPTED]);
 
+        // Clean up any reverse-direction duplicate (double-send race): the
+        // unique (user_id, friend_id) index can't prevent a row in the
+        // opposite direction, and it must not linger next to the accepted one.
+        Friendship::where('user_id', $friendship->friend_id)
+            ->where('friend_id', $friendship->user_id)
+            ->where('id', '!=', $friendship->id)
+            ->delete();
+
         if ($friendship->isFederated()) {
             $this->federation->propagateAccept($friendship);
         }
@@ -147,6 +155,17 @@ class FriendshipService
         $wasFederated = $friendship->isFederated();
         $wasAccepted = $friendship->isAccepted();
         $friendship->delete();
+
+        // Remove every remaining row between the pair in BOTH directions:
+        // reverse-direction duplicates (double-send race) that the unique
+        // (user_id, friend_id) index can't prevent must not survive a remove.
+        Friendship::where(function ($q) use ($friendship) {
+            $q->where('user_id', $friendship->user_id)
+                ->where('friend_id', $friendship->friend_id);
+        })->orWhere(function ($q) use ($friendship) {
+            $q->where('user_id', $friendship->friend_id)
+                ->where('friend_id', $friendship->user_id);
+        })->delete();
 
         if ($wasFederated) {
             if ($wasAccepted) {

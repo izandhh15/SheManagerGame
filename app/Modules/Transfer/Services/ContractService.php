@@ -14,6 +14,7 @@ use App\Models\RenewalNegotiation;
 use App\Models\Team;
 use App\Models\TransferListing;
 use App\Models\TransferOffer;
+use App\Models\UserSquadCareerRecord;
 use App\Modules\Notification\Services\NotificationService;
 use App\Modules\Squad\Services\SquadMinimumService;
 use App\Support\Money;
@@ -1392,6 +1393,21 @@ class ContractService
         if ($activeNegotiation) {
             $activeNegotiation->update(['status' => RenewalNegotiation::STATUS_EXPIRED]);
         }
+
+        // Expire all pending sale/loan offers for her: she is a free agent now,
+        // so the bids can never be accepted. Rejected (not expired) siblings
+        // are what acceptOffer leaves behind; here EXPIRED is the right
+        // terminal state because the market, not the club, killed them.
+        TransferOffer::transitionAll(
+            TransferOffer::where('game_id', $game->id)
+                ->where('game_player_id', $player->id)
+                ->pending(),
+            TransferOffer::STATUS_EXPIRED,
+            $game->current_date,
+        );
+
+        // We do not retain history for ex-players.
+        UserSquadCareerRecord::where('game_player_id', $player->id)->delete();
 
         // Send notification
         app(NotificationService::class)->notifyPlayerReleased(

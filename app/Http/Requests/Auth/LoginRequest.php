@@ -34,6 +34,20 @@ class LoginRequest extends FormRequest
     }
 
     /**
+     * Normalize the email before validation/authentication. Registration
+     * validates `lowercase`, so stored emails are always lowercase, but
+     * Postgres compares with case-sensitive `=` — without this, logging in
+     * with the email in uppercase would fail to match the stored row.
+     */
+    protected function prepareForValidation(): void
+    {
+        $email = $this->input('email');
+        if (is_string($email)) {
+            $this->merge(['email' => mb_strtolower(trim($email))]);
+        }
+    }
+
+    /**
      * Attempt to authenticate the request's credentials.
      *
      * @throws \Illuminate\Validation\ValidationException

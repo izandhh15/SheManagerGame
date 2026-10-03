@@ -10,6 +10,7 @@ use App\Models\GameNotification;
 use App\Models\GamePlayer;
 use App\Models\GameStanding;
 use App\Models\ManagerTrophy;
+use App\Models\MatchEvent;
 use App\Models\SeasonAward;
 use App\Models\SocialPost;
 use App\Models\Team;
@@ -107,10 +108,21 @@ class AwardsGalaTest extends TestCase
         ]);
 
         // Match-MVP awards: 4 for the star striker, 1 for the rival striker.
+        // Goal events matching the documented season tallies (25 / 28): the
+        // pichichi is counted from the league's match events (B26), and real
+        // simulated matches always produce them.
+        $matches = [];
         foreach (range(1, 4) as $i) {
-            $this->makePlayedMatch($this->starStriker);
+            $matches[] = $this->makePlayedMatch($this->starStriker);
         }
-        $this->makePlayedMatch($this->rivalStriker);
+        $matches[] = $this->makePlayedMatch($this->rivalStriker);
+
+        foreach ($matches as $match) {
+            $this->scoreGoals($match, $this->starStriker, 5); // 5 x 5 = 25
+        }
+        foreach ($matches as $i => $match) {
+            $this->scoreGoals($match, $this->rivalStriker, [6, 6, 6, 5, 5][$i]); // = 28
+        }
     }
 
     private function makePlayer(Team $team, string $name, array $stats): GamePlayer
@@ -122,9 +134,9 @@ class AwardsGalaTest extends TestCase
         ], $stats));
     }
 
-    private function makePlayedMatch(GamePlayer $mvp): void
+    private function makePlayedMatch(GamePlayer $mvp): GameMatch
     {
-        GameMatch::factory()->forGame($this->game)->create([
+        return GameMatch::factory()->forGame($this->game)->create([
             'competition_id' => $this->competition->id,
             'home_team_id' => $this->userTeam->id,
             'away_team_id' => $this->rivalTeam->id,
@@ -133,6 +145,23 @@ class AwardsGalaTest extends TestCase
             'away_score' => 1,
             'mvp_player_id' => $mvp->id,
         ]);
+    }
+
+    /**
+     * Record $count goal events for a player in a match.
+     */
+    private function scoreGoals(GameMatch $match, GamePlayer $player, int $count): void
+    {
+        foreach (range(1, $count) as $i) {
+            MatchEvent::create([
+                'game_id' => $this->game->id,
+                'game_match_id' => $match->id,
+                'game_player_id' => $player->id,
+                'team_id' => $player->team_id,
+                'minute' => min($i * 10, 90),
+                'event_type' => MatchEvent::TYPE_GOAL,
+            ]);
+        }
     }
 
     private function processor(): AwardsGalaProcessor
