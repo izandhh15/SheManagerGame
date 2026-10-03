@@ -9,10 +9,7 @@
         $displayValue >= 60 => 'bg-accent-gold',
         default => 'bg-accent-orange',
     };
-    $barHeight = match($size) {
-        'sm' => 'h-1.5',
-        default => 'h-1.5',
-    };
+    $barHeight = 'h-1.5';
     $barWidth = match($size) {
         'sm' => 'w-10',
         default => 'w-16',

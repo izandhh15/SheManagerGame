@@ -7,7 +7,7 @@
             </svg>
         </div>
 
-        <h3 class="font-heading text-lg md:text-lx font-bold text-white mb-2">
+        <h3 class="font-heading text-lg md:text-xl font-bold text-white mb-2">
             {{ __('app.donation_title') }}
         </h3>
 

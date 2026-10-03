@@ -210,7 +210,11 @@ Route::get('/', function () {
     // Landing page for guests; authenticated users go to their dashboard.
     return auth()->check()
         ? redirect()->route('dashboard')
-        : response()->view('landing');
+        : response()->view('landing', [
+            // Marketing stats computed from the real game data (cached),
+            // not hardcoded claims.
+            'landingStats' => \App\Support\LandingStats::get(),
+        ]);
 })->name('landing');
 
 Route::get('/legal', fn () => view('legal'))->name('legal');

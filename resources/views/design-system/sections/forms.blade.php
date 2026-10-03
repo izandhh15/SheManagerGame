@@ -298,7 +298,7 @@
             <div class="max-w-md space-y-4">
                 <div>
                     <x-input-label for="form-name" value="Team Name" />
-                    <x-text-input id="form-name" type="text" class="mt-1 block w-full" value="Real Madrid CF" />
+                    <x-text-input id="form-name" type="text" class="mt-1 block w-full" value="Real Madrid Femenino" />
                 </div>
                 <div>
                     <x-input-label for="form-season" value="Season" />

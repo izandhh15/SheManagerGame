@@ -15,11 +15,11 @@
         </div>
         <div class="bg-surface-800 border border-border-default rounded-xl p-4">
             <div class="text-xs text-text-muted uppercase tracking-wider mb-1">{{ __('admin.new_users_7d') }}</div>
-            <div class="font-heading text-2xl font-bold text-accent-primary">{{ number_format($newUsers7d) }}</div>
+            <div class="font-heading text-2xl font-bold text-accent-blue">{{ number_format($newUsers7d) }}</div>
         </div>
         <div class="bg-surface-800 border border-border-default rounded-xl p-4">
             <div class="text-xs text-text-muted uppercase tracking-wider mb-1">{{ __('admin.new_games_7d') }}</div>
-            <div class="font-heading text-2xl font-bold text-accent-primary">{{ number_format($newGames7d) }}</div>
+            <div class="font-heading text-2xl font-bold text-accent-blue">{{ number_format($newGames7d) }}</div>
         </div>
     </div>
 
