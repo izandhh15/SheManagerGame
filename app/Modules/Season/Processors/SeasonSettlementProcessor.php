@@ -180,9 +180,7 @@ class SeasonSettlementProcessor implements SeasonProcessor
      */
     private function calculateMatchdayRevenue(Game $game): int
     {
-        $seasonYear = (int) $game->season;
-        $seasonStart = Carbon::createFromDate($seasonYear, 7, 1);
-        $seasonEnd = Carbon::createFromDate($seasonYear + 1, 6, 30);
+        [$seasonStart, $seasonEnd] = $this->seasonWindow($game);
 
         return (int) FinancialTransaction::where('game_id', $game->id)
             ->whereBetween('transaction_date', [$seasonStart, $seasonEnd])
@@ -214,19 +212,54 @@ class SeasonSettlementProcessor implements SeasonProcessor
         return (int) ($projected * $multiplier);
     }
 
-    private function calculateCupBonusRevenue(Game $game): int
+    /**
+     * Season window for ledger queries: July 1 of the season year through
+     * June 30 of the following year. The Game row persists across seasons
+     * and accumulates transactions, so every ledger read must be scoped to
+     * this window or earlier seasons get counted (and carried over) again.
+     *
+     * @return array{0: Carbon, 1: Carbon}
+     */
+    private function seasonWindow(Game $game): array
     {
+        $seasonYear = (int) $game->season;
+
+        return [
+            Carbon::createFromDate($seasonYear, 7, 1),
+            Carbon::createFromDate($seasonYear + 1, 6, 30),
+        ];
+    }
+
+    /**
+     * Transfer-sale income for THIS season only. Sums the
+     * `transfer_in` ledger rows windowed to July 1 → June 30: without the
+     * window, sales from earlier seasons were re-credited every year and
+     * the carry-over booked them into the budget again (free money).
+     */
+    private function calculateTransferIncome(Game $game): int
+    {
+        [$seasonStart, $seasonEnd] = $this->seasonWindow($game);
+
+        // Get transfer income from financial transactions (player sales)
         return FinancialTransaction::where('game_id', $game->id)
-            ->where('category', FinancialTransaction::CATEGORY_CUP_BONUS)
+            ->whereBetween('transaction_date', [$seasonStart, $seasonEnd])
+            ->where('category', FinancialTransaction::CATEGORY_TRANSFER_IN)
             ->where('type', FinancialTransaction::TYPE_INCOME)
             ->sum('amount');
     }
 
-    private function calculateTransferIncome(Game $game): int
+    /**
+     * Cup-bonus revenue for THIS season only, windowed July 1 → June 30
+     * for the same reason as calculateTransferIncome(): unwindowed, old
+     * bonuses re-appeared in every later season's surplus.
+     */
+    private function calculateCupBonusRevenue(Game $game): int
     {
-        // Get transfer income from financial transactions (player sales)
+        [$seasonStart, $seasonEnd] = $this->seasonWindow($game);
+
         return FinancialTransaction::where('game_id', $game->id)
-            ->where('category', FinancialTransaction::CATEGORY_TRANSFER_IN)
+            ->whereBetween('transaction_date', [$seasonStart, $seasonEnd])
+            ->where('category', FinancialTransaction::CATEGORY_CUP_BONUS)
             ->where('type', FinancialTransaction::TYPE_INCOME)
             ->sum('amount');
     }
@@ -239,9 +272,7 @@ class SeasonSettlementProcessor implements SeasonProcessor
      */
     private function calculateNetTransferResult(Game $game): int
     {
-        $seasonYear = (int) $game->season;
-        $seasonStart = Carbon::createFromDate($seasonYear, 7, 1);
-        $seasonEnd = Carbon::createFromDate($seasonYear + 1, 6, 30);
+        [$seasonStart, $seasonEnd] = $this->seasonWindow($game);
 
         $sales = (int) FinancialTransaction::where('game_id', $game->id)
             ->whereBetween('transaction_date', [$seasonStart, $seasonEnd])
@@ -258,6 +289,14 @@ class SeasonSettlementProcessor implements SeasonProcessor
         return $sales - $purchases;
     }
 
+    /**
+     * Actual wage bill for the season: pro-rated wages for the players on
+     * the squad at season close (mid-season joiners pro-rated from their
+     * arrival date), PLUS pro-rated wages for players SOLD mid-season
+     * (they left the squad query but their salary was paid up to the sale
+     * date), PLUS loan salary expenses. Everything is windowed to the
+     * season's July 1 → June 30 span.
+     */
     private function calculateActualWages(Game $game): int
     {
         // Get all players currently on the squad, excluding loaned-in players
@@ -272,9 +311,7 @@ class SeasonSettlementProcessor implements SeasonProcessor
             ->get();
 
         // Season runs from July 1 to June 30 (12 months)
-        $seasonYear = (int) $game->season;
-        $seasonStart = Carbon::createFromDate($seasonYear, 7, 1);
-        $seasonEnd = Carbon::createFromDate($seasonYear + 1, 6, 30);
+        [$seasonStart, $seasonEnd] = $this->seasonWindow($game);
         $totalMonths = 12;
 
         // Batch-load mid-season join dates from transfers
@@ -307,8 +344,41 @@ class SeasonSettlementProcessor implements SeasonProcessor
             }
         }
 
-        // Add loan salary expenses (recorded as transactions when loans completed)
+        // Wages of players sold mid-season: the squad query above no longer
+        // sees them (their team_id moved to the buyer), but their salary was
+        // paid from season start until the sale date. Prorate it from the
+        // transfer's resolved_at (permanent sales only — loaned-out players'
+        // wages are paid by the borrowing club).
+        $soldTransfers = TransferOffer::where('game_id', $game->id)
+            ->where('status', TransferOffer::STATUS_COMPLETED)
+            ->outgoing()
+            ->where('offer_type', '!=', TransferOffer::TYPE_LOAN_OUT)
+            ->whereBetween('resolved_at', [$seasonStart, $seasonEnd])
+            ->with('gamePlayer')
+            ->get();
+
+        foreach ($soldTransfers as $offer) {
+            $wage = $offer->gamePlayer?->annual_wage;
+
+            if (! $wage) {
+                continue;
+            }
+
+            $saleDate = Carbon::parse($offer->resolved_at);
+
+            if ($saleDate->lte($seasonStart)) {
+                // Sold before the season began: no wage paid this season.
+                continue;
+            }
+
+            $monthsAtClub = $seasonStart->diffInMonths($saleDate);
+            $totalWages += (int) ($wage * ($monthsAtClub / $totalMonths));
+        }
+
+        // Add loan salary expenses (recorded as transactions when loans completed),
+        // windowed to the season so loans from prior seasons aren't counted again.
         $loanExpenses = FinancialTransaction::where('game_id', $game->id)
+            ->whereBetween('transaction_date', [$seasonStart, $seasonEnd])
             ->where('category', FinancialTransaction::CATEGORY_LOAN)
             ->where('type', FinancialTransaction::TYPE_EXPENSE)
             ->sum('amount');

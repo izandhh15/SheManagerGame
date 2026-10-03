@@ -34,6 +34,14 @@ class PlayerRetirementProcessor implements SeasonProcessor
 
     public function process(Game $game, SeasonTransitionData $data): SeasonTransitionData
     {
+        // Age math below needs a reference date ($player->age() and
+        // PlayerAge::dateOfBirthCutoff both require a non-null Carbon);
+        // without it the processor would 500 the transition step on every
+        // retry, leaving the season close stuck.
+        if ($game->current_date === null) {
+            return $data;
+        }
+
         // Phase 1: Retire players who announced retirement last season
         $retiredPlayers = $this->processRetirements($game, $data);
 

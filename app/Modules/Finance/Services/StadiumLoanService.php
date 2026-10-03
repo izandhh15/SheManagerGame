@@ -157,10 +157,22 @@ class StadiumLoanService
      * Apply one year's instalment to the loan. Returns the amount billed.
      * Marks the loan repaid once remaining_principal hits zero. Caller is
      * responsible for deducting the returned amount from the budget.
+     *
+     * Idempotent per season: the billed season is stamped on the loan and
+     * a second call for the same season returns 0 without touching the
+     * principal or writing another ledger row. A crashed-and-resumed
+     * season close (or a concurrent advance poll) therefore cannot charge
+     * the annual instalment twice.
      */
     public function billAnnualPayment(StadiumLoan $loan, Game $game): int
     {
         if (! $loan->isActive()) {
+            return 0;
+        }
+
+        $season = (int) $game->season;
+
+        if ($loan->last_billed_season !== null && $loan->last_billed_season === $season) {
             return 0;
         }
 
@@ -172,6 +184,7 @@ class StadiumLoanService
         if ($loan->remaining_principal_cents === 0) {
             $loan->status = StadiumLoanStatus::Repaid;
         }
+        $loan->last_billed_season = $season;
         $loan->save();
 
         FinancialTransaction::recordExpense(

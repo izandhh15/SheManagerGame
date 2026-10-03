@@ -24,6 +24,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $interest_rate_bps
  * @property int $remaining_principal_cents
  * @property int $season_started
+ * @property int|null $last_billed_season
  * @property StadiumLoanStatus $status
  * @property-read \App\Models\Game $game
  * @property-read \App\Models\GameStadiumProject $project
@@ -47,6 +48,7 @@ class StadiumLoan extends Model
         'interest_rate_bps',
         'remaining_principal_cents',
         'season_started',
+        'last_billed_season',
         'status',
     ];
 
@@ -57,6 +59,7 @@ class StadiumLoan extends Model
         'interest_rate_bps' => 'integer',
         'remaining_principal_cents' => 'integer',
         'season_started' => 'integer',
+        'last_billed_season' => 'integer',
     ];
 
     public function game(): BelongsTo
