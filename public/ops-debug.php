@@ -1,5 +1,5 @@
 <?php
-// TEMPORAL v6: transaccion en tabla sessions. Borrar tras usar.
+// TEMPORAL v7: lockForUpdate en tabla users. Borrar tras usar.
 require __DIR__.'/../vendor/autoload.php';
 $app = require __DIR__.'/../bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
@@ -8,25 +8,36 @@ $kernel->bootstrap();
 use Illuminate\Support\Facades\DB;
 
 $out = [];
-$conn = DB::connection();
 
 try {
-    $result = $conn->transaction(function () use ($conn) {
-        $row = $conn->table('cache')->where('key', 'dbg-k3')->first();
-        return $row ? 'found' : 'null';
+    $r = DB::transaction(function () {
+        $u = DB::table('users')->lockForUpdate()->first();
+        return $u ? 'found user' : 'no users';
     });
-    $out[] = "DB::transaction con select OK: $result";
+    $out[] = "lockForUpdate en users OK: $r";
 } catch (Throwable $e) {
-    $out[] = 'DB::transaction con select FAIL: ' . substr($e->getMessage(), 0, 200);
+    $out[] = 'lockForUpdate en users FAIL: ' . substr($e->getMessage(), 0, 250);
 }
 
 try {
-    $result = $conn->transaction(function () use ($conn) {
-        return $conn->table('cache')->where('key', 'dbg-k3')->update(['value' => 'i:5;']);
+    $r = DB::transaction(function () {
+        $c = DB::table('cache')->lockForUpdate()->first();
+        return $c ? 'found' : 'null';
     });
-    $out[] = "DB::transaction con update OK: $result";
+    $out[] = "lockForUpdate en cache (sin where) OK: $r";
 } catch (Throwable $e) {
-    $out[] = 'DB::transaction con update FAIL: ' . get_class($e) . ': ' . substr($e->getMessage(), 0, 250);
+    $out[] = 'lockForUpdate en cache FAIL: ' . substr($e->getMessage(), 0, 250);
+}
+
+try {
+    $r = DB::transaction(function () {
+        $c = DB::table('cache')->where('key', 'no-existe-xyz')->lockForUpdate()->first();
+        $n = DB::table('cache')->where('key', 'no-existe-xyz')->update(['value' => 'x']);
+        return "select-null + update OK: $n";
+    });
+    $out[] = $r;
+} catch (Throwable $e) {
+    $out[] = 'select-null + update FAIL: ' . substr($e->getMessage(), 0, 250);
 }
 
 echo implode("\n", $out) . "\n";
