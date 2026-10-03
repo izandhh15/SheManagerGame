@@ -2,9 +2,15 @@
 /** @var App\Models\Game $game */
 /** @var \Illuminate\Support\Collection $posts */
 /** @var \Illuminate\Support\Collection $squad */
+/** @var \Illuminate\Support\Collection $recentSignings */
+/** @var \Illuminate\Support\Collection $recentSales */
 /** @var string $clubHandle */
 /** @var string $followers */
 /** @var int $hype */
+/** @var string $clubLang */
+/** @var App\Models\GameMatch|null $nextHome */
+/** @var App\Models\GameMatch|null $nextFriendly */
+/** @var \Illuminate\Support\Collection $upcomingHomeMatches */
 $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
 @endphp
 
@@ -40,9 +46,10 @@ $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
         <x-flash-message type="error" :message="session('error')" class="mb-4" />
         <x-flash-message type="success" :message="session('success')" class="mb-4" />
 
-        {{-- Composer --}}
+        {{-- Composer: pre-written announcements (no free text) --}}
         <div class="mb-6 p-4 rounded-xl bg-surface-800 border border-border-default">
-            <h3 class="font-bold text-text-primary mb-3">📢 {{ __('game.club_social_compose') }}</h3>
+            <h3 class="font-bold text-text-primary mb-1">📢 {{ __('game.club_social_compose') }}</h3>
+            <p class="text-xs text-text-faint mb-3">{{ __('game.club_social_lang_note', ['lang' => __('game.club_social_lang_' . $clubLang)]) }}</p>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {{-- Signing (recent signings only) --}}
                 <form method="POST" action="{{ route('game.club-social.announce', $game->id) }}" class="p-3 rounded-lg border border-border-default bg-surface-700">
@@ -80,7 +87,6 @@ $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
                             @endforeach
                         </select>
                     @endif
-                    <input type="text" name="destination" maxlength="100" placeholder="{{ __('game.club_social_destination') }}" class="w-full mb-2 text-sm rounded-lg bg-surface-800 border-border-default text-text-primary placeholder:text-text-faint">
                     @if($recentSales->isEmpty())
                         <x-primary-button type="submit" disabled class="w-full text-xs">{{ __('game.club_social_publish') }}</x-primary-button>
                     @else
@@ -103,6 +109,89 @@ $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
                         <span class="text-xs text-text-secondary">{{ __('game.club_social_weeks') }}</span>
                     </div>
                     <x-primary-button type="submit" class="w-full text-xs">{{ __('game.club_social_publish') }}</x-primary-button>
+                </form>
+                {{-- Renewal --}}
+                <form method="POST" action="{{ route('game.club-social.announce', $game->id) }}" class="p-3 rounded-lg border border-border-default bg-surface-700">
+                    @csrf
+                    <input type="hidden" name="type" value="renewal">
+                    <p class="text-sm font-semibold text-text-primary mb-2">{{ __('game.club_social_type_renewal') }}</p>
+                    <select name="player_id" required class="w-full mb-2 text-sm rounded-lg bg-surface-800 border-border-default text-text-primary">
+                        <option value="">{{ __('game.club_social_pick_player') }}…</option>
+                        @foreach($squad as $player)
+                            <option value="{{ $player->id }}">{{ $player->name }} ({{ $player->overall_score }})</option>
+                        @endforeach
+                    </select>
+                    <x-primary-button type="submit" class="w-full text-xs">{{ __('game.club_social_publish') }}</x-primary-button>
+                </form>
+                {{-- Next home matchday --}}
+                <form method="POST" action="{{ route('game.club-social.announce', $game->id) }}" class="p-3 rounded-lg border border-border-default bg-surface-700 flex flex-col">
+                    @csrf
+                    <input type="hidden" name="type" value="next_home">
+                    <p class="text-sm font-semibold text-text-primary mb-2">{{ __('game.club_social_type_next_home') }}</p>
+                    @if($nextHome)
+                        <p class="text-xs text-text-secondary mb-2 flex-1">🏟️ {{ $nextHome->awayTeam?->name }} · {{ $nextHome->scheduled_date?->format('d/m/Y') }}</p>
+                        <x-primary-button type="submit" class="w-full text-xs mt-auto">{{ __('game.club_social_publish') }}</x-primary-button>
+                    @else
+                        <p class="text-xs text-text-faint mb-2 flex-1">{{ __('game.club_social_no_home_match') }}</p>
+                        <x-primary-button type="submit" disabled class="w-full text-xs mt-auto">{{ __('game.club_social_publish') }}</x-primary-button>
+                    @endif
+                </form>
+                {{-- Ticket discount --}}
+                <form method="POST" action="{{ route('game.club-social.announce', $game->id) }}" class="p-3 rounded-lg border border-border-default bg-surface-700 flex flex-col">
+                    @csrf
+                    <input type="hidden" name="type" value="ticket_discount">
+                    <p class="text-sm font-semibold text-text-primary mb-2">{{ __('game.club_social_type_ticket_discount') }}</p>
+                    @if($nextHome)
+                        <p class="text-xs text-text-secondary mb-2 flex-1">🎟️ -20% · {{ $nextHome->awayTeam?->name }}</p>
+                        <x-primary-button type="submit" class="w-full text-xs mt-auto">{{ __('game.club_social_publish') }}</x-primary-button>
+                    @else
+                        <p class="text-xs text-text-faint mb-2 flex-1">{{ __('game.club_social_no_home_match') }}</p>
+                        <x-primary-button type="submit" disabled class="w-full text-xs mt-auto">{{ __('game.club_social_publish') }}</x-primary-button>
+                    @endif
+                </form>
+                {{-- Ticket sales --}}
+                <form method="POST" action="{{ route('game.club-social.announce', $game->id) }}" class="p-3 rounded-lg border border-border-default bg-surface-700 flex flex-col">
+                    @csrf
+                    <input type="hidden" name="type" value="ticket_sales">
+                    <p class="text-sm font-semibold text-text-primary mb-2">{{ __('game.club_social_type_ticket_sales') }}</p>
+                    @if($nextHome)
+                        <p class="text-xs text-text-secondary mb-2 flex-1">🎫 {{ $nextHome->awayTeam?->name }} · {{ $nextHome->scheduled_date?->format('d/m/Y') }}</p>
+                        <x-primary-button type="submit" class="w-full text-xs mt-auto">{{ __('game.club_social_publish') }}</x-primary-button>
+                    @else
+                        <p class="text-xs text-text-faint mb-2 flex-1">{{ __('game.club_social_no_home_match') }}</p>
+                        <x-primary-button type="submit" disabled class="w-full text-xs mt-auto">{{ __('game.club_social_publish') }}</x-primary-button>
+                    @endif
+                </form>
+                {{-- Preseason friendly --}}
+                <form method="POST" action="{{ route('game.club-social.announce', $game->id) }}" class="p-3 rounded-lg border border-border-default bg-surface-700 flex flex-col">
+                    @csrf
+                    <input type="hidden" name="type" value="friendly">
+                    <p class="text-sm font-semibold text-text-primary mb-2">{{ __('game.club_social_type_friendly') }}</p>
+                    @if($nextFriendly)
+                        <p class="text-xs text-text-secondary mb-2 flex-1">🤝 {{ $nextFriendly->home_team_id === $game->team_id ? $nextFriendly->awayTeam?->name : $nextFriendly->homeTeam?->name }} · {{ $nextFriendly->scheduled_date?->format('d/m/Y') }}</p>
+                        <x-primary-button type="submit" class="w-full text-xs mt-auto">{{ __('game.club_social_publish') }}</x-primary-button>
+                    @else
+                        <p class="text-xs text-text-faint mb-2 flex-1">{{ __('game.club_social_no_friendly') }}</p>
+                        <x-primary-button type="submit" disabled class="w-full text-xs mt-auto">{{ __('game.club_social_publish') }}</x-primary-button>
+                    @endif
+                </form>
+                {{-- Venue announcement --}}
+                <form method="POST" action="{{ route('game.club-social.announce', $game->id) }}" class="p-3 rounded-lg border border-border-default bg-surface-700 flex flex-col">
+                    @csrf
+                    <input type="hidden" name="type" value="venue">
+                    <p class="text-sm font-semibold text-text-primary mb-2">{{ __('game.club_social_type_venue') }}</p>
+                    @if($upcomingHomeMatches->isEmpty())
+                        <p class="text-xs text-text-faint mb-2 flex-1">{{ __('game.club_social_no_home_match') }}</p>
+                        <x-primary-button type="submit" disabled class="w-full text-xs mt-auto">{{ __('game.club_social_publish') }}</x-primary-button>
+                    @else
+                        <select name="match_id" required class="w-full mb-2 text-sm rounded-lg bg-surface-800 border-border-default text-text-primary">
+                            <option value="">{{ __('game.club_social_pick_match') }}…</option>
+                            @foreach($upcomingHomeMatches as $match)
+                                <option value="{{ $match->id }}">{{ $match->awayTeam?->name }} · {{ $match->stadium_name ?? $match->neutral_venue_name }}</option>
+                            @endforeach
+                        </select>
+                        <x-primary-button type="submit" class="w-full text-xs mt-auto">{{ __('game.club_social_publish') }}</x-primary-button>
+                    @endif
                 </form>
                 {{-- Season tickets --}}
                 <form method="POST" action="{{ route('game.club-social.announce', $game->id) }}" class="p-3 rounded-lg border border-border-default bg-surface-700 flex flex-col">
@@ -129,6 +218,7 @@ $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
                         </div>
                         <span class="text-[10px] font-bold uppercase tracking-wide text-sky-400 bg-sky-500/10 border border-sky-500/30 rounded-full px-2 py-0.5">📢 {{ __('game.club_social_official_badge') }}</span>
                     </div>
+                    <img src="{{ $post->image_url ?: asset('images/comunicado-fallback.jpg') }}" alt="{{ __('game.club_social_official_badge') }}" class="w-full rounded-lg mb-2" loading="lazy">
                     <p class="text-text-primary text-sm leading-relaxed font-medium">{{ $post->text }}</p>
                     <div class="flex items-center gap-4 mt-2 text-xs text-text-faint">
                         <span>❤️ {{ $post->likes }}</span>

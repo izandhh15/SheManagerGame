@@ -3,6 +3,7 @@
 namespace App\Http\Views;
 
 use App\Models\Game;
+use App\Models\GameMatch;
 use App\Models\GamePlayer;
 use App\Models\GameTransfer;
 use App\Modules\Media\Services\ClubSocialService;
@@ -26,6 +27,19 @@ class ShowClubSocial
             ->orderByDesc('overall_score')
             ->get(['id', 'name', 'position', 'overall_score']);
 
+        // Upcoming home matches with a confirmed venue (for the
+        // pre-written "announce venue" template).
+        $upcomingHomeMatches = GameMatch::where('game_id', $game->id)
+            ->where('home_team_id', $game->team_id)
+            ->where('played', false)
+            ->where(fn ($q) => $q
+                ->whereNotNull('stadium_name')
+                ->orWhereNotNull('neutral_venue_name'))
+            ->with('awayTeam:id,name')
+            ->orderBy('scheduled_date')
+            ->limit(5)
+            ->get(['id', 'scheduled_date', 'stadium_name', 'neutral_venue_name', 'away_team_id']);
+
         return view('club-social', [
             'game' => $game,
             'posts' => $this->clubSocial->feed($game),
@@ -35,6 +49,10 @@ class ShowClubSocial
             'clubHandle' => $this->clubSocial->clubHandle($game),
             'followers' => $this->clubSocial->followers($game),
             'hype' => $this->clubSocial->hype($game),
+            'clubLang' => $this->clubSocial->clubLang($game),
+            'nextHome' => $this->clubSocial->nextHomeMatch($game),
+            'nextFriendly' => $this->clubSocial->nextFriendlyMatch($game),
+            'upcomingHomeMatches' => $upcomingHomeMatches,
         ]);
     }
 

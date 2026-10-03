@@ -85,6 +85,75 @@ class TrainingStageService
     }
 
     /**
+     * Confirm a club preseason stage: charge the club's transfer budget,
+     * apply squad effects, and persist the configuration on the game.
+     * Clubs may organize one stage per season.
+     *
+     * @return array{ok:bool, message:string, cost?:int, effects?:array, injured?:array}
+     */
+    public function confirmClubStage(Game $game, array $config): array
+    {
+        if ($game->isTournamentMode()) {
+            return ['ok' => false, 'message' => __('game.stage_club_not_available')];
+        }
+
+        if (! $this->validateConfig($config)) {
+            return ['ok' => false, 'message' => __('game.stage_invalid_config')];
+        }
+
+        $existing = $game->training_stage;
+        if (is_array($existing) && ($existing['season'] ?? null) === $game->season) {
+            return ['ok' => false, 'message' => __('game.stage_already_organized')];
+        }
+
+        $userTeam = $game->team;
+        $userCountry = \App\Support\CountryNames::name($userTeam->country) ?? $userTeam->country ?? '';
+
+        $cost = $this->calculateCost(
+            $config['destination'], $userCountry,
+            $config['duration'], $config['intensity'], $config['focus']
+        );
+
+        // 32-bit safe: stage costs are < €1M, ×100 cents stays far below 2^31.
+        // NB: $game->refresh() can leave this relation eager-loaded as null
+        // (the model docblock warns against eager-loading it), so drop any
+        // cached copy and lazy-load it fresh.
+        $game->unsetRelation('currentInvestment');
+        $investment = $game->currentInvestment;
+        if ($investment === null || (int) $investment->transfer_budget < $cost * 100) {
+            return ['ok' => false, 'message' => __('game.stage_club_not_enough_budget')];
+        }
+
+        $effects = $this->calculateEffects($config['duration'], $config['intensity'], $config['focus']);
+
+        DB::transaction(function () use ($game, $investment, $config, $cost, $effects) {
+            $investment->decrement('transfer_budget', $cost * 100);
+            $game->update([
+                'training_stage' => array_merge($config, [
+                    'cost' => $cost,
+                    'effects' => $effects,
+                    'season' => $game->season,
+                    'organized_at' => Carbon::now()->toDateTimeString(),
+                ]),
+            ]);
+
+            $this->applySquadEffects($game, $effects);
+        });
+
+        $game->refresh();
+
+        $injuredNames = collect($game->training_stage['injured'] ?? [])->pluck('name')->all();
+
+        return [
+            'ok' => true,
+            'message' => __('game.stage_confirmed'),
+            'cost' => $cost,
+            'effects' => $effects,
+            'injured' => $injuredNames,
+        ];
+    }
+
+    /**
      * Validate a stage configuration array.
      */
     public function validateConfig(array $config): bool

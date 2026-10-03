@@ -31,6 +31,7 @@ use App\Http\Views\AdminUsers;
 use App\Http\Views\AdminWaitlist;
 use App\Http\Actions\DeleteGame;
 use App\Http\Actions\SendFriendRequest;
+use App\Http\Actions\SendFederatedFriendRequest;
 use App\Http\Actions\AcceptFriendRequest;
 use App\Http\Actions\RejectFriendRequest;
 use App\Http\Actions\RemoveFriend;
@@ -54,6 +55,7 @@ use App\Http\Actions\SimulateTournament;
 use App\Http\Actions\ScheduleFriendly;
 use App\Http\Actions\SaveTrainingStage;
 use App\Http\Actions\SavePreseasonTour;
+use App\Http\Actions\SaveClubTrainingStage;
 use App\Http\Actions\OrganizeNationalVenue;
 use App\Http\Actions\CancelLoanSearch;
 use App\Http\Actions\CancelScoutSearch;
@@ -201,6 +203,7 @@ use App\Http\Actions\SendDownToReserve;
 use App\Http\Views\ShowReserveTeam;
 use App\Http\Actions\SkipMatchToEnd;
 use App\Http\Actions\StartNewSeason;
+use App\Http\Actions\AdvanceSeasonTransition;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -245,6 +248,7 @@ Route::middleware('auth')->group(function () {
     // Friends: add by username, manage requests, view friends' careers.
     Route::get('/friends', ShowFriends::class)->name('friends.index');
     Route::post('/friends/request', SendFriendRequest::class)->name('friends.request');
+    Route::post('/friends/federation/request', SendFederatedFriendRequest::class)->name('friends.federation.request');
     Route::post('/friends/{friendshipId}/accept', AcceptFriendRequest::class)->name('friends.accept');
     Route::post('/friends/{friendshipId}/reject', RejectFriendRequest::class)->name('friends.reject');
     Route::delete('/friends/{friendshipId}', RemoveFriend::class)->name('friends.remove');
@@ -469,6 +473,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/game/{gameId}/preseason-setup/invitation/accept', AcceptPreseasonInvitation::class)->name('game.preseason-setup.invitation.accept');
         Route::post('/game/{gameId}/preseason-setup/invitation/decline', DeclinePreseasonInvitation::class)->name('game.preseason-setup.invitation.decline');
         Route::post('/game/{gameId}/preseason-setup/tour', SavePreseasonTour::class)->name('game.preseason-setup.tour');
+        Route::post('/game/{gameId}/preseason-setup/stage', SaveClubTrainingStage::class)->name('game.preseason-setup.stage');
 
         // Squad Selection (Tournament mode new-season setup)
         Route::get('/game/{gameId}/squad-selection', ShowSquadSelection::class)->name('game.squad-selection');
@@ -476,6 +481,10 @@ Route::middleware('auth')->group(function () {
 
         // Game Setup Status (polling endpoint)
         Route::get('/game/{gameId}/setup-status', GameSetupStatus::class)->name('game.setup-status');
+
+        // Season transition chunk runner (polled by the loading screen).
+        // Runs up to ~25s of transition work per call; safe for serverless.
+        Route::post('/game/{gameId}/season-transition/advance', AdvanceSeasonTransition::class)->name('game.season-transition.advance');
 
         // Notifications. Reads are automatic — the inbox is a persistent feed
         // and markAllAsRead runs at the start of each matchday advance (see

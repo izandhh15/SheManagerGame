@@ -11,6 +11,14 @@
 /** @var array|null $preseasonTour */
 /** @var string|null $preseasonTourName */
 /** @var int $tourBudgetEuros */
+/** @var \App\Modules\Season\Services\TrainingStageService $stageService */
+/** @var array|null $clubStageConfig */
+/** @var array $stageDurations */
+/** @var array $stageIntensities */
+/** @var array $stageFocuses */
+/** @var array $stageCountries */
+/** @var string|null $stageHomeCountry */
+/** @var int $stageBudgetEuros */
 $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
 @endphp
 
@@ -34,6 +42,157 @@ $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
             <x-flash-message type="error" :message="session('error')" class="mb-6" />
             <x-flash-message type="info" :message="session('info')" class="mb-6" />
             <x-flash-message type="success" :message="session('success')" class="mb-6" />
+
+            {{-- Club training stage: the preseason concentración. Prominent on
+                 purpose: this is THE place to organize it, before friendlies. --}}
+            <div id="club-stage-configurator"
+                 x-data="{ clubStageFormOpen: {{ $errors->any() ? 'true' : 'false' }} }"
+                 class="rounded-xl border-2 border-emerald-500/40 bg-emerald-950/20 p-4 md:p-5 mb-8 scroll-mt-24">
+                <div class="flex items-center justify-between flex-wrap gap-2 mb-1">
+                    <h2 class="text-lg font-bold text-text-primary">🏕️ {{ __('game.stage_club_title') }}</h2>
+                    <span class="text-sm text-text-secondary">{{ __('game.stage_club_budget') }}:
+                        <strong class="text-text-primary">{{ number_format($stageBudgetEuros, 0, ',', '.') }} €</strong>
+                    </span>
+                </div>
+                <p class="text-sm text-text-secondary mb-4">{{ __('game.stage_club_subtitle') }}</p>
+
+                @if($clubStageConfig)
+                    @php
+                        $clubStageCost = $clubStageConfig['cost'] ?? 0;
+                        $clubStageLines = $stageService->effectSummaryLines($clubStageConfig['effects'] ?? []);
+                    @endphp
+                    <div class="rounded-lg border border-emerald-600/40 bg-emerald-950/30 p-4">
+                        <p class="font-bold text-text-primary mb-1">✅ {{ __('game.stage_organized_title') }}</p>
+                        <p class="text-sm text-text-secondary mb-2">{{ __('game.stage_organized_in', ['destination' => $clubStageConfig['destination'] ?? '']) }}</p>
+                        <ul class="text-sm text-text-secondary space-y-0.5 mb-2">
+                            @foreach($clubStageLines as $line)
+                                <li>{{ $line }}</li>
+                            @endforeach
+                        </ul>
+                        <p class="text-sm text-text-secondary">{{ __('game.stage_cost') }}:
+                            <strong class="text-text-primary">{{ number_format((int) $clubStageCost, 0, ',', '.') }} €</strong>
+                        </p>
+                    </div>
+                @else
+                    <button type="button"
+                            x-show="!clubStageFormOpen"
+                            @click="clubStageFormOpen = true; $nextTick(() => document.getElementById('club-stage-form').scrollIntoView({ behavior: 'smooth', block: 'start' }))"
+                            class="w-full sm:w-auto px-6 py-3 rounded-lg bg-emerald-600 text-white font-bold text-sm hover:brightness-110 transition min-h-[44px]">
+                        🏕️ {{ __('game.stage_organize_button') }}
+                    </button>
+
+                    <div id="club-stage-form" x-show="clubStageFormOpen" x-cloak>
+                    <form method="POST" action="{{ route('game.preseason-setup.stage', $game->id) }}"
+                          x-data="trainingStage({
+                              countries: @js($stageCountries),
+                              homeCountry: @js($stageHomeCountry),
+                              budget: @js($stageBudgetEuros),
+                              initialDestination: @js($stageHomeCountry),
+                              durations: @js($stageDurations),
+                              intensities: @js($stageIntensities),
+                              focuses: @js($stageFocuses),
+                              labels: @js([
+                                  'fitness' => __('game.stage_effect_fitness', ['value' => '{v}']),
+                                  'morale' => __('game.stage_effect_morale', ['value' => '{v}']),
+                                  'injury' => __('game.stage_effect_injury', ['risk' => '{v}']),
+                                  'youth' => __('game.stage_effect_youth', ['boost' => '{v}']),
+                              ]),
+                          })">
+                        @csrf
+
+                        {{-- Destination --}}
+                        <div class="mb-4">
+                            <label for="club_stage_destination" class="block text-sm font-semibold text-text-body mb-2">{{ __('game.stage_destination') }}</label>
+                            <select id="club_stage_destination" name="destination" x-model="destination" required
+                                    class="w-full rounded-lg border border-border-default bg-surface-900 px-4 py-2.5 text-sm text-text-body focus:outline-none focus:ring-2 focus:ring-emerald-500/50">
+                                <option value="">{{ __('game.friendly_choose_stadium') }}</option>
+                                <template x-for="c in countries" :key="c">
+                                    <option :value="c" x-text="c === homeCountry ? c + ' 🏠' : c"></option>
+                                </template>
+                            </select>
+                        </div>
+
+                        {{-- Duration --}}
+                        <div class="mb-4">
+                            <p class="block text-sm font-semibold text-text-body mb-2">{{ __('game.stage_duration') }}</p>
+                            <div class="grid grid-cols-2 gap-2">
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="duration" value="1w" x-model="duration" class="sr-only peer">
+                                    <span class="block rounded-lg border border-border-default bg-surface-900 px-3 py-2.5 text-sm text-center text-text-body peer-checked:border-emerald-500 peer-checked:bg-emerald-500/10 peer-checked:font-semibold">
+                                        {{ __('game.stage_duration_1w') }}
+                                    </span>
+                                </label>
+                                <label class="cursor-pointer">
+                                    <input type="radio" name="duration" value="2w" x-model="duration" class="sr-only peer">
+                                    <span class="block rounded-lg border border-border-default bg-surface-900 px-3 py-2.5 text-sm text-center text-text-body peer-checked:border-emerald-500 peer-checked:bg-emerald-500/10 peer-checked:font-semibold">
+                                        {{ __('game.stage_duration_2w') }}
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+
+                        {{-- Intensity --}}
+                        <div class="mb-4">
+                            <p class="block text-sm font-semibold text-text-body mb-2">{{ __('game.stage_intensity') }}</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                                @foreach(['light' => 'stage_intensity_light', 'balanced' => 'stage_intensity_balanced', 'intense' => 'stage_intensity_intense'] as $value => $labelKey)
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="intensity" value="{{ $value }}" x-model="intensity" class="sr-only peer">
+                                        <span class="block rounded-lg border border-border-default bg-surface-900 px-3 py-2.5 text-sm text-text-body peer-checked:border-emerald-500 peer-checked:bg-emerald-500/10">
+                                            <span class="block font-semibold text-center">{{ __("game.{$labelKey}") }}</span>
+                                            <span class="block text-xs text-text-muted text-center mt-0.5">{{ __("game.{$labelKey}_desc") }}</span>
+                                        </span>
+                                    </label>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        {{-- Focus --}}
+                        <div class="mb-4">
+                            <p class="block text-sm font-semibold text-text-body mb-2">{{ __('game.stage_focus') }}</p>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+                                @foreach(['physical' => 'stage_focus_physical', 'tactical' => 'stage_focus_tactical', 'youth' => 'stage_focus_youth'] as $value => $labelKey)
+                                    <label class="cursor-pointer">
+                                        <input type="radio" name="focus" value="{{ $value }}" x-model="focus" class="sr-only peer">
+                                        <span class="block rounded-lg border border-border-default bg-surface-900 px-3 py-2.5 text-sm text-text-body peer-checked:border-emerald-500 peer-checked:bg-emerald-500/10">
+                                            <span class="block font-semibold text-center">{{ __("game.{$labelKey}") }}</span>
+                                            <span class="block text-xs text-text-muted text-center mt-0.5">{{ __("game.{$labelKey}_desc") }}</span>
+                                        </span>
+                                    </label>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        {{-- Live summary --}}
+                        <div class="rounded-lg border border-border-default bg-surface-900/60 p-4 mb-4">
+                            <p class="text-sm font-bold text-text-primary mb-2">📋 {{ __('game.stage_summary_title') }}</p>
+                            <ul class="text-sm text-text-secondary space-y-0.5">
+                                <template x-for="line in effects" :key="line">
+                                    <li x-text="line"></li>
+                                </template>
+                            </ul>
+                            <p class="mt-2 text-sm text-text-secondary">{{ __('game.stage_cost') }}:
+                                <strong class="text-text-primary" x-text="formatMoney(cost)"></strong>
+                            </p>
+                            <p x-show="destination && !affordable" x-cloak class="mt-1 text-sm font-semibold text-red-400">
+                                ⚠️ {{ __('game.stage_club_not_enough_budget') }}
+                            </p>
+                        </div>
+
+                        <div class="flex flex-wrap items-center gap-3">
+                            <button type="submit" :disabled="!affordable"
+                                    class="w-full sm:w-auto px-6 py-3 rounded-lg bg-emerald-600 text-white font-bold text-sm hover:brightness-110 transition disabled:opacity-40 disabled:cursor-not-allowed min-h-[44px]">
+                                {{ __('game.stage_confirm') }}
+                            </button>
+                            <button type="button" @click="clubStageFormOpen = false"
+                                    class="w-full sm:w-auto px-6 py-3 rounded-lg border border-border-default text-sm font-semibold text-text-secondary hover:bg-surface-800 transition min-h-[44px]">
+                                {{ __('game.stage_cancel') }}
+                            </button>
+                        </div>
+                    </form>
+                    </div>
+                @endif
+            </div>
 
             {{-- Preseason tour: organize before confirming the friendlies --}}
             @if($preseasonTour)

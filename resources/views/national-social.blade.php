@@ -102,6 +102,7 @@ $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
                         </div>
                         <span class="text-[10px] font-bold uppercase tracking-wide text-sky-400 bg-sky-500/10 border border-sky-500/30 rounded-full px-2 py-0.5">📢 {{ __('game.club_social_official_badge') }}</span>
                     </div>
+                    <img src="{{ $post->image_url ?: asset('images/comunicado-fallback.jpg') }}" alt="{{ __('game.club_social_official_badge') }}" class="w-full rounded-lg mb-2" loading="lazy">
                     <p class="text-text-primary text-sm leading-relaxed font-medium">{{ $post->text }}</p>
                     <div class="flex items-center gap-4 mt-2 text-xs text-text-faint">
                         <span>❤️ {{ $post->likes }}</span>

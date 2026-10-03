@@ -13,12 +13,14 @@ use App\Modules\Competition\Contracts\HasSeasonGoals;
 use App\Modules\Match\DTOs\MatchNarrative;
 use App\Modules\Media\Services\MediaOutletService;
 use App\Modules\Media\Services\ManagerPressureService;
+use App\Modules\Media\Services\PressNewsService;
 
 class MatchNarrativeService
 {
     public function __construct(
         private readonly ?MediaOutletService $mediaOutlets = null,
         private readonly ?ManagerPressureService $managerPressure = null,
+        private readonly ?PressNewsService $pressNews = null,
     ) {}
     /**
      * Categories whose selected line already names and frames THIS fixture, so a
@@ -92,6 +94,17 @@ class MatchNarrativeService
             $opponentForm,
             $limit,
         );
+
+        // Press newsroom: sale/signing rumours, previas, crónicas and injury
+        // news (the latter only with an official medical statement). Kept out
+        // of tournament mode like the rumour mill. Press articles lead the
+        // feed; snippets and pressure articles fill the remaining slots.
+        if (! $game->isTournamentMode() && $this->pressNews) {
+            $narratives = [
+                ...array_slice($this->pressNews->articles($game, $nextMatch), 0, 2),
+                ...$narratives,
+            ];
+        }
 
         // Press rumour mill: managers on the ropes get full media articles
         // ("El entrenador del X podría ser cesado"). Kept out of tournament

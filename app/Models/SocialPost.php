@@ -16,6 +16,8 @@ class SocialPost extends Model
         'author_handle',
         'journalist_id',
         'text',
+        'image_url',
+        'post_kind',
         'sentiment',
         'likes',
         'context',

@@ -42,4 +42,17 @@ return [
     'stats_trophies' => ':count trophies',
     'type_club' => 'Club',
     'type_national' => 'National team',
+
+    // Federation (cross-platform friends)
+    'federation_title' => '🌐 On the other platform (:platform)',
+    'federation_subtitle' => 'Players on :platform: send them a request and become cross-platform friends.',
+    'federation_empty' => 'No players visible on :platform yet.',
+    'federation_unreachable' => 'Cannot reach :platform right now. Try again later.',
+    'federation_add' => 'Add',
+    'federation_disabled' => 'Cross-platform federation is not enabled.',
+    'federation_use_local' => 'That user is on this platform: use the search above.',
+    'federation_user_not_found' => 'No user with that name on the other platform.',
+    'federation_failed' => 'Could not send the request to the other platform.',
+    'federation_badge' => ':platform',
+    'federation_unknown_club' => 'Unknown club',
 ];

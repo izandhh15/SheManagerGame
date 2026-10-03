@@ -42,4 +42,17 @@ return [
     'stats_trophies' => ':count títulos',
     'type_club' => 'Club',
     'type_national' => 'Selección',
+
+    // Federation (cross-platform friends)
+    'federation_title' => '🌐 En la otra plataforma (:platform)',
+    'federation_subtitle' => 'Jugadoras de :platform: envíales una petición y se harán amigas entre plataformas.',
+    'federation_empty' => 'Aún no hay jugadoras visibles en :platform.',
+    'federation_unreachable' => 'No se puede contactar con :platform ahora mismo. Inténtalo más tarde.',
+    'federation_add' => 'Añadir',
+    'federation_disabled' => 'La federación entre plataformas no está activada.',
+    'federation_use_local' => 'Esa usuaria está en esta plataforma: usa el buscador de arriba.',
+    'federation_user_not_found' => 'No existe ninguna usuaria con ese nombre en la otra plataforma.',
+    'federation_failed' => 'No se pudo enviar la petición a la otra plataforma.',
+    'federation_badge' => ':platform',
+    'federation_unknown_club' => 'Club desconocido',
 ];

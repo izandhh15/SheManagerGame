@@ -1,8 +1,11 @@
 <x-app-layout>
-    <div class="max-w-7xl mx-auto px-4 pb-8">
+    <div class="max-w-7xl mx-auto px-4 pb-10">
         {{-- Page Title --}}
-        <div class="mt-6 mb-6">
-            <h2 class="font-heading text-2xl lg:text-3xl font-bold uppercase tracking-wide text-text-primary">{{ __('app.new_game') }}</h2>
+        <div class="mt-8 mb-8">
+            <div class="flex items-center gap-4">
+                <div class="h-12 w-1.5 rounded-full bg-gradient-to-b from-accent-red via-accent-gold to-accent-blue shrink-0"></div>
+                <h2 class="font-heading text-3xl lg:text-4xl font-black uppercase tracking-wider text-text-primary">{{ __('app.new_game') }}</h2>
+            </div>
         </div>
 
         <div x-data="{
@@ -41,39 +44,43 @@
                     };
                 @endphp
                 @if($modeCardCount > 1)
-                    <div class="grid grid-cols-1 {{ $modeGridClass }} gap-3 md:gap-4">
+                    <div class="grid grid-cols-1 {{ $modeGridClass }} gap-4">
                         {{-- Career mode card --}}
                         @if($hasCareerAccess)
                             <button type="button"
                                     @click="mode = 'career'"
                                     :class="mode === 'career'
-                                        ? 'ring-2 ring-accent-red border-accent-red/30 bg-accent-red/5'
-                                        : 'border-border-strong hover:bg-surface-700/50'"
-                                    class="relative flex items-center gap-4 p-4 md:p-5 rounded-xl border transition-all duration-200 text-left">
-                                <div class="shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center"
-                                     :class="mode === 'career' ? 'bg-accent-red' : 'bg-surface-600'">
-                                    <svg class="w-6 h-6 md:w-7 md:h-7" :class="mode === 'career' ? 'text-white' : 'text-text-muted'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        ? 'border-accent-red/60 bg-gradient-to-br from-accent-red/15 via-accent-red/5 to-transparent ring-1 ring-accent-red/50 shadow-[0_12px_40px_-12px] shadow-accent-red/40'
+                                        : 'border-border-strong bg-surface-800/60 hover:border-accent-red/40 hover:bg-surface-700/70 hover:-translate-y-1 hover:shadow-xl hover:shadow-accent-red/10'"
+                                    class="group relative flex items-center gap-4 p-4 md:p-5 rounded-2xl border transition-all duration-200 text-left overflow-hidden">
+                                <div class="pointer-events-none absolute -top-20 -right-20 w-48 h-48 rounded-full bg-accent-red/25 blur-3xl transition-opacity duration-300"
+                                     :class="mode === 'career' ? 'opacity-100' : 'opacity-0 group-hover:opacity-70'"></div>
+                                <div class="relative shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center transition-all duration-200"
+                                     :class="mode === 'career' ? 'bg-gradient-to-br from-accent-red to-accent-red/60 text-white shadow-lg shadow-accent-red/40 scale-105' : 'bg-surface-600/70 text-text-muted group-hover:text-accent-red'">
+                                    <svg class="w-6 h-6 md:w-7 md:h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 0 0 7.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 0 0 2.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 0 1 2.916.52 6.003 6.003 0 0 1-5.395 4.972m0 0a6.726 6.726 0 0 1-2.749 1.35m0 0a6.772 6.772 0 0 1-3.044 0" />
                                     </svg>
                                 </div>
-                                <div class="flex-1 min-w-0">
-                                    <h3 class="font-heading font-bold text-base md:text-lg uppercase tracking-wide" :class="mode === 'career' ? 'text-accent-red' : 'text-text-body'">
+                                <div class="relative flex-1 min-w-0">
+                                    <h3 class="font-heading font-bold text-base md:text-lg uppercase tracking-wide transition-colors" :class="mode === 'career' ? 'text-accent-red' : 'text-text-body'">
                                         {{ __('game.mode_career') }}
                                     </h3>
-                                    <p class="text-xs md:text-sm mt-0.5" :class="mode === 'career' ? 'text-accent-red/80' : 'text-text-muted'">
+                                    <p class="text-xs md:text-sm mt-1 leading-relaxed" :class="mode === 'career' ? 'text-text-secondary' : 'text-text-muted'">
                                         {{ __('game.mode_career_desc') }}
                                     </p>
                                 </div>
-                                <div x-show="mode === 'career'" x-cloak class="shrink-0">
-                                    <svg class="w-6 h-6 text-accent-red" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
-                                    </svg>
+                                <div x-show="mode === 'career'" x-cloak class="relative shrink-0">
+                                    <span class="flex w-7 h-7 rounded-full bg-accent-red text-white items-center justify-center shadow-md shadow-accent-red/50">
+                                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                        </svg>
+                                    </span>
                                 </div>
                             </button>
                         @else
                             {{-- Locked career mode card --}}
-                            <div class="relative flex items-center gap-4 p-4 md:p-5 rounded-xl border border-border-strong opacity-50 cursor-not-allowed">
-                                <div class="shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center bg-surface-600">
+                            <div class="relative flex items-center gap-4 p-4 md:p-5 rounded-2xl border border-border-strong bg-surface-800/40 opacity-50 cursor-not-allowed overflow-hidden">
+                                <div class="shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center bg-surface-600/70">
                                     <svg class="w-6 h-6 md:w-7 md:h-7 text-text-muted" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 0 1 3 3h-15a3 3 0 0 1 3-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 0 1-.982-3.172M9.497 14.25a7.454 7.454 0 0 0 .981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 0 0 7.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 0 0 2.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 0 1 2.916.52 6.003 6.003 0 0 1-5.395 4.972m0 0a6.726 6.726 0 0 1-2.749 1.35m0 0a6.772 6.772 0 0 1-3.044 0" />
                                     </svg>
@@ -82,7 +89,7 @@
                                     <h3 class="font-heading font-bold text-base md:text-lg uppercase tracking-wide text-text-muted">
                                         {{ __('game.mode_career') }}
                                     </h3>
-                                    <p class="text-xs md:text-sm mt-0.5 text-text-muted">
+                                    <p class="text-xs md:text-sm mt-1 leading-relaxed text-text-muted">
                                         {{ __('game.career_unlock_hint') }}
                                     </p>
                                 </div>
@@ -99,27 +106,31 @@
                             <button type="button"
                                     @click="mode = 'career_pro'"
                                     :class="mode === 'career_pro'
-                                        ? 'ring-2 ring-accent-blue border-accent-blue/30 bg-accent-blue/5'
-                                        : 'border-border-strong hover:bg-surface-700/50'"
-                                    class="relative flex items-center gap-4 p-4 md:p-5 rounded-xl border transition-all duration-200 text-left">
-                                <div class="shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center"
-                                     :class="mode === 'career_pro' ? 'bg-accent-blue' : 'bg-surface-600'">
-                                    <svg class="w-6 h-6 md:w-7 md:h-7" :class="mode === 'career_pro' ? 'text-white' : 'text-text-muted'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                        ? 'border-accent-blue/60 bg-gradient-to-br from-accent-blue/15 via-accent-blue/5 to-transparent ring-1 ring-accent-blue/50 shadow-[0_12px_40px_-12px] shadow-accent-blue/40'
+                                        : 'border-border-strong bg-surface-800/60 hover:border-accent-blue/40 hover:bg-surface-700/70 hover:-translate-y-1 hover:shadow-xl hover:shadow-accent-blue/10'"
+                                    class="group relative flex items-center gap-4 p-4 md:p-5 rounded-2xl border transition-all duration-200 text-left overflow-hidden">
+                                <div class="pointer-events-none absolute -top-20 -right-20 w-48 h-48 rounded-full bg-accent-blue/25 blur-3xl transition-opacity duration-300"
+                                     :class="mode === 'career_pro' ? 'opacity-100' : 'opacity-0 group-hover:opacity-70'"></div>
+                                <div class="relative shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center transition-all duration-200"
+                                     :class="mode === 'career_pro' ? 'bg-gradient-to-br from-accent-blue to-accent-blue/60 text-white shadow-lg shadow-accent-blue/40 scale-105' : 'bg-surface-600/70 text-text-muted group-hover:text-accent-blue'">
+                                    <svg class="w-6 h-6 md:w-7 md:h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
                                     </svg>
                                 </div>
-                                <div class="flex-1 min-w-0">
-                                    <h3 class="font-heading font-bold text-base md:text-lg uppercase tracking-wide" :class="mode === 'career_pro' ? 'text-accent-blue' : 'text-text-body'">
+                                <div class="relative flex-1 min-w-0">
+                                    <h3 class="font-heading font-bold text-base md:text-lg uppercase tracking-wide transition-colors" :class="mode === 'career_pro' ? 'text-accent-blue' : 'text-text-body'">
                                         {{ __('game.mode_career_pro') }}
                                     </h3>
-                                    <p class="text-xs md:text-sm mt-0.5" :class="mode === 'career_pro' ? 'text-accent-blue/80' : 'text-text-muted'">
+                                    <p class="text-xs md:text-sm mt-1 leading-relaxed" :class="mode === 'career_pro' ? 'text-text-secondary' : 'text-text-muted'">
                                         {{ __('game.mode_career_pro_desc') }}
                                     </p>
                                 </div>
-                                <div x-show="mode === 'career_pro'" x-cloak class="shrink-0">
-                                    <svg class="w-6 h-6 text-accent-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                        <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
-                                    </svg>
+                                <div x-show="mode === 'career_pro'" x-cloak class="relative shrink-0">
+                                    <span class="flex w-7 h-7 rounded-full bg-accent-blue text-white items-center justify-center shadow-md shadow-accent-blue/50">
+                                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                        </svg>
+                                    </span>
                                 </div>
                             </button>
                         @endif
@@ -129,27 +140,31 @@
                         <button type="button"
                                 @click="mode = 'tournament'"
                                 :class="mode === 'tournament'
-                                    ? 'ring-2 ring-accent-gold border-accent-gold/30 bg-accent-gold/5'
-                                    : 'border-border-strong hover:bg-surface-700/50'"
-                                class="relative flex items-center gap-4 p-4 md:p-5 rounded-xl border transition-all duration-200 text-left">
-                            <div class="shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center"
-                                 :class="mode === 'tournament' ? 'bg-accent-gold' : 'bg-surface-600'">
-                                <svg class="w-6 h-6 md:w-7 md:h-7" :class="mode === 'tournament' ? 'text-white' : 'text-text-muted'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    ? 'border-accent-gold/60 bg-gradient-to-br from-accent-gold/15 via-accent-gold/5 to-transparent ring-1 ring-accent-gold/50 shadow-[0_12px_40px_-12px] shadow-accent-gold/40'
+                                    : 'border-border-strong bg-surface-800/60 hover:border-accent-gold/40 hover:bg-surface-700/70 hover:-translate-y-1 hover:shadow-xl hover:shadow-accent-gold/10'"
+                                class="group relative flex items-center gap-4 p-4 md:p-5 rounded-2xl border transition-all duration-200 text-left overflow-hidden">
+                            <div class="pointer-events-none absolute -top-20 -right-20 w-48 h-48 rounded-full bg-accent-gold/25 blur-3xl transition-opacity duration-300"
+                                 :class="mode === 'tournament' ? 'opacity-100' : 'opacity-0 group-hover:opacity-70'"></div>
+                            <div class="relative shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center transition-all duration-200"
+                                 :class="mode === 'tournament' ? 'bg-gradient-to-br from-accent-gold to-accent-gold/60 text-white shadow-lg shadow-accent-gold/40 scale-105' : 'bg-surface-600/70 text-text-muted group-hover:text-accent-gold'">
+                                <svg class="w-6 h-6 md:w-7 md:h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="m20.893 13.393-1.135-1.135a2.252 2.252 0 0 1-.421-.585l-1.08-2.16a.414.414 0 0 0-.663-.107.827.827 0 0 1-.812.21l-1.273-.363a.89.89 0 0 0-.738 1.595l.587.39c.59.395.674 1.23.172 1.732l-.2.2c-.212.212-.33.498-.33.796v.41c0 .409-.11.809-.32 1.158l-1.315 2.191a2.11 2.11 0 0 1-1.81 1.025 1.055 1.055 0 0 1-1.055-1.055v-1.172c0-.92-.56-1.747-1.414-2.089l-.655-.261a2.25 2.25 0 0 1-1.383-2.46l.007-.042a2.25 2.25 0 0 1 .29-.787l.09-.15a2.25 2.25 0 0 1 2.37-1.048l1.178.236a1.125 1.125 0 0 0 1.302-.795l.208-.73a1.125 1.125 0 0 0-.578-1.315l-.665-.332-.091.091a2.25 2.25 0 0 1-1.591.659h-.18c-.249 0-.487.1-.662.274a.931.931 0 0 1-1.458-1.137l1.411-2.353a2.25 2.25 0 0 0 .286-.76m11.928 9.869A9 9 0 0 0 8.965 3.525m11.928 9.868A9 9 0 1 1 8.965 3.525" />
                                 </svg>
                             </div>
-                            <div class="flex-1 min-w-0">
-                                <h3 class="font-heading font-bold text-base md:text-lg uppercase tracking-wide" :class="mode === 'tournament' ? 'text-accent-gold' : 'text-text-body'">
+                            <div class="relative flex-1 min-w-0">
+                                <h3 class="font-heading font-bold text-base md:text-lg uppercase tracking-wide transition-colors" :class="mode === 'tournament' ? 'text-accent-gold' : 'text-text-body'">
                                     {{ __('game.mode_tournament') }}
                                 </h3>
-                                <p class="text-xs md:text-sm mt-0.5" :class="mode === 'tournament' ? 'text-accent-gold/80' : 'text-text-muted'">
+                                <p class="text-xs md:text-sm mt-1 leading-relaxed" :class="mode === 'tournament' ? 'text-text-secondary' : 'text-text-muted'">
                                     {{ __('game.mode_tournament_desc') }}
                                 </p>
                             </div>
-                            <div x-show="mode === 'tournament'" x-cloak class="shrink-0">
-                                <svg class="w-6 h-6 text-accent-gold" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
-                                </svg>
+                            <div x-show="mode === 'tournament'" x-cloak class="relative shrink-0">
+                                <span class="flex w-7 h-7 rounded-full bg-accent-gold text-white items-center justify-center shadow-md shadow-accent-gold/50">
+                                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                    </svg>
+                                </span>
                             </div>
                         </button>
                         @endif
@@ -159,28 +174,32 @@
                         <button type="button"
                                 @click="mode = 'national'"
                                 :class="mode === 'national'
-                                    ? 'ring-2 ring-accent-blue border-accent-blue/30 bg-accent-blue/5'
-                                    : 'border-border-strong hover:bg-surface-700/50'"
-                                class="relative flex items-center gap-4 p-4 md:p-5 rounded-xl border transition-all duration-200 text-left">
-                            <div class="shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center"
-                                 :class="mode === 'national' ? 'bg-accent-blue' : 'bg-surface-600'">
-                                <svg class="w-6 h-6 md:w-7 md:h-7" :class="mode === 'national' ? 'text-white' : 'text-text-muted'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    ? 'border-accent-blue/60 bg-gradient-to-br from-accent-blue/15 via-accent-blue/5 to-transparent ring-1 ring-accent-blue/50 shadow-[0_12px_40px_-12px] shadow-accent-blue/40'
+                                    : 'border-border-strong bg-surface-800/60 hover:border-accent-blue/40 hover:bg-surface-700/70 hover:-translate-y-1 hover:shadow-xl hover:shadow-accent-blue/10'"
+                                class="group relative flex items-center gap-4 p-4 md:p-5 rounded-2xl border transition-all duration-200 text-left overflow-hidden">
+                            <div class="pointer-events-none absolute -top-20 -right-20 w-48 h-48 rounded-full bg-accent-blue/25 blur-3xl transition-opacity duration-300"
+                                 :class="mode === 'national' ? 'opacity-100' : 'opacity-0 group-hover:opacity-70'"></div>
+                            <div class="relative shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center transition-all duration-200"
+                                 :class="mode === 'national' ? 'bg-gradient-to-br from-accent-blue to-accent-blue/60 text-white shadow-lg shadow-accent-blue/40 scale-105' : 'bg-surface-600/70 text-text-muted group-hover:text-accent-blue'">
+                                <svg class="w-6 h-6 md:w-7 md:h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 3v1.5M3 21v-6m0 0 2.77-.693a9 9 0 0 1 6.208.682l.108.054a9 9 0 0 0 6.086.71l3.114-.732a48.524 48.524 0 0 1-.048-.599V4.072a48.484 48.484 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a9 9 0 0 1 6.208.677l.108.055a9 9 0 0 0 6.086.71l3.114-.732" />
                                 </svg>
                             </div>
-                            <div class="flex-1 min-w-0">
-                                <h3 class="font-heading font-bold text-base md:text-lg uppercase tracking-wide" :class="mode === 'national' ? 'text-accent-blue' : 'text-text-body'">
+                            <div class="relative flex-1 min-w-0">
+                                <h3 class="font-heading font-bold text-base md:text-lg uppercase tracking-wide transition-colors" :class="mode === 'national' ? 'text-accent-blue' : 'text-text-body'">
                                     {{ __('game.mode_national') }}
-                                    <span class="ml-1 align-middle text-[10px] font-sans font-semibold uppercase tracking-widest px-1.5 py-0.5 rounded bg-accent-blue/15 text-accent-blue">{{ __('game.mode_national_badge') }}</span>
+                                    <span class="ml-2 align-middle text-[10px] font-sans font-bold uppercase tracking-[0.15em] px-2 py-0.5 rounded-full bg-gradient-to-r from-accent-blue to-accent-blue/70 text-white shadow-sm">{{ __('game.mode_national_badge') }}</span>
                                 </h3>
-                                <p class="text-xs md:text-sm mt-0.5" :class="mode === 'national' ? 'text-accent-blue/80' : 'text-text-muted'">
+                                <p class="text-xs md:text-sm mt-1 leading-relaxed" :class="mode === 'national' ? 'text-text-secondary' : 'text-text-muted'">
                                     {{ __('game.mode_national_desc') }}
                                 </p>
                             </div>
-                            <div x-show="mode === 'national'" x-cloak class="shrink-0">
-                                <svg class="w-6 h-6 text-accent-blue" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
-                                </svg>
+                            <div x-show="mode === 'national'" x-cloak class="relative shrink-0">
+                                <span class="flex w-7 h-7 rounded-full bg-accent-blue text-white items-center justify-center shadow-md shadow-accent-blue/50">
+                                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                    </svg>
+                                </span>
                             </div>
                         </button>
                         @endif
@@ -190,28 +209,32 @@
                         <button type="button"
                                 @click="mode = 'dual'"
                                 :class="mode === 'dual'
-                                    ? 'ring-2 ring-accent-green border-accent-green/30 bg-accent-green/5'
-                                    : 'border-border-strong hover:bg-surface-700/50'"
-                                class="relative flex items-center gap-4 p-4 md:p-5 rounded-xl border transition-all duration-200 text-left">
-                            <div class="shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center"
-                                 :class="mode === 'dual' ? 'bg-accent-green' : 'bg-surface-600'">
-                                <svg class="w-6 h-6 md:w-7 md:h-7" :class="mode === 'dual' ? 'text-white' : 'text-text-muted'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    ? 'border-accent-green/60 bg-gradient-to-br from-accent-green/15 via-accent-green/5 to-transparent ring-1 ring-accent-green/50 shadow-[0_12px_40px_-12px] shadow-accent-green/40'
+                                    : 'border-border-strong bg-surface-800/60 hover:border-accent-green/40 hover:bg-surface-700/70 hover:-translate-y-1 hover:shadow-xl hover:shadow-accent-green/10'"
+                                class="group relative flex items-center gap-4 p-4 md:p-5 rounded-2xl border transition-all duration-200 text-left overflow-hidden">
+                            <div class="pointer-events-none absolute -top-20 -right-20 w-48 h-48 rounded-full bg-accent-green/25 blur-3xl transition-opacity duration-300"
+                                 :class="mode === 'dual' ? 'opacity-100' : 'opacity-0 group-hover:opacity-70'"></div>
+                            <div class="relative shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center transition-all duration-200"
+                                 :class="mode === 'dual' ? 'bg-gradient-to-br from-accent-green to-accent-green/60 text-white shadow-lg shadow-accent-green/40 scale-105' : 'bg-surface-600/70 text-text-muted group-hover:text-accent-green'">
+                                <svg class="w-6 h-6 md:w-7 md:h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
                                 </svg>
                             </div>
-                            <div class="flex-1 min-w-0">
-                                <h3 class="font-heading font-bold text-base md:text-lg uppercase tracking-wide" :class="mode === 'dual' ? 'text-accent-green' : 'text-text-body'">
+                            <div class="relative flex-1 min-w-0">
+                                <h3 class="font-heading font-bold text-base md:text-lg uppercase tracking-wide transition-colors" :class="mode === 'dual' ? 'text-accent-green' : 'text-text-body'">
                                     {{ __('game.mode_dual') }}
-                                    <span class="ml-1 align-middle text-[10px] font-sans font-semibold uppercase tracking-widest px-1.5 py-0.5 rounded bg-accent-green/15 text-accent-green">{{ __('game.mode_national_badge') }}</span>
+                                    <span class="ml-2 align-middle text-[10px] font-sans font-bold uppercase tracking-[0.15em] px-2 py-0.5 rounded-full bg-gradient-to-r from-accent-green to-accent-green/70 text-white shadow-sm">{{ __('game.mode_national_badge') }}</span>
                                 </h3>
-                                <p class="text-xs md:text-sm mt-0.5" :class="mode === 'dual' ? 'text-accent-green/80' : 'text-text-muted'">
+                                <p class="text-xs md:text-sm mt-1 leading-relaxed" :class="mode === 'dual' ? 'text-text-secondary' : 'text-text-muted'">
                                     {{ __('game.mode_dual_desc') }}
                                 </p>
                             </div>
-                            <div x-show="mode === 'dual'" x-cloak class="shrink-0">
-                                <svg class="w-6 h-6 text-accent-green" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
-                                </svg>
+                            <div x-show="mode === 'dual'" x-cloak class="relative shrink-0">
+                                <span class="flex w-7 h-7 rounded-full bg-accent-green text-white items-center justify-center shadow-md shadow-accent-green/50">
+                                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                    </svg>
+                                </span>
                             </div>
                         </button>
                         @endif
@@ -221,28 +244,32 @@
                         <button type="button"
                                 @click="mode = 'affiliate'"
                                 :class="mode === 'affiliate'
-                                    ? 'ring-2 ring-accent-gold border-accent-gold/30 bg-accent-gold/5'
-                                    : 'border-border-strong hover:bg-surface-700/50'"
-                                class="relative flex items-center gap-4 p-4 md:p-5 rounded-xl border transition-all duration-200 text-left">
-                            <div class="shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center"
-                                 :class="mode === 'affiliate' ? 'bg-accent-gold' : 'bg-surface-600'">
-                                <svg class="w-6 h-6 md:w-7 md:h-7" :class="mode === 'affiliate' ? 'text-white' : 'text-text-muted'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    ? 'border-accent-gold/60 bg-gradient-to-br from-accent-gold/15 via-accent-gold/5 to-transparent ring-1 ring-accent-gold/50 shadow-[0_12px_40px_-12px] shadow-accent-gold/40'
+                                    : 'border-border-strong bg-surface-800/60 hover:border-accent-gold/40 hover:bg-surface-700/70 hover:-translate-y-1 hover:shadow-xl hover:shadow-accent-gold/10'"
+                                class="group relative flex items-center gap-4 p-4 md:p-5 rounded-2xl border transition-all duration-200 text-left overflow-hidden">
+                            <div class="pointer-events-none absolute -top-20 -right-20 w-48 h-48 rounded-full bg-accent-gold/25 blur-3xl transition-opacity duration-300"
+                                 :class="mode === 'affiliate' ? 'opacity-100' : 'opacity-0 group-hover:opacity-70'"></div>
+                            <div class="relative shrink-0 w-12 h-12 md:w-14 md:h-14 rounded-xl flex items-center justify-center transition-all duration-200"
+                                 :class="mode === 'affiliate' ? 'bg-gradient-to-br from-accent-gold to-accent-gold/60 text-white shadow-lg shadow-accent-gold/40 scale-105' : 'bg-surface-600/70 text-text-muted group-hover:text-accent-gold'">
+                                <svg class="w-6 h-6 md:w-7 md:h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
                                 </svg>
                             </div>
-                            <div class="flex-1 min-w-0">
-                                <h3 class="font-heading font-bold text-base md:text-lg uppercase tracking-wide" :class="mode === 'affiliate' ? 'text-accent-gold' : 'text-text-body'">
+                            <div class="relative flex-1 min-w-0">
+                                <h3 class="font-heading font-bold text-base md:text-lg uppercase tracking-wide transition-colors" :class="mode === 'affiliate' ? 'text-accent-gold' : 'text-text-body'">
                                     {{ __('game.mode_affiliate') }}
-                                    <span class="ml-1 align-middle text-[10px] font-sans font-semibold uppercase tracking-widest px-1.5 py-0.5 rounded bg-accent-gold/15 text-accent-gold">{{ __('game.mode_new_badge') }}</span>
+                                    <span class="ml-2 align-middle text-[10px] font-sans font-bold uppercase tracking-[0.15em] px-2 py-0.5 rounded-full bg-gradient-to-r from-accent-gold to-accent-orange text-white shadow-sm">{{ __('game.mode_new_badge') }}</span>
                                 </h3>
-                                <p class="text-xs md:text-sm mt-0.5" :class="mode === 'affiliate' ? 'text-accent-gold/80' : 'text-text-muted'">
+                                <p class="text-xs md:text-sm mt-1 leading-relaxed" :class="mode === 'affiliate' ? 'text-text-secondary' : 'text-text-muted'">
                                     {{ __('game.mode_affiliate_desc') }}
                                 </p>
                             </div>
-                            <div x-show="mode === 'affiliate'" x-cloak class="shrink-0">
-                                <svg class="w-6 h-6 text-accent-gold" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z" clip-rule="evenodd" />
-                                </svg>
+                            <div x-show="mode === 'affiliate'" x-cloak class="relative shrink-0">
+                                <span class="flex w-7 h-7 rounded-full bg-accent-gold text-white items-center justify-center shadow-md shadow-accent-gold/50">
+                                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                                    </svg>
+                                </span>
                             </div>
                         </button>
                         @endif
@@ -251,69 +278,77 @@
 
                 {{-- ===================== CLUB MANAGER MODE: Club teams ===================== --}}
                 <div x-show="mode === 'career'" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
-                    @include('partials.club-grid')
+                    <div class="rounded-2xl border border-border-default bg-surface-900/60 overflow-hidden">
+                        <div class="h-1 bg-gradient-to-r from-accent-blue via-accent-blue/40 to-transparent"></div>
+                        <div class="p-4 md:p-6">
+                            @include('partials.club-grid')
+                        </div>
+                    </div>
                 </div>
 
                 {{-- ===================== PRO MANAGER MODE: 3 random Primera RFEF clubs ===================== --}}
                 @if($hasCareerAccess && $proManagerTeams->isNotEmpty())
                     <div x-show="mode === 'career_pro'" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
-                        <div x-data="{ proStart: 'scratch' }">
-                            {{-- Toggle: start from scratch vs academy career --}}
-                            <div class="flex gap-2 mb-4">
-                                <button type="button" @click="proStart = 'scratch'"
-                                        :class="proStart === 'scratch' ? 'bg-accent-blue/15 text-accent-blue border-accent-blue/40' : 'border-border-strong text-text-muted hover:text-text-body'"
-                                        class="px-4 py-2 rounded-lg border text-sm font-semibold transition-colors">
-                                    {{ __('game.pro_start_scratch') }}
-                                </button>
-                                <button type="button" @click="proStart = 'academy'"
-                                        :class="proStart === 'academy' ? 'bg-accent-blue/15 text-accent-blue border-accent-blue/40' : 'border-border-strong text-text-muted hover:text-text-body'"
-                                        class="px-4 py-2 rounded-lg border text-sm font-semibold transition-colors">
-                                    {{ __('game.pro_start_academy') }}
-                                </button>
-                            </div>
-
-                            {{-- Option 1: 4 random Primera RFEF teams --}}
-                            <div x-show="proStart === 'scratch'">
-                                <p class="text-sm text-text-secondary mb-4">{{ __('game.pro_manager_pick_intro') }}</p>
-                                <div class="grid grid-cols-2 lg:grid-cols-4 gap-2">
-                                    @foreach($proManagerTeams as $team)
-                                        <label class="flex items-center gap-2 md:gap-3 rounded-lg border border-border-default p-2 md:p-4 cursor-pointer transition-all
-                                                       hover:bg-accent-blue/5 hover:border-accent-blue/30
-                                                       has-checked:ring-2 has-checked:ring-accent-blue has-checked:border-accent-blue/30 has-checked:bg-accent-blue/5">
-                                            <x-team-crest :team="$team" class="w-7 h-7 md:w-10 md:h-10 shrink-0" />
-                                            <span class="text-xs md:text-base font-medium text-text-body truncate">{{ $team->name }}</span>
-                                            <input x-bind:required="mode === 'career_pro' && proStart === 'scratch'" x-bind:disabled="mode !== 'career_pro' || proStart !== 'scratch'"
-                                                   type="radio" name="team_id" value="{{ $team->id }}" class="hidden">
-                                        </label>
-                                    @endforeach
+                        <div class="rounded-2xl border border-border-default bg-surface-900/60 overflow-hidden" x-data="{ proStart: 'scratch' }">
+                            <div class="h-1 bg-gradient-to-r from-accent-blue via-accent-blue/40 to-transparent"></div>
+                            <div class="p-4 md:p-6">
+                                {{-- Toggle: start from scratch vs academy career --}}
+                                <div class="inline-flex rounded-xl border border-border-strong bg-surface-800 p-1 gap-1 mb-5">
+                                    <button type="button" @click="proStart = 'scratch'"
+                                            :class="proStart === 'scratch' ? 'bg-accent-blue text-white shadow-md shadow-accent-blue/30' : 'text-text-muted hover:text-text-body'"
+                                            class="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200">
+                                        {{ __('game.pro_start_scratch') }}
+                                    </button>
+                                    <button type="button" @click="proStart = 'academy'"
+                                            :class="proStart === 'academy' ? 'bg-accent-blue text-white shadow-md shadow-accent-blue/30' : 'text-text-muted hover:text-text-body'"
+                                            class="px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200">
+                                        {{ __('game.pro_start_academy') }}
+                                    </button>
                                 </div>
-                            </div>
 
-                            {{-- Option 2: Academy career — pick a CLUB, start at its lowest filial --}}
-                            <div x-show="proStart === 'academy'" x-cloak>
-                                <p class="text-sm text-text-secondary mb-4">{{ __('game.academy_pick_intro') }}</p>
-                                @if($academyClubs->isNotEmpty())
-                                <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 max-h-[420px] overflow-y-auto pr-1">
-                                    @foreach($academyClubs as $item)
-                                        <label class="flex items-center gap-2 md:gap-3 rounded-lg border border-border-default p-2 md:p-4 cursor-pointer transition-all
-                                                       hover:bg-accent-blue/5 hover:border-accent-blue/30
-                                                       has-checked:ring-2 has-checked:ring-accent-blue has-checked:border-accent-blue/30 has-checked:bg-accent-blue/5">
-                                            <x-team-crest :team="$item['team']" class="w-7 h-7 md:w-10 md:h-10 shrink-0" />
-                                            <span class="min-w-0">
-                                                <span class="block text-xs md:text-base font-medium text-text-body truncate">{{ $item['team']->name }}</span>
-                                                @if($item['academy_nickname'])
-                                                <span class="block text-[10px] md:text-xs text-accent-blue truncate">{{ $item['academy_nickname'] }}</span>
-                                                @endif
-                                                <span class="block text-[10px] md:text-xs text-text-muted truncate">{{ __('game.academy_start_at') }}: {{ $item['lowest_filial']->name }}</span>
-                                            </span>
-                                            <input x-bind:required="mode === 'career_pro' && proStart === 'academy'" x-bind:disabled="mode !== 'career_pro' || proStart !== 'academy'"
-                                                   type="radio" name="academy_club_id" value="{{ $item['team']->id }}" class="hidden">
-                                        </label>
-                                    @endforeach
+                                {{-- Option 1: 4 random Primera RFEF teams --}}
+                                <div x-show="proStart === 'scratch'">
+                                    <p class="text-sm text-text-secondary mb-4">{{ __('game.pro_manager_pick_intro') }}</p>
+                                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-2">
+                                        @foreach($proManagerTeams as $team)
+                                            <label class="flex items-center gap-2 md:gap-3 rounded-lg border border-border-default p-2 md:p-4 cursor-pointer transition-all
+                                                           hover:bg-accent-blue/5 hover:border-accent-blue/30
+                                                           has-checked:ring-2 has-checked:ring-accent-blue has-checked:border-accent-blue/30 has-checked:bg-accent-blue/5">
+                                                <x-team-crest :team="$team" class="w-7 h-7 md:w-10 md:h-10 shrink-0" />
+                                                <span class="text-xs md:text-base font-medium text-text-body truncate">{{ $team->name }}</span>
+                                                <input x-bind:required="mode === 'career_pro' && proStart === 'scratch'" x-bind:disabled="mode !== 'career_pro' || proStart !== 'scratch'"
+                                                       type="radio" name="team_id" value="{{ $team->id }}" class="hidden">
+                                            </label>
+                                        @endforeach
+                                    </div>
                                 </div>
-                                @else
-                                <p class="text-sm text-text-muted">{{ __('game.no_academy_clubs') }}</p>
-                                @endif
+
+                                {{-- Option 2: Academy career — pick a CLUB, start at its lowest filial --}}
+                                <div x-show="proStart === 'academy'" x-cloak>
+                                    <p class="text-sm text-text-secondary mb-4">{{ __('game.academy_pick_intro') }}</p>
+                                    @if($academyClubs->isNotEmpty())
+                                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-2 max-h-[420px] overflow-y-auto pr-1">
+                                        @foreach($academyClubs as $item)
+                                            <label class="flex items-center gap-2 md:gap-3 rounded-lg border border-border-default p-2 md:p-4 cursor-pointer transition-all
+                                                           hover:bg-accent-blue/5 hover:border-accent-blue/30
+                                                           has-checked:ring-2 has-checked:ring-accent-blue has-checked:border-accent-blue/30 has-checked:bg-accent-blue/5">
+                                                <x-team-crest :team="$item['team']" class="w-7 h-7 md:w-10 md:h-10 shrink-0" />
+                                                <span class="min-w-0">
+                                                    <span class="block text-xs md:text-base font-medium text-text-body truncate">{{ $item['team']->name }}</span>
+                                                    @if($item['academy_nickname'])
+                                                    <span class="block text-[10px] md:text-xs text-accent-blue truncate">{{ $item['academy_nickname'] }}</span>
+                                                    @endif
+                                                    <span class="block text-[10px] md:text-xs text-text-muted truncate">{{ __('game.academy_start_at') }}: {{ $item['lowest_filial']->name }}</span>
+                                                </span>
+                                                <input x-bind:required="mode === 'career_pro' && proStart === 'academy'" x-bind:disabled="mode !== 'career_pro' || proStart !== 'academy'"
+                                                       type="radio" name="academy_club_id" value="{{ $item['team']->id }}" class="hidden">
+                                            </label>
+                                        @endforeach
+                                    </div>
+                                    @else
+                                    <p class="text-sm text-text-muted">{{ __('game.no_academy_clubs') }}</p>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -321,103 +356,114 @@
 
                 {{-- ===================== TOURNAMENT MODE: National teams ===================== --}}
                 @if($hasTournamentMode)
-                    <div x-show="mode === 'tournament'" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" class="space-y-6">
+                    <div x-show="mode === 'tournament'" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
+                        <div class="rounded-2xl border border-border-default bg-surface-900/60 overflow-hidden">
+                            <div class="h-1 bg-gradient-to-r from-accent-gold via-accent-gold/40 to-transparent"></div>
+                            <div class="p-4 md:p-6 space-y-6">
+                                {{-- Featured teams (larger cards) --}}
+                                @if($wcFeaturedTeams->isNotEmpty())
+                                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                                    @foreach($wcFeaturedTeams as $team)
+                                        <label class="flex flex-col items-center gap-2 rounded-xl border border-border-default p-4 md:p-5 cursor-pointer transition-all
+                                                       hover:bg-accent-gold/5 hover:border-accent-gold/30
+                                                       has-checked:ring-2 has-checked:ring-accent-gold has-checked:border-accent-gold/30 has-checked:bg-accent-gold/5">
+                                            <x-team-crest :team="$team" class="w-14 h-14 md:w-16 md:h-16" />
+                                            <span class="text-sm md:text-base font-semibold text-text-body text-center truncate w-full">{{ $team->name }}</span>
+                                            <input x-bind:required="mode === 'tournament'" x-bind:disabled="mode !== 'tournament'" type="radio" name="team_id" value="{{ $team->id }}" class="hidden">
+                                        </label>
+                                    @endforeach
+                                </div>
+                                @endif
 
-                        {{-- Featured teams (larger cards) --}}
-                        @if($wcFeaturedTeams->isNotEmpty())
-                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                            @foreach($wcFeaturedTeams as $team)
-                                <label class="flex flex-col items-center gap-2 rounded-xl border border-border-default p-4 md:p-5 cursor-pointer transition-all
-                                               hover:bg-accent-gold/5 hover:border-accent-gold/30
-                                               has-checked:ring-2 has-checked:ring-accent-gold has-checked:border-accent-gold/30 has-checked:bg-accent-gold/5">
-                                    <x-team-crest :team="$team" class="w-14 h-14 md:w-16 md:h-16" />
-                                    <span class="text-sm md:text-base font-semibold text-text-body text-center truncate w-full">{{ $team->name }}</span>
-                                    <input x-bind:required="mode === 'tournament'" x-bind:disabled="mode !== 'tournament'" type="radio" name="team_id" value="{{ $team->id }}" class="hidden">
-                                </label>
-                            @endforeach
-                        </div>
-                        @endif
+                                {{-- Divider --}}
+                                <div class="flex items-center gap-3">
+                                    <div class="h-px flex-1 bg-border-strong"></div>
+                                    <span class="px-3 py-1 rounded-full border border-border-strong bg-surface-800 text-[10px] text-text-muted uppercase tracking-widest">{{ __('app.all_teams') }}</span>
+                                    <div class="h-px flex-1 bg-border-strong"></div>
+                                </div>
 
-                        {{-- Divider --}}
-                        <div class="relative">
-                            <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-border-strong"></div></div>
-                            <div class="relative flex justify-center">
-                                <span class="bg-surface-900 px-3 text-[10px] text-text-muted uppercase tracking-widest">{{ __('app.all_teams') }}</span>
+                                {{-- All other teams (compact cards) --}}
+                                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
+                                    @foreach($wcTeams as $team)
+                                        <label class="flex items-center gap-2.5 rounded-lg border border-border-default p-3 cursor-pointer transition-all
+                                                       hover:bg-accent-gold/5 hover:border-accent-gold/30
+                                                       has-checked:ring-2 has-checked:ring-accent-gold has-checked:border-accent-gold/30 has-checked:bg-accent-gold/5">
+                                            <x-team-crest :team="$team" class="w-8 h-8 shrink-0" />
+                                            <span class="text-sm font-medium text-text-body truncate">{{ $team->name }}</span>
+                                            <input x-bind:required="mode === 'tournament'" x-bind:disabled="mode !== 'tournament'" type="radio" name="team_id" value="{{ $team->id }}" class="hidden">
+                                        </label>
+                                    @endforeach
+                                </div>
                             </div>
-                        </div>
-
-                        {{-- All other teams (compact cards) --}}
-                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
-                            @foreach($wcTeams as $team)
-                                <label class="flex items-center gap-2.5 rounded-lg border border-border-default p-3 cursor-pointer transition-all
-                                               hover:bg-accent-gold/5 hover:border-accent-gold/30
-                                               has-checked:ring-2 has-checked:ring-accent-gold has-checked:border-accent-gold/30 has-checked:bg-accent-gold/5">
-                                    <x-team-crest :team="$team" class="w-8 h-8 shrink-0" />
-                                    <span class="text-sm font-medium text-text-body truncate">{{ $team->name }}</span>
-                                    <input x-bind:required="mode === 'tournament'" x-bind:disabled="mode !== 'tournament'" type="radio" name="team_id" value="{{ $team->id }}" class="hidden">
-                                </label>
-                            @endforeach
                         </div>
                     </div>
                 @endif
 
                 {{-- ===================== NATIONAL MODE (beta): pick a nation, then the squad ===================== --}}
                 @if($hasNationalMode)
-                    <div x-show="mode === 'national'" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" class="space-y-6"
+                    <div x-show="mode === 'national'" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
                          x-data="{ q: '' }">
-                        <p class="text-sm text-text-secondary">{{ __('game.national_pick_team_hint') }}</p>
+                        <div class="rounded-2xl border border-border-default bg-surface-900/60 overflow-hidden">
+                            <div class="h-1 bg-gradient-to-r from-accent-blue via-accent-blue/40 to-transparent"></div>
+                            <div class="p-4 md:p-6 space-y-6">
+                                <p class="text-sm text-text-secondary">{{ __('game.national_pick_team_hint') }}</p>
 
-                        <div class="max-w-md">
-                            <input type="text" x-model="q" placeholder="{{ __('game.national_search_placeholder') }}"
-                                   class="w-full rounded-lg border border-border-default bg-surface-800 px-4 py-2.5 text-sm text-text-body placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-accent-blue/50" />
-                        </div>
-
-                        {{-- Featured teams (larger cards) --}}
-                        @if($ntFeaturedTeams->isNotEmpty())
-                        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-                            @foreach($ntFeaturedTeams as $team)
-                                <div class="relative">
-                                    <a href="{{ route('national-squad-picker', $team->id) }}"
-                                       x-show="q === '' || '{{ addslashes($team->name) }}'.toLowerCase().includes(q.toLowerCase())"
-                                       class="flex flex-col items-center gap-2 rounded-xl border border-border-default p-4 md:p-5 transition-all hover:bg-accent-blue/5 hover:border-accent-blue/30">
-                                        <x-team-crest :team="$team" class="w-14 h-14 md:w-16 md:h-16" />
-                                        <span class="text-sm md:text-base font-semibold text-text-body text-center truncate w-full">{{ $team->name }}</span>
-                                    </a>
-                                    <a href="{{ route('national-squad-preview', $team->id) }}" target="_blank" rel="noopener"
-                                       title="{{ __('game.view_squad') }}"
-                                       class="absolute top-2 right-2 p-1.5 rounded-lg border border-border-default bg-surface-800/90 text-text-muted hover:text-accent-blue hover:border-accent-blue/40 transition">
-                                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                        </svg>
-                                        <span class="sr-only">{{ __('game.view_squad') }}</span>
-                                    </a>
+                                <div class="max-w-md relative">
+                                    <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                                    </svg>
+                                    <input type="text" x-model="q" placeholder="{{ __('game.national_search_placeholder') }}"
+                                           class="w-full rounded-xl border border-border-default bg-surface-800 pl-10 pr-4 py-2.5 text-sm text-text-body placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-accent-blue/50" />
                                 </div>
-                            @endforeach
-                        </div>
-                        @endif
 
-                        {{-- All other teams (compact cards) --}}
-                        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
-                            @foreach($ntTeams as $team)
-                                <div class="relative">
-                                    <a href="{{ route('national-squad-picker', $team->id) }}"
-                                       x-show="q === '' || '{{ addslashes($team->name) }}'.toLowerCase().includes(q.toLowerCase())"
-                                       class="flex items-center gap-2.5 rounded-lg border border-border-default p-3 pr-9 transition-all hover:bg-accent-blue/5 hover:border-accent-blue/30">
-                                        <x-team-crest :team="$team" class="w-8 h-8 shrink-0" />
-                                        <span class="text-sm font-medium text-text-body truncate">{{ $team->name }}</span>
-                                    </a>
-                                    <a href="{{ route('national-squad-preview', $team->id) }}" target="_blank" rel="noopener"
-                                       title="{{ __('game.view_squad') }}"
-                                       class="absolute top-1/2 -translate-y-1/2 right-2 p-1 rounded-md text-text-muted hover:text-accent-blue transition">
-                                        <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                        </svg>
-                                        <span class="sr-only">{{ __('game.view_squad') }}</span>
-                                    </a>
+                                {{-- Featured teams (larger cards) --}}
+                                @if($ntFeaturedTeams->isNotEmpty())
+                                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+                                    @foreach($ntFeaturedTeams as $team)
+                                        <div class="relative">
+                                            <a href="{{ route('national-squad-picker', $team->id) }}"
+                                               x-show="q === '' || '{{ addslashes($team->name) }}'.toLowerCase().includes(q.toLowerCase())"
+                                               class="flex flex-col items-center gap-2 rounded-xl border border-border-default p-4 md:p-5 transition-all hover:bg-accent-blue/5 hover:border-accent-blue/30">
+                                                <x-team-crest :team="$team" class="w-14 h-14 md:w-16 md:h-16" />
+                                                <span class="text-sm md:text-base font-semibold text-text-body text-center truncate w-full">{{ $team->name }}</span>
+                                            </a>
+                                            <a href="{{ route('national-squad-preview', $team->id) }}" target="_blank" rel="noopener"
+                                               title="{{ __('game.view_squad') }}"
+                                               class="absolute top-2 right-2 p-1.5 rounded-lg border border-border-default bg-surface-800/90 text-text-muted hover:text-accent-blue hover:border-accent-blue/40 transition">
+                                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                                </svg>
+                                                <span class="sr-only">{{ __('game.view_squad') }}</span>
+                                            </a>
+                                        </div>
+                                    @endforeach
                                 </div>
-                            @endforeach
+                                @endif
+
+                                {{-- All other teams (compact cards) --}}
+                                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
+                                    @foreach($ntTeams as $team)
+                                        <div class="relative">
+                                            <a href="{{ route('national-squad-picker', $team->id) }}"
+                                               x-show="q === '' || '{{ addslashes($team->name) }}'.toLowerCase().includes(q.toLowerCase())"
+                                               class="flex items-center gap-2.5 rounded-lg border border-border-default p-3 pr-9 transition-all hover:bg-accent-blue/5 hover:border-accent-blue/30">
+                                                <x-team-crest :team="$team" class="w-8 h-8 shrink-0" />
+                                                <span class="text-sm font-medium text-text-body truncate">{{ $team->name }}</span>
+                                            </a>
+                                            <a href="{{ route('national-squad-preview', $team->id) }}" target="_blank" rel="noopener"
+                                               title="{{ __('game.view_squad') }}"
+                                               class="absolute top-1/2 -translate-y-1/2 right-2 p-1 rounded-md text-text-muted hover:text-accent-blue transition">
+                                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                                </svg>
+                                                <span class="sr-only">{{ __('game.view_squad') }}</span>
+                                            </a>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
                         </div>
                     </div>
                 @endif
@@ -428,43 +474,51 @@
                      picker URL so it posts to the dual endpoint with
                      club_id + national_team_id + player_ids. --}}
                 @if($hasCareerAccess && $hasNationalMode)
-                    <div x-show="mode === 'dual'" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" class="space-y-6">
-                        <div>
-                            <p class="text-sm font-semibold text-text-body mb-3">{{ __('game.dual_step_1') }}</p>
-                            @include('partials.club-grid', ['radioName' => 'club_id', 'xModel' => 'clubId', 'xModelMode' => 'dual'])
-                        </div>
+                    <div x-show="mode === 'dual'" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
+                        <div class="rounded-2xl border border-border-default bg-surface-900/60 overflow-hidden">
+                            <div class="h-1 bg-gradient-to-r from-accent-green via-accent-green/40 to-transparent"></div>
+                            <div class="p-4 md:p-6 space-y-6" x-data="{ q: '' }">
+                                <div>
+                                    <p class="text-sm font-semibold text-text-body mb-3">{{ __('game.dual_step_1') }}</p>
+                                    @include('partials.club-grid', ['radioName' => 'club_id', 'xModel' => 'clubId', 'xModelMode' => 'dual'])
+                                </div>
 
-                        <div x-data="{ q: '' }">
-                            <p class="text-sm font-semibold text-text-body mb-1">{{ __('game.dual_step_2') }}</p>
-                            <p class="text-xs mb-3" :class="clubId ? 'text-text-muted' : 'text-accent-orange'">{{ __('game.dual_pick_club_first') }}</p>
+                                <div>
+                                    <p class="text-sm font-semibold text-text-body mb-1">{{ __('game.dual_step_2') }}</p>
+                                    <p class="text-xs mb-3" :class="clubId ? 'text-text-muted' : 'text-accent-orange'">{{ __('game.dual_pick_club_first') }}</p>
 
-                            <div class="max-w-md mb-4">
-                                <input type="text" x-model="q" @keydown.enter.prevent placeholder="{{ __('game.national_search_placeholder') }}"
-                                       class="w-full rounded-lg border border-border-default bg-surface-800 px-4 py-2.5 text-sm text-text-body placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-accent-blue/50" />
-                            </div>
-
-                            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
-                                @foreach($ntFeaturedTeams->concat($ntTeams) as $team)
-                                    <div class="relative">
-                                        <a :href="'{{ route('national-squad-picker', $team->id) }}' + (clubId ? '?club_id=' + clubId : '')"
-                                           @click="if (!clubId) $event.preventDefault()"
-                                           x-show="q === '' || '{{ addslashes($team->name) }}'.toLowerCase().includes(q.toLowerCase())"
-                                           :class="clubId ? 'hover:bg-accent-blue/5 hover:border-accent-blue/30' : 'opacity-60 cursor-not-allowed'"
-                                           class="flex items-center gap-2.5 rounded-lg border border-border-default p-3 pr-9 transition-all">
-                                            <x-team-crest :team="$team" class="w-8 h-8 shrink-0" />
-                                            <span class="text-sm font-medium text-text-body truncate">{{ $team->name }}</span>
-                                        </a>
-                                        <a href="{{ route('national-squad-preview', $team->id) }}" target="_blank" rel="noopener"
-                                           title="{{ __('game.view_squad') }}"
-                                           class="absolute top-1/2 -translate-y-1/2 right-2 p-1 rounded-md text-text-muted hover:text-accent-blue transition">
-                                            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                                            </svg>
-                                            <span class="sr-only">{{ __('game.view_squad') }}</span>
-                                        </a>
+                                    <div class="max-w-md mb-4 relative">
+                                        <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-text-muted pointer-events-none" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                                        </svg>
+                                        <input type="text" x-model="q" @keydown.enter.prevent placeholder="{{ __('game.national_search_placeholder') }}"
+                                               class="w-full rounded-xl border border-border-default bg-surface-800 pl-10 pr-4 py-2.5 text-sm text-text-body placeholder:text-text-muted focus:outline-none focus:ring-2 focus:ring-accent-blue/50" />
                                     </div>
-                                @endforeach
+
+                                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
+                                        @foreach($ntFeaturedTeams->concat($ntTeams) as $team)
+                                            <div class="relative">
+                                                <a :href="'{{ route('national-squad-picker', $team->id) }}' + (clubId ? '?club_id=' + clubId : '')"
+                                                   @click="if (!clubId) $event.preventDefault()"
+                                                   x-show="q === '' || '{{ addslashes($team->name) }}'.toLowerCase().includes(q.toLowerCase())"
+                                                   :class="clubId ? 'hover:bg-accent-blue/5 hover:border-accent-blue/30' : 'opacity-60 cursor-not-allowed'"
+                                                   class="flex items-center gap-2.5 rounded-lg border border-border-default p-3 pr-9 transition-all">
+                                                    <x-team-crest :team="$team" class="w-8 h-8 shrink-0" />
+                                                    <span class="text-sm font-medium text-text-body truncate">{{ $team->name }}</span>
+                                                </a>
+                                                <a href="{{ route('national-squad-preview', $team->id) }}" target="_blank" rel="noopener"
+                                                   title="{{ __('game.view_squad') }}"
+                                                   class="absolute top-1/2 -translate-y-1/2 right-2 p-1 rounded-md text-text-muted hover:text-accent-blue transition">
+                                                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                                                    </svg>
+                                                    <span class="sr-only">{{ __('game.view_squad') }}</span>
+                                                </a>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -475,48 +529,53 @@
                      listed). The submit button posts to the affiliate endpoint with
                      club_id via formaction, so both halves are created in one step. --}}
                 @if($hasCareerAccess && $affiliateClubs->isNotEmpty())
-                    <div x-show="mode === 'affiliate'" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" class="space-y-6">
-                        <div>
-                            <p class="text-sm font-semibold text-text-body mb-1">{{ __('game.affiliate_step_1') }}</p>
-                            <p class="text-xs text-text-muted mb-3">{{ __('game.affiliate_step_1_hint') }}</p>
-                            <x-input-error :messages="$errors->get('club_id')" class="mt-2 mb-2"/>
-                            <div class="grid grid-cols-2 lg:grid-cols-4 gap-2">
-                                @foreach($affiliateClubs as $club)
-                                    <label class="flex items-center gap-2 md:gap-3 rounded-lg border border-border-default p-2 md:p-4 cursor-pointer transition-all
-                                                   hover:bg-accent-gold/5 hover:border-accent-gold/30
-                                                   has-checked:ring-2 has-checked:ring-accent-gold has-checked:border-accent-gold/30 has-checked:bg-accent-gold/5">
-                                        <x-team-crest :team="$club" class="w-7 h-7 md:w-10 md:h-10 shrink-0" />
-                                        <span class="min-w-0">
-                                            <span class="block text-xs md:text-base font-medium text-text-body truncate">{{ $club->name }}</span>
-                                            <span class="block text-[11px] text-text-muted truncate">🔗 {{ $club->reserveTeam->name ?? '' }}</span>
-                                        </span>
-                                        <input x-bind:required="mode === 'affiliate'" x-bind:disabled="mode !== 'affiliate'" type="radio" name="club_id" value="{{ $club->id }}" class="hidden">
-                                    </label>
-                                @endforeach
+                    <div x-show="mode === 'affiliate'" x-cloak x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100">
+                        <div class="rounded-2xl border border-border-default bg-surface-900/60 overflow-hidden">
+                            <div class="h-1 bg-gradient-to-r from-accent-gold via-accent-gold/40 to-transparent"></div>
+                            <div class="p-4 md:p-6 space-y-6">
+                                <div>
+                                    <p class="text-sm font-semibold text-text-body mb-1">{{ __('game.affiliate_step_1') }}</p>
+                                    <p class="text-xs text-text-muted mb-3">{{ __('game.affiliate_step_1_hint') }}</p>
+                                    <x-input-error :messages="$errors->get('club_id')" class="mt-2 mb-2"/>
+                                    <div class="grid grid-cols-2 lg:grid-cols-4 gap-2">
+                                        @foreach($affiliateClubs as $club)
+                                            <label class="flex items-center gap-2 md:gap-3 rounded-lg border border-border-default p-2 md:p-4 cursor-pointer transition-all
+                                                           hover:bg-accent-gold/5 hover:border-accent-gold/30
+                                                           has-checked:ring-2 has-checked:ring-accent-gold has-checked:border-accent-gold/30 has-checked:bg-accent-gold/5">
+                                                <x-team-crest :team="$club" class="w-7 h-7 md:w-10 md:h-10 shrink-0" />
+                                                <span class="min-w-0">
+                                                    <span class="block text-xs md:text-base font-medium text-text-body truncate">{{ $club->name }}</span>
+                                                    <span class="block text-[11px] text-text-muted truncate">🔗 {{ $club->reserveTeam->name ?? '' }}</span>
+                                                </span>
+                                                <input x-bind:required="mode === 'affiliate'" x-bind:disabled="mode !== 'affiliate'" type="radio" name="club_id" value="{{ $club->id }}" class="hidden">
+                                            </label>
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <div class="flex justify-center pt-2">
+                                    <button type="submit" formaction="{{ route('init-affiliate-game') }}" formmethod="post"
+                                            class="rounded-xl bg-gradient-to-r from-accent-gold to-accent-orange px-10 py-3.5 text-sm font-bold uppercase tracking-widest text-white shadow-lg shadow-accent-gold/30 hover:shadow-accent-gold/50 hover:brightness-110 hover:-translate-y-0.5 transition-all duration-200">
+                                        {{ __('game.affiliate_start') }}
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                        <div class="flex justify-center pt-2">
-                            <button type="submit" formaction="{{ route('init-affiliate-game') }}" formmethod="post"
-                                    class="rounded-lg bg-accent-gold px-8 py-3 text-sm font-bold uppercase tracking-wide text-white hover:brightness-110 transition">
-                                {{ __('game.affiliate_start') }}
-                            </button>
                         </div>
                     </div>
                 @endif
 
                 {{-- Submit --}}
-                <div class="flex justify-center pt-2">
-                    <div x-show="mode === 'career'" x-cloak>
+                <div class="flex justify-center pt-4">
+                    <div x-show="mode === 'career'" x-cloak class="drop-shadow-[0_10px_28px_rgba(59,130,246,0.25)]">
                         <x-primary-button-spin>
                             {{ __('game.start_game') }}
                         </x-primary-button-spin>
                     </div>
-                    <div x-show="mode === 'career_pro'" x-cloak>
+                    <div x-show="mode === 'career_pro'" x-cloak class="drop-shadow-[0_10px_28px_rgba(59,130,246,0.25)]">
                         <x-primary-button-spin>
                             {{ __('game.start_game') }}
                         </x-primary-button-spin>
                     </div>
-                    <div x-show="mode === 'tournament'" x-cloak>
+                    <div x-show="mode === 'tournament'" x-cloak class="drop-shadow-[0_10px_28px_rgba(245,158,11,0.25)]">
                         <x-primary-button-spin color="amber">
                             {{ __('game.start_tournament') }}
                         </x-primary-button-spin>
