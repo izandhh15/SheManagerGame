@@ -26,15 +26,19 @@ class ShowTeamLeaderboard
 
         $cacheKey = "leaderboard:team:{$team->id}:{$sort}:{$page}";
 
-        $cached = Cache::remember($cacheKey, self::CACHE_TTL, function () use ($team, $sort, $request) {
-            $managers = $this->leaderboardService->getRankingsForTeam($team->id, $sort)
-                ->appends($request->query());
+        $cached = Cache::remember($cacheKey, self::CACHE_TTL, function () use ($team, $sort) {
+            $managers = $this->leaderboardService->getRankingsForTeam($team->id, $sort);
 
             return [
                 'managers' => $managers,
                 ...$this->leaderboardService->getTeamAggregateStats($team->id),
             ];
         });
+
+        // Pagination links must carry THIS request's query string. Doing it
+        // inside the Cache::remember closure baked the first visitor's params
+        // into the cached paginator for everyone else.
+        $cached['managers']->appends($request->query());
 
         return view('leaderboard.team', [
             ...$cached,

@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -20,6 +21,14 @@ class TrackVisitors
     private const ONLINE_EXCLUDED_PREFIXES = ['admin/', 'editor/'];
 
     private const BOT_PATTERN = '/bot|crawl|spider|slurp|mediapartners|baidu|yandex|sogou|exabot|facebot|facebookexternalhit|ia_archiver|semrush|ahrefs|mj12bot|dotbot|petalbot|bytespider|gptbot|claudebot|ccbot|headless/i';
+
+    /**
+     * Minutos entre escrituras de latido por visitante. El panel "En directo"
+     * considera online a quien tenga latido en los ultimos 5 minutos, asi que
+     * con 3 el visitante activo nunca se cae del panel mientras los polls
+     * AJAX (partido en directo) dejan de generar un upsert por request.
+     */
+    private const HEARTBEAT_THROTTLE_MINUTES = 3;
 
     public function handle(Request $request, Closure $next): Response
     {
@@ -59,19 +68,25 @@ class TrackVisitors
         $page = '/'.substr($path === '' ? '' : $path, 0, 240);
         $userId = $request->user()?->getAuthIdentifier();
 
-        // Latido: inserta o refresca la fila del visitante.
-        DB::table('visitor_heartbeats')->upsert(
-            [[
-                'visitor_key' => $visitorKey,
-                'user_id' => $userId,
-                'path' => $page,
-                'device' => $device,
-                'first_seen' => $now,
-                'last_seen' => $now,
-            ]],
-            ['visitor_key'],
-            ['user_id', 'path', 'device', 'last_seen']
-        );
+        // Latido: como mucho una escritura cada HEARTBEAT_THROTTLE_MINUTES por
+        // visitante. Sin esto, cada request (incluidos POSTs y los polls AJAX
+        // del partido en directo) hacia un upsert a Neon.
+        $throttleKey = 'visitor_hb:'.$visitorKey;
+        if (! Cache::has($throttleKey)) {
+            DB::table('visitor_heartbeats')->upsert(
+                [[
+                    'visitor_key' => $visitorKey,
+                    'user_id' => $userId,
+                    'path' => $page,
+                    'device' => $device,
+                    'first_seen' => $now,
+                    'last_seen' => $now,
+                ]],
+                ['visitor_key'],
+                ['user_id', 'path', 'device', 'last_seen']
+            );
+            Cache::put($throttleKey, true, $now->copy()->addMinutes(self::HEARTBEAT_THROTTLE_MINUTES));
+        }
 
         // Contadores solo en GET (vistas de página, no acciones).
         if ($request->isMethod('get')) {

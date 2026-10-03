@@ -114,10 +114,16 @@ class PlayerHistoryService
      */
     public function formerClubNames(Game $game, GamePlayer $player): Collection
     {
-        return $this->formerClubIds($game, $player)
-            ->map(fn ($id) => Team::find($id)?->name)
-            ->filter()
-            ->values();
+        $ids = $this->formerClubIds($game, $player);
+
+        if ($ids->isEmpty()) {
+            return collect();
+        }
+
+        // One whereIn instead of a Team::find() per club (N+1).
+        $names = Team::whereIn('id', $ids->all())->pluck('name', 'id');
+
+        return $ids->map(fn ($id) => $names->get($id))->filter()->values();
     }
 
     /**

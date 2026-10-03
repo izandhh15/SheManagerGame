@@ -1,28 +1,7 @@
 @props(['game', 'nextMatch' => null, 'continueToHome' => false])
 
-@php
-    // Get competitions the team participates in for this game
-    $teamCompetitions = \App\Models\Competition::whereIn('id',
-        $game->competitionEntries()
-            ->where('team_id', $game->team_id)
-            ->pluck('competition_id')
-    )->orderBy('tier')->get();
-
-    // Notifications for mobile bell icon + modal. The modal mirrors the
-    // dashboard inbox: the current matchday's (unread) notifications only, since
-    // markAllAsRead on each advance clears the previous matchday's.
-    $unreadCount = $game->notifications()->whereNull('read_at')->count();
-    $recentNotifications = $game->notifications()->unread()->orderByDesc('game_date')->limit(20)->get();
-
-    // Highest-stakes (CRITICAL) notifications that haven't been acknowledged yet
-    // surface as a blocking, must-dismiss popup on the next page load so they
-    // can't be missed (e.g. a purchase offer for one of your players). All pending
-    // criticals of the most-recent type are shown together as one group (single
-    // dismiss + single action, since they route to the same page); other types
-    // follow as their own group on subsequent loads.
-    $criticalAlerts = app(\App\Modules\Notification\Services\NotificationService::class)
-        ->pendingCriticalAlertGroup($game->id);
-@endphp
+{{-- teamCompetitions / unreadCount / recentNotifications / criticalAlerts
+     vienen del GameHeaderComposer (cache por request/juego). --}}
 
 <div x-data>
     {{-- Sticky Header --}}
