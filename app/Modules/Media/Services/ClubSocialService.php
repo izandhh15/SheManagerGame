@@ -7,6 +7,7 @@ use App\Models\Game;
 use App\Models\GameMatch;
 use App\Models\GamePlayer;
 use App\Models\GameTransfer;
+use App\Models\RenewalNegotiation;
 use App\Models\SocialPost;
 use App\Models\TeamReputation;
 use App\Modules\Player\Services\PlayerHistoryService;
@@ -75,7 +76,10 @@ class ClubSocialService
 
         $player = null;
         if (in_array($type, [self::TYPE_SIGNING, self::TYPE_SALE, self::TYPE_INJURY, self::TYPE_RENEWAL], true)) {
-            $player = GamePlayer::where('game_id', $game->id)->find($playerId);
+            // R5: the player must belong to the user's own organization —
+            // a forged player_id used to reach rival players here (e.g.
+            // "renewing" (extending) their contracts via type=renewal).
+            $player = GamePlayer::where('game_id', $game->id)->userOwned($game)->find($playerId);
             if (! $player) {
                 return ['ok' => false, 'message' => __('game.club_social_no_player')];
             }
@@ -350,10 +354,27 @@ class ClubSocialService
     }
 
     /**
-     * Pre-written: announce a contract renewal (extends the deal 2 years).
+     * Pre-written: announce a contract renewal.
+     *
+     * R5: this is a PURE announcement. The contract extension itself must
+     * come from the real negotiation flow (NegotiateRenewal ->
+     * ContractService::processRenewal(): wage demand, salary cap, ledger).
+     * This method used to extend contract_until +2 years for free, bypassing
+     * the whole economy.
      */
     private function announceRenewal(Game $game, GamePlayer $player): array
     {
+        // The renewal must have been genuinely negotiated first: an
+        // accepted RenewalNegotiation for this player in this game.
+        $negotiated = RenewalNegotiation::where('game_id', $game->id)
+            ->where('game_player_id', $player->id)
+            ->where('status', RenewalNegotiation::STATUS_ACCEPTED)
+            ->exists();
+
+        if (! $negotiated) {
+            return ['post' => null, 'message' => __('game.club_social_renewal_needs_negotiation')];
+        }
+
         // M23: nombre null → patrón '%%' que casa con todo (falso "ya
         // anunciado"); "_" → '%%_%%' (casa con cualquier texto). Sin nombre
         // no hay nada que cotejar, y los comodines LIKE van escapados.
@@ -368,13 +389,9 @@ class ClubSocialService
             return ['post' => null, 'message' => __('game.club_social_already_announced')];
         }
 
-        // Real effect: the renewal extends her contract two more years.
-        $base = $player->contract_until && $player->contract_until->isFuture()
-            ? $player->contract_until->copy()
-            : now();
-        $player->contract_until = $base->addYears(2)->startOfDay();
-        $player->save();
-        $year = $player->contract_until->year;
+        // No contract mutation here: processRenewal() already set the new
+        // end date when the negotiation was accepted.
+        $year = $player->contract_until?->year ?? now()->year;
 
         $lang = $this->clubLang($game);
         $es = $this->isEs();
@@ -455,7 +472,10 @@ class ClubSocialService
             default => 28_000,
         };
 
-        $count = (int) ($base * (0.9 + (crc32($game->team_id) % 20) / 100));
+        // R20c (familia C6): crc32() sin máscara da negativo en PHP 32-bit
+        // (~50% de los casos) y el multiplicador caía a 0.71–0.89 en vez de
+        // 0.9–1.09 → seguidores sistemáticamente bajos en prod.
+        $count = (int) ($base * (0.9 + ((crc32($game->team_id) & 0x7FFFFFFF) % 20) / 100));
 
         return $this->formatFollowers($count);
     }

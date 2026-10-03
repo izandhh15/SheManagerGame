@@ -5,6 +5,7 @@ namespace Tests\Feature\QaMediumFixes;
 use App\Models\Competition;
 use App\Models\Game;
 use App\Models\GamePlayer;
+use App\Models\RenewalNegotiation;
 use App\Models\SocialPost;
 use App\Models\Team;
 use App\Models\User;
@@ -40,6 +41,8 @@ class M23LikeWildcardEscapingTest extends TestCase
             'team_id' => $team->id,
             'name' => 'Ana Normal',
         ]);
+        // R5: el anuncio de renovación exige una negociación aceptada.
+        $this->acceptRenewal($game, $first);
         $this->assertTrue(
             app(ClubSocialService::class)->announce($game, 'renewal', $first->id)['ok'],
             'la primera renovación debería publicarse'
@@ -50,6 +53,7 @@ class M23LikeWildcardEscapingTest extends TestCase
             'team_id' => $team->id,
             'name' => null,
         ]);
+        $this->acceptRenewal($game, $nameless);
         $result = app(ClubSocialService::class)->announce($game, 'renewal', $nameless->id);
 
         $this->assertTrue($result['ok'], 'la renovación de una jugadora sin nombre no es un duplicado');
@@ -138,11 +142,25 @@ class M23LikeWildcardEscapingTest extends TestCase
         ]);
 
         $service = app(ClubSocialService::class);
+        // R5: el anuncio de renovación exige una negociación aceptada.
+        $this->acceptRenewal($game, $player);
         $this->assertTrue($service->announce($game, 'renewal', $player->id)['ok']);
 
         $second = $service->announce($game, 'renewal', $player->id);
         $this->assertFalse($second['ok'], 'la segunda renovación sí es un duplicado');
         $this->assertSame('Ya hay un comunicado sobre esto.', $second['message']);
+    }
+
+    /**
+     * R5: simula el flujo legítimo (negociación de renovación aceptada).
+     */
+    private function acceptRenewal(Game $game, GamePlayer $player): void
+    {
+        RenewalNegotiation::create([
+            'game_id' => $game->id,
+            'game_player_id' => $player->id,
+            'status' => RenewalNegotiation::STATUS_ACCEPTED,
+        ]);
     }
 
     /**

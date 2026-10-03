@@ -272,7 +272,7 @@ class JournalistService
     /**
      * Transfer news: 'in' (user buys), 'out' (user sells), 'free' (free agent).
      */
-    public function postTransferNews(Game $game, string $playerName, string $fromTeam, string $toTeam, string $kind): ?SocialPost
+    public function postTransferNews(Game $game, ?string $playerName, string $fromTeam, string $toTeam, string $kind): ?SocialPost
     {
         $journalist = $this->pick($game, 'fichajes');
         if (! $journalist) {
@@ -281,16 +281,20 @@ class JournalistService
 
         $es = $this->isEs();
 
+        // R15: player names are nullable in the DB — never invent one; fall
+        // back to a generic label so completing a transfer can't 500.
+        $who = $playerName ?? ($es ? 'Una jugadora' : 'A player');
+
         $text = match ($kind) {
             'out' => $es
-                ? "🚨 OFICIAL: {$playerName} deja {$fromTeam} y pone rumbo a {$toTeam}. La grada ya la echa de menos... y el míster tendrá que rearmar el puzzle 🧩"
-                : "🚨 OFFICIAL: {$playerName} leaves {$fromTeam} for {$toTeam}. The stands already miss her... and the gaffer must rebuild the puzzle 🧩",
+                ? "🚨 OFICIAL: {$who} deja {$fromTeam} y pone rumbo a {$toTeam}. La grada ya la echa de menos... y el míster tendrá que rearmar el puzzle 🧩"
+                : "🚨 OFFICIAL: {$who} leaves {$fromTeam} for {$toTeam}. The stands already miss her... and the gaffer must rebuild the puzzle 🧩",
             'free' => $es
-                ? "✍️ ¡FICHAJE A COSTE CERO! {$playerName} se compromete con {$toTeam}. Negocio redondo del míster: calidad sin pasar por caja 💰"
-                : "✍️ DONE DEAL ON A FREE! {$playerName} signs for {$toTeam}. Shrewd business from the gaffer: quality without spending a penny 💰",
+                ? "✍️ ¡FICHAJE A COSTE CERO! {$who} se compromete con {$toTeam}. Negocio redondo del míster: calidad sin pasar por caja 💰"
+                : "✍️ DONE DEAL ON A FREE! {$who} signs for {$toTeam}. Shrewd business from the gaffer: quality without spending a penny 💰",
             default => $es
-                ? "🚨 ¡BOMBAZO! {$playerName} es nueva jugadora de {$toTeam} procedente de {$fromTeam}. Menudo refuerzo se ha sacado el míster de la chistera 🎩✨"
-                : "🚨 DONE DEAL! {$playerName} joins {$toTeam} from {$fromTeam}. What a signing the gaffer has pulled out of the hat 🎩✨",
+                ? "🚨 ¡BOMBAZO! {$who} es nueva jugadora de {$toTeam} procedente de {$fromTeam}. Menudo refuerzo se ha sacado el míster de la chistera 🎩✨"
+                : "🚨 DONE DEAL! {$who} joins {$toTeam} from {$fromTeam}. What a signing the gaffer has pulled out of the hat 🎩✨",
         };
 
         return $this->post($game, $journalist, $text, 'journalist_transfer');

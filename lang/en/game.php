@@ -950,6 +950,7 @@ return [
     'club_social_no_recent_signings' => 'No signings this season: sign someone and you will be able to announce them here.',
     'club_social_no_recent_sales' => 'No sales this season: sell someone and you will be able to announce them here.',
     'club_social_already_announced' => 'There is already a statement about this.',
+    'club_social_renewal_needs_negotiation' => 'This player has not renewed yet: complete her renewal negotiation first.',
     'club_social_official_badge' => 'Official account',
 
     // National team social

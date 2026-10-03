@@ -137,7 +137,7 @@ class ClubSocialTemplatesTest extends TestCase
         $this->assertFalse($again['ok']);
     }
 
-    public function test_announce_renewal_extends_contract_and_posts_in_galician(): void
+    public function test_announce_renewal_posts_in_galician_without_touching_contract(): void
     {
         $game = $this->makeGame('Dépor Abanca');
         $player = GamePlayer::factory()->create([
@@ -148,6 +148,15 @@ class ClubSocialTemplatesTest extends TestCase
             'contract_until' => '2027-06-30',
         ]);
 
+        // R5: el anuncio es puro — la extensión la aplica el flujo legítimo
+        // (aquí simulada) tras aceptar la negociación de renovación.
+        \App\Models\RenewalNegotiation::create([
+            'game_id' => $game->id,
+            'game_player_id' => $player->id,
+            'status' => \App\Models\RenewalNegotiation::STATUS_ACCEPTED,
+        ]);
+        $player->update(['contract_until' => '2029-06-30']);
+
         $result = app(ClubSocialService::class)->announce(
             $game,
             ClubSocialService::TYPE_RENEWAL,
@@ -155,6 +164,7 @@ class ClubSocialTemplatesTest extends TestCase
         );
 
         $this->assertTrue($result['ok']);
+        // El anuncio no toca el contrato: sigue como lo dejó la negociación.
         $this->assertSame('2029-06-30', $player->fresh()->contract_until->format('Y-m-d'));
 
         $post = SocialPost::find($result['post_id']);
