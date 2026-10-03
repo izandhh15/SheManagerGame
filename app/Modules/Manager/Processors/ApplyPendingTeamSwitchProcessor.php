@@ -44,8 +44,11 @@ class ApplyPendingTeamSwitchProcessor implements SeasonProcessor
         }
 
         $offer = ManagerJobOffer::find($game->pending_team_switch);
-        if (!$offer || $offer->status !== ManagerJobOffer::STATUS_ACCEPTED) {
-            Log::warning('[ApplyPendingTeamSwitch] aborting: offer missing or not accepted', [
+        // The offer must belong to this game: without the game_id check a
+        // forged/stale pending_team_switch id could apply another game's
+        // (or another user's) accepted offer to this game.
+        if (!$offer || $offer->game_id !== $game->id || $offer->status !== ManagerJobOffer::STATUS_ACCEPTED) {
+            Log::warning('[ApplyPendingTeamSwitch] aborting: offer missing, foreign, or not accepted', [
                 'game_id' => $game->id,
                 'pending_team_switch' => $game->pending_team_switch,
                 'offer_status' => $offer?->status,

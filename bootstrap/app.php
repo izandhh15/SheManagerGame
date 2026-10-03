@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 $app = Application::configure(basePath: dirname(__DIR__))
@@ -19,10 +20,22 @@ $app = Application::configure(basePath: dirname(__DIR__))
         }
     })
     ->withMiddleware(function (Middleware $middleware) {
-        // Traefik terminates TLS and forwards plain HTTP to the app
-        // container; trust X-Forwarded-* so URL::to(), asset(), route(),
-        // and Vite's manifest URLs honour the original https scheme.
-        $middleware->trustProxies(at: '*');
+        // Wasmer Edge terminates TLS at its own edge network and forwards plain
+        // HTTP to the app; trust X-Forwarded-Proto/Host/Port/Prefix so URL::to(),
+        // asset(), route() and the session cookie honour the original https
+        // scheme. Deliberately NOT trusting X-Forwarded-For: with `at: '*'` any
+        // client could forge that header and mint unlimited identities to evade
+        // IP-based throttles (game creation, waitlist, webhooks...).
+        // Request::ip() now resolves to REMOTE_ADDR — the direct TCP peer,
+        // i.e. the platform's own edge proxy — so IP throttles are spoof-proof;
+        // worst case they share one bucket instead of being bypassed entirely.
+        $middleware->trustProxies(
+            at: '*',
+            headers: Request::HEADER_X_FORWARDED_PROTO
+                | Request::HEADER_X_FORWARDED_HOST
+                | Request::HEADER_X_FORWARDED_PORT
+                | Request::HEADER_X_FORWARDED_PREFIX,
+        );
 
         $middleware->append(\App\Http\Middleware\SecurityHeaders::class);
 

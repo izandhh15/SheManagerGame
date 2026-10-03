@@ -40,7 +40,9 @@ class AdvanceSeasonTransition
 
             return response()->json([
                 'done' => false,
-                'error' => $e->getMessage(),
+                // Generic message on purpose: $e->getMessage() can leak SQL
+                // fragments or internal paths. Details stay in the log above.
+                'error' => 'season_transition_failed',
                 'step' => $game->season_transition_step,
                 'totalSteps' => null,
             ], 500);

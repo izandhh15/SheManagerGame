@@ -55,10 +55,17 @@ class NotificationService
 
     /**
      * Mark a notification as read.
+     *
+     * Always scoped to the game: a notification from another game returns
+     * null, so this can never be wired to a route as a cross-game IDOR
+     * vector (the route-level game-ownership middleware guarantees the
+     * caller may only pass their own game).
      */
-    public function markAsRead(string $notificationId): ?GameNotification
+    public function markAsRead(Game $game, string $notificationId): ?GameNotification
     {
-        $notification = GameNotification::find($notificationId);
+        $notification = GameNotification::where('id', $notificationId)
+            ->where('game_id', $game->id)
+            ->first();
 
         if ($notification) {
             $notification->markAsRead();
