@@ -5,6 +5,7 @@ namespace App\Http\Actions;
 use App\Models\Game;
 use App\Models\GamePlayer;
 use App\Models\MutualTerminationNegotiation;
+use App\Modules\Squad\Services\SquadMinimumService;
 use App\Modules\Transfer\Services\ContractService;
 use App\Support\Money;
 use Illuminate\Http\JsonResponse;
@@ -31,6 +32,7 @@ class NegotiateMutualTermination
 
     public function __construct(
         private readonly ContractService $contractService,
+        private readonly SquadMinimumService $squadMinimumService,
     ) {}
 
     public function __invoke(Request $request, string $gameId, string $playerId): JsonResponse
@@ -259,6 +261,25 @@ class NegotiateMutualTermination
 
         if ($player->hasAgreedTransfer() || $player->hasPreContractAgreement()) {
             return __('messages.release_has_agreed_transfer');
+        }
+
+        // M4: mínimo de plantilla también al INICIAR la negociación (no solo
+        // al completar). Misma guarda que la liberación unilateral
+        // (ContractService::validateRelease): el roster no puede bajar de 17.
+        $rosterTeamId = $player->isCalledUpFromReserve($game)
+            ? $game->reserve_team_id
+            : $player->team_id;
+
+        $breach = $this->squadMinimumService->validateRemoval($game, $player, $rosterTeamId);
+        if ($breach !== null) {
+            if ($breach['type'] === 'too_small') {
+                return __('messages.release_squad_too_small', ['min' => $breach['min']]);
+            }
+
+            return __('messages.release_position_minimum', [
+                'group' => __('squad.' . strtolower($breach['group']) . 's'),
+                'min'   => $breach['min'],
+            ]);
         }
 
         return null;

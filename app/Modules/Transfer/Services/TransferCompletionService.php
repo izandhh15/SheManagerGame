@@ -309,7 +309,11 @@ class TransferCompletionService
             fromTeamId: $fromTeamId,
             toTeamId: $game->team_id,
             transferFee: $offer->transfer_fee,
-            type: GameTransfer::TYPE_TRANSFER,
+            // M3: incoming pre-contracts are free signings (Bosman) — they
+            // arrive through this same completion path but must be logged as
+            // free_agent, mirroring completePreContractTransfer() on the
+            // outgoing side. Ordinary agreed bids keep TYPE_TRANSFER.
+            type: $offer->isPreContract() ? GameTransfer::TYPE_FREE_AGENT : GameTransfer::TYPE_TRANSFER,
             season: $game->season,
             window: TransferWindowType::currentValue($game->current_date),
         );

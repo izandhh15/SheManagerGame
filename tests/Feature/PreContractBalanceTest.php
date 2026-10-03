@@ -147,16 +147,22 @@ class PreContractBalanceTest extends TestCase
             'competition_id' => $this->competition->id,
         ]);
 
-        // €50M player → 1.45x premium. Base wage is now anchored to current
-        // ability, so pin overall_score (~83 ≈ €50M) and a prime age so the
-        // base matches the market value; keep the current wage low so neither
-        // the current-wage nor minimum-wage floor distorts the premium ratio.
+        // Top of the women's-football economy: €2M is the real maximum market
+        // value (Clàudia Pina, Barça, per the Soccerdonna dataset). The old
+        // VirtuaFC (men's) fixture used €50M + overall 83 and expected a 1.45x
+        // premium — but ability 83 only anchors ~€550K of wage base here and a
+        // €50M value is 25x above anything that exists in this economy, so the
+        // current-wage floor (not the premium) dominated the ratio (2.14).
+        // overall 89 ≈ €1.55M ability anchor; prime age keeps the age modifier
+        // at 1.0; the €10K current wage sits far below the ability-anchored
+        // base (~€287K) so the pre-contract wage floor cannot distort the
+        // measured premium ratio.
         $player = GamePlayer::factory()->age(27)->create([
             'game_id' => $game->id,
             'team_id' => $sourceTeam->id,
-            'market_value_cents' => 5_000_000_000,
-            'overall_score' => 83,
-            'annual_wage' => 100_000_00,
+            'market_value_cents' => 200_000_000,
+            'overall_score' => 89,
+            'annual_wage' => 1_000_000,
         ]);
 
         // Run multiple times to account for wage variance and check average ratio
@@ -171,9 +177,12 @@ class PreContractBalanceTest extends TestCase
 
         $avgRatio = array_sum($ratios) / count($ratios);
 
-        // Average ratio should be close to 1.45 (±0.15 for rounding + variance)
-        $this->assertGreaterThan(1.20, $avgRatio, "Premium ratio should be significantly above 1.0, got {$avgRatio}");
-        $this->assertLessThan(1.70, $avgRatio, "Premium ratio should not exceed 1.70, got {$avgRatio}");
+        // €2M hits the top reachable pre-contract band (1.25x) while transfers
+        // price at 1.15x → expected ratio ≈ 1.087. Assert a band that tolerates
+        // Money::roundPrice() grid snapping but rejects both a missing premium
+        // (≈1.0) and the old floor-dominated blowup (≈2.1).
+        $this->assertGreaterThan(1.0, $avgRatio, "Pre-contract demand should carry a stature premium over transfer demand, got {$avgRatio}");
+        $this->assertLessThan(1.20, $avgRatio, "Premium ratio should not exceed 1.20, got {$avgRatio}");
     }
 
     public function test_pre_contract_demand_floors_at_current_wage_with_premium(): void
