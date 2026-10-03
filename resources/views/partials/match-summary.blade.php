@@ -11,7 +11,8 @@
     $isFull = $mode === MatchSummaryPresenter::MODE_FULL;
 
     // Show press conference CTA if the player's team played and no statement yet.
-    $showPressCta = $game && $isFull && !\App\Models\PressStatement::where('game_id', $game->id)->where('match_id', $match->id)->exists();
+    // The exists() check lives in the presenter, not inline in the view.
+    $showPressCta = app(MatchSummaryPresenter::class)->shouldShowPressCta($game, $match, $mode);
 @endphp
 
 <div class="rounded-xl border border-border-default bg-surface-800 overflow-hidden">

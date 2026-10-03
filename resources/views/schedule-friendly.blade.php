@@ -72,13 +72,7 @@
             <p class="text-sm text-text-secondary mb-4">{{ __('game.stage_config_subtitle') }}</p>
 
             @if($stageConfig)
-                @php
-                    $stageCost = $stageConfig['cost'] ?? $stageService->calculateCost(
-                        $stageConfig['destination'], $userTeam->country ?? '',
-                        $stageConfig['duration'], $stageConfig['intensity'], $stageConfig['focus']
-                    );
-                    $stageLines = $stageService->effectSummaryLines($stageConfig['effects'] ?? []);
-                @endphp
+                {{-- $stageCost / $stageLines los calcula ShowScheduleFriendly. --}}
                 <div class="rounded-lg border border-emerald-600/40 bg-emerald-950/30 p-4">
                     <p class="font-bold text-text-primary mb-1">✅ {{ __('game.stage_organized_title') }}</p>
                     <p class="text-sm text-text-secondary mb-2">{{ __('game.stage_organized_in', ['destination' => $stageConfig['destination']]) }}</p>

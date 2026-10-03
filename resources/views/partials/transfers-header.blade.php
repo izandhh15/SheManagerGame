@@ -1,8 +1,8 @@
 {{-- Shared header for Salidas / Fichajes tabs --}}
+{{-- $committedBudget viene del TransfersHeaderComposer (cache por request/juego). --}}
 <div class="flex gap-2.5 overflow-x-auto scrollbar-hide pb-1 mb-6">
     {{-- Transfer Budget --}}
     @if($game->currentInvestment)
-    @php $committedBudget = \App\Models\TransferOffer::committedBudget($game->id); @endphp
     <x-summary-card :label="__('transfers.budget')">
         <div class="font-heading text-xl font-bold text-text-primary mt-0.5">{{ $game->currentInvestment->formatted_transfer_budget }}</div>
         @if($committedBudget > 0)
