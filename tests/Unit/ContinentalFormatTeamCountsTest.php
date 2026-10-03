@@ -57,7 +57,8 @@ class ContinentalFormatTeamCountsTest extends TestCase
 
         $playoff = array_values(array_filter($zones, fn (array $z) => $z['label'] === 'game.uel_knockout_playoff'));
         $this->assertCount(1, $playoff);
-        $this->assertSame(9, $playoff[0]['minPosition']);
+        // 20-team UEL: 1-12 direct to R16, 13-20 playoff (12 + 4 winners = 16).
+        $this->assertSame(13, $playoff[0]['minPosition']);
         $this->assertSame(20, $playoff[0]['maxPosition']);
     }
 }

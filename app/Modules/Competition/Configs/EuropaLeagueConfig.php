@@ -60,10 +60,10 @@ class EuropaLeagueConfig implements CompetitionConfig
 
     public function getLeaguePhaseQualificationBonus(int $position): int
     {
-        if ($position <= 8) {
+        if ($position <= 12) {
             return 7_000_000; // €70K — direct R16, skips the €70K playoff prize
         }
-        if ($position <= 24) {
+        if ($position <= 20) {
             return 0; // these teams earn the €70K reach-R16 prize by winning the playoff
         }
 
@@ -75,13 +75,13 @@ class EuropaLeagueConfig implements CompetitionConfig
         return [
             [
                 'minPosition' => 1,
-                'maxPosition' => 8,
+                'maxPosition' => 12,
                 'borderColor' => 'orange-500',
                 'bgColor' => 'bg-orange-500',
                 'label' => 'game.uel_direct_knockout',
             ],
             [
-                'minPosition' => 9,
+                'minPosition' => 13,
                 'maxPosition' => 20,
                 'borderColor' => 'yellow-500',
                 'bgColor' => 'bg-yellow-500',
