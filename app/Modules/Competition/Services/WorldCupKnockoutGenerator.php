@@ -3,10 +3,12 @@
 namespace App\Modules\Competition\Services;
 
 use App\Modules\Competition\DTOs\PlayoffRoundConfig;
+use App\Modules\Competition\Exceptions\UnresolvableBracketSlotException;
 use App\Models\Competition;
 use App\Models\CupTie;
 use App\Models\Game;
 use App\Models\GameStanding;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Generates knockout bracket matchups for group-stage + knockout tournaments.
@@ -175,9 +177,15 @@ class WorldCupKnockoutGenerator
             $homeTeamId = $this->resolveR32Slot($match['home'], $positionMap, $thirdPlaceAssignment, $competitionId);
             $awayTeamId = $this->resolveR32Slot($match['away'], $positionMap, $thirdPlaceAssignment, $competitionId);
 
-            if ($homeTeamId && $awayTeamId) {
-                $matchups[] = [$homeTeamId, $awayTeamId, $match['match_number']];
+            // An unresolvable slot is a data problem (missing group
+            // standings, broken third-place assignment): dropping the
+            // matchup silently would shrink the bracket and could end the
+            // tournament with no champion, so fail loudly instead.
+            if (!$homeTeamId || !$awayTeamId) {
+                $this->failUnresolvableSlot($competitionId, self::ROUND_OF_32, $match, $homeTeamId, $awayTeamId);
             }
+
+            $matchups[] = [$homeTeamId, $awayTeamId, $match['match_number']];
         }
 
         return $matchups;
@@ -301,16 +309,49 @@ class WorldCupKnockoutGenerator
             $homeTeamId = $this->resolveBracketReference($match['home'], $game->id, $competitionId, $positionMap);
             $awayTeamId = $this->resolveBracketReference($match['away'], $game->id, $competitionId, $positionMap);
 
-            if ($homeTeamId && $awayTeamId) {
-                $matchups[] = [$homeTeamId, $awayTeamId, $match['match_number']];
+            // Same as the R32 path: never shrink the bracket silently.
+            if (!$homeTeamId || !$awayTeamId) {
+                $this->failUnresolvableSlot($competitionId, $round, $match, $homeTeamId, $awayTeamId);
             }
+
+            $matchups[] = [$homeTeamId, $awayTeamId, $match['match_number']];
         }
 
         return $matchups;
     }
 
     /**
-     * Generate third-place or final matchup directly from semi-final results.
+     * Log and throw for a bracket slot that resolved to no team.
+     *
+     * Never reached for "round not ready yet" cases (those return [] before
+     * any slot resolution): getting here means corrupt upstream data, and
+     * the tournament must not continue with a silently shrunken bracket.
+     */
+    private function failUnresolvableSlot(
+        string $competitionId,
+        int $round,
+        array $match,
+        ?string $homeTeamId,
+        ?string $awayTeamId,
+    ): never {
+        Log::error('[WorldCupKnockoutGenerator] unresolvable bracket slot', [
+            'competition_id' => $competitionId,
+            'round' => $round,
+            'match_number' => $match['match_number'] ?? null,
+            'home_slot' => $match['home'] ?? null,
+            'away_slot' => $match['away'] ?? null,
+            'home_resolved' => (bool) $homeTeamId,
+            'away_resolved' => (bool) $awayTeamId,
+        ]);
+
+        throw UnresolvableBracketSlotException::forSlot(
+            $competitionId,
+            $round,
+            $match['match_number'] ?? '?',
+            $match['home'] ?? '?',
+            $match['away'] ?? '?',
+        );
+    }
      *
      * Third place = SF losers, Final = SF winners. Competitions without a
      * third-place entry in their bracket (e.g. WEURO) return no matchups.
@@ -342,16 +383,37 @@ class WorldCupKnockoutGenerator
         if ($round === self::ROUND_THIRD_PLACE) {
             $homeTeamId = $sfTies[0]->getLoserId();
             $awayTeamId = $sfTies[1]->getLoserId();
+            $homeSlot = 'loser of SF tie 1';
+            $awaySlot = 'loser of SF tie 2';
         } else {
             $homeTeamId = $sfTies[0]->winner_id;
             $awayTeamId = $sfTies[1]->winner_id;
+            $homeSlot = 'winner of SF tie 1';
+            $awaySlot = 'winner of SF tie 2';
         }
 
-        if ($homeTeamId && $awayTeamId) {
-            return [[$homeTeamId, $awayTeamId, $matchNumber]];
+        // A semifinal tie without a resolvable winner/loser means the
+        // tournament cannot crown a champion: log it and fail loudly
+        // instead of returning an empty bracket.
+        if (!$homeTeamId || !$awayTeamId) {
+            Log::error('[WorldCupKnockoutGenerator] unresolvable semifinal slot', [
+                'competition_id' => $competitionId,
+                'round' => $round,
+                'match_number' => $matchNumber,
+                'sf_tie_1' => $sfTies[0]->id,
+                'sf_tie_2' => $sfTies[1]->id,
+            ]);
+
+            throw UnresolvableBracketSlotException::forSlot(
+                $competitionId,
+                $round,
+                $matchNumber,
+                $homeSlot,
+                $awaySlot,
+            );
         }
 
-        return [];
+        return [[$homeTeamId, $awayTeamId, $matchNumber]];
     }
 
     /**
