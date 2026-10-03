@@ -182,6 +182,20 @@ class ReserveParentCoexistenceRepairer
                 );
             }
             $bottomName = Team::where('id', $bottomTeamId)->value('name');
+
+            // The bottom team drops into the shared league. If it is
+            // reserve-linked to that league (a reserve whose parent plays
+            // there, or the parent of a reserve playing there), the swap
+            // would introduce a NEW coexistence — bail instead of trading
+            // one corruption for another.
+            if ($this->isReserveLinkedToLeague($gameId, $bottomTeamId, $issue['parent']['league'])) {
+                return ReserveRepairResult::unsafe(
+                    "Cannot resolve COEXISTENCE for {$issue['parent']['name']}: bottom team {$bottomName} of {$targetComp} "
+                    . "is reserve-linked to {$issue['parent']['league']} — the swap would introduce a new coexistence.",
+                    $issues,
+                );
+            }
+
             $swaps[] = [
                 'reason'     => "COEXISTENCE: {$issue['parent']['name']} ({$issue['parent']['league']}) <-> {$bottomName} ({$targetComp}) [parent moves up]",
                 'teamA'      => $issue['parent']['id'],
@@ -327,6 +341,28 @@ class ReserveParentCoexistenceRepairer
             return;
         }
         throw new \RuntimeException("Unknown slot kind: {$slot['kind']}.");
+    }
+
+    /**
+     * Whether moving $teamId into $leagueId would create a new
+     * reserve/parent coexistence there: true when the team is a reserve
+     * whose parent plays in that league, or the parent of a reserve that
+     * plays in that league.
+     */
+    private function isReserveLinkedToLeague(string $gameId, string $teamId, string $leagueId): bool
+    {
+        $leagueTeamIds = CompetitionEntry::where('game_id', $gameId)
+            ->where('competition_id', $leagueId)
+            ->pluck('team_id');
+
+        $team = Team::find($teamId);
+        if ($team && $team->parent_team_id && $leagueTeamIds->contains((string) $team->parent_team_id)) {
+            return true;
+        }
+
+        return Team::where('parent_team_id', $teamId)
+            ->whereIn('id', $leagueTeamIds)
+            ->exists();
     }
 
     /**
