@@ -166,6 +166,8 @@ return [
     'invalid_pro_manager_team' => 'Elige uno de los clubes mostrados — Pro Manager empieza en Primera Federación.',
     'invalid_academy_club' => 'El club de cantera seleccionado no es válido.',
     'club_has_no_filial' => 'Este club no tiene filial disponible.',
+    'team_has_no_competition_link' => 'Este equipo no está vinculado a ninguna competición: no se puede crear la partida.',
+    'team_squad_too_small' => 'Este equipo solo tiene :count jugadoras en plantilla (mínimo :minimum): no se puede crear la partida.',
     'cannot_apply_to_own_club' => 'No puedes solicitar empleo en tu propio club.',
 
     // Pre-match confirmation

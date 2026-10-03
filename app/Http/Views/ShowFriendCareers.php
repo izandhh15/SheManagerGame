@@ -19,6 +19,13 @@ class ShowFriendCareers
     {
         $viewer = $request->user();
 
+        // The id is compared against a bigint column: any non-numeric value
+        // would make Postgres throw a QueryException (22P02) before the
+        // privacy gate could answer 403/404.
+        if (! ctype_digit($userId)) {
+            abort(404);
+        }
+
         // Privacy gate: only mutual friends can see careers.
         if (! $this->friendships->areFriends($viewer->id, $userId)) {
             abort(403, __('friends.not_friends'));

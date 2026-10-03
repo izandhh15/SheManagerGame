@@ -15,8 +15,10 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 /**
- * National press: journalists post match previews for national-team saves,
- * and previews + reports appear in the "Redes de la selección" feed.
+ * National press: journalists post match previews for national-team saves.
+ * Previews and reports live in the Internet press section — since M12 they
+ * no longer appear in the "Redes de la selección" official feed (they
+ * rendered there with the official badge, which was misleading).
  */
 class NationalPressPreviewTest extends TestCase
 {
@@ -98,15 +100,21 @@ class NationalPressPreviewTest extends TestCase
         $this->assertNull($post);
     }
 
-    public function test_journalist_posts_appear_in_national_feed(): void
+    public function test_journalist_posts_excluded_from_official_national_feed(): void
     {
         [$game, $match] = $this->nationalGame();
 
         $preview = app(JournalistService::class)->maybePostNationalPreview($game);
-        $this->assertNotNull($preview);
+        $this->assertNotNull($preview, 'la previa del periodista sí debe publicarse');
 
+        // M12: el feed oficial solo trae comunicados de la federación; la
+        // previa del periodista ya no se muestra con el badge oficial.
         $feed = app(NationalSocialService::class)->feed($game->fresh());
 
-        $this->assertTrue($feed->contains(fn ($p) => $p->id === $preview->id));
+        $this->assertFalse($feed->contains(fn ($p) => $p->id === $preview->id));
+        $this->assertTrue(
+            $feed->every(fn ($p) => $p->context === 'national_official'),
+            'todo el feed oficial debe ser contexto national_official'
+        );
     }
 }

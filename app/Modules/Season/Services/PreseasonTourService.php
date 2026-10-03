@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\DB;
  * earns multiplied matchday revenue (tour ticket sales + tour sponsors),
  * while the club gains a small chunk of reputation points.
  *
- * One tour per game; it must be organized before the friendlies are
+ * One tour per season; it must be organized before the friendlies are
  * confirmed. The automatic "derbi de la casa" stays a home-lab match and
  * is NOT boosted by the tour.
  */

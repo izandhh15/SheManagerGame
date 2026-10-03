@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\DB;
  *   players (≤21) gain overall.
  * - Duration multiplies both cost and effects.
  *
- * A game can organize one stage; confirming stores the config on the game.
+ * One stage per season; confirming stores the config on the game.
  */
 class TrainingStageService
 {
@@ -132,13 +132,15 @@ class TrainingStageService
 
             // A5 residual: el coste del stage salía del presupuesto sin
             // apunte en el ledger, así que reaparecía en el carry-over.
-            // Se registra como tour_cost (la categoría ya la resta
-            // BudgetProjectionService::MIDSEASON_EXPENSE_CATEGORIES).
+            // Se registra con la categoría tour_cost (la categoría ya la
+            // resta BudgetProjectionService::MIDSEASON_EXPENSE_CATEGORIES),
+            // pero con descripción propia de stage para no confundirlo
+            // con la gira de pretemporada.
             FinancialTransaction::recordExpense(
                 gameId: $game->id,
                 category: FinancialTransaction::CATEGORY_TOUR,
                 amount: $cost * 100,
-                description: __('game.preseason_tour_expense_desc', [
+                description: __('game.stage_expense_desc', [
                     'destination' => $config['destination'] ?? '',
                 ]),
                 transactionDate: ($game->current_date ?? Carbon::now())->toDateString(),
@@ -157,6 +159,12 @@ class TrainingStageService
         });
 
         $game->refresh();
+
+        // refresh() recarga las relaciones cacheadas vía una instancia
+        // fresca, y el where('season', (int) $this->season) de
+        // currentInvestment se evalúa con season=null → 0 y devuelve null.
+        // Se descarta para que el próximo acceso la resuelva lazy (bien).
+        $game->unsetRelation('currentInvestment');
 
         $injuredNames = collect($game->training_stage['injured'] ?? [])->pluck('name')->all();
 
@@ -193,12 +201,18 @@ class TrainingStageService
             return ['ok' => false, 'message' => __('game.stage_invalid_config')];
         }
 
-        if ($game->training_stage) {
+        // M29: uno por TEMPORADA, igual que el stage de club
+        // (confirmClubStage). Antes era uno por partida.
+        $existing = $game->training_stage;
+        if (is_array($existing) && ($existing['season'] ?? null) === $game->season) {
             return ['ok' => false, 'message' => __('game.stage_already_organized')];
         }
 
         $userTeam = $game->team;
-        $userCountry = $userTeam->country ?? '';
+        // M27: comparar por NOMBRE de país, no por código en crudo ('ES'),
+        // igual que confirmClubStage; si no, la tarifa "en casa" nunca
+        // coincide y la selección siempre paga la tarifa de fuera.
+        $userCountry = \App\Support\CountryNames::name($userTeam->country) ?? $userTeam->country ?? '';
 
         $cost = $this->calculateCost(
             $config['destination'], $userCountry,
@@ -217,6 +231,7 @@ class TrainingStageService
                 'training_stage' => array_merge($config, [
                     'cost' => $cost,
                     'effects' => $effects,
+                    'season' => $game->season,
                     'organized_at' => Carbon::now()->toDateTimeString(),
                 ]),
             ]);

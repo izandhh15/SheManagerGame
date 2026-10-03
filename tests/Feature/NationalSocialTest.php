@@ -83,12 +83,14 @@ class NationalSocialTest extends TestCase
 
     public function test_federation_account_flagged(): void
     {
+        // Portugal sigue siendo cuenta de federación (sin cuenta femenina
+        // propia). Francia ya no: desde M13 usa @equipedefrancef.
         $user = User::factory()->create();
-        $team = Team::factory()->create(['name' => 'France', 'type' => 'national']);
+        $team = Team::factory()->create(['name' => 'Portugal', 'type' => 'national']);
         $game = Game::factory()->create(['user_id' => $user->id, 'team_id' => $team->id]);
 
         $service = app(NationalSocialService::class);
-        $this->assertSame('@equipedefrance', $service->nationalHandle($game));
+        $this->assertSame('@selecaoportugal', $service->nationalHandle($game));
         $this->assertTrue($service->isFederationAccount($game));
     }
 

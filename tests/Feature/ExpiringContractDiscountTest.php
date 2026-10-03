@@ -94,13 +94,16 @@ class ExpiringContractDiscountTest extends TestCase
     {
         // The guard against the discount leaking into normal valuations: with five
         // years left, leverage is full, the importance premium survives intact and
-        // the club asks 1.2 (importance) × 1.2 (contract) = 1.44× MV, exactly as
-        // it did before.
+        // the club asks 1.2 (importance) × 1.2 (contract) = 1.44× MV. Since the
+        // "realistic FIFA-style economy" change, the star stature premium (MV ≥
+        // €1M → 1.25×) applies on top: 1.44 × 1.25 = 1.8×, which the 1.5× ceiling
+        // clamps down to exactly 1.5× MV. The point of the test stands: the price
+        // stays well above market value, the expiring discount does not leak in.
         $player = $this->starAt(ClubProfile::REPUTATION_CONTINENTAL, contractUntil: '2031-06-30');
 
         $price = $this->askingPrice($player);
 
-        $this->assertSame(Money::roundPrice((int) (self::MV * 1.44)), $price);
+        $this->assertSame(Money::roundPrice((int) (self::MV * 1.5)), $price);
         $this->assertGreaterThan(self::MV, $price);
     }
 

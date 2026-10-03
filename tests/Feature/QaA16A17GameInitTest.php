@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Models\Competition;
 use App\Models\Game;
 use App\Models\Team;
 use App\Models\User;
@@ -207,6 +208,26 @@ class QaA16A17GameInitTest extends TestCase
     {
         $user = $this->user();
         $club = $this->club();
+
+        // M38/M39: a club only reaches creation with a competition link and
+        // a full (>= 17) template squad for the season. Seed both so this
+        // test keeps exercising the "valid club reaches creation" path.
+        $competition = Competition::factory()->league()->create(['id' => 'TESTL', 'tier' => 1]);
+        DB::table('competition_teams')->insert([
+            'competition_id' => $competition->id,
+            'team_id' => $club->id,
+            'season' => $competition->season,
+        ]);
+        $templates = [];
+        for ($i = 1; $i <= 17; $i++) {
+            $templates[] = [
+                'season' => $competition->season,
+                'player_id' => (string) Str::uuid(),
+                'team_id' => $club->id,
+                'position' => 'MED',
+            ];
+        }
+        DB::table('game_player_templates')->insert($templates);
 
         $game = new Game();
         $game->id = (string) Str::uuid();

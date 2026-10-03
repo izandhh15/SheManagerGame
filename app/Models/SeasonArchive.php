@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-
 /**
  * @property string $id
  * @property string $game_id
@@ -14,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property array<array-key, mixed> $player_season_stats
  * @property array<array-key, mixed> $season_awards
  * @property array<array-key, mixed> $match_results
+ * @property array<array-key, mixed>|null $match_events_archive
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \App\Models\Game $game
@@ -46,6 +46,7 @@ class SeasonArchive extends Model
         'player_season_stats',
         'season_awards',
         'match_results',
+        'match_events_archive',
         'transfer_activity',
         'transition_log',
     ];
@@ -55,6 +56,7 @@ class SeasonArchive extends Model
         'player_season_stats' => 'array',
         'season_awards' => 'array',
         'match_results' => 'array',
+        'match_events_archive' => 'array',
         'transfer_activity' => 'array',
         'transition_log' => 'array',
     ];
@@ -62,6 +64,44 @@ class SeasonArchive extends Model
     public function game(): BelongsTo
     {
         return $this->belongsTo(Game::class);
+    }
+
+    /**
+     * Capture a game's match events as plain arrays for the season
+     * archive (M33): who scored, assists, cards, substitutions, injuries.
+     * The season-closing processors call this BEFORE purging the
+     * `match_events` table, so the per-match detail survives the reset.
+     * Player names are denormalised at capture time; the GamePlayer rows
+     * persist across seasons but this keeps the archive self-contained.
+     *
+     * @return array<int, array<string, mixed>>
+     */
+    public static function captureMatchEvents(string $gameId): array
+    {
+        $playerNames = GamePlayer::where('game_id', $gameId)->pluck('name', 'id');
+
+        $events = [];
+
+        MatchEvent::where('game_id', $gameId)
+            ->orderBy('game_match_id')
+            ->orderBy('minute')
+            ->chunk(500, function ($chunk) use (&$events, $playerNames) {
+                foreach ($chunk as $event) {
+                    $events[] = [
+                        'game_match_id' => $event->game_match_id,
+                        'game_player_id' => $event->game_player_id,
+                        'player_name' => $playerNames->get($event->game_player_id),
+                        'team_id' => $event->team_id,
+                        'minute' => $event->minute,
+                        'phase' => $event->phase?->value,
+                        'stoppage_minute' => $event->stoppage_minute,
+                        'event_type' => $event->event_type,
+                        'metadata' => $event->metadata,
+                    ];
+                }
+            });
+
+        return $events;
     }
 
     /**

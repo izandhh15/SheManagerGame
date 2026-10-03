@@ -228,12 +228,25 @@ class PressNewsService
 
         $userScore = $userIsHome ? (int) $last->home_score : (int) $last->away_score;
         $oppScore = $userIsHome ? (int) $last->away_score : (int) $last->home_score;
-        $score = "{$userScore}-{$oppScore}";
+        $isCup = $last->isCupMatch();
+        // M22: la tanda de penaltis decide el partido (no el empate a goles).
+        $userPen = $userIsHome ? $last->home_score_penalties : $last->away_score_penalties;
+        $oppPen = $userIsHome ? $last->away_score_penalties : $last->home_score_penalties;
+        $shootout = $userPen !== null && $oppPen !== null;
+
+        if ($shootout) {
+            $penSuffix = $es
+                ? " ({$userPen}-{$oppPen} en los penaltis)"
+                : " ({$userPen}-{$oppPen} on penalties)";
+            $score = "{$userScore}-{$oppScore}{$penSuffix}";
+            $resultWord = $userPen > $oppPen ? ($es ? 'victoria' : 'win') : ($es ? 'derrota' : 'defeat');
+        } else {
+            $score = "{$userScore}-{$oppScore}";
+            $resultWord = $userScore > $oppScore ? ($es ? 'victoria' : 'win')
+                : ($userScore < $oppScore ? ($es ? 'derrota' : 'defeat') : ($es ? 'empate' : 'draw'));
+        }
         $teamName = $userTeam->name;
         $oppName = $opponent->name;
-
-        $resultWord = $userScore > $oppScore ? ($es ? 'victoria' : 'win')
-            : ($userScore < $oppScore ? ($es ? 'derrota' : 'defeat') : ($es ? 'empate' : 'draw'));
 
         $scorers = $this->scorerLines($last, $userTeamId, $es);
 
@@ -242,7 +255,7 @@ class PressNewsService
             $body = [
                 "{$resultWord} del {$teamName} por {$score} ante el {$oppName}.",
                 $scorers,
-                $this->chronicleMeaningLine($es, $userScore, $oppScore, $teamName),
+                $this->chronicleMeaningLine($es, $userScore, $oppScore, $teamName, $isCup, $userPen, $oppPen),
                 "Lo analizamos en {$outlet}: el vestuario ya piensa en la próxima cita.",
             ];
         } else {
@@ -250,7 +263,7 @@ class PressNewsService
             $body = [
                 "{$teamName} {$resultWord} {$score} against {$oppName}.",
                 $scorers,
-                $this->chronicleMeaningLine($es, $userScore, $oppScore, $teamName),
+                $this->chronicleMeaningLine($es, $userScore, $oppScore, $teamName, $isCup, $userPen, $oppPen),
                 "Analysis on {$outlet}: the dressing room is already thinking about the next fixture.",
             ];
         }
@@ -303,8 +316,48 @@ class PressNewsService
             : 'Goals from ' . implode(', ', $parts) . $more . '.';
     }
 
-    private function chronicleMeaningLine(bool $es, int $userScore, int $oppScore, string $teamName): string
-    {
+    /**
+     * M19/M21/M22: la línea de "qué significa" distingue copa de liga (en
+     * copa no hay puntos en juego) y tiene en cuenta la tanda de penaltis.
+     */
+    private function chronicleMeaningLine(
+        bool $es,
+        int $userScore,
+        int $oppScore,
+        string $teamName,
+        bool $isCup,
+        ?int $userPen,
+        ?int $oppPen,
+    ): string {
+        // M22: el partido se decidió en los penaltis, no fue un empate.
+        if ($userPen !== null && $oppPen !== null) {
+            return $userPen > $oppPen
+                ? ($es
+                    ? "El {$teamName} se impone en la tanda de penaltis ({$userPen}-{$oppPen}) y sigue adelante."
+                    : "{$teamName} hold their nerve from the spot ({$userPen}-{$oppPen}) and march on.")
+                : ($es
+                    ? "El {$teamName} cae en la tanda de penaltis ({$userPen}-{$oppPen}) y dice adiós."
+                    : "{$teamName} fall in the shootout ({$userPen}-{$oppPen}) and bow out.");
+        }
+
+        // M19/M21: en copa no se reparten puntos.
+        if ($isCup) {
+            if ($userScore > $oppScore) {
+                return $es
+                    ? "El {$teamName} saca adelante la eliminatoria y sigue soñando."
+                    : "{$teamName} come through the tie and keep dreaming.";
+            }
+            if ($userScore < $oppScore) {
+                return $es
+                    ? "Duro golpe para el {$teamName} en la copa, obligado a reaccionar."
+                    : "A tough blow for {$teamName} in the cup, who must react now.";
+            }
+
+            return $es
+                ? "Empate que deja la eliminatoria completamente abierta."
+                : "A draw that leaves the tie wide open.";
+        }
+
         if ($userScore > $oppScore) {
             return $es
                 ? "Tres puntos de oro para el {$teamName}, que sigue creciendo."
@@ -353,7 +406,7 @@ class PressNewsService
         $outlet = $this->outlet($game, $game->id . 'injury' . $round);
         $teamName = $game->team?->name ?? ($es ? 'el club' : 'the club');
 
-        if ($this->hasOfficialInjuryStatement($game, $player->name)) {
+        if ($this->hasOfficialInjuryStatement($game, $player)) {
             $weeks = max(1, (int) ceil($now->diffInDays(Carbon::parse($player->injury_until)) / 7));
             $injuryEs = $this->injuryTypeEs($player->injury_type);
 
@@ -418,14 +471,38 @@ class PressNewsService
     /**
      * Has the club published the official medical report for this player?
      * (ClubSocialService "PARTE MÉDICO" / "MEDICAL REPORT" announcement.)
+     *
+     * M20: match EXACTO por jugadora, nunca LIKE '%nombre%': un LIKE casa
+     * "Ana" con el parte escrito para "Ana María" y desbloqueaba su
+     * diagnóstico sin comunicado propio. Los comunicados nuevos llevan
+     * game_player_id; los antiguos (sin referencia) se reconocen con el
+     * nombre anclado al verbo de la plantilla ("estará"/"estarà"/"will be"),
+     * que "Ana" no casa en "Ana María estará…".
      */
-    private function hasOfficialInjuryStatement(Game $game, string $playerName): bool
+    private function hasOfficialInjuryStatement(Game $game, GamePlayer $player): bool
     {
+        $exact = SocialPost::where('game_id', $game->id)
+            ->where('context', 'club_official')
+            ->where('post_kind', ClubSocialService::TYPE_INJURY)
+            ->where('game_player_id', $player->id)
+            ->exists();
+        if ($exact) {
+            return true;
+        }
+
+        // Legacy: comunicados publicados antes de guardar la referencia.
+        $name = trim((string) $player->name);
+        if ($name === '') {
+            return false;
+        }
+        $pattern = '/' . preg_quote($name, '/') . ' (estará|estarà|will be) /u';
+
         return SocialPost::where('game_id', $game->id)
             ->where('context', 'club_official')
             ->where('text', 'like', '%🏥%')
-            ->where('text', 'like', '%' . $playerName . '%')
-            ->exists();
+            ->whereNull('game_player_id')
+            ->pluck('text')
+            ->contains(fn (string $text) => (bool) preg_match($pattern, $text));
     }
 
     private function injuryTypeEs(?string $type): string
@@ -438,6 +515,14 @@ class PressNewsService
             'Knee injury' => 'una lesión de rodilla',
             'Calf strain' => 'una sobrecarga en el gemelo',
             'Groin strain' => 'una distensión en la ingle',
+            // M6: estos 5 tipos existen en InjuryService::INJURY_TYPES pero
+            // caían en el genérico "una lesión muscular" (un cruzado no es
+            // una lesión muscular). Vocabulario alineado con lang/es/squad.php.
+            'Hamstring tear' => 'una rotura de isquiotibial',
+            'Knee contusion' => 'una contusión de rodilla',
+            'Metatarsal fracture' => 'una fractura de metatarso',
+            'ACL tear' => 'una rotura del ligamento cruzado',
+            'Achilles rupture' => 'una rotura del tendón de Aquiles',
         ];
 
         return $map[$type ?? ''] ?? 'una lesión muscular';

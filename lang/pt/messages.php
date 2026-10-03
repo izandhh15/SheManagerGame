@@ -166,6 +166,8 @@ return [
     'invalid_pro_manager_team' => 'Escolhe um dos clubes mostrados — o Pro Manager começa na Primeira Federação.',
     'invalid_academy_club' => 'O clube de academia selecionado não é válido.',
     'club_has_no_filial' => 'Este clube não tem equipa B disponível.',
+    'team_has_no_competition_link' => 'Esta equipa não está ligada a nenhuma competição: o save não pode ser criado.',
+    'team_squad_too_small' => 'Esta equipa tem apenas :count jogadoras no plantel (mínimo :minimum): o save não pode ser criado.',
     'cannot_apply_to_own_club' => 'Não podes candidatar-te a emprego no teu próprio clube.',
 
     // Pre-match confirmation

@@ -14,6 +14,7 @@ Route::middleware('guest')->group(function () {
         ->name('register');
 
     Route::post('register/career', [RegisteredUserController::class, 'storeCareerModeRegistration'])
+        ->middleware('throttle:3,1')
         ->name('register.career-mode');
 
     Route::get('activation/sent', fn () => view('auth.activation-sent'))

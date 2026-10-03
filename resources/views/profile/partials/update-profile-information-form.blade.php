@@ -65,6 +65,20 @@
         <x-input-error class="mt-2" :messages="$errors->get('bio')" />
     </div>
 
+    <div class="flex items-start gap-3">
+        {{-- Hidden "0" so unchecking the box persists as false; the checkbox
+             overrides it with "1" when checked. --}}
+        <input type="hidden" name="is_profile_public" value="0">
+        <input id="is_profile_public" name="is_profile_public" type="checkbox" value="1"
+               {{ old('is_profile_public', $user->is_profile_public) ? 'checked' : '' }}
+               class="mt-1 size-5 rounded border-border-strong bg-surface-700 accent-accent-blue">
+        <div>
+            <label for="is_profile_public" class="text-sm font-medium text-text-primary">{{ __('profile.public_profile') }}</label>
+            <p class="mt-1 text-xs text-text-muted">{{ __('profile.public_profile_description') }}</p>
+        </div>
+    </div>
+    <x-input-error class="mt-2" :messages="$errors->get('is_profile_public')" />
+
     <div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
