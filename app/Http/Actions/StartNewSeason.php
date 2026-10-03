@@ -52,6 +52,14 @@ class StartNewSeason
                 'game_id' => $gameId,
                 'error' => $e->getMessage(),
             ]);
+            try {
+                \Illuminate\Support\Facades\DB::reconnect();
+            } catch (\Throwable $reconnectError) {
+                Log::warning('StartNewSeason: DB reconnect failed', [
+                    'game_id' => $gameId,
+                    'error' => $reconnectError->getMessage(),
+                ]);
+            }
         }
 
         $game = Game::findOrFail($gameId);

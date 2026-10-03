@@ -43,6 +43,16 @@ class ShowSeasonEnd
                 'game_id' => $gameId,
                 'error' => $e->getMessage(),
             ]);
+            // The failed transaction may have left the PDO connection dead.
+            // Force a fresh connection so the summary queries below don't hang.
+            try {
+                \Illuminate\Support\Facades\DB::reconnect();
+            } catch (\Throwable $reconnectError) {
+                Log::warning('ShowSeasonEnd: DB reconnect failed', [
+                    'game_id' => $gameId,
+                    'error' => $reconnectError->getMessage(),
+                ]);
+            }
         }
 
         $game = Game::with('team')->findOrFail($gameId);
