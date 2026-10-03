@@ -2,8 +2,6 @@
 
 namespace App\Modules\Player\Services;
 
-use Illuminate\Support\Facades\DB;
-
 class PlayerTierService
 {
     // Market value thresholds in cents (lower bound of each tier).
@@ -27,31 +25,6 @@ class PlayerTierService
             $marketValueCents >= self::TIER_2_MIN => 2,
             default => 1,
         };
-    }
-
-    /**
-     * Batch-recompute tiers for specific player IDs.
-     *
-     * @param array<string> $playerIds UUIDs of game_players to update
-     */
-    public function recomputeTiers(array $playerIds): void
-    {
-        if (empty($playerIds)) {
-            return;
-        }
-
-        $idList = "'" . implode("','", $playerIds) . "'";
-
-        DB::statement("
-            UPDATE game_players SET tier = CASE
-                WHEN market_value_cents >= " . self::TIER_5_MIN . " THEN 5
-                WHEN market_value_cents >= " . self::TIER_4_MIN . " THEN 4
-                WHEN market_value_cents >= " . self::TIER_3_MIN . " THEN 3
-                WHEN market_value_cents >= " . self::TIER_2_MIN . " THEN 2
-                ELSE 1
-            END
-            WHERE id IN ({$idList})
-        ");
     }
 
 }
