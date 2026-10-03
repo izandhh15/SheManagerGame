@@ -405,7 +405,6 @@ return [
     'mood_willing_sell' => 'Disposé à vendre',
     'mood_open_sell' => 'Ouvert aux offres',
     'mood_reluctant_sell' => 'Réticent à vendre',
-    'negotiate' => 'Négocier',
     'chat_terms_transition' => 'Prix acté ! Négocie maintenant les conditions personnelles avec la joueuse.',
     'chat_player_demand_transfer' => 'L\'agent de :player demande :wage/an pendant :years ans.',
     'chat_player_counter_transfer' => 'L\'agent de :player insiste sur :wage/an pendant :years ans.',

@@ -900,7 +900,6 @@ return [
     'mens_stadium_council_label' => 'el Ayuntamiento',
     'mens_stadium_quote_free' => ':owner te cede :stadium GRATIS para el partido contra :opponent: ¡los campos sin equipo no cuestan ni un euro!',
     'mens_stadium_rejected_excuse_pitch' => 'El club masculino rechaza ceder :stadium: quieren preservar el césped para el tramo decisivo de la temporada.',
-    'mens_stadium_rejected_excuse_concert' => 'El club masculino rechaza ceder :stadium: hay un concierto programado y el campo estará ocupado con el escenario.',
     'mens_stadium_rejected_excuse_works' => 'El club masculino rechaza ceder :stadium: tienen obras de mejora programadas en el estadio.',
     'mens_stadium_rejected_excuse_derby' => 'El club masculino rechaza ceder :stadium: no quieren líos con su afición esa jornada.',
     'mens_stadium_rejected_excuse_board' => 'El club masculino rechaza ceder :stadium: la directiva ha dicho que no, sin más explicaciones.',

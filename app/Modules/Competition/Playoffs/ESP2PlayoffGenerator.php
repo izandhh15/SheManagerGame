@@ -64,11 +64,6 @@ class ESP2PlayoffGenerator implements PlayoffGenerator
         return $this->directCount > 0 ? range(1, $this->directCount) : [];
     }
 
-    public function getTriggerMatchday(): int
-    {
-        return $this->triggerMatchday;
-    }
-
     public function getTotalRounds(): int
     {
         return 2; // Semifinal + Final

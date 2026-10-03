@@ -146,15 +146,6 @@ class SerieAConfig implements CompetitionConfig, HasSeasonGoals
             ];
         }
 
-        if (!empty($slots['UECL'])) {
-            $zones[] = [
-                'minPosition' => min($slots['UECL']),
-                'maxPosition' => max($slots['UECL']),
-                'borderColor' => 'green-500',
-                'bgColor' => 'bg-green-500',
-                'label' => 'game.conference_league',
-            ];
-        }
 
         // Serie A Femminile has 12 teams; only the 12th goes down
         // (countries.IT promotions). The old 18-20 range was copied from

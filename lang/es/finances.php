@@ -60,18 +60,8 @@ return [
     'youth_academy' => 'Cantera',
 
     'medical' => 'Médico',
-    'medical_tier_0' => 'Personal mínimo - recuperación básica',
-    'medical_tier_1' => 'Atención básica - recuperación estándar',
-    'medical_tier_2' => 'Buenas instalaciones - 15% más rápido',
-    'medical_tier_3' => 'Personal de élite - 30% más rápido, menos lesiones',
-    'medical_tier_4' => 'Clase mundial - 50% más rápido, prevención',
 
     'scouting' => 'Ojeadores',
-    'scouting_tier_0' => 'Ojeadores mínimos - alcance limitado',
-    'scouting_tier_1' => 'Red básica - solo mercado nacional',
-    'scouting_tier_2' => 'Red ampliada - nacional, más resultados y precisión',
-    'scouting_tier_3' => 'Alcance internacional - búsquedas rápidas y precisas',
-    'scouting_tier_4' => 'Red global - máxima velocidad, resultados y precisión',
 
     // Budget flow tooltips
     'tooltip_tv_rights' => 'Distribución televisiva basada en tu posición final en liga. Cuanto más alto termines, mayor será tu reparto.',

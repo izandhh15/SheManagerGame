@@ -58,18 +58,8 @@ return [
     'youth_academy' => 'Academia',
 
     'medical' => 'Médico',
-    'medical_tier_0' => 'Pessoal mínimo - recuperação básica',
-    'medical_tier_1' => 'Cuidados básicos - recuperação padrão',
-    'medical_tier_2' => 'Boas instalações - 15% mais rápido',
-    'medical_tier_3' => 'Pessoal de elite - 30% mais rápido, menos lesões',
-    'medical_tier_4' => 'Classe mundial - 50% mais rápido, prevenção',
 
     'scouting' => 'Olheiros',
-    'scouting_tier_0' => 'Olheiros mínimos - alcance limitado',
-    'scouting_tier_1' => 'Rede básica - só mercado nacional',
-    'scouting_tier_2' => 'Rede alargada - nacional, mais resultados e precisão',
-    'scouting_tier_3' => 'Alcance internacional - procuras rápidas e precisas',
-    'scouting_tier_4' => 'Rede global - máxima velocidade, resultados e precisão',
 
     // Budget flow tooltips
     'tooltip_tv_rights' => 'Distribuição televisiva com base na tua classificação final na liga. Quanto mais acima terminares, maior será a tua fatia.',

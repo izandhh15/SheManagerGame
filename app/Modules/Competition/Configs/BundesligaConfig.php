@@ -145,15 +145,6 @@ class BundesligaConfig implements CompetitionConfig, HasSeasonGoals
             ];
         }
 
-        if (!empty($slots['UECL'])) {
-            $zones[] = [
-                'minPosition' => min($slots['UECL']),
-                'maxPosition' => max($slots['UECL']),
-                'borderColor' => 'green-500',
-                'bgColor' => 'bg-green-500',
-                'label' => 'game.conference_league',
-            ];
-        }
 
         // Frauen-Bundesliga has 14 teams; 13th and 14th go down
         // (countries.DE promotions). The old 16-18 range was copied from

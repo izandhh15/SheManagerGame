@@ -58,18 +58,8 @@ return [
     'youth_academy' => 'Centre de Formation',
 
     'medical' => 'Médical',
-    'medical_tier_0' => 'Personnel minimal - récupération de base',
-    'medical_tier_1' => 'Soins de base - récupération standard',
-    'medical_tier_2' => 'Bonnes installations - 15 % plus rapide',
-    'medical_tier_3' => 'Personnel d\'élite - 30 % plus rapide, moins de blessures',
-    'medical_tier_4' => 'Classe mondiale - 50 % plus rapide, prévention',
 
     'scouting' => 'Recruteurs',
-    'scouting_tier_0' => 'Recruteurs minimaux - portée limitée',
-    'scouting_tier_1' => 'Réseau de base - marché national uniquement',
-    'scouting_tier_2' => 'Réseau élargi - national, plus de résultats et de précision',
-    'scouting_tier_3' => 'Portée internationale - recherches rapides et précises',
-    'scouting_tier_4' => 'Réseau mondial - vitesse, résultats et précision maximales',
 
     // Budget flow tooltips
     'tooltip_tv_rights' => 'Répartition télévisuelle basée sur ta position finale en championnat. Plus tu termines haut, plus ta part sera importante.',

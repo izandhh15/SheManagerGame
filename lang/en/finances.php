@@ -60,18 +60,8 @@ return [
     'youth_academy' => 'Youth Academy',
 
     'medical' => 'Medical',
-    'medical_tier_0' => 'Minimum staff - baseline recovery only',
-    'medical_tier_1' => 'Basic care - standard recovery',
-    'medical_tier_2' => 'Good facilities - 15% faster',
-    'medical_tier_3' => 'Elite staff - 30% faster, fewer injuries',
-    'medical_tier_4' => 'World class - 50% faster, prevention',
 
     'scouting' => 'Scouting',
-    'scouting_tier_0' => 'Minimal scouting - limited pipeline',
-    'scouting_tier_1' => 'Basic network - domestic market only',
-    'scouting_tier_2' => 'Expanded network - domestic, more results and accuracy',
-    'scouting_tier_3' => 'International reach - fast and accurate searches',
-    'scouting_tier_4' => 'Global network - maximum speed, results and accuracy',
 
     // Budget flow tooltips
     'tooltip_tv_rights' => 'TV revenue distribution based on your final league position. The higher you finish, the larger your share.',

@@ -11,7 +11,6 @@
 /** @var App\Models\GameMatch|null $nextHome */
 /** @var App\Models\GameMatch|null $nextFriendly */
 /** @var \Illuminate\Support\Collection $upcomingHomeMatches */
-$assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
 @endphp
 
 <x-app-layout>

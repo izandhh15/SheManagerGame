@@ -405,7 +405,6 @@ return [
     'mood_willing_sell' => 'Bereit zu verkaufen',
     'mood_open_sell' => 'Offen für Angebote',
     'mood_reluctant_sell' => 'Zurückhaltend beim Verkauf',
-    'negotiate' => 'Verhandeln',
     'chat_terms_transition' => 'Preis vereinbart! Verhandle jetzt die persönlichen Konditionen mit der Spielerin.',
     'chat_player_demand_transfer' => 'Der Berater von :player fordert :wage/Jahr über :years Jahre.',
     'chat_player_counter_transfer' => 'Der Berater von :player besteht auf :wage/Jahr über :years Jahre.',

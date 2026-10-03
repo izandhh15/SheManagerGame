@@ -1,8 +1,6 @@
 @props(['tie', 'playerTeamId', 'competitionName' => null, 'cupStatus' => null, 'roundName' => null])
 
 @php
-    $isHome = $tie->home_team_id === $playerTeamId;
-    $opponent = $isHome ? $tie->awayTeam : $tie->homeTeam;
     $isTwoLegged = $tie->isTwoLegged();
     $resolutionType = $tie->resolution['type'] ?? 'normal';
 
