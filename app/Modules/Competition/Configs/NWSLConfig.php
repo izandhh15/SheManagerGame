@@ -100,14 +100,9 @@ class NWSLConfig implements CompetitionConfig, HasSeasonGoals
 
     public function getStandingsZones(): array
     {
-        return [
-            [
-                'minPosition' => 15,
-                'maxPosition' => 16,
-                'borderColor' => 'red-500',
-                'bgColor' => 'bg-red-500',
-                'label' => 'game.relegation',
-            ],
-        ];
+        // NWSL has no relegation (no relegated_positions in countries.US),
+        // so no relegation zone is painted. The old 15-16 range was
+        // fictitious.
+        return [];
     }
 }

@@ -46,9 +46,12 @@ class BundesligaConfig implements CompetitionConfig, HasSeasonGoals
      */
     private const SEASON_GOALS = [
         Game::GOAL_TITLE => ['targetPosition' => 1, 'label' => 'game.goal_title'],
-        Game::GOAL_EUROPA_LEAGUE => ['targetPosition' => 6, 'label' => 'game.goal_europa_league'],
-        Game::GOAL_TOP_HALF => ['targetPosition' => 9, 'label' => 'game.goal_top_half'],
-        Game::GOAL_SURVIVAL => ['targetPosition' => 15, 'label' => 'game.goal_survival'],
+        // Frauen-Bundesliga (14 teams): Europe is 1st-5th (countries.DE
+        // continental_slots), 13th-14th are relegated. Old values were
+        // men's Bundesliga numbers (18 teams).
+        Game::GOAL_EUROPA_LEAGUE => ['targetPosition' => 5, 'label' => 'game.goal_europa_league'],
+        Game::GOAL_TOP_HALF => ['targetPosition' => 7, 'label' => 'game.goal_top_half'],
+        Game::GOAL_SURVIVAL => ['targetPosition' => 12, 'label' => 'game.goal_survival'],
     ];
 
     /**
@@ -152,9 +155,12 @@ class BundesligaConfig implements CompetitionConfig, HasSeasonGoals
             ];
         }
 
+        // Frauen-Bundesliga has 14 teams; 13th and 14th go down
+        // (countries.DE promotions). The old 16-18 range was copied from
+        // the men's Bundesliga (18 teams).
         $zones[] = [
-            'minPosition' => 16,
-            'maxPosition' => 18,
+            'minPosition' => 13,
+            'maxPosition' => 14,
             'borderColor' => 'red-500',
             'bgColor' => 'bg-red-500',
             'label' => 'game.relegation',

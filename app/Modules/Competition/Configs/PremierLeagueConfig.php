@@ -54,9 +54,12 @@ class PremierLeagueConfig implements CompetitionConfig, HasSeasonGoals
      */
     private const SEASON_GOALS = [
         Game::GOAL_TITLE => ['targetPosition' => 1, 'label' => 'game.goal_title'],
-        Game::GOAL_EUROPA_LEAGUE => ['targetPosition' => 6, 'label' => 'game.goal_europa_league'],
-        Game::GOAL_TOP_HALF => ['targetPosition' => 10, 'label' => 'game.goal_top_half'],
-        Game::GOAL_SURVIVAL => ['targetPosition' => 17, 'label' => 'game.goal_survival'],
+        // WSL (14 teams): Europe is 1st-5th (countries.EN continental_slots),
+        // 14th goes down and 13th goes to the ENGPO playoff. Old values
+        // were men's Premier League numbers (20 teams).
+        Game::GOAL_EUROPA_LEAGUE => ['targetPosition' => 5, 'label' => 'game.goal_europa_league'],
+        Game::GOAL_TOP_HALF => ['targetPosition' => 7, 'label' => 'game.goal_top_half'],
+        Game::GOAL_SURVIVAL => ['targetPosition' => 12, 'label' => 'game.goal_survival'],
     ];
 
     /**
@@ -160,9 +163,26 @@ class PremierLeagueConfig implements CompetitionConfig, HasSeasonGoals
             ];
         }
 
+        // WSL has 14 teams: the 14th goes down directly and the 13th faces
+        // the WSL2 runners-up in the ENGPO relegation playoff
+        // (countries.EN promotions). The old 18-20 range was copied from
+        // the men's Premier League (20 teams).
+        $promotions = config('countries.EN.promotions', []);
+        $relRule = collect($promotions)->first(fn ($r) => ($r['top_division'] ?? null) === 'ENG1');
+
+        if ($relRule && isset($relRule['relegation_playoff_position'])) {
+            $zones[] = [
+                'minPosition' => (int) $relRule['relegation_playoff_position'],
+                'maxPosition' => (int) $relRule['relegation_playoff_position'],
+                'borderColor' => 'red-300',
+                'bgColor' => 'bg-red-300',
+                'label' => 'game.relegation_playoff',
+            ];
+        }
+
         $zones[] = [
-            'minPosition' => 18,
-            'maxPosition' => 20,
+            'minPosition' => 14,
+            'maxPosition' => 14,
             'borderColor' => 'red-500',
             'bgColor' => 'bg-red-500',
             'label' => 'game.relegation',

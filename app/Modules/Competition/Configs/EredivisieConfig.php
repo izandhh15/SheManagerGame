@@ -49,9 +49,13 @@ class EredivisieConfig implements CompetitionConfig, HasSeasonGoals
      */
     private const SEASON_GOALS = [
         Game::GOAL_TITLE => ['targetPosition' => 1, 'label' => 'game.goal_title'],
-        Game::GOAL_EUROPA_LEAGUE => ['targetPosition' => 4, 'label' => 'game.goal_europa_league'],
-        Game::GOAL_TOP_HALF => ['targetPosition' => 11, 'label' => 'game.goal_top_half'],
-        Game::GOAL_SURVIVAL => ['targetPosition' => 15, 'label' => 'game.goal_survival'],
+        // Eredivisie Vrouwen (10 teams): Europe is 1st-3rd (countries.NL
+        // continental_slots) and there is no relegation (single playable
+        // tier), so survival means avoiding last place. Old values were
+        // men's Eredivisie numbers (18 teams).
+        Game::GOAL_EUROPA_LEAGUE => ['targetPosition' => 3, 'label' => 'game.goal_europa_league'],
+        Game::GOAL_TOP_HALF => ['targetPosition' => 5, 'label' => 'game.goal_top_half'],
+        Game::GOAL_SURVIVAL => ['targetPosition' => 9, 'label' => 'game.goal_survival'],
     ];
 
     /**
@@ -160,13 +164,10 @@ class EredivisieConfig implements CompetitionConfig, HasSeasonGoals
             ];
         }
 
-        $zones[] = [
-            'minPosition' => 16,
-            'maxPosition' => 18,
-            'borderColor' => 'red-500',
-            'bgColor' => 'bg-red-500',
-            'label' => 'game.relegation',
-        ];
+        // Eredivisie Vrouwen is the only playable Dutch tier (10 teams, no
+        // second division in countries.NL), so there is no relegation zone
+        // to paint. The old 16-18 range was copied from the men's
+        // Eredivisie (18 teams).
 
         return $zones;
     }
