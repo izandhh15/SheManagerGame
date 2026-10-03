@@ -11,6 +11,7 @@ use App\Models\TeamReputation;
 use App\Modules\Stadium\Services\DemandCurveService;
 use App\Modules\Stadium\Services\GameStadiumResolver;
 use App\Modules\Stadium\Services\MatchAttendanceService;
+use App\Modules\Stadium\Services\MatchdayPricingService;
 use App\Modules\Stadium\Services\SeasonTicketPricingService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -35,6 +36,7 @@ class MatchAttendanceServiceTest extends TestCase
             new DemandCurveService(),
             new SeasonTicketPricingService($resolver),
             $resolver,
+            new MatchdayPricingService(),
         );
     }
 

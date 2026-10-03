@@ -21,6 +21,64 @@ class SubstitutionService
     public const MAX_ET_WINDOWS = 4;
 
     /**
+     * Authoritative substitution history for the user's team, derived
+     * server-side from persisted match data — never from the client's
+     * `previousSubstitutions` payload.
+     *
+     * R4 (familia A1): the client used to send its own history and
+     * `validateBatchSubstitution()` counted the 5-sub / 3-window limits on
+     * it, so a forged `previousSubstitutions: []` bypassed the limits (and
+     * the active-XI validation ran on a fictional state). Primary source is
+     * the persisted substitution events (what the client itself rebuilds its
+     * list from after each resimulation, using the same absolute-minute
+     * coordinate), unioned with the match's `substitutions` JSON for the
+     * user's team as a belt-and-braces fallback. Deduplicated by
+     * (out, in, minute) and returned in the client shape so every consumer
+     * (validation, active XI, window counting, resimulation rebuild) works
+     * unchanged.
+     *
+     * @return array<array{playerOutId: string, playerInId: string, minute: int}>
+     */
+    public function serverSubstitutionHistory(GameMatch $match, Game $game): array
+    {
+        $userTeamId = $game->team_id;
+        $stoppage = StoppageDurations::fromMatch($match);
+
+        $fromEvents = MatchEvent::where('game_match_id', $match->id)
+            ->where('team_id', $userTeamId)
+            ->where('event_type', MatchEvent::TYPE_SUBSTITUTION)
+            ->orderedChronologically()
+            ->get()
+            ->map(fn (MatchEvent $e) => [
+                'playerOutId' => $e->game_player_id,
+                'playerInId' => $e->metadata['player_in_id'] ?? null,
+                'minute' => MinuteCoordinates::toAbsoluteWith(
+                    $e->phase,
+                    $e->minute,
+                    $e->stoppage_minute,
+                    $stoppage,
+                ),
+            ])
+            ->filter(fn (array $s) => $s['playerInId'] !== null);
+
+        $fromJson = collect($match->substitutions ?? [])
+            ->filter(fn ($s) => ($s['team_id'] ?? null) === $userTeamId
+                && isset($s['player_out_id'], $s['player_in_id']))
+            ->map(fn ($s) => [
+                'playerOutId' => $s['player_out_id'],
+                'playerInId' => $s['player_in_id'],
+                'minute' => (int) ($s['minute'] ?? 0),
+            ]);
+
+        return $fromEvents
+            ->concat($fromJson)
+            ->unique(fn (array $s) => $s['playerOutId'].'|'.$s['playerInId'].'|'.$s['minute'])
+            ->sortBy('minute')
+            ->values()
+            ->all();
+    }
+
+    /**
      * Validate substitution rules only (no processing).
      *
      * @throws \InvalidArgumentException with a raw translation key on validation failure
@@ -33,6 +91,10 @@ class SubstitutionService
         array $previousSubstitutions,
         bool $isExtraTime = false,
     ): void {
+        // R4: ignore the client-supplied history — limits and the active XI
+        // are computed from the authoritative server-side record.
+        $previousSubstitutions = $this->serverSubstitutionHistory($match, $game);
+
         // Use higher limits during extra time (6th sub, 4th window)
         $maxSubs = $isExtraTime ? self::MAX_ET_SUBSTITUTIONS : self::MAX_SUBSTITUTIONS;
         $maxWindows = $isExtraTime ? self::MAX_ET_WINDOWS : self::MAX_WINDOWS;

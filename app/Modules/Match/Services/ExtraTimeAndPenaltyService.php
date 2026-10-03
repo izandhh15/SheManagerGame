@@ -5,6 +5,7 @@ namespace App\Modules\Match\Services;
 use App\Models\CupTie;
 use App\Models\Game;
 use App\Models\GameMatch;
+use App\Models\GamePlayerMatchState;
 use App\Models\MatchEvent;
 use App\Modules\Competition\Services\PlayoffTiebreakerService;
 use App\Modules\Match\DTOs\ExtraTimeProcessResult;
@@ -33,6 +34,13 @@ class ExtraTimeAndPenaltyService
      */
     public function processExtraTime(GameMatch $match, Game $game): ExtraTimeProcessResult
     {
+        // R10: idempotency guard — a second POST (double click) must not
+        // re-simulate extra time and duplicate the ET events (ghost goals).
+        // Mirrors the ProcessPenalties guard on home_score_penalties !== null.
+        if ($match->is_extra_time) {
+            return $this->alreadyProcessedResult($match);
+        }
+
         [$homePlayers, $awayPlayers] = $this->loadPlayersByTeam($match);
 
         $homeEntryMinutes = [];
@@ -106,6 +114,75 @@ class ExtraTimeAndPenaltyService
             homePossession: $extraTimeResult->homePossession,
             awayPossession: $extraTimeResult->awayPossession,
         );
+    }
+
+    /**
+     * R10: rebuild the ET result from already-persisted state when
+     * processExtraTime() is called again — no re-simulation, no score
+     * overwrite, no duplicated events.
+     */
+    private function alreadyProcessedResult(GameMatch $match): ExtraTimeProcessResult
+    {
+        $etEvents = MatchEvent::with('gamePlayer')
+            ->where('game_match_id', $match->id)
+            ->orderedChronologically()
+            ->get()
+            ->filter(fn (MatchEvent $e) => $e->phase->isExtraTime())
+            ->values();
+
+        $homeScoreET = $match->home_score_et ?? 0;
+        $awayScoreET = $match->away_score_et ?? 0;
+
+        return new ExtraTimeProcessResult(
+            homeScoreET: $homeScoreET,
+            awayScoreET: $awayScoreET,
+            storedEvents: $etEvents,
+            needsPenalties: $this->checkNeedsPenalties($match, $homeScoreET, $awayScoreET),
+            homePossession: $match->home_possession ?? 50,
+            awayPossession: $match->away_possession ?? 50,
+        );
+    }
+
+    /**
+     * R13: extra-time goals/assists must reach the players' season stats
+     * (GamePlayerMatchState), not just the event feed — otherwise the
+     * scoring charts stay incomplete in knockout ties with extra time.
+     * Uses the same event→column mapping as MatchResultProcessor and
+     * MatchResimulationService::applyNewEvents().
+     *
+     * @param  Collection<MatchEvent>  $storedEvents  Persisted ET event models
+     */
+    public static function applyExtraTimePlayerStats(Collection $storedEvents): void
+    {
+        $statIncrements = [];
+
+        foreach ($storedEvents as $event) {
+            $playerId = $event->game_player_id;
+
+            // A squad-less side's goal has no scorer whose record to touch.
+            if ($playerId === MatchEvent::UNATTRIBUTED_PLAYER_ID) {
+                continue;
+            }
+
+            $column = match ($event->event_type) {
+                'goal' => 'goals',
+                'own_goal' => 'own_goals',
+                'assist' => 'assists',
+                default => null,
+            };
+
+            if ($column === null) {
+                continue;
+            }
+
+            $statIncrements[$playerId][$column] = ($statIncrements[$playerId][$column] ?? 0) + 1;
+        }
+
+        $statIncrements = array_filter($statIncrements, fn (array $inc) => ! empty($inc));
+
+        if (! empty($statIncrements)) {
+            GamePlayerMatchState::bulkIncrementStats($statIncrements);
+        }
     }
 
     /**
@@ -233,10 +310,15 @@ class ExtraTimeAndPenaltyService
             return collect();
         }
 
-        return MatchEvent::with('gamePlayer')
+        $stored = MatchEvent::with('gamePlayer')
             ->whereIn('id', $ids)
             ->orderedChronologically()
             ->get();
+
+        // R13: ET goals/assists reach season stats, not just the event feed.
+        self::applyExtraTimePlayerStats($stored);
+
+        return $stored;
     }
 
 }

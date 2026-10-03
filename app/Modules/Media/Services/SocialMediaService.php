@@ -111,14 +111,36 @@ class SocialMediaService
         $targetRating = null;
         $targetName = null;
 
-        if ($playerId) {
-            foreach ($ratings as $r) {
-                if ($r['id'] === $playerId) {
-                    $targetRating = $r['rating'];
-                    $targetName = $r['name'];
-                    break;
+        $needsPlayer = (bool) (self::STATEMENTS[$statementKey][2] ?? false);
+
+        // R11: validate the player against this match's ratings. A forged or
+        // unknown player_id (or a player-requiring statement with no player)
+        // used to leave $targetRating null, and `null <= 6.0 === true` handed
+        // out a guaranteed +6 board confidence on criticize_flop — farmable
+        // at every press conference, breaking the sacking mechanic. Reject
+        // with no effect instead: no statement, no fan wave, no confidence
+        // change — and the per-match statement slot stays free for a
+        // legitimate submission.
+        if ($playerId || $needsPlayer) {
+            $target = null;
+            if ($playerId) {
+                foreach ($ratings as $r) {
+                    if ($r['id'] === $playerId) {
+                        $target = $r;
+                        break;
+                    }
                 }
             }
+
+            if ($target === null || $target['rating'] === null) {
+                return SocialPost::where('game_id', $game->id)
+                    ->where('match_id', $match->id)
+                    ->orderByDesc('created_at')
+                    ->get();
+            }
+
+            $targetRating = $target['rating'];
+            $targetName = $target['name'];
         }
 
         $result = $this->calculateReaction($game, $match, $statementKey, $targetRating);

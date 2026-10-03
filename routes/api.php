@@ -9,7 +9,7 @@ use App\Http\Actions\HandlePaymentWebhook;
 use App\Http\Actions\JoinWaitlist;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/waitlist', JoinWaitlist::class);
+Route::post('/waitlist', JoinWaitlist::class)->middleware('throttle:6,1');
 Route::post('/webhooks/ko-fi', HandlePaymentWebhook::class);
 
 // Federation between platform instances (Wasmer <-> Vercel). Public

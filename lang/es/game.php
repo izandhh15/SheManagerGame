@@ -1032,6 +1032,7 @@ return [
     'club_social_no_recent_signings' => 'Sin fichajes esta temporada: ficha a alguien y podrás anunciarlo aquí.',
     'club_social_no_recent_sales' => 'Sin ventas esta temporada: vende a alguien y podrás anunciarlo aquí.',
     'club_social_already_announced' => 'Ya hay un comunicado sobre esto.',
+    'club_social_renewal_needs_negotiation' => 'Esta jugadora aún no ha renovado: completa primero su negociación de renovación.',
     'club_social_official_badge' => 'Cuenta oficial',
 
     // Redes de la selección

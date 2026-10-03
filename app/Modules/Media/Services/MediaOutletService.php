@@ -86,7 +86,10 @@ class MediaOutletService
     {
         $outlets = $this->outletsFor($game);
 
-        return $outlets[crc32($seed) % max(1, count($outlets))] ?? 'EFE Deportes';
+        // R20: mask crc32 to 32-bit-safe non-negative before the modulo —
+        // a negative index would fall through to the 'EFE Deportes'
+        // fallback on 32-bit PHP (Wasmer Edge) instead of the real outlet.
+        return $outlets[(crc32($seed) & 0x7FFFFFFF) % max(1, count($outlets))] ?? 'EFE Deportes';
     }
 
     /**

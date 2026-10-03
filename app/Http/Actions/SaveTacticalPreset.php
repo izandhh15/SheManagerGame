@@ -108,11 +108,33 @@ class SaveTacticalPreset
         abort_unless($match, 404);
 
         $playerIds = $validated['lineup'];
+        $formation = Formation::from($validated['formation']);
+
+        // R6: validate the lineup exactly like SaveLineup does — the IDs
+        // arrive as user-supplied UUIDs and must belong to the user's
+        // squad (a forged POST must not field rival stars).
+        $requireEnrollment = $game->requiresSquadEnrollment();
+        $errors = $this->lineupService->validateLineup(
+            $playerIds,
+            $game->id,
+            $game->team_id,
+            $match->scheduled_date,
+            $match->competition_id,
+            $formation,
+            $slotAssignments,
+            $requireEnrollment,
+        );
+
+        if (!empty($errors)) {
+            return redirect()
+                ->route('game.lineup', $game->id)
+                ->withErrors($errors)
+                ->withInput(['players' => $playerIds, 'formation' => $formation->value]);
+        }
 
         // Save lineup + formation + slot map atomically. If the preset has
         // no stored slot_assignments (edge case), saveLineup will compute
         // them server-side before persisting.
-        $formation = Formation::from($validated['formation']);
         $this->lineupService->saveLineup(
             $match,
             $game->team_id,

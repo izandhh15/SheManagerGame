@@ -40,6 +40,13 @@ class ContractExpirationProcessor implements SeasonProcessor
 
     public function process(Game $game, SeasonTransitionData $data): SeasonTransitionData
     {
+        // current_date drives every age/renewal computation below
+        // (PlayerAge::dateOfBirthCutoff, ->toDateString()); without it the
+        // processor would 500 the transition step on every retry.
+        if ($game->current_date === null) {
+            return $data;
+        }
+
         // Clean up any stale renewal negotiations
         $this->contractService->expireStaleNegotiations($game);
 

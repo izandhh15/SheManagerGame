@@ -26,7 +26,7 @@ class QualifyingPlayoffConfig implements CompetitionConfig
         return 0;
     }
 
-    public function getPositionFactor(int $position): int|float
+    public function getPositionFactor(int $position): float
     {
         return 1.0;
     }

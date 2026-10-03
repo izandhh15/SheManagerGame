@@ -123,6 +123,12 @@ class InitGame
         }
 
         if ($gameMode === Game::MODE_TOURNAMENT) {
+            // R16 (A17 family): tournament saves are national-side only. A
+            // forged POST with a club/placeholder team_id would brick the
+            // save (TournamentCreationService builds a national competition
+            // around the team) — reject it here before anything is created.
+            Team::where('type', 'national')->where('is_placeholder', false)->findOrFail($request->get('team_id'));
+
             $game = $this->tournamentCreationService->create(
                 userId: (string) $request->user()->id,
                 teamId: $request->get('team_id'),

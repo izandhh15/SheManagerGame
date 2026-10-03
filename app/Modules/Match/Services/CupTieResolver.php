@@ -8,6 +8,7 @@ use App\Modules\Competition\Services\PlayoffTiebreakerService;
 use App\Models\CupTie;
 use App\Models\GameMatch;
 use App\Models\GamePlayer;
+use App\Models\MatchEvent;
 use App\Models\Team;
 use App\Modules\Match\Support\ScoreEventsAuditor;
 use App\Modules\Match\Support\StoppageCalculator;
@@ -110,10 +111,15 @@ class CupTieResolver
 
             // Persist ET goal/card/etc. events so scorer lists stay consistent
             // with the ET-inclusive totals reported by the match views.
-            $this->matchEventRepository->bulkInsert(
+            $etEventIds = $this->matchEventRepository->bulkInsert(
                 $extraTimeResult->events,
                 $match->game_id,
                 $match->id,
+            );
+
+            // R13: ET goals/assists must also reach season stats.
+            ExtraTimeAndPenaltyService::applyExtraTimePlayerStats(
+                MatchEvent::whereIn('id', $etEventIds)->get()
             );
 
             ScoreEventsAuditor::audit($match->refresh(), 'cup_tie_single_leg_extra_time');
@@ -226,10 +232,15 @@ class CupTieResolver
 
             // Persist ET events so scorer lists stay consistent with the
             // ET-inclusive totals reported by the match views.
-            $this->matchEventRepository->bulkInsert(
+            $etEventIds = $this->matchEventRepository->bulkInsert(
                 $extraTimeResult->events,
                 $secondLeg->game_id,
                 $secondLeg->id,
+            );
+
+            // R13: ET goals/assists must also reach season stats.
+            ExtraTimeAndPenaltyService::applyExtraTimePlayerStats(
+                MatchEvent::whereIn('id', $etEventIds)->get()
             );
 
             ScoreEventsAuditor::audit($secondLeg->refresh(), 'cup_tie_two_leg_extra_time');

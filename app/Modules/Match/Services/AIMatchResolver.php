@@ -159,7 +159,9 @@ class AIMatchResolver
         // Calculate possession (simplified)
         $strengthRatio = $awayStrength > 0 ? $homeStrength / $awayStrength : 1.0;
         $homeRawPoss = 50 + min(5, max(-5, ($strengthRatio - 1.0) * 20));
-        $noise = (crc32($match->id) % 7) - 3; // deterministic ±3
+        // R14 (familia C6): en PHP 32-bit crc32() puede ser negativo; la
+        // máscara mantiene el ruido en el rango documentado ±3.
+        $noise = ((crc32($match->id) & 0x7FFFFFFF) % 7) - 3; // deterministic ±3
         $homePossession = (int) max(30, min(70, round($homeRawPoss + $noise)));
         $awayPossession = 100 - $homePossession;
 
@@ -391,9 +393,14 @@ class AIMatchResolver
             ];
         }
 
-        // Direct red card
+        // Direct red card — drawn from players who have NOT already been
+        // booked this match (R14 / QA pattern A18: a yellowed player cannot
+        // also pick up a "direct" red with an independent earlier minute).
         if (mt_rand(1, 1000) <= $directRedChance * 10) {
-            $player = $this->pickWeightedPlayer($lineup, self::CARD_WEIGHTS);
+            $player = $this->pickWeightedPlayer(
+                $lineup->filter(fn ($p) => ! isset($cardedPlayerIds[$p->id])),
+                self::CARD_WEIGHTS,
+            );
             if ($player) {
                 $events[] = [
                     'team_id' => $teamId,

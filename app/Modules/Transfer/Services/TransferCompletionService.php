@@ -37,7 +37,7 @@ class TransferCompletionService
      * Let the fictional newsroom cover a completed deal involving the user.
      * Silent no-op when the game has no seeded journalists.
      */
-    private function journalistTransferNews(Game $game, string $playerName, string $fromTeam, string $toTeam, string $kind): void
+    private function journalistTransferNews(Game $game, ?string $playerName, string $fromTeam, string $toTeam, string $kind): void
     {
         app(\App\Modules\Media\Services\JournalistService::class)
             ->postTransferNews($game, $playerName, $fromTeam, $toTeam, $kind);

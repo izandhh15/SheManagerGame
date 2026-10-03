@@ -31,6 +31,12 @@ class YouthAcademyClosingProcessor implements SeasonProcessor
             return $data;
         }
 
+        // R9: national-team games must not run the academy lifecycle —
+        // academy players would be invented (PROHIBIDO inventar).
+        if (($game->team?->type ?? null) !== 'club') {
+            return $data;
+        }
+
         // 1. Develop loaned players at higher rate before returning
         $this->youthAcademyService->developLoanedPlayers($game);
 

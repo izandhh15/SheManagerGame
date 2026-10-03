@@ -17,6 +17,14 @@ class GenerateInitialAcademyBatch
     {
         $game = $event->game;
 
+        // R9: academies only exist for clubs. National sides must never get
+        // synthetic youth players — YouthAcademyPromotionProcessor would
+        // later promote them into GamePlayer of the national team (players
+        // must be 100% real, never invented).
+        if (($game->team?->type ?? null) !== 'club') {
+            return;
+        }
+
         $batch = $this->youthAcademyService->generateSeasonBatch($game);
 
         if ($batch->isNotEmpty()) {

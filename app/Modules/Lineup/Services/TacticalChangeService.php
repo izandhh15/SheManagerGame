@@ -45,6 +45,29 @@ class TacticalChangeService
         array $manualSlotPins = [],
         bool $isHalfTime = false,
     ): array {
+        // R4 (familia A1): the previous-substitution history is derived
+        // server-side from the match's persisted record — the client's
+        // `previousSubstitutions` value is ignored so a forged `[]` can
+        // neither bypass the 5-sub/3-window limits nor feed the resimulation
+        // a fictional XI.
+        $previousSubstitutions = $this->substitutionService->serverSubstitutionHistory($match, $game);
+
+        // Re-validate inside the transaction (callers validate pre-transaction
+        // in the Action, but a concurrent batch could commit between the two;
+        // this runs after Game::lockForUpdate(), so the history is final).
+        // validateBatchSubstitution() re-derives the same server history —
+        // the passed array is ignored — keeping both checks consistent.
+        if (! empty($newSubstitutions)) {
+            $this->substitutionService->validateBatchSubstitution(
+                $match,
+                $game,
+                $newSubstitutions,
+                $minute,
+                $previousSubstitutions,
+                $isExtraTime,
+            );
+        }
+
         $isUserHome = $match->isHomeTeam($game->team_id);
         $prefix = $isUserHome ? 'home' : 'away';
 

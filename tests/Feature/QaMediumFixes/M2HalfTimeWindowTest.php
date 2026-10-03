@@ -5,9 +5,11 @@ namespace Tests\Feature\QaMediumFixes;
 use App\Models\Game;
 use App\Models\GameMatch;
 use App\Models\GamePlayer;
+use App\Models\MatchEvent;
 use App\Models\Team;
 use App\Models\User;
 use App\Modules\Lineup\Services\SubstitutionService;
+use App\Modules\Match\Enums\MatchPhase;
 use Carbon\Carbon;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -80,14 +82,37 @@ class M2HalfTimeWindowTest extends TestCase
         $this->service = app(SubstitutionService::class);
     }
 
-    /** Tres ventanas tácticas previas (min 55, 65, 75). */
+    /** Tres ventanas tácticas previas (min 55, 65, 75), persistidas como eventos. */
     private function threeWindowsUsed(): array
     {
-        return [
+        $subs = [
             ['playerOutId' => $this->lineupIds[1], 'playerInId' => $this->benchIds[0], 'minute' => 55],
             ['playerOutId' => $this->lineupIds[2], 'playerInId' => $this->benchIds[1], 'minute' => 65],
             ['playerOutId' => $this->lineupIds[3], 'playerInId' => $this->benchIds[2], 'minute' => 75],
         ];
+        // R4: el historial previo es el registro del servidor (eventos del
+        // partido); el array del cliente se ignora, así que hay que
+        // persistirlo para que cuente.
+        $this->persistSubstitutions($subs);
+
+        return $subs;
+    }
+
+    private function persistSubstitutions(array $subs): void
+    {
+        foreach ($subs as $sub) {
+            MatchEvent::create([
+                'game_id' => $this->game->id,
+                'game_match_id' => $this->match->id,
+                'game_player_id' => $sub['playerOutId'],
+                'team_id' => $this->team->id,
+                'minute' => $sub['minute'],
+                'phase' => MatchPhase::SECOND_HALF->value,
+                'stoppage_minute' => null,
+                'event_type' => MatchEvent::TYPE_SUBSTITUTION,
+                'metadata' => ['player_in_id' => $sub['playerInId']],
+            ]);
+        }
     }
 
     private function validate(array $newSubs, array $previous = [], int $minute = 60): ?string
@@ -157,6 +182,7 @@ class M2HalfTimeWindowTest extends TestCase
             ['playerOutId' => $this->lineupIds[1], 'playerInId' => $this->benchIds[0], 'minute' => 55],
             ['playerOutId' => $this->lineupIds[2], 'playerInId' => $this->benchIds[1], 'minute' => 65],
         ];
+        $this->persistSubstitutions($previous);
         $error = $this->validate(
             [['playerOutId' => $this->lineupIds[7], 'playerInId' => $this->benchIds[3]]],
             $previous,
