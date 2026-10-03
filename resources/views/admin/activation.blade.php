@@ -8,7 +8,7 @@
             @foreach(['career' => __('admin.mode_career'), 'tournament' => __('admin.mode_tournament')] as $value => $label)
                 <a href="{{ route('admin.activation', ['mode' => $value, 'period' => $period]) }}"
                    class="px-4 py-2 text-sm font-medium rounded-lg transition-colors min-h-[44px] flex items-center shrink-0
-                          {{ $mode === $value ? 'bg-accent-primary text-white' : 'bg-surface-700 text-text-secondary hover:text-text-primary' }}">
+                          {{ $mode === $value ? 'bg-accent-blue text-white' : 'bg-surface-700 text-text-secondary hover:text-text-primary' }}">
                     {{ $label }}
                 </a>
             @endforeach
@@ -35,7 +35,7 @@
             </div>
             <div class="bg-surface-800 border border-border-default rounded-xl p-4">
                 <div class="text-xs text-text-muted uppercase tracking-wider mb-1">{{ __('admin.conversion_to_first_match') }}</div>
-                <div class="text-2xl font-bold text-accent-primary">{{ $overallConversion }}%</div>
+                <div class="text-2xl font-bold text-accent-blue">{{ $overallConversion }}%</div>
             </div>
         </div>
 

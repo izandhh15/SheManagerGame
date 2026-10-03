@@ -490,6 +490,7 @@ return [
     'squad_picker_assists_short' => 'a',
     'squad_picker_apps_short' => 'pj',
     'squad_picker_caps_short' => 'int',
+    'squad_picker_club_form_estimated' => 'estimación',
     'mode_dual' => 'Carrera dual',
     'mode_dual_desc' => 'Lleva un club y una selección a la vez: dos partidas vinculadas.',
     'mode_affiliate' => 'Carrera con Filiales',

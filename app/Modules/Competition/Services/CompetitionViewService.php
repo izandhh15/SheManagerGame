@@ -90,32 +90,67 @@ class CompetitionViewService
         }
 
         $first = $needsBackfill->first();
-        $matches = GameMatch::where('game_id', $first->game_id)
+        $baseQuery = GameMatch::where('game_id', $first->game_id)
             ->where('competition_id', $first->competition_id)
             ->where('played', true)
-            ->whereNull('cup_tie_id')
-            ->orderBy('scheduled_date')
-            ->get();
+            ->whereNull('cup_tie_id');
 
-        $matchesByTeam = [];
-        foreach ($matches as $match) {
-            $matchesByTeam[$match->home_team_id][] = $match;
-            $matchesByTeam[$match->away_team_id][] = $match;
+        // Form only ever shows the last 5 results, so load matches newest
+        // first and stop once every team has its 5 — never the whole
+        // competition history. 5 x teams covers round-robin leagues (each
+        // round is T/2 matches); teams still short afterwards (pathological
+        // scheduling) get one targeted query each.
+        $needed = [];
+        foreach ($needsBackfill as $standing) {
+            $needed[$standing->team_id] = min($standing->played, 5);
+        }
+
+        $columns = ['home_team_id', 'away_team_id', 'home_score', 'away_score'];
+        $forms = []; // team_id => ['W','D','L'...] newest-first
+
+        $accumulate = function ($match) use (&$forms, &$needed) {
+            foreach ([
+                [$match->home_team_id, $match->home_score, $match->away_score],
+                [$match->away_team_id, $match->away_score, $match->home_score],
+            ] as [$teamId, $for, $against]) {
+                if (! isset($needed[$teamId])) {
+                    continue;
+                }
+                $forms[$teamId][] = $for > $against ? 'W' : ($for < $against ? 'L' : 'D');
+                if (count($forms[$teamId]) >= $needed[$teamId]) {
+                    unset($needed[$teamId]);
+                }
+            }
+        };
+
+        $recentMatches = (clone $baseQuery)
+            ->orderByDesc('scheduled_date')
+            ->limit(5 * max(1, $standings->count()))
+            ->get($columns);
+
+        foreach ($recentMatches as $match) {
+            if ($needed === []) {
+                break;
+            }
+            $accumulate($match);
+        }
+
+        foreach (array_keys($needed) as $teamId) {
+            $teamMatches = (clone $baseQuery)
+                ->where(fn ($q) => $q->where('home_team_id', $teamId)->orWhere('away_team_id', $teamId))
+                ->orderByDesc('scheduled_date')
+                ->limit($needed[$teamId])
+                ->get($columns);
+
+            foreach ($teamMatches as $match) {
+                $accumulate($match);
+            }
         }
 
         foreach ($needsBackfill as $standing) {
-            $teamMatches = $matchesByTeam[$standing->team_id] ?? [];
-            $form = '';
-
-            foreach ($teamMatches as $match) {
-                $isHome = $match->home_team_id === $standing->team_id;
-                $teamScore = $isHome ? $match->home_score : $match->away_score;
-                $oppScore = $isHome ? $match->away_score : $match->home_score;
-
-                $form .= $teamScore > $oppScore ? 'W' : ($teamScore < $oppScore ? 'L' : 'D');
-            }
-
-            $standing->form = $form !== '' ? substr($form, -5) : null;
+            $form = $forms[$standing->team_id] ?? [];
+            // Newest-first above; the stored form reads oldest -> newest.
+            $standing->form = $form !== [] ? implode('', array_reverse($form)) : null;
             $standing->save();
         }
     }

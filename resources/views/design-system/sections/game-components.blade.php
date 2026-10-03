@@ -397,7 +397,7 @@
                         <span class="inline-flex px-2 py-0.5 text-[9px] font-semibold rounded-full bg-surface-600 text-text-secondary shrink-0 uppercase tracking-wider">A</span>
                         <div class="flex-1 flex items-center gap-2 min-w-0">
                             <div class="w-5 h-5 rounded bg-surface-600 shrink-0"></div>
-                            <span class="text-xs text-text-body truncate">Real Madrid</span>
+                            <span class="text-xs text-text-body truncate">Real Madrid Femenino</span>
                         </div>
                         <div class="shrink-0 text-right">
                             <div class="flex items-center gap-2">
@@ -416,7 +416,7 @@
                         <span class="inline-flex px-2 py-0.5 text-[9px] font-semibold rounded-full bg-accent-green/10 text-accent-green shrink-0 uppercase tracking-wider">H</span>
                         <div class="flex-1 flex items-center gap-2 min-w-0">
                             <div class="w-5 h-5 rounded bg-surface-600 shrink-0"></div>
-                            <span class="text-xs text-text-primary font-medium truncate">FC Barcelona</span>
+                            <span class="text-xs text-text-primary font-medium truncate">FC Barcelona Femení</span>
                         </div>
                         <div class="shrink-0 text-right">
                             <span class="px-1.5 py-0.5 rounded-full bg-accent-blue/10 text-[9px] font-semibold text-accent-blue uppercase tracking-wider">Next</span>
@@ -916,7 +916,7 @@
                         <span class="text-[11px] font-heading font-semibold text-text-muted">1</span>
                         <div class="flex items-center gap-2 min-w-0">
                             <div class="w-5 h-5 rounded bg-surface-600 shrink-0"></div>
-                            <span class="text-xs text-text-body truncate">Real Madrid</span>
+                            <span class="text-xs text-text-body truncate">Real Madrid Femenino</span>
                         </div>
                         <span class="text-[11px] text-text-muted text-center">20</span>
                         <span class="text-[11px] text-text-muted text-center">4</span>
@@ -955,7 +955,7 @@
                         <span class="text-[11px] font-heading font-semibold text-text-muted">4</span>
                         <div class="flex items-center gap-2 min-w-0">
                             <div class="w-5 h-5 rounded bg-surface-600 shrink-0"></div>
-                            <span class="text-xs text-text-body truncate">FC Barcelona</span>
+                            <span class="text-xs text-text-body truncate">FC Barcelona Femení</span>
                         </div>
                         <span class="text-[11px] text-text-muted text-center">16</span>
                         <span class="text-[11px] text-text-muted text-center">5</span>

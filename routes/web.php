@@ -210,7 +210,11 @@ Route::get('/', function () {
     // Landing page for guests; authenticated users go to their dashboard.
     return auth()->check()
         ? redirect()->route('dashboard')
-        : response()->view('landing');
+        : response()->view('landing', [
+            // Marketing stats computed from the real game data (cached),
+            // not hardcoded claims.
+            'landingStats' => \App\Support\LandingStats::get(),
+        ]);
 })->name('landing');
 
 Route::get('/legal', fn () => view('legal'))->name('legal');
@@ -223,7 +227,7 @@ Route::get('/leaderboard/national-team/{slug}', ShowNationalTeamStats::class)->n
 Route::get('/manager/{username}', ShowManagerProfile::class)->name('manager.profile');
 Route::get('/design-system', fn () => view('design-system.index', [
     'allTeams' => \App\Support\TeamColors::allGrouped(),
-]))->name('design-system');
+]))->middleware('auth')->name('design-system');
 
 Route::middleware('auth')->group(function () {
     // Dashboard & Game Creation

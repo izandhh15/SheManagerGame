@@ -490,6 +490,7 @@ return [
     'squad_picker_assists_short' => 'a',
     'squad_picker_apps_short' => 'apps',
     'squad_picker_caps_short' => 'caps',
+    'squad_picker_club_form_estimated' => 'estimated',
     'mode_dual' => 'Dual career',
     'mode_dual_desc' => 'Manage a club and a national team at once: two linked saves.',
     'mode_affiliate' => 'Affiliate Career',

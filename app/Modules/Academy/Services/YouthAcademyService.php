@@ -327,22 +327,22 @@ class YouthAcademyService
     /**
      * Apply a full season of off-screen development to loaned players.
      * Called at season end when loans return.
+     *
+     * Single UPDATE instead of one per player: the growth formula is a pure
+     * function of the row's own columns
+     * (min(potential, round(overall + (potential - overall) * rate))).
      */
     public function developLoanedPlayers(Game $game): void
     {
-        $loanedPlayers = AcademyPlayer::where('game_id', $game->id)
+        \Illuminate\Support\Facades\DB::table('academy_players')
+            ->where('game_id', $game->id)
             ->where('team_id', $game->team_id)
             ->where('is_on_loan', true)
-            ->get();
-
-        foreach ($loanedPlayers as $player) {
-            // Apply full season growth at loan rate
-            $growth = ($player->potential - $player->overall_score) * self::GROWTH_RATE_LOAN;
-
-            $player->update([
-                'overall_score' => min($player->potential, (int) round($player->overall_score + $growth)),
+            ->update([
+                'overall_score' => \Illuminate\Support\Facades\DB::raw(
+                    'LEAST(potential, ROUND(overall_score + (potential - overall_score) * '.((float) self::GROWTH_RATE_LOAN).'))'
+                ),
             ]);
-        }
     }
 
     /**

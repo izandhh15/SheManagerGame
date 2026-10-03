@@ -65,6 +65,13 @@ class ShowPreseasonSetup
             $stageConfig = null;
         }
 
+        // Summary lines for the already-organized stage block (computed here,
+        // not in the blade).
+        $clubStageCost = $stageConfig['cost'] ?? 0;
+        $clubStageLines = $stageConfig
+            ? $this->stageService->effectSummaryLines($stageConfig['effects'] ?? [])
+            : [];
+
         return view('preseason-setup', [
             'game' => $game,
             'teams' => $teams,
@@ -80,8 +87,9 @@ class ShowPreseasonSetup
                 ? $this->tourService->destinationName($game->preseason_tour['destination'] ?? '')
                 : null,
             'tourBudgetEuros' => (int) (($game->currentInvestment?->transfer_budget ?? 0) / 100),
-            'stageService' => $this->stageService,
             'clubStageConfig' => $stageConfig,
+            'clubStageCost' => $clubStageCost,
+            'clubStageLines' => $clubStageLines,
             'stageDurations' => TrainingStageService::DURATIONS,
             'stageIntensities' => TrainingStageService::INTENSITIES,
             'stageFocuses' => TrainingStageService::FOCUSES,

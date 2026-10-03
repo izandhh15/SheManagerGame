@@ -39,7 +39,7 @@
         </div>
         <div class="bg-surface-800 border border-border-default rounded-xl p-4">
             <div class="text-xs text-text-muted uppercase tracking-wider mb-1">{{ __('admin.live_total_visits') }}</div>
-            <div id="live-total-visits" class="font-heading text-3xl font-bold text-accent-primary">{{ number_format($snapshot['total_visits']) }}</div>
+            <div id="live-total-visits" class="font-heading text-3xl font-bold text-accent-blue">{{ number_format($snapshot['total_visits']) }}</div>
         </div>
     </div>
 

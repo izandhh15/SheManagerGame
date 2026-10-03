@@ -13,6 +13,7 @@ use App\Modules\Notification\Services\NotificationService;
 use App\Modules\Season\Contracts\SeasonProcessor;
 use App\Modules\Season\DTOs\SeasonTransitionData;
 use App\Models\GameNotification;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Updates reputation points and tiers for all teams at season end.
@@ -77,6 +78,9 @@ class ReputationUpdateProcessor implements SeasonProcessor
 
     /**
      * Update reputations for all teams in a league competition.
+     *
+     * Batched: one SELECT for every team and one bulk UPDATE, instead of
+     * ~2 queries per team.
      */
     private function updateReputationsForLeague(Game $game, Competition $competition): void
     {
@@ -90,10 +94,15 @@ class ReputationUpdateProcessor implements SeasonProcessor
         $deltas = config("reputation.position_deltas.{$tier}", config('reputation.position_deltas.1'));
         $gravityConfig = config('reputation.gravity', []);
 
+        $reputations = TeamReputation::where('game_id', $game->id)
+            ->whereIn('team_id', array_keys($positions))
+            ->get()
+            ->keyBy('team_id');
+
+        // id => [points, level]
+        $updates = [];
         foreach ($positions as $teamId => $position) {
-            $reputation = TeamReputation::where('game_id', $game->id)
-                ->where('team_id', $teamId)
-                ->first();
+            $reputation = $reputations->get($teamId);
 
             if (!$reputation) {
                 continue;
@@ -107,13 +116,50 @@ class ReputationUpdateProcessor implements SeasonProcessor
             $net = $pointsDelta - $gravity;
 
             // Update points and recalculate tier
-            $reputation->reputation_points = max(0, $reputation->reputation_points + $net);
-            $reputation->recalculateTier();
-            $reputation->save();
+            $newPoints = max(0, $reputation->reputation_points + $net);
+            $newLevel = TeamReputation::tierFromPoints($newPoints, $reputation->base_reputation_level);
+
+            $updates[$reputation->id] = [$newPoints, $newLevel];
 
             // Bust the resolveLevel cache so subsequent reads see the new tier.
             TeamReputation::flushCacheFor($reputation->game_id, $reputation->team_id);
         }
+
+        $this->bulkUpdateReputations($updates);
+    }
+
+    /**
+     * Persist computed reputation points/levels in a single UPDATE with
+     * CASE WHEN (bindings, not interpolation).
+     *
+     * @param  array<string, array{0: int, 1: string}>  $updates  [id => [points, level]]
+     */
+    private function bulkUpdateReputations(array $updates): void
+    {
+        if ($updates === []) {
+            return;
+        }
+
+        $pointsCases = [];
+        $levelCases = [];
+        $bindings = [];
+        foreach ($updates as $id => [$points, $level]) {
+            $pointsCases[] = 'WHEN id = ? THEN ?';
+            $bindings[] = $id;
+            $bindings[] = $points;
+            $levelCases[] = 'WHEN id = ? THEN ?';
+            $bindings[] = $id;
+            $bindings[] = $level;
+        }
+
+        $placeholders = implode(',', array_fill(0, count($updates), '?'));
+
+        DB::update(
+            'UPDATE team_reputations SET reputation_points = CASE '.implode(' ', $pointsCases).' ELSE reputation_points END, '
+            .'reputation_level = CASE '.implode(' ', $levelCases).' ELSE reputation_level END '
+            ."WHERE id IN ({$placeholders})",
+            [...$bindings, ...array_keys($updates)],
+        );
     }
 
     /**

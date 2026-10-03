@@ -100,6 +100,19 @@ class ShowScheduleFriendly
             ->sortKeys();
         $mensStadiums = collect($this->venueService->mensStadiums());
 
+        // Already-organized training stage summary (computed here, not in the
+        // blade).
+        $stageConfig = $game->training_stage;
+        $stageCost = null;
+        $stageLines = [];
+        if (is_array($stageConfig)) {
+            $stageCost = $stageConfig['cost'] ?? $this->stageService->calculateCost(
+                $stageConfig['destination'], $userTeam->country ?? '',
+                $stageConfig['duration'], $stageConfig['intensity'], $stageConfig['focus']
+            );
+            $stageLines = $this->stageService->effectSummaryLines($stageConfig['effects'] ?? []);
+        }
+
         return view('schedule-friendly', [
             'game' => $game,
             'userTeam' => $userTeam,
@@ -110,8 +123,9 @@ class ShowScheduleFriendly
             'defaultStadium' => $defaultStadium,
             'scheduled' => $scheduled,
             'maxPerWindow' => self::MAX_PER_WINDOW,
-            'stageService' => $this->stageService,
-            'stageConfig' => $game->training_stage,
+            'stageConfig' => $stageConfig,
+            'stageCost' => $stageCost,
+            'stageLines' => $stageLines,
             'federationBudget' => $game->federation_budget ?? 2000000,
             'stageDurations' => TrainingStageService::DURATIONS,
             'stageIntensities' => TrainingStageService::INTENSITIES,

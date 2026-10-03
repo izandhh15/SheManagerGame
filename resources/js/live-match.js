@@ -863,7 +863,11 @@ export default function liveMatch(config) {
             // Career actions run in background while user watches the match.
             // Delay first check and poll every 3s — the job usually finishes
             // well before the match animation ends (~15-30s).
-            setTimeout(() => {
+            // The timeout id is kept so destroy() can cancel it: otherwise the
+            // callback would fire on a dead component and spawn a setInterval
+            // that polls forever.
+            this._processingPollTimeout = setTimeout(() => {
+                this._processingPollTimeout = null;
                 check();
                 this._processingPollTimer = setInterval(check, 3000);
             }, 3000);
@@ -872,8 +876,11 @@ export default function liveMatch(config) {
         destroy() {
             this._destroySimulationTimers();
             clearTimeout(this.pauseTimer);
+            clearTimeout(this._processingPollTimeout);
+            this._processingPollTimeout = null;
             this._destroyPenaltyTimers();
             clearInterval(this._processingPollTimer);
+            this._processingPollTimer = null;
             document.body.classList.remove('overflow-y-hidden');
             if (this._onVisibilityChange) {
                 document.removeEventListener('visibilitychange', this._onVisibilityChange);

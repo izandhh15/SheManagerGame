@@ -63,10 +63,33 @@ class NotificationServiceTest extends TestCase
 
         $this->assertNull($notification->read_at);
 
-        $this->service->markAsRead($notification->id);
+        $this->service->markAsRead($this->game, $notification->id);
         $notification->refresh();
 
         $this->assertNotNull($notification->read_at);
+    }
+
+    public function test_mark_as_read_ignores_notification_from_another_game(): void
+    {
+        $otherGame = Game::factory()->create([
+            'user_id' => $this->game->user_id,
+            'team_id' => Team::factory()->create()->id,
+            'season' => '2024',
+        ]);
+
+        $foreign = GameNotification::create([
+            'id' => fake()->uuid(),
+            'game_id' => $otherGame->id,
+            'type' => GameNotification::TYPE_PLAYER_INJURED,
+            'title' => 'Foreign',
+            'priority' => GameNotification::PRIORITY_INFO,
+        ]);
+
+        // Scoped to $this->game: the foreign notification must NOT be marked.
+        $result = $this->service->markAsRead($this->game, $foreign->id);
+
+        $this->assertNull($result);
+        $this->assertNull($foreign->refresh()->read_at);
     }
 
     public function test_get_unread_count(): void
