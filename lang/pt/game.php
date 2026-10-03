@@ -470,6 +470,7 @@ return [
     'squad_picker_subtitle' => 'Escolhe 23 jogadoras para a fase de qualificação.',
     'squad_picker_confirm' => 'Confirmar convocatória',
     'squad_picker_need_23' => 'Tens de convocar exatamente 23 jogadoras.',
+    'squad_number_no_slots_available' => 'Não há números de camisola disponíveis: o plantel principal está cheio e a academia (26-99) também está cheia.',
     'squad_picker_invalid' => 'Alguma jogadora não é elegível para esta seleção.',
     'squad_picker_injured_error' => 'Alguma das jogadoras escolhidas está lesionada e não pode ser convocada até recuperar.',
     'squad_picker_injured_until' => 'Lesionada até :date',

@@ -470,6 +470,7 @@ return [
     'squad_picker_subtitle' => 'Wähle 23 Spielerinnen für die Qualifikationsphase.',
     'squad_picker_confirm' => 'Nominierung bestätigen',
     'squad_picker_need_23' => 'Du musst genau 23 Spielerinnen nominieren.',
+    'squad_number_no_slots_available' => 'Keine Rückennummern verfügbar: Die Profimannschaft ist voll und die Akademie (26–99) ist auch voll.',
     'squad_picker_invalid' => 'Eine Spielerin ist für dieses Nationalteam nicht spielberechtigt.',
     'squad_picker_injured_error' => 'Eine der gewählten Spielerinnen ist verletzt und kann bis zur Genesung nicht nominiert werden.',
     'squad_picker_injured_until' => 'Verletzt bis :date',
