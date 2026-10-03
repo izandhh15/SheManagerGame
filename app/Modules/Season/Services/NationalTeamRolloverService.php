@@ -14,6 +14,7 @@ use App\Modules\Season\DTOs\SeasonTransitionData;
 use App\Modules\Season\Jobs\SetupTournamentGame;
 use App\Modules\Season\Processors\PlayerDevelopmentProcessor;
 use App\Modules\Season\Processors\PlayerRetirementProcessor;
+use App\Modules\Season\Processors\YouthAcademyPromotionProcessor;
 use App\Modules\Squad\Services\PlayerGeneratorService;
 use Illuminate\Support\Facades\DB;
 
@@ -128,7 +129,11 @@ class NationalTeamRolloverService
         $positions = ['Goalkeeper', 'Defender', 'Midfielder', 'Forward'];
 
         for ($i = 0; $i < $toGenerate; $i++) {
-            $position = $positions[array_rand($positions)];
+            $group = $positions[array_rand($positions)];
+            // Spawn a real on-pitch position (Centre-Back, not the generic
+            // 'Defender'): buildYouthPlayerData() stores $position verbatim
+            // on the player and uses it for valuation.
+            $position = YouthAcademyPromotionProcessor::GROUP_REPRESENTATIVE[$group] ?? $group;
             $playerData = $this->playerGenerator->buildYouthPlayerData(
                 $game,
                 $game->team_id,

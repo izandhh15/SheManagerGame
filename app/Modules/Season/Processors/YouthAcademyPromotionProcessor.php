@@ -26,7 +26,14 @@ class YouthAcademyPromotionProcessor implements SeasonProcessor
     /**
      * Representative position per group, used when generating synthetic players.
      */
-    private const GROUP_REPRESENTATIVE = [
+    /**
+     * Representative on-pitch position per position group (e.g. a Defender
+     * prospect spawns as 'Centre-Back', not the generic group name).
+     *
+     * Public so NationalTeamRolloverService::evolveSquad() can reuse the
+     * same mapping when spawning national-team youth prospects.
+     */
+    public const GROUP_REPRESENTATIVE = [
         'Goalkeeper' => 'Goalkeeper',
         'Defender' => 'Centre-Back',
         'Midfielder' => 'Central Midfield',
