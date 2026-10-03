@@ -9,6 +9,7 @@ use App\Models\GameMatch;
 use App\Models\GameNotification;
 use App\Models\Team;
 use App\Modules\Notification\Services\NotificationService;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 /**
@@ -119,75 +120,94 @@ class GovernmentFriendlyService
      * Accept the offer: schedule the friendly (abroad — F3 exception) and
      * credit the federation budget.
      *
+     * The whole accept runs in a transaction with the offer row locked: a
+     * double POST racing here serializes on the lock, so the second one
+     * sees status != pending instead of crediting 1–3M€ twice. The
+     * "no competition in progress" rule is re-checked at accept time — an
+     * offer accepted weeks later must not land the friendly in the middle
+     * of a World Cup / Euro.
+     *
      * @return array{ok: bool, error: string|null}
      */
     public function accept(GameNotification $notification): array
     {
-        $meta = $notification->metadata ?? [];
-        if (($meta['status'] ?? null) !== 'pending') {
-            return ['ok' => false, 'error' => 'game.gov_friendly_already_answered'];
-        }
+        return DB::transaction(function () use ($notification) {
+            $locked = GameNotification::whereKey($notification->id)->lockForUpdate()->first();
 
-        $game = $notification->game;
-        $opponent = Team::find($meta['opponent_team_id'] ?? null);
-        if ($game === null || $opponent === null) {
-            return ['ok' => false, 'error' => 'game.gov_friendly_invalid'];
-        }
+            if ($locked === null) {
+                return ['ok' => false, 'error' => 'game.gov_friendly_invalid'];
+            }
 
-        $amount = (int) ($meta['amount'] ?? 0);
-        $date = ($game->current_date ?? now())->copy()->addDays(21);
+            $meta = $locked->metadata ?? [];
+            if (($meta['status'] ?? null) !== 'pending') {
+                return ['ok' => false, 'error' => 'game.gov_friendly_already_answered'];
+            }
 
-        // Ensure the FRIENDLY competition exists (FK constraint).
-        \Illuminate\Support\Facades\DB::table('competitions')->updateOrInsert(
-            ['id' => 'FRIENDLY'],
-            [
-                'name' => 'game.friendly_competition_name',
-                'country' => 'XX',
-                'tier' => 0,
-                'type' => 'cup',
-                'handler_type' => 'friendly',
-                'season' => (string) ($game->season ?? ''),
-            ]
-        );
+            $game = $locked->game;
+            $opponent = Team::find($meta['opponent_team_id'] ?? null);
+            if ($game === null || $opponent === null) {
+                return ['ok' => false, 'error' => 'game.gov_friendly_invalid'];
+            }
 
-        GameMatch::create([
-            'id' => Str::uuid()->toString(),
-            'game_id' => $game->id,
-            'competition_id' => 'FRIENDLY',
-            'round_number' => 1,
-            'round_name' => __('game.gov_friendly_round_name', ['government' => $meta['government'] ?? '']),
-            'home_team_id' => $game->team_id,
-            'away_team_id' => $opponent->id,
-            'scheduled_date' => $date,
-            'home_score' => null,
-            'away_score' => null,
-            'played' => false,
-            'neutral_venue_name' => null,
-            'government_sponsored' => true,
-        ]);
+            if ($this->hasCompetitionInProgress($game)) {
+                return ['ok' => false, 'error' => 'game.gov_friendly_invalid'];
+            }
 
-        $game->update([
-            'federation_budget' => (int) ($game->federation_budget ?? 0) + $amount,
-        ]);
+            $amount = (int) ($meta['amount'] ?? 0);
+            $date = ($game->current_date ?? now())->copy()->addDays(21);
 
-        $meta['status'] = 'accepted';
-        $notification->update(['metadata' => $meta, 'read_at' => now()]);
+            // Ensure the FRIENDLY competition exists (FK constraint).
+            DB::table('competitions')->updateOrInsert(
+                ['id' => 'FRIENDLY'],
+                [
+                    'name' => 'game.friendly_competition_name',
+                    'country' => 'XX',
+                    'tier' => 0,
+                    'type' => 'cup',
+                    'handler_type' => 'friendly',
+                    'season' => (string) ($game->season ?? ''),
+                ]
+            );
 
-        $this->notifications->create(
-            $game,
-            GameNotification::TYPE_GOVERNMENT_FRIENDLY_RESULT,
-            __('game.gov_friendly_accepted_title'),
-            __('game.gov_friendly_accepted_body', [
-                'opponent' => $opponent->name,
-                'amount' => number_format($amount, 0, ',', '.'),
-                'date' => $date->format('d/m/Y'),
-            ]),
-            GameNotification::PRIORITY_INFO,
-            ['government' => $meta['government'] ?? '', 'amount' => $amount],
-            'check',
-        );
+            GameMatch::create([
+                'id' => Str::uuid()->toString(),
+                'game_id' => $game->id,
+                'competition_id' => 'FRIENDLY',
+                'round_number' => 1,
+                'round_name' => __('game.gov_friendly_round_name', ['government' => $meta['government'] ?? '']),
+                'home_team_id' => $game->team_id,
+                'away_team_id' => $opponent->id,
+                'scheduled_date' => $date,
+                'home_score' => null,
+                'away_score' => null,
+                'played' => false,
+                'neutral_venue_name' => null,
+                'government_sponsored' => true,
+            ]);
 
-        return ['ok' => true, 'error' => null];
+            $game->update([
+                'federation_budget' => (int) ($game->federation_budget ?? 0) + $amount,
+            ]);
+
+            $meta['status'] = 'accepted';
+            $locked->update(['metadata' => $meta, 'read_at' => now()]);
+
+            $this->notifications->create(
+                $game,
+                GameNotification::TYPE_GOVERNMENT_FRIENDLY_RESULT,
+                __('game.gov_friendly_accepted_title'),
+                __('game.gov_friendly_accepted_body', [
+                    'opponent' => $opponent->name,
+                    'amount' => number_format($amount, 0, ',', '.'),
+                    'date' => $date->format('d/m/Y'),
+                ]),
+                GameNotification::PRIORITY_INFO,
+                ['government' => $meta['government'] ?? '', 'amount' => $amount],
+                'check',
+            );
+
+            return ['ok' => true, 'error' => null];
+        });
     }
 
     public function reject(GameNotification $notification): void
