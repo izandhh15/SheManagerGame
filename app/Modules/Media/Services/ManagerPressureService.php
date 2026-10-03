@@ -192,6 +192,11 @@ class ManagerPressureService
             ->first();
     }
 
+    /**
+     * R-review-medios: the old version always wrote "derrota" even when the
+     * last match was won or drawn (the points<=4 trigger fires on form like
+     * L,L,L,D,W too). The line now reflects the actual last result.
+     */
     private function lastMatchLine(bool $es, Team $team, ?GameMatch $last): string
     {
         if (! $last) {
@@ -204,6 +209,21 @@ class ManagerPressureService
 
         if (! $opponent) {
             return $es ? 'Los malos resultados han dejado el banquillo en la cuerda floja.' : 'The poor run has left the dugout on the ropes.';
+        }
+
+        $teamGoals = $isHome ? ($last->home_score ?? 0) : ($last->away_score ?? 0);
+        $oppGoals = $isHome ? ($last->away_score ?? 0) : ($last->home_score ?? 0);
+
+        if ($teamGoals > $oppGoals) {
+            return $es
+                ? "Ni siquiera la victoria por {$score} ante el {$opponent} ha calmado los ánimos."
+                : "Not even the {$score} victory over {$opponent} has calmed the nerves.";
+        }
+
+        if ($teamGoals === $oppGoals) {
+            return $es
+                ? "El empate a {$score} ante el {$opponent} no ha servido para calmar los ánimos."
+                : "The {$score} draw with {$opponent} did nothing to calm the nerves.";
         }
 
         return $es
