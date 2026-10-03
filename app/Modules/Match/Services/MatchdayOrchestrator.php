@@ -3,6 +3,7 @@
 namespace App\Modules\Match\Services;
 
 use App\Modules\Competition\Services\StandingsCalculator;
+use App\Modules\Competition\Playoffs\PlayoffGeneratorFactory;
 use App\Modules\Match\DTOs\MatchdayAdvanceResult;
 use App\Modules\Match\Jobs\ProcessCareerActions;
 use App\Modules\Notification\Services\NotificationService;
@@ -36,6 +37,7 @@ class MatchdayOrchestrator
         private readonly EligibilityService $eligibilityService,
         private readonly InjuryService $injuryService,
         private readonly MatchAttendanceService $matchAttendanceService,
+        private readonly PlayoffGeneratorFactory $playoffFactory,
         private readonly AIMatchResolver $aiMatchResolver = new AIMatchResolver,
     ) {}
 
@@ -661,18 +663,45 @@ class MatchdayOrchestrator
 
             $competition = Competition::find($competitionId);
 
-            if ($standing->position <= 2) {
+            $label = $this->resolveLeaguePlayoffSeasonEndLabel($competitionId, (int) $standing->position);
+
+            if ($label !== null) {
                 $this->notificationService->notifyCompetitionAdvancement(
                     $game, $competitionId, $competition->name,
-                    __('cup.direct_promotion'),
-                );
-            } elseif ($standing->position <= 6) {
-                $this->notificationService->notifyCompetitionAdvancement(
-                    $game, $competitionId, $competition->name,
-                    __('cup.promotion_playoff'),
+                    __($label),
                 );
             }
         }
+    }
+
+    /**
+     * Resolve the season-end advancement notification for a
+     * league_with_playoff competition from the playoff config — not from
+     * hardcoded position thresholds. Returns the lang key to notify with,
+     * or null when the position earns no notification.
+     *
+     * Mirrors LeaguePlayoffProgressResolver so the end-of-season message
+     * agrees with what the standings UI showed all season.
+     */
+    public function resolveLeaguePlayoffSeasonEndLabel(string $competitionId, int $position): ?string
+    {
+        $generator = $this->playoffFactory->forCompetition($competitionId);
+
+        if ($generator === null) {
+            return null;
+        }
+
+        if (in_array($position, $generator->getDirectPromotionPositions())) {
+            return 'cup.direct_promotion';
+        }
+
+        if (in_array($position, $generator->getQualifyingPositions())) {
+            return method_exists($generator, 'getQualifyingLabel')
+                ? $generator->getQualifyingLabel()
+                : 'cup.promotion_playoff';
+        }
+
+        return null;
     }
 
     /**

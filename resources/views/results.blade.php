@@ -7,7 +7,7 @@
 
     <div class="max-w-7xl mx-auto px-4 pb-8">
         <div class="mt-6 mb-6">
-            @if($matches->first()->round_name)
+            @if($matches->first()?->round_name)
                 <h2 class="font-heading text-2xl lg:text-3xl font-bold uppercase tracking-wide text-text-primary">
                     @if($competition)
                         <span>{{ __($competition->name) }} &centerdot;</span>

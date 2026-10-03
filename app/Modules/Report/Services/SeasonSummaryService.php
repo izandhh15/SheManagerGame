@@ -11,6 +11,7 @@ use App\Models\GameMatch;
 use App\Models\GamePlayer;
 use App\Models\GameStanding;
 use App\Models\ManagerJobOffer;
+use App\Models\SeasonAward;
 use App\Models\SimulatedSeason;
 use App\Models\Team;
 use App\Models\TeamReputation;
@@ -95,9 +96,14 @@ class SeasonSummaryService
 
         $simulatedResults = $this->buildSimulatedResults($game->id, $game->season);
 
-        // Awards gala: official winners of the season, computed live from
-        // the simulated data (persisted by AwardsGalaProcessor at close).
-        $galaWinners = $this->awardsGalaService->computeWinners($game);
+        // Awards gala: official winners of the season. Prefer the rows
+        // persisted by AwardsGalaProcessor at season close — they are the
+        // durable record, and the live recompute below would return a
+        // "Frankenstein" gala once the stats have been reset. Fall back to
+        // the live recompute when no persisted gala exists (season not yet
+        // closed, or a season that closed before persistence existed).
+        $galaWinners = $this->loadPersistedGalaWinners($game)
+            ?? $this->awardsGalaService->computeWinners($game);
 
         return [
             'competition' => $competition,
@@ -128,6 +134,38 @@ class SeasonSummaryService
             'reputationData' => $reputationData,
             'galaWinners' => $galaWinners,
         ];
+    }
+
+    /**
+     * Load the official gala winners persisted by AwardsGalaProcessor for
+     * this game's current season, rebuilt into the same shape as
+     * AwardsGalaService::computeWinners() so the season-end view needs no
+     * changes. Returns null when no persisted gala exists.
+     */
+    private function loadPersistedGalaWinners(Game $game): ?array
+    {
+        $awards = SeasonAward::with(['player.team'])
+            ->where('game_id', $game->id)
+            ->where('season', $game->season)
+            ->get();
+
+        if ($awards->isEmpty()) {
+            return null;
+        }
+
+        $winners = [];
+        foreach ($awards as $award) {
+            if (! $award->player) {
+                continue;
+            }
+
+            $winners[$award->award_key] = [
+                'player' => $award->player,
+                'detail' => $award->detail ?? [],
+            ];
+        }
+
+        return $winners;
     }
 
     /**

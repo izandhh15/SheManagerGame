@@ -52,7 +52,8 @@ class NationalTeamRolloverService
 
             // 1. Archive the finished season. Same final_standings shape as
             //    SeasonArchiveProcessor so the progression hook and the
-            //    qualification gate read it identically.
+            //    qualification gate read it identically. Match events are
+            //    archived too (M33) before the purge in step 2.
             SeasonArchive::create([
                 'game_id' => $game->id,
                 'season' => $game->season,
@@ -60,6 +61,7 @@ class NationalTeamRolloverService
                 'player_season_stats' => [],
                 'season_awards' => [],
                 'match_results' => [],
+                'match_events_archive' => SeasonArchive::captureMatchEvents($game->id),
                 'transfer_activity' => [],
             ]);
 

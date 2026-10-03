@@ -46,6 +46,7 @@ return [
     'swiss_eliminated' => 'Éliminée en phase de championnat',
     'direct_promotion' => 'Montée directe assurée',
     'promotion_playoff' => 'Qualifiée pour le barrage de montée',
+    'relegation_playoff' => 'Qualifiée pour le barrage de relégation',
 
     // Group stage cup progress
     'group_stage_qualified' => 'Qualifiée du groupe :group pour la phase à élimination directe !',

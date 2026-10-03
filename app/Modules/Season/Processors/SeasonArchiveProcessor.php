@@ -23,9 +23,6 @@ use Illuminate\Support\Facades\DB;
  */
 class SeasonArchiveProcessor implements SeasonProcessor
 {
-    // Minimum appearances for goalkeeper award (50% of league matches)
-    private const MIN_GOALKEEPER_APPEARANCES = 19;
-
     public function priority(): int
     {
         return 25;
@@ -62,6 +59,10 @@ class SeasonArchiveProcessor implements SeasonProcessor
         // Capture transfer activity
         $transferActivity = $this->captureTransferActivity($game);
 
+        // Capture match events BEFORE deleteArchivedData purges them (M33):
+        // goals, assists, cards, subs, injuries would otherwise be lost.
+        $matchEventsArchive = SeasonArchive::captureMatchEvents($game->id);
+
         // Create archive record
         SeasonArchive::create([
             'game_id' => $game->id,
@@ -70,6 +71,7 @@ class SeasonArchiveProcessor implements SeasonProcessor
             'player_season_stats' => $playerStats,
             'season_awards' => $awards,
             'match_results' => $matchResults,
+            'match_events_archive' => $matchEventsArchive,
             'transfer_activity' => $transferActivity,
         ]);
 
@@ -191,19 +193,43 @@ class SeasonArchiveProcessor implements SeasonProcessor
     }
 
     /**
+     * Minimum goalkeeper appearances for the archived Zamora: ~70% of the
+     * league's matches (the real award requires 28 of 38). Mirrors the
+     * proportional bar AwardsGalaService::zamoraWinner() uses, so the
+     * archive agrees with the official gala in leagues of any length.
+     */
+    private function minGoalkeeperAppearances(Game $game): int
+    {
+        $maxPlayed = (int) GameStanding::where('game_id', $game->id)
+            ->where('competition_id', $game->competition_id)
+            ->max('played');
+
+        return $maxPlayed > 0 ? max(3, (int) ceil($maxPlayed * 0.7)) : 3;
+    }
+
+    /**
      * Calculate season awards via single-row SQL queries.
      *
      * Each award becomes one ORDER BY ... LIMIT 1 against the satellite
      * stats table, instead of hydrating every rostered player to sort
-     * them in PHP.
+     * them in PHP. All player awards are scoped to the game's main
+     * competition (via CompetitionEntry), mirroring AwardsGalaService, so
+     * the archive can never crown a player from outside the league.
      */
     private function calculateAwards(Game $game, array $standings): array
     {
         $champion = collect($standings)->firstWhere('position', 1);
 
+        // League scope: only teams entered in the game's main competition
+        // are eligible, exactly like the official gala.
+        $leagueTeamIds = CompetitionEntry::where('game_id', $game->id)
+            ->where('competition_id', $game->competition_id)
+            ->pluck('team_id');
+
         $topScorer = GamePlayer::with('matchState')
             ->joinMatchState()
             ->where('game_players.game_id', $game->id)
+            ->whereIn('game_players.team_id', $leagueTeamIds)
             ->whereNotNull('game_players.team_id')
             ->whereMatchStat('goals', '>', 0)
             ->orderByMatchStat('goals', 'desc')
@@ -212,12 +238,16 @@ class SeasonArchiveProcessor implements SeasonProcessor
         $mostAssists = GamePlayer::with('matchState')
             ->joinMatchState()
             ->where('game_players.game_id', $game->id)
+            ->whereIn('game_players.team_id', $leagueTeamIds)
             ->whereNotNull('game_players.team_id')
             ->whereMatchStat('assists', '>', 0)
             ->orderByMatchStat('assists', 'desc')
             ->first();
 
-        // Best goalkeeper: minimum appearances required (50% of league matches).
+        // Best goalkeeper: proportional minimum-appearances bar (~70% of
+        // the league's matches), mirroring the gala's Zamora criterion.
+        // A fixed "19" only made sense for 38-match leagues and recorded
+        // null for short leagues even when the gala crowned a winner.
         // Ranking by raw goals_conceded ASC is equivalent to per-game ratio
         // since every candidate clears the same appearance threshold; clean
         // sheets is the tiebreaker.
@@ -225,7 +255,8 @@ class SeasonArchiveProcessor implements SeasonProcessor
             ->joinMatchState()
             ->where('game_players.game_id', $game->id)
             ->where('game_players.position', 'Goalkeeper')
-            ->whereMatchStat('appearances', '>=', self::MIN_GOALKEEPER_APPEARANCES)
+            ->whereIn('game_players.team_id', $leagueTeamIds)
+            ->whereMatchStat('appearances', '>=', $this->minGoalkeeperAppearances($game))
             ->orderByMatchStat('goals_conceded', 'asc')
             ->orderByMatchStat('clean_sheets', 'desc')
             ->first();
@@ -325,6 +356,9 @@ class SeasonArchiveProcessor implements SeasonProcessor
 
     /**
      * Delete archived data from active tables.
+     *
+     * match_events were captured into the archive's match_events_archive
+     * (see process()) before this runs — the detail is preserved.
      */
     private function deleteArchivedData(Game $game): void
     {

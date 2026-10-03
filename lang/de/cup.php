@@ -46,6 +46,7 @@ return [
     'swiss_eliminated' => 'In der Ligaphase ausgeschieden',
     'direct_promotion' => 'Direkter Aufstieg gesichert',
     'promotion_playoff' => 'Für das Aufstiegs-Playoff qualifiziert',
+    'relegation_playoff' => 'Für das Abstiegs-Playoff qualifiziert',
 
     // Pokalfortschritt in der Gruppenphase
     'group_stage_qualified' => 'Aus Gruppe :group für die K.-o.-Phase qualifiziert!',
