@@ -33,13 +33,13 @@ class InitNationalGame
         $gameQuery = Game::where('user_id', $request->user()->id)->whereNull('deleting_at');
         // The dual-mode worker adds games.linked_game_id with its own
         // migration; when the column exists, linked (secondary) games don't
-        // count against the 3-game limit. The hasColumn guard keeps this
+        // count against the 5-game limit. The hasColumn guard keeps this
         // working if this code runs before that migration.
         if (Schema::hasColumn('games', 'linked_game_id')) {
             $gameQuery->whereNull('linked_game_id');
         }
         $gameCount = $gameQuery->count();
-        if ($gameCount >= 3) {
+        if ($gameCount >= 5) {
             return back()->withErrors(['limit' => __('messages.game_limit_reached')]);
         }
 

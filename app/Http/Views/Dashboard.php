@@ -40,13 +40,13 @@ class Dashboard
             }
         }
 
-        $maxGames = 3;
+        $maxGames = 5;
 
         // Same limit semantics as InitGame/InitDualGame/SelectTeam: only
-        // primary saves count against the 3-game limit. Dual-mode
+        // primary saves count against the 5-game limit. Dual-mode
         // secondaries (linked_game_id not null) ride along with their club
         // half and don't consume a slot — otherwise the dashboard would
-        // show "4 de 3" after creating a dual career.
+        // show "6 de 5" after creating a dual career.
         $primaryCount = $games->count();
         if (Schema::hasColumn('games', 'linked_game_id')) {
             $primaryCount = $games->whereNull('linked_game_id')->count();

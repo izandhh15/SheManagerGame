@@ -160,7 +160,7 @@ return [
 
     // Game management
     'game_deleted' => 'La partie est en cours de suppression.',
-    'game_limit_reached' => 'Tu as atteint le maximum de 3 parties. Supprimes-en une pour en créer une nouvelle.',
+    'game_limit_reached' => 'Tu as atteint le maximum de 5 parties. Supprimes-en une pour en créer une nouvelle.',
     'career_mode_requires_invite' => 'Club Manager et Pro Manager nécessitent une invitation. Joue la Coupe du monde gratuitement !',
     'tournament_mode_requires_access' => 'Le mode tournoi nécessite un accès. Contacte un administrateur pour commencer.',
     'invalid_pro_manager_team' => 'Choisis l\'un des clubs affichés — Pro Manager commence en Primera Federación.',

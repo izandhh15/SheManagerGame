@@ -33,7 +33,7 @@ final class SelectTeam
         if (Schema::hasColumn('games', 'linked_game_id')) {
             $gameQuery->whereNull('linked_game_id');
         }
-        if ($gameQuery->count() >= 3) {
+        if ($gameQuery->count() >= 5) {
             return redirect()->route('dashboard')->withErrors(['limit' => __('messages.game_limit_reached')]);
         }
 

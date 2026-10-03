@@ -26,7 +26,7 @@ class InitGame
 
     public function __invoke(Request $request)
     {
-        // Only primary saves count against the 3-game limit: dual-mode
+        // Only primary saves count against the 5-game limit: dual-mode
         // secondaries (games.linked_game_id not null) are bookkeeping for
         // the same career. The hasColumn guard keeps this working if the
         // code runs before the linked_game_id migration.
@@ -34,7 +34,7 @@ class InitGame
         if (Schema::hasColumn('games', 'linked_game_id')) {
             $gameQuery->whereNull('linked_game_id');
         }
-        if ($gameQuery->count() >= 3) {
+        if ($gameQuery->count() >= 5) {
             return back()->withErrors(['limit' => __('messages.game_limit_reached')]);
         }
 

@@ -160,7 +160,7 @@ return [
 
     // Game management
     'game_deleted' => 'Das Spiel wird gelöscht.',
-    'game_limit_reached' => 'Du hast das Maximum von 3 Spielen erreicht. Lösche eines, um ein neues zu erstellen.',
+    'game_limit_reached' => 'Du hast das Maximum von 5 Spielen erreicht. Lösche eines, um ein neues zu erstellen.',
     'career_mode_requires_invite' => 'Club Manager und Pro Manager erfordern eine Einladung. Spiel die Weltmeisterschaft kostenlos!',
     'tournament_mode_requires_access' => 'Der Turniermodus erfordert Zugang. Kontaktiere einen Administrator, um zu starten.',
     'invalid_pro_manager_team' => 'Wähle einen der angezeigten Clubs — Pro Manager beginnt in der Primera Federación.',

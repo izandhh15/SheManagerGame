@@ -38,7 +38,7 @@ class InitAffiliateGame
         if (Schema::hasColumn('games', 'linked_game_id')) {
             $gameQuery->whereNull('linked_game_id');
         }
-        if ($gameQuery->count() >= 3) {
+        if ($gameQuery->count() >= 5) {
             return back()->withErrors(['limit' => __('messages.game_limit_reached')]);
         }
 

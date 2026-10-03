@@ -31,7 +31,7 @@ use Illuminate\Support\Facades\Schema;
  * bounce the user to the partner save).
  *
  * The link is ASYMMETRIC on purpose: the club game is the primary
- * (linked_game_id = null, counts against the 3-game limit) and the
+ * (linked_game_id = null, counts against the 5-game limit) and the
  * national game is the secondary (linked_game_id = club game id, does NOT
  * consume a slot). Deleting one half deletes the pair (see DeleteGame).
  */
@@ -53,7 +53,7 @@ class InitDualGame
         if (Schema::hasColumn('games', 'linked_game_id')) {
             $gameQuery->whereNull('linked_game_id');
         }
-        if ($gameQuery->count() >= 3) {
+        if ($gameQuery->count() >= 5) {
             return back()->withErrors(['limit' => __('messages.game_limit_reached')]);
         }
 

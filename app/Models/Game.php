@@ -293,7 +293,7 @@ class Game extends Model
     //
     // The link is ASYMMETRIC on purpose:
     //   - the CLUB game is the PRIMARY: linked_game_id = null, and it DOES
-    //     count against the 3-game limit;
+    //     count against the 5-game limit;
     //   - the NATIONAL game is the SECONDARY: linked_game_id = primary game
     //     id, and it does NOT count against the limit.
     // The two saves are separate simulations (separate squads, calendars,

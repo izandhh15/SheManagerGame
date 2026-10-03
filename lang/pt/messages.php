@@ -160,7 +160,7 @@ return [
 
     // Game management
     'game_deleted' => 'O jogo está a ser eliminado.',
-    'game_limit_reached' => 'Atingiste o limite máximo de 3 jogos. Elimina um para criar um novo.',
+    'game_limit_reached' => 'Atingiste o limite máximo de 5 jogos. Elimina um para criar um novo.',
     'career_mode_requires_invite' => 'Club Manager e Pro Manager requerem convite. Joga o Mundial grátis!',
     'tournament_mode_requires_access' => 'O modo torneio requer acesso. Contacta um administrador para começar.',
     'invalid_pro_manager_team' => 'Escolhe um dos clubes mostrados — o Pro Manager começa na Primeira Federação.',
