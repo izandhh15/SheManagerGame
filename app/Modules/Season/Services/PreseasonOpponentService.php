@@ -14,6 +14,7 @@ use App\Support\CountryCodeMapper;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
@@ -208,52 +209,59 @@ class PreseasonOpponentService
      */
     public function confirmSelections(Game $game, array $selections): void
     {
-        if (! $game->needsPreseasonOpponentSelection()) {
-            return;
-        }
+        // The whole confirmation runs in one transaction with the game row
+        // locked: the 'pending' guard is re-checked under the lock, so a
+        // double POST can't create the friendlies twice.
+        DB::transaction(function () use ($game, $selections) {
+            $lockedGame = Game::whereKey($game->id)->lockForUpdate()->first();
 
-        $selections = $this->sanitizeSelections($game, $selections);
-        $slots = $this->fixtureSlots($game);
+            if (! $lockedGame || ! $lockedGame->needsPreseasonOpponentSelection()) {
+                return;
+            }
 
-        $createdDates = [];
-        foreach ($selections as $selection) {
-            $slot = $selection['slot'];
-            $date = $slots[$slot];
+            $selections = $this->sanitizeSelections($lockedGame, $selections);
+            $slots = $this->fixtureSlots($lockedGame);
 
-            GameMatch::create([
-                'id' => Str::uuid()->toString(),
-                'game_id' => $game->id,
-                'competition_id' => self::PRESEASON_COMPETITION_ID,
-                'home_team_id' => $selection['is_home'] ? $game->team_id : $selection['team_id'],
-                'away_team_id' => $selection['is_home'] ? $selection['team_id'] : $game->team_id,
-                'scheduled_date' => $date->toDateString(),
-                'round_number' => $slot + 1,
-                'trophy_name' => $selection['trophy_name'] ?? null,
-                'stadium_name' => $selection['stadium_name'] ?? null,
-                'played' => false,
-            ]);
+            $createdDates = [];
+            foreach ($selections as $selection) {
+                $slot = $selection['slot'];
+                $date = $slots[$slot];
 
-            $createdDates[] = $date;
-        }
+                GameMatch::create([
+                    'id' => Str::uuid()->toString(),
+                    'game_id' => $lockedGame->id,
+                    'competition_id' => self::PRESEASON_COMPETITION_ID,
+                    'home_team_id' => $selection['is_home'] ? $lockedGame->team_id : $selection['team_id'],
+                    'away_team_id' => $selection['is_home'] ? $selection['team_id'] : $lockedGame->team_id,
+                    'scheduled_date' => $date->toDateString(),
+                    'round_number' => $slot + 1,
+                    'trophy_name' => $selection['trophy_name'] ?? null,
+                    'stadium_name' => $selection['stadium_name'] ?? null,
+                    'played' => false,
+                ]);
 
-        if ($createdDates !== []) {
-            // At least one friendly: park the game on the earliest one. Playing
-            // the friendlies advances dates (and closes the transfer window)
-            // naturally, exactly as before this feature existed.
-            $earliest = collect($createdDates)->min();
-            $game->update([
-                'current_date' => $earliest->toDateString(),
-                'preseason_opponents_pending' => false,
-            ]);
+                $createdDates[] = $date;
+            }
 
-            // The club always organises its own extra derby on top.
-            $this->scheduleFamilyDerby($game);
+            if ($createdDates !== []) {
+                // At least one friendly: park the game on the earliest one. Playing
+                // the friendlies advances dates (and closes the transfer window)
+                // naturally, exactly as before this feature existed.
+                $earliest = collect($createdDates)->min();
+                $lockedGame->update([
+                    'current_date' => $earliest->toDateString(),
+                    'preseason_opponents_pending' => false,
+                ]);
 
-            return;
-        }
+                // The club always organises its own extra derby on top.
+                $this->scheduleFamilyDerby($lockedGame);
 
-        // No friendlies chosen — the deliberate replacement for the old skip.
-        $this->skipPreSeason($game);
+                return;
+            }
+
+            // No friendlies chosen — the deliberate replacement for the old skip.
+            $this->skipPreSeason($lockedGame);
+        });
     }
 
     /**

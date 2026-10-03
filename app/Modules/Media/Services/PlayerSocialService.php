@@ -7,6 +7,7 @@ use App\Models\GameMatch;
 use App\Models\GamePlayer;
 use App\Models\SocialPost;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Schema;
 
 /**
@@ -194,8 +195,20 @@ class PlayerSocialService
                 if ($bestId) {
                     return GamePlayer::where('game_id', $game->id)->find($bestId);
                 }
-            } catch (\Throwable) {
-                // Fall through to random.
+            } catch (\Throwable $e) {
+                // Do NOT swallow this: a failed query aborts the whole
+                // surrounding PostgreSQL transaction
+                // (MatchdayOrchestrator::advance runs in one), and the
+                // catch cannot undo that — the fallback query below would
+                // then die with 25P02 and mask the real error. Log and
+                // re-throw so the outer transaction rolls back cleanly with
+                // the original failure.
+                Log::warning('PlayerSocialService::bestPlayer ratings query failed', [
+                    'game_id' => $game->id,
+                    'match_id' => $match->id,
+                    'error' => $e->getMessage(),
+                ]);
+                throw $e;
             }
         }
 

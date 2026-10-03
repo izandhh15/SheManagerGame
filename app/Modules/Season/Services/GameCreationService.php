@@ -11,12 +11,23 @@ use App\Models\Game;
 use App\Models\GameStadium;
 use App\Models\GameTactics;
 use App\Models\Team;
+use Illuminate\Support\Str;
 use Ramsey\Uuid\Uuid;
 
 class GameCreationService
 {
     public function create(string $userId, string $teamId, string $gameMode = 'career'): Game
     {
+        // Guard up front: a malformed or unknown team id is a 404, not a
+        // 500 further down (uuid-typed where clauses reject garbage ids,
+        // and $team->parent_team_id would blow up on a null team).
+        if (! Str::isUuid($teamId)) {
+            abort(404);
+        }
+
+        $team = Team::with('reserveTeam')->find($teamId);
+        abort_if($team === null, 404);
+
         $gameId = Uuid::uuid4()->toString();
 
         // Find competition for the selected team (prefer primary league, then any)
@@ -32,9 +43,6 @@ class GameCreationService
                 ->whereHas('competition', fn($q) => $q->where('role', Competition::ROLE_PRIMARY))
                 ->first()
             ?? CompetitionTeam::forCurrentSeason()->where('team_id', $teamId)->first();
-
-        $team = Team::with('reserveTeam')->find($teamId);
-        abort_if($team === null, 404);
 
         // Resolve competition ID: use competition_team lookup, fall back to
         // tier 1 of the team's country from config

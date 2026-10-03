@@ -9,6 +9,7 @@ use App\Models\Competition;
 use App\Models\Game;
 use App\Models\GamePlayer;
 use App\Models\TeamReputation;
+use Illuminate\Support\Facades\DB;
 
 class ShowNewSeason
 {
@@ -50,7 +51,9 @@ class ShowNewSeason
         // Headline finances + reputation — the only budget figures this screen
         // shows. Infrastructure allocation now lives entirely on the Club
         // investment page, so we no longer load investment tiers here.
-        $finances = $game->currentFinances ?? $this->projectionService->generateProjections($game);
+        // GET-side write: generate the projections inside a transaction so
+        // concurrent first visits can't interleave it.
+        $finances = $game->currentFinances ?? DB::transaction(fn () => $this->projectionService->generateProjections($game));
         $availableSurplus = $finances->available_surplus ?? 0;
         $reputationLevel = TeamReputation::resolveLevel($game->id, $game->team_id);
 

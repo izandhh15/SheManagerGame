@@ -7,6 +7,7 @@ use App\Models\ManagerJobOffer;
 use App\Models\Team;
 use App\Modules\Notification\Services\NotificationService;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Job applications: the manager can apply for jobs at other clubs
@@ -105,44 +106,51 @@ class JobApplicationService
 
         $accepted = (mt_rand(1, 100) / 100) <= $acceptChance;
 
-        $offer = ManagerJobOffer::create([
-            'user_id' => $game->user_id,
-            'game_id' => $game->id,
-            'team_id' => $targetTeam->id,
-            'season' => $game->season,
-            'offer_type' => ManagerJobOffer::TYPE_JOB_APPLICATION,
-            'status' => $accepted ? ManagerJobOffer::STATUS_ACCEPTED : ManagerJobOffer::STATUS_REJECTED,
-            'target_reputation_level' => $targetReputation,
-            'created_on_game_date' => $game->current_date,
-        ]);
+        // The offer row and the staged team switch must land together: if
+        // the game update fails after the offer is created, the offer would
+        // be orphaned (pending_team_switch never points at it).
+        [$offer, $discovered, $fired] = DB::transaction(function () use ($game, $targetTeam, $targetReputation, $accepted) {
+            $offer = ManagerJobOffer::create([
+                'user_id' => $game->user_id,
+                'game_id' => $game->id,
+                'team_id' => $targetTeam->id,
+                'season' => $game->season,
+                'offer_type' => ManagerJobOffer::TYPE_JOB_APPLICATION,
+                'status' => $accepted ? ManagerJobOffer::STATUS_ACCEPTED : ManagerJobOffer::STATUS_REJECTED,
+                'target_reputation_level' => $targetReputation,
+                'created_on_game_date' => $game->current_date,
+            ]);
 
-        $discovered = false;
-        $fired = false;
+            $discovered = false;
+            $fired = false;
 
-        if ($accepted) {
-            // 25% chance the current club finds out about the application
-            $discovered = (mt_rand(1, 100) <= 25);
+            if ($accepted) {
+                // 25% chance the current club finds out about the application
+                $discovered = (mt_rand(1, 100) <= 25);
 
-            if ($discovered) {
-                // If the club is happy with you (good season so far), they
-                // feel betrayed and might fire you on the spot (40% chance).
-                // If they're unhappy, they don't care — you're probably
-                // getting fired anyway.
-                $clubHappy = $this->isClubHappyWithManager($game);
-                if ($clubHappy && mt_rand(1, 100) <= 40) {
-                    $fired = true;
-                    // The firing is handled by the caller via the game state.
-                    // We just report it; the UI shows the drama.
+                if ($discovered) {
+                    // If the club is happy with you (good season so far), they
+                    // feel betrayed and might fire you on the spot (40% chance).
+                    // If they're unhappy, they don't care — you're probably
+                    // getting fired anyway.
+                    $clubHappy = $this->isClubHappyWithManager($game);
+                    if ($clubHappy && mt_rand(1, 100) <= 40) {
+                        $fired = true;
+                        // The firing is handled by the caller via the game state.
+                        // We just report it; the UI shows the drama.
+                    }
+                }
+
+                // If accepted and not fired for betrayal, stage the team switch.
+                // The manager moves at the next season transition, OR immediately
+                // if the current club fires them for the betrayal.
+                if (!$fired) {
+                    $game->update(['pending_team_switch' => $offer->id]);
                 }
             }
 
-            // If accepted and not fired for betrayal, stage the team switch.
-            // The manager moves at the next season transition, OR immediately
-            // if the current club fires them for the betrayal.
-            if (!$fired) {
-                $game->update(['pending_team_switch' => $offer->id]);
-            }
-        }
+            return [$offer, $discovered, $fired];
+        });
 
         return [
             'offer' => $offer,

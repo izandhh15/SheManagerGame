@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @property string $id
@@ -88,28 +89,39 @@ class ManagerStats extends Model
 
     /**
      * Record a match result and update all derived stats.
+     *
+     * Runs inside a transaction with the row locked: concurrent match
+     * finalizations must not interleave the read-modify-write (lost
+     * update on the counters).
      */
     public function recordResult(string $result): void
     {
-        $this->matches_played++;
+        DB::transaction(function () use ($result) {
+            $stats = static::whereKey($this->getKey())->lockForUpdate()->firstOrFail();
 
-        match ($result) {
-            'win' => $this->matches_won++,
-            'draw' => $this->matches_drawn++,
-            'loss' => $this->matches_lost++,
-        };
+            $stats->matches_played++;
 
-        $this->recalculateWinPercentage();
+            match ($result) {
+                'win' => $stats->matches_won++,
+                'draw' => $stats->matches_drawn++,
+                'loss' => $stats->matches_lost++,
+            };
 
-        if ($result === 'loss') {
-            $this->current_unbeaten_streak = 0;
-        } else {
-            $this->current_unbeaten_streak++;
-            if ($this->current_unbeaten_streak > $this->longest_unbeaten_streak) {
-                $this->longest_unbeaten_streak = $this->current_unbeaten_streak;
+            $stats->recalculateWinPercentage();
+
+            if ($result === 'loss') {
+                $stats->current_unbeaten_streak = 0;
+            } else {
+                $stats->current_unbeaten_streak++;
+                if ($stats->current_unbeaten_streak > $stats->longest_unbeaten_streak) {
+                    $stats->longest_unbeaten_streak = $stats->current_unbeaten_streak;
+                }
             }
-        }
 
-        $this->save();
+            $stats->save();
+
+            // Keep this instance in sync so callers see the new values.
+            $this->setRawAttributes($stats->getAttributes(), true);
+        });
     }
 }
