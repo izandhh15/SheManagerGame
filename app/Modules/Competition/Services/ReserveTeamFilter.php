@@ -86,6 +86,15 @@ class ReserveTeamFilter
                 if ($promotion['bottom_division'] === $bottomDivision) {
                     return $promotion['top_division'];
                 }
+
+                // Split-format rules (e.g. ESP2 <-> ESP3A/B/C) declare the
+                // bottom division once and list the sibling divisions in
+                // playoff_source_divisions: a lookup for ESP3B or ESP3C
+                // must resolve to the same top division as ESP3A.
+                $sources = $promotion['playoff_source_divisions'] ?? [];
+                if (in_array($bottomDivision, $sources, true)) {
+                    return $promotion['top_division'];
+                }
             }
         }
 
