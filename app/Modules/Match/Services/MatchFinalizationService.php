@@ -199,6 +199,10 @@ class MatchFinalizationService
         // matches and for games whose newsroom was never seeded.
         app(\App\Modules\Media\Services\JournalistService::class)
             ->postMatchReport($result->game->refresh(), $result->match, $result->competition);
+
+        // 9. Player reaction: the standout performer posts on the Internet feed.
+        app(\App\Modules\Media\Services\PlayerSocialService::class)
+            ->postMatchReaction($result->game->refresh(), $result->match);
     }
 
     /**

@@ -318,6 +318,9 @@ Route::middleware('auth')->group(function () {
         // National team's official social media (managed by the player)
         Route::get('/game/{gameId}/national-social', ShowNationalSocial::class)->name('game.national-social');
         Route::post('/game/{gameId}/national-social/announce', AnnounceNationalPost::class)->name('game.national-social.announce');
+        // Internet: unified Twitter-like feed (press, transfers, players, manager)
+        Route::get('/game/{gameId}/internet', ShowInternet::class)->name('game.internet');
+        Route::post('/game/{gameId}/internet/post', PostInternetMessage::class)->name('game.internet.post');
         Route::get('/game/{gameId}/press/{matchId}', ShowPressConference::class)->name('game.press');
         Route::post('/game/{gameId}/press/{matchId}', SubmitPressStatement::class)->name('game.press.submit');
         // Pre-match press conference: before big matches (derby, final, european night, direct rival)

@@ -7,6 +7,7 @@ use App\Modules\Government\Services\GovernmentFriendlyService;
 use App\Modules\Government\Services\GovernmentVenueService;
 use App\Modules\Match\Services\MatchdayAdvanceCoordinator;
 use App\Modules\Media\Services\JournalistService;
+use App\Modules\Media\Services\PlayerSocialService;
 use App\Modules\Season\Services\DualTurnService;
 
 class AdvanceMatchday
@@ -17,6 +18,7 @@ class AdvanceMatchday
         private readonly GovernmentFriendlyService $governmentFriendly,
         private readonly GovernmentVenueService $governmentVenue,
         private readonly JournalistService $journalists,
+        private readonly PlayerSocialService $playerSocial,
     ) {}
 
     public function __invoke(string $gameId)
@@ -61,6 +63,9 @@ class AdvanceMatchday
         // National press: preview of the upcoming national-team match
         // (no-op for club saves or when already posted).
         $this->journalists->maybePostNationalPreview($game->fresh());
+
+        // Players occasionally post lifestyle updates.
+        $this->playerSocial->maybePostLifestyle($game->fresh());
 
         return redirect()->route('show-game', $gameId);
     }
