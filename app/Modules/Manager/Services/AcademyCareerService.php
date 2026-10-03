@@ -165,7 +165,7 @@ class AcademyCareerService
      * - Won the league: 70% chance
      * - Top 3: 50% chance
      * - Mid-table: 30% chance
-     * - Bottom/relegated: 5% chance (but you might get fired instead!)
+     * - Bottom/relegated: 10% chance (but you might get fired instead!)
      *
      * If already at the first team, always returns null.
      */

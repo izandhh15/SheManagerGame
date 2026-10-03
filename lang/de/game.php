@@ -693,7 +693,7 @@ return [
     'stage_focus_youth_desc' => 'Minuten und spezielles Training für U22-Spielerinnen: Ihre Stärke steigt.',
     'stage_summary_title' => 'Lehrgangsübersicht',
     'stage_cost' => 'Kosten',
-    'stage_effect_fitness' => 'Fitness: :value',
+    'stage_effect_fitness' => 'Kondition: :value',
     'stage_effect_morale' => 'Moral: :value',
     'stage_effect_injury' => 'Verletzungsrisiko: :risk% pro Spielerin',
     'stage_effect_youth' => 'Nachwuchs: :boost Stärke für U22-Spielerinnen',

@@ -188,7 +188,7 @@ return [
     'category_severance' => 'Indemnité',
     'category_infrastructure' => 'Infrastructures',
     'category_stadium' => 'Stade',
-    'category_venue_fee' => 'Venue fee (national team)',
+    'category_venue_fee' => 'Location du stade (sélection nationale)',
     'category_agent_fee' => 'Commission d\'agent',
     'category_budget_loan' => 'Prêt Budgétaire',
     'category_loan_repayment' => 'Remboursement de Prêt',
