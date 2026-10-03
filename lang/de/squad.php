@@ -401,4 +401,9 @@ return [
     'registration_readonly' => 'Du kannst Spielerinnen nur während der Transferfenster melden und Nummern ändern.',
     'u23_badge_label' => 'U23',
     'u23_badge_tooltip' => 'Berechtigt für Akademie-Nummer — unter 24 am 1. Januar der Saison.',
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'academy_jewel' => 'Juwel',
+    'academy_jewel_tooltip' => 'Juwel der Nachwuchsarbeit: eine 16-jährige Nachwuchsspielerin mit erstklassigem Potenzial.',
+
 ];

@@ -76,4 +76,8 @@ return [
     'knockout_playoff_round_return' => 'Barrage à élimination (retour)',
     'playoff_semi_finals_return' => 'Demi-finale des barrages (retour)',
     'playoff_final_return' => 'Finale des barrages (retour)',
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'bye' => 'Exempt',
+
 ];

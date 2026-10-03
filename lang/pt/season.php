@@ -199,4 +199,8 @@ return [
     'your_squad_stats' => 'Estatísticas do teu plantel',
     'download_season' => 'Descarregar época',
     'download_summary' => 'Descarregar resumo',
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'gala_title' => 'Gala de prémios',
+
 ];

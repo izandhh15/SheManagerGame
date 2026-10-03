@@ -235,4 +235,12 @@ return [
     'naming_rights_search_cooldown' => 'Ton agence commerciale est encore en train de sonder le marché. Attends quelques jours avant de chercher à nouveau.',
     'naming_rights_search_unaffordable' => 'Tu n\'as pas le budget pour la commission de l\'agence commerciale.',
     'naming_rights_board_full' => 'Tu as déjà le maximum d\'offres sur la table. Acceptes-en une ou refuse-les avant d\'en chercher d\'autres.',
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'naming_rights_offer_rejected' => 'Offre de :sponsor écartée. Ils ne le sauront jamais.',
+    'sponsor_deal_accepted' => 'Marché conclu ! :sponsor sponsorisera :slot. À la caisse.',
+    'sponsor_deal_rejected' => 'Offre de :sponsor écartée. Passons à autre chose.',
+    'sponsor_offer_unavailable' => 'Cette offre de sponsoring n\'est plus disponible.',
+    'sponsor_deal_active' => 'Tu as déjà un sponsor actif sur cet emplacement. Attends l\'expiration du contrat.',
+
 ];

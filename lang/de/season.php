@@ -199,4 +199,8 @@ return [
     'your_squad_stats' => 'Statistiken deines Kaders',
     'download_season' => 'Saison herunterladen',
     'download_summary' => 'Zusammenfassung herunterladen',
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'gala_title' => 'Preisgala',
+
 ];

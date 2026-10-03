@@ -262,4 +262,17 @@ return [
     'severance_method_installments_detail' => ':monthly/mês durante :months meses (total :total com juros).',
     'severance_method_bank_loan' => 'Pedir empréstimo ao banco',
     'severance_method_bank_loan_detail' => 'O banco empresta-te :amount e devolves no final da época (:repayment com juros).',
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'shirt_sponsor' => 'Patrocinador da camisola',
+    'ad_board' => 'Painéis publicitários',
+    'tooltip_shirt_sponsor' => 'Receitas do logótipo do patrocinador na camisola. Taxa anual fixa durante o contrato.',
+    'tooltip_ad_board' => 'Receitas dos painéis publicitários do estádio. Taxa anual fixa durante o contrato.',
+    'category_venue_rent' => 'Aluguer do estádio',
+    'category_tour_cost' => 'Digressão de pré-época',
+    'category_matchday_tickets' => 'Bilheteira: bilhetes',
+    'category_matchday_shirts' => 'Bilheteira: camisolas',
+    'category_matchday_merch' => 'Bilheteira: merchandising',
+    'category_matchday_bars' => 'Bilheteira: bares',
+
 ];

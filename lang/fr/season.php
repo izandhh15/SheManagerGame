@@ -199,4 +199,8 @@ return [
     'your_squad_stats' => 'Statistiques de ton effectif',
     'download_season' => 'Télécharger la saison',
     'download_summary' => 'Télécharger le résumé',
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'gala_title' => 'Gala des trophées',
+
 ];

@@ -235,4 +235,12 @@ return [
     'naming_rights_search_cooldown' => 'Deine Handelsagentur sondiert noch den Markt. Warte ein paar Tage, bevor du erneut suchst.',
     'naming_rights_search_unaffordable' => 'Du hast kein Budget für die Provision der Handelsagentur.',
     'naming_rights_board_full' => 'Du hast bereits die maximale Anzahl an Angeboten auf dem Tisch. Nimm eines an oder lehne sie ab, bevor du weiter suchst.',
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'naming_rights_offer_rejected' => 'Angebot von :sponsor verworfen. Die werden es nie erfahren.',
+    'sponsor_deal_accepted' => 'Deal! :sponsor sponsert :slot. Zeit zum Kassieren.',
+    'sponsor_deal_rejected' => 'Angebot von :sponsor verworfen. Weiter geht\'s.',
+    'sponsor_offer_unavailable' => 'Dieses Sponsoringangebot ist nicht mehr verfügbar.',
+    'sponsor_deal_active' => 'Du hast bereits einen aktiven Sponsor auf diesem Platz. Warte, bis der Vertrag ausläuft.',
+
 ];

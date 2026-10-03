@@ -262,4 +262,17 @@ return [
     'severance_method_installments_detail' => ':monthly/Monat über :months Monate (gesamt :total mit Zinsen).',
     'severance_method_bank_loan' => 'Bankdarlehen aufnehmen',
     'severance_method_bank_loan_detail' => 'Die Bank leiht dir :amount und du zahlst es am Saisonende zurück (:repayment mit Zinsen).',
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'shirt_sponsor' => 'Trikotsponsor',
+    'ad_board' => 'Werbebanden',
+    'tooltip_shirt_sponsor' => 'Einnahmen aus dem Sponsorlogo auf dem Trikot. Feste Jahresgebühr für die Vertragslaufzeit.',
+    'tooltip_ad_board' => 'Einnahmen aus den Stadionwerbebanden. Feste Jahresgebühr für die Vertragslaufzeit.',
+    'category_venue_rent' => 'Stadionmiete',
+    'category_tour_cost' => 'Saisonvorbereitungstour',
+    'category_matchday_tickets' => 'Tageskasse: Tickets',
+    'category_matchday_shirts' => 'Tageskasse: Trikots',
+    'category_matchday_merch' => 'Tageskasse: Merchandising',
+    'category_matchday_bars' => 'Tageskasse: Bars',
+
 ];

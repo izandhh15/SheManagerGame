@@ -401,4 +401,9 @@ return [
     'registration_readonly' => 'Tu peux inscrire des joueuses et modifier les numéros uniquement pendant les mercatos.',
     'u23_badge_label' => 'Moins de 23 ans',
     'u23_badge_tooltip' => 'Éligible pour un numéro du centre de formation — moins de 24 ans au 1er janvier de la saison.',
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'academy_jewel' => 'Pépite',
+    'academy_jewel_tooltip' => 'Pépite du centre de formation : une joueuse de 16 ans au potentiel élite.',
+
 ];

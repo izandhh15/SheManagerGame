@@ -262,4 +262,17 @@ return [
     'severance_method_installments_detail' => ':monthly/mois pendant :months mois (total :total avec intérêts).',
     'severance_method_bank_loan' => 'Emprunter à la banque',
     'severance_method_bank_loan_detail' => 'La banque te prête :amount et tu le rembourses en fin de saison (:repayment avec intérêts).',
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'shirt_sponsor' => 'Sponsor du maillot',
+    'ad_board' => 'Panneaux publicitaires',
+    'tooltip_shirt_sponsor' => 'Recettes du logo du sponsor sur le maillot. Montant annuel fixe pour la durée du contrat.',
+    'tooltip_ad_board' => 'Recettes des panneaux publicitaires du stade. Montant annuel fixe pour la durée du contrat.',
+    'category_venue_rent' => 'Location du stade',
+    'category_tour_cost' => 'Tournée de pré-saison',
+    'category_matchday_tickets' => 'Billetterie : billets',
+    'category_matchday_shirts' => 'Billetterie : maillots',
+    'category_matchday_merch' => 'Billetterie : merchandising',
+    'category_matchday_bars' => 'Billetterie : bars',
+
 ];

@@ -76,4 +76,8 @@ return [
     'knockout_playoff_round_return' => 'K.-o.-Playoff (Rückspiel)',
     'playoff_semi_finals_return' => 'Playoff-Halbfinale (Rückspiel)',
     'playoff_final_return' => 'Playoff-Finale (Rückspiel)',
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'bye' => 'Freilos',
+
 ];

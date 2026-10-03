@@ -400,4 +400,9 @@ return [
     'registration_readonly' => 'Podes inscrever jogadoras e modificar dorsais apenas durante as janelas de transferências.',
     'u23_badge_label' => 'Sub-23',
     'u23_badge_tooltip' => 'Apta para dorsal da formação — menor de 24 a 1 de janeiro da época.',
+
+    // Añadidas en la revisión fase 5: claves ausentes en de/fr/pt
+    'academy_jewel' => 'Joia',
+    'academy_jewel_tooltip' => 'Joia da formação: uma jogadora de 16 anos com potencial de elite.',
+
 ];
