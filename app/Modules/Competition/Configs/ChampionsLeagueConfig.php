@@ -22,10 +22,10 @@ class ChampionsLeagueConfig implements CompetitionConfig
     /**
      * UWCL prize money by league phase position (in cents). Real figures from
      * UEFA circular 50/2026: €505K flat participation + €10K/position ranking
-     * bonus (€180K for 1st … €10K for last), extended here across the 36
-     * in-game league-phase slots. NOTE: the real €60K/win + €20K/draw
-     * performance bonuses are not modeled — this engine settles TV once per
-     * season by final position (see SeasonSettlementProcessor).
+     * bonus (€180K for 1st … €10K for last), extended here across the 28
+     * in-game league-phase teams (data/2026/UCL). NOTE: the real €60K/win +
+     * €20K/draw performance bonuses are not modeled — this engine settles TV
+     * once per season by final position (see SeasonSettlementProcessor).
      */
     private const TV_REVENUE = [
         1 => 86_500_000,    // €865K
@@ -55,20 +55,12 @@ class ChampionsLeagueConfig implements CompetitionConfig
         25 => 62_500_000,    // €625K (eliminated)
         26 => 61_500_000,    // €615K
         27 => 60_500_000,    // €605K
-        28 => 59_500_000,    // €595K
-        29 => 58_500_000,    // €585K
-        30 => 57_500_000,    // €575K
-        31 => 56_500_000,    // €565K
-        32 => 55_500_000,    // €555K
-        33 => 54_500_000,    // €545K
-        34 => 53_500_000,    // €535K
-        35 => 52_500_000,    // €525K
-        36 => 51_500_000,    // €515K
+        28 => 59_500_000,    // €595K (last)
     ];
 
     public function getTvRevenue(int $position): int|float
     {
-        return self::TV_REVENUE[$position] ?? self::TV_REVENUE[36];
+        return self::TV_REVENUE[$position] ?? self::TV_REVENUE[28];
     }
 
     public function getPositionFactor(int $position): float
@@ -129,7 +121,7 @@ class ChampionsLeagueConfig implements CompetitionConfig
             ],
             [
                 'minPosition' => 25,
-                'maxPosition' => 36,
+                'maxPosition' => 28,
                 'borderColor' => 'red-500',
                 'bgColor' => 'bg-red-500',
                 'label' => 'game.ucl_eliminated',
