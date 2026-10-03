@@ -46,12 +46,19 @@ class PlayerSocialService
             return null;
         }
 
+        // Same null pattern as the A13 fix (phase 2): a player row without
+        // a usable name must not produce a post, because 'author_name' is
+        // NOT NULL and we must not invent a placeholder name.
+        $name = $player->name;
+        if (trim((string) $name) === '') {
+            return null;
+        }
+
         $winnerId = $match->getWinnerId();
         $draw = ($match->home_score ?? 0) === ($match->away_score ?? 0);
         $won = $winnerId === $teamId;
 
         $es = app()->getLocale() === 'es';
-        $name = $player->name;
         $handle = '@' . strtolower(preg_replace('/[^a-z0-9]/i', '', str_replace(' ', '', $name)));
 
         if ($es) {

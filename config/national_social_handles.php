@@ -16,6 +16,7 @@ return [
     'Australia' => ['x' => '@TheMatildas', 'instagram' => '@matildas'],
     'Brazil' => ['x' => '@SelecaoFeminina', 'instagram' => '@selecaofemininadefutebol'],
     'Germany' => ['x' => '@DFB_Frauen', 'instagram' => '@dfb_frauenteam'],
+    'France' => ['x' => '@equipedefrancef', 'instagram' => '@equipedefrancef'],
     'Mexico' => ['x' => '@Miseleccionfem'],
 
     // X femenina verificada (IG sin verificar: no se usa)
@@ -30,7 +31,6 @@ return [
     'Japan' => ['x' => '@jfa_nadeshiko', 'instagram' => '@japanfootballassociation', 'instagram_federation' => true],
 
     // Solo federación (sin cuenta femenina separada)
-    'France' => ['x' => '@equipedefrance', 'instagram' => '@equipedefrance', 'federation' => true],
     'Portugal' => ['x' => '@selecaoportugal', 'federation' => true],
     'Norway' => ['x' => '@nff_landslag', 'federation' => true],
     'Denmark' => ['x' => '@DBUfodbold', 'federation' => true],

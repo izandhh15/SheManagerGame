@@ -83,10 +83,7 @@ class NationalSocialService
             return null;
         }
 
-        $already = SocialPost::where('game_id', $game->id)
-            ->where('match_id', $match->id)
-            ->where('context', 'national_official')
-            ->exists();
+        $already = $this->venueAnnounced($game, $match);
         if ($already) {
             return null;
         }
@@ -118,6 +115,19 @@ class NationalSocialService
         return $post;
     }
 
+    /**
+     * Whether the venue of this match was already announced on the
+     * national feed, by either the automatic (announceVenueConfirmed) or
+     * the manual (announce 'sede') path. Both set match_id (M11).
+     */
+    public function venueAnnounced(Game $game, GameMatch $match): bool
+    {
+        return SocialPost::where('game_id', $game->id)
+            ->where('match_id', $match->id)
+            ->where('context', 'national_official')
+            ->exists();
+    }
+
     private function announceConvocatoria(Game $game): array
     {
         $playerIds = $game->national_squad_player_ids ?? [];
@@ -147,12 +157,14 @@ class NationalSocialService
                 'stars' => implode(', ', $names),
                 'window' => $window,
                 'count' => count($playerIds),
+                'flag' => $this->nationFlag($game),
             ]),
             rand(800, 4000),
         );
 
         // A call-up always excites, with the usual debate about who's missing.
-        $this->fanReplies($game, $post, $es ? $this->convocatoriaTemplatesEs() : $this->convocatoriaTemplatesEn(), 80);
+        $flag = $this->nationFlag($game);
+        $this->fanReplies($game, $post, $es ? $this->convocatoriaTemplatesEs($flag) : $this->convocatoriaTemplatesEn($flag), 80);
 
         return ['post' => $post, 'message' => __('game.national_social_published')];
     }
@@ -174,6 +186,13 @@ class NationalSocialService
             return ['ok' => false, 'message' => __('game.national_social_no_venue')];
         }
 
+        // The automatic announcement (announceVenueConfirmed) and this
+        // manual one share idempotency: never announce the same venue
+        // twice, whichever path ran first (M11).
+        if ($this->venueAnnounced($game, $match)) {
+            return ['ok' => false, 'message' => __('game.national_social_already_announced')];
+        }
+
         $capacity = $match->neutral_venue_capacity ?? 0;
         $big = $capacity >= 30000;
 
@@ -185,6 +204,8 @@ class NationalSocialService
             ]),
             $big ? rand(1500, 5000) : rand(400, 1500),
         );
+        $post->match_id = $match->id;
+        $post->save();
 
         $es = $this->isEs();
         $this->fanReplies(
@@ -214,6 +235,7 @@ class NationalSocialService
             __('game.national_social_entradas_text', [
                 'price' => $price,
                 'tier' => __('game.national_social_tier_' . $tier),
+                'flag' => $this->nationFlag($game),
             ]),
             $cheap ? rand(1200, 3500) : rand(300, 1200),
         );
@@ -295,6 +317,30 @@ class NationalSocialService
     public function instagramHandle(Game $game): ?string
     {
         return $this->mappedSocial($game)['instagram'] ?? null;
+    }
+
+    /**
+     * The nation's flag emoji, derived from the team's ISO country code
+     * via regional indicators. Computed per nation: never hardcode the
+     * Spanish flag in a template shared by every national team (M10).
+     */
+    public function nationFlag(Game $game): string
+    {
+        $code = strtoupper((string) ($game->team?->country ?? ''));
+        // England has no regional-indicator flag; the UK flag is the
+        // widely supported stand-in.
+        if ($code === 'EN') {
+            $code = 'GB';
+        }
+        if (! preg_match('/^[A-Z]{2}$/', $code)) {
+            return '';
+        }
+        $flag = '';
+        foreach (str_split($code) as $letter) {
+            $flag .= mb_chr(0x1F1E6 + ord($letter) - ord('A'));
+        }
+
+        return $flag;
     }
 
     /** True when the mapped account is the federation's, not a women's one. */
@@ -381,12 +427,16 @@ class NationalSocialService
     /**
      * The national team's official feed.
      *
+     * Only the federation's own posts: journalist previews/recaps live in
+     * the Internet press section and must never render here with the
+     * official badge (M12).
+     *
      * @return \Illuminate\Support\Collection<int, SocialPost>
      */
     public function feed(Game $game, int $limit = 30)
     {
         $posts = SocialPost::where('game_id', $game->id)
-            ->whereIn('context', ['national_official', 'journalist_preview', 'journalist_match'])
+            ->where('context', 'national_official')
             ->whereNull('parent_post_id')
             ->orderByDesc('created_at')
             ->limit($limit)
@@ -414,11 +464,11 @@ class NationalSocialService
     // ------------------------------------------------------------------
 
     /** @return array{list<string>, list<string>} */
-    private function convocatoriaTemplatesEs(): array
+    private function convocatoriaTemplatesEs(string $flag): array
     {
         return [
             [
-                '¡VAMOOOS! Esta lista ilusiona muchísimo 🇪🇸',
+                "¡VAMOOOS! Esta lista ilusiona muchísimo {$flag}",
                 'Qué buena pinta tiene esta convocatoria, a por todas',
                 'Con este equipo podemos ganar a cualquiera 💪',
                 'Me encanta la apuesta, hay presente y futuro',
@@ -434,11 +484,11 @@ class NationalSocialService
     }
 
     /** @return array{list<string>, list<string>} */
-    private function convocatoriaTemplatesEn(): array
+    private function convocatoriaTemplatesEn(string $flag): array
     {
         return [
             [
-                'This squad looks exciting, let\'s go! 🇪🇸',
+                "This squad looks exciting, let's go! {$flag}",
                 'Great call-up, a real statement of intent',
                 'With this team we can beat anyone 💪',
             ],

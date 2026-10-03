@@ -6,6 +6,7 @@
 /** @var bool $isFederationAccount */
 /** @var string $followers */
 /** @var App\Models\GameMatch|null $nextHome */
+/** @var bool $sedeAnnounced */
 /** @var bool $hasSquad */
 /** @var int $squadCount */
 /** @var array $ticketTiers */
@@ -65,9 +66,12 @@ $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
                     @csrf
                     <input type="hidden" name="type" value="sede">
                     <p class="text-sm font-semibold text-text-primary mb-2">🏟️ {{ __('game.national_social_type_sede') }}</p>
-                    @if($nextHome && ($nextHome->stadium_name || $nextHome->neutral_venue_name))
+                    @if($nextHome && ($nextHome->stadium_name || $nextHome->neutral_venue_name) && ! $sedeAnnounced)
                         <p class="text-xs text-text-secondary mb-2 flex-1">{{ $nextHome->stadium_name ?? $nextHome->neutral_venue_name }}</p>
                         <x-primary-button type="submit" class="w-full text-xs mt-auto">{{ __('game.club_social_publish') }}</x-primary-button>
+                    @elseif($sedeAnnounced)
+                        <p class="text-xs text-text-secondary mb-2 flex-1">{{ __('game.national_social_already_announced') }}</p>
+                        <x-primary-button type="submit" disabled class="w-full text-xs mt-auto">{{ __('game.club_social_publish') }}</x-primary-button>
                     @else
                         <p class="text-xs text-text-faint mb-2 flex-1">{{ __('game.national_social_no_match_hint') }}</p>
                         <x-primary-button type="submit" disabled class="w-full text-xs mt-auto">{{ __('game.club_social_publish') }}</x-primary-button>

@@ -29,6 +29,12 @@ class ShowNationalSocial
 
         $hasSquad = count($game->national_squad_player_ids ?? []) > 0;
 
+        // Disable the manual "sede" button when the venue of the next home
+        // match was already announced (automatic or manual path, M11).
+        $sedeAnnounced = $nextHome !== null
+            && ($nextHome->stadium_name || $nextHome->neutral_venue_name)
+            && $this->nationalSocial->venueAnnounced($game, $nextHome);
+
         return view('national-social', [
             'game' => $game,
             'posts' => $this->nationalSocial->feed($game),
@@ -37,6 +43,7 @@ class ShowNationalSocial
             'isFederationAccount' => $this->nationalSocial->isFederationAccount($game),
             'followers' => $this->nationalSocial->followers($game),
             'nextHome' => $nextHome,
+            'sedeAnnounced' => $sedeAnnounced,
             'hasSquad' => $hasSquad,
             'squadCount' => count($game->national_squad_player_ids ?? []),
             'ticketTiers' => NationalSocialService::TICKET_TIERS,
