@@ -23,18 +23,16 @@ final class SquadMinimumService
      * Absolute minimum players in a squad — flows that would drop the
      * roster below this are blocked.
      */
-    public const MIN_SQUAD_SIZE = 20;
+    public const MIN_SQUAD_SIZE = 17;
 
     /**
      * Minimum players per position group. Keys match
      * GamePlayer::position_group values.
+     *
+     * Currently empty: only the total squad minimum applies, position
+     * does not matter.
      */
-    public const POSITION_GROUP_MINIMUMS = [
-        'Goalkeeper' => 2,
-        'Defender'   => 6,
-        'Midfielder' => 6,
-        'Forward'    => 4,
-    ];
+    public const POSITION_GROUP_MINIMUMS = [];
 
     /**
      * Count physical players on the given team in the given game.

@@ -49,7 +49,7 @@ class TransferMarketService
     ];
 
     /** Minimum squad size below which a team will not list */
-    private const MIN_SQUAD_SIZE = 20;
+    private const MIN_SQUAD_SIZE = 17;
 
     /**
      * One listing per sampled team. Forces variety (every listing comes
