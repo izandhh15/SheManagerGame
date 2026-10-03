@@ -164,8 +164,13 @@ class TransferCompletionService
         $player->update([
             'team_id' => $offer->offering_team_id,
             'number' => null,
-            // Extend their contract with the new team
+            // Extend their contract with the new team. rand(2, 4) is
+            // intentional: pre-contracts get varied lengths, mirroring the
+            // rand(3, 5) fallback in the agreed-transfer twin paths below.
             'contract_until' => Carbon::createFromDate((int) $game->season + rand(2, 4) + 1, 6, 30),
+            // Honour the negotiated wage like the twin completion paths do
+            // (annual_wage is NOT NULL, so fall back to the current wage).
+            'annual_wage' => $offer->offered_wage ?? $player->annual_wage,
             // Set the clause for the new club: the value the manager negotiated in
             // personal terms (honoured as-is above the floor), or the ES floor when
             // untouched. Null elsewhere (and for flag-off saves).
