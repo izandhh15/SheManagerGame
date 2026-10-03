@@ -347,7 +347,10 @@ class MatchAttendanceService
         // Walk-up = the demand beyond the abono base. Deterministic jitter
         // (−1% to +5% of capacity) derived from the match id so the same
         // fixture always reports the same number.
-        $bucket = crc32($match->id) % 601; // 0..600 inclusive
+        // R19 (familia C6): en PHP 32-bit crc32() puede ser negativo y el
+        // bucket saldría negativo ~50% de las veces; la máscara lo fija en
+        // [0, 600] en todas las plataformas.
+        $bucket = (crc32($match->id) & 0x7FFFFFFF) % 601; // 0..600 inclusive
         $jitterPercent = ($bucket - 100) / 10_000.0; // −0.01 to +0.05
         $jitterSeats = (int) round($capacity * $jitterPercent);
         $walkup = max(0, $demand - $holders + $jitterSeats);
