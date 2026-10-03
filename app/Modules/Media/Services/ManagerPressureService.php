@@ -82,7 +82,7 @@ class ManagerPressureService
                 ->all();
 
             if (! empty($rivals)) {
-                $start = crc32($game->id.'rivals'.$round) % count($rivals);
+                $start = (crc32($game->id.'rivals'.$round) & 0x7FFFFFFF) % count($rivals);
                 for ($i = 0; $i < 3; $i++) {
                     $ids[] = $rivals[($start + $i) % count($rivals)];
                 }
@@ -123,7 +123,7 @@ class ManagerPressureService
         $es = app()->getLocale() === 'es';
         // Deterministic outlet per round (stable feed across page loads).
         $outlets = $this->mediaOutlets->outletsFor($game);
-        $outlet = $outlets[crc32($game->id.'outlet'.$round.$team->id) % max(1, count($outlets))] ?? 'EFE Deportes';
+        $outlet = $outlets[(crc32($game->id.'outlet'.$round.$team->id) & 0x7FFFFFFF) % max(1, count($outlets))] ?? 'EFE Deportes';
         $coach = $team->manager_name ?: null; // null = unknown: never invent a name
         $teamName = $team->name;
 

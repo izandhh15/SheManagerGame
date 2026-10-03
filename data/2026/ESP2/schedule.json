@@ -884,5 +884,19 @@
         ]
       ]
     }
+  ],
+  "knockout": [
+    {
+      "round": 1,
+      "name": "playoff.semi_final",
+      "first_leg_date": "2027-05-16",
+      "second_leg_date": "2027-05-23"
+    },
+    {
+      "round": 2,
+      "name": "playoff.final",
+      "first_leg_date": "2027-05-30",
+      "second_leg_date": "2027-06-06"
+    }
   ]
 }

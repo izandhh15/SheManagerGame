@@ -27,9 +27,14 @@ class GameSetupStatus
         // sync job was tried before and just timed out again on
         // serverless; chunks of ~25s always fit in HTTP timeouts.)
         if ($game->isTransitioningSeason() && $game->season_transitioning_at->lt(now()->subMinutes(2))) {
-            $this->chunkService->runChunk($game, 25.0);
-            // Reset timer to prevent re-running every 2s polling cycle
-            $game->update(['season_transitioning_at' => now()]);
+            $chunkResult = $this->chunkService->runChunk($game, 25.0);
+            // Reset timer to prevent re-running every 2s polling cycle —
+            // but ONLY if the transition is still running. If the chunk
+            // completed it, the flag is null and touching it would resurrect
+            // the transition on the new season.
+            if (!($chunkResult['done'] ?? false)) {
+                $game->update(['season_transitioning_at' => now()]);
+            }
         }
 
         // Recovery: re-dispatch if initial game setup is stuck for > 2 minutes

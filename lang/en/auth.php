@@ -43,5 +43,5 @@ return [
     'password' => 'The provided password is incorrect.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
     'session_expired' => 'Your session has expired. Please log in again.',
-    'no_account_yet' => 'Don't have an account yet?',
+    'no_account_yet' => 'Don\'t have an account yet?',
 ];

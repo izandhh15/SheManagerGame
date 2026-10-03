@@ -348,7 +348,7 @@ class PressNewsService
         }
 
         // Deterministic pick so the feed doesn't flicker.
-        $player = $injured->values()[crc32($game->id . 'injury' . $round) % $injured->count()];
+        $player = $injured->values()[(crc32($game->id . 'injury' . $round) & 0x7FFFFFFF) % $injured->count()];
         $es = $this->isEs();
         $outlet = $this->outlet($game, $game->id . 'injury' . $round);
         $teamName = $game->team?->name ?? ($es ? 'el club' : 'the club');
@@ -566,7 +566,7 @@ class PressNewsService
             return null;
         }
 
-        $pick = $shortlisted[crc32($game->id . 'shortlist' . $round) % $shortlisted->count()];
+        $pick = $shortlisted[(crc32($game->id . 'shortlist' . $round) & 0x7FFFFFFF) % $shortlisted->count()];
         $playerName = $pick->gamePlayer->name;
 
         if ($es) {

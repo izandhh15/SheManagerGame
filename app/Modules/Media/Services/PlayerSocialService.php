@@ -7,6 +7,7 @@ use App\Models\GameMatch;
 use App\Models\GamePlayer;
 use App\Models\SocialPost;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 /**
  * What the players upload: post-match reactions from the standout
@@ -146,17 +147,27 @@ class PlayerSocialService
 
     private function bestPlayer(Game $game, GameMatch $match, string $teamId): ?GamePlayer
     {
-        try {
-            $row = DB::table('match_player_ratings')
-                ->where('match_id', $match->id)
-                ->where('team_id', $teamId)
-                ->orderByDesc('rating')
-                ->first();
-            if ($row && isset($row->player_id)) {
-                return GamePlayer::where('game_id', $game->id)->find($row->player_id);
+        // NOTE: never query a possibly-missing table inside the try here.
+        // In PostgreSQL a failed query aborts the whole surrounding
+        // transaction (MatchdayOrchestrator::advance runs in one), and the
+        // catch cannot undo that — the fallback query then dies with 25P02
+        // and the entire matchday rolls back. Check existence FIRST.
+        // (The old 'match_player_ratings' table was never created; the real
+        // ratings live in 'game_player_match_ratings'.)
+        if (Schema::hasTable('game_player_match_ratings')) {
+            try {
+                $bestId = DB::table('game_player_match_ratings as r')
+                    ->join('game_players as p', 'p.id', '=', 'r.game_player_id')
+                    ->where('r.game_match_id', $match->id)
+                    ->where('p.team_id', $teamId)
+                    ->orderByDesc('r.rating')
+                    ->value('r.game_player_id');
+                if ($bestId) {
+                    return GamePlayer::where('game_id', $game->id)->find($bestId);
+                }
+            } catch (\Throwable) {
+                // Fall through to random.
             }
-        } catch (\Throwable) {
-            // Table may not exist; fall back to random.
         }
 
         return GamePlayer::where('game_id', $game->id)

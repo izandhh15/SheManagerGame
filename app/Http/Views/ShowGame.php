@@ -89,8 +89,14 @@ class ShowGame
             // (Re-dispatching the full sync job just timed out again on
             // serverless; chunks of ~25s always fit in HTTP timeouts.)
             if ($game->season_transitioning_at->lt(now()->subMinutes(2))) {
-                $this->transitionChunks->runChunk($game, 25.0);
-                $game->update(['season_transitioning_at' => now()]);
+                $chunkResult = $this->transitionChunks->runChunk($game, 25.0);
+                // Only refresh the flag if the transition is STILL running.
+                // runChunk sets season_transitioning_at to null when it
+                // completes; unconditionally touching it here would resurrect
+                // the flag and re-run all 48 processors on the new season.
+                if (!($chunkResult['done'] ?? false)) {
+                    $game->update(['season_transitioning_at' => now()]);
+                }
             }
             $isTournament = $game->isTournamentMode();
             return view('game-loading', [

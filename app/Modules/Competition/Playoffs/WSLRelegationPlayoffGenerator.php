@@ -2,6 +2,7 @@
 
 namespace App\Modules\Competition\Playoffs;
 
+use App\Models\Competition;
 use App\Models\CompetitionEntry;
 use App\Models\CupTie;
 use App\Models\Game;
@@ -12,7 +13,7 @@ use App\Modules\Competition\Contracts\PlayoffGenerator;
 use App\Modules\Competition\DTOs\PlayoffRoundConfig;
 use App\Modules\Competition\Enums\PlayoffState;
 use App\Modules\Competition\Services\LeagueFixtureGenerator;
-use App\Modules\Season\Services\SeasonSimulationService;
+use App\Modules\Finance\Services\SeasonSimulationService;
 
 /**
  * WSL relegation playoff: 13th of ENG1 (WSL) vs 2nd of ENG2 (WSL2).
@@ -208,27 +209,14 @@ class WSLRelegationPlayoffGenerator implements PlayoffGenerator
             return array_values($existing->results);
         }
 
-        $teams = CompetitionEntry::where('game_id', $game->id)
-            ->where('competition_id', $leagueId)
-            ->pluck('team_id')
-            ->all();
-
-        if (empty($teams)) {
+        $competition = Competition::where('id', $leagueId)->first();
+        if (!$competition) {
             return [];
         }
 
-        $ordered = app(SeasonSimulationService::class)->simulateLeague($game, $teams);
+        $simulated = app(SeasonSimulationService::class)->simulateLeague($game, $competition);
 
-        SimulatedSeason::updateOrCreate(
-            [
-                'game_id' => $game->id,
-                'competition_id' => $leagueId,
-                'season' => $game->season,
-            ],
-            ['results' => array_values($ordered)]
-        );
-
-        return array_values($ordered);
+        return array_values($simulated->results ?? []);
     }
 
     private function populateCompetitionEntries(Game $game, array $teamIds): void
