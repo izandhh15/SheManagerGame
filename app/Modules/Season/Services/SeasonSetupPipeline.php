@@ -98,7 +98,21 @@ class SeasonSetupPipeline
             $profile = QueryProfiler::start();
 
             try {
-                $data = DB::transaction(fn () => $processor->process($game, $data));
+                // R1: same atomicity fix as SeasonClosingPipeline — the
+                // checkpoint is part of the processor's transaction, so a
+                // crash can never leave committed setup work behind with no
+                // recorded step (which would re-run the processor on resume
+                // and duplicate its non-idempotent effects).
+                $data = DB::transaction(function () use ($processor, $game, $data, $globalStep) {
+                    $result = $processor->process($game, $data);
+
+                    $game->updateQuietly([
+                        'season_transition_step' => $globalStep,
+                        'season_transition_data' => $result,
+                    ]);
+
+                    return $result;
+                });
             } catch (\Throwable $e) {
                 Log::error('Season setup processor failed', [
                     'processor' => get_class($processor),
@@ -116,14 +130,9 @@ class SeasonSetupPipeline
                 $stats,
             );
 
-            // Checkpoint: persist completed step and DTO for crash recovery
-            $game->updateQuietly([
-                'season_transition_step' => $globalStep,
-                'season_transition_data' => $data,
-            ]);
-
             // Time-boxed execution: stop here if the budget is spent. The
-            // checkpoint above makes it safe to resume in a later chunk.
+            // checkpoint written inside the processor's transaction above
+            // makes it safe to resume in a later chunk.
             if ($maxSeconds !== null && (microtime(true) - $chunkStart) >= $maxSeconds) {
                 break;
             }

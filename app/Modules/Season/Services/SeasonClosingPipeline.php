@@ -150,7 +150,29 @@ class SeasonClosingPipeline
             $profile = QueryProfiler::start();
 
             try {
-                $data = DB::transaction(fn () => $processor->process($game, $data));
+                // R1: the checkpoint is written INSIDE the processor's
+                // transaction. The old code committed the processor first and
+                // wrote the checkpoint in a separate query afterwards; if the
+                // process died in between (Wasmer Edge is unstable and the
+                // code itself documents killed connections/timeouts), the next
+                // chunk re-ran the processor and its non-idempotent effects
+                // were applied twice — ContractExpirationProcessor's stale
+                // free-agent cleanup even DELETED the free agents created by
+                // the first pass (permanent loss of real players). Now the
+                // step and the DTO persist only together with the processor's
+                // work: a crash either rolls everything back (the step is
+                // safely re-run from a clean slate) or commits everything
+                // (the step is safely skipped on resume).
+                $data = DB::transaction(function () use ($processor, $game, $data, $index) {
+                    $result = $processor->process($game, $data);
+
+                    $game->updateQuietly([
+                        'season_transition_step' => $index,
+                        'season_transition_data' => $result,
+                    ]);
+
+                    return $result;
+                });
             } catch (\Throwable $e) {
                 Log::error('Season closing processor failed', [
                     'processor' => get_class($processor),
@@ -168,14 +190,9 @@ class SeasonClosingPipeline
                 $stats,
             );
 
-            // Checkpoint: persist completed step and DTO for crash recovery
-            $game->updateQuietly([
-                'season_transition_step' => $index,
-                'season_transition_data' => $data,
-            ]);
-
             // Time-boxed execution: stop here if the budget is spent. The
-            // checkpoint above makes it safe to resume in a later chunk.
+            // checkpoint written inside the processor's transaction above
+            // makes it safe to resume in a later chunk.
             if ($maxSeconds !== null && (microtime(true) - $chunkStart) >= $maxSeconds) {
                 break;
             }
