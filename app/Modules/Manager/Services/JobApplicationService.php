@@ -155,12 +155,17 @@ class JobApplicationService
     /**
      * Is the current club happy with the manager? Based on league position
      * vs expectations (simplified: top half = happy).
+     *
+     * R-review-medios (hallazgo adyacente al fix 7): los where('season') de
+     * este metodo referenciaban una columna que no existe en game_standings
+     * (la tabla va por game_id, sin season) -> SQLSTATE 42703 (500) cada vez
+     * que el club descubria una solicitud aceptada. Se eliminan: el game_id
+     * ya acota la busqueda a la partida actual.
      */
     private function isClubHappyWithManager(Game $game): bool
     {
         $standing = \App\Models\GameStanding::where('game_id', $game->id)
             ->where('team_id', $game->team_id)
-            ->where('season', $game->season)
             ->first();
 
         if (!$standing || !$standing->position) {
@@ -169,7 +174,6 @@ class JobApplicationService
 
         // Top half = happy
         $totalTeams = \App\Models\GameStanding::where('game_id', $game->id)
-            ->where('season', $game->season)
             ->where('competition_id', $standing->competition_id)
             ->count();
 
