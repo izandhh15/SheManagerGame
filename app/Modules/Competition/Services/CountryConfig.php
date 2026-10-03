@@ -277,7 +277,11 @@ class CountryConfig
     /**
      * Get continental qualification slots for a country.
      *
-     * @return array<string, array<string, int[]>>
+     * Each league maps competition ids to league positions. Positions may
+     * use the plain list syntax ([4, 5] = entry round 1) or declare the
+     * entry round per position ([5 => 1, 4 => 2]).
+     *
+     * @return array<string, array<string, array<int, int>>>
      */
     public function continentalSlots(string $countryCode): array
     {

@@ -45,7 +45,7 @@ class SeasonInitializationService
     /**
      * Qualifying playoffs are always drawn at season setup — even when the
      * user's team isn't involved — because their winners/losers feed the
-     * UCL/UEL league phases (deferred Swiss init).
+     * UWCL league phase and the Europa Cup knockout (deferred init).
      */
     public const QUALIFYING_COMPETITIONS = ['UCLQ', 'UELQ'];
 
@@ -283,8 +283,9 @@ class SeasonInitializationService
 
         foreach ($cupIds as $cupId) {
             // Qualifying playoffs are ALWAYS drawn — their results feed the
-            // UCL/UEL league phases. Other cups are skipped when the user's
-            // team isn't in them (no entries → no draw → no orphaned work).
+            // UWCL league phase and the Europa Cup knockout. Other cups are
+            // skipped when the user's team isn't in them (no entries → no
+            // draw → no orphaned work).
             $isQualifying = in_array($cupId, self::QUALIFYING_COMPETITIONS, true);
 
             $userParticipates = $isQualifying || CompetitionEntry::where('game_id', $gameId)
@@ -306,9 +307,13 @@ class SeasonInitializationService
     }
 
     /**
-     * Seeded draw for a qualifying playoff: the 8 strongest entrants (by
-     * squad market value, UEFA-coefficient style) are seeded against the 8
-     * weakest. Shuffled within each pot so ties vary season to season.
+     * Seeded draw for a qualifying playoff: the stronger half of the entrants
+     * (by squad market value, UEFA-coefficient style) is seeded against the
+     * weaker half. Shuffled within each pot so ties vary season to season.
+     *
+     * Only round-1 entrants take part: UELQ also carries its round-2
+     * entrants (direct league slots) from season setup, and they must not
+     * be drawn into round 1.
      *
      * @return array<array{string, string}>|null List of [home_team_id, away_team_id] UUID pairs.
      */
@@ -316,6 +321,7 @@ class SeasonInitializationService
     {
         $teamIds = CompetitionEntry::where('game_id', $gameId)
             ->where('competition_id', $competitionId)
+            ->where('entry_round', 1)
             ->pluck('team_id')
             ->all();
 
