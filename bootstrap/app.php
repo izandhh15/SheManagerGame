@@ -29,6 +29,7 @@ $app = Application::configure(basePath: dirname(__DIR__))
         $middleware->web(append: [
             \App\Http\Middleware\SetLocale::class,
             \App\Http\Middleware\TrackVisitors::class,
+            \App\Http\Middleware\RetryOnDbFailure::class,
         ]);
 
         $middleware->alias([
@@ -49,6 +50,20 @@ $app = Application::configure(basePath: dirname(__DIR__))
 
             return redirect()->route('login')
                 ->with('warning', __('auth.session_expired'));
+        });
+
+        $exceptions->render(function (\Illuminate\Database\QueryException $e, $request) {
+            if (! \App\Http\Middleware\RetryOnDbFailure::isConnectionFailure($e)) {
+                return null;
+            }
+
+            if ($request->expectsJson()) {
+                return response()->json([
+                    'message' => 'La base de datos no responde. Reintenta en unos segundos.',
+                ], 503);
+            }
+
+            return response()->view('errors.db-down', [], 503);
         });
     })->create();
 

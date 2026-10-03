@@ -101,21 +101,6 @@ return [
             'sslmode' => env('DB_SSLMODE', 'require'),
         ],
 
-        // TEMPORARY: legacy Wasmer DB for migration. DELETE AFTER.
-        'legacy' => [
-            'driver' => 'pgsql',
-            'host' => 'psql.fr-roub1.bengt.wasmernet.com',
-            'port' => '20184',
-            'database' => 'db_167628a0',
-            'username' => 'user_64305a0f',
-            'password' => env('LEGACY_DB_PASSWORD', ''),
-            'charset' => 'utf8',
-            'prefix' => '',
-            'prefix_indexes' => true,
-            'search_path' => 'public',
-            'sslmode' => 'require',
-        ],
-
         'sqlsrv' => [
             'driver' => 'sqlsrv',
             'url' => env('DB_URL'),
