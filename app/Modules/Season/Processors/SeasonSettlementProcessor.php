@@ -352,7 +352,7 @@ class SeasonSettlementProcessor implements SeasonProcessor
         $soldTransfers = TransferOffer::where('game_id', $game->id)
             ->where('status', TransferOffer::STATUS_COMPLETED)
             ->outgoing()
-            ->where('offer_type', '!=', TransferOffer::TYPE_LOAN_OUT)
+            ->notOfType(TransferOffer::TYPE_LOAN_OUT)
             ->whereBetween('resolved_at', [$seasonStart, $seasonEnd])
             ->with('gamePlayer')
             ->get();
