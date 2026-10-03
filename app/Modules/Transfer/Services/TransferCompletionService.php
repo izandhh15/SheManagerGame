@@ -361,6 +361,13 @@ class TransferCompletionService
      */
     public function completeFreeAgentSigning(Game $game, GamePlayer $player, TransferOffer $offer): void
     {
+        // Re-check on fresh data (hardening; latent today by execution
+        // order): the player may have signed elsewhere between negotiation
+        // and completion — never steal a player who is no longer unattached.
+        if (GamePlayer::whereKey($player->id)->value('team_id') !== null) {
+            return;
+        }
+
         $seasonYear = (int) $game->season;
         $contractYears = $offer->offered_years ?? ($player->age($game->current_date) >= 32 ? 1 : 3);
         $newContractEnd = Carbon::createFromDate($seasonYear + $contractYears + 1, 6, 30);
