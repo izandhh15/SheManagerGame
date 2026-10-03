@@ -25,23 +25,26 @@ class TeamRegionalOrigins
      */
     private const TEAMS = [
         // Basque clubs (Euskadi / País Vasco + Navarre via Osasuna).
+        // Names verified against data/2026/*/teams.json (Oct 2026): the old
+        // masculine-club entries ('Barakaldo CF', 'Bilbao Athletic',
+        // 'Arenas Club', 'CA Osasuna Promesas') did not exist there, so
+        // canteranas from those regions silently fell back to es_ES.
         'Athletic Club' => self::REGION_BASQUE,
+        'Athletic Club B' => self::REGION_BASQUE,
         'Real Sociedad' => self::REGION_BASQUE,
         'Real Sociedad B' => self::REGION_BASQUE,
         'Deportivo Alavés' => self::REGION_BASQUE,
         'CA Osasuna' => self::REGION_BASQUE,
+        'CA Osasuna B' => self::REGION_BASQUE,
         'SD Eibar' => self::REGION_BASQUE,
-        'Barakaldo CF' => self::REGION_BASQUE,
-        'Bilbao Athletic' => self::REGION_BASQUE,
-        'Arenas Club' => self::REGION_BASQUE,
-        'CA Osasuna Promesas' => self::REGION_BASQUE,
+        'SD Eibar B' => self::REGION_BASQUE,
 
         // Catalan clubs (Catalunya).
         'FC Barcelona' => self::REGION_CATALAN,
-        'RCD Espanyol Barcelona' => self::REGION_CATALAN,
-        'Girona FC' => self::REGION_CATALAN,
-        'Gimnàstic de Tarragona' => self::REGION_CATALAN,
-        'CE Sabadell FC' => self::REGION_CATALAN,
+        'FC Barcelona B' => self::REGION_CATALAN,
+        'FC Barcelona C' => self::REGION_CATALAN,
+        'RCD Espanyol' => self::REGION_CATALAN,
+        'RCD Espanyol B' => self::REGION_CATALAN,
         'CE Europa' => self::REGION_CATALAN,
     ];
 
