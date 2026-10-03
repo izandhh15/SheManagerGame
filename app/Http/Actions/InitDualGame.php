@@ -158,12 +158,10 @@ class InitDualGame
         $nationalGame->update(['linked_game_id' => $clubGame->id]);
 
         // The creation-time pick counts as this window's convocatoria so
-        // the per-window picker doesn't fire again immediately. Falls back
-        // to the next window however far away, so the pick always stamps
-        // a window (relevantWindow's 60-day lookahead returns null early
-        // in the season).
-        $window = NationalSquadService::relevantWindow($nationalGame)
-            ?? NationalSquadService::nextWindow($nationalGame);
+        // the per-window picker doesn't fire again immediately. Uses
+        // creationWindow() — the same window the picker UI showed — or the
+        // dashboard re-prompts for a "different" window (double convocatoria).
+        $window = NationalSquadService::creationWindow($nationalGame->season ?? NationalSquadService::TEMPLATE_SEASON);
         if ($window) {
             $nationalGame->update(['national_squad_window' => $window['start']]);
         }

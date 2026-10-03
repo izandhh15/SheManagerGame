@@ -142,10 +142,11 @@ final class ShowNationalSquadPicker
         $season = $updateGame?->season ?? NationalSquadService::TEMPLATE_SEASON;
         $today = ($updateGame?->current_date ?? now())->format('Y-m-d');
         // Which break this call-up is for: the game's relevant window in
-        // update mode, otherwise the next break on the calendar.
+        // update mode, otherwise the creation window (must match the stamp
+        // InitDualGame/InitNationalGame record, or the dashboard re-prompts).
         $window = $updateGame
             ? NationalSquadService::relevantWindow($updateGame)
-            : \App\Modules\Competition\Configs\FifaInternationalBreaks::upcomingWithin($season, $today, 60);
+            : NationalSquadService::creationWindow($season);
         $injured = NationalSquadService::injuredPlayersUntil(
             $request->user()->id,
             $window['start'] ?? $today,

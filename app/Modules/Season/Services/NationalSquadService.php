@@ -56,6 +56,26 @@ class NationalSquadService
     }
 
     /**
+     * The window a creation-time squad pick is for. Uses the season start
+     * date (when the new game begins), NOT real today — the creation picker
+     * used real today while InitDualGame/InitNationalGame stamped the game
+     * date, so the picker showed October while the stamp recorded September
+     * and the dashboard re-prompted immediately (double convocatoria).
+     * Both the picker UI and the stamp must use this single method.
+     *
+     * @return array{start: string, end: string, label: string}|null
+     */
+    public static function creationWindow(string $season = self::TEMPLATE_SEASON): ?array
+    {
+        $start = $season . '-07-01';
+
+        return FifaInternationalBreaks::currentWindow($season, $start)
+            ?? FifaInternationalBreaks::upcomingWithin($season, $start, 7)
+            ?? FifaInternationalBreaks::upcomingWithin($season, $start, 60)
+            ?? FifaInternationalBreaks::nextWindow($season, $start);
+    }
+
+    /**
      * Days before a window starts when the dashboard starts prompting
      * for its convocatoria. Kept well under the 60-day relevantWindow
      * lookahead: prompting 2 months early meant the picker fired almost
