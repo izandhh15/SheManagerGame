@@ -36,6 +36,7 @@ return [
     'activation_sent_body' => 'We\'ve sent an activation link to your email address. Click the link to set your password and activate your account.',
     'activation_sent_expiry' => 'The link will expire in 60 minutes.',
     'activation_sent_no_email' => 'Didn\'t receive the email?',
+    'resend_activation_email' => 'Resend activation email',
     'account_not_activated' => 'Your account has not been activated yet. Check your email for the activation link, or request a new one from the forgot password page.',
 
     // Messages

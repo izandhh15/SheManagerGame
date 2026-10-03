@@ -36,6 +36,7 @@ return [
     'activation_sent_body' => 'Nous avons envoyé un lien d\'activation à votre adresse e-mail. Cliquez sur le lien pour définir votre mot de passe et activer votre compte.',
     'activation_sent_expiry' => 'Le lien expirera dans 60 minutes.',
     'activation_sent_no_email' => 'Vous n\'avez pas reçu l\'e-mail ?',
+    'resend_activation_email' => 'Renvoyer l\'e-mail d\'activation',
     'account_not_activated' => 'Votre compte n\'a pas encore été activé. Vérifiez vos e-mails pour le lien d\'activation, ou demandez-en un nouveau depuis la page de mot de passe oublié.',
 
     // Messages

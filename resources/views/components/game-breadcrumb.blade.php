@@ -38,9 +38,12 @@
             $crumbPage = ['label' => __('app.scout_opponent'), 'url' => null];
             break;
         case 'game.player.detail':
+            // {playerId} is a GamePlayer UUID (ShowPlayerDetail::findOrFail),
+            // never a row in `players` — look it up in the game's own roster.
             $crumbPlayerName = null;
-            if (request()->route('playerId')) {
-                $crumbPlayer = \App\Models\Player::find(request()->route('playerId'));
+            if ($game && request()->route('playerId')) {
+                $crumbPlayer = \App\Models\GamePlayer::where('game_id', $game->id)
+                    ->find(request()->route('playerId'));
                 $crumbPlayerName = $crumbPlayer?->name;
             }
             $crumbSection = ['label' => __('app.my_team'), 'url' => $sectionUrl('game.squad')];
@@ -118,7 +121,9 @@
         case 'game.competition':
             $crumbCompName = null;
             if ($teamCompetitions && request()->route('competitionId')) {
-                $crumbComp = $teamCompetitions->firstWhere('id', (int) request()->route('competitionId'));
+                // Competition uses a string key ('ESP1'…): no (int) cast —
+                // (int)'ESP1' === 0 would never match.
+                $crumbComp = $teamCompetitions->firstWhere('id', request()->route('competitionId'));
                 $crumbCompName = $crumbComp ? __($crumbComp->name) : null;
             }
             $crumbSection = ['label' => __('app.competitions'), 'url' => $sectionUrl('game.calendar')];

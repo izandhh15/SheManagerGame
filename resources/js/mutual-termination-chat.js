@@ -80,6 +80,7 @@ export default (negotiateUrl, playerName) => ({
     },
 
     async sendOffer() {
+        if (this.loading) return; // double-click guard: one round per offer
         if (!this.offerAmount && this.offerAmount !== 0) return;
         const data = await this.post('offer', { amount: Math.max(0, Math.round(this.offerAmount)) });
         if (!data) return;

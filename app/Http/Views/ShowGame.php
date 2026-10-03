@@ -213,10 +213,12 @@ class ShowGame
         $nextMatch = $this->loadNextMatch($game);
         $hasRemainingMatches = !$nextMatch && $game->matches()->where('played', false)->exists();
 
-        // Tournament mode: auto-redirect to simulate remaining matches
-        // when the player is eliminated (no next match but matches remain)
+        // Tournament mode: simulate remaining matches when the player is
+        // eliminated (no next match but matches remain). The simulation
+        // endpoint is POST-only and chunked, so render the driver view that
+        // POSTs chunk-by-chunk instead of issuing a GET redirect (405).
         if ($game->isTournamentMode() && !$nextMatch && $hasRemainingMatches) {
-            return redirect()->route('game.simulate-tournament', $gameId);
+            return view('tournament-simulation', ['game' => $game]);
         }
 
         // Tournament complete: redirect to tournament-end. Season-based

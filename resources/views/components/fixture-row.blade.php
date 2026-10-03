@@ -42,12 +42,13 @@
         @endunless
     </div>
 
-    {{-- Home/Away indicator (hidden for neutral-venue competitions like World Cup) --}}
-    @if($match->competition_id !== 'WC2026')
+    {{-- Home/Away indicator (hidden for neutral-venue matches: WC tournaments,
+         cup finals and any fixture with a neutral_venue_name set) --}}
+    @unless($match->isNeutralVenue())
         <span class="inline-flex px-2 py-0.5 text-[9px] font-semibold rounded-full shrink-0 uppercase tracking-wider {{ $isHome ? 'bg-accent-green/10 text-accent-green' : 'bg-surface-600 text-text-secondary' }}">
             {{ $isHome ? __('game.home_abbr') : __('game.away_abbr') }}
         </span>
-    @endif
+    @endunless
 
     {{-- Opponent --}}
     <div class="flex-1 flex items-center gap-2 min-w-0">

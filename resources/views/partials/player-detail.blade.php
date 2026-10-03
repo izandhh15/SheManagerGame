@@ -489,7 +489,12 @@
                                         <p class="text-lg font-bold text-green-400 mt-1" x-text="agreedFormatted"></p>
                                     </div>
                                     <p class="text-sm font-semibold text-text-primary mb-2">{{ __('termination.payment_title') }}</p>
-                                    <p class="text-xs text-text-muted mb-3" x-text="'{{ __('termination.payment_intro', ['amount' => '__A__', 'player' => $gamePlayer->name]) }}'.replace('__A__', agreedFormatted)"></p>
+                                    {{-- @js (not raw interpolation): the French payment_intro
+                                         contains l'indemnite and player names may carry
+                                         apostrophes — a raw single-quoted JS string would
+                                         break. @js emits hex-escaped JSON with HTML-escaped
+                                         quotes, safe inside the double-quoted attribute. --}}
+                                    <p class="text-xs text-text-muted mb-3" x-text="@js(__('termination.payment_intro', ['amount' => '__AMOUNT__', 'player' => $gamePlayer->name])).replace('__AMOUNT__', agreedFormatted)"></p>
                                     <form method="POST" :action="completeUrl" class="space-y-2">
                                         @csrf
                                         <template x-for="method in paymentMethods" :key="method.key">

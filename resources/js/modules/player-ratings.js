@@ -13,14 +13,20 @@ const GOAL_BONUSES = { Goalkeeper: 0.55, Defender: 0.45, Midfielder: 0.35, Forwa
 const ASSIST_BONUSES = { Goalkeeper: 0.25, Defender: 0.15, Midfielder: 0.15, Forward: 0.15 };
 
 /**
- * Map a position group abbreviation to its full name used in the scoring formula.
+ * Map a position group to its canonical full name used in the scoring formula.
+ * The server sends full names (GamePlayer::getPositionGroupAttribute), so
+ * accept them directly; abbreviations are kept for any legacy callers.
  */
-function resolvePositionGroup(abbr) {
-    switch (abbr) {
-        case 'GK': return 'Goalkeeper';
-        case 'DEF': return 'Defender';
-        case 'MID': return 'Midfielder';
-        case 'FWD': return 'Forward';
+function resolvePositionGroup(group) {
+    switch ((group || '').toLowerCase()) {
+        case 'gk':
+        case 'goalkeeper': return 'Goalkeeper';
+        case 'def':
+        case 'defender': return 'Defender';
+        case 'mid':
+        case 'midfielder': return 'Midfielder';
+        case 'fwd':
+        case 'forward': return 'Forward';
         default: return 'Midfielder';
     }
 }
