@@ -115,6 +115,12 @@ class StandingsReader
             return array_values($simTeams);
         }
 
+        // Pair by team_id, not by list order: sort both sides so the mapping is
+        // deterministic and independent of the unordered CompetitionEntry row
+        // order returned by pluck() (physical row order is not meaningful).
+        sort($stale);
+        sort($missing);
+
         $replacement = array_combine($stale, $missing);
         $reconciled = array_map(
             fn ($teamId) => $replacement[$teamId] ?? $teamId,
