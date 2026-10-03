@@ -5,6 +5,7 @@ namespace App\Modules\Social\Services;
 use App\Models\Friendship;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Str;
 
 /**
  * Friend requests between users. Friendships are mutual once accepted;
@@ -69,11 +70,27 @@ class FriendshipService
     }
 
     /**
+     * Look up a friendship by id, guarding against malformed ids.
+     *
+     * The PK is a uuid in Postgres: any non-UUID string would make the
+     * driver throw a QueryException (22P02) before we could answer
+     * `friends.not_found`. Anything that isn't a UUID simply doesn't exist.
+     */
+    private function findById(string $friendshipId): ?Friendship
+    {
+        if (! Str::isUuid($friendshipId)) {
+            return null;
+        }
+
+        return Friendship::find($friendshipId);
+    }
+
+    /**
      * Accept a pending request. Only the recipient can accept.
      */
     public function accept(User $user, string $friendshipId): array
     {
-        $friendship = Friendship::find($friendshipId);
+        $friendship = $this->findById($friendshipId);
 
         if (! $friendship || ! $this->isRecipient($friendship, $user)) {
             return ['ok' => false, 'message' => __('friends.not_found')];
@@ -97,7 +114,7 @@ class FriendshipService
      */
     public function reject(User $user, string $friendshipId): array
     {
-        $friendship = Friendship::find($friendshipId);
+        $friendship = $this->findById($friendshipId);
 
         if (! $friendship || ! $this->isRecipient($friendship, $user)) {
             return ['ok' => false, 'message' => __('friends.not_found')];
@@ -118,7 +135,7 @@ class FriendshipService
      */
     public function remove(User $user, string $friendshipId): array
     {
-        $friendship = Friendship::find($friendshipId);
+        $friendship = $this->findById($friendshipId);
 
         if (! $friendship
             || ((int) $friendship->user_id !== (int) $user->id
