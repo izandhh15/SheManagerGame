@@ -49,7 +49,13 @@ class SubstitutionService
         $freeMinutes = config('match_simulation.free_sub_window_minutes', [45, 90, 105]);
         $previousMinutes = array_unique(array_column($previousSubstitutions, 'minute'));
         $previousWindows = count(array_filter($previousMinutes, fn ($m) => ! in_array($m, $freeMinutes)));
-        if ($previousWindows >= $maxWindows) {
+
+        // The limit only blocks a batch that would open a NEW tactical window:
+        // a batch submitted in a free window (half-time, pre-extra-time,
+        // ET half-time) or in an already-used window doesn't consume one of
+        // the 3 windows, so it must pass even when all windows are used.
+        $batchOpensNewWindow = ! in_array($minute, $freeMinutes) && ! in_array($minute, $previousMinutes);
+        if ($batchOpensNewWindow && $previousWindows >= $maxWindows) {
             throw new \InvalidArgumentException('game.sub_error_windows_reached');
         }
 

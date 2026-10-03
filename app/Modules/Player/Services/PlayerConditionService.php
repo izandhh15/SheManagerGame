@@ -79,6 +79,26 @@ class PlayerConditionService
             $eventsByPlayer = $this->groupEventsByPlayer($events);
 
             $lineupIds = array_merge($match->home_lineup ?? [], $match->away_lineup ?? []);
+
+            // Substitutes who entered the pitch featured in the match even
+            // though they aren't in the stored starting XI. Merge them in from
+            // the persisted substitutions JSON (authoritative post-finalization
+            // record of user + AI subs) and from the batch's substitution
+            // events (the same source MatchResultProcessor::bulkUpdateAppearances
+            // uses). Otherwise a sub who scores gets bench frustration and no
+            // goal bonus, and accrues no match fatigue.
+            foreach ($match->substitutions ?? [] as $sub) {
+                if (isset($sub['player_in_id'])) {
+                    $lineupIds[] = $sub['player_in_id'];
+                }
+            }
+            foreach ($events as $event) {
+                if (($event['event_type'] ?? null) === 'substitution'
+                    && isset($event['metadata']['player_in_id'])) {
+                    $lineupIds[] = $event['metadata']['player_in_id'];
+                }
+            }
+
             $homeWon = $match->home_score > $match->away_score;
             $awayWon = $match->away_score > $match->home_score;
 
