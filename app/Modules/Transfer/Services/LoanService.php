@@ -71,12 +71,16 @@ class LoanService
     /**
      * Process all active loan searches each matchday.
      * Returns arrays of found (new offers received) and expired results.
+     *
+     * Scoped to every team the user manages (userTeamIds, first team +
+     * reserve): a search started for a reserve player must be processed
+     * too, not just first-team listings.
      */
     public function processLoanSearches(Game $game): array
     {
         $searching = GamePlayer::with(['transferListing'])
             ->where('game_id', $game->id)
-            ->where('team_id', $game->team_id)
+            ->whereIn('team_id', $game->userTeamIds())
             ->whereHas('transferListing', fn ($q) => $q->where('status', TransferListing::STATUS_LOAN_SEARCH))
             ->get();
 
@@ -121,7 +125,7 @@ class LoanService
                         'game_id' => $game->id,
                         'game_player_id' => $player->id,
                         'offering_team_id' => $destination->id,
-                        'selling_team_id' => $game->team_id,
+                        'selling_team_id' => $player->team_id,
                         'offer_type' => TransferOffer::TYPE_LOAN_OUT,
                         'direction' => TransferOffer::DIRECTION_OUTGOING,
                         'transfer_fee' => 0,
@@ -163,7 +167,8 @@ class LoanService
                 $q->where('scope', Competition::SCOPE_DOMESTIC)
                     ->where('type', 'league');
             })
-            ->where('id', '!=', $game->team_id)
+            // Never loan to a club the user manages (first team or reserve).
+            ->whereNotIn('id', $game->userTeamIds())
             ->get()
             // Exclude AI teams configured to rely exclusively on their youth academy
             ->reject(fn (Team $team) => $this->exclusionList->contains($team->id))
@@ -534,6 +539,18 @@ class LoanService
     public function completeLoanIn(TransferOffer $offer, Game $game): void
     {
         $player = $offer->gamePlayer;
+
+        // Re-assert ownership before mutating, mirroring
+        // TransferCompletionService::completeIncomingTransfer(): between
+        // agreement and completion an AI-to-AI move could have relocated
+        // the player. Completing anyway would conjure her out of whichever
+        // club now holds her — a phantom double-loan. Reject the deal
+        // instead.
+        if ($offer->selling_team_id !== null && $player->team_id !== $offer->selling_team_id) {
+            $offer->transitionTo(TransferOffer::STATUS_REJECTED, $game->current_date);
+            return;
+        }
+
         $parentTeamId = $offer->selling_team_id ?? $player->team_id;
 
         if ($parentTeamId === null) {
@@ -572,12 +589,19 @@ class LoanService
 
         $offer->transitionTo(TransferOffer::STATUS_COMPLETED, $game->current_date);
 
-        // Record the loan salary as a financial transaction
+        // Record the loan salary as a financial transaction, prorated by the
+        // months the player actually spends at the club this season — the
+        // full annual wage would double-count a January loan, because
+        // SeasonSettlementProcessor::calculateActualWages() sums CATEGORY_LOAN
+        // as a lump while it prorates permanent signings by months at club.
+        $monthsAtClub = $effectiveStart->diffInMonths($returnDate);
+        $loanWageExpense = (int) ($player->annual_wage * ($monthsAtClub / 12));
+
         $parentTeam = Team::find($parentTeamId);
         FinancialTransaction::recordExpense(
             gameId: $game->id,
             category: FinancialTransaction::CATEGORY_LOAN,
-            amount: $player->annual_wage,
+            amount: $loanWageExpense,
             description: __('finances.tx_loan_in', [
                 'player' => $player->name ?? $player->id,
                 'team' => $parentTeam->name ?? '',
