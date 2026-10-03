@@ -29,7 +29,16 @@ final class ClubFormService
         float $progress = 1.0,
     ): array {
         $seed = hexdec(substr(md5($playerId . '|' . $season . '|clubform'), 0, 7));
-        $rand = fn (int $min, int $max) => $min + ($seed % max(1, $max - $min + 1));
+        // The seed MUST advance on every draw: captured by value, every
+        // $rand($min, $max) with the same range returned the identical
+        // value, so e.g. the goals jitter and the assists jitter
+        // ($rand(0, 2) twice) were always equal. Re-hash per draw (7 hex
+        // digits stay int on 32-bit PHP).
+        $rand = function (int $min, int $max) use (&$seed): int {
+            $seed = hexdec(substr(md5('clubform-draw|' . $seed), 0, 7));
+
+            return $min + ($seed % max(1, $max - $min + 1));
+        };
 
         // Base appearances scale with overall: stars play ~30 league games,
         // fringe players ~8. Jittered by the deterministic seed.
