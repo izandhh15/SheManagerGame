@@ -19,12 +19,16 @@ class CheckRecoveredPlayers
     {
         $game = $event->game;
 
-        // Find players whose injury_until has passed. The user's squad
-        // always has match-state rows so an INNER JOIN is correct.
+        // Find players whose injury_until has passed, across EVERY team in
+        // the game — not just the user's squad. AI squads get injured too
+        // (training injuries in MatchdayOrchestrator, match injuries in
+        // MatchResultProcessor) and this is the only listener that clears
+        // injuries, so filtering to the user's team left rival squads
+        // degrading permanently (A4). The INNER JOIN is correct: squads
+        // always have match-state rows.
         $recoveredPlayers = GamePlayer::with('matchState')
             ->joinMatchState()
             ->where('game_players.game_id', $game->id)
-            ->where('game_players.team_id', $game->team_id)
             ->whereMatchStatNotNull('injury_until')
             ->whereMatchStat('injury_until', '<', $event->newDate->toDateString())
             ->get();
@@ -51,7 +55,11 @@ class CheckRecoveredPlayers
 
             $this->eligibilityService->clearInjury($player);
 
-            if (! in_array($player->id, $recentNotificationPlayerIds)) {
+            // Recovery notifications keep the original semantics: only the
+            // user's own squad notifies the feed. Rival squads recover
+            // silently so the feed isn't spammed with AI recoveries.
+            if ((string) $player->team_id === (string) $game->team_id
+                && ! in_array($player->id, $recentNotificationPlayerIds)) {
                 $this->notificationService->notifyRecovery($game, $player, $recoveredOn);
             }
         }
