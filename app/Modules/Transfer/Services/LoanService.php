@@ -601,10 +601,18 @@ class LoanService
         $effectiveStart = $game->getLoanEffectiveStartDate();
         $returnDate = $game->getSeasonEndDateFor($effectiveStart);
 
+        // The true parent is the club she actually plays for — for a filial
+        // loan-out that is the reserve team, not the user's first team
+        // ($game->team_id). returnLoan sends her back to parent_team_id, so
+        // recording the first team here would strand her at the wrong club.
+        $parentTeamId = $player->team_id
+            ?? $offer->selling_team_id
+            ?? $game->team_id;
+
         Loan::create([
             'game_id' => $game->id,
             'game_player_id' => $player->id,
-            'parent_team_id' => $game->team_id,
+            'parent_team_id' => $parentTeamId,
             'loan_team_id' => $destinationTeamId,
             'started_at' => $effectiveStart,
             'return_at' => $returnDate,
@@ -620,7 +628,7 @@ class LoanService
         GameTransfer::record(
             gameId: $game->id,
             gamePlayerId: $player->id,
-            fromTeamId: $game->team_id,
+            fromTeamId: $parentTeamId,
             toTeamId: $destinationTeamId,
             transferFee: 0,
             type: GameTransfer::TYPE_LOAN,
