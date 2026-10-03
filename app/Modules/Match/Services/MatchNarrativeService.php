@@ -138,7 +138,7 @@ class MatchNarrativeService
         if ($isKnockout) {
             $candidates = [...$candidates, ...$this->tournamentKnockoutCandidates($nextMatch)];
         } else {
-            $candidates = [...$candidates, ...$this->tournamentGroupCandidates($playerStanding)];
+            $candidates = [...$candidates, ...$this->tournamentGroupCandidates($playerStanding, $this->groupSize($game, $playerStanding))];
         }
 
         $candidates = [...$candidates, ...$this->tournamentOpponentCandidates($nextMatch, $game, $opponentStanding, $opponentForm)];
@@ -151,7 +151,25 @@ class MatchNarrativeService
 
     // ── Tournament: Group Stage ─────────────────────────────────────
 
-    private function tournamentGroupCandidates(?GameStanding $standing): array
+    /**
+     * Count the teams in the player's group. Falls back to 4 (the historical
+     * assumption) when the group can't be determined.
+     */
+    private function groupSize(Game $game, ?GameStanding $standing): int
+    {
+        if (!$standing || !$standing->group_label) {
+            return 4;
+        }
+
+        $count = GameStanding::where('game_id', $game->id)
+            ->where('competition_id', $standing->competition_id)
+            ->where('group_label', $standing->group_label)
+            ->count();
+
+        return $count > 0 ? $count : 4;
+    }
+
+    private function tournamentGroupCandidates(?GameStanding $standing, int $groupSize = 4): array
     {
         if (!$standing) {
             return [];
@@ -168,8 +186,10 @@ class MatchNarrativeService
             return [$this->candidate('group', 9, 'wc_group_opener')];
         }
 
-        // Final group match — high drama
-        if ($played === 2) {
+        // Final group match — high drama. Each team plays groupSize - 1
+        // group games, so the last one is not always matchday 3.
+        $finalGroupMatchday = $groupSize - 1;
+        if ($played === $finalGroupMatchday) {
             if ($points >= 6) {
                 return [$this->candidate('group', 8, 'wc_group_qualified')];
             }
@@ -182,7 +202,7 @@ class MatchNarrativeService
                 return [$this->candidate('group', 8, 'wc_group_on_brink')];
             }
 
-            if ($position === 4 && $points === 0) {
+            if ($position === $groupSize && $points === 0) {
                 return [$this->candidate('group', 7, 'wc_group_eliminated')];
             }
 
