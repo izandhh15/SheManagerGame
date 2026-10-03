@@ -51,6 +51,57 @@ class SwissKnockoutGenerator
         [[7, 8], 0],   // 7/8 vs winners from bracket 0 (9/10 vs 23/24)
     ];
 
+    /**
+     * 20-team variant (UEL): positions 1-12 go straight to the Round of 16,
+     * positions 13-20 contest the knockout playoff (4 ties -> 4 winners).
+     * R16 = 12 direct + 4 playoff winners = 16 teams -> 8 ties.
+     * A null playoff bracket index means "seeded pair plays each other"
+     * (no playoff winner involved).
+     */
+    private const PLAYOFF_BRACKETS_20 = [
+        [[13, 14], [19, 20]],
+        [[15, 16], [17, 18]],
+    ];
+
+    private const R16_BRACKETS_20 = [
+        [[1, 2], 1],      // 1/2 vs winners from 20-team bracket 1
+        [[3, 4], 0],      // 3/4 vs winners from 20-team bracket 0
+        [[5, 6], null],   // seeded pairs play each other
+        [[7, 8], null],
+        [[9, 10], null],
+        [[11, 12], null],
+    ];
+
+    /**
+     * Select the bracket sets for a league-phase field size.
+     *
+     * @return array{playoff: array, r16: array, expectedPlayoff: int, expectedR16: int}
+     */
+    private function bracketSets(int $teamCount): array
+    {
+        if ($teamCount === 20) {
+            return [
+                'playoff' => self::PLAYOFF_BRACKETS_20,
+                'r16' => self::R16_BRACKETS_20,
+                'expectedPlayoff' => 4,
+                'expectedR16' => 8,
+            ];
+        }
+
+        if ($teamCount >= 24) {
+            return [
+                'playoff' => self::PLAYOFF_BRACKETS,
+                'r16' => self::R16_BRACKETS,
+                'expectedPlayoff' => 8,
+                'expectedR16' => 8,
+            ];
+        }
+
+        throw new \InvalidArgumentException(
+            "Unsupported swiss league-phase size: {$teamCount} teams"
+        );
+    }
+
     public function getRoundConfig(int $round, string $competitionId, Game $game): PlayoffRoundConfig
     {
         $rounds = LeagueFixtureGenerator::loadKnockoutRounds(
@@ -91,15 +142,16 @@ class SwissKnockoutGenerator
     }
 
     /**
-     * Knockout Playoff: Positions 9-24, seeded brackets.
+     * Knockout Playoff: seeded brackets, sized to the league-phase field.
      * Higher-seeded team hosts the second leg.
      */
     private function generatePlayoffMatchups(Game $game, string $competitionId): array
     {
         $standings = $this->getLeaguePhaseStandings($game->id, $competitionId);
+        $sets = $this->bracketSets(count($standings));
         $matchups = [];
 
-        foreach (self::PLAYOFF_BRACKETS as $bracketIndex => $bracket) {
+        foreach ($sets['playoff'] as $bracketIndex => $bracket) {
             [$higherPositions, $lowerPositions] = $bracket;
 
             // Pick one team from each side of the bracket
@@ -115,20 +167,24 @@ class SwissKnockoutGenerator
             }
         }
 
-        if (count($matchups) !== 8) {
-            throw new \RuntimeException("Playoff generation failed: expected 8 matchups, got " . count($matchups));
+        if (count($matchups) !== $sets['expectedPlayoff']) {
+            throw new \RuntimeException(
+                "Playoff generation failed: expected {$sets['expectedPlayoff']} matchups, got " . count($matchups)
+            );
         }
 
         return $matchups;
     }
 
     /**
-     * Round of 16: Top 8 seeded + 8 playoff winners, seeded brackets.
-     * Top 8 team hosts second leg.
+     * Round of 16: direct seeds + playoff winners, seeded brackets.
+     * A null playoff bracket index means the seeded pair plays each other
+     * (no playoff winner involved — used by the 20-team format).
      */
     private function generateR16Matchups(Game $game, string $competitionId): array
     {
         $standings = $this->getLeaguePhaseStandings($game->id, $competitionId);
+        $sets = $this->bracketSets(count($standings));
 
         // Get playoff winners grouped by their original bracket
         $playoffTies = CupTie::where('game_id', $game->id)
@@ -150,11 +206,21 @@ class SwissKnockoutGenerator
 
         $matchups = [];
 
-        foreach (self::R16_BRACKETS as [$topPositions, $bracketIndex]) {
+        foreach ($sets['r16'] as [$topPositions, $bracketIndex]) {
             $topTeams = collect($topPositions)
                 ->map(fn ($pos) => $standings[$pos] ?? null)
                 ->filter()
                 ->shuffle();
+
+            if ($bracketIndex === null) {
+                // Seeded pair plays each other: worse seed hosts the first leg.
+                $homePos = max($topPositions);
+                $awayPos = min($topPositions);
+                if (isset($standings[$homePos], $standings[$awayPos])) {
+                    $matchups[] = [$standings[$homePos], $standings[$awayPos], null];
+                }
+                continue;
+            }
 
             $opponents = collect($bracketWinners[$bracketIndex] ?? [])->shuffle();
 
@@ -164,10 +230,10 @@ class SwissKnockoutGenerator
             }
         }
 
-        if (count($matchups) !== 8) {
+        if (count($matchups) !== $sets['expectedR16']) {
             $distribution = array_map('count', $bracketWinners);
             throw new \RuntimeException(
-                "R16 generation failed: expected 8 matchups, got " . count($matchups)
+                "R16 generation failed: expected {$sets['expectedR16']} matchups, got " . count($matchups)
                 . ". Completed playoff ties: " . $playoffTies->count()
                 . ". Bracket distribution: " . json_encode($distribution)
             );
@@ -263,7 +329,9 @@ class SwissKnockoutGenerator
         $homePos = $positions[$tie->home_team_id] ?? null;
         $awayPos = $positions[$tie->away_team_id] ?? null;
 
-        foreach (self::PLAYOFF_BRACKETS as $index => $bracket) {
+        $playoffBrackets = $this->bracketSets(count($standings))['playoff'];
+
+        foreach ($playoffBrackets as $index => $bracket) {
             [$higherPositions, $lowerPositions] = $bracket;
             $allPositions = array_merge($higherPositions, $lowerPositions);
 

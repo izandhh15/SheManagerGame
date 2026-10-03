@@ -46,8 +46,11 @@ class SwissProgressResolverTest extends TestCase
     {
         $resolver = app(SwissProgressResolver::class);
 
+        // 20-team UEL: 1-12 direct to R16 (12 + 4 playoff winners = clean 16),
+        // 13-20 knockout playoff, nobody eliminated at the league-phase cut.
         $this->assertSame(QualificationStatus::Advanced, $resolver->resolve('g', 'UEL', $this->standing(8))->status);
-        $this->assertSame(QualificationStatus::Playoff, $resolver->resolve('g', 'UEL', $this->standing(9))->status);
+        $this->assertSame(QualificationStatus::Advanced, $resolver->resolve('g', 'UEL', $this->standing(12))->status);
+        $this->assertSame(QualificationStatus::Playoff, $resolver->resolve('g', 'UEL', $this->standing(13))->status);
         // 20th still makes the playoff; the old shared 24-cut is gone.
         $this->assertSame(QualificationStatus::Playoff, $resolver->resolve('g', 'UEL', $this->standing(20))->status);
         // Past the 20-team field the old code still said playoff (cut at 24).
