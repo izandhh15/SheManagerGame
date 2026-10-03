@@ -43,7 +43,16 @@ class StartNewSeason
         // the live-match screen. Without this, its standings stay unapplied and
         // the closing pipeline reads a stale league table (off-by-one games),
         // which cascades into promotion/relegation imbalance errors.
-        $this->finalizationService->finalizePendingIfAny($gameId);
+        // Best-effort: a dropped DB connection here must not block the season
+        // transition; the unplayed-matches guard below catches a truly stale table.
+        try {
+            $this->finalizationService->finalizePendingIfAny($gameId);
+        } catch (\Throwable $e) {
+            Log::warning('StartNewSeason: finalizePendingIfAny failed (non-fatal)', [
+                'game_id' => $gameId,
+                'error' => $e->getMessage(),
+            ]);
+        }
 
         $game = Game::findOrFail($gameId);
 

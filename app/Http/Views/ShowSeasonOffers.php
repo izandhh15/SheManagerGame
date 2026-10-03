@@ -37,7 +37,15 @@ class ShowSeasonOffers
         // Same defensive finalize as ShowSeasonEnd: a match abandoned on
         // the live screen would otherwise leave standings stale, which
         // would feed a wrong grade into ensureEndOfSeasonOffersGenerated.
-        $this->finalizationService->finalizePendingIfAny($gameId);
+        // Best-effort: never take the page down on a DB hiccup.
+        try {
+            $this->finalizationService->finalizePendingIfAny($gameId);
+        } catch (\Throwable $e) {
+            \Illuminate\Support\Facades\Log::warning('ShowSeasonOffers: finalizePendingIfAny failed (non-fatal)', [
+                'game_id' => $gameId,
+                'error' => $e->getMessage(),
+            ]);
+        }
 
         $game = Game::with('team')->findOrFail($gameId);
 

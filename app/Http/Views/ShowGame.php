@@ -144,9 +144,17 @@ class ShowGame
         // unapplied. MatchdayOrchestrator's own finalizePendingMatch only
         // fires on the next advance(), which never happens at end-of-season.
         // Refresh $game afterward because finalize() may advance current_date
-        // and generate new matches.
+        // and generate new matches. Best-effort: a DB hiccup must not 500 the
+        // dashboard.
         if ($game->pending_finalization_match_id) {
-            $this->finalizationService->finalizePendingIfAny($gameId);
+            try {
+                $this->finalizationService->finalizePendingIfAny($gameId);
+            } catch (\Throwable $e) {
+                \Illuminate\Support\Facades\Log::warning('ShowGame: finalizePendingIfAny failed (non-fatal)', [
+                    'game_id' => $gameId,
+                    'error' => $e->getMessage(),
+                ]);
+            }
             $game = $game->refresh();
         }
 

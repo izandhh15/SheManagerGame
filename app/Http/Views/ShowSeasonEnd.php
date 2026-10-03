@@ -34,7 +34,16 @@ class ShowSeasonEnd
     {
         // Finalize any match abandoned on the live screen before summarizing
         // the season — otherwise the summary reads stale standings.
-        $this->finalizationService->finalizePendingIfAny($gameId);
+        // Best-effort: if the DB connection drops mid-transaction, log it
+        // but don't take the page down with it.
+        try {
+            $this->finalizationService->finalizePendingIfAny($gameId);
+        } catch (\Throwable $e) {
+            Log::warning('ShowSeasonEnd: finalizePendingIfAny failed (non-fatal)', [
+                'game_id' => $gameId,
+                'error' => $e->getMessage(),
+            ]);
+        }
 
         $game = Game::with('team')->findOrFail($gameId);
         abort_if($game->isTournamentMode(), 404);
