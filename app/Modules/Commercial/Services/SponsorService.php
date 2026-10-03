@@ -8,6 +8,7 @@ use App\Models\GameSponsorDeal;
 use App\Models\GameStanding;
 use App\Models\TeamReputation;
 use App\Modules\Notification\Services\NotificationService;
+use Illuminate\Support\Facades\DB;
 use InvalidArgumentException;
 
 /**
@@ -269,22 +270,27 @@ class SponsorService
 
         $season = (int) $game->season;
 
-        $deal->update([
-            'status' => GameSponsorDeal::STATUS_ACTIVE,
-            'start_season' => $season,
-            'end_season' => $season + $deal->contract_seasons - 1,
-        ]);
+        // Activating the deal, rejecting its competitors and folding the
+        // income into the projections must be atomic: a failure halfway
+        // would leave an active deal with stale projections.
+        DB::transaction(function () use ($game, $deal, $season) {
+            $deal->update([
+                'status' => GameSponsorDeal::STATUS_ACTIVE,
+                'start_season' => $season,
+                'end_season' => $season + $deal->contract_seasons - 1,
+            ]);
 
-        // Reject the competing offers the manager passed over.
-        GameSponsorDeal::query()
-            ->where('game_id', $game->id)
-            ->where('team_id', $game->team_id)
-            ->where('slot', $deal->slot)
-            ->where('status', GameSponsorDeal::STATUS_PENDING)
-            ->where('id', '!=', $deal->id)
-            ->update(['status' => GameSponsorDeal::STATUS_REJECTED]);
+            // Reject the competing offers the manager passed over.
+            GameSponsorDeal::query()
+                ->where('game_id', $game->id)
+                ->where('team_id', $game->team_id)
+                ->where('slot', $deal->slot)
+                ->where('status', GameSponsorDeal::STATUS_PENDING)
+                ->where('id', '!=', $deal->id)
+                ->update(['status' => GameSponsorDeal::STATUS_REJECTED]);
 
-        $this->refreshProjectedSponsors($game);
+            $this->refreshProjectedSponsors($game);
+        });
 
         return $deal;
     }

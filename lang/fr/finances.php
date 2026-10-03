@@ -221,6 +221,7 @@ return [
     'tx_league_phase_qualification' => ':competition - Phase de ligue réussie (:positionᵉ)',
     'tx_infrastructure_upgrade' => ':area améliorée du niveau :from au niveau :to',
     'tx_budget_loan_received' => 'Prêt budgétaire reçu : :amount',
+    'tx_budget_loan_repaid' => 'Prêt budgétaire remboursé : :amount',
     'tx_stadium_supplementary_payment' => 'Tribunes supplémentaires (:seats places)',
     'tx_stadium_stand_expansion_payment' => 'Agrandissement de tribune (:seats places)',
     'tx_stadium_rebuild_payment' => 'Rénovation du stade (:capacity places)',
