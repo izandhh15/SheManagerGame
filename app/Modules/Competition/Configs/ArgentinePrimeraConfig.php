@@ -100,8 +100,22 @@ class ArgentinePrimeraConfig implements CompetitionConfig, HasSeasonGoals
 
     public function getStandingsZones(): array
     {
+        $slots = config('countries.AR.continental_slots.ARG1', []);
+
+        $zones = [];
+
+        if (!empty($slots['LIBERTADORES'])) {
+            $zones[] = [
+                'minPosition' => min($slots['LIBERTADORES']),
+                'maxPosition' => max($slots['LIBERTADORES']),
+                'borderColor' => 'blue-500',
+                'bgColor' => 'bg-blue-500',
+                'label' => 'game.libertadores',
+            ];
+        }
+
         // No relegation zone: the Primera División has no lower division in the game,
         // so no relegation is modeled (see config/countries.php promotions).
-        return [];
+        return $zones;
     }
 }

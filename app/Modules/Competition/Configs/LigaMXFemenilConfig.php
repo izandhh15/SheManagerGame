@@ -102,9 +102,23 @@ class LigaMXFemenilConfig implements CompetitionConfig, HasSeasonGoals
 
     public function getStandingsZones(): array
     {
+        $slots = config('countries.MX.continental_slots.MEX1', []);
+
+        $zones = [];
+
+        if (!empty($slots['CONCACHAMPIONS'])) {
+            $zones[] = [
+                'minPosition' => min($slots['CONCACHAMPIONS']),
+                'maxPosition' => max($slots['CONCACHAMPIONS']),
+                'borderColor' => 'blue-500',
+                'bgColor' => 'bg-blue-500',
+                'label' => 'game.concachampions',
+            ];
+        }
+
         // Liga MX Femenil has no relegation (no relegated_positions in
         // countries.MX), so no relegation zone is painted. The old 17-18
         // range was fictitious.
-        return [];
+        return $zones;
     }
 }

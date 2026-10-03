@@ -100,8 +100,22 @@ class BrasileiraoFemininoConfig implements CompetitionConfig, HasSeasonGoals
 
     public function getStandingsZones(): array
     {
+        $slots = config('countries.BR.continental_slots.BRA1', []);
+
+        $zones = [];
+
+        if (!empty($slots['LIBERTADORES'])) {
+            $zones[] = [
+                'minPosition' => min($slots['LIBERTADORES']),
+                'maxPosition' => max($slots['LIBERTADORES']),
+                'borderColor' => 'blue-500',
+                'bgColor' => 'bg-blue-500',
+                'label' => 'game.libertadores',
+            ];
+        }
+
         // No relegation zone: the Brasileirão Feminino has no lower division in the game,
         // so no relegation is modeled (see config/countries.php promotions).
-        return [];
+        return $zones;
     }
 }

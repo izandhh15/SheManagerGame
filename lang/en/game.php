@@ -66,6 +66,8 @@ return [
     'pts_abbr' => 'Pts',
     'last_5' => 'Last 5',
     'champions_league' => 'UWCL',
+    'libertadores' => 'Libertadores',
+    'concachampions' => 'Concachampions',
     'europa_league' => 'UEFA Women\'s Europa Cup',
     'relegation' => 'Relegation',
     'world_cup_qualified' => 'Qualified for World Cup 2027',

@@ -100,9 +100,23 @@ class NWSLConfig implements CompetitionConfig, HasSeasonGoals
 
     public function getStandingsZones(): array
     {
+        $slots = config('countries.US.continental_slots.USA1', []);
+
+        $zones = [];
+
+        if (!empty($slots['CONCACHAMPIONS'])) {
+            $zones[] = [
+                'minPosition' => min($slots['CONCACHAMPIONS']),
+                'maxPosition' => max($slots['CONCACHAMPIONS']),
+                'borderColor' => 'blue-500',
+                'bgColor' => 'bg-blue-500',
+                'label' => 'game.concachampions',
+            ];
+        }
+
         // NWSL has no relegation (no relegated_positions in countries.US),
         // so no relegation zone is painted. The old 15-16 range was
         // fictitious.
-        return [];
+        return $zones;
     }
 }
