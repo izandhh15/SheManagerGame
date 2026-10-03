@@ -52,13 +52,14 @@ $app = Application::configure(basePath: dirname(__DIR__))
         });
     })->create();
 
-// Wasmer Edge: el sistema de ficheros del paquete es de solo lectura.
-// Redirige storage/ al volumen montado en /data cuando exista la variable
-// de entorno WASMER_STORAGE_PATH (definida en app.yaml).
-if ($wasmerStorage = getenv('WASMER_STORAGE_PATH')) {
-    $app->useStoragePath($wasmerStorage);
+// Wasmer Edge / Vercel: el sistema de ficheros del paquete es de solo lectura.
+// Redirige storage/ al directorio escribible cuando exista la variable de
+// entorno WASMER_STORAGE_PATH (app.yaml) o VERCEL_STORAGE_PATH (Vercel).
+$serverlessStorage = getenv('WASMER_STORAGE_PATH') ?: getenv('VERCEL_STORAGE_PATH');
+if ($serverlessStorage) {
+    $app->useStoragePath($serverlessStorage);
     foreach (['app', 'app/public', 'framework/cache', 'framework/sessions', 'framework/views', 'logs'] as $dir) {
-        @mkdir($wasmerStorage.'/'.$dir, 0755, true);
+        @mkdir($serverlessStorage.'/'.$dir, 0755, true);
     }
 }
 
