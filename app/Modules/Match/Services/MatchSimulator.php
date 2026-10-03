@@ -2537,8 +2537,9 @@ class MatchSimulator
             return [$subEvents, $lineup, $bench];
         }
 
-        // Create substitution event at injury minute + 1
-        $subMinute = min($injury->minute + 1, 93);
+        // Create substitution event at injury minute + 1, clamped to the
+        // regulation event-generation range (see REGULATION_UPPER_BOUND).
+        $subMinute = min($injury->minute + 1, self::REGULATION_UPPER_BOUND);
         $subEvents->push(MatchEventData::substitution($teamId, $injuredPlayer->id, $replacement->id, $subMinute));
 
         // Update lineup: remove injured, add replacement
