@@ -167,7 +167,16 @@ class ClubSocialService
         if (! $match) {
             return ['post' => null, 'message' => __('game.club_social_no_match')];
         }
+        // announceVenueConfirmed() returns null both when the venue was
+        // already announced and when the match has no venue: report each
+        // case with its own message instead of the success text (M7).
+        if (! ($match->stadium_name ?? $match->neutral_venue_name)) {
+            return ['post' => null, 'message' => __('game.club_social_no_venue')];
+        }
         $post = $this->announceVenueConfirmed($game, $match);
+        if (! $post) {
+            return ['post' => null, 'message' => __('game.club_social_already_announced')];
+        }
         return ['post' => $post, 'message' => __('game.club_social_published')];
     }
 
@@ -341,11 +350,16 @@ class ClubSocialService
      */
     private function announceRenewal(Game $game, GamePlayer $player): array
     {
-        $already = SocialPost::where('game_id', $game->id)
-            ->where('context', 'club_official')
-            ->where('post_kind', self::TYPE_RENEWAL)
-            ->where('text', 'like', '%' . $player->name . '%')
-            ->exists();
+        // M23: nombre null → patrón '%%' que casa con todo (falso "ya
+        // anunciado"); "_" → '%%_%%' (casa con cualquier texto). Sin nombre
+        // no hay nada que cotejar, y los comodines LIKE van escapados.
+        $already = $player->name
+            ? SocialPost::where('game_id', $game->id)
+                ->where('context', 'club_official')
+                ->where('post_kind', self::TYPE_RENEWAL)
+                ->where('text', 'like', '%' . self::likeEscape($player->name) . '%')
+                ->exists()
+            : false;
         if ($already) {
             return ['post' => null, 'message' => __('game.club_social_already_announced')];
         }
@@ -660,7 +674,7 @@ class ClubSocialService
         $this->addHype($game, $excitement);
 
         $text = $homecoming ? match ($lang) {
-            'va' => "🚨 𝗢𝗙𝗜𝗖𝗜𝗔𝗟: {$player->name} torna a casa! Vuelve al {$club}. Benvinguda de nou! 🏠💪 #TornaACasa",
+            'va' => "🚨 𝗢𝗙𝗜𝗖𝗜𝗔𝗟: {$player->name} torna a casa! Torna al {$club}. Benvinguda de nou! 🏠💪 #TornaACasa",
             'ca' => "🚨 𝗢𝗙𝗜𝗖𝗜𝗔𝗟: {$player->name} torna a casa! Torna al {$club}. Benvinguda de nou! 🏠💪 #TornaACasa",
             'gl' => "🚨 𝗢𝗙𝗜𝗖𝗜𝗔𝗟: {$player->name} volve á casa! Regresa ao {$club}. Benvida de novo! 🏠💪 #VoltaACasa",
             default => $es
@@ -753,7 +767,7 @@ class ClubSocialService
                 : "🏥 𝗠𝗘𝗗𝗜𝗖𝗔𝗟 𝗥𝗘𝗣𝗢𝗥𝗧: {$player->name} will be out for around {$weeks} weeks. Get well soon! 💪",
         };
 
-        $post = $this->officialPost($game, $text, rand(300, 1200), self::TYPE_INJURY);
+        $post = $this->officialPost($game, $text, rand(300, 1200), self::TYPE_INJURY, $player);
 
         // Mostly supportive, some worried about the sporting impact.
         $this->fanReplies($game, $post, $this->injuryTemplates($player->name, $es), 70);
@@ -811,10 +825,13 @@ class ClubSocialService
     // Building blocks
     // ------------------------------------------------------------------
 
-    private function officialPost(Game $game, string $text, int $likes, ?string $kind = null): SocialPost
+    private function officialPost(Game $game, string $text, int $likes, ?string $kind = null, ?GamePlayer $player = null): SocialPost
     {
         return SocialPost::create([
             'game_id' => $game->id,
+            // M20: referencia exacta a la jugadora del comunicado (el parte
+            // médico se comprueba por id, no por LIKE sobre el nombre).
+            'game_player_id' => $player?->id,
             'author_name' => $game->team?->name ?? 'Club',
             'author_handle' => $this->clubHandle($game),
             'text' => $text,
@@ -871,6 +888,16 @@ class ClubSocialService
         return (float) ($avg ?? 70);
     }
 
+    /**
+     * M23: escapa los comodines de LIKE (\, %, _) en los nombres antes de
+     * buscar duplicados. Sin escapar, una jugadora llamada "_" generaba el
+     * patrón %%_%% y bloqueaba como duplicado cualquier anuncio.
+     */
+    private static function likeEscape(string $value): string
+    {
+        return str_replace(['\\', '%', '_'], ['\\\\', '\\%', '\\_'], $value);
+    }
+
     private function alreadyAnnounced(Game $game, string $type, ?string $playerName): bool
     {
         // A12: game_players.name is nullable. With no name there is nothing
@@ -887,7 +914,7 @@ class ClubSocialService
             ->where('context', 'club_official')
             ->whereNull('parent_post_id')
             ->where('post_kind', $type)
-            ->where('text', 'like', '%' . $playerName . '%')
+            ->where('text', 'like', '%' . self::likeEscape($playerName) . '%')
             ->exists();
     }
 
@@ -1109,7 +1136,7 @@ class ClubSocialService
     }
 
     /** @return array{0:list<string>, 1:list<string>} */
-    private function renewalTemplates(string $name, bool $es): array
+    private function renewalTemplates(?string $name, bool $es): array
     {
         $positive = $es ? [
             "¡Notición! {$name} se queda 💪",

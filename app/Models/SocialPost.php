@@ -12,6 +12,7 @@ class SocialPost extends Model
 
     protected $fillable = [
         'game_id',
+        'game_player_id',
         'author_name',
         'author_handle',
         'journalist_id',
@@ -22,6 +23,7 @@ class SocialPost extends Model
         'likes',
         'context',
         'match_id',
+        'game_date',
         'parent_post_id',
         'manager_reply_key',
         'manager_reply_text',
@@ -30,6 +32,7 @@ class SocialPost extends Model
     protected $casts = [
         'sentiment' => 'integer',
         'likes' => 'integer',
+        'game_date' => 'date',
     ];
 
     public function game(): BelongsTo

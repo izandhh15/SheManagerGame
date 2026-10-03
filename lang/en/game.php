@@ -886,6 +886,7 @@ return [
     'preseason_tour_no_budget' => 'You do not have enough budget to pay for the tour.',
     'preseason_tour_not_available' => 'The tour can only be organized before confirming preseason.',
     'preseason_tour_expense_desc' => 'Preseason tour: :destination',
+    'stage_expense_desc' => 'Preseason training camp: :destination',
     'preseason_tour_budget_label' => 'Your budget: €:budget',
     'lineup_unavailable' => 'Lineup not available.',
 
@@ -926,6 +927,7 @@ return [
     'club_social_no_posts' => 'No official statements yet. Be the voice of the club!',
     'club_social_published' => 'Statement published! The fans are already commenting.',
     'club_social_no_match' => 'Match not found.',
+    'club_social_no_venue' => 'That match has no confirmed venue yet.',
     'internet_title' => 'Internet',
     'internet_subtitle' => 'Everything happening online: press, transfers, your players and your voice as gaffer.',
     'internet_placeholder' => 'What do you want to say, gaffer? (max 280 characters)',
@@ -961,6 +963,7 @@ return [
     'national_social_tier_premium' => 'Premium',
     'national_social_no_posts' => 'No official statements yet. Be the voice of the national team!',
     'national_social_published' => 'Statement published! The fans are already commenting.',
+    'national_social_already_announced' => 'This match venue was already announced.',
     'national_social_invalid_type' => 'Invalid statement type.',
     'national_social_not_available' => 'National team social is only available with a national team.',
     'national_social_no_squad' => 'First confirm the call-up for the current window.',
