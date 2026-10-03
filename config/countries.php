@@ -240,8 +240,9 @@ return [
             8421  => 4897,  // Granada CF B → Granada CF
         ],
 
-        // UWCL slots for Liga F's top three; the fourth qualifies for the
-        // UEFA Women's Europa Cup (internal code UEL).
+        // UWCL slots for Liga F's top three. Nobody enters the UEFA
+        // Women's Europa Cup (internal code UEL) directly — its field
+        // comes entirely from the qualifying playoff (UELQ).
         'continental_slots' => [
             'ESP1' => [
                 'UCL' => [1],
@@ -313,7 +314,7 @@ return [
                 // Teams needed for European competitions — rosters reused from
                 // tiers + transfer_pool where possible, gaps filled from EUR pool
                 'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
-                'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UEL' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UCLQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UELQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
             ],
@@ -420,8 +421,10 @@ return [
             'ENG1' => [
                 'UCL' => [1],
                 'UCLQ' => [2, 3],
-                'UEL' => [4],
-                'UELQ' => [5],
+                // 5th starts in UELQ R1, 4th enters in UELQ R2. Nobody
+                // enters the Europa Cup (UEL) directly — its whole field
+                // comes from winning UELQ round 2.
+                'UELQ' => [5 => 1, 4 => 2],
             ],
         ],
 
@@ -465,7 +468,7 @@ return [
             ],
             'continental' => [
                 'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
-                'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UEL' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UCLQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UELQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
             ],
@@ -572,8 +575,10 @@ return [
             'DEU1' => [
                 'UCL' => [1],
                 'UCLQ' => [2, 3],
-                'UEL' => [4],
-                'UELQ' => [5],
+                // 5th starts in UELQ R1, 4th enters in UELQ R2. Nobody
+                // enters the Europa Cup (UEL) directly — its whole field
+                // comes from winning UELQ round 2.
+                'UELQ' => [5 => 1, 4 => 2],
             ],
         ],
 
@@ -617,7 +622,7 @@ return [
             ],
             'continental' => [
                 'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
-                'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UEL' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UCLQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UELQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
             ],
@@ -747,8 +752,10 @@ return [
             'ITA1' => [
                 'UCL' => [1],
                 'UCLQ' => [2],
-                'UEL' => [3],
-                'UELQ' => [4],
+                // Italy's UEFA coefficient only grants UELQ R1 places:
+                // 3rd and 4th both start in round 1. Nobody enters the
+                // Europa Cup (UEL) directly.
+                'UELQ' => [4 => 1, 3 => 1],
             ],
         ],
 
@@ -792,7 +799,7 @@ return [
             ],
             'continental' => [
                 'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
-                'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UEL' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UCLQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UELQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
             ],
@@ -884,8 +891,10 @@ return [
             'FRA1' => [
                 'UCL' => [1],
                 'UCLQ' => [2, 3],
-                'UEL' => [4],
-                'UELQ' => [5],
+                // 5th starts in UELQ R1, 4th enters in UELQ R2. Nobody
+                // enters the Europa Cup (UEL) directly — its whole field
+                // comes from winning UELQ round 2.
+                'UELQ' => [5 => 1, 4 => 2],
             ],
         ],
 
@@ -929,7 +938,7 @@ return [
             ],
             'continental' => [
                 'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
-                'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UEL' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UCLQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UELQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
             ],
@@ -1032,7 +1041,9 @@ return [
             'POR1' => [
                 'UCL' => [1],
                 'UCLQ' => [2],
-                'UEL' => [3],
+                // 3rd enters the Europa Cup qualifying playoff (UELQ) at
+                // round 1. Nobody enters the Europa Cup (UEL) directly.
+                'UELQ' => [3 => 1],
             ],
         ],
 
@@ -1076,7 +1087,7 @@ return [
             ],
             'continental' => [
                 'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
-                'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UEL' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UCLQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UELQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
             ],
@@ -1168,7 +1179,9 @@ return [
             'NED1' => [
                 'UCL' => [1],
                 'UCLQ' => [2],
-                'UEL' => [3],
+                // 3rd enters the Europa Cup qualifying playoff (UELQ) at
+                // round 1. Nobody enters the Europa Cup (UEL) directly.
+                'UELQ' => [3 => 1],
             ],
         ],
 
@@ -1212,7 +1225,7 @@ return [
             ],
             'continental' => [
                 'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
-                'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UEL' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UCLQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UELQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
             ],
@@ -1275,7 +1288,7 @@ return [
             ],
             'continental' => [
                 'UCL' => ['handler' => 'swiss_format', 'country' => 'EU'],
-                'UEL' => ['handler' => 'swiss_format', 'country' => 'EU'],
+                'UEL' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UCLQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
                 'UELQ' => ['handler' => 'knockout_cup', 'country' => 'EU'],
             ],
