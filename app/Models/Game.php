@@ -112,6 +112,8 @@ class Game extends Model
     // Season goals
     public const GOAL_TITLE = 'title';
     public const GOAL_EUROPA_LEAGUE = 'europa_league';
+    public const GOAL_LIBERTADORES = 'libertadores';
+    public const GOAL_CONCACHAMPIONS = 'concachampions';
     public const GOAL_TOP_HALF = 'top_half';
     public const GOAL_SURVIVAL = 'survival';
 

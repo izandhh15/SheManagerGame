@@ -513,6 +513,8 @@ return [
     // Objetivos da Época
     'goal_title' => 'Ganhar a Liga',
     'goal_europa_league' => 'Qualificar-se para a UEFA Women\'s Europa Cup',
+    'goal_libertadores' => 'Qualificar-se para a Copa Libertadores',
+    'goal_concachampions' => 'Qualificar-se para a Concacaf W Champions Cup',
     'goal_top_half' => 'Terminar na metade superior',
     'goal_survival' => 'Evitar a despromoção',
     'goal_promotion' => 'Subida direta',

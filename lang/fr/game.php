@@ -513,6 +513,8 @@ return [
     // Season Goals
     'goal_title' => 'Gagner le championnat',
     'goal_europa_league' => 'Se qualifier pour l\'UEFA Women\'s Europa Cup',
+    'goal_libertadores' => 'Se qualifier pour la Copa Libertadores',
+    'goal_concachampions' => 'Se qualifier pour la Concacaf W Champions Cup',
     'goal_top_half' => 'Finir dans la moitié supérieure',
     'goal_survival' => 'Éviter la relégation',
     'goal_promotion' => 'Promotion directe',
