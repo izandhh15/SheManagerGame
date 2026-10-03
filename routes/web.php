@@ -30,6 +30,14 @@ use App\Http\Views\AdminPlayerTemplateSquad;
 use App\Http\Views\AdminUsers;
 use App\Http\Views\AdminWaitlist;
 use App\Http\Actions\DeleteGame;
+use App\Http\Actions\SendFriendRequest;
+use App\Http\Actions\AcceptFriendRequest;
+use App\Http\Actions\RejectFriendRequest;
+use App\Http\Actions\RemoveFriend;
+use App\Http\Actions\PostInternetMessage;
+use App\Http\Views\ShowFriends;
+use App\Http\Views\ShowFriendCareers;
+use App\Http\Views\ShowInternet;
 use App\Http\Actions\CompleteNewSeason;
 use App\Http\Actions\CompleteWelcome;
 use App\Http\Actions\AcceptLoanOffer;
@@ -233,6 +241,14 @@ Route::middleware('auth')->group(function () {
     Route::post('/new-game/affiliate', InitAffiliateGame::class)->middleware('throttle:game-creation')->name('init-affiliate-game');
 
     Route::get('/tournament-summary/{summaryId}', ShowTournamentSummary::class)->name('tournament-summary.show');
+
+    // Friends: add by username, manage requests, view friends' careers.
+    Route::get('/friends', ShowFriends::class)->name('friends.index');
+    Route::post('/friends/request', SendFriendRequest::class)->name('friends.request');
+    Route::post('/friends/{friendshipId}/accept', AcceptFriendRequest::class)->name('friends.accept');
+    Route::post('/friends/{friendshipId}/reject', RejectFriendRequest::class)->name('friends.reject');
+    Route::delete('/friends/{friendshipId}', RemoveFriend::class)->name('friends.remove');
+    Route::get('/friends/{userId}/careers', ShowFriendCareers::class)->name('friends.careers');
 
     // All game routes require ownership verification
     Route::middleware('game.owner')->group(function () {
