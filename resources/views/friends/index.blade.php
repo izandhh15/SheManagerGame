@@ -40,7 +40,7 @@
                     @foreach($pending as $req)
                         <div class="flex items-center gap-3 rounded-lg border border-border-default bg-surface-800 px-4 py-3">
                             <div class="flex-1 min-w-0">
-                                <p class="text-sm font-bold text-text-primary">@{{ $req['username'] }}
+                                <p class="text-sm font-bold text-text-primary">{{ '@'.$req['username'] }}
                                     @if($req['is_federated'])
                                         <span class="ml-2 inline-flex items-center rounded-full bg-accent-purple/20 border border-accent-purple/40 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-accent-purple">🌐 {{ $req['peer_label'] }}</span>
                                     @endif
@@ -74,7 +74,7 @@
                 <div class="space-y-2">
                     @foreach($sent as $req)
                         <div class="flex items-center gap-3 rounded-lg border border-border-default bg-surface-800 px-4 py-3">
-                            <p class="flex-1 min-w-0 text-sm font-bold text-text-primary">@{{ $req['username'] }}
+                            <p class="flex-1 min-w-0 text-sm font-bold text-text-primary">{{ '@'.$req['username'] }}
                                 @if($req['is_federated'])
                                     <span class="ml-2 inline-flex items-center rounded-full bg-accent-purple/20 border border-accent-purple/40 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-accent-purple">🌐 {{ $req['peer_label'] }}</span>
                                 @endif
@@ -103,7 +103,7 @@
                     @foreach($friendships as $row)
                         <div class="flex items-center gap-3 rounded-lg border border-border-default bg-surface-800 px-4 py-3">
                             <div class="flex-1 min-w-0">
-                                <p class="text-sm font-bold text-text-primary">@{{ $row['username'] }}
+                                <p class="text-sm font-bold text-text-primary">{{ '@'.$row['username'] }}
                                     @if($row['is_federated'])
                                         <span class="ml-2 inline-flex items-center rounded-full bg-accent-purple/20 border border-accent-purple/40 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-accent-purple">🌐 {{ $row['peer_label'] }}</span>
                                     @endif
@@ -143,7 +143,7 @@
                         @foreach($federation['players'] as $player)
                             <div class="flex items-center gap-3 rounded-lg border border-accent-purple/30 bg-surface-800 px-4 py-3">
                                 <div class="flex-1 min-w-0">
-                                    <p class="text-sm font-bold text-text-primary">@{{ $player['username'] }}
+                                    <p class="text-sm font-bold text-text-primary">{{ '@'.$player['username'] }}
                                         <span class="ml-2 inline-flex items-center rounded-full bg-accent-purple/20 border border-accent-purple/40 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-accent-purple">🌐 {{ $federation['peer_label'] }}</span>
                                     </p>
                                     <p class="text-xs text-text-muted">{{ $player['club'] ?? __('friends.federation_unknown_club') }}@if($player['season']) · {{ $player['season'] }}@endif</p>

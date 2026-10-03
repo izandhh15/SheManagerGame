@@ -165,19 +165,35 @@ class FriendshipService
     /**
      * Pending requests received by a user (they are the recipient).
      *
+     * Federated rows have friend_id NULL (the local user is always user_id,
+     * see the Friendship model docblock); the request direction is given by
+     * is_remote_sender, so incoming federated requests must be picked up by
+     * that flag instead of by friend_id.
+     *
      * @return Collection<int, Friendship>
      */
     public function pendingRequests(User $user): Collection
     {
         return Friendship::with('user')
             ->where('status', Friendship::STATUS_PENDING)
-            ->where('friend_id', $user->id)
+            ->where(function ($q) use ($user) {
+                $q->where('friend_id', $user->id)
+                    ->orWhere(function ($q2) use ($user) {
+                        $q2->where('user_id', $user->id)
+                            ->where('is_federated', true)
+                            ->where('is_remote_sender', true);
+                    });
+            })
             ->orderByDesc('created_at')
             ->get();
     }
 
     /**
      * Pending requests sent by a user.
+     *
+     * Incoming federated requests also have user_id = the local user, so
+     * they are excluded here by is_remote_sender: they belong in
+     * pendingRequests(), not here.
      *
      * @return Collection<int, Friendship>
      */
@@ -186,6 +202,10 @@ class FriendshipService
         return Friendship::with('friend')
             ->where('status', Friendship::STATUS_PENDING)
             ->where('user_id', $user->id)
+            ->where(function ($q) {
+                $q->where('is_federated', false)
+                    ->orWhere('is_remote_sender', false);
+            })
             ->orderByDesc('created_at')
             ->get();
     }
