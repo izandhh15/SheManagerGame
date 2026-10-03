@@ -73,6 +73,29 @@ class BudgetProjectionService
     private const MAX_COMMERCIAL_SEATS = 80_000;
 
     /**
+     * Mid-season expense categories that leave the spendable transfer budget
+     * and are NOT already reflected in the settled actual_surplus — the
+     * carry-over must subtract every one of them, or the spent money
+     * silently reappears in next season's budget (QA A5).
+     *
+     * Deliberately excluded:
+     * - infrastructure: already subtracted via GameInvestment::$total_infrastructure;
+     * - loan (loan-player wages): already inside actual_surplus, settled via
+     *   SeasonSettlementProcessor::calculateActualWages();
+     * - loan_repayment: stadium-loan instalments, handled via
+     *   StadiumLoanService::activePaymentsForGame();
+     * - wage / signing_bonus: no code path records them as transactions.
+     */
+    private const MIDSEASON_EXPENSE_CATEGORIES = [
+        FinancialTransaction::CATEGORY_TRANSFER_OUT,
+        FinancialTransaction::CATEGORY_VENUE_RENT,
+        FinancialTransaction::CATEGORY_TOUR,
+        FinancialTransaction::CATEGORY_AGENT_FEE,
+        FinancialTransaction::CATEGORY_STADIUM,
+        FinancialTransaction::CATEGORY_SEVERANCE,
+    ];
+
+    /**
      * Generate season projections for a game.
      * Called at the start of each season during pre-season.
      *
@@ -516,10 +539,16 @@ class BudgetProjectionService
     /**
      * Calculate the net cash position at the end of the previous season.
      *
-     * Net = actual_surplus + carried_surplus - carried_debt - infrastructure - transfer_purchases
+     * Net = actual_surplus + carried_surplus − carried_debt − infrastructure
+     *       − all mid-season spending + budget-loan cash received
      *
      * This accounts for ALL money flows: revenue performance (variance),
-     * unspent transfer budget, and prior carry-overs.
+     * unspent transfer budget, prior carry-overs, every mid-season expense
+     * that hit the spendable transfer budget (transfers, venue rent, tours,
+     * agent fees, stadium works, severance — QA A5), and loan cash actually
+     * received (QA A6). The settled actual_surplus never sees any of those
+     * lines, so omitting them here resurrects spent money — or bills a loan
+     * principal twice — every season.
      */
     private function getPreviousSeasonNetPosition(Game $game): int
     {
@@ -540,35 +569,86 @@ class BudgetProjectionService
 
         $infrastructure = $previousInvestment?->total_infrastructure ?? 0;
 
-        // Actual transfer spending (player purchases) during the previous season
         $seasonStart = Carbon::createFromDate($previousSeason, 7, 1);
         $seasonEnd = Carbon::createFromDate($previousSeason + 1, 6, 30);
 
-        $transferSpending = FinancialTransaction::where('game_id', $game->id)
+        // Every mid-season cash outflow from the spendable transfer budget.
+        $seasonSpending = (int) FinancialTransaction::where('game_id', $game->id)
             ->whereBetween('transaction_date', [$seasonStart, $seasonEnd])
-            ->where('category', FinancialTransaction::CATEGORY_TRANSFER_OUT)
+            ->whereIn('category', self::MIDSEASON_EXPENSE_CATEGORIES)
             ->where('type', FinancialTransaction::TYPE_EXPENSE)
+            ->sum('amount');
+
+        // Budget-loan cash received mid-season. The settlement never books it
+        // as revenue, but the manager really received (and usually spent) it:
+        // without this line the principal is charged twice — once as spending
+        // above, once via the subsidy repayment below (QA A6).
+        $loanIncome = (int) FinancialTransaction::where('game_id', $game->id)
+            ->whereBetween('transaction_date', [$seasonStart, $seasonEnd])
+            ->where('category', FinancialTransaction::CATEGORY_BUDGET_LOAN)
+            ->where('type', FinancialTransaction::TYPE_INCOME)
             ->sum('amount');
 
         return $previousFinances->actual_surplus
             + $previousFinances->carried_surplus
             - $previousFinances->carried_debt
             - $infrastructure
-            - $transferSpending;
+            - $seasonSpending
+            + $loanIncome;
+    }
+
+    /**
+     * Cash actually deployed mid-season during the previous season: every
+     * ledger expense that left the spendable transfer budget. Caps
+     * loan-principal forgiveness in getPreviousSeasonLoanRepayment() — only
+     * principal that really left the club is forgiven; hoarded principal is
+     * clawed back in full (QA A6).
+     */
+    private function previousSeasonDeployedSpending(Game $game, int $previousSeason): int
+    {
+        $seasonStart = Carbon::createFromDate($previousSeason, 7, 1);
+        $seasonEnd = Carbon::createFromDate($previousSeason + 1, 6, 30);
+
+        return (int) FinancialTransaction::where('game_id', $game->id)
+            ->whereBetween('transaction_date', [$seasonStart, $seasonEnd])
+            ->whereIn('category', self::MIDSEASON_EXPENSE_CATEGORIES)
+            ->where('type', FinancialTransaction::TYPE_EXPENSE)
+            ->sum('amount');
     }
 
     /**
      * Get the previous season's budget loan repayment amount.
-     * Shown as a separate deduction in the budget flow.
+     * Shown as a separate deduction in the budget flow (via the subsidy).
+     *
+     * The principal is counted exactly once (QA A6): principal that was
+     * deployed mid-season was already charged as spending in
+     * getPreviousSeasonNetPosition(), so only the interest is still owed
+     * here. Principal that was never spent never left the club, so it is
+     * clawed back in full — otherwise borrow-and-hoard would mint free
+     * money every season.
      */
     public function getPreviousSeasonLoanRepayment(Game $game): int
     {
         $previousSeason = (int) $game->season - 1;
 
-        return (int) BudgetLoan::where('game_id', $game->id)
+        $loans = BudgetLoan::where('game_id', $game->id)
             ->where('season', $previousSeason)
             ->where('status', BudgetLoan::STATUS_REPAID)
-            ->sum('repayment_amount');
+            ->get();
+
+        if ($loans->isEmpty()) {
+            return 0;
+        }
+
+        $deployed = $this->previousSeasonDeployedSpending($game, $previousSeason);
+
+        $totalPrincipal = (int) $loans->sum('amount');
+        $totalRepayment = (int) $loans->sum('repayment_amount');
+
+        // Forgive principal only up to what was actually deployed.
+        $forgivenPrincipal = min($totalPrincipal, $deployed);
+
+        return $totalRepayment - $forgivenPrincipal;
     }
 
     /**
