@@ -4,66 +4,42 @@ declare(strict_types=1);
 
 namespace App\Modules\Stadium\Services;
 
-use App\Models\ClubProfile;
 use App\Models\FinancialTransaction;
 use App\Models\Game;
 use App\Models\GameInvestment;
 use App\Models\GameMatch;
-use App\Models\TeamReputation;
 use App\Models\TransferOffer;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 /**
- * "Jugar en el estadio masculino": the user's women's club asks the men's
- * club to play a home match at a men's stadium (e.g. Valencia Femenino
- * asking to play at Mestalla, or renting La Cartuja from the city council).
+ * "Jugar en el estadio masculino": the user's women's club asks to play a
+ * home match at a men's stadium (e.g. Valencia Femenino asking to play at
+ * Mestalla, or renting La Cartuja from the city council).
  *
- * RESTRICTED MODEL (02-10-2026): each women's club can ONLY rent its
- * own men's team's ground ("la casa del equipo masculino") — the rest of
- * the catalogue is off-limits. Clubs WITHOUT a mapped men's team (e.g.
- * Madrid CFF) keep the old behaviour: rent any stadium from the
- * catalogue, paying full price.
+ * MODEL (0.3.9): the rental catalogue is open to any ground in the user's
+ * own country. Grounds WITHOUT a team (municipal, e.g. La Cartuja) are
+ * FREE; every other ground costs the FULL listed price, paid to the CITY
+ * COUNCIL (never to the men's club). There is no "precio de la casa" and
+ * no "casa invita" free nights: the affiliated-club discount (50%) and the
+ * importance>=80 free nights were removed intentionally in 0.3.9 —
+ * affiliated clubs pay the full listed price like everyone else.
  *
- * Pricing (unchanged):
- *  - Affiliated club (same entity, womens_team link): "precio de la casa"
- *    (50% of the listed price). On huge nights (importance >= 80) the
- *    house invites: free.
- *  - Any other men's ground or municipal stadium: full listed price.
+ * Some men's clubs refuse to lend their ground this season: ~30% are
+ * "difficult" (deterministic per club+season via isClubDifficult()) and
+ * answer with a deterministic excuse (deterministicExcuse()).
  *
- * Clubs WITHOUT a mapped men's team (e.g. Madrid CFF, a women's-only
- * club) keep the full catalogue — they just pay the full price everywhere.
- *
- * The men's club (AI) still evaluates the match importance (0-100) and may
- * refuse outright for low-profile games:
- *  - Rival ELITE: +40 / CONTINENTAL: +25
- *  - Cup/knockout or title-deciding late-season match: +30
- *  - Derby (same country): +20
- *  - Random: +0-15
- * Accepts if importance >= 50. Max 3 matches per season, 21 days advance.
+ * Max 3 matches per season, requested at least 21 days in advance.
  */
 class MensStadiumRequestService
 {
     public const MAX_PER_SEASON = 3;
-
-    public const ACCEPT_THRESHOLD = 50;
 
     /**
      * Minimum days in advance to request a men's stadium.
      * The owner needs time to organize logistics.
      */
     public const MIN_ADVANCE_DAYS = 21;
-
-    /**
-     * Affiliated clubs (same entity) pay this share of the listed price.
-     */
-    public const AFFILIATED_SHARE = 0.5;
-
-    /**
-     * Affiliated + match importance at/above this: the men's club invites
-     * (free) — "la casa invita en las grandes noches".
-     */
-    public const CASA_INVITA_THRESHOLD = 80;
 
     /** @var array<string, array>|null keyed by stadium|owner composite key */
     private ?array $stadiumsByName = null;
@@ -192,45 +168,6 @@ class MensStadiumRequestService
     public function canRequest(Game $game): bool
     {
         return $this->usesThisSeason($game) < self::MAX_PER_SEASON;
-    }
-
-    /**
-     * @return array{accepted: bool, importance: int, reasons: list<string>}
-     */
-    public function evaluate(GameMatch $match, Game $game): array
-    {
-        $reasons = [];
-        $importance = 0;
-
-        $reputations = TeamReputation::resolveLevels($game->id, [$match->home_team_id, $match->away_team_id]);
-        $rivalRep = $reputations->get($match->away_team_id);
-
-        if ($rivalRep === ClubProfile::REPUTATION_ELITE) {
-            $importance += 40;
-            $reasons[] = 'rival_elite';
-        } elseif ($rivalRep === ClubProfile::REPUTATION_CONTINENTAL) {
-            $importance += 25;
-            $reasons[] = 'rival_continental';
-        }
-
-        if ($this->isCupOrKnockout($match) || $this->isTitleDecider($match, $game)) {
-            $importance += 30;
-            $reasons[] = $this->isCupOrKnockout($match) ? 'cup_match' : 'title_decider';
-        }
-
-        if ($this->isDerby($match)) {
-            $importance += 20;
-            $reasons[] = 'derby';
-        }
-
-        $luck = mt_rand(0, 15);
-        $importance += $luck;
-
-        return [
-            'accepted' => $importance >= self::ACCEPT_THRESHOLD,
-            'importance' => min(100, $importance),
-            'reasons' => $reasons,
-        ];
     }
 
     /**
@@ -423,102 +360,6 @@ class MensStadiumRequestService
         $deadline = $matchDate->copy()->subDays(self::MIN_ADVANCE_DAYS);
 
         return (int) $now->diffInDays($deadline, false);
-    }
-
-    /**
-     * Random excuse from the owner when they reject the request.
-     */
-    private function randomExcuse(): string
-    {
-        $excuses = [
-            'excuse_laliga',      // Men's team has a league match that weekend
-            'excuse_grass',       // Changing the pitch grass
-            'excuse_concert',     // Stadium booked for a concert/event
-            'excuse_maintenance', // Scheduled maintenance works
-            'excuse_reserve',     // Reserve team playing there
-        ];
-
-        return $excuses[array_rand($excuses)];
-    }
-
-    private function isCupOrKnockout(GameMatch $match): bool
-    {
-        $compId = strtoupper($match->competition_id ?? '');
-
-        return str_contains($compId, 'CUP')
-            || str_contains($compId, 'UCL')
-            || str_contains($compId, 'UWCL')
-            || $match->cup_tie_id !== null;
-    }
-
-    private function isTitleDecider(GameMatch $match, Game $game): bool
-    {
-        // Last 5 league matchdays with the title race alive.
-        if ($this->isCupOrKnockout($match)) {
-            return false;
-        }
-
-        $totalMatchdays = GameMatch::where('game_id', $game->id)
-            ->where('competition_id', $match->competition_id)
-            ->distinct()
-            ->count('round_number');
-
-        if ($totalMatchdays < 10 || ($match->round_number ?? 0) < $totalMatchdays - 5) {
-            return false;
-        }
-
-        // Title race alive: home team within 9 points of the leader.
-        // Standings are computed elsewhere; use a lightweight points check.
-        $standings = $this->pointsTable($game, $match->competition_id);
-        if (empty($standings)) {
-            return false;
-        }
-
-        $leader = max($standings);
-        $home = $standings[$match->home_team_id] ?? 0;
-
-        return ($leader - $home) <= 9;
-    }
-
-    /**
-     * @return array<string, int> team_id => points
-     */
-    private function pointsTable(Game $game, string $competitionId): array
-    {
-        $table = [];
-        $matches = GameMatch::where('game_id', $game->id)
-            ->where('competition_id', $competitionId)
-            ->whereNotNull('home_score')
-            ->whereNotNull('away_score')
-            ->get(['home_team_id', 'away_team_id', 'home_score', 'away_score']);
-
-        foreach ($matches as $m) {
-            $table[$m->home_team_id] ??= 0;
-            $table[$m->away_team_id] ??= 0;
-            if ($m->home_score > $m->away_score) {
-                $table[$m->home_team_id] += 3;
-            } elseif ($m->home_score < $m->away_score) {
-                $table[$m->away_team_id] += 3;
-            } else {
-                $table[$m->home_team_id] += 1;
-                $table[$m->away_team_id] += 1;
-            }
-        }
-
-        return $table;
-    }
-
-    private function isDerby(GameMatch $match): bool
-    {
-        $home = $match->homeTeam;
-        $away = $match->awayTeam;
-
-        if (! $home || ! $away) {
-            return false;
-        }
-
-        return ($home->country ?? null) !== null
-            && $home->country === ($away->country ?? null);
     }
 
     private function loadStadiums(): void

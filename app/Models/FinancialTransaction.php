@@ -62,11 +62,9 @@ class FinancialTransaction extends Model
     // Categories
     public const CATEGORY_TRANSFER_IN = 'transfer_in';       // Selling a player
     public const CATEGORY_TRANSFER_OUT = 'transfer_out';     // Buying a player
-    public const CATEGORY_WAGE = 'wage';                     // Wage payments
     public const CATEGORY_TV_RIGHTS = 'tv_rights';           // TV revenue
     public const CATEGORY_PERFORMANCE_BONUS = 'performance_bonus';
     public const CATEGORY_CUP_BONUS = 'cup_bonus';
-    public const CATEGORY_SIGNING_BONUS = 'signing_bonus';   // Bonus paid to player on signing
     public const CATEGORY_LOAN = 'loan';                     // Loan salary expense
     public const CATEGORY_SEVERANCE = 'severance';           // Contract termination payment
     public const CATEGORY_INFRASTRUCTURE = 'infrastructure'; // Mid-season infrastructure upgrade
@@ -119,11 +117,9 @@ class FinancialTransaction extends Model
         return match ($this->category) {
             self::CATEGORY_TRANSFER_IN => __('finances.category_transfer_in'),
             self::CATEGORY_TRANSFER_OUT => __('finances.category_transfer_out'),
-            self::CATEGORY_WAGE => __('finances.category_wage'),
             self::CATEGORY_TV_RIGHTS => __('finances.category_tv'),
             self::CATEGORY_PERFORMANCE_BONUS => __('finances.category_performance_bonus'),
             self::CATEGORY_CUP_BONUS => __('finances.category_cup_bonus'),
-            self::CATEGORY_SIGNING_BONUS => __('finances.category_signing_bonus'),
             self::CATEGORY_LOAN => __('finances.category_loan'),
             self::CATEGORY_SEVERANCE => __('finances.category_severance'),
             self::CATEGORY_INFRASTRUCTURE => __('finances.category_infrastructure'),
