@@ -123,19 +123,40 @@ class SocialMediaService
 
         $result = $this->calculateReaction($game, $match, $statementKey, $targetRating);
 
-        PressStatement::create([
-            'game_id' => $game->id,
-            'match_id' => $match->id,
-            'statement_key' => $statementKey,
-            'target_player_id' => $playerId,
-            'sentiment_impact' => $result['impact'],
-        ]);
+        // M15 (QA FEED-02): exactly one statement per (game, match).
+        // SubmitPressStatement guards with check-then-insert without a
+        // lock, and press_statements now carries a unique constraint on
+        // (game_id, match_id). firstOrCreate makes the common case atomic;
+        // a lost race surfaces as a unique violation, which we swallow so a
+        // double click / double submit reuses the existing statement
+        // instead of emitting a second fan wave and a second confidence hit.
+        try {
+            $statement = PressStatement::firstOrCreate(
+                ['game_id' => $game->id, 'match_id' => $match->id],
+                [
+                    'statement_key' => $statementKey,
+                    'target_player_id' => $playerId,
+                    'sentiment_impact' => $result['impact'],
+                ],
+            );
+        } catch (\Illuminate\Database\UniqueConstraintViolationException) {
+            $statement = null;
+        }
 
-        // Generate 6-10 fan posts.
+        if ($statement === null || ! $statement->wasRecentlyCreated) {
+            return SocialPost::where('game_id', $game->id)
+                ->where('match_id', $match->id)
+                ->orderByDesc('created_at')
+                ->get();
+        }
+
+        // Generate 6-10 fan posts. $usedTexts keeps every post in the wave
+        // textually unique (M14 / QA FEED-01).
         $count = rand(6, 10);
         $usedFans = [];
+        $usedTexts = [];
         for ($i = 0; $i < $count; $i++) {
-            $this->generatePost($game, $match, $result, $targetName, $statementKey, $usedFans);
+            $this->generatePost($game, $match, $result, $targetName, $statementKey, $usedFans, $usedTexts);
         }
 
         // Update board confidence.
@@ -196,7 +217,14 @@ class SocialMediaService
         };
     }
 
-    private function generatePost(Game $game, GameMatch $match, array $result, ?string $targetName, string $statementKey, array &$usedFans = []): void
+    /**
+     * One fan post. $usedFans deduplicates "name|handle" combos; $usedTexts
+     * deduplicates the literal text inside the current wave (M14 / QA
+     * FEED-01): templates are picked without replacement so the same
+     * sentence never appears twice in one wave. If the wave ever outgrows
+     * the template pool, it falls back to the full list.
+     */
+    private function generatePost(Game $game, GameMatch $match, array $result, ?string $targetName, string $statementKey, array &$usedFans = [], array &$usedTexts = []): void
     {
         $mood = $result['mood'];
         // Mixed mood: randomize each post's sentiment.
@@ -212,7 +240,10 @@ class SocialMediaService
         }
 
         $templates = $this->templatesFor($sentiment, $statementKey, $targetName);
-        $text = $templates[array_rand($templates)];
+        $fresh = array_values(array_filter($templates, fn ($t) => ! isset($usedTexts[$t])));
+        $pool = $fresh !== [] ? $fresh : $templates;
+        $text = $pool[array_rand($pool)];
+        $usedTexts[$text] = true;
 
         [$name, $handle] = $this->randomFan($usedFans);
 
@@ -474,6 +505,17 @@ class SocialMediaService
 
     private function generateSackingPosts(Game $game): void
     {
+        // M17 (QA FEED-04): the sacking is announced ONCE per game. The
+        // three texts are fixed strings, so re-announcing after every
+        // subsequent press conference fills the feed with identical posts.
+        $alreadyAnnounced = SocialPost::where('game_id', $game->id)
+            ->where('context', 'sacked')
+            ->exists();
+
+        if ($alreadyAnnounced) {
+            return;
+        }
+
         $es = app()->getLocale() === 'es';
         $texts = $es ? [
             "🚨🚨 OFICIAL: El club destituye al entrenador con efecto inmediato.",
@@ -503,7 +545,10 @@ class SocialMediaService
     /**
      * Deadline-day drama for the winter window: during the final week of
      * January, fans react to pending bids on the user's players with rumor
-     * posts ("👀 RUMOR: ..."). Deduplicated — at most one batch every 3 days.
+     * posts ("👀 RUMOR: ..."). Deduplicated — at most one batch per game
+     * date (M18 / QA FEED-05: the old dedup used the REAL clock, so playing
+     * the deadline week across 3+ real days re-generated identical batches
+     * for the same still-active offers).
      */
     public function generateDeadlineDayRumors(Game $game): void
     {
@@ -517,9 +562,11 @@ class SocialMediaService
             return;
         }
 
+        $gameDate = $date->toDateString();
+
         $recent = SocialPost::where('game_id', $game->id)
             ->where('context', 'deadline_rumor')
-            ->where('created_at', '>=', now()->subDays(3))
+            ->where('game_date', $gameDate)
             ->exists();
 
         if ($recent) {
@@ -569,6 +616,7 @@ class SocialMediaService
                 'sentiment' => 0,
                 'likes' => rand(300, 1500),
                 'context' => 'deadline_rumor',
+                'game_date' => $gameDate,
             ]);
         }
     }
@@ -578,6 +626,9 @@ class SocialMediaService
     {
         // TODO: pull real ratings from match data when available.
         // For now, synthesize plausible ratings from player overalls.
+        // M16 (QA FEED-03): GamePlayer has no `overall` attribute — the
+        // column is `overall_score`. Using it makes star/flop picks derive
+        // from the actual squad quality instead of noise around 7.0.
         $ratings = [];
         $players = \App\Models\GamePlayer::where('game_id', $game->id)
             ->where('team_id', $game->team_id)
@@ -585,7 +636,7 @@ class SocialMediaService
             ->get();
 
         foreach ($players as $p) {
-            $base = ($p->overall ?? 70) / 10; // 70 -> 7.0
+            $base = (($p->overall_score ?? 70)) / 10; // 70 -> 7.0
             $ratings[] = [
                 'id' => $p->id,
                 'name' => $p->name ?? 'Jugadora',
