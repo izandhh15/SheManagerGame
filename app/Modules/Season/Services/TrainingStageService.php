@@ -102,6 +102,9 @@ class TrainingStageService
             return ['ok' => false, 'message' => __('game.stage_invalid_config')];
         }
 
+        // Fast path: the authoritative "one per season" check runs inside
+        // the transaction below, under a row lock, so a double submit
+        // can't slip through.
         $existing = $game->training_stage;
         if (is_array($existing) && ($existing['season'] ?? null) === $game->season) {
             return ['ok' => false, 'message' => __('game.stage_already_organized')];
@@ -127,36 +130,57 @@ class TrainingStageService
 
         $effects = $this->calculateEffects($config['duration'], $config['intensity'], $config['focus']);
 
-        DB::transaction(function () use ($game, $investment, $config, $cost, $effects) {
-            $investment->decrement('transfer_budget', $cost * 100);
+        try {
+            DB::transaction(function () use ($game, $investment, $config, $cost, $effects) {
+                // One stage per season, re-checked under a row lock: a double
+                // submit racing past the outer guard serializes here, and the
+                // loser sees the winner's training_stage instead of paying
+                // and applying the effects twice.
+                $fresh = Game::whereKey($game->id)->lockForUpdate()->firstOrFail();
+                $existing = $fresh->training_stage;
+                if (is_array($existing) && ($existing['season'] ?? null) === $fresh->season) {
+                    throw new \DomainException('game.stage_already_organized');
+                }
 
-            // A5 residual: el coste del stage salía del presupuesto sin
-            // apunte en el ledger, así que reaparecía en el carry-over.
-            // Se registra con la categoría tour_cost (la categoría ya la
-            // resta BudgetProjectionService::MIDSEASON_EXPENSE_CATEGORIES),
-            // pero con descripción propia de stage para no confundirlo
-            // con la gira de pretemporada.
-            FinancialTransaction::recordExpense(
-                gameId: $game->id,
-                category: FinancialTransaction::CATEGORY_TOUR,
-                amount: $cost * 100,
-                description: __('game.stage_expense_desc', [
-                    'destination' => $config['destination'] ?? '',
-                ]),
-                transactionDate: ($game->current_date ?? Carbon::now())->toDateString(),
-            );
+                // Re-check the budget on a fresh read: the outer check may be
+                // stale if another spender moved money in the meantime.
+                $investment->refresh();
+                if ((int) $investment->transfer_budget < $cost * 100) {
+                    throw new \DomainException('game.stage_club_not_enough_budget');
+                }
 
-            $game->update([
-                'training_stage' => array_merge($config, [
-                    'cost' => $cost,
-                    'effects' => $effects,
-                    'season' => $game->season,
-                    'organized_at' => Carbon::now()->toDateTimeString(),
-                ]),
-            ]);
+                $investment->decrement('transfer_budget', $cost * 100);
 
-            $this->applySquadEffects($game, $effects);
-        });
+                // A5 residual: el coste del stage salía del presupuesto sin
+                // apunte en el ledger, así que reaparecía en el carry-over.
+                // Se registra con la categoría tour_cost (la categoría ya la
+                // resta BudgetProjectionService::MIDSEASON_EXPENSE_CATEGORIES),
+                // pero con descripción propia de stage para no confundirlo
+                // con la gira de pretemporada.
+                FinancialTransaction::recordExpense(
+                    gameId: $game->id,
+                    category: FinancialTransaction::CATEGORY_TOUR,
+                    amount: $cost * 100,
+                    description: __('game.stage_expense_desc', [
+                        'destination' => $config['destination'] ?? '',
+                    ]),
+                    transactionDate: ($game->current_date ?? Carbon::now())->toDateString(),
+                );
+
+                $game->update([
+                    'training_stage' => array_merge($config, [
+                        'cost' => $cost,
+                        'effects' => $effects,
+                        'season' => $game->season,
+                        'organized_at' => Carbon::now()->toDateTimeString(),
+                    ]),
+                ]);
+
+                $this->applySquadEffects($game, $effects);
+            });
+        } catch (\DomainException $e) {
+            return ['ok' => false, 'message' => __($e->getMessage())];
+        }
 
         $game->refresh();
 
@@ -203,6 +227,8 @@ class TrainingStageService
 
         // M29: uno por TEMPORADA, igual que el stage de club
         // (confirmClubStage). Antes era uno por partida.
+        // Fast path: the authoritative check runs inside the transaction
+        // below, under a row lock.
         $existing = $game->training_stage;
         if (is_array($existing) && ($existing['season'] ?? null) === $game->season) {
             return ['ok' => false, 'message' => __('game.stage_already_organized')];
@@ -225,19 +251,37 @@ class TrainingStageService
 
         $effects = $this->calculateEffects($config['duration'], $config['intensity'], $config['focus']);
 
-        DB::transaction(function () use ($game, $config, $cost, $effects) {
-            $game->update([
-                'federation_budget' => $game->federation_budget - $cost,
-                'training_stage' => array_merge($config, [
-                    'cost' => $cost,
-                    'effects' => $effects,
-                    'season' => $game->season,
-                    'organized_at' => Carbon::now()->toDateTimeString(),
-                ]),
-            ]);
+        try {
+            DB::transaction(function () use ($game, $config, $cost, $effects) {
+                // One stage per season, re-checked under a row lock: a double
+                // submit racing past the outer guard serializes here, and the
+                // loser sees the winner's training_stage instead of charging
+                // the federation budget and applying effects twice.
+                $fresh = Game::whereKey($game->id)->lockForUpdate()->firstOrFail();
+                $existing = $fresh->training_stage;
+                if (is_array($existing) && ($existing['season'] ?? null) === $fresh->season) {
+                    throw new \DomainException('game.stage_already_organized');
+                }
 
-            $this->applySquadEffects($game, $effects);
-        });
+                if ((int) ($fresh->federation_budget ?? 0) < $cost) {
+                    throw new \DomainException('game.stage_not_enough_budget');
+                }
+
+                $game->update([
+                    'federation_budget' => (int) $fresh->federation_budget - $cost,
+                    'training_stage' => array_merge($config, [
+                        'cost' => $cost,
+                        'effects' => $effects,
+                        'season' => $fresh->season,
+                        'organized_at' => Carbon::now()->toDateTimeString(),
+                    ]),
+                ]);
+
+                $this->applySquadEffects($game, $effects);
+            });
+        } catch (\DomainException $e) {
+            return ['ok' => false, 'message' => __($e->getMessage())];
+        }
 
         $game->refresh();
 
@@ -310,7 +354,11 @@ class TrainingStageService
         // Youth focus: overall boost for players aged ≤ 21.
         $youthBoost = (int) ($effects['youth_boost'] ?? 0);
         if ($youthBoost > 0) {
-            $cutoff = Carbon::now()->subYears(self::YOUTH_MAX_AGE + 1)->toDateString();
+            // Age is game time, not wall-clock time: a player who is 22 in
+            // the game world must not get the youth boost just because she
+            // is still ≤21 on today's real calendar (and vice versa).
+            $baseDate = $game->current_date ? Carbon::parse($game->current_date) : Carbon::now();
+            $cutoff = $baseDate->copy()->subYears(self::YOUTH_MAX_AGE + 1)->toDateString();
             DB::table('game_players')
                 ->where('game_id', $game->id)
                 ->where('team_id', $game->team_id)

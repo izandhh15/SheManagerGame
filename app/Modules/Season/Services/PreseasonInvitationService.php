@@ -6,6 +6,7 @@ use App\Models\Game;
 use App\Models\PreseasonInvitation;
 use App\Models\Team;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Generates pre-season invitations from AI clubs to the user's team.
@@ -94,39 +95,58 @@ class PreseasonInvitationService
      *
      * Accepting one invitation auto-declines the other pending invitations
      * for the same slot — a slot can only host one invited match.
+     *
+     * Runs in a transaction with every invitation of the slot locked: two
+     * concurrent accepts (same or different invitations in the slot)
+     * serialize on the lock, so the second one re-reads fresh state and
+     * loses instead of leaving two ACCEPTED rows in one slot.
      */
     public function accept(Game $game, string $invitationId): ?int
     {
-        $invitation = PreseasonInvitation::where('game_id', $game->id)
-            ->where('id', $invitationId)
-            ->where('status', PreseasonInvitation::STATUS_PENDING)
-            ->first();
+        return DB::transaction(function () use ($game, $invitationId) {
+            $invitation = PreseasonInvitation::where('game_id', $game->id)
+                ->where('id', $invitationId)
+                ->first();
 
-        if (! $invitation) {
-            return null;
-        }
+            if (! $invitation) {
+                return null;
+            }
 
-        // The slot is taken if another invitation was already accepted for it.
-        $slotTaken = PreseasonInvitation::where('game_id', $game->id)
-            ->where('id', '!=', $invitation->id)
-            ->where('slot', $invitation->slot)
-            ->where('status', PreseasonInvitation::STATUS_ACCEPTED)
-            ->exists();
+            // Lock the whole slot before checking anything: the check and
+            // the updates below become atomic.
+            $slotRows = PreseasonInvitation::where('game_id', $game->id)
+                ->where('slot', $invitation->slot)
+                ->lockForUpdate()
+                ->get();
 
-        if ($slotTaken) {
-            return null;
-        }
+            // Re-read the invitation from the locked rows: a concurrent
+            // accept of this same invitation may have already won.
+            $fresh = $slotRows->firstWhere('id', $invitation->id);
+            if ($fresh === null || $fresh->status !== PreseasonInvitation::STATUS_PENDING) {
+                return null;
+            }
 
-        $invitation->update(['status' => PreseasonInvitation::STATUS_ACCEPTED]);
+            // The slot is taken if another invitation was already accepted for it.
+            $slotTaken = $slotRows->contains(
+                fn ($row) => $row->id !== $invitation->id
+                    && $row->status === PreseasonInvitation::STATUS_ACCEPTED
+            );
 
-        // Decline the rival invitations for the same slot so they don't linger.
-        PreseasonInvitation::where('game_id', $game->id)
-            ->where('id', '!=', $invitation->id)
-            ->where('slot', $invitation->slot)
-            ->where('status', PreseasonInvitation::STATUS_PENDING)
-            ->update(['status' => PreseasonInvitation::STATUS_DECLINED]);
+            if ($slotTaken) {
+                return null;
+            }
 
-        return $invitation->slot;
+            $fresh->update(['status' => PreseasonInvitation::STATUS_ACCEPTED]);
+
+            // Decline the rival invitations for the same slot so they don't linger.
+            PreseasonInvitation::where('game_id', $game->id)
+                ->where('id', '!=', $invitation->id)
+                ->where('slot', $invitation->slot)
+                ->where('status', PreseasonInvitation::STATUS_PENDING)
+                ->update(['status' => PreseasonInvitation::STATUS_DECLINED]);
+
+            return $invitation->slot;
+        });
     }
 
     /**
