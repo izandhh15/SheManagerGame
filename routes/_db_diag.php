@@ -38,12 +38,24 @@ Route::get('/_db-diag/{token}', function (string $token) {
         } catch (\Throwable $e) {
             $directError = $e->getMessage();
         }
+
+        // Try creating users table from scratch to see the real error
+        $createError = null;
+        try {
+            $pdo->exec('DROP TABLE IF EXISTS "users"');
+            $pdo->exec('CREATE TABLE "users" ("id" bigserial PRIMARY KEY, "name" varchar(255) NOT NULL, "email" varchar(255) NOT NULL)');
+            $pdo->exec('ALTER TABLE "users" ADD CONSTRAINT "users_email_unique" UNIQUE ("email")');
+            $pdo->exec('DROP TABLE "users"');
+        } catch (\Throwable $e) {
+            $createError = $e->getMessage();
+        }
         
         return response()->json([
             'migrations_run' => count($migrations),
             'last_migrations' => array_slice($migrations, -5),
             'users_constraints' => $constraints,
             'direct_alter_error' => $directError,
+            'create_test_error' => $createError,
         ]);
     } catch (\Throwable $e) {
         return response()->json(['error' => $e->getMessage()], 500);
