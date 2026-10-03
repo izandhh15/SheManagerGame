@@ -86,4 +86,7 @@ return [
     'data_attribution_prefix' => 'Données : ',
     'data_attribution_suffix' => ' et clubs',
 
+
+    // i18n-b review: legal notice label
+    'legal_notice' => 'Mentions légales',
 ];

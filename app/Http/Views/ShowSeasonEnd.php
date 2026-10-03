@@ -24,7 +24,7 @@ class ShowSeasonEnd
             ]);
 
             return redirect()->route('show-game', $gameId)
-                ->with('error', 'Error loading season summary: ' . $e->getMessage());
+                ->with('error', __('messages.season_summary_load_error'));
         }
     }
 
@@ -48,7 +48,7 @@ class ShowSeasonEnd
             ->count();
         if ($unplayedMatches > 0) {
             return redirect()->route('show-game', $gameId)
-                ->with('error', 'Season is not complete yet.');
+                ->with('error', __('messages.season_not_complete'));
         }
 
         $data = $this->seasonSummaryService->buildSeasonSummary($game);

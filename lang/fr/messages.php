@@ -235,4 +235,16 @@ return [
     'naming_rights_search_cooldown' => 'Ton agence commerciale est encore en train de sonder le marché. Attends quelques jours avant de chercher à nouveau.',
     'naming_rights_search_unaffordable' => 'Tu n\'as pas le budget pour la commission de l\'agence commerciale.',
     'naming_rights_board_full' => 'Tu as déjà le maximum d\'offres sur la table. Acceptes-en une ou refuse-les avant d\'en chercher d\'autres.',
+
+    // i18n-b review: poach youth player + generic error flashes
+    'poach_not_enough_budget' => 'Budget insuffisant (:fee€ nécessaires).',
+    'poach_player_gone' => ':name n\'est plus disponible.',
+    'poach_refused' => ':team refuse de négocier pour :name. L\'approche a coûté :cost€ en recrutement.',
+    'poach_success' => ':name rejoint ton centre de formation !',
+    'season_summary_load_error' => 'Impossible de charger le résumé de la saison. Réessaie.',
+    'new_season_start_error' => 'Impossible de lancer la nouvelle saison. Réessaie.',
+    'lineup_confirmed' => 'Composition confirmée ! Clique sur Continuer pour jouer le match.',
+
+    // i18n-b review: poach youth player social buzz
+    'poach_buzz' => '🚨 :team \'vole\' la pépite :player (:potential de potentiel) à un centre rival.',
 ];

@@ -84,10 +84,10 @@
             @if(!empty($pressConference['needed']))
                 @php
                     $pcReasonLabels = [
-                        'final' => app()->getLocale() === 'es' ? 'de la final' : 'the final',
-                        'derby' => app()->getLocale() === 'es' ? 'del derbi' : 'the derby',
-                        'european' => app()->getLocale() === 'es' ? 'de la noche europea' : 'the European night',
-                        'rival' => app()->getLocale() === 'es' ? 'del duelo contra un rival directo' : 'the clash with a direct rival',
+                        'final' => __('game.press_reason_final'),
+                        'derby' => __('game.press_reason_derby'),
+                        'european' => __('game.press_reason_european'),
+                        'rival' => __('game.press_reason_rival'),
                     ];
                     $pcReason = $pcReasonLabels[$pressConference['reasons'][0] ?? 'rival'] ?? '';
                 @endphp
@@ -95,16 +95,14 @@
                     <div class="text-3xl">🎤</div>
                     <div class="flex-1">
                         <p class="font-semibold text-text-primary">
-                            {{ app()->getLocale() === 'es' ? 'Rueda de prensa antes ' . $pcReason : 'Press conference before ' . $pcReason }}
+                            {{ __('game.press_before_title', ['reason' => $pcReason]) }}
                         </p>
                         <p class="text-sm text-text-secondary">
-                            {{ app()->getLocale() === 'es'
-                                ? 'Los periodistas quieren oírte. Tus palabras pueden subir o bajar la moral del equipo.'
-                                : 'Journalists want to hear from you. Your words can raise or lower team morale.' }}
+                            {{ __('game.press_morale_hint') }}
                         </p>
                     </div>
                     <a href="{{ $pressConference['url'] }}" class="shrink-0 px-4 py-2 rounded-lg bg-accent-blue text-white text-sm font-bold uppercase tracking-wide text-center">
-                        {{ app()->getLocale() === 'es' ? 'Atender a la prensa' : 'Face the press' }}
+                        {{ __('game.press_face_button') }}
                     </a>
                 </div>
             @endif

@@ -126,7 +126,7 @@ export function drawStatsRow(ctx, stats, { padding, contentWidth, y }) {
     return y;
 }
 
-export function drawBrandFooter(ctx, width, y, { tagline = 'Juega a ser seleccionador en shemanager.wasmer.app' } = {}) {
+export function drawBrandFooter(ctx, width, y, { tagline = '' } = {}) {
     const padding = DEFAULT_PADDING;
 
     y += 16;
@@ -151,13 +151,15 @@ export function drawBrandFooter(ctx, width, y, { tagline = 'Juega a ser seleccio
 
     y += badgeHeight + 18;
 
-    // Tagline
-    ctx.fillStyle = COLORS.muted;
-    ctx.font = '400 11px Inter, sans-serif';
-    const tagWidth = ctx.measureText(tagline).width;
-    ctx.fillText(tagline, (width - tagWidth) / 2, y);
+    // Tagline (localized, passed from the view — never hardcoded here)
+    if (tagline) {
+        ctx.fillStyle = COLORS.muted;
+        ctx.font = '400 11px Inter, sans-serif';
+        const tagWidth = ctx.measureText(tagline).width;
+        ctx.fillText(tagline, (width - tagWidth) / 2, y);
 
-    y += padding;
+        y += padding;
+    }
     return y;
 }
 

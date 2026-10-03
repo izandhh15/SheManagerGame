@@ -526,7 +526,6 @@ return [
     'knockout_not_started' => 'A fase eliminatória ainda não começou',
     'knockout_not_started_desc' => 'A fase eliminatória será gerada automaticamente ao terminar a fase de grupos.',
     'knockout_generating' => 'A gerar quadro eliminatório...',
-    'knockout_qualified' => 'Qualificado para as eliminatórias',
 
     // Formato Suíço UEFA - Fase de Liga
     'league_phase' => 'Fase de Liga',
@@ -735,7 +734,7 @@ return [
     'friendly_venue_requested' => 'Pedido enviado: :club decidirá se cede :stadium.',
     'friendly_venue_accepted' => 'Aceite! Jogarás em :stadium (:club).',
     'friendly_venue_rejected' => ':club recusa ceder :stadium: :excuse Será jogado em campo neutro.',
-    'friendly_venue_mens_accepted' => 'Aceite! Jogarás em :stadium.',
+    'friendly_venue_mens_accepted' => 'Aceite! Jogarás em :stadium por :fee €.',
     'friendly_venue_mens_rejected' => 'O clube masculino recusa ceder :stadium: :excuse Será jogado em campo neutro.',
     // Desculpas de clubes femininos (pedido de recinto)
     'venue_excuse_derby' => 'Temos dérbi essa semana e precisamos do campo em perfeitas condições.',
@@ -798,4 +797,72 @@ return [
 
     // Resumo do jogo
     'lineup_unavailable' => 'Onze inicial não disponível.',
+
+    // i18n-b review: hardcoded view/service texts
+    'unknown' => 'Desconhecido',
+    'press_published' => 'As tuas declarações já estão a circular na rede...',
+    'board_warning' => 'A direção está a perder a paciência. Cuidado com o que dizes!',
+    'social_empty' => 'Ainda sem atividade. Joga partidas e atende a imprensa para os adeptos falarem de ti.',
+    'social_reply_circulating' => 'A tua resposta já está a circular na rede...',
+    'social_badge_journalist' => 'Jornalista',
+    'social_tag_sacked' => 'Despedimento',
+    'social_tag_rumor' => 'Rumor',
+    'social_tag_news' => 'Notícia',
+    'social_you_badge' => 'TU',
+    'social_your_reply' => 'A tua resposta',
+    'social_reply_hater' => 'Responder ao hater',
+    'social_publish_reply' => 'Publicar resposta',
+    'press_reason_final' => 'da final',
+    'press_reason_derby' => 'do dérbi',
+    'press_reason_european' => 'da noite europeia',
+    'press_reason_rival' => 'do duelo contra um rival direto',
+    'press_before_title' => 'Conferência de imprensa antes :reason',
+    'press_morale_hint' => 'Os jornalistas querem ouvir-te. As tuas palavras podem subir ou baixar a moral da equipa.',
+    'press_face_button' => 'Atender a imprensa',
+    'press_statements_hint' => 'As tuas declarações vão gerar reações na rede social...',
+    'press_make_statement' => 'Fazer declarações',
+    'press_skip' => 'Saltar',
+    'press_conference_title' => 'Conferência de imprensa',
+    'press_reason_label_final' => 'Final',
+    'press_reason_label_derby' => 'Dérbi',
+    'press_reason_label_european' => 'Noite europeia',
+    'press_reason_label_rival' => 'Rival direto',
+    'youth_scout_title' => 'Olheiro de academias',
+    'youth_scout_subtitle' => 'Os teus olheiros encontraram estas pérolas em academias rivais. Podes tentar "roubá-las" pagando uma compensação.',
+    'youth_scout_age_unit' => 'anos',
+    'youth_scout_ovr_unit' => 'méd.',
+    'youth_scout_potential' => 'Potencial',
+    'youth_scout_try_sign' => 'Tentar contratar',
+    'youth_scout_empty' => 'Os teus olheiros ainda não encontraram pérolas em academias rivais.',
+    'nav_social' => 'Rede Social',
+    'nav_club_social' => 'Redes do clube',
+    'nav_rival_academies' => 'Academias rivais',
+    'nav_national_social' => 'Redes da seleção',
+    'image_tagline_squad' => 'Sê selecionadora em shemanager.wasmer.app',
+    'image_tagline_season' => 'Dirige o teu clube em shemanager.wasmer.app',
+    'national_squad_event_injury' => ':name lesionou-se e é baixa para esta janela.',
+    'national_squad_event_resignation' => ':name anunciou a sua retirada da seleção.',
+    'national_team_injury_title' => '🚨 :name lesionou-se',
+    'national_team_injury_message' => ':name é baixa para esta janela. Precisas de convocar uma substituta.',
+    'national_team_resignation_title' => '📢 :name retira-se',
+    'national_team_resignation_message' => ':name anunciou a sua retirada da seleção.',
+
+    // i18n-b review: social like button title
+    'social_like' => 'Gosto',
+
+    // i18n-b review: verified newsroom tooltip
+    'social_verified_newsroom' => 'Conta verificada da redação',
+
+    // i18n-b review: hardcoded view/service texts
+    'press_prematch_hint' => 'Os jornalistas querem ouvir-te antes do jogo. Cuidado com o que dizes: as tuas palavras sobem ou baixam a moral do balneário e a confiança da direção.',
+    'press_already_done' => 'Já atendeste a imprensa antes deste jogo.',
+    'press_effect_morale' => 'Moral',
+    'press_effect_confidence' => 'Confiança',
+    'press_back_to_lineup' => 'Voltar ao onze',
+    'press_answer_button' => 'Responder à imprensa',
+
+    // i18n-b review: hardcoded view/service texts
+    'press_postmatch_hint' => 'Cuidado com o que dizes: os adeptos estão nas redes e a direção também as lê.',
+    'press_already_done_postmatch' => 'Já atendeste a imprensa após este jogo.',
+    'press_see_reactions' => 'Ver reações',
 ];

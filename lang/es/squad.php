@@ -403,4 +403,12 @@ return [
     'registration_readonly' => 'Puedes inscribir jugadoras y modificar dorsales solo durante las ventanas de fichajes.',
     'u23_badge_label' => 'Sub-23',
     'u23_badge_tooltip' => 'Apto para dorsal de cantera — menor de 24 a 1 de enero de la temporada.',
+
+    // i18n-b review: lineup validation errors + missing injury types
+    'lineup_must_select_11' => 'Debes seleccionar exactamente 11 jugadoras.',
+    'lineup_duplicate_players' => 'Jugadoras duplicadas detectadas.',
+    'lineup_invalid_slot' => 'Asignación de posición no válida.',
+    'lineup_slot_player_not_in_lineup' => 'Posición asignada a una jugadora que no está en la alineación.',
+    'injury_ligament_damage' => 'Daño en los ligamentos',
+    'injury_knee_injury' => 'Lesión de rodilla',
 ];

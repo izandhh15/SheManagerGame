@@ -95,7 +95,7 @@
                     <form method="POST" action="{{ route('game.national-venues.store', $game->id) }}"
                           id="match-{{ $match->id }}"
                           class="rounded-xl border border-border-default bg-surface-800 p-5 space-y-4 scroll-mt-24"
-                          x-data="{ venueType: 'national', offer: 0, maxBudget: {{ $federationBudget }} }">
+                          x-data="{ venueType: 'national', offer: 0, maxBudget: {{ $federationBudget }}, appLocale: @js(\App\Support\LocaleFormat::jsLocale()), fmtEUR(v) { return new Intl.NumberFormat(this.appLocale, { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(Number(v)); } }">
                         @csrf
                         <input type="hidden" name="match_id" value="{{ $match->id }}">
 
@@ -201,13 +201,13 @@
                              class="rounded-lg border border-accent-green/30 bg-accent-green/5 p-4">
                             <div class="flex items-center justify-between mb-2">
                                 <label class="text-sm font-semibold text-text-body">💰 {{ __('game.venue_org_offer') }}</label>
-                                <span class="text-base font-bold text-accent-green">€<span x-text="Number(offer).toLocaleString('es-ES')"></span></span>
+                                <span class="text-base font-bold text-accent-green" x-text="fmtEUR(offer)"></span>
                             </div>
                             <input type="range" name="offer" x-model.number="offer" min="0" :max="maxBudget" step="100000"
                                    class="w-full accent-green-500">
                             <div class="flex justify-between text-[11px] text-text-muted mt-1">
-                                <span>€0</span>
-                                <span>{{ __('game.venue_org_budget_left', ['amount' => number_format($federationBudget, 0, ',', '.')]) }}</span>
+                                <span x-text="fmtEUR(0)"></span>
+                                <span>{{ __('game.venue_org_budget_left', ['amount' => (new \NumberFormatter(\App\Support\LocaleFormat::jsLocale(), \NumberFormatter::DECIMAL))->format($federationBudget)]) }}</span>
                             </div>
                             <p class="text-xs text-text-muted mt-2">{{ __('game.venue_org_offer_hint') }}</p>
                         </div>

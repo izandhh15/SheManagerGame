@@ -400,4 +400,12 @@ return [
     'registration_readonly' => 'Podes inscrever jogadoras e modificar dorsais apenas durante as janelas de transferências.',
     'u23_badge_label' => 'Sub-23',
     'u23_badge_tooltip' => 'Apta para dorsal da formação — menor de 24 a 1 de janeiro da época.',
+
+    // i18n-b review: lineup validation errors + missing injury types
+    'lineup_must_select_11' => 'Tens de selecionar exatamente 11 jogadoras.',
+    'lineup_duplicate_players' => 'Jogadoras duplicadas detetadas.',
+    'lineup_invalid_slot' => 'Atribuição de posição inválida.',
+    'lineup_slot_player_not_in_lineup' => 'Posição atribuída a uma jogadora que não está no onze.',
+    'injury_ligament_damage' => 'Lesão ligamentar',
+    'injury_knee_injury' => 'Lesão no joelho',
 ];

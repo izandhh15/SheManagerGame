@@ -6,12 +6,11 @@
     </x-slot>
 
     @php
-        $es = app()->getLocale() === 'es';
         $reasonLabels = [
-            'final' => $es ? 'Final' : 'Final',
-            'derby' => $es ? 'Derbi' : 'Derby',
-            'european' => $es ? 'Noche europea' : 'European night',
-            'rival' => $es ? 'Rival directo' : 'Direct rival',
+            'final' => __('game.press_reason_label_final'),
+            'derby' => __('game.press_reason_label_derby'),
+            'european' => __('game.press_reason_label_european'),
+            'rival' => __('game.press_reason_label_rival'),
         ];
         $answersByKey = [];
         foreach ($questions as $q) {
@@ -24,7 +23,7 @@
     <div class="max-w-2xl mx-auto px-4 pb-8">
         <div class="mt-6 mb-4">
             <h2 class="font-heading text-2xl lg:text-3xl font-bold uppercase tracking-wide text-text-primary">
-                🎤 {{ $es ? 'Rueda de prensa' : 'Press conference' }}
+                🎤 {{ __('game.press_conference_title') }}
             </h2>
             <p class="text-sm text-text-secondary mt-1">
                 {{ $match->homeTeam?->name }} - {{ $match->awayTeam?->name }}
@@ -37,9 +36,7 @@
                 @endforeach
             </div>
             <p class="text-xs text-text-faint mt-2">
-                {{ $es
-                    ? 'Los periodistas quieren oírte antes del partido. Cuidado con lo que dices: tus palabras suben o bajan la moral del vestuario y la confianza de la directiva.'
-                    : 'Journalists want to hear from you before the match. Watch what you say: your words raise or lower dressing-room morale and board confidence.' }}
+                {{ __('game.press_prematch_hint') }}
             </p>
         </div>
 
@@ -47,7 +44,7 @@
             <div class="p-6 rounded-xl bg-surface-800 border border-border-default">
                 <p class="text-4xl mb-2 text-center">✅</p>
                 <p class="text-text-primary font-semibold text-center">
-                    {{ $es ? 'Ya atendiste a la prensa antes de este partido.' : 'You already faced the press before this match.' }}
+                    {{ __('game.press_already_done') }}
                 </p>
 
                 <div class="mt-4 space-y-3">
@@ -59,8 +56,8 @@
                                 <p class="text-xs text-text-faint italic">«{{ $question['question'] }}»</p>
                                 <p class="text-sm text-text-primary mt-1">🗣️ {{ $a['label'] }}</p>
                                 <p class="text-xs mt-1 {{ ($a['morale'] + $a['confidence']) >= 0 ? 'text-accent-green' : 'text-accent-red' }}">
-                                    {{ $es ? 'Moral' : 'Morale' }} {{ $a['morale'] >= 0 ? '+' : '' }}{{ $a['morale'] }} ·
-                                    {{ $es ? 'Confianza' : 'Confidence' }} {{ $a['confidence'] >= 0 ? '+' : '' }}{{ $a['confidence'] }}
+                                    {{ __('game.press_effect_morale') }} {{ $a['morale'] >= 0 ? '+' : '' }}{{ $a['morale'] }} ·
+                                    {{ __('game.press_effect_confidence') }} {{ $a['confidence'] >= 0 ? '+' : '' }}{{ $a['confidence'] }}
                                 </p>
                             </div>
                         @endif
@@ -69,7 +66,7 @@
 
                 <div class="text-center mt-4">
                     <a href="{{ route('game.lineup', $game->id) }}" class="inline-block px-4 py-2 rounded-lg bg-accent-blue text-white text-sm font-semibold">
-                        {{ $es ? 'Volver a la alineación' : 'Back to the lineup' }}
+                        {{ __('game.press_back_to_lineup') }}
                     </a>
                 </div>
             </div>
@@ -103,10 +100,10 @@
 
                 <div class="flex gap-3 pt-2">
                     <button type="submit" class="flex-1 px-4 py-3 rounded-xl bg-accent-blue text-white font-bold uppercase tracking-wide">
-                        {{ $es ? 'Responder a la prensa' : 'Answer the press' }}
+                        {{ __('game.press_answer_button') }}
                     </button>
                     <a href="{{ route('game.lineup', $game->id) }}" class="px-4 py-3 rounded-xl bg-surface-700 text-text-secondary font-semibold">
-                        {{ $es ? 'Pasar' : 'Skip' }}
+                        {{ __('game.press_skip') }}
                     </a>
                 </div>
             </form>

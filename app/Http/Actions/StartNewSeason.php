@@ -30,7 +30,7 @@ class StartNewSeason
             Game::where('id', $gameId)->update(['season_transitioning_at' => null]);
 
             return redirect()->route('show-game', $gameId)
-                ->with('error', 'Error starting the new season: ' . $e->getMessage());
+                ->with('error', __('messages.new_season_start_error'));
         }
     }
 

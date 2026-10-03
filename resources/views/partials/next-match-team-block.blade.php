@@ -5,7 +5,7 @@
     $showStanding = ($showStanding ?? false) && $standing;
     $showForm = $showForm ?? false;
     $position = $standing?->position;
-    $ordinal = $position === 1 ? 'st' : ($position === 2 ? 'nd' : ($position === 3 ? 'rd' : 'th'));
+    $ordinalLabel = $position !== null ? \App\Support\LocaleFormat::ordinal((int) $position) : '';
 @endphp
 <div class="flex-1 flex flex-col items-center text-center min-w-0">
     <x-team-crest :team="$team" class="w-14 h-14 md:w-16 md:h-16 mb-2" />
@@ -13,7 +13,7 @@
 
     @if($showStanding)
         <div class="text-xs text-text-muted mt-1.5">
-            {{ $position }}{{ $ordinal }} &middot; {{ $standing->points }} {{ __('game.pts') }}
+            {{ $ordinalLabel }} &middot; {{ $standing->points }} {{ __('game.pts') }}
         </div>
     @endif
 

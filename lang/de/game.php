@@ -735,7 +735,7 @@ return [
     'friendly_venue_requested' => 'Anfrage gesendet: :club entscheidet, ob :stadium überlassen wird.',
     'friendly_venue_accepted' => 'Angenommen! Du spielst in :stadium (:club).',
     'friendly_venue_rejected' => ':club lehnt die Überlassung von :stadium ab: :excuse Gespielt wird auf neutralem Platz.',
-    'friendly_venue_mens_accepted' => 'Angenommen! Du spielst in :stadium.',
+    'friendly_venue_mens_accepted' => 'Angenommen! Du spielst in :stadium für :fee €.',
     'friendly_venue_mens_rejected' => 'Der Männerclub lehnt die Überlassung von :stadium ab: :excuse Gespielt wird auf neutralem Platz.',
     // Excusas de clubes femeninos (petición de sede)
     'venue_excuse_derby' => 'Wir haben in dieser Woche ein Derby und brauchen den Platz in perfektem Zustand.',
@@ -798,4 +798,72 @@ return [
 
     // Match summary
     'lineup_unavailable' => 'Aufstellung nicht verfügbar.',
+
+    // i18n-b review: hardcoded view/service texts
+    'unknown' => 'Unbekannt',
+    'press_published' => 'Deine Aussagen machen bereits die Runde im Netz...',
+    'board_warning' => 'Der Vorstand verliert die Geduld. Pass auf, was du sagst!',
+    'social_empty' => 'Noch keine Aktivität. Spiele Matches und stell dich der Presse, damit die Fans über dich reden.',
+    'social_reply_circulating' => 'Deine Antwort macht bereits die Runde im Netz...',
+    'social_badge_journalist' => 'Journalist',
+    'social_tag_sacked' => 'Entlassung',
+    'social_tag_rumor' => 'Gerücht',
+    'social_tag_news' => 'News',
+    'social_you_badge' => 'DU',
+    'social_your_reply' => 'Deine Antwort',
+    'social_reply_hater' => 'Dem Hater antworten',
+    'social_publish_reply' => 'Antwort posten',
+    'press_reason_final' => 'des Finales',
+    'press_reason_derby' => 'des Derbys',
+    'press_reason_european' => 'der Europapokal-Nacht',
+    'press_reason_rival' => 'des Duells gegen einen direkten Rivalen',
+    'press_before_title' => 'Pressekonferenz vor :reason',
+    'press_morale_hint' => 'Die Journalisten wollen dich hören. Deine Worte können die Moral des Teams heben oder senken.',
+    'press_face_button' => 'Stell dich der Presse',
+    'press_statements_hint' => 'Deine Aussagen werden Reaktionen in den sozialen Medien auslösen...',
+    'press_make_statement' => 'Aussage machen',
+    'press_skip' => 'Überspringen',
+    'press_conference_title' => 'Pressekonferenz',
+    'press_reason_label_final' => 'Finale',
+    'press_reason_label_derby' => 'Derby',
+    'press_reason_label_european' => 'Europapokal-Nacht',
+    'press_reason_label_rival' => 'Direkter Rivale',
+    'youth_scout_title' => 'Akademie-Scout',
+    'youth_scout_subtitle' => 'Deine Scouts haben diese Talente in rivalisierenden Akademien gefunden. Du kannst versuchen, sie gegen eine Entschädigung zu „stehlen“.',
+    'youth_scout_age_unit' => 'Jahre',
+    'youth_scout_ovr_unit' => 'Ges.',
+    'youth_scout_potential' => 'Potenzial',
+    'youth_scout_try_sign' => 'Verpflichten',
+    'youth_scout_empty' => 'Deine Scouts haben in rivalisierenden Akademien noch keine Talente gefunden.',
+    'nav_social' => 'Soziales',
+    'nav_club_social' => 'Club-News',
+    'nav_rival_academies' => 'Rivalisierende Akademien',
+    'nav_national_social' => 'Nationalteam-News',
+    'image_tagline_squad' => 'Werde Managerin auf shemanager.wasmer.app',
+    'image_tagline_season' => 'Führe deinen Club auf shemanager.wasmer.app',
+    'national_squad_event_injury' => ':name ist verletzt und fällt für dieses Fenster aus.',
+    'national_squad_event_resignation' => ':name hat ihren Rücktritt aus der Nationalmannschaft verkündet.',
+    'national_team_injury_title' => '🚨 :name ist verletzt',
+    'national_team_injury_message' => ':name fällt für dieses Fenster aus. Du musst eine Ersatzspielerin nominieren.',
+    'national_team_resignation_title' => '📢 :name tritt zurück',
+    'national_team_resignation_message' => ':name hat ihren Rücktritt aus der Nationalmannschaft verkündet.',
+
+    // i18n-b review: social like button title
+    'social_like' => 'Gefällt mir',
+
+    // i18n-b review: verified newsroom tooltip
+    'social_verified_newsroom' => 'Verifiziertes Redaktionskonto',
+
+    // i18n-b review: hardcoded view/service texts
+    'press_prematch_hint' => 'Die Journalisten wollen dich vor dem Spiel hören. Pass auf, was du sagst: Deine Worte heben oder senken die Kabinenmoral und das Vertrauen des Vorstands.',
+    'press_already_done' => 'Du hast dich vor diesem Spiel bereits der Presse gestellt.',
+    'press_effect_morale' => 'Moral',
+    'press_effect_confidence' => 'Vertrauen',
+    'press_back_to_lineup' => 'Zurück zur Aufstellung',
+    'press_answer_button' => 'Der Presse antworten',
+
+    // i18n-b review: hardcoded view/service texts
+    'press_postmatch_hint' => 'Pass auf, was du sagst: Die Fans sind in den sozialen Medien unterwegs – und der Vorstand liest mit.',
+    'press_already_done_postmatch' => 'Du hast dich nach diesem Spiel bereits der Presse gestellt.',
+    'press_see_reactions' => 'Reaktionen ansehen',
 ];

@@ -60,7 +60,7 @@ $getZoneClass = function($position) use ($standingsZones, $borderColorMap) {
     })->toArray();
 
     $positionLabel = $playerStanding
-        ? $playerStanding->position . 'º'
+        ? \App\Support\LocaleFormat::ordinal((int) $playerStanding->position)
         : '';
     $seasonSubtitle = $game->formatted_season . ' · ' . $positionLabel;
 @endphp
@@ -96,6 +96,7 @@ $getZoneClass = function($position) use ($standingsZones, $borderColorMap) {
         'awayRecord' => __('season.away_record'),
         'otherCompetitions' => __('season.your_other_competitions'),
     ]),
+    tagline: @js(__('game.image_tagline_season')),
 })">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -398,7 +399,7 @@ $getZoneClass = function($position) use ($standingsZones, $borderColorMap) {
                                         <div class="flex items-center gap-2 text-sm @if($isPlayerTeam) bg-accent-blue/10 -mx-1 px-1 py-0.5 rounded-sm @endif">
                                             <x-team-crest :team="$team" class="w-4 h-4 shrink-0" />
                                             <span class="flex-1 truncate @if($isPlayerTeam) font-medium @endif">{{ $team->name }}</span>
-                                            <span class="text-xs text-text-secondary tabular-nums">{{ is_int($entry['position']) ? $entry['position'] . 'º' : $entry['position'] }}</span>
+                                            <span class="text-xs text-text-secondary tabular-nums">{{ is_int($entry['position']) ? \App\Support\LocaleFormat::ordinal($entry['position']) : $entry['position'] }}</span>
                                         </div>
                                         @endif
                                     @endforeach

@@ -35,7 +35,7 @@
                         <td class="px-4 py-3 text-sm text-text-primary">
                             {{ $user->name }}
                             @if($user->is_admin)
-                                <span class="ml-1 inline-flex items-center rounded-full bg-purple-500/10 px-2 py-0.5 text-xs font-medium text-purple-500 ring-1 ring-inset ring-purple-500/20">Admin</span>
+                                <span class="ml-1 inline-flex items-center rounded-full bg-purple-500/10 px-2 py-0.5 text-xs font-medium text-purple-500 ring-1 ring-inset ring-purple-500/20">{{ __('admin.admin_badge') }}</span>
                             @endif
                             @if($user->has_career_access)
                                 <span class="ml-1 inline-flex items-center rounded-full bg-accent-green/10 px-2 py-0.5 text-xs font-medium text-accent-green ring-1 ring-inset ring-accent-green/20">{{ __('admin.career_access') }}</span>

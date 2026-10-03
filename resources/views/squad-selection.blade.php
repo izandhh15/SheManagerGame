@@ -18,6 +18,7 @@ $tabs = [
         teamCrestUrl: @js($game->team->image),
         fifaCode: @js(strtolower($game->team->fifa_code ?? 'team')),
         gameId: @js($game->id),
+        tagline: @js(__('game.image_tagline_squad')),
     })" class="min-h-screen pb-0 md:pb-24">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
 

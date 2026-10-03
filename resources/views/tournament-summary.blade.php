@@ -115,6 +115,7 @@ $awayGoalLines = $formatGoalGroup($awayGoals);
             'goals' => __('squad.goals'),
             'assists' => __('squad.assists'),
         ]),
+        tagline: @js(__('game.image_tagline_squad')),
     })">
 
         {{-- ============================================ --}}

@@ -228,4 +228,9 @@ return [
     'squad_registration_required_message' => 'Du hast :count nicht registrierte Spielerinnen. Registriere deinen Kader, bevor die Saison beginnt — nicht registrierte Spielerinnen können nicht nominiert werden.',
     'unenrolled_before_window_close_title' => 'Nicht registrierte Spielerinnen — :window-Fenster schließt',
     'unenrolled_before_window_close_message' => 'Du hast :count nicht registrierte Spielerinnen. Dies ist dein letzter Spieltag, um sie vor Schließung des Transferfensters zu registrieren — ohne Rückennummer können sie nicht nominiert werden.',
+
+    // i18n-b review: missing injury types for AI-generated injuries
+    'injury_ligament_damage' => 'Bänderverletzung',
+    'injury_knee_injury' => 'Knieverletzung',
+    'injury_unknown_injury' => 'eine Verletzung',
 ];
