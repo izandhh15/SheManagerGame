@@ -112,7 +112,7 @@ class ShowScheduleFriendly
             'maxPerWindow' => self::MAX_PER_WINDOW,
             'stageService' => $this->stageService,
             'stageConfig' => $game->training_stage,
-            'federationBudget' => $game->federation_budget ?? 2000000,
+            'federationBudget' => $game->federation_budget ?? Game::DEFAULT_FEDERATION_BUDGET,
             'stageDurations' => TrainingStageService::DURATIONS,
             'stageIntensities' => TrainingStageService::INTENSITIES,
             'stageFocuses' => TrainingStageService::FOCUSES,

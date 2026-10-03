@@ -109,6 +109,13 @@ class Game extends Model
     public const MODE_CAREER_PRO = 'career_pro';
     public const MODE_TOURNAMENT = 'tournament';
 
+    /**
+     * Fallback federation budget (€) when games.federation_budget is null.
+     * Mirrors the column default (migration 000012); games created before
+     * that migration have no value stored.
+     */
+    public const DEFAULT_FEDERATION_BUDGET = 2000000;
+
     // Season goals
     public const GOAL_TITLE = 'title';
     public const GOAL_EUROPA_LEAGUE = 'europa_league';

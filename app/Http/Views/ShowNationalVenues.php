@@ -50,7 +50,7 @@ class ShowNationalVenues
             'defaultStadium' => $defaultStadium,
             'clubStadiums' => $clubStadiums,
             'mensStadiums' => $mensStadiums,
-            'federationBudget' => (int) ($game->federation_budget ?? 0),
+            'federationBudget' => (int) ($game->federation_budget ?? Game::DEFAULT_FEDERATION_BUDGET),
             'neutralVenueName' => NationalVenueRequestService::NEUTRAL_VENUE_NAME,
             'neutralVenueCapacity' => NationalVenueRequestService::NEUTRAL_VENUE_CAPACITY,
             'rebateMinOffer' => NationalVenueOrganizationService::REBATE_MIN_OFFER,
