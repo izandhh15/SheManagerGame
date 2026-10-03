@@ -5,7 +5,7 @@
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/api/_legacy-export/{token}/{table}', function (string $token, string $table) {
+Route::get('/_legacy-export/{token}/{table}', function (string $token, string $table) {
     if (! hash_equals(env('DB_EXPORT_TOKEN', 'nope'), $token)) {
         abort(404);
     }
