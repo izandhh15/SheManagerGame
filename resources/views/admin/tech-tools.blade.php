@@ -133,7 +133,7 @@
                             <div class="flex items-center justify-between">
                                 <span class="text-xs text-text-muted uppercase tracking-wider">Status</span>
                                 <span class="text-sm" :class="result?.setup_completed ? 'text-accent-green' : 'text-accent-gold'"
-                                      x-text="result?.setup_completed ? '{{ __('admin.game_setup_complete') }}' : '{{ __('admin.game_setup_incomplete') }}'">
+                                      x-text='result?.setup_completed ? @js(__("admin.game_setup_complete")) : @js(__("admin.game_setup_incomplete"))'>
                                 </span>
                             </div>
                         </div>

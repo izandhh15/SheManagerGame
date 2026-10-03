@@ -39,7 +39,7 @@
         <x-input-error class="mt-2" :messages="$errors->get('name')" />
     </div>
 
-    <div x-data="{ username: '{{ old('username', $user->username ?? '') }}' }">
+    <div x-data='{ username: @js(old("username", $user->username ?? "")) }'>
         <x-input-label for="username" :value="__('profile.username')" />
         <x-text-input id="username" name="username" type="text" class="mt-1 block w-full" x-model="username" required autocomplete="username" />
         <div class="mt-1 flex justify-between">
