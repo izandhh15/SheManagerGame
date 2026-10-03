@@ -126,8 +126,8 @@ class CountryConfig
     /**
      * Get all competition IDs at a tier, including siblings.
      *
-     * Most tiers have a single competition (e.g. ESP1 at tier 1). Primera RFEF
-     * is the first to use siblings — tier 3 returns ['ESP3A', 'ESP3B'].
+     * Most tiers have a single competition (e.g. ESP1 at tier 1). Segunda Federación
+     * is the first to use siblings — tier 3 returns ['ESP3A', 'ESP3B', 'ESP3C'].
      *
      * @return string[]
      */

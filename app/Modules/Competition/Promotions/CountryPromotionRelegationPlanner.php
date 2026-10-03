@@ -1234,8 +1234,8 @@ class CountryPromotionRelegationPlanner
     /**
      * Pick a non-reserve from the deeper-tier $sourceComp to backfill the
      * hole left by the cascading reserve. Skip teams already promoted or
-     * already used as compensation. Walk bottom-up (worst position first)
-     * so the best teams in the deeper tier aren't randomly elevated.
+     * already used as compensation. Walk top-down (best position first)
+     * so the best teams in the deeper tier get the compensation spot.
      *
      * @param  array<string, bool>  $usedAsCompensation
      * @param  array<string, bool>  $alreadyPromoted

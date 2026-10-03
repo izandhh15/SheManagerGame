@@ -209,13 +209,6 @@ class StandingsCalculator
      *
      * When standings have group_label set (e.g. World Cup), positions are
      * recalculated within each group separately.
-     */
-    /**
-     * Recalculate positions for all teams in a competition.
-     * Uses a single bulk UPDATE with CASE WHEN instead of per-row updates.
-     *
-     * When standings have group_label set (e.g. World Cup), positions are
-     * recalculated within each group separately.
      *
      * @param  bool  $updatePrevPosition  Whether to snapshot prev_position. Pass false
      *                                     when recalculating after the deferred (user's)
