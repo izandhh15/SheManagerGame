@@ -29,6 +29,25 @@ Route::get('/_db-migrate/{token}/{step?}', function (string $token, ?string $ste
     }
 });
 
+Route::get('/_db-seed/{token}', function (string $token) {
+    if (! hash_equals(env('DB_EXPORT_TOKEN', 'nope'), $token)) {
+        abort(404);
+    }
+
+    try {
+        Artisan::call('app:seed-reference-data', ['--fresh' => true]);
+        return response()->json([
+            'ok' => true,
+            'output' => substr(Artisan::output(), -2000),
+        ]);
+    } catch (\Throwable $e) {
+        return response()->json([
+            'ok' => false,
+            'error' => $e->getMessage(),
+        ], 500);
+    }
+});
+
 Route::post('/_db-import/{token}', function (string $token, \Illuminate\Http\Request $request) {
     if (! hash_equals(env('DB_EXPORT_TOKEN', 'nope'), $token)) {
         abort(404);
