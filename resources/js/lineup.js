@@ -270,7 +270,7 @@ export default function lineupManager(config) {
                     total += player.overallScore;
                 }
             });
-            return Math.round(total / 11);
+            return Math.round(total / this.selectedPlayers.length);
         },
 
         get averageFitness() {
