@@ -1218,7 +1218,9 @@ class MatchSimulator
             }
 
             return match ($event->type) {
-                'goal' => MatchEventData::goal($event->teamId, $replacement->id, $event->minute),
+                // Preserve the original metadata (e.g. is_penalty): only the
+                // scorer changes, not how the goal was scored.
+                'goal' => new MatchEventData($event->teamId, $replacement->id, $event->minute, 'goal', $event->metadata),
                 'assist' => MatchEventData::assist($event->teamId, $replacement->id, $event->minute),
                 'yellow_card' => MatchEventData::yellowCard($event->teamId, $replacement->id, $event->minute),
                 // Reassigned reds can't carry a "second yellow" narrative because
