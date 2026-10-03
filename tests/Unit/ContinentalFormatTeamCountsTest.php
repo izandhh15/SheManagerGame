@@ -7,10 +7,13 @@ use App\Modules\Competition\Configs\EuropaLeagueConfig;
 use Tests\TestCase;
 
 /**
- * BAJA review: ChampionsLeagueConfig and EuropaLeagueConfig modeled the
- * men's 36-team Swiss format (TV table 1–36, zones 25–36, fallback
- * TV_REVENUE[36]), but data/2026 ships 28 UCL teams and 20 UEL teams.
- * The configs must match the real data.
+ * BAJA review: ChampionsLeagueConfig modeled the men's 36-team Swiss format
+ * (TV table 1–36, zones 25–36, fallback TV_REVENUE[36]), but data/2026
+ * ships 28 UCL teams. The config must match the real data.
+ *
+ * The Europa Cup is a pure knockout since 2026-27 (no league phase): no TV
+ * ranking money, no standings zones, no position factor, and prize money
+ * for its four knockout rounds (R16 €70K, QF €70K, SF €75K, champion €80K).
  */
 class ContinentalFormatTeamCountsTest extends TestCase
 {
@@ -39,26 +42,33 @@ class ContinentalFormatTeamCountsTest extends TestCase
         $this->assertSame(28, $eliminated[0]['maxPosition']);
     }
 
-    public function test_uel_tv_formula_spans_exactly_20_teams(): void
+    public function test_uel_has_no_tv_revenue_without_league_phase(): void
     {
         $config = new EuropaLeagueConfig();
 
-        // €65K base + €1K/position (€85K at 1st … €66K at 20th).
-        $this->assertSame(8_500_000, (int) $config->getTvRevenue(1));
-        $this->assertSame(6_600_000, (int) $config->getTvRevenue(20));
+        $this->assertSame(0, (int) $config->getTvRevenue(1));
+        $this->assertSame(0, (int) $config->getTvRevenue(16));
     }
 
-    public function test_uel_zones_do_not_exceed_20_teams(): void
+    public function test_uel_knockout_prize_money_covers_four_rounds(): void
     {
-        $zones = (new EuropaLeagueConfig())->getStandingsZones();
+        $config = new EuropaLeagueConfig();
 
-        $max = max(array_column($zones, 'maxPosition'));
-        $this->assertLessThanOrEqual(20, $max, 'no zone may extend past the 20 real teams');
+        // Keyed by rounds remaining after the one won: 0 is the final.
+        $this->assertSame(8_000_000, $config->getKnockoutPrizeMoney(0)); // champion
+        $this->assertSame(7_500_000, $config->getKnockoutPrizeMoney(1)); // reach final
+        $this->assertSame(7_500_000, $config->getKnockoutPrizeMoney(2)); // reach SF
+        $this->assertSame(7_000_000, $config->getKnockoutPrizeMoney(3)); // reach QF
+        $this->assertSame(0, $config->getKnockoutPrizeMoney(4)); // no fifth round
+    }
 
-        $playoff = array_values(array_filter($zones, fn (array $z) => $z['label'] === 'game.uel_knockout_playoff'));
-        $this->assertCount(1, $playoff);
-        // 20-team UEL: 1-12 direct to R16, 13-20 playoff (12 + 4 winners = 16).
-        $this->assertSame(13, $playoff[0]['minPosition']);
-        $this->assertSame(20, $playoff[0]['maxPosition']);
+    public function test_uel_has_flat_position_factor_and_no_league_phase_bonus_or_zones(): void
+    {
+        $config = new EuropaLeagueConfig();
+
+        $this->assertSame(1.0, $config->getPositionFactor(1));
+        $this->assertSame(1.0, $config->getPositionFactor(16));
+        $this->assertSame(0, $config->getLeaguePhaseQualificationBonus(1));
+        $this->assertSame([], $config->getStandingsZones());
     }
 }

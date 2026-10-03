@@ -14,9 +14,9 @@ use App\Models\GameMatch;
 use Illuminate\Support\Collection;
 
 /**
- * Handler for UEFA-style Swiss format competitions (Champions League, Europa League, Conference League).
+ * Handler for UEFA-style Swiss format competitions (the Champions League).
  *
- * League phase: 36 teams, 8 matchdays, single standings table.
+ * League phase: 28 teams, 8 matchdays, single standings table.
  * Knockout phase: Playoff (9-24) → R16 (top 8 + playoff winners) → QF → SF → Final.
  */
 class SwissFormatHandler extends CupCompetitionHandler

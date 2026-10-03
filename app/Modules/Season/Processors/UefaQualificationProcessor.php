@@ -114,8 +114,12 @@ class UefaQualificationProcessor implements SeasonProcessor
             return [];
         }
 
-        // Build a map of teamId => competitionId from league standings
+        // Build a map of teamId => competitionId from league standings,
+        // plus a parallel teamId => entry_round map. continental_slots may
+        // declare the entry round per position ('UELQ' => [5 => 1, 4 => 2])
+        // or use the legacy list syntax ([4, 5]) meaning entry round 1.
         $qualifications = []; // teamId => competitionId
+        $entryRounds = [];    // teamId => entry_round
         $standings = [];      // position => teamId (from the relevant league)
 
         foreach ($slots as $leagueId => $continentalAllocations) {
@@ -128,9 +132,13 @@ class UefaQualificationProcessor implements SeasonProcessor
             $standings = $leagueStandings;
 
             foreach ($continentalAllocations as $continentalId => $positions) {
-                foreach ($positions as $position) {
-                    if (isset($leagueStandings[$position])) {
-                        $qualifications[$leagueStandings[$position]] = $continentalId;
+                $isList = array_is_list($positions);
+                foreach ($positions as $position => $round) {
+                    $leaguePosition = $isList ? $round : $position;
+                    if (isset($leagueStandings[$leaguePosition])) {
+                        $teamId = $leagueStandings[$leaguePosition];
+                        $qualifications[$teamId] = $continentalId;
+                        $entryRounds[$teamId] = $isList ? 1 : (int) $round;
                     }
                 }
             }
@@ -145,6 +153,7 @@ class UefaQualificationProcessor implements SeasonProcessor
                     $countryCode,
                     $cupWinnerConfig,
                     $qualifications,
+                    $entryRounds,
                     $standings,
                     $data,
                     $userCountry,
@@ -153,7 +162,7 @@ class UefaQualificationProcessor implements SeasonProcessor
         }
 
         // Write all qualifications to competition_entries
-        $this->writeQualifications($game->id, $qualifications, $countryCode);
+        $this->writeQualifications($game->id, $qualifications, $entryRounds, $countryCode);
 
         return $qualifications;
     }
@@ -166,6 +175,7 @@ class UefaQualificationProcessor implements SeasonProcessor
         string $countryCode,
         array $cupWinnerConfig,
         array &$qualifications,
+        array &$entryRounds,
         array $standings,
         SeasonTransitionData $data,
         string $userCountry,
@@ -219,8 +229,10 @@ class UefaQualificationProcessor implements SeasonProcessor
             // Cup winner held a lesser place (UECL via the league, say, when
             // the cup pays a UEL berth) — upgrade them, then cascade the spot
             // they vacated. Assign first, so the vacated spot can't come
-            // straight back to them.
+            // straight back to them. The league-slot entry round no longer
+            // applies to the new competition, so it resets to the default.
             $qualifications[$cupWinnerId] = $targetCompetition;
+            unset($entryRounds[$cupWinnerId]);
 
             $nextTeam = $this->getNextNonQualifiedTeam($standings, $qualifications);
             if ($nextTeam) {
@@ -352,7 +364,7 @@ class UefaQualificationProcessor implements SeasonProcessor
     /**
      * Write all qualifications to competition_entries, removing old country teams first.
      */
-    private function writeQualifications(string $gameId, array $qualifications, string $countryCode): void
+    private function writeQualifications(string $gameId, array $qualifications, array $entryRounds, string $countryCode): void
     {
         $countryTeamIds = Team::where('country', $countryCode)->pluck('id')->toArray();
 
@@ -375,12 +387,13 @@ class UefaQualificationProcessor implements SeasonProcessor
                 ->whereIn('team_id', $countryTeamIds)
                 ->delete();
 
-            // Add new qualifiers in bulk
+            // Add new qualifiers in bulk, keeping the entry round their
+            // league position declared (cup-winner cascades default to 1).
             $rows = array_map(fn (string $teamId) => [
                 'game_id' => $gameId,
                 'competition_id' => $competitionId,
                 'team_id' => $teamId,
-                'entry_round' => 1,
+                'entry_round' => $entryRounds[$teamId] ?? 1,
             ], $teamIds);
 
             CompetitionEntry::upsert(
@@ -553,46 +566,58 @@ class UefaQualificationProcessor implements SeasonProcessor
     }
 
     /**
-     * Top up the qualifying playoffs to 16 teams from the European pool.
+     * Top up the qualifying playoffs from the European pool.
      *
      * League slots only fill part of UCLQ/UELQ (e.g. ESP 2nd+3rd → UCLQ);
      * the remaining ties go to the strongest unqualified European clubs —
      * the champions of the smaller leagues, real-world style.
+     *
+     * Targets are per entry round: UCLQ plays a single round of 16; UELQ
+     * takes 24 in round 1 and 12 direct entrants in round 2 (the last 8 of
+     * the 32-team round 2 arrive dynamically as UCLQ losers).
      */
     private function topUpQualifyingCompetitions(Game $game): void
     {
-        foreach (['UCLQ' => 16, 'UELQ' => 16] as $competitionId => $target) {
-            $currentIds = CompetitionEntry::where('game_id', $game->id)
-                ->where('competition_id', $competitionId)
-                ->pluck('team_id')
-                ->all();
+        $targets = [
+            'UCLQ' => [1 => 16],
+            'UELQ' => [1 => 24, 2 => 12],
+        ];
 
-            $needed = $target - count($currentIds);
-            if ($needed <= 0) {
-                continue;
+        foreach ($targets as $competitionId => $rounds) {
+            foreach ($rounds as $entryRound => $target) {
+                $currentIds = CompetitionEntry::where('game_id', $game->id)
+                    ->where('competition_id', $competitionId)
+                    ->where('entry_round', $entryRound)
+                    ->pluck('team_id')
+                    ->all();
+
+                $needed = $target - count($currentIds);
+                if ($needed <= 0) {
+                    continue;
+                }
+
+                $candidates = $this->strongestUnqualifiedEuropeanTeams($game, $needed);
+
+                if (empty($candidates)) {
+                    Log::warning("[UEFA] {$competitionId} R{$entryRound}: need {$needed} top-up teams but pool is empty");
+                    continue;
+                }
+
+                $rows = array_map(fn (string $teamId) => [
+                    'game_id' => $game->id,
+                    'competition_id' => $competitionId,
+                    'team_id' => $teamId,
+                    'entry_round' => $entryRound,
+                ], $candidates);
+
+                CompetitionEntry::upsert(
+                    $rows,
+                    ['game_id', 'competition_id', 'team_id'],
+                    ['entry_round']
+                );
+
+                Log::info("[UEFA] {$competitionId} R{$entryRound}: topped up " . count($candidates) . " teams from European pool");
             }
-
-            $candidates = $this->strongestUnqualifiedEuropeanTeams($game, $needed);
-
-            if (empty($candidates)) {
-                Log::warning("[UEFA] {$competitionId}: need {$needed} top-up teams but pool is empty");
-                continue;
-            }
-
-            $rows = array_map(fn (string $teamId) => [
-                'game_id' => $game->id,
-                'competition_id' => $competitionId,
-                'team_id' => $teamId,
-                'entry_round' => 1,
-            ], $candidates);
-
-            CompetitionEntry::upsert(
-                $rows,
-                ['game_id', 'competition_id', 'team_id'],
-                ['entry_round']
-            );
-
-            Log::info("[UEFA] {$competitionId}: topped up " . count($candidates) . " teams from European pool");
         }
     }
 
@@ -667,12 +692,13 @@ class UefaQualificationProcessor implements SeasonProcessor
             ->toArray();
 
         $currentCount = count($usedTeamIds);
-        // UCL/UEL league phases are completed by the qualifying playoffs in
-        // September: 8 UCLQ winners join the UCL, 8 UCLQ losers + 8 UELQ
-        // winners join the Europa Cup. Don't fill those slots now.
+        // The UWCL league phase is completed by the qualifying playoffs in
+        // September: 8 UCLQ winners join the UCL — don't fill those slots
+        // now. (The Europa Cup is a pure knockout since 2026-27: its 16
+        // teams come from the two UELQ rounds, so it needs no filler
+        // accounting here.)
         $incomingFromQualifying = match ($userCompetitionId) {
             'UCL' => 8,
-            'UEL' => 16,
             default => 0,
         };
         $needed = SwissDrawService::LEAGUE_PHASE_TEAMS - $currentCount - $incomingFromQualifying;

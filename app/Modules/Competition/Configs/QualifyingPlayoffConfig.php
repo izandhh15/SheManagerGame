@@ -7,9 +7,10 @@ use App\Modules\Competition\Contracts\CompetitionConfig;
 /**
  * Config for the UEFA qualifying playoffs (UCLQ / UELQ).
  *
- * Single-round two-legged knockout played in August, before the league
- * phases. UCLQ winners reach the UWCL league phase, losers drop to the
- * Europa Cup; UELQ winners reach the Europa Cup league phase.
+ * Two-legged knockout ties played in August, before the league phases.
+ * UCLQ winners reach the UWCL league phase, losers drop into UELQ round 2;
+ * UELQ round-2 winners reach the Europa Cup knockout phase (round of 16),
+ * losers of any UELQ round are out.
  */
 class QualifyingPlayoffConfig implements CompetitionConfig
 {

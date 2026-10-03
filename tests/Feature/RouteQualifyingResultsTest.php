@@ -16,9 +16,12 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 /**
- * UEFA qualifying playoff routing: UCLQ winners reach the UWCL league
- * phase, UCLQ losers drop to the Europa Cup (the Juventus scenario);
- * UELQ winners reach the Europa Cup, losers are out.
+ * UEFA qualifying playoff routing since 2026-27:
+ * - UCLQ winners reach the UWCL league phase, UCLQ losers drop into UELQ
+ *   round 2 (the Juventus scenario);
+ * - UELQ round-1 winners stay in UELQ (their entry already covers round 2),
+ *   UELQ round-2 winners reach the Europa Cup knockout; losers of any UELQ
+ *   round are out.
  */
 class RouteQualifyingResultsTest extends TestCase
 {
@@ -49,11 +52,12 @@ class RouteQualifyingResultsTest extends TestCase
         ]);
     }
 
-    private function fireListener(string $competitionId, string $winnerId, string $loserId): void
+    private function fireListener(string $competitionId, string $winnerId, string $loserId, int $round = 1): void
     {
         $tie = CupTie::factory()->create([
             'game_id' => $this->game->id,
             'competition_id' => $competitionId,
+            'round_number' => $round,
             'home_team_id' => $winnerId,
             'away_team_id' => $loserId,
             'winner_id' => $winnerId,
@@ -99,23 +103,42 @@ class RouteQualifyingResultsTest extends TestCase
             ->all();
     }
 
-    public function test_uclq_winner_goes_to_ucl_loser_drops_to_europa(): void
+    public function test_uclq_winner_goes_to_ucl_loser_drops_to_uelq_round_2(): void
     {
         $this->fireListener('UCLQ', $this->winner->id, $this->loser->id);
 
         $this->assertContains($this->winner->id, $this->entries('UCL'));
-        $this->assertContains($this->loser->id, $this->entries('UEL'));
         $this->assertNotContains($this->winner->id, $this->entries('UCLQ'));
+        // The loser drops into the Europa Cup qualifying playoff at round 2.
+        $this->assertContains($this->loser->id, $this->entries('UELQ'));
+        $this->assertSame(
+            2,
+            CompetitionEntry::where('game_id', $this->game->id)
+                ->where('competition_id', 'UELQ')
+                ->where('team_id', $this->loser->id)
+                ->value('entry_round')
+        );
         $this->assertNotContains($this->loser->id, $this->entries('UCLQ'));
     }
 
-    public function test_uelq_winner_goes_to_europa_loser_is_out(): void
+    public function test_uelq_round_1_winner_stays_in_uelq_loser_is_out(): void
     {
-        $this->fireListener('UELQ', $this->winner->id, $this->loser->id);
+        $this->fireListener('UELQ', $this->winner->id, $this->loser->id, 1);
+
+        // Round-1 winners stay in UELQ: their entry already covers round 2.
+        $this->assertContains($this->winner->id, $this->entries('UELQ'));
+        $this->assertNotContains($this->winner->id, $this->entries('UEL'));
+        $this->assertNotContains($this->loser->id, $this->entries('UELQ'));
+    }
+
+    public function test_uelq_round_2_winner_goes_to_europa_loser_is_out(): void
+    {
+        $this->fireListener('UELQ', $this->winner->id, $this->loser->id, 2);
 
         $this->assertContains($this->winner->id, $this->entries('UEL'));
-        $this->assertNotContains($this->loser->id, $this->entries('UEL'));
         $this->assertNotContains($this->winner->id, $this->entries('UELQ'));
+        $this->assertNotContains($this->loser->id, $this->entries('UELQ'));
+        $this->assertNotContains($this->loser->id, $this->entries('UEL'));
     }
 
     public function test_routing_is_idempotent(): void

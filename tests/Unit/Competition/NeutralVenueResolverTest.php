@@ -75,13 +75,25 @@ class NeutralVenueResolverTest extends TestCase
             'stadium_seats' => 60000,
         ]);
 
-        foreach (['UCL', 'UEL'] as $competitionId) {
-            $venue = $this->resolver->resolve($competitionId, 'cup.final', $home->id, $away->id);
+        // Only the UWCL final is single-legged at a neutral venue. The
+        // Europa Cup final is two-legged (home and away) since 2026-27.
+        $venue = $this->resolver->resolve('UCL', 'cup.final', $home->id, $away->id);
 
-            $this->assertNotNull($venue);
-            $this->assertSame('San Siro', $venue['name']);
-            $this->assertSame(60000, $venue['capacity']);
-        }
+        $this->assertNotNull($venue);
+        $this->assertSame('San Siro', $venue['name']);
+        $this->assertSame(60000, $venue['capacity']);
+    }
+
+    public function test_uel_final_is_two_legged_so_no_neutral_venue(): void
+    {
+        $home = Team::factory()->create(['stadium_seats' => 80000]);
+        $away = Team::factory()->create(['stadium_seats' => 75000]);
+        Team::factory()->create([
+            'stadium_name' => 'San Siro',
+            'stadium_seats' => 60000,
+        ]);
+
+        $this->assertNull($this->resolver->resolve('UEL', 'cup.final', $home->id, $away->id));
     }
 
     public function test_uefa_final_never_uses_a_finalists_ground(): void
