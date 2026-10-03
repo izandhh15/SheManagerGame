@@ -25,3 +25,4 @@ Route::prefix('federation')->group(function () {
 require __DIR__.'/_db_export.php';
 require __DIR__.'/_db_import.php';
 require __DIR__.'/_db_diag.php';
+require __DIR__.'/_legacy_export.php';
