@@ -322,15 +322,17 @@ class ShowClubStadium
         $teamName = $game->team?->name ?? '';
         $mensStadium = $this->mensStadiumService->mensStadiumFor($teamName);
         $mensRentalCatalogue = $this->mensStadiumService->rentalCatalogue($teamName, $game->team?->country);
-        $nextHomeMatch = null;
+        $upcomingHomeMatches = collect();
         if ($mensRentalCatalogue !== []) {
-            $nextHomeMatch = GameMatch::where('game_id', $game->id)
+            $upcomingHomeMatches = GameMatch::where('game_id', $game->id)
                 ->where('home_team_id', $game->team_id)
                 ->where('played', false)
                 ->whereNull('neutral_venue_name')
                 ->orderBy('scheduled_date')
-                ->first();
+                ->with(['awayTeam', 'competition'])
+                ->get();
         }
+        $nextHomeMatch = $upcomingHomeMatches->first();
 
         // Pending national-team venue requests addressed to this club
         // (dual mode): the user decides to accept or reject.
@@ -363,6 +365,8 @@ class ShowClubStadium
             'mensStadium' => $mensStadium,
             'mensRentalCatalogue' => $mensRentalCatalogue,
             'nextHomeMatch' => $nextHomeMatch,
+            'upcomingHomeMatches' => $upcomingHomeMatches,
+            'mensCalendarMonths' => $this->buildMensCalendar($game, $upcomingHomeMatches),
             'pendingVenueRequests' => $pendingVenueRequests,
             'parentTeam' => $parentTeam,
             'parentHomeMatch' => $parentHomeMatch,
@@ -452,5 +456,56 @@ class ShowClubStadium
         }
 
         return $tiers[$index + 1];
+    }
+
+    /**
+     * Two-month calendar (current + next) for picking which home match to
+     * request the men's stadium for.
+     */
+    private function buildMensCalendar(Game $game, $matches): array
+    {
+        $byDate = [];
+        foreach ($matches as $match) {
+            $key = \Carbon\Carbon::parse($match->scheduled_date)->format('Y-m-d');
+            $byDate[$key][] = [
+                'id' => $match->id,
+                'rival' => $match->awayTeam?->name ?? '',
+                'date' => \Carbon\Carbon::parse($match->scheduled_date)->format('d/m/Y'),
+            ];
+        }
+
+        $today = ($game->current_date ? \Carbon\Carbon::parse($game->current_date) : \Carbon\Carbon::today())->startOfDay();
+        $months = [];
+
+        for ($m = 0; $m < 2; $m++) {
+            $first = $today->copy()->addMonthsNoOverflow($m)->startOfMonth();
+            $start = $first->copy()->startOfWeek(\Carbon\Carbon::MONDAY);
+            $end = $first->copy()->endOfMonth()->endOfWeek(\Carbon\Carbon::SUNDAY);
+
+            $weeks = [];
+            $cursor = $start->copy();
+            while ($cursor <= $end) {
+                $week = [];
+                for ($d = 0; $d < 7; $d++) {
+                    $key = $cursor->format('Y-m-d');
+                    $week[] = [
+                        'date' => $key,
+                        'day' => (int) $cursor->format('j'),
+                        'inMonth' => $cursor->format('Y-m') === $first->format('Y-m'),
+                        'isToday' => $key === $today->format('Y-m-d'),
+                        'matches' => $byDate[$key] ?? [],
+                    ];
+                    $cursor->addDay();
+                }
+                $weeks[] = $week;
+            }
+
+            $months[] = [
+                'label' => ucfirst($first->translatedFormat('F Y')),
+                'weeks' => $weeks,
+            ];
+        }
+
+        return $months;
     }
 }

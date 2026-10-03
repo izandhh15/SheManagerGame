@@ -52,7 +52,7 @@ class NationalPressPreviewTest extends TestCase
             'competition_id' => $competition->id,
             'home_team_id' => $spain->id,
             'away_team_id' => $france->id,
-            'scheduled_date' => '2026-11-22',
+            'scheduled_date' => '2026-11-21',
             'played' => false,
             'stadium_name' => 'La Cartuja',
         ]);

@@ -4,6 +4,7 @@ namespace App\Http\Actions;
 
 use App\Models\Game;
 use App\Models\GameMatch;
+use App\Modules\Media\Services\ClubSocialService;
 use App\Modules\Stadium\Services\MensStadiumRequestService;
 use Illuminate\Http\Request;
 
@@ -17,6 +18,7 @@ class ConfirmMensStadium
 {
     public function __construct(
         private readonly MensStadiumRequestService $mensStadiumService,
+        private readonly ClubSocialService $clubSocial,
     ) {}
 
     public function __invoke(Request $request, string $gameId)
@@ -74,6 +76,9 @@ class ConfirmMensStadium
         }
 
         $request->session()->forget('mens_quote');
+
+        // Announce on the club's social feed that the match moves to the big stadium.
+        $this->clubSocial->announceVenueConfirmed($game->fresh(), $match->fresh());
 
         if ((int) $quote['price'] > 0) {
             return redirect()->route('game.club.stadium', ['gameId' => $gameId])

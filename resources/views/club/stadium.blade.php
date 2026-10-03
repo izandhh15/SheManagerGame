@@ -106,13 +106,50 @@
                      team has one mapped; only unmapped clubs see the full
                      catalogue. --}}
                 @if($nextHomeMatch && !empty($mensRentalCatalogue))
-                <div class="bg-surface-800 border border-border-default rounded-xl p-5">
+                <script type="application/json" id="mens-matches-data">@json($upcomingHomeMatches->map(fn($m) => ['id' => $m->id, 'label' => ($m->awayTeam?->name ?? '') . ' · ' . \Carbon\Carbon::parse($m->scheduled_date)->format('d/m/Y')])->values())</script>
+                <div class="bg-surface-800 border border-border-default rounded-xl p-5"
+                     x-data="{ selectedMatch: '{{ $nextHomeMatch->id }}', matches: JSON.parse(document.getElementById('mens-matches-data').textContent), get selectedLabel() { const m = this.matches.find(x => x.id === this.selectedMatch); return m ? m.label : ''; } }">
                     <h4 class="font-heading text-lg font-bold uppercase text-text-primary mb-2">
                         {{ __('game.mens_stadium_rent_title') }}
                     </h4>
                     <p class="text-sm text-text-muted mb-4">
                         {{ __('game.mens_stadium_rent_desc') }}
                     </p>
+
+                    {{-- Calendar: pick which home match gets the big stadium --}}
+                    <p class="text-sm font-semibold text-text-body mb-2">📅 {{ __('game.mens_stadium_pick_match') }}</p>
+                    <div class="grid sm:grid-cols-2 gap-4 mb-4">
+                        @foreach($mensCalendarMonths as $month)
+                            <div>
+                                <p class="text-xs font-bold text-text-primary text-center mb-1">{{ $month['label'] }}</p>
+                                <div class="grid grid-cols-7 gap-0.5 text-center text-[10px] font-semibold text-text-muted mb-0.5">
+                                    <span>{{ __('game.cal_mon') }}</span><span>{{ __('game.cal_tue') }}</span><span>{{ __('game.cal_wed') }}</span><span>{{ __('game.cal_thu') }}</span><span>{{ __('game.cal_fri') }}</span><span>{{ __('game.cal_sat') }}</span><span>{{ __('game.cal_sun') }}</span>
+                                </div>
+                                @foreach($month['weeks'] as $week)
+                                    <div class="grid grid-cols-7 gap-0.5">
+                                        @foreach($week as $day)
+                                            @if($day['inMonth'])
+                                                @if(count($day['matches']) > 0)
+                                                    <button type="button"
+                                                            @click="selectedMatch = '{{ $day['matches'][0]['id'] }}'"
+                                                            :class="selectedMatch === '{{ $day['matches'][0]['id'] }}' ? 'bg-accent-gold text-surface-900 font-bold' : 'bg-accent-blue/15 text-text-primary border border-accent-blue/50'"
+                                                            class="rounded-md px-0.5 py-1 text-xs hover:brightness-110 transition"
+                                                            title="{{ $day['matches'][0]['rival'] }}">
+                                                        {{ $day['day'] }}
+                                                    </button>
+                                                @else
+                                                    <span class="rounded-md px-0.5 py-1 text-xs {{ $day['isToday'] ? 'text-accent-green font-bold' : 'text-text-faint' }}">{{ $day['day'] }}</span>
+                                                @endif
+                                            @else
+                                                <span></span>
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endforeach
+                    </div>
+                    <p class="text-xs text-text-muted mb-4">👉 <span x-text="selectedLabel" class="font-semibold text-text-body"></span></p>
 
                     {{-- Pending quote: the owner named their price --}}
                     @if(session('mens_quote'))
@@ -150,7 +187,7 @@
 
                     <form method="POST" action="{{ route('game.club.stadium.mens-stadium.request', ['gameId' => $game->id]) }}" class="flex flex-col sm:flex-row gap-2">
                         @csrf
-                        <input type="hidden" name="match_id" value="{{ $nextHomeMatch->id }}">
+                        <input type="hidden" name="match_id" :value="selectedMatch">
                         <select name="stadium" required
                                 class="flex-1 rounded-lg border border-border-default bg-surface-900 px-3 py-2 text-sm text-text-body focus:outline-none focus:ring-2 focus:ring-accent-blue/50">
                             @foreach($mensRentalCatalogue as $entry)

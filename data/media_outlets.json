@@ -367,6 +367,22 @@
     "Wolfsburger Nachrichten": {
       "logo": "_badge-wolfsburger-nachrichten.svg",
       "color": "#00A651"
+    },
+    "433": {
+      "logo": null,
+      "color": "#000000"
+    },
+    "OneFootball": {
+      "logo": null,
+      "color": "#00E756"
+    },
+    "DAZN": {
+      "logo": null,
+      "color": "#F7F700"
+    },
+    "Fabrizio Romano": {
+      "logo": null,
+      "color": "#1D9BF0"
     }
   },
   "countries": {
@@ -590,5 +606,13 @@
     "EFE Deportes",
     "Reuters Sports",
     "AP Sports"
+  ],
+  "international": [
+    "433",
+    "OneFootball",
+    "ESPN",
+    "DAZN",
+    "BBC Sport",
+    "The Athletic"
   ]
 }

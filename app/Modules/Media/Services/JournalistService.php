@@ -135,7 +135,15 @@ class JournalistService
             $tail = $comp ? " ({$comp})" : '';
         }
 
-        return $this->post($game, $journalist, $headline.' '.$flavor[array_rand($flavor)].$tail, 'journalist_match', $match->id);
+        $text = $headline.' '.$flavor[array_rand($flavor)].$tail;
+
+        // National-team reports are signed by a real media outlet.
+        $isNational = ($game->team?->type ?? 'club') === 'national';
+        $outlet = $isNational ? $this->pickOutlet($game) : null;
+
+        return $outlet
+            ? $this->postAsOutlet($game, $outlet, $text, 'journalist_match', $match->id)
+            : $this->post($game, $journalist, $text, 'journalist_match', $match->id);
     }
 
     /**
@@ -145,13 +153,16 @@ class JournalistService
      */
     public function postMatchPreview(Game $game, GameMatch $match): ?SocialPost
     {
-        $journalist = $this->pick($game, 'cronicas');
-        if (! $journalist) {
+        $team = $game->team;
+        if (! $team || ($team->type ?? 'club') !== 'national') {
             return null;
         }
 
-        $team = $game->team;
-        if (! $team || ($team->type ?? 'club') !== 'national') {
+        // National press is signed by a real media outlet (MARCA, 433, ...),
+        // falling back to the fictional newsroom if none resolves.
+        $outlet = $this->pickOutlet($game);
+        $journalist = $outlet ? null : $this->pick($game, 'cronicas');
+        if (! $outlet && ! $journalist) {
             return null;
         }
 
@@ -209,12 +220,14 @@ class JournalistService
             $text = $headline . "\n" . $meta . "\n\n" . $storylines[array_rand($storylines)];
         }
 
-        return $this->post($game, $journalist, $text, 'journalist_preview', $match->id);
+        return $outlet
+            ? $this->postAsOutlet($game, $outlet, $text, 'journalist_preview', $match->id)
+            : $this->post($game, $journalist, $text, 'journalist_preview', $match->id);
     }
 
     /**
-     * Post a preview for the user's national team upcoming match (within
-     * 3 days) if none was posted yet. Silent no-op for club saves.
+     * Post a preview for the user's national team upcoming match (the day
+     * before) if none was posted yet. Silent no-op for club saves.
      */
     public function maybePostNationalPreview(Game $game): ?SocialPost
     {
@@ -226,14 +239,17 @@ class JournalistService
         $now = $game->current_date ?? now();
         $teamId = $team->id;
 
+        // The preview drops the day before the match. As a fallback, it
+        // also fires on match day itself (when the advance lands directly
+        // on the fixture without stopping the day before).
         $match = GameMatch::where('game_id', $game->id)
             ->where('played', false)
             ->where(function ($q) use ($teamId) {
                 $q->where('home_team_id', $teamId)
                     ->orWhere('away_team_id', $teamId);
             })
-            ->where('scheduled_date', '>=', $now->copy()->startOfDay())
-            ->where('scheduled_date', '<=', $now->copy()->addDays(3)->endOfDay())
+            ->whereDate('scheduled_date', '>=', $now->copy()->toDateString())
+            ->whereDate('scheduled_date', '<=', $now->copy()->addDay()->toDateString())
             ->orderBy('scheduled_date')
             ->first();
 
@@ -363,6 +379,40 @@ class JournalistService
             'context' => $context,
             'match_id' => $matchId,
         ]);
+    }
+
+    /**
+     * Post as a real media outlet (MARCA, 433, OneFootball, ...) instead of
+     * a fictional journalist. Used for national-team press.
+     */
+    private function postAsOutlet(Game $game, string $outlet, string $text, string $context, ?string $matchId = null): SocialPost
+    {
+        $handle = '@' . strtolower(preg_replace('/[^a-z0-9]/i', '', $outlet));
+
+        return SocialPost::create([
+            'game_id' => $game->id,
+            'author_name' => $outlet,
+            'author_handle' => $handle,
+            'journalist_id' => null,
+            'text' => $text,
+            'sentiment' => 0,
+            'likes' => rand(500, 8000),
+            'context' => $context,
+            'match_id' => $matchId,
+        ]);
+    }
+
+    /**
+     * Pick a media outlet relevant for this game (country press + international).
+     */
+    private function pickOutlet(Game $game): ?string
+    {
+        try {
+            $outlet = app(MediaOutletService::class)->randomOutlet($game);
+            return $outlet ?: null;
+        } catch (\Throwable) {
+            return null;
+        }
     }
 
     private function isEs(): bool

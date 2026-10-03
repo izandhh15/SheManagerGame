@@ -51,7 +51,12 @@ class MediaOutletService
             $outlets = array_merge($outlets, $data['countries'][$country]);
         }
 
-        // 3. Fallback.
+        // 3. International/digital media (433, OneFootball, ...).
+        if (! empty($data['international'])) {
+            $outlets = array_merge($outlets, $data['international']);
+        }
+
+        // 4. Fallback.
         if (empty($outlets)) {
             $outlets = $data['default'] ?? ['EFE Deportes'];
         }

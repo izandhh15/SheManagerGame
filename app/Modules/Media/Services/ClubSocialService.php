@@ -4,6 +4,7 @@ namespace App\Modules\Media\Services;
 
 use App\Models\ClubProfile;
 use App\Models\Game;
+use App\Models\GameMatch;
 use App\Models\GamePlayer;
 use App\Models\SocialPost;
 use App\Models\TeamReputation;
@@ -24,12 +25,14 @@ class ClubSocialService
     public const TYPE_SALE = 'sale';
     public const TYPE_INJURY = 'injury';
     public const TYPE_SEASON_TICKETS = 'season_tickets';
+    public const TYPE_VENUE = 'venue';
 
     public const TYPES = [
         self::TYPE_SIGNING,
         self::TYPE_SALE,
         self::TYPE_INJURY,
         self::TYPE_SEASON_TICKETS,
+        self::TYPE_VENUE,
     ];
 
     /** Hype points consumed from the meter after each home game. */
@@ -78,10 +81,62 @@ class ClubSocialService
                 self::TYPE_SALE => $this->announceSale($game, $player, $extra['destination'] ?? null),
                 self::TYPE_INJURY => $this->announceInjury($game, $player, (int) ($extra['weeks'] ?? 4)),
                 self::TYPE_SEASON_TICKETS => $this->announceSeasonTickets($game),
+                self::TYPE_VENUE => $this->announceVenue($game, $extra['match_id'] ?? null),
             };
 
             return ['ok' => true, 'message' => $result['message'], 'post_id' => $result['post']->id];
         });
+    }
+
+    /**
+     * Automatic announcement when a home match moves to a big stadium
+     * (e.g. the men's ground). Idempotent per match.
+     */
+    public function announceVenueConfirmed(Game $game, GameMatch $match): ?SocialPost
+    {
+        if ($game->isTournamentMode()) {
+            return null;
+        }
+
+        $venue = $match->stadium_name ?? $match->neutral_venue_name;
+        if (! $venue) {
+            return null;
+        }
+
+        $already = SocialPost::where('game_id', $game->id)
+            ->where('match_id', $match->id)
+            ->where('context', 'club_official')
+            ->exists();
+        if ($already) {
+            return null;
+        }
+
+        $home = $match->homeTeam?->name ?? $game->team?->name ?? '';
+        $away = $match->awayTeam?->name ?? '';
+        $date = $match->scheduled_date
+            ? ucfirst($match->scheduled_date->translatedFormat('l d \\d\\e F'))
+            : '';
+
+        $es = app()->getLocale() === 'es';
+        $text = $es
+            ? "🏟️ ¡OFICIAL! El {$home} vs {$away}" . ($date ? " del {$date}" : '') . " se jugará en {$venue}. ¡Nos vemos en la grada! 🎟️"
+            : "🏟️ OFFICIAL! {$home} vs {$away}" . ($date ? " on {$date}" : '') . " will be played at {$venue}. See you in the stands! 🎟️";
+
+        $post = $this->officialPost($game, $text, rand(400, 3000));
+        $post->match_id = $match->id;
+        $post->save();
+
+        return $post;
+    }
+
+    private function announceVenue(Game $game, ?string $matchId): array
+    {
+        $match = $matchId ? GameMatch::where('game_id', $game->id)->find($matchId) : null;
+        if (! $match) {
+            return ['post' => null, 'message' => __('game.club_social_no_match')];
+        }
+        $post = $this->announceVenueConfirmed($game, $match);
+        return ['post' => $post, 'message' => __('game.club_social_published')];
     }
 
     /**
