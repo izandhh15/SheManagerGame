@@ -6,13 +6,17 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/_db-migrate/{token}', function (string $token) {
+Route::get('/_db-migrate/{token}/{step?}', function (string $token, ?string $step = null) {
     if (! hash_equals(env('DB_EXPORT_TOKEN', 'nope'), $token)) {
         abort(404);
     }
 
     try {
-        Artisan::call('migrate', ['--force' => true]);
+        $params = ['--force' => true];
+        if ($step === 'one') {
+            $params['--step'] = true;
+        }
+        Artisan::call('migrate', $params);
         return response()->json([
             'ok' => true,
             'output' => Artisan::output(),
