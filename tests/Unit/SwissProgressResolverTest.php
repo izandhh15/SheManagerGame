@@ -50,6 +50,8 @@ class SwissProgressResolverTest extends TestCase
         $this->assertSame(QualificationStatus::Playoff, $resolver->resolve('g', 'UEL', $this->standing(9))->status);
         // 20th still makes the playoff; the old shared 24-cut is gone.
         $this->assertSame(QualificationStatus::Playoff, $resolver->resolve('g', 'UEL', $this->standing(20))->status);
+        // Past the 20-team field the old code still said playoff (cut at 24).
+        $this->assertSame(QualificationStatus::Eliminated, $resolver->resolve('g', 'UEL', $this->standing(21))->status);
     }
 
     public function test_unknown_competition_falls_back_to_ucl_cuts(): void
