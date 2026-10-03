@@ -1,41 +1,42 @@
 <?php
-// TEMPORAL v2: aislar que operacion de cache falla. Borrar tras usar.
+// TEMPORAL v3: pasos manuales del increment. Borrar tras usar.
 require __DIR__.'/../vendor/autoload.php';
 $app = require __DIR__.'/../bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
 $kernel->bootstrap();
 
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
 $out = [];
+$conn = DB::connection();
 
 try {
-    $r = Cache::add('dbg-k1', 0, 60);
-    $out[] = 'Cache::add OK: ' . var_export($r, true);
+    $conn->beginTransaction();
+    $out[] = 'begin OK';
 } catch (Throwable $e) {
-    $out[] = 'Cache::add FAIL: ' . substr($e->getMessage(), 0, 250);
+    $out[] = 'begin FAIL: ' . substr($e->getMessage(), 0, 200);
 }
 
 try {
-    $r = Cache::increment('dbg-k1');
-    $out[] = 'Cache::increment OK: ' . var_export($r, true);
+    $row = $conn->table('cache')->where('key', 'dbg-k1')->lockForUpdate()->first();
+    $out[] = 'select for update OK: ' . json_encode($row ? ['key' => $row->key, 'value' => $row->value] : null);
 } catch (Throwable $e) {
-    $out[] = 'Cache::increment FAIL: ' . substr($e->getMessage(), 0, 250);
+    $out[] = 'select for update FAIL: ' . get_class($e) . ': ' . substr($e->getMessage(), 0, 250);
 }
 
 try {
-    $cols = DB::select("SELECT column_name, data_type FROM information_schema.columns WHERE table_name='cache' ORDER BY ordinal_position");
-    $out[] = 'cache cols: ' . json_encode(array_map(fn($c) => $c->column_name . ':' . $c->data_type, $cols));
+    $n = $conn->table('cache')->where('key', 'dbg-k1')->update(['value' => 'i:1;']);
+    $out[] = "update OK: $n";
 } catch (Throwable $e) {
-    $out[] = 'cols FAIL: ' . substr($e->getMessage(), 0, 200);
+    $out[] = 'update FAIL: ' . get_class($e) . ': ' . substr($e->getMessage(), 0, 250);
 }
 
 try {
-    $r = DB::table('cache')->insertOrIgnore(['key' => 'dbg-k2', 'value' => 'x', 'expiration' => time() + 60]);
-    $out[] = 'insertOrIgnore OK: ' . var_export($r, true);
+    $conn->commit();
+    $out[] = 'commit OK';
 } catch (Throwable $e) {
-    $out[] = 'insertOrIgnore FAIL: ' . substr($e->getMessage(), 0, 250);
+    $out[] = 'commit FAIL: ' . substr($e->getMessage(), 0, 250);
+    try { $conn->rollBack(); $out[] = 'rollback OK'; } catch (Throwable $e2) { $out[] = 'rollback FAIL'; }
 }
 
 echo implode("\n", $out) . "\n";
