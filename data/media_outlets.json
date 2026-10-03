@@ -455,6 +455,62 @@
     "7RM": {
       "logo": null,
       "color": "#E30613"
+    },
+    "VAVEL": {
+      "logo": null,
+      "color": "#1D4ED8"
+    },
+    "Fichajes.com": {
+      "logo": null,
+      "color": "#E30613"
+    },
+    "Defensa Central": {
+      "logo": null,
+      "color": "#FFFFFF"
+    },
+    "Bernabéu Digital": {
+      "logo": null,
+      "color": "#C60B1E"
+    },
+    "Madrid-Barcelona.com": {
+      "logo": null,
+      "color": "#6B7280"
+    },
+    "El Golazo de Gol": {
+      "logo": null,
+      "color": "#E30613"
+    },
+    "Diario Femenino": {
+      "logo": null,
+      "color": "#EC4899"
+    },
+    "Futboleras": {
+      "logo": null,
+      "color": "#EC4899"
+    },
+    "Revista Líbero": {
+      "logo": null,
+      "color": "#1A1A1A"
+    },
+    "Panenka": {
+      "logo": null,
+      "color": "#1A1A1A"
+    },
+    "Sphera Sports": {
+      "logo": null,
+      "color": "#0EA5E9"
+    },
+    "IUSport": {
+      "logo": null,
+      "color": "#374151"
+    },
+    "Palco23": {
+      "logo": null,
+      "color": "#111827"
+    },
+    "2Playbook": {
+      "logo": null,
+      "color": "#111827"
     }
   },
   "countries": {
@@ -503,7 +559,21 @@
       "ETB",
       "Aragón TV",
       "IB3",
-      "7RM"
+      "7RM",
+      "VAVEL",
+      "Fichajes.com",
+      "Defensa Central",
+      "Bernabéu Digital",
+      "Madrid-Barcelona.com",
+      "El Golazo de Gol",
+      "Diario Femenino",
+      "Futboleras",
+      "Revista Líbero",
+      "Panenka",
+      "Sphera Sports",
+      "IUSport",
+      "Palco23",
+      "2Playbook"
     ],
     "FRA": [
       "L'Équipe",
