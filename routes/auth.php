@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Actions\Auth\ResendActivation;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
@@ -39,6 +40,13 @@ Route::middleware('guest')->group(function () {
         ->middleware('throttle:3,1')
         ->name('password.store');
 });
+
+// Resend the account-activation email. Deliberately outside the guest
+// group: the activation-sent page is visited by guests, but a
+// logged-in-but-inactive account must be able to use it too.
+Route::post('resend-activation', ResendActivation::class)
+    ->middleware('throttle:3,1')
+    ->name('activation.resend');
 
 Route::middleware('auth')->group(function () {
     Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])

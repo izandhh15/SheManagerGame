@@ -8,7 +8,8 @@ namespace App\Modules\Match\Support;
  *
  * This is the strength that feeds {@see MatchOutcomeModel::expectedGoals}: the
  * average of each player's `overall_score` (weighted 0.95) and `morale` (0.05),
- * divided by 11 and rescaled to the 0..1 rating band. It deliberately omits the
+ * divided by the number of players actually fielded and rescaled to the 0..1
+ * rating band. It deliberately omits the
  * match-time noise that {@see \App\Modules\Match\Services\MatchSimulator::calculateTeamStrength}
  * layers on (per-minute energy drain, form-on-the-day, out-of-position penalties)
  * — those describe how a match *unfolds*, not who was favoured going in.
@@ -60,6 +61,9 @@ class PaperStrength
                               ($player->morale * $wMorale);
         }
 
-        return ($totalStrength / 11) / 100;
+        // Divide by the players actually fielded, not a fixed 11: short
+        // lineups (7-10, allowed by MIN_LINEUP_SIZE) would otherwise see
+        // their strength undervalued by up to 36%.
+        return ($totalStrength / count($players)) / 100;
     }
 }

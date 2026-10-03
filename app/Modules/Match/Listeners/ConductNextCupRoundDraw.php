@@ -55,6 +55,22 @@ class ConductNextCupRoundDraw
                 'competition_id' => $event->match->competition_id,
                 'round' => $nextRound,
             ]);
+        } catch (\Throwable $e) {
+            // Any other draw failure (unresolvable slot, DB error mid-draw,
+            // ...): the draw's own transaction already rolled its writes
+            // back, so abandon the cup's remaining rounds instead of letting
+            // the throw roll back the match finalization that fired this
+            // listener — that rollback is what strands the user retrying the
+            // same stuck advance (C1 family). Report loudly: unlike the
+            // legacy odd-pool case above, this always needs a look.
+            report($e);
+            Log::error('Cup draw failed unexpectedly; cup abandoned mid-season', [
+                'game_id' => $event->game->id,
+                'competition_id' => $event->match->competition_id,
+                'round' => $nextRound,
+                'exception' => get_class($e),
+                'message' => $e->getMessage(),
+            ]);
         }
     }
 }

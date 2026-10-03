@@ -19,6 +19,13 @@ return [
     'transfers' => 'Transfers',
     'calendar' => 'Calendar',
     'competitions' => 'Competitions',
+    'weekday_mon' => 'Mon',
+    'weekday_tue' => 'Tue',
+    'weekday_wed' => 'Wed',
+    'weekday_thu' => 'Thu',
+    'weekday_fri' => 'Fri',
+    'weekday_sat' => 'Sat',
+    'weekday_sun' => 'Sun',
 
     // Common actions
     'continue' => 'Continue',

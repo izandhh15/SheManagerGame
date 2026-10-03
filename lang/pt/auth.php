@@ -36,6 +36,7 @@ return [
     'activation_sent_body' => 'Enviámos um link de ativação para o teu email. Clica no link para definires a tua palavra-passe e ativares a tua conta.',
     'activation_sent_expiry' => 'O link expirará em 60 minutos.',
     'activation_sent_no_email' => 'Não recebeste o email?',
+    'resend_activation_email' => 'Reenviar email de ativação',
     'account_not_activated' => 'A tua conta ainda não foi ativada. Verifica o teu email para o link de ativação, ou solicita um novo na página de palavra-passe esquecida.',
 
     // Messages

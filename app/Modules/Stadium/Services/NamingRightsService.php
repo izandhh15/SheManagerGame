@@ -11,6 +11,7 @@ use App\Models\TeamReputation;
 use App\Models\TransferOffer;
 use App\Modules\Notification\Services\NotificationService;
 use InvalidArgumentException;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Orchestrates stadium naming: cosmetic renames and naming-rights
@@ -366,30 +367,36 @@ class NamingRightsService
             ->where('team_id', $game->team_id)
             ->value('stadium_name');
 
-        $deal->update([
-            'status' => GameStadiumNamingDeal::STATUS_ACTIVE,
-            'start_season' => $season,
-            'end_season' => $season + $deal->contract_seasons - 1,
-            'previous_stadium_name' => $previousName,
-        ]);
+        // Activating the deal, rejecting the rest, branding the ground,
+        // applying the loyalty shock and refreshing projections must be
+        // atomic: a failure halfway would leave an active deal with the old
+        // name or stale projections.
+        DB::transaction(function () use ($game, $deal, $season, $previousName) {
+            $deal->update([
+                'status' => GameStadiumNamingDeal::STATUS_ACTIVE,
+                'start_season' => $season,
+                'end_season' => $season + $deal->contract_seasons - 1,
+                'previous_stadium_name' => $previousName,
+            ]);
 
-        // Reject the competing offers the player passed over.
-        GameStadiumNamingDeal::query()
-            ->where('game_id', $game->id)
-            ->where('team_id', $game->team_id)
-            ->where('status', GameStadiumNamingDeal::STATUS_PENDING)
-            ->where('id', '!=', $deal->id)
-            ->update(['status' => GameStadiumNamingDeal::STATUS_REJECTED]);
+            // Reject the competing offers the player passed over.
+            GameStadiumNamingDeal::query()
+                ->where('game_id', $game->id)
+                ->where('team_id', $game->team_id)
+                ->where('status', GameStadiumNamingDeal::STATUS_PENDING)
+                ->where('id', '!=', $deal->id)
+                ->update(['status' => GameStadiumNamingDeal::STATUS_REJECTED]);
 
-        // Brand the ground (the sponsor takes the pen — manual rename locks).
-        $this->setStadiumName($game, $deal->proposed_stadium_name);
+            // Brand the ground (the sponsor takes the pen — manual rename locks).
+            $this->setStadiumName($game, $deal->proposed_stadium_name);
 
-        // A renewal keeps the existing name, so there is no fresh betrayal of
-        // the fans — only a new sponsor (a name change) costs loyalty.
-        if (! $deal->is_renewal) {
-            $this->applyLoyaltyShock($game);
-        }
-        $this->refreshProjectedNamingRights($game);
+            // A renewal keeps the existing name, so there is no fresh betrayal of
+            // the fans — only a new sponsor (a name change) costs loyalty.
+            if (! $deal->is_renewal) {
+                $this->applyLoyaltyShock($game);
+            }
+            $this->refreshProjectedNamingRights($game);
+        });
 
         return $deal;
     }

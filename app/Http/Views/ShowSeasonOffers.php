@@ -10,6 +10,7 @@ use App\Modules\Manager\Services\AcademyCareerService;
 use App\Modules\Manager\Services\JobOfferService;
 use App\Modules\Match\Services\MatchFinalizationService;
 use App\Modules\Report\Services\SeasonSummaryService;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Renders the pro-manager between-seasons decision screen: pending job
@@ -101,38 +102,44 @@ class ShowSeasonOffers
      */
     private function maybeCreatePromotionOffer(Game $game): ?ManagerJobOffer
     {
-        // Already have a promotion offer for this season?
-        $existing = ManagerJobOffer::where('game_id', $game->id)
-            ->where('season', $game->season)
-            ->where('offer_type', ManagerJobOffer::TYPE_ACADEMY_PROMOTION)
-            ->first();
+        // The existence check and the create must be atomic: two concurrent
+        // page loads would otherwise both pass the check and create a
+        // duplicate promotion offer. The row lock serializes the check.
+        return DB::transaction(function () use ($game) {
+            // Already have a promotion offer for this season?
+            $existing = ManagerJobOffer::where('game_id', $game->id)
+                ->where('season', $game->season)
+                ->where('offer_type', ManagerJobOffer::TYPE_ACADEMY_PROMOTION)
+                ->lockForUpdate()
+                ->first();
 
-        if ($existing) {
-            return $existing->status === ManagerJobOffer::STATUS_PENDING ? $existing : null;
-        }
+            if ($existing) {
+                return $existing->status === ManagerJobOffer::STATUS_PENDING ? $existing : null;
+            }
 
-        // Get the season grade from the evaluation (simplified: use the
-        // job offer service's grade resolution via reflection, or just
-        // roll with a base probability).
-        // For now, use a simple heuristic based on final league position.
-        $grade = $this->resolveSimpleGrade($game);
+            // Get the season grade from the evaluation (simplified: use the
+            // job offer service's grade resolution via reflection, or just
+            // roll with a base probability).
+            // For now, use a simple heuristic based on final league position.
+            $grade = $this->resolveSimpleGrade($game);
 
-        $parentTeam = $this->academyCareerService->rollForPromotion($game, $grade);
+            $parentTeam = $this->academyCareerService->rollForPromotion($game, $grade);
 
-        if (!$parentTeam) {
-            return null;
-        }
+            if (!$parentTeam) {
+                return null;
+            }
 
-        return ManagerJobOffer::create([
-            'user_id' => $game->user_id,
-            'game_id' => $game->id,
-            'team_id' => $parentTeam->id,
-            'season' => $game->season,
-            'offer_type' => ManagerJobOffer::TYPE_ACADEMY_PROMOTION,
-            'status' => ManagerJobOffer::STATUS_PENDING,
-            'target_reputation_level' => 'promotion',
-            'created_on_game_date' => $game->current_date,
-        ]);
+            return ManagerJobOffer::create([
+                'user_id' => $game->user_id,
+                'game_id' => $game->id,
+                'team_id' => $parentTeam->id,
+                'season' => $game->season,
+                'offer_type' => ManagerJobOffer::TYPE_ACADEMY_PROMOTION,
+                'status' => ManagerJobOffer::STATUS_PENDING,
+                'target_reputation_level' => 'promotion',
+                'created_on_game_date' => $game->current_date,
+            ]);
+        });
     }
 
     /**
@@ -140,9 +147,12 @@ class ShowSeasonOffers
      */
     private function resolveSimpleGrade(Game $game): string
     {
+        // NOTE: game_standings has no `season` column — rows are scoped by
+        // game_id (one season per game row), like every other standings
+        // query in the codebase. Filtering by a nonexistent column 500ed
+        // this page for every academy-career reserve-team game.
         $standing = \App\Models\GameStanding::where('game_id', $game->id)
             ->where('team_id', $game->team_id)
-            ->where('season', $game->season)
             ->orderBy('position')
             ->first();
 

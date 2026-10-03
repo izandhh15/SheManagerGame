@@ -48,6 +48,7 @@ use App\Support\PositionSlotMapper;
  * @property array<array-key, mixed>|null $substitutions
  * @property string|null $neutral_venue_name
  * @property int|null $neutral_venue_capacity
+ * @property bool $mens_stadium_rental
  * @property string $venue_status
  * @property string|null $venue_request_team_id
  * @property string|null $venue_request_type
@@ -147,6 +148,7 @@ class GameMatch extends Model
         'standings_applied',
         'neutral_venue_name',
         'neutral_venue_capacity',
+        'mens_stadium_rental',
         'venue_status',
         'venue_request_team_id',
         'venue_request_type',
@@ -191,6 +193,7 @@ class GameMatch extends Model
         'substitutions' => 'array',
         'standings_applied' => 'boolean',
         'neutral_venue_capacity' => 'integer',
+        'mens_stadium_rental' => 'boolean',
         'venue_fee' => 'integer',
     ];
 

@@ -15,6 +15,7 @@ use App\Modules\Player\Services\PlayerValuationService;
 use App\Modules\Squad\Services\PlayerAttributeSampler;
 use App\Modules\Squad\Services\PlayerGeneratorService;
 use App\Modules\Squad\Services\SquadNumberService;
+use Illuminate\Support\Facades\DB;
 
 class YouthAcademyService
 {
@@ -374,34 +375,39 @@ class YouthAcademyService
     /**
      * Promote an academy player to the first team.
      * Creates Player + GamePlayer records and deletes the AcademyPlayer.
+     *
+     * Runs in a transaction: if the AcademyPlayer delete fails, the player
+     * must not exist as both GamePlayer and AcademyPlayer at once.
      */
     public function promoteToFirstTeam(AcademyPlayer $academy, Game $game): GamePlayer
     {
-        $gamePlayer = $this->playerGenerator->create($game, new GeneratedPlayerData(
-            teamId: $academy->team_id,
-            position: $academy->position,
-            overallScore: $academy->overall_score,
-            dateOfBirth: $academy->date_of_birth,
-            contractYears: 2,
-            name: $academy->name,
-            nationality: $academy->nationality,
-            potential: $academy->potential,
-            potentialLow: $academy->potential_low,
-            potentialHigh: $academy->potential_high,
-            fitnessMin: 85,
-            fitnessMax: 100,
-            moraleMin: 70,
-            moraleMax: 90,
-            joinedFrom: \App\Models\UserSquadCareerRecord::ORIGIN_ACADEMY,
-        ));
+        return DB::transaction(function () use ($academy, $game) {
+            $gamePlayer = $this->playerGenerator->create($game, new GeneratedPlayerData(
+                teamId: $academy->team_id,
+                position: $academy->position,
+                overallScore: $academy->overall_score,
+                dateOfBirth: $academy->date_of_birth,
+                contractYears: 2,
+                name: $academy->name,
+                nationality: $academy->nationality,
+                potential: $academy->potential,
+                potentialLow: $academy->potential_low,
+                potentialHigh: $academy->potential_high,
+                fitnessMin: 85,
+                fitnessMax: 100,
+                moraleMin: 70,
+                moraleMax: 90,
+                joinedFrom: \App\Models\UserSquadCareerRecord::ORIGIN_ACADEMY,
+            ));
 
-        $gamePlayer->update([
-            'number' => $this->squadNumberService->assignNumberForNewPlayer($game, $gamePlayer),
-        ]);
+            $gamePlayer->update([
+                'number' => $this->squadNumberService->assignNumberForNewPlayer($game, $gamePlayer),
+            ]);
 
-        $academy->delete();
+            $academy->delete();
 
-        return $gamePlayer;
+            return $gamePlayer;
+        });
     }
 
     /**

@@ -197,7 +197,7 @@
                                 </option>
                             @endforeach
                         </select>
-                        <button type="submit" class="px-4 py-2 bg-accent-600 hover:bg-accent-500 text-white font-semibold rounded-lg text-sm whitespace-nowrap">
+                        <button type="submit" class="px-4 py-2 bg-accent-gold hover:brightness-110 text-surface-900 font-bold rounded-lg text-sm whitespace-nowrap">
                             {{ __('game.mens_stadium_ask_price') }}
                         </button>
                     </form>

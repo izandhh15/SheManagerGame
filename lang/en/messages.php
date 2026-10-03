@@ -108,6 +108,7 @@ return [
     'club_has_no_filial' => 'This club has no available reserve team.',
     'team_has_no_competition_link' => 'This team is not linked to any competition: the save cannot be created.',
     'team_squad_too_small' => 'This team only has :count players in its squad (minimum :minimum): the save cannot be created.',
+    'cannot_apply_to_own_club' => 'You cannot apply for a job at your own club.',
 
     // Reserve team (filial)
     'reserve_player_called_up' => ':player has been called up to the first team.',
@@ -129,6 +130,10 @@ return [
     'release_has_pre_contract' => 'Cannot release a player with a pre-contract agreement.',
     'release_squad_too_small' => 'Cannot release — your squad must have at least :min players.',
     'release_position_minimum' => 'Cannot release — you need at least :min :group.',
+    'mutual_termination_completed' => 'Mutual termination with :player completed. Severance: :amount.',
+    'severance_invalid_method' => 'Invalid payment method.',
+    'severance_loan_active' => 'You already have an active loan. You cannot request another.',
+    'severance_loan_unavailable' => 'The loan cannot be requested right now.',
 
     // Squad-minimum guards on promote / demote / list / accept
     'promote_squad_too_small' => 'Cannot call up — the reserve squad must have at least :min players.',
@@ -228,4 +233,9 @@ return [
     'naming_rights_search_cooldown' => 'Your commercial agency is still canvassing the market. Wait a few days before searching again.',
     'naming_rights_search_unaffordable' => 'You can\'t afford the commercial agency fee.',
     'naming_rights_board_full' => 'You already have the maximum offers on the table. Accept one or pass before seeking more.',
+    'naming_rights_offer_rejected' => 'Offer from :sponsor discarded. They will never know.',
+    'sponsor_deal_accepted' => 'Deal done! :sponsor will sponsor :slot. Time to cash in.',
+    'sponsor_deal_rejected' => 'Offer from :sponsor discarded. On to the next one.',
+    'sponsor_offer_unavailable' => 'That sponsorship offer is no longer available.',
+    'sponsor_deal_active' => 'You already have an active sponsor in that slot. Wait for the contract to expire.',
 ];

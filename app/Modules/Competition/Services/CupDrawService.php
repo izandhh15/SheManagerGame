@@ -163,22 +163,27 @@ class CupDrawService
 
         }
 
-        // Phase 2: Bulk insert all records
-        foreach (array_chunk($tieRows, 100) as $chunk) {
-            CupTie::insert($chunk);
-        }
+        // Phase 2: Bulk insert all records atomically. A failure halfway
+        // (e.g. in assignNeutralVenues) must not leave orphan ties or
+        // matches behind, so every write of the draw runs in one
+        // transaction.
+        DB::transaction(function () use ($tieRows, $firstLegRows, $secondLegRows) {
+            foreach (array_chunk($tieRows, 100) as $chunk) {
+                CupTie::insert($chunk);
+            }
 
-        foreach (array_chunk($firstLegRows, 100) as $chunk) {
-            GameMatch::insert($chunk);
-        }
-
-        if (!empty($secondLegRows)) {
-            foreach (array_chunk($secondLegRows, 100) as $chunk) {
+            foreach (array_chunk($firstLegRows, 100) as $chunk) {
                 GameMatch::insert($chunk);
             }
-        }
 
-        $this->assignNeutralVenues($firstLegRows);
+            if (!empty($secondLegRows)) {
+                foreach (array_chunk($secondLegRows, 100) as $chunk) {
+                    GameMatch::insert($chunk);
+                }
+            }
+
+            $this->assignNeutralVenues($firstLegRows);
+        });
 
         // Return loaded ties
         return CupTie::where('game_id', $gameId)

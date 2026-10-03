@@ -17,6 +17,7 @@ use App\Modules\Squad\Services\SquadNumberService;
 use App\Modules\Transfer\Enums\TransferWindowType;
 use App\Modules\Transfer\Services\LoanService;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 /**
@@ -90,66 +91,65 @@ class ReserveTeamService
             throw new \DomainException('Player is not currently registered to the reserve team.');
         }
 
-        $effectiveStart = $game->getLoanEffectiveStartDate();
-        $returnDate = $game->getSeasonEndDateFor($effectiveStart);
+        // Loan + team flip + squad number + ledger row + stand-in
+        // replenishment + notification must be atomic: a failure halfway
+        // (e.g. no squad number available) rolls everything back instead of
+        // relying on manual compensation.
+        DB::transaction(function () use ($player, $game) {
+            $effectiveStart = $game->getLoanEffectiveStartDate();
+            $returnDate = $game->getSeasonEndDateFor($effectiveStart);
 
-        Loan::create([
-            'game_id' => $game->id,
-            'game_player_id' => $player->id,
-            'parent_team_id' => $game->reserve_team_id,
-            'loan_team_id' => $game->team_id,
-            'started_at' => $effectiveStart,
-            'return_at' => $returnDate,
-            'status' => Loan::STATUS_ACTIVE,
-        ]);
+            Loan::create([
+                'game_id' => $game->id,
+                'game_player_id' => $player->id,
+                'parent_team_id' => $game->reserve_team_id,
+                'loan_team_id' => $game->team_id,
+                'started_at' => $effectiveStart,
+                'return_at' => $returnDate,
+                'status' => Loan::STATUS_ACTIVE,
+            ]);
 
-        // Null the reserve number first so flipping team_id can't violate the
-        // (game_id, team_id, number) unique constraint when a first-team
-        // player already wears the same shirt.
-        $previousNumber = $player->number;
-        $player->update(['number' => null, 'team_id' => $game->team_id]);
+            // Null the reserve number first so flipping team_id can't violate the
+            // (game_id, team_id, number) unique constraint when a first-team
+            // player already wears the same shirt.
+            $player->update(['number' => null, 'team_id' => $game->team_id]);
 
-        $number = $this->squadNumberService->assignAcademyNumberForNewPlayer($game, $player);
+            $number = $this->squadNumberService->assignAcademyNumberForNewPlayer($game, $player);
 
-        if ($number === null) {
-            // Roll back the move, restore previous number, and drop the loan.
-            $player->update(['team_id' => $game->reserve_team_id, 'number' => $previousNumber]);
-            Loan::where('game_player_id', $player->id)
-                ->where('status', Loan::STATUS_ACTIVE)
-                ->delete();
+            if ($number === null) {
+                throw new FirstTeamSquadFullException(
+                    'First-team squad is full; release a player before calling up another.'
+                );
+            }
 
-            throw new FirstTeamSquadFullException(
-                'First-team squad is full; release a player before calling up another.'
+            $player->update(['number' => $number]);
+
+            GameTransfer::record(
+                gameId: $game->id,
+                gamePlayerId: $player->id,
+                fromTeamId: $game->reserve_team_id,
+                toTeamId: $game->team_id,
+                transferFee: 0,
+                type: GameTransfer::TYPE_LOAN,
+                season: $game->season,
+                window: TransferWindowType::currentValue($game->current_date),
             );
-        }
 
-        $player->update(['number' => $number]);
+            // The reserve may now be below its squad minimum — cover the deficit
+            // with fictional stand-in players (the "C team" steps in). This
+            // replaces the old ReserveSquadMinimumException block.
+            $added = $this->replenishReserveWithStandIns($game);
 
-        GameTransfer::record(
-            gameId: $game->id,
-            gamePlayerId: $player->id,
-            fromTeamId: $game->reserve_team_id,
-            toTeamId: $game->team_id,
-            transferFee: 0,
-            type: GameTransfer::TYPE_LOAN,
-            season: $game->season,
-            window: TransferWindowType::currentValue($game->current_date),
-        );
-
-        // The reserve may now be below its squad minimum — cover the deficit
-        // with fictional stand-in players (the "C team" steps in). This
-        // replaces the old ReserveSquadMinimumException block.
-        $added = $this->replenishReserveWithStandIns($game);
-
-        if ($added > 0) {
-            $this->notificationService->create(
-                game: $game,
-                type: \App\Models\GameNotification::TYPE_ACADEMY_PROSPECT,
-                title: __('notifications.reserve_stand_in_added_title'),
-                message: __('notifications.reserve_stand_in_added_message', ['count' => $added]),
-                priority: \App\Models\GameNotification::PRIORITY_INFO,
-            );
-        }
+            if ($added > 0) {
+                $this->notificationService->create(
+                    game: $game,
+                    type: \App\Models\GameNotification::TYPE_ACADEMY_PROSPECT,
+                    title: __('notifications.reserve_stand_in_added_title'),
+                    message: __('notifications.reserve_stand_in_added_message', ['count' => $added]),
+                    priority: \App\Models\GameNotification::PRIORITY_INFO,
+                );
+            }
+        });
     }
 
     /**
@@ -400,21 +400,26 @@ class ReserveTeamService
             throw new FirstTeamSquadMinimumException($breach);
         }
 
-        // Null the number first so flipping team_id can't violate the
-        // (game_id, team_id, number) unique constraint when a reserve
-        // player already wears the same shirt.
-        $player->update(['number' => null, 'team_id' => $game->reserve_team_id]);
+        // The team_id flip and its ledger row must be atomic: if
+        // GameTransfer::record() fails, the player must not be left on the
+        // reserve roster without a transfer record.
+        DB::transaction(function () use ($player, $game) {
+            // Null the number first so flipping team_id can't violate the
+            // (game_id, team_id, number) unique constraint when a reserve
+            // player already wears the same shirt.
+            $player->update(['number' => null, 'team_id' => $game->reserve_team_id]);
 
-        GameTransfer::record(
-            gameId: $game->id,
-            gamePlayerId: $player->id,
-            fromTeamId: $game->team_id,
-            toTeamId: $game->reserve_team_id,
-            transferFee: 0,
-            type: GameTransfer::TYPE_INTERNAL_DEMOTION,
-            season: $game->season,
-            window: TransferWindowType::currentValue($game->current_date),
-        );
+            GameTransfer::record(
+                gameId: $game->id,
+                gamePlayerId: $player->id,
+                fromTeamId: $game->team_id,
+                toTeamId: $game->reserve_team_id,
+                transferFee: 0,
+                type: GameTransfer::TYPE_INTERNAL_DEMOTION,
+                season: $game->season,
+                window: TransferWindowType::currentValue($game->current_date),
+            );
+        });
     }
 
     /**
@@ -467,65 +472,71 @@ class ReserveTeamService
 
         $promoted = collect();
 
-        foreach ($candidates as $player) {
-            // Close any active call-up loan first so returnLoan() doesn't
-            // later try to flip the player back to the reserve team.
-            if ($player->activeLoan && $player->activeLoan->parent_team_id === $reserveTeamId) {
-                $player->activeLoan->update(['status' => Loan::STATUS_COMPLETED]);
-            }
-
-            // Permanent move to first team. Null the reserve number first so
-            // the (game_id, team_id, number) unique constraint can't fire on
-            // the team_id flip. AI promotions leave the number null — AI
-            // squads don't depend on shirt numbers and SquadNumberService is
-            // user-scoped.
-            $player->update(['number' => null, 'team_id' => $parentTeamId]);
-
-            if ($isUserFilial) {
-                $reserveTeamName = $game->reserveTeam?->name;
-                $number = $this->squadNumberService->assignNumberForNewPlayer($game, $player);
-                if ($number !== null) {
-                    $player->update(['number' => $number]);
+        // The season-close sweep runs per player (loan close + team flip +
+        // number + career record + ledger + notification); a failure halfway
+        // must not leave half the squad promoted, so the whole sweep is one
+        // transaction.
+        DB::transaction(function () use ($game, $reserveTeamId, $parentTeamId, $isUserFilial, $candidates, $promoted) {
+            foreach ($candidates as $player) {
+                // Close any active call-up loan first so returnLoan() doesn't
+                // later try to flip the player back to the reserve team.
+                if ($player->activeLoan && $player->activeLoan->parent_team_id === $reserveTeamId) {
+                    $player->activeLoan->update(['status' => Loan::STATUS_COMPLETED]);
                 }
 
-                \App\Models\UserSquadCareerRecord::updateOrCreate(
-                    ['game_player_id' => $player->id],
-                    [
-                        'game_id' => $game->id,
-                        'team_id' => $parentTeamId,
-                        'joined_season' => (int) $game->season,
-                        'joined_from' => $reserveTeamName ?? \App\Models\UserSquadCareerRecord::ORIGIN_ACADEMY,
-                        // Came up through the club's own filial/reserve pipeline.
-                        'homegrown' => true,
-                    ],
+                // Permanent move to first team. Null the reserve number first so
+                // the (game_id, team_id, number) unique constraint can't fire on
+                // the team_id flip. AI promotions leave the number null — AI
+                // squads don't depend on shirt numbers and SquadNumberService is
+                // user-scoped.
+                $player->update(['number' => null, 'team_id' => $parentTeamId]);
+
+                if ($isUserFilial) {
+                    $reserveTeamName = $game->reserveTeam?->name;
+                    $number = $this->squadNumberService->assignNumberForNewPlayer($game, $player);
+                    if ($number !== null) {
+                        $player->update(['number' => $number]);
+                    }
+
+                    \App\Models\UserSquadCareerRecord::updateOrCreate(
+                        ['game_player_id' => $player->id],
+                        [
+                            'game_id' => $game->id,
+                            'team_id' => $parentTeamId,
+                            'joined_season' => (int) $game->season,
+                            'joined_from' => $reserveTeamName ?? \App\Models\UserSquadCareerRecord::ORIGIN_ACADEMY,
+                            // Came up through the club's own filial/reserve pipeline.
+                            'homegrown' => true,
+                        ],
+                    );
+                }
+
+                GameTransfer::record(
+                    gameId: $game->id,
+                    gamePlayerId: $player->id,
+                    fromTeamId: $reserveTeamId,
+                    toTeamId: $parentTeamId,
+                    transferFee: 0,
+                    type: GameTransfer::TYPE_INTERNAL_PROMOTION,
+                    season: $game->season,
+                    window: TransferWindowType::currentValue($game->current_date),
                 );
+
+                if ($isUserFilial) {
+                    $this->notificationService->create(
+                        game: $game,
+                        type: \App\Models\GameNotification::TYPE_ACADEMY_PROSPECT,
+                        title: __('notifications.reserve_overage_promoted_title'),
+                        message: __('notifications.reserve_overage_promoted_message', [
+                            'player' => $player->name ?? '',
+                        ]),
+                        priority: \App\Models\GameNotification::PRIORITY_INFO,
+                    );
+                }
+
+                $promoted->push($player);
             }
-
-            GameTransfer::record(
-                gameId: $game->id,
-                gamePlayerId: $player->id,
-                fromTeamId: $reserveTeamId,
-                toTeamId: $parentTeamId,
-                transferFee: 0,
-                type: GameTransfer::TYPE_INTERNAL_PROMOTION,
-                season: $game->season,
-                window: TransferWindowType::currentValue($game->current_date),
-            );
-
-            if ($isUserFilial) {
-                $this->notificationService->create(
-                    game: $game,
-                    type: \App\Models\GameNotification::TYPE_ACADEMY_PROSPECT,
-                    title: __('notifications.reserve_overage_promoted_title'),
-                    message: __('notifications.reserve_overage_promoted_message', [
-                        'player' => $player->name ?? '',
-                    ]),
-                    priority: \App\Models\GameNotification::PRIORITY_INFO,
-                );
-            }
-
-            $promoted->push($player);
-        }
+        });
 
         return $promoted;
     }

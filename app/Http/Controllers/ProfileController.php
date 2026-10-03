@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
@@ -44,16 +45,22 @@ class ProfileController extends Controller
 
         $user = $request->user();
 
-        // Mark all games as deleting so they're hidden from UI immediately
-        Game::where('user_id', $user->id)->update(['deleting_at' => now()]);
+        // Mark the games and queue their deletion atomically: the job is
+        // dispatched after-commit, so a dispatch failure rolls the marking
+        // back too and the account never lands in a "deleting" limbo with
+        // the job lost.
+        DB::transaction(function () use ($user) {
+            // Mark all games as deleting so they're hidden from UI immediately
+            Game::where('user_id', $user->id)->update(['deleting_at' => now()]);
+
+            // Dispatch background job to delete games and user
+            DeleteUserJob::dispatch($user->id)->afterCommit();
+        });
 
         Auth::logout();
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-
-        // Dispatch background job to delete games and user
-        DeleteUserJob::dispatch($user->id);
 
         return Redirect::to('/');
     }

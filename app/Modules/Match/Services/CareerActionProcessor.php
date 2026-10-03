@@ -91,6 +91,13 @@ class CareerActionProcessor
             $sectionQueryCount = $profile ? count(DB::getQueryLog()) : 0;
         };
 
+        // The ~15 sections below each write (transfers, offers, loans,
+        // academy, AI market...). Without atomicity a mid-process failure
+        // leaves partial state with no retry on the next tick, so the whole
+        // pass runs in one transaction: either every section's writes land
+        // or none do. (Nested DB::transaction calls inside the services
+        // become savepoints.)
+        DB::transaction(function () use ($game, $mark) {
         // Pre-load buyer pool once for all offer generation. Memoized across
         // ticks within one job; invalidated below if the window is open and
         // mutating sections may have run.
@@ -213,6 +220,7 @@ class CareerActionProcessor
         if ($game->isTransferWindowOpen()) {
             $this->invalidateBuyerPool();
         }
+        });
 
         if ($profile) {
             Log::info("[CareerActionProcessor {$game->id}] section breakdown", [

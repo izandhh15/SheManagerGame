@@ -144,12 +144,17 @@ class WSL2Config implements CompetitionConfig, HasSeasonGoals
             ];
         }
 
+        // WSL2 is the bottom English tier (12 teams): nobody is relegated
+        // from it, so there is no relegation zone to paint (the old 12-12
+        // range was impossible). The runners-up enter the ENGPO relegation
+        // playoff against the WSL 13th (countries.EN promotions), so the
+        // 2nd place gets a promotion-playoff zone.
         $zones[] = [
-            'minPosition' => 12,
-            'maxPosition' => 12,
-            'borderColor' => 'red-500',
-            'bgColor' => 'bg-red-500',
-            'label' => 'game.relegation',
+            'minPosition' => 2,
+            'maxPosition' => 2,
+            'borderColor' => 'green-300',
+            'bgColor' => 'bg-green-300',
+            'label' => 'game.promotion_playoff',
         ];
 
         return $zones;

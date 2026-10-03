@@ -18,12 +18,14 @@ class PreMatchPress extends Model
         'answers',
         'morale_delta',
         'confidence_delta',
+        'effects_applied',
     ];
 
     protected $casts = [
         'answers' => 'array',
         'morale_delta' => 'integer',
         'confidence_delta' => 'integer',
+        'effects_applied' => 'boolean',
     ];
 
     public function game(): BelongsTo

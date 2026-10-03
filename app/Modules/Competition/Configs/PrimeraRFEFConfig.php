@@ -35,9 +35,13 @@ class PrimeraRFEFConfig implements CompetitionConfig, HasSeasonGoals
      */
     private const SEASON_GOALS = [
         Game::GOAL_PROMOTION => ['targetPosition' => 1, 'label' => 'game.goal_promotion'],
-        Game::GOAL_PLAYOFF => ['targetPosition' => 5, 'label' => 'game.goal_playoff'],
-        Game::GOAL_TOP_HALF => ['targetPosition' => 10, 'label' => 'game.goal_top_half'],
-        Game::GOAL_SURVIVAL => ['targetPosition' => 17, 'label' => 'game.goal_survival'],
+        // Segunda Federación groups (14 teams): the champion goes up
+        // directly and positions 2-3 enter the ESP3PO playoff
+        // (SegundaFederacionPlayoffGenerator::getQualifyingPositions()).
+        // There is no relegation below, so survival means avoiding last.
+        Game::GOAL_PLAYOFF => ['targetPosition' => 3, 'label' => 'game.goal_playoff'],
+        Game::GOAL_TOP_HALF => ['targetPosition' => 7, 'label' => 'game.goal_top_half'],
+        Game::GOAL_SURVIVAL => ['targetPosition' => 13, 'label' => 'game.goal_survival'],
     ];
 
     /**
@@ -117,7 +121,7 @@ class PrimeraRFEFConfig implements CompetitionConfig, HasSeasonGoals
             ],
             [
                 'minPosition' => 2,
-                'maxPosition' => 5,
+                'maxPosition' => 3,
                 'borderColor' => 'green-300',
                 'bgColor' => 'bg-green-300',
                 'label' => 'game.promotion_playoff',

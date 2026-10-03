@@ -41,10 +41,13 @@ class LaLiga2Config implements CompetitionConfig, HasSeasonGoals
      * Season goals with target positions.
      */
     private const SEASON_GOALS = [
-        Game::GOAL_PROMOTION => ['targetPosition' => 2, 'label' => 'game.goal_promotion'],
-        Game::GOAL_PLAYOFF => ['targetPosition' => 6, 'label' => 'game.goal_playoff'],
+        // ESP2 (14 teams): direct promotion is 1st, the playoff is 2nd-5th
+        // (countries.ES promotions: direct_count 1, playoff_count 4), and
+        // 11th-14th are relegated. Old values were men's Segunda numbers.
+        Game::GOAL_PROMOTION => ['targetPosition' => 1, 'label' => 'game.goal_promotion'],
+        Game::GOAL_PLAYOFF => ['targetPosition' => 5, 'label' => 'game.goal_playoff'],
         Game::GOAL_TOP_HALF => ['targetPosition' => 7, 'label' => 'game.goal_top_half'],
-        Game::GOAL_SURVIVAL => ['targetPosition' => 13, 'label' => 'game.goal_survival'],
+        Game::GOAL_SURVIVAL => ['targetPosition' => 10, 'label' => 'game.goal_survival'],
     ];
 
     /**
@@ -147,9 +150,12 @@ class LaLiga2Config implements CompetitionConfig, HasSeasonGoals
             ];
         }
 
+        // ESP2 has 14 teams and relegates the bottom four (countries.ES
+        // promotions: relegated_positions [11, 12, 13, 14]); the old 19-22
+        // range was copied from the men's Segunda División (22 teams).
         $zones[] = [
-            'minPosition' => 19,
-            'maxPosition' => 22,
+            'minPosition' => 11,
+            'maxPosition' => 14,
             'borderColor' => 'red-500',
             'bgColor' => 'bg-red-500',
             'label' => 'game.relegation',

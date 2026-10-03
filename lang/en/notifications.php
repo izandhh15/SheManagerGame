@@ -112,6 +112,8 @@ return [
     // Academy
     'academy_batch_title' => 'New academy prospects',
     'academy_batch_message' => ':count new players have arrived at the academy.',
+    'academy_jewel_title' => '💎 Academy jewel!',
+    'academy_jewel_message' => ':player (:position), aged 16, is standing out in the academy: her potential is elite. Keep an eye on her!',
     'academy_overage_promoted_title' => 'Academy graduates',
     'academy_overage_promoted_message' => ':count academy players aged 21+ have been promoted to the first team.',
     'academy_gap_promoted_title' => 'Academy players promoted',
@@ -161,6 +163,12 @@ return [
     'player_released_title' => ':player released',
     'player_released_message' => ':player has been released from your squad. Severance paid: :severance.',
     'player_released_message_free' => ':player has been released from your squad.',
+    'mutual_termination_title' => 'Mutual termination: :player',
+    'mutual_termination_message' => 'You have terminated :player\'s contract by mutual agreement. Agreed severance: :amount.',
+    'severance_plan_title' => 'Severance in instalments: :player',
+    'severance_plan_message' => 'You will pay :player\'s severance in :months instalments of :monthly (total :total with interest).',
+    'severance_plan_completed_title' => 'Severance settled: :player',
+    'severance_plan_completed_message' => 'You have finished paying :player\'s severance (total :total).',
 
     // Emergency signings
     'emergency_signing_title' => 'Emergency squad reinforcement',
@@ -203,12 +211,22 @@ return [
     'stadium_loan_drawn_message' => 'The bank has financed the project with :amount, repayable over :years annual instalments.',
     'stadium_loan_repaid_title' => 'Stadium loan repaid',
     'stadium_loan_repaid_message' => 'The :amount stadium loan has been fully repaid.',
+    'stadium_request_title' => '🏟️ :team want to play at your stadium',
+    'stadium_request_message' => ':team ask to borrow your stadium for the friendly against :opponent on :date. You can accept or reject the request from the stadium page.',
+    'stadium_request_accepted_title' => 'Venue confirmed: :stadium',
+    'stadium_request_accepted_message' => 'The club has agreed to lend :stadium. The friendly will be played there.',
+    'stadium_request_rejected_title' => 'Venue rejected: :stadium',
+    'stadium_request_rejected_message' => 'The club has refused to lend :stadium. Reason: :excuse The friendly will be played at a neutral venue.',
     'commercial_window_open_title' => 'Commercial window open',
     'commercial_window_open_message' => 'Until the first league match you can seek sponsors on the Commercial page to grow your income and lift your salary cap.',
+    'sponsor_offers_arrived_title' => 'Sponsorship offers are raining down!',
+    'sponsor_offers_arrived_message' => '{1}A brand wants to sponsor the team: head to the Commercial page to see the offer.|[2,*]:count brands want to sponsor the team: head to the Commercial page to see the offers.',
 
     // Squad registration
     'squad_registration_required_title' => 'Squad registration required',
     'squad_registration_required_message' => 'You have :count unenrolled players. Register your squad before the season begins — unenrolled players cannot be selected for matches.',
     'unenrolled_before_window_close_title' => 'Unenrolled players — :window window closing',
     'unenrolled_before_window_close_message' => 'You have :count unenrolled players. This is your last matchday to register them before the transfer window closes — without a squad number they cannot be selected for matches.',
+    'cwc_qualified_title' => '🌍 We\'re off to the Club World Cup!',
+    'cwc_qualified_message' => 'Your team is among the best clubs in its confederation and has qualified for the Club World Cup. 32 teams, one trophy… go for the biggest cup on the planet, boss!',
 ];

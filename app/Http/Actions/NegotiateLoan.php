@@ -133,6 +133,18 @@ class NegotiateLoan
             ], 422);
         }
 
+        // Re-check ownership (family A1): handleStart() rejected own players,
+        // but the player may have become user-owned between start and confirm
+        // (e.g. bought in another tab). Confirming then would create a loan
+        // offer with selling_team_id == offering_team_id (the club loaning
+        // to itself), corrupting the loan accounting and state.
+        if ($player->isUserOwned($game)) {
+            return response()->json([
+                'status' => 'error',
+                'message' => __('transfers.cannot_target_own_player'),
+            ], 422);
+        }
+
         $hasPending = TransferOffer::where('game_id', $game->id)
             ->where('game_player_id', $player->id)
             ->where('offering_team_id', $game->team_id)

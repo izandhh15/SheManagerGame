@@ -24,14 +24,15 @@ class CareerSummaryService
      */
     public function build(Game $game, int $userId): array
     {
+        // R-review-medios: the palmarés follows the MANAGER (user_id +
+        // game_id), not the current team. Filtering by team_id wiped the
+        // strip and the cabinet after a team switch in pro-manager mode.
         $stats = ManagerStats::where('user_id', $userId)
             ->where('game_id', $game->id)
-            ->where('team_id', $game->team_id)
             ->first();
 
         $trophies = ManagerTrophy::where('user_id', $userId)
             ->where('game_id', $game->id)
-            ->where('team_id', $game->team_id)
             ->count();
 
         $seasonsCompleted = (int) ($stats?->seasons_completed ?? 0);
@@ -59,7 +60,6 @@ class CareerSummaryService
         $trophies = ManagerTrophy::with('competition')
             ->where('user_id', $userId)
             ->where('game_id', $game->id)
-            ->where('team_id', $game->team_id)
             ->get();
 
         if ($trophies->isEmpty()) {

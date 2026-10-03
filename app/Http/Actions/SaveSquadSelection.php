@@ -26,15 +26,21 @@ class SaveSquadSelection
         }
 
         $request->validate([
-            'player_ids' => 'required|array|max:26',
-            'player_ids.*' => 'required|string',
+            'player_ids' => 'required|array|min:18|max:26',
+            'player_ids.*' => 'required|string|distinct',
         ]);
 
         $selectedTmIds = $request->input('player_ids');
 
-        // Load and validate against JSON candidates
+        // Load and validate against JSON candidates. The candidate file may
+        // not exist for every transfermarkt_id (only 48 shipped in
+        // data/2025/WC2026/teams/) — never let file_get_contents() blow up
+        // into a 500; fail with a controlled error instead.
         $transfermarktId = $game->team->transfermarkt_id;
         $jsonPath = base_path("data/2025/WC2026/teams/{$transfermarktId}.json");
+        if (! is_string($transfermarktId) || $transfermarktId === '' || ! file_exists($jsonPath)) {
+            return back()->with('error', __('squad.invalid_selection'));
+        }
         $data = json_decode(file_get_contents($jsonPath), true);
         $jsonPlayers = collect($data['players'] ?? []);
         $validTmIds = $jsonPlayers->pluck('id')->toArray();

@@ -440,7 +440,7 @@ Route::middleware('auth')->group(function () {
 
         // Tournament End
         Route::get('/game/{gameId}/tournament-end', ShowTournamentEnd::class)->name('game.tournament-end');
-        Route::get('/game/{gameId}/simulate-tournament', SimulateTournament::class)->middleware('throttle:tournament-simulation')->name('game.simulate-tournament');
+        Route::post('/game/{gameId}/simulate-tournament', SimulateTournament::class)->middleware('throttle:tournament-simulation')->name('game.simulate-tournament');
 
         // Schedulable friendlies (tournament/national-team mode only — the
         // view + action abort 404 for other modes).

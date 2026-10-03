@@ -22,9 +22,16 @@
             <p class="text-sm text-text-secondary">
                 {{ __('auth.activation_sent_no_email') }}
             </p>
-            <a href="{{ route('password.request') }}" class="mt-1 inline-block text-sm text-accent-blue hover:underline">
-                {{ __('auth.Resend Activation Email') }}
-            </a>
+            {{-- Resend form: POST to activation.resend (guarded by Route::has
+                 until the resend route ships alongside this view). --}}
+            @if(\Illuminate\Support\Facades\Route::has('activation.resend'))
+                <form method="POST" action="{{ route('activation.resend') }}" class="mt-1">
+                    @csrf
+                    <button type="submit" class="text-sm text-accent-blue hover:underline">
+                        {{ __('auth.resend_activation_email') }}
+                    </button>
+                </form>
+            @endif
         </div>
     </div>
 </x-guest-layout>

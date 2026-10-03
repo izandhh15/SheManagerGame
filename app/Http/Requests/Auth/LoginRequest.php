@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests\Auth;
 
-use App\Models\User;
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
@@ -50,21 +49,31 @@ class LoginRequest extends FormRequest
     /**
      * Attempt to authenticate the request's credentials.
      *
+     * Activation state is deliberately NOT checked before the password
+     * attempt: distinct "account not activated" vs "bad credentials" errors
+     * would let anyone probe which emails are registered-but-unactivated.
+     * Every failure — unknown email, wrong password, or inactive account —
+     * returns the same generic message.
+     *
      * @throws \Illuminate\Validation\ValidationException
      */
     public function authenticate(): void
     {
         $this->ensureIsNotRateLimited();
 
-        $user = User::where('email', $this->input('email'))->first();
+        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+            RateLimiter::hit($this->throttleKey());
 
-        if ($user && ! $user->isActivated()) {
             throw ValidationException::withMessages([
-                'email' => __('auth.account_not_activated'),
+                'email' => trans('auth.failed'),
             ]);
         }
 
-        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+        if (! Auth::user()->isActivated()) {
+            // Credentials were right but the account is inactive: revoke the
+            // just-created session and fail exactly like a bad password, so
+            // the activation gate stays closed without leaking its state.
+            Auth::logout();
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([

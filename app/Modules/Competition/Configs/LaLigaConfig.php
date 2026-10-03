@@ -44,9 +44,13 @@ class LaLigaConfig implements CompetitionConfig, HasSeasonGoals
      */
     private const SEASON_GOALS = [
         Game::GOAL_TITLE => ['targetPosition' => 1, 'label' => 'game.goal_title'],
-        Game::GOAL_EUROPA_LEAGUE => ['targetPosition' => 6, 'label' => 'game.goal_europa_league'],
-        Game::GOAL_TOP_HALF => ['targetPosition' => 10, 'label' => 'game.goal_top_half'],
-        Game::GOAL_SURVIVAL => ['targetPosition' => 15, 'label' => 'game.goal_survival'],
+        // ESP1 (16 teams) sends 1st to the UWCL and 2nd-3rd to the UWCL
+        // playoff (countries.ES continental_slots): 3rd is the last
+        // European slot, not 6th (men's number).
+        Game::GOAL_EUROPA_LEAGUE => ['targetPosition' => 3, 'label' => 'game.goal_europa_league'],
+        Game::GOAL_TOP_HALF => ['targetPosition' => 8, 'label' => 'game.goal_top_half'],
+        // 15th-16th are relegated (countries.ES): survival means 14th.
+        Game::GOAL_SURVIVAL => ['targetPosition' => 14, 'label' => 'game.goal_survival'],
     ];
 
     /**

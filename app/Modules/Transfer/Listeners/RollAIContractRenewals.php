@@ -79,10 +79,14 @@ class RollAIContractRenewals
         // eligible expiring player. Most ticks across most AI clubs will
         // find nothing to do; the distinct-teams filter keeps the per-tick
         // cost bounded to "teams with work" instead of the full universe.
+        // R-review-medios: exclude ALL of the user's teams (first team +
+        // filial via userTeamIds()), not just $game->team_id — the AI was
+        // renewing the user's reserve players without consent, spending the
+        // user's wage budget.
         $expiringTeamIds = DB::table('game_players')
             ->where('game_id', $game->id)
             ->whereNotNull('team_id')
-            ->where('team_id', '<>', $game->team_id)
+            ->whereNotIn('team_id', $game->userTeamIds())
             ->where('contract_until', '<=', $expirationDateStr)
             ->where('date_of_birth', '>', $veteranCutoffStr)
             ->whereNull('pending_annual_wage')

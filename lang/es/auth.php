@@ -36,6 +36,7 @@ return [
     'activation_sent_body' => 'Hemos enviado un enlace de activación a tu correo electrónico. Haz clic en el enlace para establecer tu contraseña y activar tu cuenta.',
     'activation_sent_expiry' => 'El enlace expirará en 60 minutos.',
     'activation_sent_no_email' => '¿No recibiste el correo?',
+    'resend_activation_email' => 'Reenviar correo de activación',
     'account_not_activated' => 'Tu cuenta aún no ha sido activada. Revisa tu correo electrónico para el enlace de activación, o solicita uno nuevo desde la página de contraseña olvidada.',
 
     // Messages

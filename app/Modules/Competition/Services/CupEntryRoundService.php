@@ -6,6 +6,7 @@ use App\Models\CompetitionEntry;
 use App\Models\CompetitionTeam;
 use App\Models\Game;
 use App\Models\Team;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Decides the round every club joins each of a country's domestic cups at,
@@ -47,15 +48,21 @@ class CupEntryRoundService
 
     /**
      * Assign entry rounds for every domestic cup of a country in a game.
+     *
+     * Runs in a single transaction: inserts (insertMissingSupercupClubs)
+     * and entry_round updates must stay consistent across cups, and a
+     * partial failure would leave some cups with stale rounds.
      */
     public function assignEntryRounds(string $gameId, string $countryCode): void
     {
         $game = Game::select(['id', 'season', 'base_season'])->find($gameId)
             ?? throw new \RuntimeException("Cannot assign cup entry rounds: game {$gameId} does not exist");
 
-        foreach ($this->countryConfig->domesticCupIds($countryCode) as $cupId) {
-            $this->assignForCup($game, $countryCode, $cupId);
-        }
+        DB::transaction(function () use ($game, $countryCode) {
+            foreach ($this->countryConfig->domesticCupIds($countryCode) as $cupId) {
+                $this->assignForCup($game, $countryCode, $cupId);
+            }
+        });
     }
 
     private function assignForCup(Game $game, string $countryCode, string $cupId): void

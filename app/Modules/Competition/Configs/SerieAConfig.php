@@ -47,9 +47,12 @@ class SerieAConfig implements CompetitionConfig, HasSeasonGoals
      */
     private const SEASON_GOALS = [
         Game::GOAL_TITLE => ['targetPosition' => 1, 'label' => 'game.goal_title'],
-        Game::GOAL_EUROPA_LEAGUE => ['targetPosition' => 6, 'label' => 'game.goal_europa_league'],
-        Game::GOAL_TOP_HALF => ['targetPosition' => 10, 'label' => 'game.goal_top_half'],
-        Game::GOAL_SURVIVAL => ['targetPosition' => 17, 'label' => 'game.goal_survival'],
+        // Serie A Femminile (12 teams): Europe is 1st-4th (countries.IT
+        // continental_slots), only the 12th is relegated. Old values were
+        // men's Serie A numbers (20 teams).
+        Game::GOAL_EUROPA_LEAGUE => ['targetPosition' => 4, 'label' => 'game.goal_europa_league'],
+        Game::GOAL_TOP_HALF => ['targetPosition' => 6, 'label' => 'game.goal_top_half'],
+        Game::GOAL_SURVIVAL => ['targetPosition' => 11, 'label' => 'game.goal_survival'],
     ];
 
     /**
@@ -153,9 +156,12 @@ class SerieAConfig implements CompetitionConfig, HasSeasonGoals
             ];
         }
 
+        // Serie A Femminile has 12 teams; only the 12th goes down
+        // (countries.IT promotions). The old 18-20 range was copied from
+        // the men's Serie A (20 teams).
         $zones[] = [
-            'minPosition' => 18,
-            'maxPosition' => 20,
+            'minPosition' => 12,
+            'maxPosition' => 12,
             'borderColor' => 'red-500',
             'bgColor' => 'bg-red-500',
             'label' => 'game.relegation',

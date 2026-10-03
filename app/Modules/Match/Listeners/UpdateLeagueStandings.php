@@ -4,6 +4,8 @@ namespace App\Modules\Match\Listeners;
 
 use App\Modules\Match\Events\MatchFinalized;
 use App\Modules\Competition\Services\StandingsCalculator;
+use App\Models\GameMatch;
+use Illuminate\Support\Facades\DB;
 
 class UpdateLeagueStandings
 {
@@ -22,22 +24,29 @@ class UpdateLeagueStandings
         }
 
         // Idempotency guard: skip if standings were already applied for this match
-        // (prevents double-counting from concurrent finalization or safety net re-entry)
-        if ($match->standings_applied) {
-            return;
-        }
+        // (prevents double-counting from concurrent finalization or safety net re-entry).
+        // The check-then-set runs inside a transaction with a row lock on the
+        // match: two concurrent finalizations serialize here and the second
+        // one sees standings_applied = true instead of double-applying.
+        DB::transaction(function () use ($event, $match) {
+            $locked = GameMatch::where('id', $match->id)->lockForUpdate()->first();
 
-        $this->standingsCalculator->updateAfterMatch(
-            gameId: $event->game->id,
-            competitionId: $match->competition_id,
-            homeTeamId: $match->home_team_id,
-            awayTeamId: $match->away_team_id,
-            homeScore: $match->home_score,
-            awayScore: $match->away_score,
-        );
+            if (!$locked || $locked->standings_applied) {
+                return;
+            }
 
-        $this->standingsCalculator->recalculatePositions($event->game->id, $match->competition_id, updatePrevPosition: false);
+            $this->standingsCalculator->updateAfterMatch(
+                gameId: $event->game->id,
+                competitionId: $match->competition_id,
+                homeTeamId: $match->home_team_id,
+                awayTeamId: $match->away_team_id,
+                homeScore: $match->home_score,
+                awayScore: $match->away_score,
+            );
 
-        $match->update(['standings_applied' => true]);
+            $this->standingsCalculator->recalculatePositions($event->game->id, $match->competition_id, updatePrevPosition: false);
+
+            $locked->update(['standings_applied' => true]);
+        });
     }
 }

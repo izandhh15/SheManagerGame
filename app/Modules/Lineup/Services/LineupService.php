@@ -836,9 +836,16 @@ class LineupService
             $teamAvg = $this->aiTactics->calculateTeamAverage($aiSelectedXI);
 
             $opponentPlayers = $allPlayersGrouped?->get($opponentTeamId, collect()) ?? collect();
+            // R-review-medios: with no opponent data the old fallback was
+            // opponentAvg=0, so $diff = teamAvg - 0 >= 5 made isStronger=true
+            // ALWAYS — data-less AI sides played like favourites (possession
+            // + high press). Now the unknown rival is assumed stronger, so
+            // the setup takes the conservative ("weaker side") branch,
+            // exactly like the with-data path does for a genuinely
+            // stronger opponent.
             $opponentAvg = $opponentPlayers->isNotEmpty()
                 ? $this->aiTactics->calculateTeamAverage($this->selectBestXI($opponentPlayers))
-                : 0;
+                : $teamAvg + 5;
 
             $clubProfile = $clubProfiles?->get($teamId);
             $reputationLevel = $clubProfile?->reputation_level;

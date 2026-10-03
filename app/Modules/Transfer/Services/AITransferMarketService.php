@@ -1855,21 +1855,26 @@ class AITransferMarketService
 
     /**
      * Flush all batched player updates and transfer inserts to the database.
+     *
+     * One transaction: a partial failure must not leave players moved
+     * without their ledger (game_transfers) row, desyncing the books.
      */
     private function flushBatchedOperations(array $playerUpdates, array $transferInserts): void
     {
-        // Sort by id so the PK / FK locks inside each upsert chunk are
-        // acquired in a deterministic order — prevents cross-session
-        // deadlocks with other writers that follow the same ordering.
-        usort($playerUpdates, fn ($a, $b) => strcmp($a['id'], $b['id']));
+        DB::transaction(function () use ($playerUpdates, $transferInserts) {
+            // Sort by id so the PK / FK locks inside each upsert chunk are
+            // acquired in a deterministic order — prevents cross-session
+            // deadlocks with other writers that follow the same ordering.
+            usort($playerUpdates, fn ($a, $b) => strcmp($a['id'], $b['id']));
 
-        foreach (array_chunk($playerUpdates, 100) as $chunk) {
-            GamePlayer::upsert($chunk, ['id'], ['team_id', 'number', 'contract_until', 'annual_wage', 'release_clause']);
-        }
+            foreach (array_chunk($playerUpdates, 100) as $chunk) {
+                GamePlayer::upsert($chunk, ['id'], ['team_id', 'number', 'contract_until', 'annual_wage', 'release_clause']);
+            }
 
-        foreach (array_chunk($transferInserts, 100) as $chunk) {
-            GameTransfer::insert($chunk);
-        }
+            foreach (array_chunk($transferInserts, 100) as $chunk) {
+                GameTransfer::insert($chunk);
+            }
+        });
     }
 
     // ── Budget & tracking helpers ───────────────────────────────────────

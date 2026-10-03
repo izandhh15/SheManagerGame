@@ -36,6 +36,7 @@ return [
     'activation_sent_body' => 'Wir haben einen Aktivierungslink an deine E-Mail-Adresse gesendet. Klicke auf den Link, um dein Passwort festzulegen und dein Konto zu aktivieren.',
     'activation_sent_expiry' => 'Der Link läuft in 60 Minuten ab.',
     'activation_sent_no_email' => 'Keine E-Mail erhalten?',
+    'resend_activation_email' => 'Aktivierungs-E-Mail erneut senden',
     'account_not_activated' => 'Dein Konto wurde noch nicht aktiviert. Prüfe deine E-Mails auf den Aktivierungslink oder fordere einen neuen über die Passwort-vergessen-Seite an.',
 
     // Nachrichten

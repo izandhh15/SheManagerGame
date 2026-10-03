@@ -26,6 +26,32 @@
         @php
             // Payload for client-side filtering/sorting (Alpine). Includes the
             // injured badge label so the list can be fully rendered in JS.
+            // Flag emoji of the managed national team (replaces the hardcoded
+            // 🇪🇸 that used to show for every nation). No emoji map exists in
+            // the codebase, so it is derived from the ISO country code; the
+            // UK home nations use subdivision flag tag sequences.
+            $ntFlag = (function (string $code): string {
+                $code = strtolower(trim($code));
+                $special = [
+                    'en' => "\u{1F3F4}\u{E0067}\u{E0062}\u{E0065}\u{E006E}\u{E0067}\u{E007F}",
+                    'gb-eng' => "\u{1F3F4}\u{E0067}\u{E0062}\u{E0065}\u{E006E}\u{E0067}\u{E007F}",
+                    'gb-sct' => "\u{1F3F4}\u{E0067}\u{E0062}\u{E0073}\u{E0063}\u{E0074}\u{E007F}",
+                    'gb-wls' => "\u{1F3F4}\u{E0067}\u{E0062}\u{E0077}\u{E006C}\u{E0073}\u{E007F}",
+                    'gb-nir' => "\u{1F1EC}\u{1F1E7}",
+                ];
+                if (isset($special[$code])) {
+                    return $special[$code];
+                }
+                if (strlen($code) !== 2 || !ctype_alpha($code)) {
+                    return '';
+                }
+                $emoji = '';
+                foreach (str_split(strtoupper($code)) as $ch) {
+                    $emoji .= mb_chr(0x1F1E6 + ord($ch) - 65, 'UTF-8');
+                }
+                return $emoji;
+            })((string) ($team->country ?? ''));
+
             $playersPayload = $players->map(fn ($p) => [
                 'player_id' => $p['player_id'],
                 'name' => $p['name'],
@@ -35,6 +61,7 @@
                 'age' => $p['age'],
                 'club' => $p['club'],
                 'club_form' => $p['club_form'],
+                'nt_flag' => $ntFlag,
                 'injured_label' => isset($injured[$p['player_id']])
                     ? __('game.squad_picker_injured_until', ['date' => \Carbon\Carbon::parse($injured[$p['player_id']])->format('d/m/Y')])
                     : null,

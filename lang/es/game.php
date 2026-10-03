@@ -559,7 +559,6 @@ return [
     'knockout_not_started' => 'La fase eliminatoria aún no ha comenzado',
     'knockout_not_started_desc' => 'La fase eliminatoria se generará automáticamente al terminar la fase de grupos.',
     'knockout_generating' => 'Generando cuadro eliminatorio...',
-    'knockout_qualified' => 'Clasificado a eliminatorias',
 
     // UEFA Swiss Format - League Phase
     'league_phase' => 'Fase de Liga',

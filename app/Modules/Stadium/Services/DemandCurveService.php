@@ -82,7 +82,10 @@ class DemandCurveService
         $attendance = (int) round($capacity * $this->baseFillRate($homeRep));
         $floor = (int) max(self::ATTENDANCE_FLOOR_ABSOLUTE, $capacity * self::ATTENDANCE_FLOOR_RATIO);
 
-        return max($floor, min($capacity, $attendance));
+        // The absolute floor (500) must never exceed capacity: in grounds
+        // with < 500 seats it would otherwise report more spectators than
+        // seats and inflate the gate.
+        return min($capacity, max($floor, min($capacity, $attendance)));
     }
 
     public function project(
@@ -113,7 +116,9 @@ class DemandCurveService
         $floor = (int) max(self::ATTENDANCE_FLOOR_ABSOLUTE, $capacity * self::ATTENDANCE_FLOOR_RATIO);
         $opponentFloor = $this->opponentFloor($awayRep, $capacity);
 
-        return max($floor, $opponentFloor, min($capacity, $attendance));
+        // Neither floor may exceed capacity (see projectBaseline): tiny
+        // grounds would otherwise report attendance above their seat count.
+        return min($capacity, max($floor, $opponentFloor, min($capacity, $attendance)));
     }
 
     /**

@@ -102,14 +102,9 @@ class LigaMXFemenilConfig implements CompetitionConfig, HasSeasonGoals
 
     public function getStandingsZones(): array
     {
-        return [
-            [
-                'minPosition' => 17,
-                'maxPosition' => 18,
-                'borderColor' => 'red-500',
-                'bgColor' => 'bg-red-500',
-                'label' => 'game.relegation',
-            ],
-        ];
+        // Liga MX Femenil has no relegation (no relegated_positions in
+        // countries.MX), so no relegation zone is painted. The old 17-18
+        // range was fictitious.
+        return [];
     }
 }

@@ -235,7 +235,17 @@ class PressConferenceService
     /**
      * Store the manager's answers and apply their effects. Idempotent: if
      * the press conference was already held for this match, the existing
-     * record is returned and nothing is applied twice.
+     * record is returned and effects are never applied twice.
+     *
+     * R-review-medios: the old check-then-create had no lock — two
+     * concurrent submits both passed findRecord() and the second died on
+     * the unique key (500). Worse, if applyEffects() threw after the
+     * insert, the retry returned the row without ever applying the effects.
+     * Now the whole sequence runs in a transaction serialized on the game
+     * row (a SELECT ... FOR UPDATE on an empty pre_match_press set locks
+     * nothing, so the game-row lock is what stops the race), and the
+     * effects_applied flag lets a retry finish effects that a crashed
+     * attempt left pending — applied exactly once.
      *
      * @param array<string, string> $answers question key => answer key
      *
@@ -243,11 +253,8 @@ class PressConferenceService
      */
     public function answer(Game $game, GameMatch $match, array $answers): PreMatchPress
     {
-        $existing = $this->findRecord($game, $match);
-        if ($existing) {
-            return $existing;
-        }
-
+        // Validate BEFORE taking the lock: bad input must not hold a row
+        // lock, and nothing has been written yet so throwing here is safe.
         $questions = $this->questions($game, $match);
         $byKey = [];
         foreach ($questions as $q) {
@@ -280,17 +287,37 @@ class PressConferenceService
             $confidenceDelta += $answer['confidence'];
         }
 
-        $record = PreMatchPress::create([
-            'game_id' => $game->id,
-            'match_id' => $match->id,
-            'answers' => $stored,
-            'morale_delta' => $moraleDelta,
-            'confidence_delta' => $confidenceDelta,
-        ]);
+        return DB::transaction(function () use ($game, $match, $stored, $moraleDelta, $confidenceDelta) {
+            // Serialize concurrent submits for this game. Locking the
+            // pre_match_press lookup alone is not enough: on an empty set
+            // it locks zero rows and both writers would still collide.
+            Game::where('id', $game->id)->lockForUpdate()->first();
 
-        $this->applyEffects($game, $moraleDelta, $confidenceDelta);
+            $existing = $this->findRecord($game, $match);
+            if ($existing) {
+                // A previous attempt may have crashed between the insert
+                // and applyEffects(): finish the pending effects exactly once.
+                if (! $existing->effects_applied) {
+                    $this->applyEffects($game, (int) $existing->morale_delta, (int) $existing->confidence_delta);
+                    $existing->update(['effects_applied' => true]);
+                }
 
-        return $record;
+                return $existing->refresh();
+            }
+
+            $record = PreMatchPress::create([
+                'game_id' => $game->id,
+                'match_id' => $match->id,
+                'answers' => $stored,
+                'morale_delta' => $moraleDelta,
+                'confidence_delta' => $confidenceDelta,
+            ]);
+
+            $this->applyEffects($game, $moraleDelta, $confidenceDelta);
+            $record->update(['effects_applied' => true]);
+
+            return $record;
+        });
     }
 
     /**

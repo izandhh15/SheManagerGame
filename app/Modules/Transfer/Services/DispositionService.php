@@ -1136,10 +1136,13 @@ class DispositionService
         // Only players who have actually been flagged by the per-matchday roll
         // get the drip — quietly underpaid players whose dice haven't landed
         // are not yet "unhappy" and don't lose morale.
+        // R-review-medios: the drip covers ALL of the user's teams (first
+        // team + filial via userTeamIds()) — the old $game->team_id filter
+        // ignored the reserve side entirely.
         $squad = GamePlayer::with(['matchState', 'activeLoan'])
             ->joinMatchState()
             ->where('game_players.game_id', $game->id)
-            ->where('game_players.team_id', $game->team_id)
+            ->whereIn('game_players.team_id', $game->userTeamIds())
             ->whereNotNull('game_players.salary_unhappy_since')
             ->whereMatchStat('morale', '>', self::WAGE_GAP_MORALE_FLOOR)
             ->get();
@@ -1173,9 +1176,12 @@ class DispositionService
 
         // careerRecord is eager-loaded so the homegrown check below stays a flag
         // read rather than a per-player query.
+        // R-review-medios: the roll covers ALL of the user's teams (first
+        // team + filial via userTeamIds()) — the old $game->team_id filter
+        // ignored the reserve side entirely.
         $squad = GamePlayer::with(['activeLoan', 'careerRecord'])
             ->where('game_id', $game->id)
-            ->where('team_id', $game->team_id)
+            ->whereIn('team_id', $game->userTeamIds())
             ->get();
 
         $flagged = 0;

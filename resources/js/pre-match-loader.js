@@ -27,6 +27,11 @@ export default function preMatchLoader() {
                                 this.submitting = true;
                                 window.dispatchEvent(new CustomEvent('matchday-advance-starting'));
                                 this.$refs.autoAdvanceForm.submit();
+                            } else {
+                                // lineupReady === false (or already submitting):
+                                // nothing to do — release the spinner so the
+                                // user can retry instead of staring at it.
+                                this.loading = false;
                             }
                         });
                     }

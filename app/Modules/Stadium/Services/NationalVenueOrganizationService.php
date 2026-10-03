@@ -426,6 +426,11 @@ class NationalVenueOrganizationService
             ]),
             'transaction_date' => Carbon::parse($match->scheduled_date)->toDateString(),
         ]);
+
+        // Credit the spendable budget too, not just the ledger: like
+        // RecordMatchdayRevenue, income the club can actually spend must
+        // land in transfer_budget.
+        $partner->currentInvestment?->increment('transfer_budget', $feeEuros * 100);
     }
 
     /**
@@ -449,6 +454,10 @@ class NationalVenueOrganizationService
                 ]),
                 'transaction_date' => Carbon::now()->toDateString(),
             ]);
+
+            // Same as payClub(): the rebate must be spendable, not just
+            // booked in the ledger.
+            $partner->currentInvestment?->increment('transfer_budget', $rebateEuros * 100);
 
             $this->notifications->create(
                 game: $partner,

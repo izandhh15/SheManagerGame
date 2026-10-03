@@ -128,10 +128,22 @@ class BudgetLoanService
     /**
      * Repay an active loan during season settlement.
      * Returns the repayment amount that was deducted.
+     *
+     * Records the repayment (principal + interest) in the ledger, mirroring
+     * the income entry requestLoan() makes — without it the money leaves the
+     * books silently and income/expense never balance.
      */
     public function repayLoan(BudgetLoan $loan): int
     {
         $loan->update(['status' => BudgetLoan::STATUS_REPAID]);
+
+        FinancialTransaction::recordExpense(
+            gameId: $loan->game_id,
+            category: FinancialTransaction::CATEGORY_LOAN_REPAYMENT,
+            amount: $loan->repayment_amount,
+            description: __('finances.tx_budget_loan_repaid', ['amount' => $loan->formatted_repayment_amount]),
+            transactionDate: ($loan->game?->current_date ?? now())->toDateString(),
+        );
 
         return $loan->repayment_amount;
     }

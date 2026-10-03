@@ -21,13 +21,6 @@ use Illuminate\Support\Collection;
  */
 class SwissFormatHandler extends CupCompetitionHandler
 {
-    private const EXPECTED_TIES_PER_ROUND = [
-        SwissKnockoutGenerator::ROUND_KNOCKOUT_PLAYOFF => 8,
-        SwissKnockoutGenerator::ROUND_OF_16 => 8,
-        SwissKnockoutGenerator::ROUND_QUARTER_FINALS => 4,
-        SwissKnockoutGenerator::ROUND_SEMI_FINALS => 2,
-    ];
-
     public function __construct(
         CupTieResolver $tieResolver,
         EligibilityService $eligibilityService,
@@ -135,17 +128,23 @@ class SwissFormatHandler extends CupCompetitionHandler
             return;
         }
 
-        // For later rounds, verify the expected number of completed ties before generating.
-        // A positive count check prevents generating with incomplete data due to timing issues.
-        $expectedCount = self::EXPECTED_TIES_PER_ROUND[$currentRound] ?? null;
-        $completedCount = CupTie::where('game_id', $game->id)
+        // For later rounds, generate the next round from the ties that
+        // actually exist: the round is complete when every drawn tie of
+        // the current round is completed with a winner. Never gate on a
+        // hardcoded expected count — if a round ever produces fewer ties
+        // (e.g. an incomplete top-up), the competition would deadlock
+        // forever with no recovery path.
+        $currentRoundTies = CupTie::where('game_id', $game->id)
             ->where('competition_id', $competitionId)
-            ->where('round_number', $currentRound)
+            ->where('round_number', $currentRound);
+
+        $totalCount = (clone $currentRoundTies)->count();
+        $completedCount = (clone $currentRoundTies)
             ->where('completed', true)
             ->whereNotNull('winner_id')
             ->count();
 
-        $previousRoundComplete = $expectedCount !== null && $completedCount === $expectedCount;
+        $previousRoundComplete = $totalCount > 0 && $completedCount === $totalCount;
 
         if ($previousRoundComplete && !$this->roundExists($game->id, $competitionId, $nextRound)) {
             $this->generateKnockoutRound($game, $competitionId, $nextRound);

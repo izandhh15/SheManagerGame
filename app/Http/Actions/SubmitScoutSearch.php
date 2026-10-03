@@ -54,7 +54,15 @@ class SubmitScoutSearch
             'expiring_contract' => !empty($validated['expiring_contract']),
         ];
 
-        $this->scoutingService->startSearch($game, $filters);
+        // startSearch() re-checks "no active search" under a lock: if a
+        // concurrent request won the race, it throws instead of starting a
+        // second search — surface the same friendly error as the guard above.
+        try {
+            $this->scoutingService->startSearch($game, $filters);
+        } catch (\DomainException $e) {
+            return redirect()->route('game.scouting', $gameId)
+                ->with('error', __($e->getMessage()));
+        }
 
         return redirect()->route('game.scouting', $gameId)
             ->with('success', __('messages.scout_search_started'));
