@@ -1,45 +1,36 @@
 <?php
-// TEMPORAL: diagnosticar 500 en POST /register/career. Borrar tras usar.
+// TEMPORAL v2: aislar INSERT...RETURNING. Borrar tras usar.
 require __DIR__.'/../vendor/autoload.php';
 $app = require __DIR__.'/../bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
 $kernel->bootstrap();
 
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use App\Models\User;
 
 $out = [];
+$conn = DB::connection();
 
-// Paso 1: validacion unique email (como en el controlador)
+// Test 1: INSERT...RETURNING en transaccion
 try {
-    $exists = User::where('email', 'testreg12345@example.com')->exists();
-    $out[] = "unique check OK: " . ($exists ? 'exists' : 'not exists');
+    $id = $conn->transaction(function () use ($conn) {
+        $r = $conn->select('INSERT INTO users (name, email, password, created_at, updated_at) VALUES (?, ?, ?, NOW(), NOW()) RETURNING id', ['DbgX', 'dbg_x_'.time().'@example.com', 'hash']);
+        return $r[0]->id;
+    });
+    $out[] = "INSERT...RETURNING en transaction OK: id=$id";
+    DB::table('users')->where('id', $id)->delete();
 } catch (Throwable $e) {
-    $out[] = 'unique check FAIL: ' . substr($e->getMessage(), 0, 200);
+    $out[] = 'INSERT...RETURNING FAIL: ' . substr($e->getMessage(), 0, 250);
 }
 
-// Paso 2: DB::transaction con User::create (como en el controlador)
+// Test 2: INSERT simple (sin RETURNING) en transaccion
 try {
-    $user = DB::transaction(function () {
-        $u = User::create([
-            'name' => 'DbgUser',
-            'email' => 'dbg_' . time() . '@example.com',
-            'password' => Hash::make('Password123!'),
-        ]);
-        $u->forceFill([
-            'email_verified_at' => now(),
-            'has_career_access' => true,
-            'has_tournament_access' => true,
-        ])->save();
-        return $u;
+    $ok = $conn->transaction(function () use ($conn) {
+        return $conn->insert('INSERT INTO users (name, email, password, created_at, updated_at) VALUES (?, ?, ?, NOW(), NOW())', ['DbgY', 'dbg_y_'.time().'@example.com', 'hash']);
     });
-    $out[] = "transaction+create OK: id=" . $user->id;
-    // limpiar
-    $user->forceDelete();
-    $out[] = "cleanup OK";
+    $out[] = "INSERT sin RETURNING OK: " . var_export($ok, true);
+    DB::table('users')->where('email', 'like', 'dbg_y_%@example.com')->delete();
 } catch (Throwable $e) {
-    $out[] = 'transaction+create FAIL: ' . get_class($e) . ': ' . substr($e->getMessage(), 0, 300);
+    $out[] = 'INSERT sin RETURNING FAIL: ' . substr($e->getMessage(), 0, 250);
 }
 
 echo implode("\n", $out) . "\n";
