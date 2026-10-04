@@ -1,5 +1,5 @@
 <?php
-// TEMPORAL: contar tablas en ambas DBs.
+// TEMPORAL: copiar datos Ohio -> EU. ?tables=lista separada por comas
 require __DIR__.'/../vendor/autoload.php';
 $app = require __DIR__.'/../bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
@@ -18,17 +18,44 @@ Config::set('database.connections.newdb', [
 ]);
 
 $out = [];
-try {
-    $old = DB::connection('pgsql')->select("SELECT COUNT(*) as n FROM pg_tables WHERE schemaname='public'");
-    $new = DB::connection('newdb')->select("SELECT COUNT(*) as n FROM pg_tables WHERE schemaname='public'");
-    $out[] = 'old tables: ' . $old[0]->n;
-    $out[] = 'new tables: ' . $new[0]->n;
-    
-    $oldMig = DB::connection('pgsql')->table('migrations')->count();
-    $newMig = DB::connection('newdb')->table('migrations')->count();
-    $out[] = "old ledger: $oldMig, new ledger: $newMig";
-} catch (Throwable $e) {
-    $out[] = 'FAIL: ' . substr($e->getMessage(), 0, 200);
+$tablesParam = $_GET['tables'] ?? '';
+if (!$tablesParam) {
+    // Listar tablas con conteo
+    $tables = DB::connection('pgsql')->select("SELECT tablename FROM pg_tables WHERE schemaname='public' AND tablename NOT LIKE 'telescope%' ORDER BY tablename");
+    foreach ($tables as $t) {
+        $n = DB::connection('pgsql')->table($t->tablename)->count();
+        $out[] = $t->tablename . ':' . $n;
+    }
+} else {
+    $tables = explode(',', $tablesParam);
+    DB::connection('newdb')->statement("SET session_replication_role = 'replica'");
+    foreach ($tables as $table) {
+        $table = trim($table);
+        if (!preg_match('/^[a-z_]+$/', $table)) continue;
+        try {
+            $rows = DB::connection('pgsql')->table($table)->get();
+            $count = 0;
+            foreach ($rows->chunk(500) as $chunk) {
+                $data = array_map(fn($r) => (array)$r, $chunk->toArray());
+                if (!empty($data)) {
+                    DB::connection('newdb')->table($table)->insert($data);
+                    $count += count($data);
+                }
+            }
+            $out[] = "$table: $count";
+        } catch (Throwable $e) {
+            $out[] = "$table FAIL: " . substr($e->getMessage(), 0, 200);
+        }
+    }
+    DB::connection('newdb')->statement("SET session_replication_role = 'origin'");
+    // Reset sequences
+    foreach ($tables as $table) {
+        $table = trim($table);
+        try {
+            DB::connection('newdb')->statement("SELECT setval(pg_get_serial_sequence('\"$table\"', 'id'), (SELECT MAX(id) FROM \"$table\")) WHERE EXISTS (SELECT 1 FROM \"$table\")");
+        } catch (Throwable $e) { /* ignorar si no hay secuencia */ }
+    }
+    $out[] = 'sequences reset';
 }
 
 echo implode("\n", $out) . "\n";
