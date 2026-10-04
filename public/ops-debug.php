@@ -28,7 +28,6 @@ if (!$tablesParam) {
     }
 } else {
     $tables = explode(',', $tablesParam);
-    DB::connection('newdb')->statement("SET session_replication_role = 'replica'");
     foreach ($tables as $table) {
         $table = trim($table);
         if (!preg_match('/^[a-z_]+$/', $table)) continue;
@@ -47,7 +46,6 @@ if (!$tablesParam) {
             $out[] = "$table FAIL: " . substr($e->getMessage(), 0, 200);
         }
     }
-    DB::connection('newdb')->statement("SET session_replication_role = 'origin'");
     // Reset sequences
     foreach ($tables as $table) {
         $table = trim($table);
