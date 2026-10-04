@@ -33,22 +33,7 @@ foreach ($files as $file) {
     if ($exists) continue;
     
     try {
-        require_once $file;
-        $class = 'Database\\Migrations\\' . substr($name, 18); // quitar timestamp
-        // Buscar la clase (puede tener nombre diferente)
-        $classes = get_declared_classes();
-        $migrationClass = null;
-        foreach ($classes as $c) {
-            if (str_ends_with($c, substr($name, 18))) {
-                $migrationClass = $c;
-                break;
-            }
-        }
-        if (!$migrationClass) {
-            // Intentar por convención
-            $migrationClass = 'Database\\Migrations\\' . \Illuminate\Support\Str::studly(substr($name, 18));
-        }
-        $instance = new $migrationClass();
+        $instance = require $file;
         $instance->up();
         DB::connection('newdb')->table('migrations')->insert([
             'migration' => $name, 'batch' => 1,
