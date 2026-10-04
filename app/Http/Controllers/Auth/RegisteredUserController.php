@@ -79,35 +79,13 @@ class RegisteredUserController extends Controller
             // Create the user and consume the invite atomically. The invite
             // is re-validated under a row lock: without this, two concurrent
             // submits could both pass the check above and burn a single-use
-            // code twice (TOCTOU).
-            $user = DB::transaction(function () use ($request, $invite) {
-                $lockedInvite = $invite
-                    ? InviteCode::whereKey($invite->id)->lockForUpdate()->first()
-                    : null;
-
-                if ($invite && (! $lockedInvite || ! $lockedInvite->isValidForEmail($request->input('email')))) {
-                    throw new InviteConsumedException();
-                }
-
-                $user = User::create([
-                    'name' => $request->name,
-                    'email' => $request->email,
-                    'password' => Hash::make($request->password),
-                ]);
-
-                // Access flags are not mass assignable — see User::$fillable.
-                // Open registration grants full access; a valid invite code narrows
-                // it to whatever the code grants.
-                $user->forceFill([
-                    'email_verified_at' => now(),
-                    'has_career_access' => $lockedInvite ? $lockedInvite->grants_career : true,
-                    'has_tournament_access' => $lockedInvite ? $lockedInvite->grants_tournament : true,
-                ])->save();
-
-                $lockedInvite?->consume();
-
-                return $user;
-            });
+            // code twice (TOCTOU). Without an invite, no transaction is
+            // needed — and none is used, because the Neon pooler aborts
+            // transactions that run INSERT...RETURNING followed by another
+            // query (SQLSTATE[25P02]).
+            $user = $invite
+                ? DB::transaction(fn () => $this->createUserWithInvite($request, $invite))
+                : $this->createUser($request, null);
         } catch (InviteConsumedException) {
             return back()->withErrors([
                 'invite_code' => __('beta.invalid_invite'),
@@ -121,6 +99,54 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         return redirect(route('dashboard', absolute: false));
+    }
+
+    /**
+     * Create the user with a single INSERT (all attributes at once).
+     *
+     * A separate UPDATE after the INSERT would 500 on the Neon pooler,
+     * which aborts transactions running INSERT...RETURNING followed by
+     * another query (SQLSTATE[25P02]).
+     */
+    private function createUser(Request $request, ?InviteCode $invite): User
+    {
+        $user = new User([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        // Access flags are not mass assignable — see User::$fillable.
+        // Open registration grants full access; a valid invite code narrows
+        // it to whatever the code grants.
+        $user->forceFill([
+            'email_verified_at' => now(),
+            'has_career_access' => $invite ? $invite->grants_career : true,
+            'has_tournament_access' => $invite ? $invite->grants_tournament : true,
+        ]);
+
+        $user->save();
+
+        return $user;
+    }
+
+    /**
+     * Create the user while atomically consuming an invite code.
+     *
+     * The consume (UPDATE) runs BEFORE the user INSERT: the pooler-safe
+     * order is row-lock → UPDATE → INSERT...RETURNING (last, nothing after).
+     */
+    private function createUserWithInvite(Request $request, InviteCode $invite): User
+    {
+        $lockedInvite = InviteCode::whereKey($invite->id)->lockForUpdate()->first();
+
+        if (! $lockedInvite || ! $lockedInvite->isValidForEmail($request->input('email'))) {
+            throw new InviteConsumedException();
+        }
+
+        $lockedInvite->consume();
+
+        return $this->createUser($request, $lockedInvite);
     }
 }
 
