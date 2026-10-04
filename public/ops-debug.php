@@ -1,5 +1,5 @@
 <?php
-// TEMPORAL: verificar competiciones WQC en prod. Borrar tras usar.
+// TEMPORAL: ver schema de competitions y un ejemplo. Borrar tras usar.
 require __DIR__.'/../vendor/autoload.php';
 $app = require __DIR__.'/../bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
@@ -8,15 +8,15 @@ $kernel->bootstrap();
 use Illuminate\Support\Facades\DB;
 
 $out = [];
-$ids = ['WQUEFA','WQAFC','WQCAF','WQCONC','WQCONM','WQOFC','WWCQ'];
 
 try {
-    $found = DB::table('competitions')->whereIn('id', $ids)->pluck('id')->toArray();
-    $out[] = 'WQC found: ' . json_encode($found);
-    $out[] = 'WQC missing: ' . json_encode(array_diff($ids, $found));
+    $cols = DB::select("SELECT column_name, data_type FROM information_schema.columns WHERE table_name='competitions' ORDER BY ordinal_position");
+    $out[] = 'cols: ' . json_encode(array_map(fn($c) => $c->column_name, $cols));
     
-    $total = DB::table('competitions')->count();
-    $out[] = "total competitions: $total";
+    $ex = DB::table('competitions')->where('id', 'UWCL')->first();
+    if ($ex) {
+        $out[] = 'UWCL: ' . json_encode((array)$ex);
+    }
 } catch (Throwable $e) {
     $out[] = 'FAIL: ' . substr($e->getMessage(), 0, 200);
 }
