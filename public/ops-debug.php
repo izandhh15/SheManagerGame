@@ -1,24 +1,22 @@
 <?php
-// TEMPORAL: ver schema de competitions y un ejemplo. Borrar tras usar.
+// TEMPORAL: ejecutar SeedNationalTeams en prod. Borrar tras usar.
 require __DIR__.'/../vendor/autoload.php';
 $app = require __DIR__.'/../bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
 $kernel->bootstrap();
 
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Artisan;
 
 $out = [];
 
 try {
-    $cols = DB::select("SELECT column_name, data_type FROM information_schema.columns WHERE table_name='competitions' ORDER BY ordinal_position");
-    $out[] = 'cols: ' . json_encode(array_map(fn($c) => $c->column_name, $cols));
-    
-    $ex = DB::table('competitions')->where('id', 'UWCL')->first();
-    if ($ex) {
-        $out[] = 'UWCL: ' . json_encode((array)$ex);
-    }
+    // Solo registra las competiciones WQC y equipos nacionales, sin --fresh
+    // para no borrar nada existente.
+    $exit = Artisan::call('app:seed-national-teams');
+    $out[] = "exit: $exit";
+    $out[] = "output: " . substr(Artisan::output(), 0, 2000);
 } catch (Throwable $e) {
-    $out[] = 'FAIL: ' . substr($e->getMessage(), 0, 200);
+    $out[] = 'FAIL: ' . get_class($e) . ': ' . substr($e->getMessage(), 0, 500);
 }
 
 echo implode("\n", $out) . "\n";
