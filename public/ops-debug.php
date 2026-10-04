@@ -1,5 +1,5 @@
 <?php
-// TEMPORAL: insertar competiciones WQC + verificar NTs. Borrar tras usar.
+// TEMPORAL: ver constraints de competitions. Borrar tras usar.
 require __DIR__.'/../vendor/autoload.php';
 $app = require __DIR__.'/../bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
@@ -9,43 +9,19 @@ use Illuminate\Support\Facades\DB;
 
 $out = [];
 
-$wqcs = [
-    'WQUEFA' => 'Clasificación Mundial UEFA',
-    'WQAFC'  => 'Clasificación Mundial AFC',
-    'WQCAF'  => 'Clasificación Mundial CAF',
-    'WQCONC' => 'Clasificación Mundial CONCACAF',
-    'WQCONM' => 'Clasificación Mundial CONMEBOL',
-    'WQOFC'  => 'Clasificación Mundial OFC',
-    'WWCQ'   => 'Clasificación Mundial',
-];
-
 try {
-    foreach ($wqcs as $id => $name) {
-        DB::table('competitions')->updateOrInsert(
-            ['id' => $id],
-            [
-                'name' => $name,
-                'country' => 'XX',
-                'tier' => 0,
-                'type' => 'tournament',
-                'season' => '2026',
-                'handler_type' => 'world_cup_qualifying',
-                'role' => 'qualifier',
-                'scope' => 'international',
-                'flag' => null,
-            ]
-        );
+    $c = DB::select("SELECT conname, pg_get_constraintdef(oid) FROM pg_constraint WHERE conrelid='competitions'::regclass AND contype='c'");
+    foreach ($c as $row) {
+        $out[] = $row->conname . ': ' . substr($row->pg_get_constraintdef, 0, 300);
     }
-    $out[] = 'WQC competitions inserted: ' . count($wqcs);
     
-    $found = DB::table('competitions')->whereIn('id', array_keys($wqcs))->pluck('id')->toArray();
-    $out[] = 'verified: ' . json_encode($found);
-    
-    // Verificar si hay equipos nacionales
-    $ntCount = DB::table('teams')->where('type', 'national')->count();
-    $out[] = "national teams in DB: $ntCount";
+    // Ver un ejemplo de competicion internacional existente
+    $ex = DB::table('competitions')->where('scope', 'international')->first();
+    if ($ex) {
+        $out[] = 'ejemplo intl: ' . json_encode((array)$ex);
+    }
 } catch (Throwable $e) {
-    $out[] = 'FAIL: ' . get_class($e) . ': ' . substr($e->getMessage(), 0, 300);
+    $out[] = 'FAIL: ' . substr($e->getMessage(), 0, 200);
 }
 
 echo implode("\n", $out) . "\n";
