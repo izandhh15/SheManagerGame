@@ -1,5 +1,6 @@
 <?php
-// TEMPORAL: debug conexion newdb.
+// TEMPORAL: migración completa con search_path.
+set_time_limit(600);
 require __DIR__.'/../vendor/autoload.php';
 $app = require __DIR__.'/../bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
@@ -15,20 +16,40 @@ Config::set('database.connections.newdb', [
     'driver' => 'pgsql', 'host' => $parts['host'], 'port' => $parts['port'] ?? 5432,
     'database' => ltrim($parts['path'], '/'), 'username' => $parts['user'],
     'password' => $parts['pass'], 'sslmode' => $q['sslmode'] ?? 'require',
+    'options' => [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION],
 ]);
 
+// Fijar search_path
+DB::connection('newdb')->statement('SET search_path TO public');
+
 $out = [];
-try {
-    $db = DB::connection('newdb')->select('SELECT current_database() as db, current_schema() as schema');
-    $out[] = 'db: ' . $db[0]->db . ', schema: ' . $db[0]->schema;
-    
-    $tables = DB::connection('newdb')->select("SELECT tablename FROM pg_tables WHERE schemaname='public' AND tablename='users'");
-    $out[] = 'users in pg_tables: ' . count($tables);
-    
-    $search = DB::connection('newdb')->select("SHOW search_path");
-    $out[] = 'search_path: ' . json_encode($search);
-} catch (Throwable $e) {
-    $out[] = 'FAIL: ' . substr($e->getMessage(), 0, 200);
+$tables = ['users','competitions','teams','competition_teams','club_profiles','games','game_stadiums','game_tactics','game_player_templates','activation_events','device_sessions','traffic_daily','traffic_hourly','traffic_visitor_days','visitor_heartbeats'];
+
+foreach ($tables as $table) {
+    try {
+        $count = DB::connection('pgsql')->table($table)->count();
+        if ($count == 0) {
+            $out[] = "$table: 0 (skip)";
+            continue;
+        }
+        DB::connection('newdb')->table($table)->delete();
+        $copied = 0;
+        DB::connection('pgsql')->table($table)->orderBy('id')->chunk(500, function($rows) use ($table, &$copied) {
+            $data = array_map(fn($r) => (array)$r, $rows->toArray());
+            DB::connection('newdb')->table($table)->insert($data);
+            $copied += count($data);
+        });
+        $out[] = "$table: $copied/$count OK";
+    } catch (Throwable $e) {
+        $out[] = "$table FAIL: " . substr($e->getMessage(), 0, 150);
+    }
 }
+
+foreach ($tables as $table) {
+    try {
+        DB::connection('newdb')->statement("SELECT setval(pg_get_serial_sequence('\"$table\"', 'id'), GREATEST((SELECT MAX(id) FROM \"$table\"), 1))");
+    } catch (Throwable $e) {}
+}
+$out[] = 'done';
 
 echo implode("\n", $out) . "\n";
