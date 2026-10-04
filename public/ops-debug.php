@@ -1,5 +1,5 @@
 <?php
-// TEMPORAL: migración completa con search_path.
+// TEMPORAL: migración con orden FK correcto.
 set_time_limit(600);
 require __DIR__.'/../vendor/autoload.php';
 $app = require __DIR__.'/../bootstrap/app.php';
@@ -16,38 +16,82 @@ Config::set('database.connections.newdb', [
     'driver' => 'pgsql', 'host' => $parts['host'], 'port' => $parts['port'] ?? 5432,
     'database' => ltrim($parts['path'], '/'), 'username' => $parts['user'],
     'password' => $parts['pass'], 'sslmode' => $q['sslmode'] ?? 'require',
-    'options' => [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION],
 ]);
-
-// Fijar search_path
 DB::connection('newdb')->statement('SET search_path TO public');
 
 $out = [];
-$tables = ['users','competitions','teams','competition_teams','club_profiles','games','game_stadiums','game_tactics','game_player_templates','activation_events','device_sessions','traffic_daily','traffic_hourly','traffic_visitor_days','visitor_heartbeats'];
 
-foreach ($tables as $table) {
+function copyTable($table, $orderBy = 'id') {
+    $copied = 0;
+    $query = DB::connection('pgsql')->table($table);
+    // Solo orderBy si la columna existe
     try {
-        $count = DB::connection('pgsql')->table($table)->count();
-        if ($count == 0) {
-            $out[] = "$table: 0 (skip)";
-            continue;
-        }
-        DB::connection('newdb')->table($table)->delete();
-        $copied = 0;
-        DB::connection('pgsql')->table($table)->orderBy('id')->chunk(500, function($rows) use ($table, &$copied) {
-            $data = array_map(fn($r) => (array)$r, $rows->toArray());
-            DB::connection('newdb')->table($table)->insert($data);
-            $copied += count($data);
-        });
-        $out[] = "$table: $copied/$count OK";
+        DB::connection('pgsql')->select("SELECT $orderBy FROM \"$table\" LIMIT 1");
+        $query = $query->orderBy($orderBy);
+    } catch (Throwable $e) {}
+    
+    DB::connection('newdb')->table($table)->delete();
+    $query->chunk(500, function($rows) use ($table, &$copied) {
+        $data = array_map(fn($r) => (array)$r, $rows->toArray());
+        DB::connection('newdb')->table($table)->insert($data);
+        $copied += count($data);
+    });
+    return $copied;
+}
+
+// Orden: sin dependencias primero
+$tables = [
+    'users', 'competitions', 'device_sessions',
+    'traffic_daily', 'traffic_hourly', 'traffic_visitor_days', 'visitor_heartbeats',
+];
+
+foreach ($tables as $t) {
+    try {
+        $n = copyTable($t);
+        $out[] = "$t: $n OK";
     } catch (Throwable $e) {
-        $out[] = "$table FAIL: " . substr($e->getMessage(), 0, 150);
+        $out[] = "$t FAIL: " . substr($e->getMessage(), 0, 120);
     }
 }
 
-foreach ($tables as $table) {
+// teams: copiar con parent_team_id NULL primero, luego actualizar
+try {
+    DB::connection('newdb')->table('teams')->delete();
+    $copied = 0;
+    DB::connection('pgsql')->table('teams')->orderBy('id')->chunk(500, function($rows) use (&$copied) {
+        foreach ($rows as $r) {
+            $data = (array)$r;
+            $parent = $data['parent_team_id'] ?? null;
+            $data['parent_team_id'] = null;
+            DB::connection('newdb')->table('teams')->insert($data);
+            $copied++;
+        }
+    });
+    // Segunda pasada: actualizar parent_team_id
+    $parents = DB::connection('pgsql')->table('teams')->whereNotNull('parent_team_id')->get(['id', 'parent_team_id']);
+    foreach ($parents as $p) {
+        DB::connection('newdb')->table('teams')->where('id', $p->id)->update(['parent_team_id' => $p->parent_team_id]);
+    }
+    $out[] = "teams: $copied OK";
+} catch (Throwable $e) {
+    $out[] = "teams FAIL: " . substr($e->getMessage(), 0, 120);
+}
+
+// Resto con dependencias
+$rest = ['competition_teams', 'club_profiles', 'games', 'game_stadiums', 'game_tactics', 'game_player_templates', 'activation_events'];
+foreach ($rest as $t) {
     try {
-        DB::connection('newdb')->statement("SELECT setval(pg_get_serial_sequence('\"$table\"', 'id'), GREATEST((SELECT MAX(id) FROM \"$table\"), 1))");
+        $n = copyTable($t);
+        $out[] = "$t: $n OK";
+    } catch (Throwable $e) {
+        $out[] = "$t FAIL: " . substr($e->getMessage(), 0, 120);
+    }
+}
+
+// Reset sequences
+foreach (array_merge($tables, ['teams'], $rest) as $t) {
+    try {
+        DB::connection('newdb')->statement("SELECT setval(pg_get_serial_sequence('\"$t\"', 'id'), GREATEST((SELECT MAX(id) FROM \"$t\"), 1))");
     } catch (Throwable $e) {}
 }
 $out[] = 'done';
