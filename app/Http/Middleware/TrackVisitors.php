@@ -32,15 +32,19 @@ class TrackVisitors
 
     public function handle(Request $request, Closure $next): Response
     {
-        $response = $next($request);
+        return $next($request);
+    }
 
+    /**
+     * Runs after the response is sent: tracking never blocks the visitor.
+     */
+    public function terminate(Request $request, Response $response): void
+    {
         try {
             $this->track($request);
         } catch (\Throwable) {
             // El tracking nunca debe romper la petición del visitante.
         }
-
-        return $response;
     }
 
     private function track(Request $request): void

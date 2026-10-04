@@ -25,7 +25,7 @@ env:
   # En Edge el sistema de ficheros del paquete es de solo lectura: la caché
   # "file" no persiste (cada request arranca de cero y los 21 Cache::remember
   # recalculan). Con "database" la caché sí funciona entre requests.
-  SESSION_DRIVER: "database"
+  SESSION_DRIVER: "cookie"
   CACHE_STORE: "neon-database"
   QUEUE_CONNECTION: "sync"
   LOG_CHANNEL: "stderr"
