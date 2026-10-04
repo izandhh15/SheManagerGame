@@ -1,5 +1,6 @@
 <?php
-// TEMPORAL: copiar datos (v2).
+// TEMPORAL: migración completa Ohio -> EU en una sola llamada.
+set_time_limit(600);
 require __DIR__.'/../vendor/autoload.php';
 $app = require __DIR__.'/../bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
@@ -18,24 +19,36 @@ Config::set('database.connections.newdb', [
 ]);
 
 $out = [];
-$table = $_GET['table'] ?? 'users';
+// Tablas con datos (excluyendo cache, sessions, telescope, migrations)
+$tables = ['users','competitions','teams','competition_teams','club_profiles','games','game_stadiums','game_tactics','game_player_templates','activation_events','device_sessions','traffic_daily','traffic_hourly','traffic_visitor_days','visitor_heartbeats'];
 
-try {
-    // Verificar que la tabla existe
-    $exists = DB::connection('newdb')->select("SELECT 1 FROM pg_tables WHERE schemaname='public' AND tablename=?", [$table]);
-    $out[] = "table $table exists: " . (count($exists) > 0 ? 'yes' : 'no');
-    
-    if (count($exists) > 0) {
-        $rows = DB::connection('pgsql')->table($table)->limit(1)->get();
-        $out[] = "old rows: " . DB::connection('pgsql')->table($table)->count();
-        if (count($rows) > 0) {
-            $data = (array)$rows[0];
-            DB::connection('newdb')->table($table)->insert($data);
-            $out[] = "insert 1 row OK";
+foreach ($tables as $table) {
+    try {
+        $count = DB::connection('pgsql')->table($table)->count();
+        if ($count == 0) {
+            $out[] = "$table: 0 (skip)";
+            continue;
         }
+        // Vaciar destino por si acaso
+        DB::connection('newdb')->table($table)->delete();
+        $copied = 0;
+        DB::connection('pgsql')->table($table)->orderBy('id')->chunk(500, function($rows) use ($table, &$copied) {
+            $data = array_map(fn($r) => (array)$r, $rows->toArray());
+            DB::connection('newdb')->table($table)->insert($data);
+            $copied += count($data);
+        });
+        $out[] = "$table: $copied/$count OK";
+    } catch (Throwable $e) {
+        $out[] = "$table FAIL: " . substr($e->getMessage(), 0, 150);
     }
-} catch (Throwable $e) {
-    $out[] = 'FAIL: ' . substr($e->getMessage(), 0, 300);
 }
+
+// Reset sequences
+foreach ($tables as $table) {
+    try {
+        DB::connection('newdb')->statement("SELECT setval(pg_get_serial_sequence('\"$table\"', 'id'), GREATEST((SELECT MAX(id) FROM \"$table\"), 1))");
+    } catch (Throwable $e) {}
+}
+$out[] = 'done';
 
 echo implode("\n", $out) . "\n";
