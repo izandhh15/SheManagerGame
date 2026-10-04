@@ -15,11 +15,12 @@ foreach (['competition_teams','traffic_daily','traffic_hourly','traffic_visitor_
     try {
         DB::connection('newdb')->table($t)->delete();
         $n = 0;
-        DB::connection('pgsql')->table($t)->chunk(500, function($rows) use ($t, &$n) {
-            $data = array_map(fn($r)=>(array)$r, $rows->toArray());
+        $all = DB::connection('pgsql')->table($t)->get();
+        foreach ($all->chunk(500) as $chunk) {
+            $data = array_map(fn($r)=>(array)$r, $chunk->toArray());
             DB::connection('newdb')->table($t)->insert($data);
             $n += count($data);
-        });
+        }
         $out[] = "$t: $n OK";
     } catch (Throwable $e) { $out[] = "$t FAIL: ".substr($e->getMessage(),0,100); }
 }
