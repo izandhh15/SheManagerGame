@@ -1,5 +1,5 @@
 <?php
-// TEMPORAL: listar tablas nueva DB.
+// TEMPORAL: copiar datos (v2).
 require __DIR__.'/../vendor/autoload.php';
 $app = require __DIR__.'/../bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
@@ -17,5 +17,25 @@ Config::set('database.connections.newdb', [
     'password' => $parts['pass'], 'sslmode' => $q['sslmode'] ?? 'require',
 ]);
 
-$tables = DB::connection('newdb')->select("SELECT tablename FROM pg_tables WHERE schemaname='public' ORDER BY tablename");
-echo implode("\n", array_map(fn($t) => $t->tablename, $tables)) . "\n";
+$out = [];
+$table = $_GET['table'] ?? 'users';
+
+try {
+    // Verificar que la tabla existe
+    $exists = DB::connection('newdb')->select("SELECT 1 FROM pg_tables WHERE schemaname='public' AND tablename=?", [$table]);
+    $out[] = "table $table exists: " . (count($exists) > 0 ? 'yes' : 'no');
+    
+    if (count($exists) > 0) {
+        $rows = DB::connection('pgsql')->table($table)->limit(1)->get();
+        $out[] = "old rows: " . DB::connection('pgsql')->table($table)->count();
+        if (count($rows) > 0) {
+            $data = (array)$rows[0];
+            DB::connection('newdb')->table($table)->insert($data);
+            $out[] = "insert 1 row OK";
+        }
+    }
+} catch (Throwable $e) {
+    $out[] = 'FAIL: ' . substr($e->getMessage(), 0, 300);
+}
+
+echo implode("\n", $out) . "\n";
