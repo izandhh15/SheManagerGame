@@ -1,5 +1,5 @@
 <?php
-// TEMPORAL: probar DDL sin transaccion en nueva DB.
+// TEMPORAL: ejecutar migraciones sin transacciones en nueva DB.
 require __DIR__.'/../vendor/autoload.php';
 $app = require __DIR__.'/../bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
@@ -7,6 +7,7 @@ $kernel->bootstrap();
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Schema;
 
 $NEW_URL = 'postgresql://neondb_owner:npg_Egr1cvCpktK6@ep-wispy-cake-b1wth7xu-pooler.c-5.eu-central-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require';
 $parts = parse_url($NEW_URL);
@@ -16,19 +17,52 @@ Config::set('database.connections.newdb', [
     'database' => ltrim($parts['path'], '/'), 'username' => $parts['user'],
     'password' => $parts['pass'], 'sslmode' => $q['sslmode'] ?? 'require',
 ]);
+Config::set('database.default', 'newdb');
 
 $out = [];
-$conn = DB::connection('newdb');
+$files = glob(database_path('migrations/*.php'));
+sort($files);
+$out[] = 'migrations found: ' . count($files);
 
-try {
-    $conn->unprepared('CREATE TABLE IF NOT EXISTS _t1 (id SERIAL PRIMARY KEY, name TEXT)');
-    $out[] = 'CREATE OK';
-    $conn->unprepared('ALTER TABLE _t1 ADD CONSTRAINT _t1_name_unique UNIQUE (name)');
-    $out[] = 'ALTER OK';
-    $conn->unprepared('DROP TABLE _t1');
-    $out[] = 'DROP OK';
-} catch (Throwable $e) {
-    $out[] = 'FAIL: ' . substr($e->getMessage(), 0, 250);
+$done = 0;
+$errors = [];
+foreach ($files as $file) {
+    $name = basename($file, '.php');
+    // Saltar si ya está en el ledger
+    $exists = DB::connection('newdb')->table('migrations')->where('migration', $name)->exists();
+    if ($exists) continue;
+    
+    try {
+        require_once $file;
+        $class = 'Database\\Migrations\\' . substr($name, 18); // quitar timestamp
+        // Buscar la clase (puede tener nombre diferente)
+        $classes = get_declared_classes();
+        $migrationClass = null;
+        foreach ($classes as $c) {
+            if (str_ends_with($c, substr($name, 18))) {
+                $migrationClass = $c;
+                break;
+            }
+        }
+        if (!$migrationClass) {
+            // Intentar por convención
+            $migrationClass = 'Database\\Migrations\\' . \Illuminate\Support\Str::studly(substr($name, 18));
+        }
+        $instance = new $migrationClass();
+        $instance->up();
+        DB::connection('newdb')->table('migrations')->insert([
+            'migration' => $name, 'batch' => 1,
+        ]);
+        $done++;
+    } catch (Throwable $e) {
+        $errors[] = "$name: " . substr($e->getMessage(), 0, 150);
+        if (count($errors) > 5) break;
+    }
+}
+
+$out[] = "migrated: $done";
+if (!empty($errors)) {
+    $out[] = 'errors: ' . implode("\n", $errors);
 }
 
 echo implode("\n", $out) . "\n";
