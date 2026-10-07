@@ -4,20 +4,12 @@ $app = require __DIR__.'/../bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
 $kernel->bootstrap();
 use Illuminate\Support\Facades\Cache;
-$out = [];
+echo "default: " . config('cache.default') . "\n";
+echo "CACHE_STORE env: " . env('CACHE_STORE', '(not set)') . "\n";
 $t = microtime(true);
 try {
-    $store = Cache::store('neon-database');
-    $out[] = 'store class: ' . get_class($store->getStore());
-    $out[] = sprintf('store obtained: %.0fms', (microtime(true)-$t)*1000);
+    $v = Cache::get('test-default-key');
+    echo sprintf('Cache::get default: %.0fms (%s)', (microtime(true)-$t)*1000, $v ? 'HIT' : 'MISS') . "\n";
 } catch (Throwable $e) {
-    $out[] = 'store FAIL: ' . substr($e->getMessage(), 0, 150);
+    echo 'FAIL: ' . substr($e->getMessage(), 0, 150) . "\n";
 }
-$t = microtime(true);
-try {
-    $v = Cache::store('neon-database')->get('test-key-123');
-    $out[] = sprintf('store get: %.0fms (%s)', (microtime(true)-$t)*1000, $v ? 'HIT' : 'MISS');
-} catch (Throwable $e) {
-    $out[] = 'get FAIL: ' . substr($e->getMessage(), 0, 150);
-}
-echo implode("\n", $out) . "\n";
