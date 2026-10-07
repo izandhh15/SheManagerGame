@@ -3,13 +3,9 @@ require __DIR__.'/../vendor/autoload.php';
 $app = require __DIR__.'/../bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
 $kernel->bootstrap();
-use Illuminate\Support\Facades\Cache;
-$out = [];
-$t = microtime(true);
-try {
-    Cache::store('neon-database')->put('test-put-key', 'hello', 60);
-    $out[] = sprintf('put: %.0fms OK', (microtime(true)-$t)*1000);
-} catch (Throwable $e) {
-    $out[] = 'put FAIL: ' . substr($e->getMessage(), 0, 150);
-}
-echo implode("\n", $out) . "\n";
+use Illuminate\Support\Facades\DB;
+$ids = ['WQUEFA','WQAFC','WQCAF','WQCONC','WQCONM','WQOFC','WWCQ'];
+$found = DB::table('competitions')->whereIn('id', $ids)->pluck('id')->toArray();
+echo "found: " . count($found) . "/7\n";
+echo "missing: " . implode(',', array_diff($ids, $found)) . "\n";
+echo "total competitions: " . DB::table('competitions')->count() . "\n";
