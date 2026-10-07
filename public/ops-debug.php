@@ -3,20 +3,21 @@ require __DIR__.'/../vendor/autoload.php';
 $app = require __DIR__.'/../bootstrap/app.php';
 $kernel = $app->make(Illuminate\Contracts\Console\Kernel::class);
 $kernel->bootstrap();
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
 $out = [];
 $t = microtime(true);
 try {
-    $n = DB::table('cache')->count();
-    $out[] = sprintf('cache count: %.0fms (n=%d)', (microtime(true)-$t)*1000, $n);
+    $store = Cache::store('neon-database');
+    $out[] = 'store class: ' . get_class($store->getStore());
+    $out[] = sprintf('store obtained: %.0fms', (microtime(true)-$t)*1000);
 } catch (Throwable $e) {
-    $out[] = 'count FAIL: ' . substr($e->getMessage(), 0, 150);
+    $out[] = 'store FAIL: ' . substr($e->getMessage(), 0, 150);
 }
 $t = microtime(true);
 try {
-    $r = DB::table('cache')->where('key', 'test')->first();
-    $out[] = sprintf('cache select: %.0fms', (microtime(true)-$t)*1000);
+    $v = Cache::store('neon-database')->get('test-key-123');
+    $out[] = sprintf('store get: %.0fms (%s)', (microtime(true)-$t)*1000, $v ? 'HIT' : 'MISS');
 } catch (Throwable $e) {
-    $out[] = 'select FAIL: ' . substr($e->getMessage(), 0, 150);
+    $out[] = 'get FAIL: ' . substr($e->getMessage(), 0, 150);
 }
 echo implode("\n", $out) . "\n";
