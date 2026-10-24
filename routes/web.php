@@ -145,6 +145,7 @@ use App\Http\Views\ShowMatchday;
 use App\Http\Views\ShowFinances;
 use App\Http\Views\ShowFastMode;
 use App\Http\Views\ShowGame;
+use App\Http\Views\ShowGameMenu;
 use App\Http\Views\ShowNewSeason;
 use App\Http\Views\ShowPreseasonSetup;
 use App\Http\Views\ShowWelcome;
@@ -269,6 +270,9 @@ Route::middleware('auth')->group(function () {
 
         // Game Views
         Route::get('/game/{gameId}', ShowGame::class)->name('show-game');
+        // Next-gen hub (fase 1): menu-only page with the new shell. The
+        // classic panel (show-game) stays untouched and reachable.
+        Route::get('/game/{gameId}/menu', ShowGameMenu::class)->name('game.menu');
         Route::get('/game/{gameId}/national-squad', ShowNationalSquadPicker::class)->name('game.national-squad-picker');
         Route::post('/game/{gameId}/national-squad', UpdateNationalSquad::class)->name('game.national-squad.update');
         Route::get('/game/{gameId}/squad', ShowSquad::class)->name('game.squad');

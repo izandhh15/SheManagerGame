@@ -1,4 +1,5 @@
-<x-app-layout>
+{{-- Fase 1 next-gen: Mis partidas usa el nuevo shell (sin juego: nav global). El contenido de la lista no cambia. --}}
+<x-game-nextgen-layout>
     <x-slot name="header">
         <h2 class="font-heading text-2xl lg:text-3xl font-bold uppercase tracking-wide text-text-primary leading-tight text-center">
             {{ __('app.load_game') }}
@@ -196,4 +197,4 @@
             @endif
         </div>
     </div>
-</x-app-layout>
+</x-game-nextgen-layout>
