@@ -8,7 +8,6 @@ use App\Modules\Season\Services\PreseasonInvitationService;
 use App\Modules\Season\Services\PreseasonTourService;
 use App\Modules\Season\Services\TrainingStageService;
 use App\Support\CountryNames;
-use Illuminate\Support\Facades\DB;
 
 class ShowPreseasonSetup
 {
@@ -34,9 +33,13 @@ class ShowPreseasonSetup
         }
 
         // The machine invites you: generate AI invitations (idempotent).
-        // A GET-side write: run it in a transaction so concurrent visits
-        // can't interleave the generation.
-        DB::transaction(fn () => $this->invitationService->generateFor($game));
+        // SIN transacción (24-10-2026, Neon pooler): el DB::transaction
+        // de este GET abortaba en silencio y /preseason-setup daba 500
+        // siempre, bloqueando la entrada al juego tras completar el
+        // setup. generateFor ya es idempotente (no genera si ya hay
+        // invitaciones); se acepta el riesgo menor de duplicados ante
+        // visitas exactamente concurrentes frente al 500 permanente.
+        $this->invitationService->generateFor($game);
 
         $teams = $this->opponentService->candidateTeamsGroupedByCountry($game);
         $slots = $this->opponentService->fixtureSlots($game);
