@@ -74,6 +74,23 @@ class JournalistService
         ['Inés Miró', '@inesmiro', 'datos', 6500],
         ['Izan Delgado', '@izandelgado', 'cronicas', 6000],
         ['Lola Pulido', '@lolapulido', 'fichajes', 5500],
+        // Beats de otros clubes, investigación ampliada 2026-10-24.
+        // Mismo criterio: al final, sin cambiar los titulares por
+        // especialidad. La especialidad es categoría de juego, no el
+        // cargo real de la persona. Varios son bylines de un artículo
+        // citado, no un beat permanente confirmado: queda dicho en
+        // SOURCES. No se añade nadie solo por iniciales (Eibar queda
+        // con genérico Diario Vasco hasta confirmar el nombre completo)
+        // ni se saturan clubes con varios bylines de un solo artículo
+        // (Athletic: solo Quintana, no Grande ni Nieto).
+        ['Laia Bonals', '@laiabonals', 'cronicas', 5000],
+        ['Sergio Quintana', '@sergioquintana', 'cronicas', 4800],
+        ['Aimara G. Gil', '@aimaraggil', 'rumores', 4600],
+        ['Maite Caridad', '@maitecaridad', 'fichajes', 4400],
+        ['Eric Martín', '@ericmartin', 'cronicas', 4200],
+        ['Hugo Guillemet', '@hugoguillemet', 'internacional', 4000],
+        ['Kathryn Batte', '@kathrynbatte', 'datos', 3800],
+        ['Eskender Tamrat', '@eskendertamrat', 'internacional', 3600],
     ];
 
     /**
@@ -91,6 +108,19 @@ class JournalistService
             'Izan Delgado',
             'Lola Pulido',
         ],
+        // Investigación ampliada 2026-10-24. David Menayo ya estaba en
+        // el roster general y ahora queda asignado además al Real Madrid.
+        // Los reporteros de liga (Sanders, Wrack, Garry, Kassouf) cubren
+        // varios clubes y NO se asignan en exclusiva a uno solo.
+        'FC Barcelona' => ['Laia Bonals'],
+        'Real Madrid' => ['David Menayo'],
+        'Athletic Club' => ['Sergio Quintana'],
+        'Real Sociedad' => ['Aimara G. Gil'],
+        'Granada CF' => ['Maite Caridad'],
+        'Levante UD Femenino' => ['Eric Martín'],
+        'OL Lyonnes' => ['Hugo Guillemet'],
+        'Liverpool Women' => ['Kathryn Batte'],
+        'VfL Wolfsburg' => ['Eskender Tamrat'],
     ];
 
     /**
@@ -121,6 +151,15 @@ class JournalistService
         'Inés Miró' => 'Las del Dato',
         'Izan Delgado' => 'El Nostre Equip',
         'Lola Pulido' => 'El Nostre Equip',
+        // Beats de otros clubes, investigación ampliada 2026-10-24.
+        'Laia Bonals' => 'Ara.cat',
+        'Sergio Quintana' => 'El Correo',
+        'Aimara G. Gil' => 'Diario AS',
+        'Maite Caridad' => 'Marca',
+        'Eric Martín' => 'Las Provincias',
+        'Hugo Guillemet' => "L'Équipe",
+        'Kathryn Batte' => 'Daily Mail',
+        'Eskender Tamrat' => 'BuliNews',
     ];
 
     /**
@@ -152,6 +191,16 @@ class JournalistService
         'Inés Miró' => 'Indicado por Izan Delgado (24-10-2026): Las del Dato, sobre el València Femení.',
         'Izan Delgado' => 'El propio usuario, fundador de El Nostre Equip (medio que cubre el València Femení); incluido a petición suya.',
         'Lola Pulido' => 'Indicado por Izan Delgado (24-10-2026): firma en El Nostre Equip (artículo de Andrea Recio, 19-10-2026; usuaria existente en WordPress).',
+        // Investigación ampliada 2026-10-24 (bylines citados en
+        // referencias, no siempre beat permanente confirmado).
+        'Laia Bonals' => 'Byline citado en referencias de Wikipedia "FC Barcelona Femení": artículo Ara.cat 22-12-2022. No se localizó página de autor directa.',
+        'Sergio Quintana' => 'Byline citado en referencias de Wikipedia: artículo El Correo 26-08-2026 sobre el Athletic femenino. Beat permanente no confirmado; Grande y Nieto (mismo club, un artículo cada uno) no se añaden para no saturar.',
+        'Aimara G. Gil' => 'Byline citado en referencias de Wikipedia "Real Sociedad Femenino": Diario AS 20-09-2022.',
+        'Maite Caridad' => 'Byline citado en referencias de Wikipedia "Granada CF (women)": Marca 06-06-2023, vuelta del Granada a Liga F.',
+        'Eric Martín' => 'Las Provincias 20-04-2025 (Levante femenino, citado en referencias de Wikipedia); bio: periodista y fundador de MundoLevanteUD.',
+        'Hugo Guillemet' => "L'Équipe 12-04-2023 sobre el OL femenino, citado en referencias de Wikipedia OL Lyonnes.",
+        'Kathryn Batte' => 'Daily Mail: piezas sobre el Liverpool femenino y podcast Royal Blue 06-08-2020 como periodista del Daily Mail.',
+        'Eskender Tamrat' => 'BuliNews: previa UWCL Wolfsburg–Juventus y review de Frauen-Bundesliga 26-09-2025, mismo byline. Se asigna solo a Wolfsburg (también cubrió al Frankfurt: genérico allí).',
     ];
 
     /**
