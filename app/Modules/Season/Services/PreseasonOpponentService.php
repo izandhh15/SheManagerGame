@@ -14,7 +14,6 @@ use App\Support\CountryCodeMapper;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 
@@ -209,17 +208,21 @@ class PreseasonOpponentService
      */
     public function confirmSelections(Game $game, array $selections): void
     {
-        // The whole confirmation runs in one transaction with the game row
-        // locked: the 'pending' guard is re-checked under the lock, so a
-        // double POST can't create the friendlies twice.
-        DB::transaction(function () use ($game, $selections) {
-            $lockedGame = Game::whereKey($game->id)->lockForUpdate()->first();
+        // SIN transacción ni lockForUpdate (24-10-2026, Neon pooler):
+        // la transacción con la fila bloqueada abortaba en silencio y
+        // CONFIRMAR PRETEMPORADA daba 500 siempre. La guarda 'pending'
+        // se comprueba antes de crear nada, así que un segundo POST
+        // tras completar no crea nada; solo dos POST exactamente
+        // concurrentes podrían duplicar amistosos, un riesgo menor
+        // frente al 500 permanente. scheduleFamilyDerby ya es
+        // idempotente por temporada.
+        $lockedGame = $game;
 
-            if (! $lockedGame || ! $lockedGame->needsPreseasonOpponentSelection()) {
-                return;
-            }
+        if (! $lockedGame->needsPreseasonOpponentSelection()) {
+            return;
+        }
 
-            $selections = $this->sanitizeSelections($lockedGame, $selections);
+        $selections = $this->sanitizeSelections($lockedGame, $selections);
             $slots = $this->fixtureSlots($lockedGame);
 
             $createdDates = [];
@@ -261,7 +264,6 @@ class PreseasonOpponentService
 
             // No friendlies chosen — the deliberate replacement for the old skip.
             $this->skipPreSeason($lockedGame);
-        });
     }
 
     /**
