@@ -39,11 +39,6 @@ $app = Application::configure(basePath: dirname(__DIR__))
 
         $middleware->append(\App\Http\Middleware\SecurityHeaders::class);
 
-        // Cierre total de la nueva generación (2026-10-24): ver
-        // App\Http\Middleware\UnderConstruction. Quitar esta línea
-        // para reabrir el juego cuando la nueva interfaz esté lista.
-        $middleware->append(\App\Http\Middleware\UnderConstruction::class);
-
         $middleware->web(append: [
             \App\Http\Middleware\SetLocale::class,
             \App\Http\Middleware\TrackVisitors::class,
