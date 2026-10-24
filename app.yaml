@@ -52,15 +52,16 @@ scaling:
   # PHP es single-threaded: una petición por instancia
   mode: single_concurrency
 
-# TEMPORAL 24-10-2026: regenerar plantillas en producción tras detectar
-# 0 plantillas en game_player_templates (crear partida bloqueada con
-# "0 jugadoras, mínimo 17"). Job post-deployment: corre UNA vez al
-# desplegar 0.5.1 y luego SE QUITA en 0.5.2 (no debe correr en cada deploy).
-jobs:
-  - name: refresh-player-templates-once
-    trigger: post-deployment
-    action:
-      execute:
-        command: php
-        cli_args: ["/app/artisan", "app:refresh-player-templates"]
+# Job temporal de regeneración de plantillas YA QUITADO (24-10-2026):
+# corrió con éxito en 0.5.4 (8.589 plantillas, temporada 2026). No debe
+# volver a correr en cada deploy: si hace falta regenerar, reañadirlo
+# a propósito en una versión nueva y quitarlo justo después.
+# Ejemplo de cron para el scheduler de Laravel (activar cuando haga falta):
+# jobs:
+#   - name: scheduler
+#     trigger: '* * * * *'
+#     action:
+#       execute:
+#         command: php
+#         cli_args: ["/app/artisan", "schedule:run"]
 app_id: da_KD4Iat7UJLyd

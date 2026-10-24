@@ -203,10 +203,15 @@ class SetupNewGame implements ShouldQueue, ShouldBeUnique
 
     private function copyCompetitionTeamsToGame(): void
     {
-        // Idempotency: skip if already done
-        if (CompetitionEntry::where('game_id', $this->gameId)->exists()) {
-            return;
-        }
+        // SIN transacción y con upsert a propósito (24-10-2026, Neon
+        // pooler): el insert en bloque dentro de DB::transaction
+        // abortaba la transacción en silencio y el setup moría con
+        // SQLSTATE[25P02] en /new-season, dejando la partida en
+        // "preparando" para siempre. Sin transacción, cada chunk va en
+        // autocommit y un fallo se ve con su error real; el upsert por
+        // (game_id, competition_id, team_id) hace el paso reanudable:
+        // una re-ejecución tras un fallo completa las entradas que
+        // falten en vez de saltarse el paso entero por existir alguna.
 
         // Reserve teams (e.g. Real Madrid Castilla, Barcelona Atlètic) never
         // play in domestic cups. Drop them from those competitions at the
@@ -245,11 +250,13 @@ class SetupNewGame implements ShouldQueue, ShouldBeUnique
             ->values()
             ->toArray();
 
-        DB::transaction(function () use ($rows) {
-            foreach (array_chunk($rows, 100) as $chunk) {
-                CompetitionEntry::insert($chunk);
-            }
-        });
+        foreach (array_chunk($rows, 100) as $chunk) {
+            CompetitionEntry::upsert(
+                $chunk,
+                ['game_id', 'competition_id', 'team_id'],
+                ['entry_round']
+            );
+        }
     }
 
     /**
