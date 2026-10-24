@@ -42,6 +42,18 @@ class StandingsResetProcessor implements SeasonProcessor
             ->pluck('team_id')
             ->toArray();
 
+        // Borrar primero (24-10-2026): initializeStandings hace insert
+        // plano, así que un segundo intento del setup (reintento tras
+        // fallo, o dos ejecuciones concurrentes del polling) chocaba
+        // con SQLSTATE[23505] duplicate key en game_standings y dejaba
+        // la partida en "preparando" para siempre. Las clasificaciones
+        // iniciales son todo ceros, así que borrar y recrear es seguro
+        // y hace el paso re-ejecutable, como LeagueFixtureProcessor
+        // ya hace con los partidos.
+        GameStanding::where('game_id', $game->id)
+            ->where('competition_id', $data->competitionId)
+            ->delete();
+
         $this->standingsCalculator->initializeStandings($game->id, $data->competitionId, $teamIds);
 
         return $data;
