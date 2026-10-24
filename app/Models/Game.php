@@ -260,19 +260,32 @@ class Game extends Model
      */
     public function redispatchSetupJob(): void
     {
-        if ($this->isTournamentMode()) {
-            \App\Modules\Season\Jobs\SetupTournamentGame::dispatch(
-                gameId: $this->id,
-                teamId: $this->team_id,
-            );
-        } else {
-            \App\Modules\Season\Jobs\SetupNewGame::dispatch(
-                gameId: $this->id,
-                teamId: $this->team_id,
-                competitionId: $this->competition_id,
-                season: $this->season,
-                gameMode: $this->game_mode ?? self::MODE_CAREER,
-            );
+        // 24-10-2026: con cola sync, el dispatch corre el job DENTRO de
+        // la petición que lo pide (ShowNewSeason / GameSetupStatus). Si
+        // el setup falla, la excepción NO debe tumbar esa petición con
+        // un 500: el usuario debe seguir viendo "preparando" y el
+        // polling reintentará. El fallo real ya queda en el log del
+        // pipeline ("Season setup processor failed").
+        try {
+            if ($this->isTournamentMode()) {
+                \App\Modules\Season\Jobs\SetupTournamentGame::dispatch(
+                    gameId: $this->id,
+                    teamId: $this->team_id,
+                );
+            } else {
+                \App\Modules\Season\Jobs\SetupNewGame::dispatch(
+                    gameId: $this->id,
+                    teamId: $this->team_id,
+                    competitionId: $this->competition_id,
+                    season: $this->season,
+                    gameMode: $this->game_mode ?? self::MODE_CAREER,
+                );
+            }
+        } catch (\Throwable $e) {
+            \Illuminate\Support\Facades\Log::warning('redispatchSetupJob failed (setup stays pending, polling will retry)', [
+                'game_id' => $this->id,
+                'error' => $e->getMessage(),
+            ]);
         }
     }
 

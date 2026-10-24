@@ -22,7 +22,6 @@ use App\Modules\Season\Processors\TransferMarketSeedProcessor;
 use App\Modules\Season\Processors\YouthAcademyPromotionProcessor;
 use App\Models\Game;
 use App\Support\QueryProfiler;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 /**
@@ -105,21 +104,29 @@ class SeasonSetupPipeline
             $profile = QueryProfiler::start();
 
             try {
-                // R1: same atomicity fix as SeasonClosingPipeline — the
-                // checkpoint is part of the processor's transaction, so a
-                // crash can never leave committed setup work behind with no
-                // recorded step (which would re-run the processor on resume
-                // and duplicate its non-idempotent effects).
-                $data = DB::transaction(function () use ($processor, $game, $data, $globalStep) {
-                    $result = $processor->process($game, $data);
+                // SIN transacción por procesador (24-10-2026, Neon pooler):
+                // envolver cada procesador en DB::transaction abortaba la
+                // transacción en silencio y el setup moría con SQLSTATE
+                // [25P02] (visto en LeagueFixtureProcessor: el DELETE de
+                // game_matches fallaba porque la transacción ya estaba
+                // abortada tras el DELETE de match_attendances), dejando
+                // la partida en "preparando" y 500 en /new-season en cada
+                // reintento. En autocommit, un fallo se ve con su error
+                // real y el checkpoint se escribe solo si el procesador
+                // completó: los procesadores de setup son re-ejecutables
+                // (empiezan borrando o con upsert), así que un reintento
+                // tras un fallo no duplica efectos. Se pierde la
+                // atomicidad R1 a cambio de que el setup funcione contra
+                // el pooler; es el mismo patrón aplicado a
+                // RefreshPlayerTemplates y a copyCompetitionTeamsToGame.
+                $result = $processor->process($game, $data);
 
-                    $game->updateQuietly([
-                        'season_transition_step' => $globalStep,
-                        'season_transition_data' => $result,
-                    ]);
+                $game->updateQuietly([
+                    'season_transition_step' => $globalStep,
+                    'season_transition_data' => $result,
+                ]);
 
-                    return $result;
-                });
+                $data = $result;
             } catch (\Throwable $e) {
                 Log::error('Season setup processor failed', [
                     'processor' => get_class($processor),
