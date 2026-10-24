@@ -64,6 +64,13 @@
                     @endforeach
                 </div>
 
+                @if(! empty($record->answers['_free_text']))
+                    <div class="mt-4 p-3 rounded-lg bg-surface-700/50 border border-border-default">
+                        <p class="text-xs text-text-faint italic">Tu mensaje libre:</p>
+                        <p class="text-sm text-text-primary mt-1">🗣️ {{ $record->answers['_free_text'] }}</p>
+                    </div>
+                @endif
+
                 <div class="text-center mt-4">
                     <a href="{{ route('game.lineup', $game->id) }}" class="inline-block px-4 py-2 rounded-lg bg-accent-blue text-white text-sm font-semibold">
                         {{ __('game.press_back_to_lineup') }}
@@ -97,6 +104,13 @@
                         @enderror
                     </div>
                 @endforeach
+
+                <div class="p-4 rounded-xl bg-surface-800 border border-dashed border-border-default">
+                    <p class="font-semibold text-text-primary text-sm">✍️ Mensaje libre para cerrar la rueda de prensa (opcional)</p>
+                    <textarea name="free_text" rows="2" maxlength="500"
+                              placeholder="Lo que quieras añadir, con tus palabras..."
+                              class="mt-2 w-full rounded-lg border border-border-default bg-surface-900 px-4 py-2.5 text-sm text-text-body placeholder:text-text-faint focus:outline-none focus:ring-2 focus:ring-accent-blue/50"></textarea>
+                </div>
 
                 <div class="flex gap-3 pt-2">
                     <button type="submit" class="flex-1 px-4 py-3 rounded-xl bg-accent-blue text-white font-bold uppercase tracking-wide">

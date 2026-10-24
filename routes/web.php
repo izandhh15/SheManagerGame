@@ -218,6 +218,10 @@ Route::get('/', function () {
 })->name('landing');
 
 Route::get('/legal', fn () => view('legal'))->name('legal');
+
+// Next-gen showcase: public "under construction / new generation" page.
+// It does NOT replace the live game — login/register keep working.
+Route::get('/nueva-generacion', fn () => view('next-gen'))->name('next-gen');
 Route::get('/leaderboard', ShowLeaderboard::class)->name('leaderboard');
 Route::get('/leaderboard/teams', ShowTeamLeaderboardIndex::class)->name('leaderboard.teams');
 Route::get('/leaderboard/team/{slug}', ShowTeamLeaderboard::class)->name('leaderboard.team');

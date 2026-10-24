@@ -10,11 +10,12 @@ use Illuminate\Support\Facades\DB;
 
 /**
  * The manager posts on the Internet feed. Rate-limited: 5 posts/day per game.
+ * Next-gen rule (2026-10-24): free text, max 200 characters per post.
  */
 class PostInternetMessage
 {
     public const DAILY_LIMIT = 5;
-    public const MAX_LENGTH = 280;
+    public const MAX_LENGTH = 200;
 
     public function __invoke(Request $request, string $gameId): RedirectResponse
     {

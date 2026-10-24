@@ -30,10 +30,21 @@ class SubmitPreMatchPress
             $rules['answers.'.$question['key']] = 'required|in:'.implode(',', array_column($question['answers'], 'key'));
         }
 
+        $rules['free_text'] = 'nullable|string|max:500';
         $validated = $request->validate($rules);
 
         // Idempotent: answering twice doesn't double-apply the effects.
-        $this->press->answer($game, $match, $validated['answers']);
+        $record = $this->press->answer($game, $match, $validated['answers']);
+
+        // Next-gen: optional free closing statement, stored inside the
+        // record's answers JSON under '_free_text' (no migration needed).
+        // It carries no morale/confidence effect by itself — the words
+        // are the point, and they are shown back on the record page.
+        if (! empty($validated['free_text'])) {
+            $answers = $record->answers ?? [];
+            $answers['_free_text'] = trim($validated['free_text']);
+            $record->update(['answers' => $answers]);
+        }
 
         return redirect()->route('game.lineup', $game->id)
             ->with('press_done', true);

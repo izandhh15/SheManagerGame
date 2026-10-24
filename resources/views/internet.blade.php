@@ -16,11 +16,11 @@
         <div class="rounded-xl border border-border-default bg-surface-800 p-4 mb-6">
             <form method="POST" action="{{ route('game.internet.post', $game->id) }}">
                 @csrf
-                <textarea name="text" rows="2" maxlength="280" required
+                <textarea name="text" id="internet-text" rows="2" maxlength="200" required
                           placeholder="{{ __('game.internet_placeholder') }}"
                           class="w-full rounded-lg border border-border-default bg-surface-900 px-4 py-2.5 text-sm text-text-body placeholder:text-text-faint focus:outline-none focus:ring-2 focus:ring-accent-blue/50"></textarea>
                 <div class="flex items-center justify-between mt-2">
-                    <span class="text-xs text-text-muted">{{ __('game.internet_limit', ['used' => $postedToday, 'limit' => $dailyLimit]) }}</span>
+                    <span class="text-xs text-text-muted">{{ __('game.internet_limit', ['used' => $postedToday, 'limit' => $dailyLimit]) }} · <span id="internet-counter">200</span> caracteres restantes</span>
                     <button type="submit"
                             @disabled($postedToday >= $dailyLimit)
                             class="rounded-lg bg-accent-blue px-5 py-2 text-sm font-bold text-white hover:brightness-110 transition disabled:opacity-40">
@@ -28,6 +28,16 @@
                     </button>
                 </div>
             </form>
+            <script>
+                (function () {
+                    var box = document.getElementById('internet-text');
+                    var counter = document.getElementById('internet-counter');
+                    if (!box || !counter) return;
+                    box.addEventListener('input', function () {
+                        counter.textContent = 200 - box.value.length;
+                    });
+                })();
+            </script>
         </div>
 
         {{-- Tabs --}}

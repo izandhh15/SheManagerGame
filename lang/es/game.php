@@ -1015,7 +1015,7 @@ return [
     'club_social_no_venue' => 'Ese partido aún no tiene sede confirmada.',
     'internet_title' => 'Internet',
     'internet_subtitle' => 'Todo lo que se cuece en la red: prensa, fichajes, tus jugadoras y tu voz de míster.',
-    'internet_placeholder' => '¿Qué quieres contar, míster? (máx. 280 caracteres)',
+    'internet_placeholder' => '¿Qué quieres contar, míster? (máx. 200 caracteres)',
     'internet_publish' => 'Publicar',
     'internet_posted' => '¡Publicado en Internet! 📡',
     'internet_limit' => ':used/:limit publicaciones hoy',

@@ -34,7 +34,7 @@
                 @foreach($options as $option)
                     <label class="block p-4 rounded-xl bg-surface-800 border border-border-default hover:border-accent-blue cursor-pointer transition-colors">
                         <div class="flex items-start gap-3">
-                            <input type="radio" name="statement_key" value="{{ $option['key'] }}" class="mt-1" required
+                            <input type="radio" name="statement_key" value="{{ $option['key'] }}" class="mt-1"
                                 @if(isset($option['player'])) data-player="{{ $option['player']['id'] }}" @endif>
                             <div class="flex-1">
                                 <div class="font-semibold text-text-primary">{{ $option['label'] }}</div>
@@ -47,6 +47,25 @@
                 @endforeach
 
                 <input type="hidden" name="player_id" id="press-player-id" value="">
+
+                <div class="p-4 rounded-xl bg-surface-800 border border-dashed border-border-default">
+                    <p class="font-semibold text-text-primary text-sm">✍️ O escribe tu propia declaración</p>
+                    <p class="text-xs text-text-faint mt-1">Si escribes aquí, se usa tu texto en vez de las opciones de arriba (máx. 500 caracteres). La prensa y la afición reaccionarán a lo que digas: culpar al árbitro tras perder, por ejemplo, no sale gratis.</p>
+                    <textarea name="custom_text" id="press-custom-text" rows="3" maxlength="500"
+                              placeholder="Escribe lo que quieras decir en rueda de prensa..."
+                              class="mt-2 w-full rounded-lg border border-border-default bg-surface-900 px-4 py-2.5 text-sm text-text-body placeholder:text-text-faint focus:outline-none focus:ring-2 focus:ring-accent-blue/50"></textarea>
+                    <p class="text-xs text-text-muted mt-1"><span id="press-custom-counter">500</span> caracteres restantes</p>
+                    <script>
+                        (function () {
+                            var box = document.getElementById('press-custom-text');
+                            var counter = document.getElementById('press-custom-counter');
+                            if (!box || !counter) return;
+                            box.addEventListener('input', function () {
+                                counter.textContent = 500 - box.value.length;
+                            });
+                        })();
+                    </script>
+                </div>
 
                 <div class="flex gap-3 pt-2">
                     <button type="submit" class="flex-1 px-4 py-3 rounded-xl bg-accent-blue text-white font-bold uppercase tracking-wide">

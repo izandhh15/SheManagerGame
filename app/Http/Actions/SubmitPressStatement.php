@@ -22,8 +22,12 @@ class SubmitPressStatement
             abort(403);
         }
 
+        // Next-gen: either a preset statement OR a free-text declaration
+        // (max 500 chars). The free text becomes statement 'custom' and
+        // drives its own press/fan reaction wave in SocialMediaService.
         $validated = $request->validate([
-            'statement_key' => 'required|string|in:praise_star,praise_team,criticize_flop,criticize_team,blame_referee,defend_tactics',
+            'statement_key' => 'nullable|string|required_without:custom_text|in:praise_star,praise_team,criticize_flop,criticize_team,blame_referee,defend_tactics',
+            'custom_text' => 'nullable|string|required_without:statement_key|max:500',
             'player_id' => 'nullable|string',
         ]);
 
@@ -33,11 +37,13 @@ class SubmitPressStatement
             ->exists();
 
         if (! $exists) {
+            $customText = isset($validated['custom_text']) ? trim($validated['custom_text']) : null;
             $this->socialMedia->makeStatement(
                 $game,
                 $match,
-                $validated['statement_key'],
+                $customText !== null && $customText !== '' ? 'custom' : $validated['statement_key'],
                 $validated['player_id'] ?? null,
+                $customText,
             );
         }
 

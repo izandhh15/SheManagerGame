@@ -27,6 +27,10 @@ class SocialMediaService
         'criticize_team' => ['Criticar al equipo', 'Criticize the whole team', false],
         'blame_referee' => ['Culpar al arbitraje', 'Blame the referee', false],
         'defend_tactics' => ['Defender el planteamiento', 'Defend the tactics', false],
+        // Next-gen: free-text statement typed by the manager. Never offered
+        // as a preset option (pressOptions skips it); only used when the
+        // manager writes their own declaration in the press view.
+        'custom' => ['Declaración libre', 'Free statement', false],
     ];
 
     /**
@@ -82,6 +86,9 @@ class SocialMediaService
         $options = [];
 
         foreach (self::STATEMENTS as $key => [$labelEs, $labelEn, $needsPlayer]) {
+            if ($key === 'custom') {
+                continue; // Free text is typed, never offered as a preset.
+            }
             $option = ['key' => $key, 'label' => $locale === 'es' ? $labelEs : $labelEn];
 
             if ($needsPlayer) {
@@ -105,8 +112,16 @@ class SocialMediaService
      *
      * @return \Illuminate\Database\Eloquent\Collection<int, SocialPost>
      */
-    public function makeStatement(Game $game, GameMatch $match, string $statementKey, ?string $playerId = null)
+    public function makeStatement(Game $game, GameMatch $match, string $statementKey, ?string $playerId = null, ?string $customText = null)
     {
+        $customText = $customText !== null ? trim($customText) : null;
+        if ($statementKey === 'custom' && ($customText === null || $customText === '')) {
+            return SocialPost::where('game_id', $game->id)
+                ->where('match_id', $match->id)
+                ->orderByDesc('created_at')
+                ->get();
+        }
+
         $ratings = $this->playerRatings($game, $match);
         $targetRating = null;
         $targetName = null;
@@ -143,7 +158,7 @@ class SocialMediaService
             $targetName = $target['name'];
         }
 
-        $result = $this->calculateReaction($game, $match, $statementKey, $targetRating);
+        $result = $this->calculateReaction($game, $match, $statementKey, $targetRating, $customText);
 
         // M15 (QA FEED-02): exactly one statement per (game, match).
         // SubmitPressStatement guards with check-then-insert without a
@@ -170,6 +185,24 @@ class SocialMediaService
                 ->where('match_id', $match->id)
                 ->orderByDesc('created_at')
                 ->get();
+        }
+
+        // The manager's own free-text declaration goes to the feed first,
+        // so the reaction wave that follows is visibly about something
+        // they actually wrote — not about a preset option.
+        if ($statementKey === 'custom' && $customText !== null && $customText !== '') {
+            $user = $game->user;
+            $name = $user?->username ?? $user?->name ?? 'Míster';
+            SocialPost::create([
+                'game_id' => $game->id,
+                'author_name' => $name,
+                'author_handle' => '@'.strtolower(preg_replace('/[^a-z0-9]/i', '', $name)),
+                'text' => mb_substr($customText, 0, 500),
+                'sentiment' => 0,
+                'likes' => rand(50, 800),
+                'context' => 'post_match',
+                'match_id' => $match->id,
+            ]);
         }
 
         // Generate 6-10 fan posts. $usedTexts keeps every post in the wave
@@ -199,14 +232,51 @@ class SocialMediaService
     }
 
     /**
+     * Tone of a free-text declaration, by keyword — deliberately coarse:
+     * blaming the referee / a scandal after a defeat reads as excuses,
+     * owning the result reads as honesty, praising the team after a win
+     * reads as fair. Everything else is mixed, so the press can go either
+     * way (the wave itself randomizes mixed posts).
+     */
+    private function reactionToCustomText(string $text, bool $won, bool $lost): array
+    {
+        $t = mb_strtolower($text);
+        $blame = ['árbitro', 'arbitraje', 'robo', 'escándalo', 'vergüenza', 'inaceptable', 'culpa del'];
+        $humble = ['mi culpa', 'perdón', 'disculpa', 'autocrítica', 'mejorar', 'trabajar', 'asumo'];
+        $praise = ['orgullo', 'orgulloso', 'gran partido', 'felicitar', 'increíble', 'espectacular'];
+
+        foreach ($blame as $word) {
+            if (str_contains($t, $word)) {
+                return ['impact' => $lost ? -6 : -10, 'mood' => 'negative'];
+            }
+        }
+        foreach ($humble as $word) {
+            if (str_contains($t, $word)) {
+                return ['impact' => 2, 'mood' => 'mixed'];
+            }
+        }
+        foreach ($praise as $word) {
+            if (str_contains($t, $word)) {
+                return ['impact' => $won ? 5 : -4, 'mood' => $won ? 'positive' : 'mixed'];
+            }
+        }
+
+        return ['impact' => 0, 'mood' => 'mixed'];
+    }
+
+    /**
      * Calculate how fans react to a statement.
      *
      * @return array{impact: int, mood: string} mood = 'positive'|'negative'|'mixed'
      */
-    private function calculateReaction(Game $game, GameMatch $match, string $key, ?float $targetRating): array
+    private function calculateReaction(Game $game, GameMatch $match, string $key, ?float $targetRating, ?string $customText = null): array
     {
         $won = $this->didWin($game, $match);
         $lost = $this->didLose($game, $match);
+
+        if ($key === 'custom') {
+            return $this->reactionToCustomText($customText ?? '', $won, $lost);
+        }
 
         return match ($key) {
             'praise_star' => $targetRating >= 7.0
