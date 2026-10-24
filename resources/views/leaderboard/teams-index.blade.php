@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-game-nextgen-layout>
     <x-slot name="header">
         <div class="flex justify-center">
             <x-application-logo />
@@ -57,4 +57,4 @@
             @endif
         </div>
     </div>
-</x-app-layout>
+</x-game-nextgen-layout>

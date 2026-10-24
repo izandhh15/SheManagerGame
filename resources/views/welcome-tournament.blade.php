@@ -3,7 +3,7 @@
 /** @var App\Models\Competition|null $competition */
 @endphp
 
-<x-app-layout :hide-footer="true">
+<x-game-nextgen-layout :game="$game ?? null">
     <div class="min-h-screen py-8 md:py-16">
         <div class="max-w-2xl mx-auto px-4 sm:px-6">
 
@@ -88,4 +88,4 @@
 
         </div>
     </div>
-</x-app-layout>
+</x-game-nextgen-layout>

@@ -3,7 +3,7 @@
     /** @var App\Models\GameMatch $match */
 @endphp
 
-<x-app-layout>
+<x-game-nextgen-layout :game="$game ?? null">
     <x-slot name="header">
         <x-game-header :game="$game" :next-match="$match"></x-game-header>
     </x-slot>
@@ -663,4 +663,4 @@
             </div>
         </div>
     </x-modal>
-</x-app-layout>
+</x-game-nextgen-layout>

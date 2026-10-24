@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-game-nextgen-layout>
     <div class="max-w-4xl mx-auto px-4 pb-32">
         <div class="mt-6 mb-6">
             <h2 class="font-heading text-2xl lg:text-3xl font-bold uppercase tracking-wide text-text-primary">🏆 {{ __('friends.careers_title', ['name' => '@' . $friend->username]) }}</h2>
@@ -74,4 +74,4 @@
             <a href="{{ route('friends.index') }}" class="text-sm text-accent-blue underline">← {{ __('friends.back') }}</a>
         </div>
     </div>
-</x-app-layout>
+</x-game-nextgen-layout>

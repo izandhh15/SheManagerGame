@@ -38,7 +38,7 @@ $getZoneClass = function($position) use ($standingsZones, $borderColorMap) {
 
 @endphp
 
-<x-app-layout :hide-footer="true">
+<x-game-nextgen-layout :game="$game ?? null">
 @php
     $seasonHighlights = collect([
         $teamTopScorer && $teamTopScorer->goals > 0 ? ['label' => __('season.goals'), 'playerName' => $teamTopScorer->name, 'value' => $teamTopScorer->goals] : null,
@@ -713,4 +713,4 @@ $getZoneClass = function($position) use ($standingsZones, $borderColorMap) {
 
     </div>
 </div>
-</x-app-layout>
+</x-game-nextgen-layout>

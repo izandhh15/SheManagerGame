@@ -18,10 +18,11 @@ use Illuminate\View\View;
  * layout only links to EXISTING routes; every target screen still runs
  * its own view class with the old layout until later phases migrate it.
  *
- * Screens migrated to this shell so far (fase 1):
- *   - dashboard (Mis partidas) and game-hub-nextgen (nuevo menú del juego)
- * Everything else keeps <x-app-layout> — see the migration note at the
- * top of resources/views/layouts/game-nextgen.blade.php.
+ * Screens migrated to this shell (fase 1 + fase 2, rama next-gen-full):
+ *   - dashboard, game-hub-nextgen, and ALL remaining full-page game
+ *     and global screens (see the migration note at the top of
+ *     resources/views/layouts/game-nextgen.blade.php). The old layout
+ *     is kept only as layouts/app.blade.php itself.
  */
 class GameNextgenLayout extends Component
 {

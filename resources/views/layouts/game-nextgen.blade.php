@@ -10,12 +10,42 @@
     Pantallas migradas en fase 1:
       - dashboard.blade.php (Mis partidas, sin juego: nav global)
       - game-hub-nextgen.blade.php (nuevo menú del juego, ruta game.menu)
-    Pendiente de migrar (fases posteriores, siguen con <x-app-layout>):
-      - game.blade.php (panel clásico del juego) y todas sus pantallas:
-        plantilla, alineación, calendario, mercado, fichajes, ojeadores,
-        explorar, club (finanzas, estadio, comercial, inversión, reputación),
-        Internet, red social, club social, prensa, cantera, selección,
-        carrera, ofertas, final de temporada, etc.
+    Pantallas migradas en fase 2 (rama next-gen-full): TODAS las
+    restantes, 66 vistas de página completa, solo cambio de etiquetas
+    de layout (sin tocar lógica, rutas, datos ni contenido; los
+    <x-slot name="header"> se conservan tal cual; hide-footer
+    eliminado porque el nuevo shell no lo usa):
+      - Con juego (:game="$game ?? null"): game (panel clásico),
+        squad, squad-planner, squad-academy, squad-registration,
+        squad-reserve, squad-selection, lineup, calendar,
+        calendar-month, transfer-market, incoming-transfers,
+        outgoing-transfers, transfer-activity, scouting-hub,
+        youth-scouting, explore, club/finances, club/stadium,
+        club/commercial, club/investment, club/reputation,
+        club/matchday, internet, social-feed, club-social,
+        national-social, press-conference, pre-match-press,
+        national-squad-picker, national-squad-preview,
+        national-venues, manager-career, job-market, season-offers,
+        season-end, new-season, preseason-setup, cup, standings,
+        swiss-standings, group-stage-cup, results,
+        opponent-analysis, schedule-friendly, government-friendly,
+        government-venue, tournament-end, tournament-simulation,
+        tournament-summary, welcome-tournament, welcome-tutorial,
+        fast-mode, game-loading, game-loading-matchday.
+      - Globales sin juego (<x-game-nextgen-layout> sin :game):
+        leaderboard, leaderboard/national-team,
+        leaderboard/national-teams-index, leaderboard/team,
+        leaderboard/teams-index, leaderboard/tournament,
+        friends/index, friends/careers, profile/edit, profile/show,
+        select-team.
+      - national-squad-picker/preview usan :game="$game ?? null"
+        porque comparten vista entre nueva partida (sin juego) y
+        partida en curso (con juego); el ?? null cubre ambos casos.
+    Pendiente de migrar: NINGUNA vista de página completa. Quedan
+    solo menciones no migratables: layouts/app.blade.php (el layout
+    viejo, se conserva), este comentario, y el ejemplo escapado en
+    design-system/sections/layout-patterns.blade.php (documentación,
+    no una vista).
     No tocar UnderConstruction ni bootstrap/app.php: este shell solo se ve
     cuando el juego vuelve a estar abierto (o en local con el middleware
     desactivado temporalmente, revertido antes de commitear).

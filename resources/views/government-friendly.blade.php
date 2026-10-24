@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-game-nextgen-layout :game="$game ?? null">
     <div class="max-w-2xl mx-auto px-4 py-8">
         @if($offer)
             @php $meta = $offer->metadata ?? []; @endphp
@@ -52,4 +52,4 @@
             </div>
         @endif
     </div>
-</x-app-layout>
+</x-game-nextgen-layout>

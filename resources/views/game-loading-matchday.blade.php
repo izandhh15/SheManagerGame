@@ -4,7 +4,7 @@
 $comp = $nextMatch->competition;
 @endphp
 
-<x-app-layout :hide-footer="true">
+<x-game-nextgen-layout :game="$game ?? null">
     <div class="min-h-screen flex items-start md:items-center justify-center pt-24 md:pt-0 pb-8" x-data="loadingPoller()" x-init="startPolling()">
         <div class="w-full max-w-md px-4">
             {{-- Competition & Matchday --}}
@@ -85,4 +85,4 @@ $comp = $nextMatch->competition;
             };
         }
     </script>
-</x-app-layout>
+</x-game-nextgen-layout>

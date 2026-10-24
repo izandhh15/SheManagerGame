@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-game-nextgen-layout :game="$game ?? null">
     <div class="max-w-4xl mx-auto px-4 pb-32">
         <div class="mt-6 mb-6 flex items-center gap-4">
             <x-team-crest :team="$team" class="w-14 h-14 md:w-16 md:h-16" />
@@ -238,4 +238,4 @@
             <p x-show="selected.length !== 23" class="text-xs text-text-muted mt-3 text-center">{{ __('game.squad_picker_need_23') }}</p>
         </div>
     </div>
-</x-app-layout>
+</x-game-nextgen-layout>

@@ -12,7 +12,7 @@
 /** @var \App\Models\Game $game */
 @endphp
 
-<x-app-layout :hide-footer="true">
+<x-game-nextgen-layout :game="$game ?? null">
     <div class="min-h-screen flex items-center justify-center py-8" x-data="tournamentSimulation()" x-init="start()">
         <div class="text-center px-4">
             {{-- Spinner --}}
@@ -64,4 +64,4 @@
             };
         }
     </script>
-</x-app-layout>
+</x-game-nextgen-layout>

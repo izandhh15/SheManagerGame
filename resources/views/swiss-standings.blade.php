@@ -9,7 +9,7 @@ $knockoutStarted = $knockoutTies->isNotEmpty();
 $defaultTab = $knockoutStarted ? 'knockout' : 'league';
 @endphp
 
-<x-app-layout>
+<x-game-nextgen-layout :game="$game ?? null">
     <x-slot name="header">
         <x-game-header :game="$game" :next-match="$game->next_match"></x-game-header>
     </x-slot>
@@ -73,4 +73,4 @@ $defaultTab = $knockoutStarted ? 'knockout' : 'league';
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-game-nextgen-layout>

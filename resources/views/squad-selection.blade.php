@@ -10,7 +10,7 @@ $tabs = [
 ];
 @endphp
 
-<x-app-layout :hide-footer="true">
+<x-game-nextgen-layout :game="$game ?? null">
     <div x-data="squadSelection({
         players: @js($candidatesByGroup),
         groupLabels: @js($tabs),
@@ -193,4 +193,4 @@ $tabs = [
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-game-nextgen-layout>

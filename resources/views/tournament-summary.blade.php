@@ -94,7 +94,7 @@ $homeGoalLines = $formatGoalGroup($homeGoals);
 $awayGoalLines = $formatGoalGroup($awayGoals);
 @endphp
 
-<x-app-layout :hide-footer="true">
+<x-game-nextgen-layout :game="$game ?? null">
     <div class="min-h-screen bg-surface-900" x-data="tournamentSummary({
         gameId: @js($summary->id),
         teamName: @js($playerTeam->name ?? ''),
@@ -746,4 +746,4 @@ $awayGoalLines = $formatGoalGroup($awayGoals);
 
         </div>
     </div>
-</x-app-layout>
+</x-game-nextgen-layout>

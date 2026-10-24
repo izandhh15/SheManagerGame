@@ -95,7 +95,7 @@ foreach ($positionGroupOrder as $group) {
 }
 @endphp
 
-<x-app-layout :hide-footer="true">
+<x-game-nextgen-layout :game="$game ?? null">
     <div class="min-h-screen bg-surface-900" x-data="tournamentSummary({
         gameId: @js($game->id),
         teamName: @js($game->team->name),
@@ -719,4 +719,4 @@ foreach ($positionGroupOrder as $group) {
 
         </div>
     </div>
-</x-app-layout>
+</x-game-nextgen-layout>

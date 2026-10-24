@@ -10,7 +10,7 @@ $hasPending = $jobOffers->isNotEmpty();
 $hasPromotion = (bool) $promotionOffer;
 @endphp
 
-<x-app-layout :hide-footer="true">
+<x-game-nextgen-layout :game="$game ?? null">
     <div class="min-h-screen py-6 md:py-8">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
@@ -173,4 +173,4 @@ $hasPromotion = (bool) $promotionOffer;
 
         </div>
     </div>
-</x-app-layout>
+</x-game-nextgen-layout>

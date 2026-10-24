@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-game-nextgen-layout>
     <div class="max-w-4xl mx-auto px-4 pb-32">
         <div class="mt-6 mb-6">
             <h2 class="font-heading text-2xl lg:text-3xl font-bold uppercase tracking-wide text-text-primary">👥 {{ __('friends.title') }}</h2>
@@ -168,4 +168,4 @@
             <a href="{{ route('dashboard') }}" class="text-sm text-accent-blue underline">← {{ __('game.back_to_dashboard') }}</a>
         </div>
     </div>
-</x-app-layout>
+</x-game-nextgen-layout>

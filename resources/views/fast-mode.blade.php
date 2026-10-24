@@ -31,7 +31,7 @@
     }
 @endphp
 
-<x-app-layout :hide-footer="true">
+<x-game-nextgen-layout :game="$game ?? null">
     <div class="min-h-[100dvh] flex flex-col">
         {{-- Top bar: fast-mode badge + season link --}}
         <div class="shrink-0 flex items-center justify-between px-4 pt-4 md:pt-6 max-w-3xl w-full mx-auto">
@@ -226,4 +226,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-game-nextgen-layout>

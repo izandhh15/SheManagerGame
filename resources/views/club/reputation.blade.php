@@ -16,7 +16,7 @@ $outcomeLadder = $summary['outcome_ladder'] ?? [];
 $tierMaintenanceApplies = $summary['tier_maintenance_applies'] ?? false;
 @endphp
 
-<x-app-layout>
+<x-game-nextgen-layout :game="$game ?? null">
     <x-slot name="header">
         <x-game-header :game="$game" :next-match="$game->next_match"></x-game-header>
     </x-slot>
@@ -222,4 +222,4 @@ $tierMaintenanceApplies = $summary['tier_maintenance_applies'] ?? false;
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-game-nextgen-layout>

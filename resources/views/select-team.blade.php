@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-game-nextgen-layout>
     <div class="max-w-7xl mx-auto px-4 pb-10">
         {{-- Page Title --}}
         <div class="mt-8 mb-8">
@@ -584,4 +584,4 @@
             </form>
         </div>
     </div>
-</x-app-layout>
+</x-game-nextgen-layout>

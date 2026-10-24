@@ -1,6 +1,6 @@
 @php /** @var App\Models\Game $game **/ @endphp
 
-<x-app-layout>
+<x-game-nextgen-layout :game="$game ?? null">
     <x-slot name="header">
         <x-game-header :game="$game" :next-match="$game->next_match"></x-game-header>
     </x-slot>
@@ -171,4 +171,4 @@
 
     <x-player-detail-modal />
     <x-negotiation-chat-modal />
-</x-app-layout>
+</x-game-nextgen-layout>

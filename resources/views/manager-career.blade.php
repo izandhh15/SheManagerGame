@@ -8,7 +8,7 @@
 /** @var array<string, string> $endReasonClasses */
 @endphp
 
-<x-app-layout>
+<x-game-nextgen-layout :game="$game ?? null">
     <x-slot name="header">
         <x-game-header :game="$game" :next-match="$game->next_match"></x-game-header>
     </x-slot>
@@ -217,4 +217,4 @@
             </x-section-card>
         </div>
     </div>
-</x-app-layout>
+</x-game-nextgen-layout>

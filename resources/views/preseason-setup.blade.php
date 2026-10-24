@@ -23,7 +23,7 @@
 $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
 @endphp
 
-<x-app-layout :hide-footer="true">
+<x-game-nextgen-layout :game="$game ?? null">
     <div class="min-h-screen py-12 md:py-16"
          x-data="preseasonSetup({
             teams: @js($teams),
@@ -518,4 +518,4 @@ $assetUrl = rtrim(Storage::disk('assets')->url(''), '/');
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-game-nextgen-layout>

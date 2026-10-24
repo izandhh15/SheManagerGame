@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-game-nextgen-layout>
     <x-slot name="header">
         <h2 class="font-heading text-2xl lg:text-3xl font-bold uppercase tracking-wide text-text-primary">
             {{ __('profile.title') }}
@@ -28,4 +28,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-game-nextgen-layout>

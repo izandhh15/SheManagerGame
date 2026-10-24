@@ -1,6 +1,6 @@
 @use(App\Support\Money)
 
-<x-app-layout>
+<x-game-nextgen-layout :game="$game ?? null">
     <x-slot name="header">
         <x-game-header :game="$game" :next-match="$game->next_match"></x-game-header>
     </x-slot>
@@ -141,4 +141,4 @@
             </div>
         @endforeach
     </div>
-</x-app-layout>
+</x-game-nextgen-layout>

@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-game-nextgen-layout :game="$game ?? null">
     <div class="max-w-2xl mx-auto px-4 pb-32">
         <div class="mt-6 mb-4">
             <h2 class="font-heading text-2xl lg:text-3xl font-bold uppercase tracking-wide text-text-primary">🌐 {{ __('game.internet_title') }}</h2>
@@ -99,4 +99,4 @@
             <a href="{{ route('show-game', $game->id) }}" class="text-sm text-accent-blue underline">← {{ __('game.back_to_dashboard') }}</a>
         </div>
     </div>
-</x-app-layout>
+</x-game-nextgen-layout>

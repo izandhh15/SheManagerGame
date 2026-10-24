@@ -8,7 +8,7 @@
     /** @var bool $editable */
 @endphp
 
-<x-app-layout :hide-footer="$blocking">
+<x-game-nextgen-layout :game="$game ?? null">
     @if(!$blocking)
         <x-slot name="header">
             <x-game-header :game="$game" :next-match="$game->next_match"></x-game-header>
@@ -346,4 +346,4 @@
         </div>
         @endif
     </div>
-</x-app-layout>
+</x-game-nextgen-layout>
