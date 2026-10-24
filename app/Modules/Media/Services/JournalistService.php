@@ -36,6 +36,10 @@ use Illuminate\Database\Eloquent\Collection;
  * next-gen keep their legacy (fictional) newsroom. Only new games get
  * this roster. Migrating old games would rewrite their feed history
  * and is deliberately left to a separate, explicit decision.
+ *
+ * Club beats (2026-10-24): the València CF Femení beat was added at
+ * Izan Delgado's request with the names and outlets he gave
+ * (see CLUB_JOURNALISTS). Other clubs follow the same pattern.
  */
 class JournalistService
 {
@@ -58,6 +62,35 @@ class JournalistService
         ['Sophie Lawson', '@sophielawson', 'internacional', 11000],
         ['Redacción Sport', '@redaccion_sport', 'datos', 10000],
         ['Redacción Mundo Deportivo', '@redaccion_mundodeportivo', 'rumores', 9000],
+        // Beat del València CF Femení, añadido 2026-10-24 a petición de
+        // Izan Delgado (él cubre este club en El Nostre Equip y dio los
+        // nombres y medios). Van al final a propósito: pick() devuelve
+        // el PRIMERO por especialidad, así que los titulares de cada
+        // especialidad no cambian y los tests existentes no se rompen.
+        // Los seguidores son valores de juego, no cifras reales.
+        ['Paula Lerín', '@paulalerin', 'cronicas', 8000],
+        ['Luco Cortés', '@lucocortes', 'fichajes', 7500],
+        ['Bea Beltrán', '@beabeltran', 'rumores', 7000],
+        ['Inés Miró', '@inesmiro', 'datos', 6500],
+        ['Izan Delgado', '@izandelgado', 'cronicas', 6000],
+        ['Lola Pulido', '@lolapulido', 'fichajes', 5500],
+    ];
+
+    /**
+     * Periodistas por club (documentación, no persistida: GameJournalist
+     * no tiene columna de club). Punto de partida para el resto de
+     * clubes: misma estructura, un club por entrada, nombres y medios
+     * dados por Izan o verificados con fuente pública.
+     */
+    public const CLUB_JOURNALISTS = [
+        'València CF Femení' => [
+            'Paula Lerín',
+            'Luco Cortés',
+            'Bea Beltrán',
+            'Inés Miró',
+            'Izan Delgado',
+            'Lola Pulido',
+        ],
     ];
 
     /**
@@ -80,6 +113,14 @@ class JournalistService
         'Sophie Lawson' => 'ESPN',
         'Redacción Sport' => 'Sport',
         'Redacción Mundo Deportivo' => 'Mundo Deportivo',
+        // Beat del València (OUTLETS es documentación: un nombre puede
+        // tener varios medios, como Paula Lerín).
+        'Paula Lerín' => 'EFE / À Punt / Mundo Deportivo',
+        'Luco Cortés' => 'Marca',
+        'Bea Beltrán' => 'Las del Dato',
+        'Inés Miró' => 'Las del Dato',
+        'Izan Delgado' => 'El Nostre Equip',
+        'Lola Pulido' => 'El Nostre Equip',
     ];
 
     /**
@@ -102,6 +143,15 @@ class JournalistService
         'Sophie Lawson' => 'ESPN official press release (UEFA Women’s Euro 2022 coverage): "Sophie Lawson is a women’s soccer journalist…" — espnpressroom.com.',
         'Redacción Sport' => 'GENERIC fallback: Maria Tikas (Sport) was only Wikipedia-verified ("Employer: Sport"), no sport.es byline confirmed — so the outlet is used generically.',
         'Redacción Mundo Deportivo' => 'GENERIC fallback: Chantal Reyes (Mundo Deportivo) only via 2020-2021 articles; current (2026) activity not confirmed — so the outlet is used generically.',
+        // Beat del València, fuente: el propio Izan Delgado (24-10-2026),
+        // que cubre el València Femení en El Nostre Equip y dio estos
+        // nombres y medios. No se afirma ningún handle real en X.
+        'Paula Lerín' => 'Indicado por Izan Delgado (24-10-2026): cubre el València Femení en EFE, À Punt y Mundo Deportivo.',
+        'Luco Cortés' => 'Indicado por Izan Delgado (24-10-2026): cubre el València en Marca.',
+        'Bea Beltrán' => 'Indicado por Izan Delgado (24-10-2026): Las del Dato, sobre el València Femení.',
+        'Inés Miró' => 'Indicado por Izan Delgado (24-10-2026): Las del Dato, sobre el València Femení.',
+        'Izan Delgado' => 'El propio usuario, fundador de El Nostre Equip (medio que cubre el València Femení); incluido a petición suya.',
+        'Lola Pulido' => 'Indicado por Izan Delgado (24-10-2026): firma en El Nostre Equip (artículo de Andrea Recio, 19-10-2026; usuaria existente en WordPress).',
     ];
 
     /**
