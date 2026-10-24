@@ -3,6 +3,7 @@
         <div class="mt-6 mb-4">
             <h2 class="font-heading text-2xl lg:text-3xl font-bold uppercase tracking-wide text-text-primary">🌐 {{ __('game.internet_title') }}</h2>
             <p class="text-sm text-text-secondary mt-1">{{ __('game.internet_subtitle') }}</p>
+            <p class="text-xs text-text-faint mt-1">ℹ️ {{ __('game.press_simulation_disclaimer') }}</p>
         </div>
 
         @if(session('success'))

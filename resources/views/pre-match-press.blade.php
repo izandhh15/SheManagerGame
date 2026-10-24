@@ -38,6 +38,7 @@
             <p class="text-xs text-text-faint mt-2">
                 {{ __('game.press_prematch_hint') }}
             </p>
+            <p class="text-xs text-text-faint mt-1">ℹ️ {{ __('game.press_simulation_disclaimer') }}</p>
         </div>
 
         @if($record)

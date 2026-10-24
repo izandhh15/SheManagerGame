@@ -1008,6 +1008,7 @@ return [
     'club_social_no_venue' => 'That match has no confirmed venue yet.',
     'internet_title' => 'Internet',
     'internet_subtitle' => 'Everything happening online: press, transfers, your players and your voice as gaffer.',
+    'press_simulation_disclaimer' => 'Press opinions in this game are simulated: they are not real statements by the people or outlets shown.',
     'internet_placeholder' => 'What do you want to say, gaffer? (max 200 characters)',
     'internet_publish' => 'Post',
     'internet_posted' => 'Posted on the Internet! 📡',

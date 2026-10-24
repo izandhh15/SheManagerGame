@@ -8,9 +8,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
- * A fictional journalist covering the manager's game in the fake social
- * network. Names and handles are 100% invented — no real people, no real
- * media brands.
+ * A journalist covering the manager's game in the fake social network.
+ * For games seeded after the next-gen rebuild, names are verified real
+ * women's-football journalists or generic newsroom names (see
+ * JournalistService::SOURCES); games seeded before keep their legacy
+ * fictional newsroom because seedFor() is idempotent. In-game posts
+ * are simulated by the game engine, not real statements by these people.
  */
 class GameJournalist extends Model
 {

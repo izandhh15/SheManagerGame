@@ -18,19 +18,24 @@ use Illuminate\Support\Facades\DB;
  * SAME channels the rest of the media system uses (game_player_match_state
  * morale + Game::board_confidence), so there is no parallel system.
  *
- * Journalists are fictional or generic — never real media brands.
+ * Journalists asking here are real, verified women's-football
+ * journalists (see JournalistService::SOURCES) or, for the two
+ * generic questions, a generic newsroom. They only ask NEUTRAL
+ * questions — the manager's answers are the player's, not theirs —
+ * and the press views carry a disclaimer that in-game press
+ * opinions are simulated, not real statements.
  * Question selection is deterministic per match (priority-ordered reasons),
  * so the page is stable across reloads.
  */
 class PressConferenceService
 {
     /**
-     * Reason => [fictional journalist name (or '' for generic), outlet es, outlet en].
+     * Reason => [journalist name (or '' for generic), outlet es, outlet en].
      */
     private const QUESTIONS = [
         'importance' => [
-            'by' => 'Lucía Ferrer',
-            'outlet' => ['Diario deportivo', 'Sports daily'],
+            'by' => 'Sandra Riquelme',
+            'outlet' => ['Relevo', 'Relevo'],
             'question' => [
                 '¿Qué supone para el equipo este partido tan señalado?',
                 'What does such a big match mean for the team?',
@@ -45,8 +50,8 @@ class PressConferenceService
             ],
         ],
         'derby' => [
-            'by' => 'Andrés Soler',
-            'outlet' => ['Radio local', 'Local radio'],
+            'by' => 'David Menayo',
+            'outlet' => ['Marca', 'Marca'],
             'question' => [
                 '¿Cómo se vive el derbi en el vestuario?',
                 'How is the derby being felt in the dressing room?',
@@ -61,8 +66,8 @@ class PressConferenceService
             ],
         ],
         'final' => [
-            'by' => 'Marta Vidal',
-            'outlet' => ['Diario deportivo', 'Sports daily'],
+            'by' => 'Marta Griñán',
+            'outlet' => ['AS', 'AS'],
             'question' => [
                 '¿Cómo afronta el equipo la final?',
                 'How is the team approaching the final?',
@@ -77,8 +82,8 @@ class PressConferenceService
             ],
         ],
         'european' => [
-            'by' => '',
-            'outlet' => ['Diario deportivo', 'Sports daily'],
+            'by' => 'Emma Sanders',
+            'outlet' => ['BBC Sport', 'BBC Sport'],
             'question' => [
                 '¿Qué significa para el club jugar en Europa?',
                 'What does playing in Europe mean for the club?',
@@ -93,8 +98,8 @@ class PressConferenceService
             ],
         ],
         'rival' => [
-            'by' => 'Jorge Campos',
-            'outlet' => ['Periódico local', 'Local newspaper'],
+            'by' => 'Suzanne Wrack',
+            'outlet' => ['The Guardian', 'The Guardian'],
             'question' => [
                 '¿El rival directo parte como favorito?',
                 'Are your direct rivals the favourites?',
@@ -109,8 +114,8 @@ class PressConferenceService
             ],
         ],
         'fans' => [
-            'by' => '',
-            'outlet' => ['Radio local', 'Local radio'],
+            'by' => 'Andrea Segura',
+            'outlet' => ['DAZN', 'DAZN'],
             'question' => [
                 '¿Qué mensaje le manda a la afición?',
                 'What is your message to the fans?',

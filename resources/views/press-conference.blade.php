@@ -16,6 +16,7 @@
             <p class="text-xs text-text-faint mt-1">
                 {{ __('game.press_postmatch_hint') }}
             </p>
+            <p class="text-xs text-text-faint mt-1">ℹ️ {{ __('game.press_simulation_disclaimer') }}</p>
         </div>
 
         @if($alreadyDone)
