@@ -162,27 +162,36 @@ class CupDrawService
 
         }
 
-        // Phase 2: Bulk insert all records atomically. A failure halfway
-        // (e.g. in assignNeutralVenues) must not leave orphan ties or
-        // matches behind, so every write of the draw runs in one
-        // transaction.
-        DB::transaction(function () use ($tieRows, $firstLegRows, $secondLegRows) {
-            foreach (array_chunk($tieRows, 100) as $chunk) {
-                CupTie::insert($chunk);
-            }
+        // Phase 2: Bulk insert. SIN transacción (24-10-2026, Neon
+        // pooler): la transacción abortaba en silencio en el setup y
+        // dejaba la partida en "preparando". Para que un reintento no
+        // duplique el sorteo, se borran primero las eliminatorias y
+        // partidos ya existentes de esta ronda (mismo patrón que
+        // LeagueFixtureProcessor y StandingsResetProcessor).
+        GameMatch::where('game_id', $gameId)
+            ->where('competition_id', $competitionId)
+            ->where('round_number', $roundNumber)
+            ->delete();
+        CupTie::where('game_id', $gameId)
+            ->where('competition_id', $competitionId)
+            ->where('round_number', $roundNumber)
+            ->delete();
 
-            foreach (array_chunk($firstLegRows, 100) as $chunk) {
+        foreach (array_chunk($tieRows, 100) as $chunk) {
+            CupTie::insert($chunk);
+        }
+
+        foreach (array_chunk($firstLegRows, 100) as $chunk) {
+            GameMatch::insert($chunk);
+        }
+
+        if (!empty($secondLegRows)) {
+            foreach (array_chunk($secondLegRows, 100) as $chunk) {
                 GameMatch::insert($chunk);
             }
+        }
 
-            if (!empty($secondLegRows)) {
-                foreach (array_chunk($secondLegRows, 100) as $chunk) {
-                    GameMatch::insert($chunk);
-                }
-            }
-
-            $this->assignNeutralVenues($firstLegRows);
-        });
+        $this->assignNeutralVenues($firstLegRows);
 
         // Return loaded ties
         return CupTie::where('game_id', $gameId)
