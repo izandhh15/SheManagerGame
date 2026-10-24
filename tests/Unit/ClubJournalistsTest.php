@@ -39,6 +39,9 @@ class ClubJournalistsTest extends TestCase
         $this->assertSame(count($handles), count(array_unique($handles)));
         $this->assertContains('David Menayo', JournalistService::CLUB_JOURNALISTS['Real Madrid']);
         $this->assertContains('Laia Bonals', JournalistService::CLUB_JOURNALISTS['FC Barcelona']);
+        $this->assertContains('Maria Tikas', JournalistService::CLUB_JOURNALISTS['FC Barcelona']);
+        $this->assertSame('Sport', JournalistService::OUTLETS['Maria Tikas']);
+        $this->assertNotContains('Redacción Sport', $names);
         $this->assertContains('Sergio Quintana', JournalistService::CLUB_JOURNALISTS['Athletic Club']);
         $this->assertContains('Eskender Tamrat', JournalistService::CLUB_JOURNALISTS['VfL Wolfsburg']);
 

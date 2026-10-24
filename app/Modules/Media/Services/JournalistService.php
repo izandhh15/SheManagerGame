@@ -16,10 +16,12 @@ use Illuminate\Database\Eloquent\Collection;
  *
  * Names below are real women's-football journalists whose outlet
  * affiliation was verified against a public source (see SOURCES), plus
- * two generic newsroom names ("Redacción Sport", "Redacción Mundo
- * Deportivo") used exactly where a named person could NOT be verified
- * with a current byline — Maria Tikas (Sport) only via Wikipedia, and
- * Chantal Reyes (Mundo Deportivo) only via 2020-2021 articles. Handles
+ * one generic newsroom name ("Redacción Mundo Deportivo") used exactly
+ * where a named person could NOT be verified with a current byline —
+ * Chantal Reyes (Mundo Deportivo) only via 2020-2021 articles.
+ * Maria Tikas (Sport) was first left generic for the same reason, but
+ * on 24-10-2026, after Izan Delgado flagged her, further sources
+ * confirmed her (see SOURCES), so she replaced the generic Sport entry. Handles
  * are IN-GAME identifiers (name slugs), not claimed real X handles,
  * unless a source verified one — none is claimed here.
  *
@@ -60,7 +62,7 @@ class JournalistService
         ['Marta Griñán', '@martagrinan', 'fichajes', 13000],
         ['Andrea Segura', '@andreasegura', 'cronicas', 12000],
         ['Sophie Lawson', '@sophielawson', 'internacional', 11000],
-        ['Redacción Sport', '@redaccion_sport', 'datos', 10000],
+        ['Maria Tikas', '@mariatikas', 'datos', 10000],
         ['Redacción Mundo Deportivo', '@redaccion_mundodeportivo', 'rumores', 9000],
         // Beat del València CF Femení, añadido 2026-10-24 a petición de
         // Izan Delgado (él cubre este club en El Nostre Equip y dio los
@@ -112,7 +114,7 @@ class JournalistService
         // el roster general y ahora queda asignado además al Real Madrid.
         // Los reporteros de liga (Sanders, Wrack, Garry, Kassouf) cubren
         // varios clubes y NO se asignan en exclusiva a uno solo.
-        'FC Barcelona' => ['Laia Bonals'],
+        'FC Barcelona' => ['Laia Bonals', 'Maria Tikas'],
         'Real Madrid' => ['David Menayo'],
         'Athletic Club' => ['Sergio Quintana'],
         'Real Sociedad' => ['Aimara G. Gil'],
@@ -141,7 +143,7 @@ class JournalistService
         'Marta Griñán' => 'AS',
         'Andrea Segura' => 'DAZN',
         'Sophie Lawson' => 'ESPN',
-        'Redacción Sport' => 'Sport',
+        'Maria Tikas' => 'Sport',
         'Redacción Mundo Deportivo' => 'Mundo Deportivo',
         // Beat del València (OUTLETS es documentación: un nombre puede
         // tener varios medios, como Paula Lerín).
@@ -180,7 +182,7 @@ class JournalistService
         'Marta Griñán' => 'MEDIUM strength: BuzzSumo bio "Escribo en AS" + Wikipedia-cited AS byline (26-11-2023). No marca.com/as.com author page located.',
         'Andrea Segura' => 'DAZN own page (opened/read): "Andrea Segura and Sandra Riquelme present La Central, the space where we analyze the best moments of the Liga F matchday". Note: do NOT merge the DAZN Sandra with Relevo’s Sandra Riquelme — homonym not proven to be the same person.',
         'Sophie Lawson' => 'ESPN official press release (UEFA Women’s Euro 2022 coverage): "Sophie Lawson is a women’s soccer journalist…" — espnpressroom.com.',
-        'Redacción Sport' => 'GENERIC fallback: Maria Tikas (Sport) was only Wikipedia-verified ("Employer: Sport"), no sport.es byline confirmed — so the outlet is used generically.',
+        'Maria Tikas' => 'VERIFICADA 24-10-2026 tras indicación de Izan Delgado: Wikipedia ("sports journalist, employer Sport, known for coverage of FC Barcelona Femení and women\'s football"); UAO CEU lecturers list ("Journalist at SPORT. Head of women\'s football news"); Civicus/Liberties 2023 ("sports journalist at Barcelona\'s Diario Sport"); informes secundarios que citan a "Sport\'s María Tikas" en fichajes del Barça Femení (Bühl, Dragoni). No se localizó byline directo en sport.es en la búsqueda, pero el conjunto de fuentes confirma medio y beat.',
         'Redacción Mundo Deportivo' => 'GENERIC fallback: Chantal Reyes (Mundo Deportivo) only via 2020-2021 articles; current (2026) activity not confirmed — so the outlet is used generically.',
         // Beat del València, fuente: el propio Izan Delgado (24-10-2026),
         // que cubre el València Femení en El Nostre Equip y dio estos
