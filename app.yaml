@@ -62,5 +62,5 @@ jobs:
     action:
       execute:
         command: php
-        cli_args: ["artisan", "app:refresh-player-templates"]
+        cli_args: ["/app/artisan", "app:refresh-player-templates"]
 app_id: da_KD4Iat7UJLyd
