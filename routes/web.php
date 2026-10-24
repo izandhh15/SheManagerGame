@@ -220,7 +220,8 @@ Route::get('/', function () {
 Route::get('/legal', fn () => view('legal'))->name('legal');
 
 // Next-gen showcase: public "under construction / new generation" page.
-// It does NOT replace the live game — login/register keep working.
+// Cierre total (2026-10-24): UnderConstruction sirve esta vista en '/'
+// y redirige aquí todo lo demás, así que de momento ES toda la web.
 Route::get('/nueva-generacion', fn () => view('next-gen'))->name('next-gen');
 Route::get('/leaderboard', ShowLeaderboard::class)->name('leaderboard');
 Route::get('/leaderboard/teams', ShowTeamLeaderboardIndex::class)->name('leaderboard.teams');

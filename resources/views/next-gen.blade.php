@@ -17,8 +17,7 @@
                 <span class="font-heading font-bold text-xl uppercase tracking-wide">SheManager<span class="text-purple-400">Game</span></span>
             </a>
             <nav class="flex items-center gap-2 sm:gap-3">
-                <a href="{{ route('login') }}" class="px-4 py-2 rounded-lg text-sm font-medium text-text-secondary hover:text-text-primary">Entrar</a>
-                <a href="{{ route('register') }}" class="px-4 py-2 rounded-lg text-sm font-semibold bg-purple-600 text-white hover:bg-purple-500">Jugar</a>
+                <span class="px-4 py-2 rounded-lg text-sm font-semibold bg-amber-500/15 border border-amber-500/30 text-amber-300">Próximamente</span>
             </nav>
         </div>
     </header>
@@ -39,10 +38,10 @@
                     Esta página es el escaparate del proyecto mientras tanto.
                 </p>
                 <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-                    <a href="{{ route('register') }}" class="w-full sm:w-auto px-8 py-4 rounded-xl text-base font-bold bg-purple-600 text-white hover:bg-purple-500 shadow-xl shadow-purple-600/30">Jugar a la versión actual</a>
+                    <span class="w-full sm:w-auto px-8 py-4 rounded-xl text-base font-bold bg-surface-700 text-text-muted cursor-not-allowed">Jugar — cerrado hasta la nueva versión</span>
                     <a href="https://github.com/izandhh15/SheManagerGame" target="_blank" rel="noopener" class="w-full sm:w-auto px-8 py-4 rounded-xl text-base font-semibold border border-border-strong hover:bg-surface-700">Ver el proyecto en GitHub</a>
                 </div>
-                <p class="mt-4 text-xs text-text-muted">El juego en vivo sigue accesible desde “Jugar”. Esta página no sustituye al juego actual: solo lo anuncia.</p>
+                <p class="mt-4 text-xs text-text-muted">El juego está cerrado temporalmente mientras se reconstruye. Tus partidas y tu cuenta siguen guardadas: no se ha borrado nada.</p>
 
                 @php $heroLogos = ['ESP1','ENG1','UCL','BRA1','FRA1','LIBERTADORES','USA1','DEU1','ITA1','MEX1','ARG1']; @endphp
                 <div class="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
