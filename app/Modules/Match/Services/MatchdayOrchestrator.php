@@ -21,7 +21,6 @@ use App\Models\PlayerSuspension;
 use Carbon\Carbon;
 use Illuminate\Bus\UniqueLock;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class MatchdayOrchestrator
@@ -46,9 +45,17 @@ class MatchdayOrchestrator
     {
         $this->careerActionTicks = 0;
 
-        $result = DB::transaction(function () use ($game, $fastForward) {
-            // Lock the game row to prevent concurrent matchday advancement
-            $game = Game::where('id', $game->id)->lockForUpdate()->first();
+        // SIN transacción ni lockForUpdate (25-10-2026, Neon pooler):
+        // envolver todo el avance en DB::transaction con la fila
+        // bloqueada abortaba en silencio y /advance daba 500 siempre.
+        // La concurrencia ya la guarda el claim() del coordinador
+        // (matchday_advancing_at con check-and-set atómico), así que
+        // el bloqueo aquí era redundante. Se mantiene la forma de
+        // clausura autoejecutada para no tocar la lógica de retornos
+        // tempranos del cuerpo.
+        $result = (function () use ($game, $fastForward) {
+            // Fila fresca, sin bloqueo
+            $game = Game::find($game->id) ?? $game;
 
             // Safety net: finalize any pending match from a previous matchday
             // (e.g. user closed browser without clicking "Continue")
@@ -136,11 +143,12 @@ class MatchdayOrchestrator
             }
 
             return MatchdayAdvanceResult::seasonComplete();
-        });
+        })();
 
         // Run any future AI-only batches (e.g. mid-week cup nights between
         // the user's just-played match and their next one) inline now that
-        // the live-match transaction is committed. In ~99% of matchdays this
+        // the live-match batch is persisted (sin transacción desde
+        // 25-10-2026, cada query va en autocommit). In ~99% of matchdays this
         // is a no-op — getNextMatchBatch returns the player's next match and
         // the loop exits immediately. The 1% that does work (heavy European
         // weeks) stays sub-second on the AI fast path. Running synchronously
@@ -400,10 +408,11 @@ class MatchdayOrchestrator
             }
 
             try {
-                DB::transaction(function () use ($gameId, $nextBatch) {
-                    $lockedGame = Game::where('id', $gameId)->lockForUpdate()->first();
-                    $this->processBatch($lockedGame, $nextBatch);
-                });
+                // SIN transacción ni lock (25-10-2026, Neon pooler):
+                // mismo patrón que el avance principal; el try/catch
+                // ya existente sigue aplazando el lote al próximo clic
+                // si algo falla.
+                $this->processBatch(Game::find($gameId), $nextBatch);
             } catch (\Throwable $e) {
                 Log::warning('[MatchdayAdvance] inline remaining-batch failed; deferring to next click', [
                     'game_id' => $gameId,

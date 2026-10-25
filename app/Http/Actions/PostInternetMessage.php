@@ -6,7 +6,6 @@ use App\Models\Game;
 use App\Models\SocialPost;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 /**
  * The manager posts on the Internet feed. Rate-limited: 5 posts/day per game.
@@ -29,20 +28,20 @@ class PostInternetMessage
             'text' => ['required', 'string', 'max:' . self::MAX_LENGTH],
         ]);
 
-        // The daily limit is enforced under a game-row lock: without it, a
-        // double submit can race the count() and slip a 6th post through.
-        $result = DB::transaction(function () use ($game, $gameId, $request, $validated) {
-            Game::whereKey($game->id)->lockForUpdate()->first();
+        // SIN transacción ni lockForUpdate (25-10-2026, Neon pooler):
+        // la transacción con la fila bloqueada abortaba en silencio y
+        // publicar daba 500 siempre (25P02 en el count de hoy). El
+        // límite diario se comprueba antes de crear; solo dos envíos
+        // exactamente concurrentes podrían colar un 6º mensaje, un
+        // riesgo menor frente al 500 permanente.
+        $postedToday = SocialPost::where('game_id', $game->id)
+            ->where('context', 'manager_post')
+            ->where('created_at', '>=', now()->startOfDay())
+            ->count();
 
-            $postedToday = SocialPost::where('game_id', $game->id)
-                ->where('context', 'manager_post')
-                ->where('created_at', '>=', now()->startOfDay())
-                ->count();
-
-            if ($postedToday >= self::DAILY_LIMIT) {
-                return 'limit';
-            }
-
+        if ($postedToday >= self::DAILY_LIMIT) {
+            $result = 'limit';
+        } else {
             $user = $request->user();
             $name = $user->username ?? $user->name ?? 'Míster';
             $handle = '@' . strtolower(preg_replace('/[^a-z0-9]/i', '', $name));
@@ -57,8 +56,8 @@ class PostInternetMessage
                 'context' => 'manager_post',
             ]);
 
-            return 'posted';
-        });
+            $result = 'posted';
+        }
 
         if ($result === 'limit') {
             return redirect()->back()->with('error', __('game.internet_limit_reached', ['limit' => self::DAILY_LIMIT]));
