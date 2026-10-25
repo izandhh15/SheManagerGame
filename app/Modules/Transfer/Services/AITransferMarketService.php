@@ -1869,25 +1869,25 @@ class AITransferMarketService
     /**
      * Flush all batched player updates and transfer inserts to the database.
      *
-     * One transaction: a partial failure must not leave players moved
-     * without their ledger (game_transfers) row, desyncing the books.
+     * SIN transacción (25-10-2026, Neon pooler): la transacción
+     * abortaba en silencio (25P02 en el insert de game_transfers)
+     * y el job de acciones de carrera fallaba entero, así que en
+     * modo carrera no se procesaban los traspasos de la IA. Cada
+     * chunk va en autocommit; un fallo en un chunk se ve tal cual
+     * en vez de envenenar el resto, y el orden determinista por id
+     * se mantiene para no cruzar escrituras entre sesiones.
      */
     private function flushBatchedOperations(array $playerUpdates, array $transferInserts): void
     {
-        DB::transaction(function () use ($playerUpdates, $transferInserts) {
-            // Sort by id so the PK / FK locks inside each upsert chunk are
-            // acquired in a deterministic order — prevents cross-session
-            // deadlocks with other writers that follow the same ordering.
-            usort($playerUpdates, fn ($a, $b) => strcmp($a['id'], $b['id']));
+        usort($playerUpdates, fn ($a, $b) => strcmp($a['id'], $b['id']));
 
-            foreach (array_chunk($playerUpdates, 100) as $chunk) {
-                GamePlayer::upsert($chunk, ['id'], ['team_id', 'number', 'contract_until', 'annual_wage', 'release_clause']);
-            }
+        foreach (array_chunk($playerUpdates, 100) as $chunk) {
+            GamePlayer::upsert($chunk, ['id'], ['team_id', 'number', 'contract_until', 'annual_wage', 'release_clause']);
+        }
 
-            foreach (array_chunk($transferInserts, 100) as $chunk) {
-                GameTransfer::insert($chunk);
-            }
-        });
+        foreach (array_chunk($transferInserts, 100) as $chunk) {
+            GameTransfer::insert($chunk);
+        }
     }
 
     // ── Budget & tracking helpers ───────────────────────────────────────

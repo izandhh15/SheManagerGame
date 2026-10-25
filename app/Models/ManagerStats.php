@@ -90,38 +90,44 @@ class ManagerStats extends Model
     /**
      * Record a match result and update all derived stats.
      *
-     * Runs inside a transaction with the row locked: concurrent match
-     * finalizations must not interleave the read-modify-write (lost
-     * update on the counters).
+     * SIN transacción ni lock (25-10-2026, Neon pooler): la
+     * transacción con la fila bloqueada abortaba en silencio y
+     * /finalize-match daba 500 tras CADA partido de carrera (el
+     * listener UpdateManagerStats corre dentro de los efectos
+     * posteriores al partido, después de las clasificaciones, así
+     * que el 500 llegaba con todo lo demás ya aplicado). Los
+     * contadores usan incrementos atómicos (un solo UPDATE cada
+     * uno) y la racha máxima se actualiza con GREATEST en una
+     * sola sentencia; el finalize con claim atómico ya serializa
+     * las finalizaciones por partida, así que no hay doble
+     * conteo por doble clic.
      */
     public function recordResult(string $result): void
     {
-        DB::transaction(function () use ($result) {
-            $stats = static::whereKey($this->getKey())->lockForUpdate()->firstOrFail();
+        $column = match ($result) {
+            'win' => 'matches_won',
+            'draw' => 'matches_drawn',
+            'loss' => 'matches_lost',
+        };
 
-            $stats->matches_played++;
+        static::whereKey($this->getKey())->increment('matches_played');
+        static::whereKey($this->getKey())->increment($column);
 
-            match ($result) {
-                'win' => $stats->matches_won++,
-                'draw' => $stats->matches_drawn++,
-                'loss' => $stats->matches_lost++,
-            };
+        if ($result === 'loss') {
+            static::whereKey($this->getKey())->update(['current_unbeaten_streak' => 0]);
+        } else {
+            static::whereKey($this->getKey())->increment('current_unbeaten_streak');
+            static::whereKey($this->getKey())->update([
+                'longest_unbeaten_streak' => DB::raw('GREATEST(longest_unbeaten_streak, current_unbeaten_streak)'),
+            ]);
+        }
 
-            $stats->recalculateWinPercentage();
+        $fresh = static::find($this->getKey());
 
-            if ($result === 'loss') {
-                $stats->current_unbeaten_streak = 0;
-            } else {
-                $stats->current_unbeaten_streak++;
-                if ($stats->current_unbeaten_streak > $stats->longest_unbeaten_streak) {
-                    $stats->longest_unbeaten_streak = $stats->current_unbeaten_streak;
-                }
-            }
-
-            $stats->save();
-
-            // Keep this instance in sync so callers see the new values.
-            $this->setRawAttributes($stats->getAttributes(), true);
-        });
+        if ($fresh) {
+            $fresh->recalculateWinPercentage();
+            $fresh->save();
+            $this->setRawAttributes($fresh->getAttributes());
+        }
     }
 }
