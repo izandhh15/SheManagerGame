@@ -11,7 +11,6 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 
 class ProcessCareerActions implements ShouldQueue, ShouldBeUnique
@@ -49,32 +48,27 @@ class ProcessCareerActions implements ShouldQueue, ShouldBeUnique
 
     public function handle(CareerActionProcessor $processor): void
     {
-        // Each tick runs inside its own transaction holding the game row lock.
-        // This serializes career actions against matchday advancement and
-        // FinalizeMatch — all of which write to the same game_player_match_state
-        // / game_players rows and would otherwise deadlock at the PK/FK index
-        // level.
-        //
-        // Per-tick (rather than whole-job) locking keeps the critical section
-        // short so a user advancing to the next matchday is only ever blocked
-        // by a single tick's work, not the full accumulated batch.
+        // SIN transacción ni lock (25-10-2026, Neon pooler): el tick
+        // en transacción con la fila bloqueada abortaba en silencio y
+        // el job fallaba entero (el savepoint anidado del procesador
+        // era el 25P02 visible en el log). La unicidad del job
+        // (ShouldBeUnique por partida) y el flag
+        // career_actions_processing_at siguen serializando los
+        // pases; el procesador ya no usa transacción.
         $jobStart = microtime(true);
         $tickStats = [];
 
         for ($i = 0; $i < $this->ticks; $i++) {
             $tick = QueryProfiler::start();
 
-            $processed = DB::transaction(function () use ($processor) {
-                $game = Game::where('id', $this->gameId)->lockForUpdate()->first();
+            $game = Game::find($this->gameId);
 
-                if (! $game || ! $game->isProcessingCareerActions()) {
-                    return false;
-                }
-
+            if (! $game || ! $game->isProcessingCareerActions()) {
+                $processed = false;
+            } else {
                 $processor->process($game);
-
-                return true;
-            });
+                $processed = true;
+            }
 
             if (QueryProfiler::enabled()) {
                 $stats = $tick->snapshot();

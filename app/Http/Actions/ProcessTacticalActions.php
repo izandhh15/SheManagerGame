@@ -13,7 +13,6 @@ use App\Models\Game;
 use App\Models\GameMatch;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Rule;
 
@@ -89,30 +88,26 @@ class ProcessTacticalActions
         }
 
         try {
-            // Serialize against FinalizeMatch / ProcessCareerActions, which all take
-            // Game::lockForUpdate. Resimulation writes to game_player_match_state rows
-            // for both teams in this match, and those rows overlap with rows touched
-            // by ProcessCareerActions — concurrent bulk UPDATEs with IN-lists lock in
-            // heap-scan order and deadlock.
-            $result = DB::transaction(function () use ($match, $game, $validated, $isExtraTime) {
-                Game::where('id', $game->id)->lockForUpdate()->first();
-
-                return $this->tacticalChangeService->processLiveMatchChanges(
-                    $match,
-                    $game,
-                    $validated['minute'],
-                    $validated['previousSubstitutions'] ?? [],
-                    $validated['substitutions'] ?? [],
-                    $validated['formation'] ?? null,
-                    $validated['mentality'] ?? null,
-                    $validated['playing_style'] ?? null,
-                    $validated['pressing'] ?? null,
-                    $validated['defensive_line'] ?? null,
-                    isExtraTime: $isExtraTime,
-                    manualSlotPins: $validated['manual_slot_pins'] ?? [],
-                    isHalfTime: $validated['is_half_time'] ?? false,
-                );
-            }, attempts: 3);
+            // SIN transacción ni lock (25-10-2026, Neon pooler): la
+            // transacción con Game::lockForUpdate abortaba en silencio y
+            // las sustituciones manuales en vivo devolvían siempre el
+            // error genérico. El try/catch ya existente sigue
+            // devolviendo ese 422 si la resimulación falla de verdad.
+            $result = $this->tacticalChangeService->processLiveMatchChanges(
+                $match,
+                $game,
+                $validated['minute'],
+                $validated['previousSubstitutions'] ?? [],
+                $validated['substitutions'] ?? [],
+                $validated['formation'] ?? null,
+                $validated['mentality'] ?? null,
+                $validated['playing_style'] ?? null,
+                $validated['pressing'] ?? null,
+                $validated['defensive_line'] ?? null,
+                isExtraTime: $isExtraTime,
+                manualSlotPins: $validated['manual_slot_pins'] ?? [],
+                isHalfTime: $validated['is_half_time'] ?? false,
+            );
         } catch (\Throwable $e) {
             Log::error('ProcessTacticalActions failed', [
                 'match_id' => $match->id,

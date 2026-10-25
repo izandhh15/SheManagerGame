@@ -9,7 +9,6 @@ use App\Models\MatchAttendance;
 use App\Modules\Match\Events\MatchFinalized;
 use App\Modules\Season\Services\PreseasonTourService;
 use App\Modules\Stadium\Services\MatchdayPricingService;
-use Illuminate\Support\Facades\DB;
 
 /**
  * Books matchday revenue (tickets, shirts, merch, bars) when a club-mode
@@ -65,34 +64,37 @@ class RecordMatchdayRevenue
 
         $totalCents = 0;
 
-        DB::transaction(function () use ($game, $match, $lines, $isTourMatch, &$totalCents) {
-            foreach ($lines as $category => $euros) {
-                // Skip duplicates: a match is booked exactly once per line.
-                $already = FinancialTransaction::where('game_id', $game->id)
-                    ->where('category', $category)
-                    ->where('description', 'like', '%#' . $match->id . '%')
-                    ->exists();
+        // SIN transacción (25-10-2026, Neon pooler): la transacción
+        // abortaba en silencio y el listener lanzaba 25P02 dentro del
+        // finalize. Cada línea se escribe en autocommit y el chequeo
+        // de duplicados por línea sigue evitando el doble conteo; el
+        // doble finalize ya lo impide el claim de pending.
+        foreach ($lines as $category => $euros) {
+            // Skip duplicates: a match is booked exactly once per line.
+            $already = FinancialTransaction::where('game_id', $game->id)
+                ->where('category', $category)
+                ->where('description', 'like', '%#' . $match->id . '%')
+                ->exists();
 
-                if ($already || $euros <= 0) {
-                    continue;
-                }
-
-                $cents = $euros * 100;
-                $totalCents += $cents;
-
-                FinancialTransaction::recordIncome(
-                    gameId: $game->id,
-                    category: $category,
-                    amount: $cents,
-                    description: $this->describe($category, $match, $euros, $isTourMatch),
-                    transactionDate: $game->current_date->toDateString(),
-                );
+            if ($already || $euros <= 0) {
+                continue;
             }
 
-            if ($totalCents > 0) {
-                $game->currentInvestment->increment('transfer_budget', $totalCents);
-            }
-        });
+            $cents = $euros * 100;
+            $totalCents += $cents;
+
+            FinancialTransaction::recordIncome(
+                gameId: $game->id,
+                category: $category,
+                amount: $cents,
+                description: $this->describe($category, $match, $euros, $isTourMatch),
+                transactionDate: $game->current_date->toDateString(),
+            );
+        }
+
+        if ($totalCents > 0) {
+            $game->currentInvestment->increment('transfer_budget', $totalCents);
+        }
     }
 
     private function isRevenueMatch(GameMatch $match, Game $game): bool

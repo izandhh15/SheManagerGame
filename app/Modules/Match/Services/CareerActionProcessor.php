@@ -91,13 +91,13 @@ class CareerActionProcessor
             $sectionQueryCount = $profile ? count(DB::getQueryLog()) : 0;
         };
 
-        // The ~15 sections below each write (transfers, offers, loans,
-        // academy, AI market...). Without atomicity a mid-process failure
-        // leaves partial state with no retry on the next tick, so the whole
-        // pass runs in one transaction: either every section's writes land
-        // or none do. (Nested DB::transaction calls inside the services
-        // become savepoints.)
-        DB::transaction(function () use ($game, $mark) {
+        // SIN transacción (25-10-2026, Neon pooler): el pase completo
+        // en una transacción abortaba en silencio (25P02) y el job de
+        // acciones de carrera fallaba entero, así que en modo carrera
+        // no se procesaban traspasos, ofertas, cesiones ni ojeo. Cada
+        // sección escribe en autocommit; un fallo a mitad deja estado
+        // parcial, pero las secciones son reejecutables en el próximo
+        // tick y eso es mejor que perder el pase entero siempre.
         // Pre-load buyer pool once for all offer generation. Memoized across
         // ticks within one job; invalidated below if the window is open and
         // mutating sections may have run.
@@ -220,7 +220,6 @@ class CareerActionProcessor
         if ($game->isTransferWindowOpen()) {
             $this->invalidateBuyerPool();
         }
-        });
 
         if ($profile) {
             Log::info("[CareerActionProcessor {$game->id}] section breakdown", [
