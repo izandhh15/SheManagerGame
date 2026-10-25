@@ -52,16 +52,21 @@ scaling:
   # PHP es single-threaded: una petición por instancia
   mode: single_concurrency
 
-# Job temporal de migración 0.5.19: corre UNA vez al desplegar para
-# crear la tabla social_accounts (entrar con Google/Discord) y luego
-# SE QUITA en 0.5.20 (no debe correr en cada deploy).
+# Job temporal de migración 0.5.20: corre UNA vez al desplegar para
+# crear SOLO la tabla social_accounts (entrar con Google/Discord) y
+# luego SE QUITA en 0.5.21 (no debe correr en cada deploy).
+# OJO: `migrate --force` completo FALLA en prod (0.5.19): la migración
+# vieja de telescope (2024_12_13) está pendiente pero su tabla ya
+# existe en parte, y el pooler aborta la transacción (25P02). Las
+# migraciones nuevas en prod deben correrse con --path apuntando al
+# fichero concreto, nunca con migrate completo.
 jobs:
-  - name: migrate-once-0519
+  - name: migrate-social-once-0520
     trigger: post-deployment
     action:
       execute:
         command: php
-        cli_args: ["/app/artisan", "migrate", "--force"]
+        cli_args: ["/app/artisan", "migrate", "--path=database/migrations/2026_10_25_000001_create_social_accounts_table.php", "--force"]
 # Job temporal de borrado total YA QUITADO (25-10-2026): corrió con
 # éxito en 0.5.11 (10 cuentas, 5 partidas → 0 y 0). No debe volver a
 # correr en ningún deploy.
