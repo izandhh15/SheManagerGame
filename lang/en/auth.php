@@ -45,4 +45,13 @@ return [
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
     'session_expired' => 'Your session has expired. Please log in again.',
     'no_account_yet' => 'Don\'t have an account yet?',
+
+    // Sign in with Google / Discord (no password registration)
+    'social_or' => 'or sign in without registering',
+    'social_google' => 'Continue with Google',
+    'social_discord' => 'Continue with Discord',
+    'social_linked' => 'Account linked: you can now sign in with it.',
+    'social_not_configured' => 'That sign-in is not enabled yet.',
+    'social_failed' => 'Could not complete the sign-in. Try again.',
+    'social_no_email' => 'That account did not share your email. Enable email on your account and try again.',
 ];

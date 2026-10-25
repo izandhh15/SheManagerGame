@@ -45,4 +45,13 @@ return [
     'throttle' => 'Demasiados intentos de acceso. Por favor intenta de nuevo en :seconds segundos.',
     'session_expired' => 'Tu sesión ha expirado. Por favor, inicia sesión de nuevo.',
     'no_account_yet' => '¿Aún no tienes cuenta?',
+
+    // Entrar con Google / Discord (sin registrarse con contraseña)
+    'social_or' => 'o entra sin registrarte',
+    'social_google' => 'Continuar con Google',
+    'social_discord' => 'Continuar con Discord',
+    'social_linked' => 'Cuenta enlazada: ya puedes entrar con ella.',
+    'social_not_configured' => 'Ese inicio de sesión aún no está activado.',
+    'social_failed' => 'No se pudo completar el inicio de sesión. Inténtalo de nuevo.',
+    'social_no_email' => 'Esa cuenta no compartió tu correo. Activa el correo en tu cuenta y reintenta.',
 ];

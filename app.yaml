@@ -52,6 +52,16 @@ scaling:
   # PHP es single-threaded: una petición por instancia
   mode: single_concurrency
 
+# Job temporal de migración 0.5.19: corre UNA vez al desplegar para
+# crear la tabla social_accounts (entrar con Google/Discord) y luego
+# SE QUITA en 0.5.20 (no debe correr en cada deploy).
+jobs:
+  - name: migrate-once-0519
+    trigger: post-deployment
+    action:
+      execute:
+        command: php
+        cli_args: ["/app/artisan", "migrate", "--force"]
 # Job temporal de borrado total YA QUITADO (25-10-2026): corrió con
 # éxito en 0.5.11 (10 cuentas, 5 partidas → 0 y 0). No debe volver a
 # correr en ningún deploy.

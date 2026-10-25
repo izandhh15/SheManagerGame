@@ -45,4 +45,13 @@ return [
     'throttle' => 'Demasiadas tentativas de acesso. Por favor tenta novamente em :seconds segundos.',
     'session_expired' => 'A tua sessão expirou. Por favor, inicia sessão novamente.',
     'no_account_yet' => 'Ainda não tens conta?',
+
+    // Sign in with Google / Discord (no password registration)
+    'social_or' => 'ou entra sem te registares',
+    'social_google' => 'Continuar com o Google',
+    'social_discord' => 'Continuar com o Discord',
+    'social_linked' => 'Conta associada: já podes entrar com ela.',
+    'social_not_configured' => 'Esse início de sessão ainda não está ativado.',
+    'social_failed' => 'Não foi possível concluir o início de sessão. Tenta novamente.',
+    'social_no_email' => 'Essa conta não partilhou o teu e-mail. Ativa o e-mail na tua conta e tenta novamente.',
 ];

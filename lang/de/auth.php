@@ -45,4 +45,13 @@ return [
     'throttle' => 'Zu viele Anmeldeversuche. Bitte versuche es in :seconds Sekunden erneut.',
     'session_expired' => 'Deine Sitzung ist abgelaufen. Bitte melde dich erneut an.',
     'no_account_yet' => 'Noch kein Konto?',
+
+    // Sign in with Google / Discord (no password registration)
+    'social_or' => 'oder ohne Registrierung anmelden',
+    'social_google' => 'Mit Google fortfahren',
+    'social_discord' => 'Mit Discord fortfahren',
+    'social_linked' => 'Konto verknüpft: Du kannst dich jetzt damit anmelden.',
+    'social_not_configured' => 'Diese Anmeldung ist noch nicht aktiviert.',
+    'social_failed' => 'Die Anmeldung konnte nicht abgeschlossen werden. Versuche es erneut.',
+    'social_no_email' => 'Dieses Konto hat keine E-Mail-Adresse geteilt. Aktiviere die E-Mail-Adresse in deinem Konto und versuche es erneut.',
 ];

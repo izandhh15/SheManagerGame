@@ -45,4 +45,13 @@ return [
     'throttle' => 'Trop de tentatives de connexion. Veuillez réessayer dans :seconds secondes.',
     'session_expired' => 'Votre session a expiré. Veuillez vous reconnecter.',
     'no_account_yet' => 'Pas encore de compte ?',
+
+    // Sign in with Google / Discord (no password registration)
+    'social_or' => 'ou connectez-vous sans vous inscrire',
+    'social_google' => 'Continuer avec Google',
+    'social_discord' => 'Continuer avec Discord',
+    'social_linked' => 'Compte lié : vous pouvez désormais vous connecter avec.',
+    'social_not_configured' => 'Cette connexion n\'est pas encore activée.',
+    'social_failed' => 'Impossible de terminer la connexion. Réessayez.',
+    'social_no_email' => 'Ce compte n\'a pas partagé votre e-mail. Activez l\'e-mail sur votre compte et réessayez.',
 ];

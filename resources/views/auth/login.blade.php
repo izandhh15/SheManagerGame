@@ -46,4 +46,6 @@
             </a>
         </p>
     </form>
+
+    @include('auth.social-buttons')
 </x-guest-layout>

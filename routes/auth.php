@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Auth\SocialLoginController;
 use App\Http\Actions\Auth\ResendActivation;
 use Illuminate\Support\Facades\Route;
 
@@ -40,6 +41,17 @@ Route::middleware('guest')->group(function () {
         ->middleware('throttle:3,1')
         ->name('password.store');
 });
+
+// Entrar con Google / Discord (sin registrarse con contraseña).
+// Fuera del grupo guest a propósito: el callback también enlaza la
+// cuenta social cuando el jugador ya tiene sesión iniciada.
+Route::get('auth/{provider}', [SocialLoginController::class, 'redirect'])
+    ->where('provider', 'google|discord')
+    ->name('social.redirect');
+
+Route::get('auth/{provider}/callback', [SocialLoginController::class, 'callback'])
+    ->where('provider', 'google|discord')
+    ->name('social.callback');
 
 // Resend the account-activation email. Deliberately outside the guest
 // group: the activation-sent page is visited by guests, but a
