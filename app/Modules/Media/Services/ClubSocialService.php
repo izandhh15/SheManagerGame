@@ -94,28 +94,30 @@ class ClubSocialService
             return ['ok' => false, 'message' => __('game.club_social_already_announced')];
         }
 
-        return DB::transaction(function () use ($game, $type, $player, $extra) {
-            $result = match ($type) {
-                self::TYPE_SIGNING => $this->announceSigning($game, $player),
-                self::TYPE_SALE => $this->announceSale($game, $player),
-                self::TYPE_INJURY => $this->announceInjury($game, $player, (int) ($extra['weeks'] ?? 4)),
-                self::TYPE_SEASON_TICKETS => $this->announceSeasonTickets($game),
-                self::TYPE_VENUE => $this->announceVenue($game, $extra['match_id'] ?? null),
-                self::TYPE_NEXT_HOME => $this->announceNextHome($game, $extra['match_id'] ?? null),
-                self::TYPE_TICKET_DISCOUNT => $this->announceTicketDiscount($game, $extra['match_id'] ?? null),
-                self::TYPE_TICKET_SALES => $this->announceTicketSales($game, $extra['match_id'] ?? null),
-                self::TYPE_FRIENDLY => $this->announceFriendly($game, $extra['match_id'] ?? null),
-                self::TYPE_RENEWAL => $this->announceRenewal($game, $player),
-            };
+        // SIN transaccion (25-10-2026, Neon pooler): la transaccion
+        // abortaba en silencio y publicar un comunicado del club daba
+        // 500 siempre. Los chequeos de duplicados (alreadyAnnounced)
+        // previos siguen evitando el doble anuncio.
+        $result = match ($type) {
+            self::TYPE_SIGNING => $this->announceSigning($game, $player),
+            self::TYPE_SALE => $this->announceSale($game, $player),
+            self::TYPE_INJURY => $this->announceInjury($game, $player, (int) ($extra['weeks'] ?? 4)),
+            self::TYPE_SEASON_TICKETS => $this->announceSeasonTickets($game),
+            self::TYPE_VENUE => $this->announceVenue($game, $extra['match_id'] ?? null),
+            self::TYPE_NEXT_HOME => $this->announceNextHome($game, $extra['match_id'] ?? null),
+            self::TYPE_TICKET_DISCOUNT => $this->announceTicketDiscount($game, $extra['match_id'] ?? null),
+            self::TYPE_TICKET_SALES => $this->announceTicketSales($game, $extra['match_id'] ?? null),
+            self::TYPE_FRIENDLY => $this->announceFriendly($game, $extra['match_id'] ?? null),
+            self::TYPE_RENEWAL => $this->announceRenewal($game, $player),
+        };
 
-            // Some announcements bail out (no match, already posted):
-            // they return post:null with an explanatory message.
-            if (($result['ok'] ?? true) === false || ! ($result['post'] ?? null)) {
-                return ['ok' => false, 'message' => $result['message']];
-            }
+        // Some announcements bail out (no match, already posted):
+        // they return post:null with an explanatory message.
+        if (($result['ok'] ?? true) === false || ! ($result['post'] ?? null)) {
+            return ['ok' => false, 'message' => $result['message']];
+        }
 
-            return ['ok' => true, 'message' => $result['message'], 'post_id' => $result['post']->id];
-        });
+        return ['ok' => true, 'message' => $result['message'], 'post_id' => $result['post']->id];
     }
 
     /**

@@ -50,9 +50,13 @@ class MatchResimulationService
         ?Collection $awayBenchPlayers = null,
         bool $autoSubUserTeam = false,
     ): ResimulationResult {
-        return DB::transaction(function () use ($match, $game, $minute, $homePlayers, $awayPlayers, $allSubstitutions, $homeBenchPlayers, $awayBenchPlayers, $autoSubUserTeam) {
-            return $this->doResimulate($match, $game, $minute, $homePlayers, $awayPlayers, $allSubstitutions, $homeBenchPlayers, $awayBenchPlayers, $autoSubUserTeam);
-        });
+        // SIN transacción (25-10-2026, Neon pooler): la transacción
+        // abortaba en silencio y toda sustitución manual o salto al
+        // final fallaba con el error genérico (el 25P02 saltaba en
+        // un SELECT posterior, p. ej. Competition::find). En
+        // autocommit, un fallo real de una sentencia se ve tal cual
+        // en vez de envenenar el resto del pase.
+        return $this->doResimulate($match, $game, $minute, $homePlayers, $awayPlayers, $allSubstitutions, $homeBenchPlayers, $awayBenchPlayers, $autoSubUserTeam);
     }
 
     private function doResimulate(
@@ -444,7 +448,8 @@ class MatchResimulationService
         array $allSubstitutions = [],
         bool $isHalfTime = false,
     ): ResimulationResult {
-        return DB::transaction(function () use ($match, $game, $minute, $homePlayers, $awayPlayers, $allSubstitutions, $isHalfTime) {
+        // SIN transacción (25-10-2026, Neon pooler): igual que resimulate().
+        {
             $competitionId = $match->competition_id;
             $stoppage = StoppageDurations::fromMatch($match);
 
@@ -643,7 +648,7 @@ class MatchResimulationService
                 $cachedPerformances,
                 $mvpPlayerId,
             );
-        });
+        }
     }
 
     /**
