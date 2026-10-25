@@ -79,47 +79,55 @@
 
         // Sidebar sections: [section title, items]. Each item: route, label, params.
         // Only routes that exist in routes/web.php are listed here.
+        // REDISEÑO 25-10-2026 (petición de Izan: "los menús siguen siendo
+        // los mismos"): agrupación, orden y nombres nuevos, y entradas
+        // que el menú viejo no tenía (Rival, Día de partido, Actividad).
+        // Solo cambia la presentación: cada enlace sigue apuntando a
+        // una ruta EXISTENTE, sin tocar lógica, datos ni contenido.
         $sections = [];
         if ($isGame) {
             $play = [
-                ['route' => 'game.menu', 'label' => '🧭 Menú', 'params' => $gid],
-                ['route' => 'show-game', 'label' => '🏠 Panel clásico', 'params' => $gid],
-                ['route' => 'game.calendar', 'label' => __('app.calendar'), 'params' => $gid],
+                ['route' => 'game.menu', 'label' => '🧭 Vestuario general', 'params' => $gid],
+                ['route' => 'show-game', 'label' => '🏠 Panel', 'params' => $gid],
+                ['route' => 'game.calendar', 'label' => '📅 ' . __('app.calendar'), 'params' => $gid],
             ];
             if ($game->next_match) {
-                $play[] = ['route' => 'game.lineup', 'label' => __('app.starting_xi'), 'params' => $gid];
+                $play[] = ['route' => 'game.lineup', 'label' => '⚽ ' . __('app.starting_xi'), 'params' => $gid];
+                $play[] = ['route' => 'game.opponent-analysis', 'label' => '🔍 Rival', 'params' => $gid];
             }
-            $sections[] = ['Jugar', $play];
+            $sections[] = ['⚽ El partido', $play];
 
-            $club = [
-                ['route' => 'game.squad', 'label' => __('app.squad'), 'params' => $gid],
+            $dressing = [
+                ['route' => 'game.squad', 'label' => '👥 ' . __('app.squad'), 'params' => $gid],
             ];
             if ($isCareer) {
-                $club[] = ['route' => 'game.squad.planner', 'label' => __('app.tactics'), 'params' => $gid];
+                $dressing[] = ['route' => 'game.squad.planner', 'label' => '📋 ' . __('app.tactics'), 'params' => $gid];
                 if (! $game->isFilial()) {
-                    $club[] = ['route' => 'game.squad.academy', 'label' => '🌱 ' . __('squad.academy'), 'params' => $gid];
+                    $dressing[] = ['route' => 'game.squad.academy', 'label' => '🌱 ' . __('squad.academy'), 'params' => $gid];
                 }
-                $club[] = ['route' => 'game.squad.registration', 'label' => __('squad.registration'), 'params' => $gid];
+                $dressing[] = ['route' => 'game.squad.registration', 'label' => '📝 ' . __('squad.registration'), 'params' => $gid];
                 if ($game->isFilial()) {
-                    $club[] = ['route' => 'game.squad.reserve', 'label' => __('squad.reserve_team'), 'params' => $gid];
+                    $dressing[] = ['route' => 'game.squad.reserve', 'label' => '👥 ' . __('squad.reserve_team'), 'params' => $gid];
                 }
             }
-            $sections[] = [__('app.my_team'), $club];
+            $sections[] = ['👥 Vestuario', $dressing];
 
             if ($isCareer) {
-                $sections[] = [__('app.transfers'), [
-                    ['route' => 'game.transfers.market', 'label' => __('transfers.market_tab'), 'params' => $gid],
-                    ['route' => 'game.transfers', 'label' => __('transfers.incoming'), 'params' => $gid],
-                    ['route' => 'game.transfers.outgoing', 'label' => __('transfers.outgoing'), 'params' => $gid],
-                    ['route' => 'game.scouting', 'label' => __('transfers.scouting_tab'), 'params' => $gid],
-                    ['route' => 'game.explore', 'label' => __('transfers.explore_tab'), 'params' => $gid],
+                $sections[] = ['🔄 Mercado', [
+                    ['route' => 'game.transfers.market', 'label' => '🛒 ' . __('transfers.market_tab'), 'params' => $gid],
+                    ['route' => 'game.transfers', 'label' => '⬇️ ' . __('transfers.incoming'), 'params' => $gid],
+                    ['route' => 'game.transfers.outgoing', 'label' => '⬆️ ' . __('transfers.outgoing'), 'params' => $gid],
+                    ['route' => 'game.transfer-activity', 'label' => '📰 Actividad', 'params' => $gid],
+                    ['route' => 'game.scouting', 'label' => '🔭 ' . __('transfers.scouting_tab'), 'params' => $gid],
+                    ['route' => 'game.explore', 'label' => '🌍 ' . __('transfers.explore_tab'), 'params' => $gid],
                 ]];
-                $sections[] = [__('app.club'), [
-                    ['route' => 'game.club.finances', 'label' => __('club.nav.finances'), 'params' => $gid],
-                    ['route' => 'game.club.stadium', 'label' => __('club.nav.stadium'), 'params' => $gid],
-                    ['route' => 'game.club.commercial', 'label' => __('club.nav.commercial'), 'params' => $gid],
-                    ['route' => 'game.club.investment', 'label' => __('club.nav.investment'), 'params' => $gid],
-                    ['route' => 'game.club.reputation', 'label' => __('club.nav.reputation'), 'params' => $gid],
+                $sections[] = ['🏟️ El club', [
+                    ['route' => 'game.club.finances', 'label' => '💰 ' . __('club.nav.finances'), 'params' => $gid],
+                    ['route' => 'game.club.stadium', 'label' => '🏟️ ' . __('club.nav.stadium'), 'params' => $gid],
+                    ['route' => 'game.club.matchday', 'label' => '🎟️ Día de partido', 'params' => $gid],
+                    ['route' => 'game.club.commercial', 'label' => '🤝 ' . __('club.nav.commercial'), 'params' => $gid],
+                    ['route' => 'game.club.investment', 'label' => '📈 ' . __('club.nav.investment'), 'params' => $gid],
+                    ['route' => 'game.club.reputation', 'label' => '⭐ ' . __('club.nav.reputation'), 'params' => $gid],
                 ]];
             }
 
@@ -131,7 +139,7 @@
             if ($isNational) {
                 $social[] = ['route' => 'game.national-social', 'label' => '📢 ' . __('game.nav_national_social'), 'params' => $gid];
             }
-            $sections[] = ['Social y prensa', $social];
+            $sections[] = ['📣 Grada y prensa', $social];
 
             if ($isNational) {
                 $sections[] = [__('app.selection'), [
@@ -141,7 +149,7 @@
             }
 
             if ($isPro) {
-                $sections[] = ['Carrera', [
+                $sections[] = ['💼 Carrera', [
                     ['route' => 'game.manager.career', 'label' => __('manager.career_title'), 'params' => $gid],
                     ['route' => 'game.job-market', 'label' => '💼 Mercado de trabajo', 'params' => $gid],
                 ]];
@@ -157,11 +165,12 @@
         ];
 
         // Mobile bottom bar: max 5 taps, all existing routes.
+        // REDISEÑO 25-10-2026: el primer botón es Jugar, no el menú.
         $mobileItems = $isGame
             ? array_filter([
+                $game->next_match ? ['route' => 'game.lineup', 'label' => 'Jugar', 'icon' => '⚽', 'params' => $gid] : ['route' => 'game.calendar', 'label' => 'Jugar', 'icon' => '⚽', 'params' => $gid],
+                ['route' => 'game.squad', 'label' => 'Vestuario', 'icon' => '👥', 'params' => $gid],
                 ['route' => 'game.menu', 'label' => 'Menú', 'icon' => '🧭', 'params' => $gid],
-                ['route' => 'game.squad', 'label' => __('app.squad'), 'icon' => '👥', 'params' => $gid],
-                $game->next_match ? ['route' => 'game.lineup', 'label' => 'XI', 'icon' => '⚽', 'params' => $gid] : null,
                 ['route' => 'game.internet', 'label' => 'Internet', 'icon' => '🌐', 'params' => $gid],
                 ['route' => 'game.calendar', 'label' => __('app.calendar'), 'icon' => '📅', 'params' => $gid],
             ])
@@ -190,20 +199,27 @@
                 @endif
                 <span class="min-w-0">
                     <span class="block font-heading font-semibold text-sm uppercase tracking-wide text-text-primary truncate">{{ $game->team?->name ?? __('app.my_team') }}</span>
-                    <span class="block text-[11px] text-purple-400 font-semibold uppercase tracking-widest mt-0.5">Nueva generación · Menú</span>
+                    <span class="block text-[11px] text-purple-400 font-semibold uppercase tracking-widest mt-0.5">Menú principal</span>
                 </span>
+            </a>
+        @endif
+
+        @if($isGame && $game->next_match)
+            <a href="{{ route('game.lineup', $game->id) }}" class="mx-3 mt-4 mb-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold bg-gradient-to-r from-purple-600 to-accent-blue text-white shadow-lg shadow-purple-600/30 hover:opacity-90 transition-opacity shrink-0">
+                ▶ Jugar el próximo partido
             </a>
         @endif
 
         <nav class="flex-1 overflow-y-auto px-3 py-4 space-y-5">
             @foreach($sections as $section)
                 <div>
-                    <p class="px-3 pb-1.5 text-[10px] font-semibold uppercase tracking-widest text-text-faint">{{ $section[0] }}</p>
+                    <p class="px-3 pb-1.5 text-[11px] font-bold uppercase tracking-widest text-purple-400">{{ $section[0] }}</p>
                     <div class="space-y-0.5">
                         @foreach($section[1] as $item)
                             @php $active = $currentRoute === $item['route']; @endphp
                             <a href="{{ route($item['route'], $item['params']) }}"
-                               class="block px-3 py-2 rounded-lg text-sm transition-colors {{ $active ? 'bg-purple-600/20 text-text-primary font-semibold border border-purple-500/30' : 'text-text-body hover:bg-surface-700' }}">
+                               class="relative block px-3 py-2 rounded-lg text-sm transition-colors {{ $active ? 'bg-gradient-to-r from-purple-600/30 to-transparent text-text-primary font-bold' : 'text-text-body hover:bg-surface-700' }}">
+                                @if($active)<span class="absolute left-0 top-1 bottom-1 w-1 rounded-full bg-purple-500"></span>@endif
                                 {{ $item['label'] }}
                             </a>
                         @endforeach

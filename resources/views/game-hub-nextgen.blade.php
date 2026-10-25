@@ -1,11 +1,11 @@
 {{--
-    Next-gen game hub — FASE 1 (rama next-gen-menus).
+    Next-gen game hub — REDISEÑO 25-10-2026 (petición de Izan: "los menús
+    siguen siendo los mismos").
 
-    Solo un menú: ninguna carta cambia datos ni lógica, todas enlazan a
-    rutas EXISTENTES. Las pantallas destino siguen con el layout viejo
-    hasta las fases posteriores; este hub es la puerta de entrada nueva.
-    Los periodistas del juego siguen siendo ficticios (decisión pendiente
-    del usuario): aquí no se cambia ningún nombre ni medio.
+    Solo cambia el menú: ninguna carta cambia datos ni lógica, todas
+    enlazan a rutas EXISTENTES. Agrupación, orden y nombres nuevos, en
+    línea con la barra lateral del mismo rediseño, y cartas que el menú
+    viejo no tenía (Rival, Día de partido, Actividad).
 --}}
 @php /** @var App\Models\Game $game **/ @endphp
 
@@ -18,7 +18,7 @@
                     <x-team-crest :team="$game->team" class="w-16 h-16 sm:w-20 sm:h-20 shrink-0" />
                 @endif
                 <div class="min-w-0 flex-1">
-                    <p class="text-[11px] font-semibold uppercase tracking-widest text-purple-400">Nueva generación · Menú principal</p>
+                    <p class="text-[11px] font-semibold uppercase tracking-widest text-purple-400">Menú principal</p>
                     <h1 class="font-heading font-bold text-2xl sm:text-3xl uppercase tracking-wide text-text-primary truncate">{{ $game->team?->name ?? __('app.my_team') }}</h1>
                     @if($nextMatch)
                         <p class="text-sm text-text-secondary mt-1">
@@ -31,9 +31,9 @@
                 </div>
                 <div class="flex flex-wrap gap-2 shrink-0">
                     @if($nextMatch)
-                        <a href="{{ route('game.lineup', $game->id) }}" class="px-4 py-2.5 rounded-xl text-sm font-bold bg-purple-600 text-white hover:bg-purple-500 shadow-lg shadow-purple-600/30">{{ __('app.starting_xi') }}</a>
+                        <a href="{{ route('game.lineup', $game->id) }}" class="px-4 py-2.5 rounded-xl text-sm font-bold bg-gradient-to-r from-purple-600 to-accent-blue text-white hover:opacity-90 shadow-lg shadow-purple-600/30">▶ Jugar el próximo partido</a>
                     @endif
-                    <a href="{{ route('show-game', $game->id) }}" class="px-4 py-2.5 rounded-xl text-sm font-semibold border border-border-strong text-text-body hover:bg-surface-700">🏠 Panel clásico</a>
+                    <a href="{{ route('show-game', $game->id) }}" class="px-4 py-2.5 rounded-xl text-sm font-semibold border border-border-strong text-text-body hover:bg-surface-700">🏠 Panel</a>
                 </div>
             </div>
         </div>
@@ -50,40 +50,43 @@
 
             $sections = [];
 
-            $sections[] = ['⚽ Jugar', [
-                ['route' => 'game.calendar', 'title' => __('app.calendar'), 'desc' => 'Todos los partidos, jornadas y resultados de la temporada.'],
-                ['route' => 'game.lineup', 'title' => __('app.starting_xi'), 'desc' => 'El once, la táctica y el banquillo antes del partido.'],
+            $sections[] = ['⚽ El partido', [
+                ['route' => 'game.calendar', 'title' => '📅 ' . __('app.calendar'), 'desc' => 'Todos los partidos, jornadas y resultados de la temporada.'],
+                ['route' => 'game.lineup', 'title' => '⚽ ' . __('app.starting_xi'), 'desc' => 'El once, la táctica y el banquillo antes del partido.'],
+                ['route' => 'game.opponent-analysis', 'title' => '🔍 Rival', 'desc' => 'Análisis del próximo rival: forma, estilo y jugadoras clave.'],
             ]];
 
-            $miClub = [
-                ['route' => 'game.squad', 'title' => __('app.squad'), 'desc' => 'La plantilla: jugadoras, estados, roles y dorsales.'],
+            $vestuario = [
+                ['route' => 'game.squad', 'title' => '👥 ' . __('app.squad'), 'desc' => 'La plantilla: jugadoras, estados, roles y dorsales.'],
             ];
             if ($isCareer) {
-                $miClub[] = ['route' => 'game.squad.planner', 'title' => __('app.tactics'), 'desc' => 'Planifica la plantilla y la táctica a largo plazo.'];
+                $vestuario[] = ['route' => 'game.squad.planner', 'title' => '📋 ' . __('app.tactics'), 'desc' => 'Planifica la plantilla y la táctica a largo plazo.'];
                 if (! $game->isFilial()) {
-                    $miClub[] = ['route' => 'game.squad.academy', 'title' => '🌱 ' . __('squad.academy'), 'desc' => 'La cantera: promesas, crecimiento y promociones.'];
+                    $vestuario[] = ['route' => 'game.squad.academy', 'title' => '🌱 ' . __('squad.academy'), 'desc' => 'La cantera: promesas, crecimiento y promociones.'];
                 }
-                $miClub[] = ['route' => 'game.squad.registration', 'title' => __('squad.registration'), 'desc' => 'Inscripciones y límites de plantilla por competición.'];
+                $vestuario[] = ['route' => 'game.squad.registration', 'title' => '📝 ' . __('squad.registration'), 'desc' => 'Inscripciones y límites de plantilla por competición.'];
                 if ($game->isFilial()) {
-                    $miClub[] = ['route' => 'game.squad.reserve', 'title' => __('squad.reserve_team'), 'desc' => 'El filial: subidas y bajadas con el primer equipo.'];
+                    $vestuario[] = ['route' => 'game.squad.reserve', 'title' => '👥 ' . __('squad.reserve_team'), 'desc' => 'El filial: subidas y bajadas con el primer equipo.'];
                 }
             }
-            $sections[] = ['🏟️ ' . __('app.my_team'), $miClub];
+            $sections[] = ['👥 Vestuario', $vestuario];
 
             if ($isCareer) {
-                $sections[] = ['🔄 ' . __('app.transfers'), [
-                    ['route' => 'game.transfers.market', 'title' => __('transfers.market_tab'), 'desc' => 'El mercado: fichar, vender y seguir objetivos.'],
-                    ['route' => 'game.transfers', 'title' => __('transfers.incoming'), 'desc' => 'Ofertas recibidas y negociaciones en curso.'],
-                    ['route' => 'game.transfers.outgoing', 'title' => __('transfers.outgoing'), 'desc' => 'Bajas, cesiones y jugadoras en venta.'],
-                    ['route' => 'game.scouting', 'title' => __('transfers.scouting_tab'), 'desc' => 'Ojeadores, informes y jugadoras seguidas.'],
-                    ['route' => 'game.explore', 'title' => __('transfers.explore_tab'), 'desc' => 'Explora otros equipos, ligas y plantillas.'],
+                $sections[] = ['🔄 Mercado', [
+                    ['route' => 'game.transfers.market', 'title' => '🛒 ' . __('transfers.market_tab'), 'desc' => 'El mercado: fichar, vender y seguir objetivos.'],
+                    ['route' => 'game.transfers', 'title' => '⬇️ ' . __('transfers.incoming'), 'desc' => 'Ofertas recibidas y negociaciones en curso.'],
+                    ['route' => 'game.transfers.outgoing', 'title' => '⬆️ ' . __('transfers.outgoing'), 'desc' => 'Bajas, cesiones y jugadoras en venta.'],
+                    ['route' => 'game.transfer-activity', 'title' => '📰 Actividad', 'desc' => 'Movimientos recientes del mercado.'],
+                    ['route' => 'game.scouting', 'title' => '🔭 ' . __('transfers.scouting_tab'), 'desc' => 'Ojeadores, informes y jugadoras seguidas.'],
+                    ['route' => 'game.explore', 'title' => '🌍 ' . __('transfers.explore_tab'), 'desc' => 'Explora otros equipos, ligas y plantillas.'],
                 ]];
-                $sections[] = ['💰 ' . __('app.club'), [
-                    ['route' => 'game.club.finances', 'title' => __('club.nav.finances'), 'desc' => 'Cuentas, presupuesto, ingresos y gastos.'],
-                    ['route' => 'game.club.stadium', 'title' => __('club.nav.stadium'), 'desc' => 'El estadio: gradas, abonos y mejoras.'],
-                    ['route' => 'game.club.commercial', 'title' => __('club.nav.commercial'), 'desc' => 'Patrocinadores y derechos de nombre.'],
-                    ['route' => 'game.club.investment', 'title' => __('club.nav.investment'), 'desc' => 'Inversiones e infraestructuras del club.'],
-                    ['route' => 'game.club.reputation', 'title' => __('club.nav.reputation'), 'desc' => 'La reputación del club y su proyección.'],
+                $sections[] = ['🏟️ El club', [
+                    ['route' => 'game.club.finances', 'title' => '💰 ' . __('club.nav.finances'), 'desc' => 'Cuentas, presupuesto, ingresos y gastos.'],
+                    ['route' => 'game.club.stadium', 'title' => '🏟️ ' . __('club.nav.stadium'), 'desc' => 'El estadio: gradas, abonos y mejoras.'],
+                    ['route' => 'game.club.matchday', 'title' => '🎟️ Día de partido', 'desc' => 'Entradas, ambiente y organización del día de partido.'],
+                    ['route' => 'game.club.commercial', 'title' => '🤝 ' . __('club.nav.commercial'), 'desc' => 'Patrocinadores y derechos de nombre.'],
+                    ['route' => 'game.club.investment', 'title' => '📈 ' . __('club.nav.investment'), 'desc' => 'Inversiones e infraestructuras del club.'],
+                    ['route' => 'game.club.reputation', 'title' => '⭐ ' . __('club.nav.reputation'), 'desc' => 'La reputación del club y su proyección.'],
                 ]];
             }
 
@@ -95,7 +98,7 @@
             if ($isNational) {
                 $social[] = ['route' => 'game.national-social', 'title' => '📢 ' . __('game.nav_national_social'), 'desc' => 'Los anuncios oficiales de tu selección.'];
             }
-            $sections[] = ['📰 Social y prensa', $social];
+            $sections[] = ['📣 Grada y prensa', $social];
 
             if ($isNational) {
                 $sections[] = ['🇪🇸 ' . __('app.selection'), [
@@ -105,17 +108,18 @@
             }
 
             if ($isPro) {
-                $sections[] = ['🎖️ Carrera', [
+                $sections[] = ['💼 Carrera', [
                     ['route' => 'game.manager.career', 'title' => __('manager.career_title'), 'desc' => 'Tu historial como entrenador, temporada a temporada.'],
                     ['route' => 'game.job-market', 'title' => '💼 Mercado de trabajo', 'desc' => 'Ofertas de otros clubes y selecciones.'],
                 ]];
             }
 
-            // "Jugar" sin próximo partido: la alineación no tiene sentido sin
-            // rival, así que la carta se quita en vez de llevar a un error.
+            // Sin próximo partido, la alineación y el análisis del rival no
+            // tienen sentido, así que esas cartas se quitan en vez de
+            // llevar a un error.
             if (! $nextMatch) {
                 foreach ($sections as $si => $section) {
-                    $sections[$si][1] = array_values(array_filter($section[1], fn ($c) => $c['route'] !== 'game.lineup'));
+                    $sections[$si][1] = array_values(array_filter($section[1], fn ($c) => ! in_array($c['route'], ['game.lineup', 'game.opponent-analysis'], true)));
                 }
             }
         @endphp
@@ -133,9 +137,6 @@
             </div>
         @endforeach
 
-        <div class="mt-10 rounded-xl border border-border-default bg-surface-800/60 p-4 text-sm text-text-secondary">
-            <p><strong class="text-text-primary">Fase 1:</strong> este menú y la barra lateral son nuevos; al entrar en cualquier carta verás todavía el diseño viejo de esa pantalla. Se migrará pantalla a pantalla en las fases siguientes, sin tocar datos ni lógica.</p>
-            <p class="mt-1">Si prefieres el panel de siempre, <a href="{{ route('show-game', $game->id) }}" class="text-purple-400 hover:underline">vuelve al panel clásico</a>.</p>
-        </div>
+        <p class="mt-10 text-sm text-text-secondary">¿Prefieres el panel de siempre? <a href="{{ route('show-game', $game->id) }}" class="text-purple-400 hover:underline">Ir al panel</a>.</p>
     </div>
 </x-game-nextgen-layout>
