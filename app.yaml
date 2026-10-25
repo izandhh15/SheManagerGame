@@ -52,6 +52,17 @@ scaling:
   # PHP es single-threaded: una petición por instancia
   mode: single_concurrency
 
+# TEMPORAL 25-10-2026, orden de Izan ("si borra todo"): borra TODAS
+# las cuentas y datos de partida en producción. Job post-deployment:
+# corre UNA vez al desplegar 0.5.11 y luego SE QUITA en 0.5.12
+# (no debe correr en cada deploy).
+jobs:
+  - name: wipe-all-user-data-once
+    trigger: post-deployment
+    action:
+      execute:
+        command: php
+        cli_args: ["/app/artisan", "app:wipe-all-user-data"]
 # Job temporal de regeneración de plantillas YA QUITADO (24-10-2026):
 # corrió con éxito en 0.5.4 (8.589 plantillas, temporada 2026). No debe
 # volver a correr en cada deploy: si hace falta regenerar, reañadirlo
