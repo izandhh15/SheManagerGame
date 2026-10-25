@@ -45,23 +45,27 @@ class MatchFinalizationService
      */
     public function finalizePendingIfAny(string $gameId): bool
     {
-        $finalizationResult = DB::transaction(function () use ($gameId) {
-            $game = Game::where('id', $gameId)->lockForUpdate()->first();
+        // SIN transacción ni lock (25-10-2026, Neon pooler): mismo
+        // patrón que FinalizeMatch — claim atómico del pending.
+        $game = Game::find($gameId);
+        $finalizationResult = null;
 
-            if (! $game || ! $game->pending_finalization_match_id) {
-                return null;
-            }
-
-            $match = GameMatch::find($game->pending_finalization_match_id);
+        if ($game && $game->pending_finalization_match_id) {
+            $matchId = $game->pending_finalization_match_id;
+            $match = GameMatch::find($matchId);
 
             if (! $match || ! $match->played) {
                 $game->update(['pending_finalization_match_id' => null]);
+            } else {
+                $claimed = Game::where('id', $game->id)
+                    ->where('pending_finalization_match_id', $matchId)
+                    ->update(['pending_finalization_match_id' => null]);
 
-                return null;
+                if ($claimed) {
+                    $finalizationResult = $this->finalize($match, $game->fresh());
+                }
             }
-
-            return $this->finalize($match, $game);
-        });
+        }
 
         if (! $finalizationResult) {
             return false;
@@ -123,9 +127,9 @@ class MatchFinalizationService
             [$resolvedCupTie, $cupTieWinnerId] = $this->resolveCupTie($match);
         }
 
-        // 4. Clear the pending flag last so any sibling request blocked on
-        // lockForUpdate() finds it null when this commit releases the lock
-        // and short-circuits without re-applying steps 1-3.
+        // 4. Clear the pending flag last (normally ya está a null por el
+        // claim atómico del llamador; esto cubre llamadas directas sin
+        // claim, como el fast-forward dentro de advance()).
         $game->update(['pending_finalization_match_id' => null]);
         session()->forget("live_match_animated:{$match->id}");
 

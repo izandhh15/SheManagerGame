@@ -5,7 +5,6 @@ namespace App\Modules\Match\Listeners;
 use App\Modules\Match\Events\MatchFinalized;
 use App\Modules\Competition\Services\StandingsCalculator;
 use App\Models\GameMatch;
-use Illuminate\Support\Facades\DB;
 
 class UpdateLeagueStandings
 {
@@ -25,16 +24,21 @@ class UpdateLeagueStandings
 
         // Idempotency guard: skip if standings were already applied for this match
         // (prevents double-counting from concurrent finalization or safety net re-entry).
-        // The check-then-set runs inside a transaction with a row lock on the
-        // match: two concurrent finalizations serialize here and the second
-        // one sees standings_applied = true instead of double-applying.
-        DB::transaction(function () use ($event, $match) {
-            $locked = GameMatch::where('id', $match->id)->lockForUpdate()->first();
+        // SIN transacción ni lock (25-10-2026, Neon pooler): la transacción
+        // con lock abortaba en silencio, el listener lanzaba 25P02, eso
+        // convertía /finalize-match en 500 tras cada partido Y dejaba la
+        // clasificación congelada en 0 puntos. Claim atómico primero
+        // (solo una petición marca standings_applied); si aplicar falla,
+        // se revierte la marca para que el próximo finalize lo reintente.
+        $claimed = GameMatch::where('id', $match->id)
+            ->where('standings_applied', false)
+            ->update(['standings_applied' => true]);
 
-            if (!$locked || $locked->standings_applied) {
-                return;
-            }
+        if (! $claimed) {
+            return;
+        }
 
+        try {
             $this->standingsCalculator->updateAfterMatch(
                 gameId: $event->game->id,
                 competitionId: $match->competition_id,
@@ -45,8 +49,10 @@ class UpdateLeagueStandings
             );
 
             $this->standingsCalculator->recalculatePositions($event->game->id, $match->competition_id, updatePrevPosition: false);
+        } catch (\Throwable $e) {
+            GameMatch::where('id', $match->id)->update(['standings_applied' => false]);
 
-            $locked->update(['standings_applied' => true]);
-        });
+            throw $e;
+        }
     }
 }

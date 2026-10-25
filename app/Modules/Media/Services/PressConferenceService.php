@@ -292,24 +292,24 @@ class PressConferenceService
             $confidenceDelta += $answer['confidence'];
         }
 
-        return DB::transaction(function () use ($game, $match, $stored, $moraleDelta, $confidenceDelta) {
-            // Serialize concurrent submits for this game. Locking the
-            // pre_match_press lookup alone is not enough: on an empty set
-            // it locks zero rows and both writers would still collide.
-            Game::where('id', $game->id)->lockForUpdate()->first();
-
-            $existing = $this->findRecord($game, $match);
-            if ($existing) {
-                // A previous attempt may have crashed between the insert
-                // and applyEffects(): finish the pending effects exactly once.
-                if (! $existing->effects_applied) {
-                    $this->applyEffects($game, (int) $existing->morale_delta, (int) $existing->confidence_delta);
-                    $existing->update(['effects_applied' => true]);
-                }
-
-                return $existing->refresh();
+        // SIN transacción ni lock (25-10-2026, Neon pooler): la
+        // transacción con Game::lockForUpdate abortaba en silencio y
+        // responder a la prensa daba 500. La idempotencia la guarda
+        // el unique (game_id, match_id): un doble envío concurrente
+        // choca con el 23505 y se resuelve recargando el registro
+        // existente (con sus efectos pendientes terminados si hace
+        // falta), nunca aplicando los efectos dos veces.
+        $existing = $this->findRecord($game, $match);
+        if ($existing) {
+            if (! $existing->effects_applied) {
+                $this->applyEffects($game, (int) $existing->morale_delta, (int) $existing->confidence_delta);
+                $existing->update(['effects_applied' => true]);
             }
 
+            return $existing->refresh();
+        }
+
+        try {
             $record = PreMatchPress::create([
                 'game_id' => $game->id,
                 'match_id' => $match->id,
@@ -317,12 +317,27 @@ class PressConferenceService
                 'morale_delta' => $moraleDelta,
                 'confidence_delta' => $confidenceDelta,
             ]);
+        } catch (\Illuminate\Database\QueryException $e) {
+            // Doble envío concurrente: el otro ya creó el registro.
+            if ($e->getCode() === '23505' || str_contains($e->getMessage(), '23505')) {
+                $existing = $this->findRecord($game, $match);
+                if ($existing) {
+                    if (! $existing->effects_applied) {
+                        $this->applyEffects($game, (int) $existing->morale_delta, (int) $existing->confidence_delta);
+                        $existing->update(['effects_applied' => true]);
+                    }
 
-            $this->applyEffects($game, $moraleDelta, $confidenceDelta);
-            $record->update(['effects_applied' => true]);
+                    return $existing->refresh();
+                }
+            }
 
-            return $record;
-        });
+            throw $e;
+        }
+
+        $this->applyEffects($game, $moraleDelta, $confidenceDelta);
+        $record->update(['effects_applied' => true]);
+
+        return $record;
     }
 
     /**

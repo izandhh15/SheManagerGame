@@ -10,7 +10,6 @@ use App\Modules\Season\Listeners\DetectTournamentEnded;
 use App\Models\Game;
 use App\Models\GameMatch;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class FinalizeMatch
 {
@@ -22,39 +21,36 @@ class FinalizeMatch
 
     public function __invoke(Request $request, string $gameId)
     {
-        // Atomic finalization: lock the game row to prevent double-submit
-        // (user clicking Continue twice) and races with the finalizePendingMatch
-        // safety net in MatchdayOrchestrator::advance(). Only the lock-protected
-        // mutations run inside the transaction; post-finalize side effects
-        // (event dispatches, beforeMatches, date advance, tournament end
-        // detection) run after commit so a sibling finalize can't pile up
-        // behind synchronous listeners.
-        ['game' => $game, 'finalization' => $finalization] = DB::transaction(function () use ($gameId) {
-            $game = Game::where('id', $gameId)->lockForUpdate()->first();
+        // SIN transacción ni lockForUpdate (25-10-2026, Neon pooler):
+        // la transacción con la fila bloqueada abortaba en silencio y
+        // /finalize-match daba 500 tras CADA partido (y como el fallo
+        // llegaba en el listener de clasificaciones, la clasificación
+        // quedaba congelada en 0 puntos toda la temporada). El
+        // anti-doble-clic ahora es un claim atómico: limpiar
+        // pending_finalization_match_id solo donde todavía vale el
+        // matchId; si 0 filas cambian, otra petición ya lo reclamó.
+        $game = Game::find($gameId);
+        $finalization = null;
 
-            if (! $game) {
-                return ['game' => null, 'finalization' => null];
-            }
-
+        if ($game) {
             $matchId = $game->pending_finalization_match_id;
 
-            if (! $matchId) {
-                return ['game' => $game, 'finalization' => null];
+            if ($matchId) {
+                $match = GameMatch::find($matchId);
+
+                if (! $match || ! $match->played) {
+                    $game->update(['pending_finalization_match_id' => null]);
+                } else {
+                    $claimed = Game::where('id', $game->id)
+                        ->where('pending_finalization_match_id', $matchId)
+                        ->update(['pending_finalization_match_id' => null]);
+
+                    if ($claimed) {
+                        $finalization = $this->finalizationService->finalize($match, $game->fresh());
+                    }
+                }
             }
-
-            $match = GameMatch::find($matchId);
-
-            if (! $match || ! $match->played) {
-                $game->update(['pending_finalization_match_id' => null]);
-
-                return ['game' => $game, 'finalization' => null];
-            }
-
-            return [
-                'game' => $game,
-                'finalization' => $this->finalizationService->finalize($match, $game),
-            ];
-        });
+        }
 
         if (! $game) {
             return redirect()->route('show-game', $gameId);
