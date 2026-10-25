@@ -6,8 +6,23 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+    /**
+     * SIN transacción: contra el pooler Neon (PgBouncer), una migración
+     * con varias sentencias DDL en una sola transacción aborta con
+     * 25P02 (visto en 0.5.20: el ALTER de la FK fallaba porque la
+     * transacción ya estaba abortada). Con withinTransaction = false
+     * cada sentencia corre en autocommit y el error real, si lo hay,
+     * se ve tal cual.
+     */
+    public $withinTransaction = false;
+
     public function up(): void
     {
+        // La ejecución fallida de 0.5.20 pudo dejar la tabla a medias
+        // (sin FK ni unique). Nunca ha tenido datos reales: se recrea
+        // limpia para un estado determinista.
+        Schema::dropIfExists('social_accounts');
+
         Schema::create('social_accounts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();

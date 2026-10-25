@@ -61,7 +61,7 @@ scaling:
 # migraciones nuevas en prod deben correrse con --path apuntando al
 # fichero concreto, nunca con migrate completo.
 jobs:
-  - name: migrate-social-once-0520
+  - name: migrate-social-once-0521
     trigger: post-deployment
     action:
       execute:
